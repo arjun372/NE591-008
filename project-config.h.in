@@ -1,0 +1,17 @@
+/*
+ * Build-in Options
+ *
+ * This file is parsed by CMake during makefile generation
+ * It contains information such as the base path to the test/example data
+ */
+
+#ifndef GENERATED_PROJECT_CONFIG_H_
+#define GENERATED_PROJECT_CONFIG_H_
+
+// The directory of the sources from which the project was built.
+#define PROJECT_SOURCE_DIR "@PROJECT_SOURCE_DIR@"
+
+// The directory in which the project was built.
+#define PROJECT_BUILD_DIR "@CMAKE_BINARY_DIR@"
+
+#endif // GENERATED_PROJECT_CONFIG_H_
