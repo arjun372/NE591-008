@@ -2,7 +2,12 @@
  * @file outlab1.cpp
  * @author Arjun Earthperson
  * @date 09/01/2023
- * @brief Entrypoint for outlab1
+ * @brief Entrypoint for outlab1, contains the main() and run() methods.
+ *
+ * The program performs non-vectorized, elementwise operations on 2D matrices. It uses the Boost library for parsing
+ * command line arguments and handling program options. The main function sets up the program information, builds the
+ * input options, parses the command line arguments, checks the input values, prints the input values, runs the main
+ * logic of the program, and then returns the exit status.
  */
 
 #include <boost/program_options.hpp>
@@ -11,6 +16,15 @@
 #include "Compute.h"
 #include "ProcessInputs.h"
 
+/**
+ * @brief This function runs the main logic of the program.
+ *
+ * @param values A map of variables parsed from the command line arguments.
+ *
+ * The function first extracts the input parameters from the values map. It then builds and prints three matrices A, B,
+ * and F using the input parameters. After that, it computes and prints three more matrices C, D, and E using the
+ * previously built matrices and the scalar value from the input parameters.
+ */
 static void run(boost::program_options::variables_map &values) {
 
     InputParams inputs = {
@@ -45,7 +59,7 @@ static void run(boost::program_options::variables_map &values) {
     CommandLine::printLine();
 
     // Now the computed values
-    std::cout<<std::setw(40)<<"Outputs\n";
+    std::cout<<std::setw(44)<<"Outputs\n";
     CommandLine::printLine();
 
     // build M x N matrix C
@@ -78,8 +92,9 @@ static void run(boost::program_options::variables_map &values) {
  *
  * @return The exit status of the program.
  *
- * It sets up the program information, builds the input options, parses the command line arguments, checks the input
- * values, prints the input values, runs the main logic of the program, and then returns the exit status.
+ * The main function first sets up the program information and builds the input options. It then creates a CommandLine
+ * object and uses it to parse the command line arguments into a map of variables. After that, it checks the input
+ * values and prints them. Finally, it runs the main logic of the program and returns the exit status.
  */
 int main(int argc, char **argv) {
 

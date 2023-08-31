@@ -13,18 +13,25 @@
 #include "utils/Helpers.h"
 #include "utils/CheckBounds.h"
 
+/**
+ * @brief A structure to hold the input parameters.
+ *
+ * @param k A long double representing the scalar multiplier for [A].
+ * @param M A size_t representing the row rank for [A] and [B].
+ * @param N A size_t representing the column rank for [B] and row rank for [F].
+ * @param J A size_t representing the column rank for [F].
+ */
 typedef struct InputParams {
     long double k;
     size_t M;
     size_t N;
     size_t J;
 } InputParams;
+
 /**
  * @brief This function builds the input options for the program.
  *
- * @return A description of the input options.
- *
- * It defines the options for angle, convergence threshold and iterations, and adds them to the options description.
+ * @return A boost::program_options::options_description object containing the description of the input options.
  */
 boost::program_options::options_description buildInputs() {
     boost::program_options::options_description arguments("Parameters");
@@ -37,12 +44,10 @@ boost::program_options::options_description buildInputs() {
 }
 
 /**
- * @brief Performs checks on the input parameters
+ * @brief This function performs checks on the input parameters and prompts the user to enter valid inputs if the
+ * current inputs are invalid.
  *
- * If the input value fails the check, the function will prompt the user to enter a new value.
- * The function will continue to prompt the user until a valid value is entered.
- *
- * @param values A map containing the input values to be checked.
+ * @param values A boost::program_options::variables_map object containing the input values to be checked.
  */
 static void performInputChecks(boost::program_options::variables_map &values) {
 
@@ -91,9 +96,8 @@ static void performInputChecks(boost::program_options::variables_map &values) {
 /**
  * @brief This function prints the input values.
  *
- * @param vm A map of variable names to their values.
+ * @param vm A boost::program_options::variables_map object containing the input values to be printed.
  *
- * It retrieves the precision, angle, convergence threshold and iterations from the variable map and prints them.
  */
 void printInputs(boost::program_options::variables_map &vm) {
 
@@ -105,7 +109,7 @@ void printInputs(boost::program_options::variables_map &vm) {
     const auto J = static_cast<size_t>(vm["j-rank"].as<long double>());
 
     // list the parameters
-    std::cout << std::setw(40) << "Inputs\n";
+    std::cout << std::setw(44) << "Inputs\n";
     CommandLine::printLine();
     std::cout << "\tscalar, k: " << std::setprecision(precision) << k << "\n";
     std::cout << "\tm-rank, M: " << M << "\n";

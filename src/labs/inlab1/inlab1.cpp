@@ -51,7 +51,7 @@ static void run(boost::program_options::variables_map &values) {
     CommandLine::printLine();
 
     const auto precision = values["precision"].as<int>();
-    std::cout<<std::setw(40)<<"Outputs\n";
+    std::cout<<std::setw(44)<<"Outputs\n";
     CommandLine::printLine();
     std::cout << "\tConverged at n="<<mySineVars.n<<" at convergence threshold: "<<mySineVars.current_threshold<<"\n\t...\n";
     std::cout << "\tmy_sin(x):"<<std::setw(37)<<std::setprecision(precision) << my_sin_val<< "\n";

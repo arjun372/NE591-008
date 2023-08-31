@@ -80,7 +80,7 @@ static void performInputChecks(boost::program_options::variables_map &values) {
  */
 void printInputs(boost::program_options::variables_map &vm) {
     const auto precision = vm["precision"].as<int>();
-    std::cout<<std::setw(40)<<"Inputs\n";
+    std::cout<<std::setw(44)<<"Inputs\n";
     CommandLine::printLine();
     std::cout << "\tangle, x: "<<std::setprecision(precision) << vm["angle"].as<long double>()<< "\n";
     std::cout << "\tconvergence-threshold, t: "<<std::setprecision(precision) << vm["convergence-threshold"].as<long double>()<< "\n";
