@@ -111,6 +111,7 @@ private:
                 ("help,h", "= Show this help message")
                 ("quiet,q", "= Reduce verbosity")
                 ("precision,p", boost::program_options::value<int>()->default_value(max_precision), "= Number of digits to represent long double")
+                ("profile,P", "= Turn on profiling for performance comparison")
                 ;
         return generics;
     }

@@ -5,139 +5,70 @@
  * @brief Entrypoint for outlab1
  */
 
-#include <iostream>
-#include <iomanip>
-
 #include <boost/program_options.hpp>
 
 #include "utils/CommandLine.h"
-#include "utils/Helpers.h"
-#include "utils/CheckBounds.h"
 #include "Compute.h"
-#include "utils/Stopwatch.h"
+#include "ProcessInputs.h"
 
-/**
- * @brief This function builds the input options for the program.
- *
- * @return A description of the input options.
- *
- * It defines the options for angle, convergence threshold and iterations, and adds them to the options description.
- */
-boost::program_options::options_description buildInputs() {
-    boost::program_options::options_description arguments("Parameters");
-    arguments.add_options()
-            ("scalar,k", boost::program_options::value<long double>(), "= Scalar multiplier, real number")
-            ("num-rows,M", boost::program_options::value<long double>(), "= Row length, natural number")
-            ("num-cols,N", boost::program_options::value<long double>(), "= Column length, natural number");
-    return arguments;
-}
-
-/**
- * @brief Performs checks on the input parameters
- *
- * If the input value fails the check, the function will prompt the user to enter a new value.
- * The function will continue to prompt the user until a valid value is entered.
- *
- * @param values A map containing the input values to be checked.
- */
-static void performInputChecks(boost::program_options::variables_map &values) {
-
-    std::string input;
-    while (values["scalar"].empty()) {
-        std::cout << "Enter a value for the scalar multiplier (any real number): ";
-        std::cin >> input;
-        try {
-            replace(values, "scalar", asNumber(input));
-        } catch (const std::exception &) {
-            continue;
-        }
-    }
-
-    while ((values["num-rows"].empty() || failsNaturalNumberCheck(values["num-rows"].as<long double>()))) {
-        std::cout << "Enter a value for the row count (any natural number): ";
-        std::cin >> input;
-        try {
-            replace(values, "num-rows", asNumber(input));
-        } catch (const std::exception &) {
-            continue;
-        }
-    }
-
-    while ((values["num-cols"].empty() || failsNaturalNumberCheck(values["num-cols"].as<long double>()))) {
-        std::cout << "Enter a value for the column count (any natural number): ";
-        std::cin >> input;
-        try {
-            replace(values, "num-cols", asNumber(input));
-        } catch (const std::exception &) {
-            continue;
-        }
-    }
-}
-
-
-/**
- * @brief This function runs the main logic of the program.
- *
- * @param values A map of variable names to their values.
- *
- * It retrieves the angle, convergence threshold and iterations from the variable map, and then computes the sine
- * of the angle using both the standard library function and a custom implementation. It also measures the time taken
- * for each computation and the truncation error between the two results.
- */
 static void run(boost::program_options::variables_map &values) {
 
-    const auto angle = values["angle"].as<long double>();
-    const auto convergence_threshold = values["convergence-threshold"].as<long double>();
-    const auto iterations = static_cast<size_t>(ceil(values["iterations"].as<long double>()));
-
-    std::cout << std::setw(40) << "Profile\n";
-    CommandLine::printLine();
-    Stopwatch<Microseconds> clock;
-    // my_sin(x)
-    clock.restart();
-    const long double my_sin_val = my_sin(angle, iterations, convergence_threshold);
-    clock.click();
-    std::cout << " my_sin(x) completed in: " << static_cast<long double>(clock.duration().count()) << "ns" << std::endl;
-
-    // sin(x)
-    clock.restart();
-    const long double math_sin_val = sin(angle);
-    clock.click();
-    std::cout << " sin(x) completed in: " << static_cast<long double>(clock.duration().count()) << "ns" << std::endl;
-
-    // truncation error
-    const long double truncation_error = abs(math_sin_val - my_sin_val);
+    InputParams inputs = {
+            .k = values["scalar"].as<long double>(),
+            .M = static_cast<size_t>(values["m-rank"].as<long double>()),
+            .N = static_cast<size_t>(values["n-rank"].as<long double>()),
+            .J = static_cast<size_t>(values["j-rank"].as<long double>()),
+    };
+    // build matrix
+    ArgsPrintMatrix matrix {
+            .start_row = 1, // spec says indexing starts from 1 not 0.
+            .start_col = 1, // spec says indexing starts from 1 not 0.
+            .num_rows = inputs.M,
+            .num_cols = inputs.N,
+            .scalar = inputs.k,
+            .inputParams = inputs,
+            .evaluate = elementFromA,
+    };
+    printMatrix(matrix, "Matrix A: ");
     CommandLine::printLine();
 
-    const auto precision = values["precision"].as<int>();
-    std::cout << std::setw(40) << "Outputs\n";
+    // build matrix B
+    matrix.evaluate = elementFromB;
+    printMatrix(matrix, "Matrix B: ");
     CommandLine::printLine();
-    std::cout << "\tConverged at n=" << mySineVars.n << " at convergence threshold: " << mySineVars.current_threshold
-              << "\n\t...\n";
-    std::cout << "\tmy_sin(x):" << std::setw(37) << std::setprecision(precision) << my_sin_val << "\n";
-    std::cout << "\tsin(x) from math.h:" << std::setw(28) << std::setprecision(precision) << math_sin_val << "\n";
-    std::cout << "\ttruncation error: " << std::setw(30) << std::setprecision(precision) << truncation_error << "\n";
+
+    // build N x J matrix F
+    matrix.num_rows = inputs.N;
+    matrix.num_cols = inputs.J;
+    matrix.evaluate = elementFromF;
+    printMatrix(matrix, "Matrix F: ");
     CommandLine::printLine();
+
+    // Now the computed values
+    std::cout<<std::setw(40)<<"Outputs\n";
+    CommandLine::printLine();
+
+    // build M x N matrix C
+    matrix.num_rows = inputs.M;
+    matrix.num_cols = inputs.N;
+    matrix.evaluate = elementFromC;
+    printMatrix(matrix, "Matrix C = A+B");
+    CommandLine::printLine();
+
+    // build matrix D
+    matrix.evaluate = elementFromD;
+    printMatrix(matrix, "Matrix D = kA");
+    CommandLine::printLine();
+
+    // build matrix E
+    matrix.num_rows = inputs.M;
+    matrix.num_cols = inputs.J;
+    matrix.evaluate = elementFromE;
+    printMatrix(matrix, "Matrix E = AF");
+    CommandLine::printLine();
+
 }
 
-/**
- * @brief This function prints the input values.
- *
- * @param vm A map of variable names to their values.
- *
- * It retrieves the precision, angle, convergence threshold and iterations from the variable map and prints them.
- */
-void printInputs(boost::program_options::variables_map &vm) {
-    const auto precision = vm["precision"].as<int>();
-    std::cout << std::setw(40) << "Inputs\n";
-    CommandLine::printLine();
-    std::cout << "\tangle, x: " << std::setprecision(precision) << vm["angle"].as<long double>() << "\n";
-    std::cout << "\tconvergence-threshold, t: " << std::setprecision(precision)
-              << vm["convergence-threshold"].as<long double>() << "\n";
-    std::cout << "\titerations, n: " << std::setprecision(default_precision) << vm["iterations"].as<long double>()
-              << "\n";
-    CommandLine::printLine();
-}
 
 /**
  * @brief The main function of the program.

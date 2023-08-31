@@ -1,8 +1,8 @@
 /**
  * @file Compute.h
  * @author Arjun Earthperson
- * @date 08/30/2023
- * @brief Compute methods for inlab1 in NE591-008.
+ * @date 09/01/2023
+ * @brief Compute methods for outlab1 in NE591-008.
  */
 
 #pragma once
@@ -11,131 +11,106 @@
 #include <cmath>
 
 #include "utils/CommandLine.h"
+#include "ProcessInputs.h"
 
-/**
- * @brief Struct to hold factorial data.
- */
-typedef struct {
-    size_t n;
-    long double value;
-} Factorial;
+typedef struct MatrixBuildArgs {
+    size_t idx_row;
+    size_t idx_col;
+    InputParams &inputParams;
+} MatrixBuildArgs;
 
-/**
- * @brief Struct to hold variables for Taylor Series.
- */
-typedef struct {
-    long double running_sum; ///< The running sum of the series.
-    Factorial computed_factorial; ///< The computed factorial.
-    long double previous_factorial; ///< The previous factorial.
-    long double current_threshold; ///< The current threshold.
-    long double target_threshold; ///< The target threshold.
-    long double x; ///< The x value.
-    size_t n; ///< The current iteration.
-    size_t N; ///< The maximum number of iterations.
-} TaylorSeriesVariables;
-
-static TaylorSeriesVariables mySineVars{};
-
-/**
- * @brief Function to print the variables.
- * @param variables The variables to print.
- */
-void printVars(const TaylorSeriesVariables &variables) {
-    std::cout<<"running sum: "<<std::setprecision(max_precision)<<variables.running_sum<<"\n";
-    std::cout<<"prev factorial: "<<std::setprecision(max_precision)<<variables.previous_factorial<<"\n";
-    std::cout<<"n: "<<std::setprecision(max_precision)<<variables.n<<"\n";
-    std::cout<<"current threshold: "<<std::setprecision(max_precision)<<variables.current_threshold<<"\n";
-    CommandLine::printLine();
+static inline long double elementFromA(const MatrixBuildArgs &args) {
+    return (args.idx_col == args.idx_row) ? 1.0f : 0.5f;
 }
 
-/**
- * @brief Function to compute factorial in a naive way.
- * @param N The number to compute factorial of.
- * @return The computed factorial.
- */
-long double naive_factorial(const size_t N) {
-    long double accumulator = 1.0f;
-    for(auto n = N; n >= 1; n--) {
-        accumulator *= static_cast<long double>(n);
+static inline long double elementFromB(const MatrixBuildArgs &args) {
+    return (args.idx_row > args.idx_col) ? 0.75 : 0.25;
+}
+
+static inline long double elementFromC(const MatrixBuildArgs &args) {
+    return elementFromA(args) + elementFromB(args);
+}
+
+static inline long double elementFromD(const MatrixBuildArgs &args) {
+    return args.inputParams.k * elementFromA(args);
+}
+
+static inline long double elementFromF(const MatrixBuildArgs &args) {
+    return 1.0f / (static_cast<long double>(args.idx_row + args.idx_col));
+}
+
+
+static inline long double elementFromE(const MatrixBuildArgs &args) {
+
+    long double accumulator = 0.0f;
+
+    // loop n -> N
+    for(size_t n = 1; n < args.inputParams.N; n++) {
+
+        // build args for evaluating element A(m,n)
+        const MatrixBuildArgs argA = {
+                .idx_row = args.idx_row,
+                .idx_col = n,
+                .inputParams = args.inputParams,
+        };
+
+        const long double a_mxn = elementFromA(argA);
+
+        // build args for evaluating element F(n,j)
+        const MatrixBuildArgs argF = {
+                .idx_row = n,
+                .idx_col = args.idx_col,
+                .inputParams = args.inputParams,
+        };
+
+        const long double f_nxj = elementFromF(argF);
+
+        const long double product = a_mxn * f_nxj;
+
+        accumulator += product;
     }
+
     return accumulator;
 }
 
-/**
- * @brief Function to compute sine using a recursive, iterative taylor series discretization approach
- * @param vars The variables for Taylor Series.
- * @return The computed sine value.
- */
-long double my_sisd_sin(TaylorSeriesVariables &vars) {
-    // terminate since we are over the iteration limit
-    if (vars.n > vars.N) {
-        return vars.running_sum;
+
+typedef struct  {
+    size_t start_row;
+    size_t start_col;
+    size_t num_rows;
+    size_t num_cols;
+    long double scalar;
+    InputParams &inputParams;
+    long double (*evaluate)(const MatrixBuildArgs &);
+} ArgsPrintMatrix;
+
+static void printMatrix(const ArgsPrintMatrix &args, const std::string &title) {
+    // print the title
+    std::cout<<std::endl<<title<<std::endl<<std::endl;
+
+    // loop over rows
+    for(auto idx_row = args.start_row; idx_row < args.num_rows; idx_row++) {
+
+        // loop over columns
+        for(auto idx_col = args.start_col; idx_col < args.num_cols; idx_col++) {
+
+            // construct a new variable in the hope that the compiler will unfold this loop and vectorize the
+            // evaluate op.
+            auto points = MatrixBuildArgs{
+                .idx_row = idx_row,
+                .idx_col = idx_col,
+                .inputParams = args.inputParams,
+            };
+
+            // get the element value
+            const auto value = args.evaluate(points);
+
+            //print two decimal points
+            std::printf("%.2Lf  ", value);
+        }
+        // newline at end of columns
+        std::cout<<std::endl;
     }
-    // terminate since we have converged
-    if (vars.current_threshold <= vars.target_threshold) {
-        return vars.running_sum;
-    }
-
-    // n<=N && (ce > e)
-    const long double direction = ((vars.n % 2) == 0) ? 1.0f : -1.0f; // positive if n is even, negative if n is odd.
-    const auto two_n_plus_1 = static_cast<long double>(2 * vars.n + 1); // (2n+1)
-    const long double x_power_two_n_plus_1 = pow(vars.x, two_n_plus_1); // x^(2n+1)
-    const long double current_factorial = naive_factorial(static_cast<size_t>(two_n_plus_1));// (2n+1) * prev_factorial
-    const long double current_threshold = x_power_two_n_plus_1 / current_factorial;
-    const long double accumulated = vars.running_sum + direction * current_threshold;
-
-    vars.current_threshold = current_threshold;
-    vars.running_sum = accumulated;
-    (vars.n)++;
-    return my_sisd_sin(vars);
-}
-
-/**
- * @brief Function to compute sine in a naive way.
- * @param x The angle in radians.
- * @param prev_threshold The previous threshold.
- * @param target_threshold The target threshold.
- * @param sum The running sum.
- * @param n The current iteration.
- * @param N The maximum number of iterations.
- * @return The computed sine value.
- */
-long double my_naive_sin(const long double x, long double prev_threshold, long double target_threshold, long double sum, size_t n, size_t N) {
-
-    // terminate since we are over the iteration limit
-    if (n > N) {
-        return sum;
-    }
-    // terminate since we have converged
-    if (prev_threshold <= target_threshold) {
-        return sum;
-    }
-
-    // n<=N && (ce > e)
-    const long double direction = ((n % 2) == 0) ? 1.0f : -1.0f; // positive if n is even, negative if n is odd.
-    const auto two_n_plus_1 = static_cast<long double>(2 * n + 1); // (2n+1)
-    const long double x_power_two_n_plus_1 = pow(x, two_n_plus_1); // x^(2n+1)
-    const long double current_factorial = naive_factorial(static_cast<size_t>(two_n_plus_1));// (2n+1) * prev_factorial
-    const long double current_threshold = x_power_two_n_plus_1 / current_factorial;
-    const long double accumulated = sum + direction * current_threshold;
-    return my_naive_sin(x, current_threshold, target_threshold, accumulated, ++n, N);
-}
-
-/**
- * @brief Function to compute sine.
- * @param angle The angle in radians.
- * @param iterations The maximum number of iterations.
- * @param convergence_threshold The convergence threshold.
- * @return The computed sine value.
- */
-long double my_sin(const long double angle, const size_t iterations, const long double convergence_threshold) {
-    mySineVars.running_sum = 0.0f;
-    mySineVars.previous_factorial = 1.0f;
-    mySineVars.current_threshold = INFINITY;
-    mySineVars.target_threshold = convergence_threshold;
-    mySineVars.x = angle;
-    mySineVars.n = 0;
-    mySineVars.N = iterations;
-    return my_sisd_sin(mySineVars);
-//    return my_naive_sin(mySineVars.x, mySineVars.current_threshold, mySineVars.target_threshold, mySineVars.running_sum, mySineVars.n, mySineVars.N);
+    // padding
+    std::cout<<std::endl;
 }
