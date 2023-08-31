@@ -180,7 +180,6 @@ typedef struct ArgsPrintMatrix {
  * - start_col: The index of the first column of the matrix to be printed.
  * - num_rows: The number of rows in the matrix.
  * - num_cols: The number of columns in the matrix.
- * - scalar: A scalar value to be used in the evaluation of the matrix elements.
  * - inputParams: A reference to an InputParams object, which contains parameters to be used in the evaluation of the
  *   matrix elements.
  * - evaluate: A pointer to a function that takes a MatrixBuildArgs object and returns a long double. This function is

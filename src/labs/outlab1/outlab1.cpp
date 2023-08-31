@@ -39,7 +39,6 @@ static void run(boost::program_options::variables_map &values) {
             .start_col = 1, // spec says indexing starts from 1 not 0.
             .num_rows = inputs.M,
             .num_cols = inputs.N,
-            .scalar = inputs.k,
             .inputParams = inputs,
             .evaluate = elementFromA,
     };
