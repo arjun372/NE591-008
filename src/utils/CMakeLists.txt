@@ -1,4 +1,4 @@
-set(UTILS_LIB_SOURCES Helpers.h CommandLine.h)
+set(UTILS_LIB_SOURCES Stopwatch.h Helpers.h CommandLine.h Profiler.h)
 
 # Create utils
 add_library(utils STATIC ${UTILS_LIB_SOURCES})

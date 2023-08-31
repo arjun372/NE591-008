@@ -7,6 +7,7 @@
 #include "utils/Helpers.h"
 #include "CheckBounds.h"
 #include "Compute.h"
+#include "utils/Stopwatch.h"
 
 void printInputs(boost::program_options::variables_map &vm) {
     const auto precision = vm["precision"].as<int>();
@@ -33,9 +34,24 @@ static void run(boost::program_options::variables_map &values) {
     const auto convergence_threshold = values["convergence-threshold"].as<double_t>();
     const auto iterations = static_cast<size_t>(ceil(values["iterations"].as<double_t>()));
 
+    std::cout << std::setw(40) << "Profile\n";
+    CommandLine::printLine();
+    Stopwatch<Microseconds> clock;
+    // my_sin(x)
+    clock.restart();
     const double_t my_sin_val = my_sin(angle, iterations, convergence_threshold);
+    clock.click();
+    std::cout << " my_sin(x) completed in: " << static_cast<double_t>(clock.duration().count()) << "ns" << std::endl;
+
+    // sin(x)
+    clock.restart();
     const double_t math_sin_val = sin(angle);
+    clock.click();
+    std::cout << " sin(x) completed in: " << static_cast<double_t>(clock.duration().count()) << "ns" << std::endl;
+
+    // truncation error
     const double_t truncation_error = abs(math_sin_val - my_sin_val);
+    CommandLine::printLine();
 
     const auto precision = values["precision"].as<int>();
     std::cout<<std::setw(40)<<"Outputs\n";
