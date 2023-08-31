@@ -1,6 +1,6 @@
 # NE591 Lab MonoRepo #
 
-This is a monorepo for the in- and out- lab deliverables for the `NE591-008` course. I have chosen to organize it 
+This is a monorepo for my in- and out- lab deliverables for the `NE591-008` course. I have chosen to organize it 
 this way to build on the cumulative code changes from each lab, and to reuse as many helper functions as possible. 
 A secondary objective is to benchmark my implementations against the `Boost` library functions. 
 
