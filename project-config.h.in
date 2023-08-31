@@ -14,4 +14,12 @@
 // The directory in which the project was built.
 #define PROJECT_BUILD_DIR "@CMAKE_BINARY_DIR@"
 
+#define CXX_FLAGS "@PROJECT_CXX_FLAGS@-g;-fPIE"
+
+#define CXX_COMPILER_ID "@CMAKE_CXX_COMPILER_ID@"
+#define CXX_COMPILER_VERSION "@CMAKE_CXX_COMPILER_VERSION@"
+
+#define Boost_VERSION "@Boost_VERSION@"
+#define Boost_LIBRARIES "@Boost_LIBRARIES@"
+
 #endif // GENERATED_PROJECT_CONFIG_H_

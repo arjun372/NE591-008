@@ -1,26 +1,128 @@
 #include <iostream>
+#include <iomanip>
 
 #include <boost/program_options.hpp>
 
 #include "utils/CommandLine.h"
+#include "utils/BoundsCheck.h"
+#include "Compute.h"
 
-int main(int argc, char** argv) {
+static bool failsCheck1(double_t value) {
+    const double_t max = 1.0f;
+    if (abs(value) >= max) {
+        std::cerr <<"Error: " << "abs(x) is greater than " << std::setprecision (19) << max << "\n";
+        return true;
+    }
+    return false;
+}
+
+static bool failsCheck2(double_t value) {
+    const double_t min = 0.0f;
+    if (value <= min) {
+        std::cerr <<"Error: " << "error threshold is not greater than " << std::setprecision (19) << min << "\n";
+        return true;
+    }
+    return false;
+}
+
+static bool failsCheck3(double_t value) {
+    const double_t min = 0;
+    auto error = false;
+    if (value <= min) {
+        std::cerr <<"Error: " << "number of iterations should be a positive number\n";
+        error = true;
+    }
+    if (ceil(value) != floor(value)) {
+        std::cerr <<"Error: " << "number of iterations should be a natural number\n";
+        error = true;
+    }
+
+    if (value == 0) {
+        std::cerr <<"Error: " << "number of iterations cannot be zero\n";
+        error = true;
+    }
+
+    return error;
+}
 
 
-    HeaderInfo programInfo;
-    programInfo.ProjectName = "InLab 01";
-    programInfo.StudentName = "Arjun Earthperson";
-    programInfo.SubmissionDate = "08/30/2023";
-    programInfo.ProjectDescription = "Taylor series approximation";
+static void performInputChecks(boost::program_options::variables_map &values) {
 
+    while(values["angle"].empty() || failsCheck1(values["angle"].as<double_t>())) {
+        std::cout<<"Enter a value for the angle x [radian]: ";
+        double_t input;
+        std::cin >> input;
+        replace(values, "angle", input);
+    }
+
+    while(values["convergence-threshold"].empty() || failsCheck2(values["convergence-threshold"].as<double_t>())) {
+        std::cout<<"Enter a value for the stopping criterion e [e > 0]: ";
+        double_t input;
+        std::cin >> input;
+        replace(values, "convergence-threshold", input);
+    }
+
+    while(values["iterations"].empty() || failsCheck3(values["iterations"].as<double_t>())) {
+        std::cout<<"Enter maximum number of iterations (natural number): ";
+        double_t input;
+        std::cin >> input;
+        replace(values, "iterations", input);
+    }
+}
+
+void printInputs(boost::program_options::variables_map &vm) {
+    const auto precision = vm["precision"].as<int>();
+    std::cout<<std::setw(40)<<"Inputs\n";
+    CommandLine::printLine();
+    std::cout << "\tangle, x: "<<std::setprecision(precision) << vm["angle"].as<double_t>()<< "\n";
+    std::cout << "\tconvergence-threshold, t: "<<std::setprecision(precision) << vm["convergence-threshold"].as<double_t>()<< "\n";
+    std::cout << "\titerations, n: "<<std::setprecision(default_precision) << vm["iterations"].as<double_t>()<< "\n";
+    CommandLine::printLine();
+}
+
+boost::program_options::options_description buildInputs() {
     boost::program_options::options_description arguments("Input variables");
     arguments.add_options()
-            ("angle,x", boost::program_options::value<double_t>(), "= Angle x such that [abs(x) < 1.0]")
-            ("error-threshold,t", boost::program_options::value<double_t>(), "= Iterative error threshold [e > 0]")
-            ("iterations,n", boost::program_options::value<size_t>(), "= Total number of iterations")
-            ;
-    boost::program_options::variables_map values = CommandLine(programInfo, arguments, argc, argv).getArguments();
+            ("angle,x", boost::program_options::value<double_t>(), "= Angle in radians [abs(x) < 1.0]")
+            ("convergence-threshold,t", boost::program_options::value<double_t>(), "= Iterative convergence threshold [e > 0]")
+            ("iterations,n", boost::program_options::value<double_t>(), "= Total number of iterations");
+    return arguments;
+}
 
-    std::cout << "Hello, World!" << std::endl;
+static void run(boost::program_options::variables_map &values) {
+
+    const auto angle = values["angle"].as<double_t>();
+    const auto convergence_threshold = values["convergence-threshold"].as<double_t>();
+    const auto iterations = static_cast<size_t>(ceil(values["iterations"].as<double_t>()));
+
+    const double_t my_sin_val = my_sin(angle, iterations, convergence_threshold);
+    const double_t math_sin_val = sin(angle);
+    const double_t truncation_error = math_sin_val - my_sin_val;
+
+    const auto precision = values["precision"].as<int>();
+    std::cout<<std::setw(40)<<"Outputs\n";
+    CommandLine::printLine();
+    std::cout << "\tConverged at n="<<mySineVars.n<<" at convergence threshold: "<<mySineVars.current_threshold<<"\n\t...\n";
+    std::cout << "\tmy_sin(x):"<<std::setw(37)<<std::setprecision(precision) << my_sin_val<< "\n";
+    std::cout << "\tsin(x) from math.h:"<<std::setw(28)<<std::setprecision(precision) << math_sin_val<< "\n";
+    std::cout << "\ttruncation error: "<<std::setw(30)<<std::setprecision(precision) << truncation_error << "\n";
+    CommandLine::printLine();
+}
+
+int main(int argc, char **argv) {
+
+
+    HeaderInfo programInfo {
+            .ProjectName = "InLab 01",
+            .ProjectDescription = "Iterative Taylor series approximation of sin(x)",
+            .SubmissionDate = "08/30/2023",
+            .StudentName = "Arjun Earthperson",
+    };
+
+    auto inputs = buildInputs();
+    auto values = CommandLine(programInfo, inputs, argc, argv).getArguments();
+    performInputChecks(values);
+    printInputs(values);
+    run(values);
     return 0;
 }
