@@ -1,7 +1,9 @@
-/*
- * Arjun Earthperson
- * Compute methods for inlab1 in NE591-008.
-*/
+/**
+ * @file Compute.h
+ * @author Arjun Earthperson
+ * @date 08/30/2023
+ * @brief Compute methods for inlab1 in NE591-008.
+ */
 
 #pragma once
 
@@ -10,24 +12,34 @@
 
 #include "utils/CommandLine.h"
 
+/**
+ * @brief Struct to hold factorial data.
+ */
 typedef struct {
     size_t n;
     double_t value;
 } Factorial;
 
+/**
+ * @brief Struct to hold variables for Taylor Series.
+ */
 typedef struct {
-    double_t running_sum;
-    Factorial computed_factorial;
-    double_t previous_factorial;
-    double_t current_threshold;
-    double_t target_threshold;
-    double_t x;
-    size_t n;
-    size_t N;
+    double_t running_sum; ///< The running sum of the series.
+    Factorial computed_factorial; ///< The computed factorial.
+    double_t previous_factorial; ///< The previous factorial.
+    double_t current_threshold; ///< The current threshold.
+    double_t target_threshold; ///< The target threshold.
+    double_t x; ///< The x value.
+    size_t n; ///< The current iteration.
+    size_t N; ///< The maximum number of iterations.
 } TaylorSeriesVariables;
 
 static TaylorSeriesVariables mySineVars{};
 
+/**
+ * @brief Function to print the variables.
+ * @param variables The variables to print.
+ */
 void printVars(const TaylorSeriesVariables &variables) {
     std::cout<<"running sum: "<<std::setprecision(max_precision)<<variables.running_sum<<"\n";
     std::cout<<"prev factorial: "<<std::setprecision(max_precision)<<variables.previous_factorial<<"\n";
@@ -36,6 +48,11 @@ void printVars(const TaylorSeriesVariables &variables) {
     CommandLine::printLine();
 }
 
+/**
+ * @brief Function to compute factorial in a naive way.
+ * @param N The number to compute factorial of.
+ * @return The computed factorial.
+ */
 double_t naive_factorial(const size_t N) {
     double_t accumulator = 1.0f;
     for(auto n = N; n >= 1; n--) {
@@ -44,6 +61,11 @@ double_t naive_factorial(const size_t N) {
     return accumulator;
 }
 
+/**
+ * @brief Function to compute sine using a recursive, iterative taylor series discretization approach
+ * @param vars The variables for Taylor Series.
+ * @return The computed sine value.
+ */
 double_t my_sisd_sin(TaylorSeriesVariables &vars) {
     // terminate since we are over the iteration limit
     if (vars.n > vars.N) {
@@ -68,6 +90,16 @@ double_t my_sisd_sin(TaylorSeriesVariables &vars) {
     return my_sisd_sin(vars);
 }
 
+/**
+ * @brief Function to compute sine in a naive way.
+ * @param x The angle in radians.
+ * @param prev_threshold The previous threshold.
+ * @param target_threshold The target threshold.
+ * @param sum The running sum.
+ * @param n The current iteration.
+ * @param N The maximum number of iterations.
+ * @return The computed sine value.
+ */
 double_t my_naive_sin(const double_t x, double_t prev_threshold, double_t target_threshold, double_t sum, size_t n, size_t N) {
 
     // terminate since we are over the iteration limit
@@ -89,6 +121,13 @@ double_t my_naive_sin(const double_t x, double_t prev_threshold, double_t target
     return my_naive_sin(x, current_threshold, target_threshold, accumulated, ++n, N);
 }
 
+/**
+ * @brief Function to compute sine.
+ * @param angle The angle in radians.
+ * @param iterations The maximum number of iterations.
+ * @param convergence_threshold The convergence threshold.
+ * @return The computed sine value.
+ */
 double_t my_sin(const double_t angle, const size_t iterations, const double_t convergence_threshold) {
     mySineVars.running_sum = 0.0f;
     mySineVars.previous_factorial = 1.0f;

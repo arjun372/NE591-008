@@ -1,3 +1,10 @@
+/**
+ * @file inlab1.cpp
+ * @author Arjun Earthperson
+ * @date 08/30/2023
+ * @brief Entrypoint for inlab1
+ */
+
 #include <iostream>
 #include <iomanip>
 
@@ -9,6 +16,13 @@
 #include "Compute.h"
 #include "utils/Stopwatch.h"
 
+/**
+ * @brief This function prints the input values.
+ *
+ * @param vm A map of variable names to their values.
+ *
+ * It retrieves the precision, angle, convergence threshold and iterations from the variable map and prints them.
+ */
 void printInputs(boost::program_options::variables_map &vm) {
     const auto precision = vm["precision"].as<int>();
     std::cout<<std::setw(40)<<"Inputs\n";
@@ -19,6 +33,13 @@ void printInputs(boost::program_options::variables_map &vm) {
     CommandLine::printLine();
 }
 
+/**
+ * @brief This function builds the input options for the program.
+ *
+ * @return A description of the input options.
+ *
+ * It defines the options for angle, convergence threshold and iterations, and adds them to the options description.
+ */
 boost::program_options::options_description buildInputs() {
     boost::program_options::options_description arguments("Input variables");
     arguments.add_options()
@@ -28,6 +49,15 @@ boost::program_options::options_description buildInputs() {
     return arguments;
 }
 
+/**
+ * @brief This function runs the main logic of the program.
+ *
+ * @param values A map of variable names to their values.
+ *
+ * It retrieves the angle, convergence threshold and iterations from the variable map, and then computes the sine
+ * of the angle using both the standard library function and a custom implementation. It also measures the time taken
+ * for each computation and the truncation error between the two results.
+ */
 static void run(boost::program_options::variables_map &values) {
 
     const auto angle = values["angle"].as<double_t>();
@@ -63,6 +93,17 @@ static void run(boost::program_options::variables_map &values) {
     CommandLine::printLine();
 }
 
+/**
+ * @brief The main function of the program.
+ *
+ * @param argc The number of command line arguments.
+ * @param argv The command line arguments.
+ *
+ * @return The exit status of the program.
+ *
+ * It sets up the program information, builds the input options, parses the command line arguments, checks the input
+ * values, prints the input values, runs the main logic of the program, and then returns the exit status.
+ */
 int main(int argc, char **argv) {
 
 
