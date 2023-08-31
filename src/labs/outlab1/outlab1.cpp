@@ -1,8 +1,8 @@
 /**
- * @file inlab1.cpp
+ * @file outlab1.cpp
  * @author Arjun Earthperson
- * @date 08/30/2023
- * @brief Entrypoint for inlab1
+ * @date 09/01/2023
+ * @brief Entrypoint for outlab1
  */
 
 #include <iostream>
@@ -33,7 +33,7 @@ boost::program_options::options_description buildInputs() {
 }
 
 /**
- * @brief Performs input checks on the input variables
+ * @brief Performs input checks on the values of angle, convergence-threshold, and iterations.
  *
  * If the input value fails the check, the function will prompt the user to enter a new value.
  * The function will continue to prompt the user until a valid value is entered.
@@ -42,7 +42,7 @@ boost::program_options::options_description buildInputs() {
  */
 static void performInputChecks(boost::program_options::variables_map &values) {
 
-    while(values["scalar"].empty() || failsCheck1(values["angle"].as<double_t>())) {
+    while(values["angle"].empty() || failsCheck1(values["angle"].as<double_t>())) {
         std::cout<<"Enter a value for the angle x [radian]: ";
         double_t input;
         std::cin >> input;
@@ -141,9 +141,9 @@ int main(int argc, char **argv) {
 
 
     HeaderInfo programInfo {
-            .ProjectName = "OutLab 01",
-            .ProjectDescription = "Non-vectorized, elementwise (mul, add) operations on 2D matrices",
-            .SubmissionDate = "09/01/2023",
+            .ProjectName = "InLab 01",
+            .ProjectDescription = "Iterative Taylor series approximation of sin(x)",
+            .SubmissionDate = "08/30/2023",
             .StudentName = "Arjun Earthperson",
     };
 
