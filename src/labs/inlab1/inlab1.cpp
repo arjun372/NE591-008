@@ -24,7 +24,7 @@
  * It defines the options for angle, convergence threshold and iterations, and adds them to the options description.
  */
 boost::program_options::options_description buildInputs() {
-    boost::program_options::options_description arguments("Input variables");
+    boost::program_options::options_description arguments("Parameters");
     arguments.add_options()
             ("angle,x", boost::program_options::value<double_t>(), "= Angle in radians [abs(x) < 1.0]")
             ("convergence-threshold,t", boost::program_options::value<double_t>(), "= Iterative convergence threshold [e > 0]")
@@ -56,7 +56,7 @@ static void performInputChecks(boost::program_options::variables_map &values) {
         replace(values, "convergence-threshold", input);
     }
 
-    while(values["iterations"].empty() || failsCheck3(values["iterations"].as<double_t>())) {
+    while(values["iterations"].empty() || failsNaturalNumberCheck(values["iterations"].as<double_t>())) {
         std::cout<<"Enter maximum number of iterations (natural number): ";
         double_t input;
         std::cin >> input;
@@ -141,9 +141,9 @@ int main(int argc, char **argv) {
 
 
     HeaderInfo programInfo {
-            .ProjectName = "OutLab 01",
-            .ProjectDescription = "Non-vectorized, elementwise (mul, add) operations on 2D matrices",
-            .SubmissionDate = "09/01/2023",
+            .ProjectName = "InLab 01",
+            .ProjectDescription = "Iterative Taylor series approximation of sin(x)",
+            .SubmissionDate = "08/30/2023",
             .StudentName = "Arjun Earthperson",
     };
 

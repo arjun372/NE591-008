@@ -30,6 +30,7 @@ constexpr auto max_precision {std::numeric_limits<long double>::digits10 + 1};
 template<class T>
 void replace(std::map<std::string, boost::program_options::variable_value>& vm, const std::string& opt, const T& val)
 {
+    double_t a;
     vm[opt].value() = boost::any(val);
 }
 

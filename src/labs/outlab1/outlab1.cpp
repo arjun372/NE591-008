@@ -24,16 +24,16 @@
  * It defines the options for angle, convergence threshold and iterations, and adds them to the options description.
  */
 boost::program_options::options_description buildInputs() {
-    boost::program_options::options_description arguments("Input variables");
+    boost::program_options::options_description arguments("Parameters");
     arguments.add_options()
-            ("angle,x", boost::program_options::value<double_t>(), "= Angle in radians [abs(x) < 1.0]")
-            ("convergence-threshold,t", boost::program_options::value<double_t>(), "= Iterative convergence threshold [e > 0]")
-            ("iterations,n", boost::program_options::value<double_t>(), "= Total number of iterations");
+            ("scalar,k", boost::program_options::value<double_t>(), "= Scalar multiplier, real number")
+            ("num-rows,M", boost::program_options::value<double_t>(), "= Row length, natural number")
+            ("num-cols,N", boost::program_options::value<double_t>(), "= Column length, natural number");
     return arguments;
 }
 
 /**
- * @brief Performs input checks on the values of angle, convergence-threshold, and iterations.
+ * @brief Performs checks on the input parameters
  *
  * If the input value fails the check, the function will prompt the user to enter a new value.
  * The function will continue to prompt the user until a valid value is entered.
@@ -42,25 +42,32 @@ boost::program_options::options_description buildInputs() {
  */
 static void performInputChecks(boost::program_options::variables_map &values) {
 
-    while(values["angle"].empty() || failsCheck1(values["angle"].as<double_t>())) {
-        std::cout<<"Enter a value for the angle x [radian]: ";
-        double_t input;
+    const auto max_errors = 10;
+    auto errors = 0;
+    while((errors++ < max_errors) && values["scalar"].empty()) {
+        std::cout<<"Enter a value for the scalar multiplier (any real number): ";
+        std::string input;
         std::cin >> input;
-        replace(values, "angle", input);
+        replace(values, "scalar", std::stod(input));
     }
 
-    while(values["convergence-threshold"].empty() || failsCheck2(values["convergence-threshold"].as<double_t>())) {
-        std::cout<<"Enter a value for the stopping criterion e [e > 0]: ";
+    while((errors++ < max_errors) && (values["num-rows"].empty() || failsNaturalNumberCheck(values["num-rows"].as<double_t>()))) {
+        std::cout<<"Enter a value for the row count (any natural number): ";
         double_t input;
         std::cin >> input;
-        replace(values, "convergence-threshold", input);
+        replace(values, "num-rows", input);
     }
 
-    while(values["iterations"].empty() || failsCheck3(values["iterations"].as<double_t>())) {
-        std::cout<<"Enter maximum number of iterations (natural number): ";
+    while((errors++ < max_errors) && (values["num-rows"].empty() || failsNaturalNumberCheck(values["num-rows"].as<double_t>()))) {
+        std::cout<<"Enter a value for the column count (any natural number): ";
         double_t input;
         std::cin >> input;
-        replace(values, "iterations", input);
+        replace(values, "num-cols", input);
+    }
+
+    if (errors == max_errors) {
+        std::cerr<<"Too many input errors, exiting with status code 1.\n";
+        exit(1);
     }
 }
 
@@ -141,9 +148,9 @@ int main(int argc, char **argv) {
 
 
     HeaderInfo programInfo {
-            .ProjectName = "InLab 01",
-            .ProjectDescription = "Iterative Taylor series approximation of sin(x)",
-            .SubmissionDate = "08/30/2023",
+            .ProjectName = "OutLab 01",
+            .ProjectDescription = "Non-vectorized, elementwise (mul, add) operations on 2D matrices",
+            .SubmissionDate = "09/01/2023",
             .StudentName = "Arjun Earthperson",
     };
 

@@ -51,20 +51,20 @@ static bool failsCheck2(double_t value) {
  * @return true If the input value is not a positive natural number.
  * @return false If the input value is a positive natural number.
  */
-static bool failsCheck3(double_t value) {
+static bool failsNaturalNumberCheck(double_t value) {
     const double_t min = 0;
     auto error = false;
     if (value <= min) {
-        std::cerr <<"Error: " << "number of iterations should be a positive number\n";
+        std::cerr <<"Error: " << "Input should be a positive number\n";
         error = true;
     }
     if (ceil(value) != floor(value)) {
-        std::cerr <<"Error: " << "number of iterations should be a natural number\n";
+        std::cerr <<"Error: " << "Input should be a natural number\n";
         error = true;
     }
 
     if (value == 0) {
-        std::cerr <<"Error: " << "number of iterations cannot be zero\n";
+        std::cerr <<"Error: " << "Input cannot be zero\n";
         error = true;
     }
 
