@@ -29,7 +29,7 @@ target executable:
 
 ```bash
 $ # Assuming cwd is the repo root:
-$ mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && make -j && cd bin
+$ mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && make -j$(nproc) && cd bin
 $ ./inlab1
 ```
 ### Optional CMake Arguments ###
