@@ -3,8 +3,7 @@
  * Variable bounds checking helper functions for lab projects in NE591-008.
 */
 
-#ifndef NE591_008_BOUNDSCHECK_H
-#define NE591_008_BOUNDSCHECK_H
+#pragma once
 
 #include <iostream>
 #include <iomanip>
@@ -25,9 +24,3 @@ template <typename Generic> struct Bounds {
     Generic min;
     Generic max;
 };
-
-//template <typename Generic> bool failsBoundsCheck(Generic &value, Bounds<Generic> bounds) {
-//
-//}
-
-#endif //NE591_008_BOUNDSCHECK_H

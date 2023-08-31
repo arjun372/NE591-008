@@ -1,10 +1,9 @@
 /*
  * Arjun Earthperson
- * Compute methods for InLab01 in NE591-008.
+ * Compute methods for inlab1 in NE591-008.
 */
 
-#ifndef NE591_008_COMPUTE_H
-#define NE591_008_COMPUTE_H
+#pragma once
 
 #include <math.h>
 
@@ -82,9 +81,6 @@ double_t my_naive_sin(const double_t x, double_t prev_threshold, double_t target
     const double_t current_factorial = naive_factorial(static_cast<size_t>(two_n_plus_1));// (2n+1) * prev_factorial
     const double_t current_threshold = x_power_two_n_plus_1 / current_factorial;
     const double_t accumulated = sum + direction * current_threshold;
-//    double_t current_threshold = x_power_two_n_plus_1 / current_factorial;
-//    current_threshold = ((n % 2) == 0) ? current_threshold : -current_threshold; // positive if n is even, negative if n is odd.
-//    const double_t accumulated = sum + current_threshold;
     return my_naive_sin(x, current_threshold, target_threshold, accumulated, ++n, N);
 }
 
@@ -98,6 +94,3 @@ double_t my_sin(const double_t angle, const size_t iterations, const double_t co
     mySineVars.N = iterations;
     return my_naive_sin(mySineVars.x, mySineVars.current_threshold, mySineVars.target_threshold, mySineVars.running_sum, mySineVars.n, mySineVars.N);
 }
-
-
-#endif //NE591_008_COMPUTE_H

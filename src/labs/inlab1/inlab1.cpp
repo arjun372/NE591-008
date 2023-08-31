@@ -4,71 +4,9 @@
 #include <boost/program_options.hpp>
 
 #include "utils/CommandLine.h"
-#include "utils/BoundsCheck.h"
+#include "utils/Helpers.h"
+#include "CheckBounds.h"
 #include "Compute.h"
-
-static bool failsCheck1(double_t value) {
-    const double_t max = 1.0f;
-    if (abs(value) >= max) {
-        std::cerr <<"Error: " << "abs(x) is greater than " << std::setprecision (19) << max << "\n";
-        return true;
-    }
-    return false;
-}
-
-static bool failsCheck2(double_t value) {
-    const double_t min = 0.0f;
-    if (value <= min) {
-        std::cerr <<"Error: " << "error threshold is not greater than " << std::setprecision (19) << min << "\n";
-        return true;
-    }
-    return false;
-}
-
-static bool failsCheck3(double_t value) {
-    const double_t min = 0;
-    auto error = false;
-    if (value <= min) {
-        std::cerr <<"Error: " << "number of iterations should be a positive number\n";
-        error = true;
-    }
-    if (ceil(value) != floor(value)) {
-        std::cerr <<"Error: " << "number of iterations should be a natural number\n";
-        error = true;
-    }
-
-    if (value == 0) {
-        std::cerr <<"Error: " << "number of iterations cannot be zero\n";
-        error = true;
-    }
-
-    return error;
-}
-
-
-static void performInputChecks(boost::program_options::variables_map &values) {
-
-    while(values["angle"].empty() || failsCheck1(values["angle"].as<double_t>())) {
-        std::cout<<"Enter a value for the angle x [radian]: ";
-        double_t input;
-        std::cin >> input;
-        replace(values, "angle", input);
-    }
-
-    while(values["convergence-threshold"].empty() || failsCheck2(values["convergence-threshold"].as<double_t>())) {
-        std::cout<<"Enter a value for the stopping criterion e [e > 0]: ";
-        double_t input;
-        std::cin >> input;
-        replace(values, "convergence-threshold", input);
-    }
-
-    while(values["iterations"].empty() || failsCheck3(values["iterations"].as<double_t>())) {
-        std::cout<<"Enter maximum number of iterations (natural number): ";
-        double_t input;
-        std::cin >> input;
-        replace(values, "iterations", input);
-    }
-}
 
 void printInputs(boost::program_options::variables_map &vm) {
     const auto precision = vm["precision"].as<int>();
@@ -97,7 +35,7 @@ static void run(boost::program_options::variables_map &values) {
 
     const double_t my_sin_val = my_sin(angle, iterations, convergence_threshold);
     const double_t math_sin_val = sin(angle);
-    const double_t truncation_error = math_sin_val - my_sin_val;
+    const double_t truncation_error = abs(math_sin_val - my_sin_val);
 
     const auto precision = values["precision"].as<int>();
     std::cout<<std::setw(40)<<"Outputs\n";

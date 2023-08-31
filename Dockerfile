@@ -54,18 +54,4 @@ RUN cmake .. \
     -D BUILD_TESTS=$CMAKE_BUILD_TESTS \
     -D BUILD_PERFORMANCE_BENCHMARKS=$CMAKE_BUILD_PERFORMANCE_BENCHMARKS \
     -D OPTIMIZE_FOR_NATIVE=$CMAKE_OPTIMIZE_FOR_NATIVE \
-    && make -j$(nproc) install
-
-#FROM ubuntu:22.04 as binary
-## set the library paths
-#ENV LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
-## libscram.so
-#COPY --from=builder /app/build/lib/ /usr/lib
-## libboost
-#COPY --from=builder /usr/lib/x86_64-linux-gnu /usr/lib
-## scram binary
-#COPY --from=builder /app/build/bin/ /usr/bin
-## input.rng project.rng report.rng gui.rng
-#COPY --from=builder /app/share /usr/share/scram
-#WORKDIR /usr/lib/scram
-#CMD ["scram"]
+    && make -j$(nproc)

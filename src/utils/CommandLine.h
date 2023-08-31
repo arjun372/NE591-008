@@ -3,13 +3,12 @@
  * Commandline parsing helper functions for lab projects in NE591-008.
 */
 
-#ifndef NE591_008_COMMANDLINE_H
-#define NE591_008_COMMANDLINE_H
+#pragma once
 
 #include <string>
 #include <boost/program_options.hpp>
 
-#include "BoundsCheck.h"
+#include "Helpers.h"
 #include "project-config.h"
 
 typedef struct  {
@@ -101,7 +100,7 @@ private:
         printPrecisionInformation();
     }
 
-    void printCompileConfigs() {
+    static void printCompileConfigs() {
         std::cout<<"Build Configuration\n";
         std::cout<<"compiler: "<<CXX_COMPILER_ID<<" "<<CXX_COMPILER_VERSION<<"\n";
         std::cout<<"flags: "<<CXX_FLAGS<<"\n";
@@ -109,5 +108,3 @@ private:
         printLine();
     }
 };
-
-#endif //NE591_008_COMMANDLINE_H
