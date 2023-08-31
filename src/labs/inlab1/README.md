@@ -14,7 +14,7 @@ The program also has the following general options:
 
 - `-h [ --help ]`: Show the help message.
 - `-q [ --quiet ]`: Reduce verbosity.
-- `-p [ --precision ] arg (=19)`: The number of digits to represent double_t. The default value is 19.
+- `-p [ --precision ] arg (=19)`: The number of digits to represent long double. The default value is 19.
 
 ## Example
 

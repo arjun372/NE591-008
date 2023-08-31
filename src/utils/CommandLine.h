@@ -40,7 +40,7 @@ typedef struct  {
  * The printLine method prints a line to the console.
  * The buildGenerics method builds a set of generic command line options.
  * The printHeader method prints the project header to the console.
- * The printPrecisionInformation method prints information about the precision of double_t values.
+ * The printPrecisionInformation method prints information about the precision of long double values.
  * The initialize method initializes the class by printing the compile configurations and precision information, and parsing the command line arguments.
  * The printCompileConfigs method prints the compile configurations to the console.
  */
@@ -110,7 +110,7 @@ private:
         generics.add_options()
                 ("help,h", "= Show this help message")
                 ("quiet,q", "= Reduce verbosity")
-                ("precision,p", boost::program_options::value<int>()->default_value(max_precision), "= Number of digits to represent double_t")
+                ("precision,p", boost::program_options::value<int>()->default_value(max_precision), "= Number of digits to represent long double")
                 ;
         return generics;
     }
@@ -139,9 +139,9 @@ private:
 
     /**
      * @fn void CommandLine::printPrecisionInformation()
-     * @brief Prints information about the precision of double_t values.
+     * @brief Prints information about the precision of long double values.
      *
-     * This method prints the default, maximum, and current precision of double_t values to the console.
+     * This method prints the default, maximum, and current precision of long double values to the console.
      */
     void printPrecisionInformation() {
         std::cout << "Precision in digits:  ";

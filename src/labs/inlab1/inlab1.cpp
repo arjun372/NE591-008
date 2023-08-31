@@ -26,9 +26,9 @@
 boost::program_options::options_description buildInputs() {
     boost::program_options::options_description arguments("Parameters");
     arguments.add_options()
-            ("angle,x", boost::program_options::value<double_t>(), "= Angle in radians [abs(x) < 1.0]")
-            ("convergence-threshold,t", boost::program_options::value<double_t>(), "= Iterative convergence threshold [e > 0]")
-            ("iterations,n", boost::program_options::value<double_t>(), "= Total number of iterations");
+            ("angle,x", boost::program_options::value<long double>(), "= Angle in radians [abs(x) < 1.0]")
+            ("convergence-threshold,t", boost::program_options::value<long double>(), "= Iterative convergence threshold [e > 0]")
+            ("iterations,n", boost::program_options::value<long double>(), "= Total number of iterations");
     return arguments;
 }
 
@@ -42,25 +42,35 @@ boost::program_options::options_description buildInputs() {
  */
 static void performInputChecks(boost::program_options::variables_map &values) {
 
-    while(values["scalar"].empty() || failsCheck1(values["angle"].as<double_t>())) {
+    std::string input;
+    while(values["angle"].empty() || failsCheck1(values["angle"].as<long double>())) {
         std::cout<<"Enter a value for the angle x [radian]: ";
-        double_t input;
         std::cin >> input;
-        replace(values, "angle", input);
+        try {
+            replace(values, "angle", asNumber(input));
+        } catch (const std::exception &) {
+            continue;
+        }
     }
 
-    while(values["convergence-threshold"].empty() || failsCheck2(values["convergence-threshold"].as<double_t>())) {
+    while(values["convergence-threshold"].empty() || failsCheck2(values["convergence-threshold"].as<long double>())) {
         std::cout<<"Enter a value for the stopping criterion e [e > 0]: ";
-        double_t input;
         std::cin >> input;
-        replace(values, "convergence-threshold", input);
+        try {
+            replace(values, "convergence-threshold", asNumber(input));
+        } catch (const std::exception &) {
+            continue;
+        }
     }
 
-    while(values["iterations"].empty() || failsNaturalNumberCheck(values["iterations"].as<double_t>())) {
+    while(values["iterations"].empty() || failsNaturalNumberCheck(values["iterations"].as<long double>())) {
         std::cout<<"Enter maximum number of iterations (natural number): ";
-        double_t input;
         std::cin >> input;
-        replace(values, "iterations", input);
+        try {
+            replace(values, "iterations", asNumber(input));
+        } catch (const std::exception &) {
+            continue;
+        }
     }
 }
 
@@ -76,27 +86,27 @@ static void performInputChecks(boost::program_options::variables_map &values) {
  */
 static void run(boost::program_options::variables_map &values) {
 
-    const auto angle = values["angle"].as<double_t>();
-    const auto convergence_threshold = values["convergence-threshold"].as<double_t>();
-    const auto iterations = static_cast<size_t>(ceil(values["iterations"].as<double_t>()));
+    const auto angle = values["angle"].as<long double>();
+    const auto convergence_threshold = values["convergence-threshold"].as<long double>();
+    const auto iterations = static_cast<size_t>(ceil(values["iterations"].as<long double>()));
 
     std::cout << std::setw(40) << "Profile\n";
     CommandLine::printLine();
     Stopwatch<Microseconds> clock;
     // my_sin(x)
     clock.restart();
-    const double_t my_sin_val = my_sin(angle, iterations, convergence_threshold);
+    const long double my_sin_val = my_sin(angle, iterations, convergence_threshold);
     clock.click();
-    std::cout << " my_sin(x) completed in: " << static_cast<double_t>(clock.duration().count()) << "ns" << std::endl;
+    std::cout << " my_sin(x) completed in: " << static_cast<long double>(clock.duration().count()) << "ns" << std::endl;
 
     // sin(x)
     clock.restart();
-    const double_t math_sin_val = sin(angle);
+    const long double math_sin_val = sin(angle);
     clock.click();
-    std::cout << " sin(x) completed in: " << static_cast<double_t>(clock.duration().count()) << "ns" << std::endl;
+    std::cout << " sin(x) completed in: " << static_cast<long double>(clock.duration().count()) << "ns" << std::endl;
 
     // truncation error
-    const double_t truncation_error = abs(math_sin_val - my_sin_val);
+    const long double truncation_error = abs(math_sin_val - my_sin_val);
     CommandLine::printLine();
 
     const auto precision = values["precision"].as<int>();
@@ -120,9 +130,9 @@ void printInputs(boost::program_options::variables_map &vm) {
     const auto precision = vm["precision"].as<int>();
     std::cout<<std::setw(40)<<"Inputs\n";
     CommandLine::printLine();
-    std::cout << "\tangle, x: "<<std::setprecision(precision) << vm["angle"].as<double_t>()<< "\n";
-    std::cout << "\tconvergence-threshold, t: "<<std::setprecision(precision) << vm["convergence-threshold"].as<double_t>()<< "\n";
-    std::cout << "\titerations, n: "<<std::setprecision(default_precision) << vm["iterations"].as<double_t>()<< "\n";
+    std::cout << "\tangle, x: "<<std::setprecision(precision) << vm["angle"].as<long double>()<< "\n";
+    std::cout << "\tconvergence-threshold, t: "<<std::setprecision(precision) << vm["convergence-threshold"].as<long double>()<< "\n";
+    std::cout << "\titerations, n: "<<std::setprecision(default_precision) << vm["iterations"].as<long double>()<< "\n";
     CommandLine::printLine();
 }
 
