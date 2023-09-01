@@ -13,6 +13,8 @@
 #include <string>
 #include <boost/program_options.hpp>
 
+#include <sys/ioctl.h>
+
 #include "Helpers.h"
 #include "project-config.h"
 
@@ -92,7 +94,10 @@ public:
      * This method prints a line of dashes to the console.
      */
     static void printLine() {
-        std::cout << R"(--------------------------------------------------------------------------------)"<<"\n";
+        const auto length = getWindowSize()->ws_col;
+        const auto paddingLeft = getWindowSize()->ws_xpixel;
+        std::cout<<length<<","<<paddingLeft<<std::endl;
+        std::cout <<std::string(paddingLeft, ' ')<<std::string(length, '-')<<std::endl;
     }
 
 private:
@@ -136,6 +141,7 @@ private:
         std::cout << "\t" << headerInfo.StudentName << "\n";
         std::cout << "\t" << headerInfo.SubmissionDate << "\n";
         printLine();
+
     }
 
     /**
@@ -187,5 +193,23 @@ private:
         std::cout<<"flags: "<<CXX_FLAGS<<"\n";
         std::cout<<"Boost: "<<Boost_VERSION<<Boost_LIBRARIES<<"\n";
         printLine();
+    }
+
+    static std::shared_ptr<winsize> getWindowSize(const unsigned short int defaultWidth = 80, const long double paddingPercentage = 0.1f) {
+        auto windowSize = std::make_shared<winsize>();
+        try {
+            ioctl(STDOUT_FILENO, TIOCGWINSZ, windowSize.get());
+            if(windowSize->ws_col > defaultWidth) {
+                const auto initialWidth = windowSize->ws_col;
+                const auto newWidth = static_cast<unsigned short int>((1.0f - paddingPercentage) * initialWidth);
+                const auto newLeftPadding  = (initialWidth - newWidth) / 2;
+                windowSize->ws_col = newWidth;
+                windowSize->ws_xpixel = newLeftPadding;
+            }
+        } catch (std::exception &) {
+            windowSize->ws_col = defaultWidth;
+            windowSize->ws_xpixel = 0;
+        }
+        return windowSize;
     }
 };
