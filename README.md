@@ -62,9 +62,9 @@ Available options are:
 
 | CMake Option                 | Description                                                    | Default |
 |------------------------------|----------------------------------------------------------------|---------|
-| BUILD_TESTS                  | Build a separate test target (for e.g. `inlab1_tests`)         | ON      |
+| BUILD_TESTS                  | Build a separate test target (for e.g. `inlab1_tests`)         | OFF     |
 | OPTIMIZE_FOR_NATIVE          | Build with flag `-march=native`, trading portability for speed | ON      |
-| BUILD_PERFORMANCE_BENCHMARKS | Build a separate benchmarks target (for e.g. `inlab1_bench`)   | ON      |
+| BUILD_PERFORMANCE_BENCHMARKS | Build a separate benchmarks target (for e.g. `inlab1_bench`)   | OFF     |
 
 ### Troubleshooting Builds ###
 The optionally provided [Dockerfile](Dockerfile) provides a sanitized environment with the minimum dependencies
