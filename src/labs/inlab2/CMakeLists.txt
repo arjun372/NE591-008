@@ -1,4 +1,3 @@
-
 add_library(inlab2_extern extern/function.h extern/function.cpp)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -15,3 +14,5 @@ endif()
 if(BUILD_TESTS)
     add_subdirectory(tests)
 endif()
+
+add_subdirectory(inputs)

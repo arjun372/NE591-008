@@ -14,12 +14,13 @@
 
 static void run(boost::program_options::variables_map &values) {
 
-    InputParams inputs = {
-            .k = values["scalar"].as<long double>(),
-            .M = static_cast<size_t>(values["m-rank"].as<long double>()),
-            .N = static_cast<size_t>(values["n-rank"].as<long double>()),
-            .J = static_cast<size_t>(values["j-rank"].as<long double>()),
-    };
+    std::cout<<"run!\n"<<values.size();
+//    InputParams inputs = {
+//            .k = values["scalar"].as<long double>(),
+//            .M = static_cast<size_t>(values["m-rank"].as<long double>()),
+//            .N = static_cast<size_t>(values["n-rank"].as<long double>()),
+//            .J = static_cast<size_t>(values["j-rank"].as<long double>()),
+//    };
 
 }
 
@@ -40,7 +41,7 @@ int main(int argc, char **argv) {
 
 
     HeaderInfo programInfo{
-            .ProjectName = "Inlab 02",
+            .ProjectName = "InLab 02",
             .ProjectDescription = "Lagrange Interpolation Polynomials",
             .SubmissionDate = "09/01/2023",
             .StudentName = "Arjun Earthperson",

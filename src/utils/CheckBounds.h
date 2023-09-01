@@ -93,5 +93,7 @@ static long double asNumber(const std::string &input) {
     } catch (const std::out_of_range &) {
         std::cerr << "Argument is out of range for a double\n";
         throw;
+    } catch (...) {
+        throw;
     }
 }
