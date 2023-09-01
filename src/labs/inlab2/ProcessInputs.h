@@ -19,7 +19,8 @@ typedef struct InputParams {
     size_t n;
     size_t m;
     size_t x;
-    std::vector<long double> fx;
+    std::vector<long double> &xData;
+    std::vector<long double> &fxData;
 } InputParams;
 
 /**
@@ -58,17 +59,27 @@ static void performInputChecks(boost::program_options::variables_map &values) {
     std::string input;
 
     // if input-csv then read from a file.
-    //TODO:: read f(x) from file.
     if(values.count("input-csv") && !values["input-csv"].empty()) {
         const std::string filename = values["input-csv"].as<std::string>();
         std::cout<<"Reading from file: "<<filename<<std::endl;
         try {
-            std::vector<std::pair<long double, long double>> data;
-            readCSV(filename, data);
-            std::cout<<"..succeeded";
-        } catch (std::exception &) {
+            // create a data map
+            std::map<std::string, std::vector<long double>> dataMap;
+            // fill data, mapping csv headers (keys) to csv columns (value vectors)
+            readCSV(filename, dataMap);
+
+            // read column x if provided and update the number of points
+            if(dataMap.contains("x")) {
+                replace(values, "x-points", dataMap["x"]);
+                replace(values, "num-points", static_cast<long double>(dataMap["x"].size()));
+            }
+            // read column fx if provided
+            if(dataMap.contains("f(x)")) {
+                replace(values, "fx-points", dataMap["f(x)"]);
+            }
+        } catch (...) {
             std::cerr<<"..failed. Aborting."<<std::endl;
-           // exit(1);
+            exit(1);
         }
     }
 
@@ -126,8 +137,6 @@ static void performInputChecks(boost::program_options::variables_map &values) {
             continue;
         }
     }
-
-    std::cout<<"got em all";
 }
 
 /**
@@ -140,17 +149,24 @@ void printInputs(boost::program_options::variables_map &vm) {
 
     // retrieve the inputs
     const auto precision = vm["precision"].as<int>();
-    const auto k = vm["scalar"].as<long double>();
-    const auto M = static_cast<size_t>(vm["m-rank"].as<long double>());
-    const auto N = static_cast<size_t>(vm["n-rank"].as<long double>());
-    const auto J = static_cast<size_t>(vm["j-rank"].as<long double>());
+    const auto n  = static_cast<size_t>(vm["num-points"].as<long double>());
+    const auto m  = static_cast<size_t>(vm["num-lip-points"].as<long double>());
+    const auto x  = vm["x-points"].as<std::vector<long double>>();
+    const auto fx = vm["fx-points"].as<std::vector<long double>>();
 
     // list the parameters
+    CommandLine::printLine();
     std::cout << std::setw(44) << "Inputs\n";
     CommandLine::printLine();
-    std::cout << "\tscalar, k: " << std::setprecision(precision) << k << "\n";
-    std::cout << "\tm-rank, M: " << M << "\n";
-    std::cout << "\tn-rank, N: " << N << "\n";
-    std::cout << "\tj-rank, J: " << J<< "\n";
+    std::cout<<std::setw(16)<<"x"<<std::setw(34)<<"f(x)\n"<<std::scientific;
+    for(size_t i = 0; i < x.size(); i++) {
+        const auto x_sign = (x[i] >= 0) ? "+" : "";
+        const auto fx_sign = (fx[i] >= 0) ? "+" : "";
+        std::cout<<"\t"<<x_sign<<std::setprecision(precision)<<x[i];
+        std::cout<<"\t\t\t"<<fx_sign<<std::setprecision(precision)<<fx[i]<<std::endl;
+    }
+    CommandLine::printLine();
+    std::cout << "\tnum-points,     n: " << n << "\n";
+    std::cout << "\tnum-lip-points, m: " << m << "\n";
     CommandLine::printLine();
 }
