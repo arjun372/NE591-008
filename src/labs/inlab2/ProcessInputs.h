@@ -32,7 +32,7 @@ static boost::program_options::options_description buildInputs() {
     boost::program_options::options_description arguments("Parameters");
     arguments.add_options()
             ("num-points,n", boost::program_options::value<long double>(), "= (optional) number of interpolation points n")
-            ("num-lip-points,m", boost::program_options::value<long double>(), "= number of Lagrange interpolation evaluation points")
+            ("num-samples,m", boost::program_options::value<long double>(), "= number of Lagrange interpolation evaluation points")
             ("x-points,x", boost::program_options::value<std::vector<long double>>(), "= distinct and sorted (x) interpolation points if --input-csv is unset")
             ("fx-points,f", boost::program_options::value<std::vector<long double>>(), "= f(x=n) points if --use-fx-function and --input-csv are unset")
             ("input-csv,i", boost::program_options::value<std::string>(), "= path for input CSV file with two columns [x, f(x)]")
@@ -107,11 +107,11 @@ static void performInputChecks(boost::program_options::variables_map &map) {
         }
     }
 
-    while ((map["num-lip-points"].empty() || failsNaturalNumberCheck(map["num-lip-points"].as<long double>()))) {
+    while ((map["num-samples"].empty() || failsNaturalNumberCheck(map["num-samples"].as<long double>()))) {
         std::cout << "Enter the number of Lagrange interpolation evaluation points: ";
         std::cin >> input;
         try {
-            replace(map, "num-lip-points", asNumber(input));
+            replace(map, "num-samples", asNumber(input));
         } catch (const std::exception &) {
             continue;
         }
@@ -164,7 +164,7 @@ void printInputs(boost::program_options::variables_map &vm) {
     // retrieve the inputs
     const auto precision = vm["precision"].as<int>();
     const auto n  = static_cast<size_t>(vm["num-points"].as<long double>());
-    const auto m  = static_cast<size_t>(vm["num-lip-points"].as<long double>());
+    const auto m  = static_cast<size_t>(vm["num-samples"].as<long double>());
     const auto x  = vm["x-points"].as<std::vector<long double>>();
     const auto fx = vm["fx-points"].as<std::vector<long double>>();
 
@@ -181,7 +181,7 @@ void printInputs(boost::program_options::variables_map &vm) {
     }
     CommandLine::printLine();
     std::cout << "\tnum-points,     n: " << n << "\n";
-    std::cout << "\tnum-lip-points, m: " << m << "\n";
+    std::cout << "\tnum-samples, m: " << m << "\n";
     if (vm.count("input-csv") && !vm["input-csv"].empty()) {
         std::cout << "\tinput-csv,      i: " << vm["input-csv"].as<std::string>() << "\n";
     }
