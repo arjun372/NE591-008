@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include <filesystem>
 #include <iostream>
 #include <fstream>
 #include <boost/tokenizer.hpp>
@@ -18,21 +19,14 @@
 #include <mutex>
 #include <thread>
 
-std::shared_ptr<std::ifstream> getFileStream(const std::string &filepath) {
-
-    std::shared_ptr<std::ifstream> ifstreamPtr;
-    try {
-        // create a shared pointer input file stream
-        ifstreamPtr = std::make_shared<std::ifstream>(filepath);
-        // Check if the file was successfully opened
-        if (!ifstreamPtr->is_open() || ifstreamPtr->fail() || ifstreamPtr->bad()) {
-            throw;
-        }
-    } catch (std::exception &) {
-        throw;
+static bool isFileWritable(const std::string &filepath) {
+    const std::filesystem::path path(filepath);
+    std::error_code ec; // For using the non-throwing overloads of functions below.
+    if(exists(path,ec)) {
+        std::cerr << "Error: File already exists at path. "<<std::endl;
+        return false;
     }
-
-    return ifstreamPtr;
+    return true;
 }
 
 template <typename T> void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> &data) {
@@ -71,8 +65,7 @@ template <typename T> void readCSV(const std::string &filepath, std::map<std::st
                 }
 
                 try {
-                    long double value = boost::lexical_cast<long double>(token);
-                    columnIter->second.push_back(value);
+                    columnIter->second.push_back(boost::lexical_cast<long double>(token));
                 } catch (const boost::bad_lexical_cast& ex) {
                     std::cerr << "Error: Failed to convert to long double: " << ex.what() << std::endl;
                 }
