@@ -7,6 +7,7 @@ A secondary objective is to benchmark my implementations against the `Boost` lib
 ## Locating Source Files ##
 Sources and file paths for each lab follow the following structure:
 ```
+├── README.md   <= You are now here
 ├── src
 │   ├── labs
 │   │   ├── inlab1
@@ -16,45 +17,56 @@ Sources and file paths for each lab follow the following structure:
 │   │   │   ├── README.md        <= Usage and examples
 │   │   │   ├── ...
 │   │   ├── outlab1
-│   │   │   ├── ...
-│   ...
+│   │   ├── inlab2
+│   │   ├── ...
+│   ├── ...
+├── ...
+├── utils                        <= Helper methods
+│   ├── CommandLine.h
+│   ├── FileParser.h
+│   ├── ...
 ```
 
 ## Building ##
 
 The entire codebase has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional 
-configuration except choosing the build targets (all by default). Here is a repeatable script to perform the
+configuration except choosing the build target. Here is a repeatable script to perform the
 build and run a target executable:
 
 ```bash
 # Assuming cwd is the repo root:
+#!/bin/bash
 
+## Specify the build target
 export BUILD_TARGET=inlab1
 
+## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
 cmake .. -DCMAKE_BUILD_TYPE=Release && \
-make -j$(nproc) $BUILD_TARGET && cd ../ && \
+make -j$(nproc) $BUILD_TARGET && cd ../
+
+## Execute
 ./build/bin/$BUILD_TARGET
 ```
 
 ### Build Targets ###
 Currently supported build targets include:
 
-| # |   InLab    |   OutLab    |
-|:---:|:----------:|:-----------:|
-| 1 | ✅ `inlab1` | ✅ `outlab1` |
-| 2 |            |             |
-| 3 |            |             |
-| 4 |            |             |
-| 5 |            |             |
-| 6 |            |             |
-| 7 |            |             |
-| 8 |            |             |
-| 9 |            |             |
-| 10|            |             |
-| 11|            |             |
-| 12|            |             |
-| 13|            |             |
+| #  |   InLab    |   OutLab    |
+|:--:|:----------:|:-----------:|
+| 1  | ✅ `inlab1` | ✅ `outlab1` |
+| 2  | ✅ `inlab2` |             |
+| 3  |            |             |
+| 4  |            |             |
+| 5  |            |             |
+| 6  |            |             |
+| 7  |            |             |
+| 8  |            |             |
+| 9  |            |             |
+| 10 |            |             |
+| 11 |            |             |
+| 12 |            |             |
+| 13 |            |             |
 
 ### Optional CMake Arguments ###
 

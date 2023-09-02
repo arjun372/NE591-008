@@ -12,8 +12,8 @@
 
 #include <boost/program_options.hpp>
 
-const auto default_precision {std::cout.precision()};
-constexpr auto max_precision {std::numeric_limits<long double>::digits10 + 1};
+const auto default_precision {std::cout.precision()}; // Default precision for output streams
+constexpr auto max_precision {std::numeric_limits<long double>::digits10 + 1}; // Maximum precision for long double type
 
 /**
  * @brief This function replaces the value of a specified option in a map with a new value.
@@ -44,3 +44,32 @@ template <typename Generic> struct Bounds {
     Generic min;
     Generic max;
 };
+
+/**
+ * @brief This function fills a vector with evenly spaced values between a start and end value.
+ *
+ * @tparam T The type of the values to be generated.
+ * @param result The vector to be filled with the generated values.
+ * @param start The start value of the range.
+ * @param end The end value of the range.
+ * @param count The number of values to be generated.
+ *
+ * @note This function uses the std::generate function to generate the values.
+ */
+template <typename T> void fill_linspace(std::vector<T> result, T start, T end, size_t count) {
+    result.reserve(count);
+
+    if (count <= 1) {
+        result.clear();
+        result.push_back(start);
+        return;
+    }
+
+    T step = (end - start) / static_cast<T>(count - 1);
+
+    std::generate(result.begin(), result.end(), [&start, step]() mutable {
+        T value = start;
+        start += step;
+        return value;
+    });
+}
