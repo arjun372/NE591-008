@@ -6,6 +6,9 @@
  *
  */
 
+#include <variant>
+#include <numeric>
+
 #include <boost/program_options.hpp>
 
 #include "utils/CommandLine.h"
@@ -15,13 +18,41 @@
 static void run(boost::program_options::variables_map &values) {
 
     std::cout<<"run!\n"<<values.size();
-//    InputParams inputs = {
-//            .k = values["scalar"].as<long double>(),
-//            .M = static_cast<size_t>(values["m-rank"].as<long double>()),
-//            .N = static_cast<size_t>(values["n-rank"].as<long double>()),
-//            .J = static_cast<size_t>(values["j-rank"].as<long double>()),
-//    };
+    InputParams inputs = {
+            .n = static_cast<size_t>(values["num-points"].as<long double>()),
+            .m = static_cast<size_t>(values["num-samples"].as<long double>()),
+            .xData = values["x-points"].as<std::vector<long double>>(),
+            .fxData = values["fx-points"].as<std::vector<long double>>(),
+    };
 
+    //build an output map
+    std::map<std::string, std::vector<std::string>> outputs;
+
+    // create indices 1 -> m
+    std::vector<size_t> indexVector(inputs.m);
+    std::iota(indexVector.begin(), indexVector.end(), 1);
+    outputs.emplace("idx", asStringVector(indexVector));
+
+    // uniform interval over [a,b]
+    const auto xMinMax = std::minmax_element(inputs.xData.begin(), inputs.xData.end());
+    auto uniformXiInterval = std::vector<long double>(inputs.m, 0);
+    fill_linspace(uniformXiInterval, *xMinMax.first, *xMinMax.second, inputs.m);
+    outputs.emplace("x(i)", asStringVector(uniformXiInterval));
+
+    // Lagrange interpolated samples L[x(i)]
+    auto lagrangePolynomials = std::vector<long double>(inputs.m, 0);
+    fillLagrangePolys(lagrangePolynomials, uniformXiInterval, inputs.xData, inputs.fxData);
+    outputs.emplace("L[x(i)]", asStringVector(lagrangePolynomials));
+
+    // Interpolation error samples E[L(x)-f(x)]
+    if(values.count("use-fx-function")) {
+        auto interpolationErrors = std::vector<long double>(inputs.m, 0);
+        fillInterpolationError(interpolationErrors, lagrangePolynomials, inputs.fxData);
+        outputs.emplace("E[L(x)-f(x)]", asStringVector(lagrangePolynomials));
+    }
+
+
+    writeCSV(values["output-csv"].as<std::string>(), outputs, {"idx", "x(i)", "L[x(i)]", "E[L(x)-f(x)]"});
 }
 
 
@@ -42,7 +73,7 @@ int main(int argc, char **argv) {
 
     HeaderInfo programInfo{
             .ProjectName = "InLab 02",
-            .ProjectDescription = "Lagrange Interpolation Polynomials",
+            .ProjectDescription = "I/O Setup for Lagrange Interpolation Polynomials",
             .SubmissionDate = "09/01/2023",
             .StudentName = "Arjun Earthperson",
     };

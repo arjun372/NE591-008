@@ -44,3 +44,28 @@ template <typename Generic> struct Bounds {
     Generic min;
     Generic max;
 };
+
+template <typename T> void fill_linspace(std::vector<T> result, T start, T end, size_t count) {
+    result.reserve(count);
+
+    if (count <= 1) {
+        result.clear();
+        result.push_back(start);
+        return;
+    }
+
+    T step = (end - start) / static_cast<T>(count - 1);
+
+    std::generate(result.begin(), result.end(), [&start, step]() mutable {
+        T value = start;
+        start += step;
+        return value;
+    });
+}
+
+// Custom comparator that maintains insertion order
+struct InsertionOrderComparator {
+    template <typename T> bool operator()(const T& lhs, const T& rhs) const {
+        return lhs < rhs; // Maintain the original order
+    }
+};

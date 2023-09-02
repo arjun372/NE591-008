@@ -13,14 +13,14 @@
 #include "utils/Helpers.h"
 #include "utils/CheckBounds.h"
 #include "utils/FileParser.h"
+#include "extern/function.h"
 
 
 typedef struct InputParams {
     size_t n;
     size_t m;
-    size_t x;
-    std::vector<long double> &xData;
-    std::vector<long double> &fxData;
+    std::vector<long double> xData;
+    std::vector<long double> fxData;
 } InputParams;
 
 /**
@@ -135,11 +135,24 @@ static void performInputChecks(boost::program_options::variables_map &map) {
         }
     }
 
-    messageShown = false;
+
+    if(map.count("use-fx-function")) {
+        const auto x = map["x-points"].as<std::vector<long double>>();
+        try {
+            std::vector<long double> fx_vec_inputs(x.size(), 0.0f);
+            fill_fx(x, fx_vec_inputs);
+            replace(map, "fx-points", fx_vec_inputs);
+        } catch (...){
+            std::cerr<<"Error: Executing external method 'fill_fx' failed. Aborting\n";
+            exit(1);
+        }
+    }
+
     std::vector<long double> fx_vec_inputs;
+    messageShown = false;
     while (isUnfilledDoubleLongVector(map, "fx-points", n)) {
         if (!messageShown) {
-            std::cout << "Enter points for f(x) for every x, one at a time: "<<std::endl;
+            std::cout << "Enter "<<n<<" points for f(x) for every x, one at a time: "<<std::endl;
             messageShown = true;
         }
         std::cin >> input;
@@ -181,7 +194,7 @@ void printInputs(boost::program_options::variables_map &vm) {
     }
     CommandLine::printLine();
     std::cout << "\tnum-points,     n: " << n << "\n";
-    std::cout << "\tnum-samples, m: " << m << "\n";
+    std::cout << "\tnum-samples,    m: " << m << "\n";
     if (vm.count("input-csv") && !vm["input-csv"].empty()) {
         std::cout << "\tinput-csv,      i: " << vm["input-csv"].as<std::string>() << "\n";
     }
