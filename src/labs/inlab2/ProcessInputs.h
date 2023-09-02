@@ -55,10 +55,17 @@ static bool isUnfilledDoubleLongVector(boost::program_options::variables_map &va
  *
  * @param map A boost::program_options::variables_map object containing the input values to be checked.
  */
+/**
+ * @brief This function performs checks on the input parameters and prompts the user to enter valid inputs if the
+ * current inputs are invalid.
+ *
+ * @param map A boost::program_options::variables_map object containing the input values to be checked.
+ */
 static void performInputChecks(boost::program_options::variables_map &map) {
 
     std::string input;
 
+    // Check if output CSV file path is provided and writable
     if(!map.count("output-csv") || map["output-csv"].empty() || !isFileWritable(map["output-csv"].as<std::string>())) {
         while(!map.count("output-csv") || map["output-csv"].empty() || !isFileWritable(map["output-csv"].as<std::string>())) {
             std::cerr << "Error: No output CSV filepath provided." << std::endl;
@@ -72,22 +79,22 @@ static void performInputChecks(boost::program_options::variables_map &map) {
         }
     }
 
-    // if input-csv then read from a file.
+    // If input-csv option is provided, read data from the file
     if(map.count("input-csv") && !map["input-csv"].empty()) {
         const std::string filename = map["input-csv"].as<std::string>();
         std::cout<<"Reading from file: "<<filename<<std::endl;
         try {
-            // create a data map
+            // Create a data map
             std::map<std::string, std::vector<long double>> dataMap;
-            // fill data, mapping csv headers (keys) to csv columns (value vectors)
+            // Fill data, mapping csv headers (keys) to csv columns (value vectors)
             readCSV(filename, dataMap);
 
-            // read column x if provided and update the number of points
+            // Read column x if provided and update the number of points
             if(dataMap.contains("x")) {
                 replace(map, "x-points", dataMap["x"]);
                 replace(map, "num-points", static_cast<long double>(dataMap["x"].size()));
             }
-            // read column fx if provided
+            // Read column fx if provided
             if(dataMap.contains("f(x)")) {
                 replace(map, "fx-points", dataMap["f(x)"]);
             }
@@ -97,6 +104,7 @@ static void performInputChecks(boost::program_options::variables_map &map) {
         }
     }
 
+    // Prompt the user to enter the number of interpolation points until a valid input is provided
     while (map["num-points"].empty() || failsNaturalNumberCheck(map["num-points"].as<long double>())) {
         std::cout << "Enter the number of interpolation points: ";
         std::cin >> input;
@@ -107,6 +115,7 @@ static void performInputChecks(boost::program_options::variables_map &map) {
         }
     }
 
+    // Prompt the user to enter the number of Lagrange interpolation evaluation points until a valid input is provided
     while ((map["num-samples"].empty() || failsNaturalNumberCheck(map["num-samples"].as<long double>()))) {
         std::cout << "Enter the number of Lagrange interpolation evaluation points: ";
         std::cin >> input;
@@ -120,6 +129,7 @@ static void performInputChecks(boost::program_options::variables_map &map) {
     const auto n = static_cast<size_t>(map["num-points"].as<long double>());
     std::vector<long double> x_vec_inputs;
     bool messageShown = false;
+    // Prompt the user to enter the interpolation points until the required number of points is provided
     while (isUnfilledDoubleLongVector(map, "x-points", n)) {
         if (!messageShown) {
             std::cout << "Enter points for the interval x, sorted, and one at a time: "<<std::endl;
@@ -135,7 +145,7 @@ static void performInputChecks(boost::program_options::variables_map &map) {
         }
     }
 
-
+    // If the use-fx-function option is provided, fill the fx-points vector using the bundled f(x=n) function
     if(map.count("use-fx-function")) {
         const auto x = map["x-points"].as<std::vector<long double>>();
         try {
@@ -150,6 +160,7 @@ static void performInputChecks(boost::program_options::variables_map &map) {
 
     std::vector<long double> fx_vec_inputs;
     messageShown = false;
+    // Prompt the user to enter the f(x) values until the required number of values is provided
     while (isUnfilledDoubleLongVector(map, "fx-points", n)) {
         if (!messageShown) {
             std::cout << "Enter "<<n<<" points for f(x) for every x, one at a time: "<<std::endl;
@@ -165,6 +176,7 @@ static void performInputChecks(boost::program_options::variables_map &map) {
         }
     }
 }
+
 
 /**
  * @brief This function prints the input values.

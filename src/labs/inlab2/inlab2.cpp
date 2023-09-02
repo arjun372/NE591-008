@@ -15,9 +15,24 @@
 #include "Compute.h"
 #include "ProcessInputs.h"
 
+/**
+ * @brief This function is responsible for the main logic of the program.
+ *
+ * @param values A map of variables parsed from the command line arguments.
+ *
+ * The run() function creates an InputParams object and populates it with the appropriate values from the command line
+ * arguments.
+ *
+ * After that, it creates an output map and populates it with the indices, uniform interval, Lagrange interpolated
+ * samples, and interpolation error samples.
+ *
+ * If the "use-fx-function" command line argument is present, it also calculates the interpolation errors and adds them
+ * to the output map.
+ *
+ * Finally, it writes the output map to a CSV file specified by the "output-csv" command line argument.
+ */
 static void run(boost::program_options::variables_map &values) {
 
-    std::cout<<"run!\n"<<values.size();
     InputParams inputs = {
             .n = static_cast<size_t>(values["num-points"].as<long double>()),
             .m = static_cast<size_t>(values["num-samples"].as<long double>()),
@@ -31,7 +46,7 @@ static void run(boost::program_options::variables_map &values) {
     // create indices 1 -> m
     std::vector<size_t> indexVector(inputs.m);
     std::iota(indexVector.begin(), indexVector.end(), 1);
-    outputs.emplace("idx", asStringVector(indexVector));
+    outputs.emplace("i", asStringVector(indexVector));
 
     // uniform interval over [a,b]
     const auto xMinMax = std::minmax_element(inputs.xData.begin(), inputs.xData.end());
@@ -42,17 +57,21 @@ static void run(boost::program_options::variables_map &values) {
     // Lagrange interpolated samples L[x(i)]
     auto lagrangePolynomials = std::vector<long double>(inputs.m, 0);
     fillLagrangePolys(lagrangePolynomials, uniformXiInterval, inputs.xData, inputs.fxData);
-    outputs.emplace("L[x(i)]", asStringVector(lagrangePolynomials));
+    outputs.emplace("L(x)", asStringVector(lagrangePolynomials));
 
     // Interpolation error samples E[L(x)-f(x)]
     if(values.count("use-fx-function")) {
+        auto functionAtX = std::vector<long double>(inputs.m, 0);
+        fillInterpolationError(functionAtX, lagrangePolynomials, inputs.fxData);
+        outputs.emplace("f(x)", asStringVector(lagrangePolynomials));
+
         auto interpolationErrors = std::vector<long double>(inputs.m, 0);
         fillInterpolationError(interpolationErrors, lagrangePolynomials, inputs.fxData);
-        outputs.emplace("E[L(x)-f(x)]", asStringVector(lagrangePolynomials));
+        outputs.emplace("E(x)", asStringVector(lagrangePolynomials));
     }
 
 
-    writeCSV(values["output-csv"].as<std::string>(), outputs, {"idx", "x(i)", "L[x(i)]", "E[L(x)-f(x)]"});
+    writeCSV(values["output-csv"].as<std::string>(), outputs, {"i", "x(i)", "L(x)", "f(x)", "E(x)"});
 }
 
 

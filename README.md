@@ -40,21 +40,21 @@ make -j$(nproc) $BUILD_TARGET && cd ../ && \
 ### Build Targets ###
 Currently supported build targets include:
 
-| # |   InLab    |   OutLab    |
-|:---:|:----------:|:-----------:|
-| 1 | ✅ `inlab1` | ✅ `outlab1` |
-| 2 |            |             |
-| 3 |            |             |
-| 4 |            |             |
-| 5 |            |             |
-| 6 |            |             |
-| 7 |            |             |
-| 8 |            |             |
-| 9 |            |             |
-| 10|            |             |
-| 11|            |             |
-| 12|            |             |
-| 13|            |             |
+| #  |   InLab    |   OutLab    |
+|:--:|:----------:|:-----------:|
+| 1  | ✅ `inlab1` | ✅ `outlab1` |
+| 2  | ✅ `inlab2` |             |
+| 3  |            |             |
+| 4  |            |             |
+| 5  |            |             |
+| 6  |            |             |
+| 7  |            |             |
+| 8  |            |             |
+| 9  |            |             |
+| 10 |            |             |
+| 11 |            |             |
+| 12 |            |             |
+| 13 |            |             |
 
 ### Optional CMake Arguments ###
 
