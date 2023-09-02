@@ -22,4 +22,15 @@
  * @note The `fx` vector will be modified by this function.
  * @note The `x` vector will not be modified by this function.
  */
-template <typename T> [[maybe_unused]] void fill_fx(const std::vector<T> &x, std::vector<T> &fx);
+template <typename T> [[maybe_unused]] void fill_fx(const std::vector<T> &x, std::vector<T> &fx) {
+
+    if (x.size() != fx.size()) {
+        std::cerr<<"Warning: Vectors are of different lengths: size(x): "<<x.size()<<", size(f[x]): "<<fx.size()<<"\n";
+    }
+
+    // trivial
+    for(size_t i = 0; i < x.size(); i++) {
+        fx[i] = 2.0f * x[i];
+    }
+
+}

@@ -28,10 +28,10 @@ File based I/O is supported using CSV (comma separated values) files.
 
 ## Implementing your own `f(x)`
 When using the `--use-fx-function` flag, the code uses outputs from the `fill_fx` method, located in 
-[extern/function.cpp](extern/function.cpp). This code is built as a static library `inlab2_extern` and linked to the 
+[extern/function.h](extern/function.h). This code is built as a static library `inlab2_extern` and linked to the 
 `inlab2` target. When modifying this code, no additional compilation steps need to be taken.
 
-Here is a brief description of the `fx_fill` method, declared in the associated `function.h` header file:
+Here is a brief description of the `fx_fill` method:
 ```c++
 /**
  * @brief Fill the `fx` vector, optionally using the values in the `x` vector.

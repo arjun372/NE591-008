@@ -1,4 +1,4 @@
-add_library(inlab2_extern extern/function.h extern/function.cpp)
+add_library(inlab2_extern INTERFACE extern/function.h)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
