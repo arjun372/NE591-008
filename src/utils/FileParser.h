@@ -2,7 +2,7 @@
  * @file FileParser.h
  * @author Arjun Earthperson
  * @date 09/01/2023
- * @brief MISSING!
+ * @brief This file contains the definitions for functions that handle file parsing operations.
 */
 
 #pragma once
@@ -19,16 +19,31 @@
 #include <mutex>
 #include <thread>
 
+/**
+ * @brief Checks if a file is writable.
+ * @param filepath The path to the file.
+ * @return True if the file is writable, false otherwise.
+ */
 static bool isFileWritable(const std::string &filepath) {
     const std::filesystem::path path(filepath);
     std::error_code ec; // For using the non-throwing overloads of functions below.
     if(exists(path,ec)) {
+        if(std::filesystem::is_directory(path, ec)) {
+            std::cerr << "Error: Provided path is a directory. "<<std::endl;
+            return false;
+        }
         std::cerr << "Error: File already exists at path. "<<std::endl;
         return false;
     }
     return true;
 }
 
+/**
+ * @brief Reads a CSV file and stores the data in a map.
+ * @tparam T The type of the data to be read.
+ * @param filepath The path to the CSV file.
+ * @param data A reference to a map where the data will be stored.
+ */
 template <typename T> void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> &data) {
 
     // Open the CSV file
@@ -86,6 +101,12 @@ template <typename T> void readCSV(const std::string &filepath, std::map<std::st
     inputFile.close();
 }
 
+/**
+ * @brief Converts a vector of a certain type to a vector of strings.
+ * @tparam T The type of the data in the input vector.
+ * @param inputVector The vector to be converted.
+ * @return A vector of strings.
+ */
 template <typename T> std::vector<std::string> asStringVector(const std::vector<T>& inputVector) {
     std::vector<std::string> stringVector;
     stringVector.reserve(inputVector.size()); // Reserve space for efficiency
@@ -97,6 +118,12 @@ template <typename T> std::vector<std::string> asStringVector(const std::vector<
     return stringVector;
 }
 
+/**
+ * @brief Writes data to a CSV file.
+ * @param filepath The path to the CSV file.
+ * @param data A reference to a map containing the data to be written.
+ * @param columns A vector containing the names of the columns.
+ */
 void writeCSV(const std::string &filepath, std::map<std::string, std::vector<std::string>> &data, std::vector<std::string> columns) {
     if(!isFileWritable(filepath)) {
         std::cerr<<"Error: Unable to write output CSV to path: "<<filepath<<std::endl;
@@ -114,7 +141,7 @@ void writeCSV(const std::string &filepath, std::map<std::string, std::vector<std
 
     // Write the header row
     for(const auto &column : columns) {
-        if(data.contains(column)) {
+        if(data.count(column)) {
             csvFile << column << ",";
         }
     }
@@ -132,7 +159,7 @@ void writeCSV(const std::string &filepath, std::map<std::string, std::vector<std
     // Write the data rows
     for (size_t i = 0; i < numRows; i++) {
         for(const auto &column : columns) {
-            if (data.contains(column)) {
+            if (data.count(column)) {
                 if (i < data[column].size()) {
                     csvFile << data[column][i];
                 }

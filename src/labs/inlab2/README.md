@@ -5,12 +5,47 @@ points and returns the interpolated values at specified evaluation points.
 
 File based I/O is supported using CSV (comma separated values) files.
 
-## Usage
-```shell
-./inlab2 [options]
+## Table of Contents
+
+- [InLab 02: I/O Setup for Lagrange Interpolation Polynomials](#inlab-02-io-setup-for-lagrange-interpolation-polynomials)
+    - [Building & Usage](#building--usage)
+        - [Options](#options)
+        - [General options](#general-options)
+    - [Implementing your own `f(x)`](#implementing-your-own-fx)
+    - [File I/O](#file-io)
+    - [Input Format](#input-format)
+    - [Output Format](#output-format)
+        - [Sample Outputs File](#sample-outputs-file)
+    - [Example](#example)
+
+## Building & Usage
+
+The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
+configuration except choosing the build target, and optionally the input and output files. Here is a repeatable script 
+to perform the build and run the `inlab2` target executable:
+
+```bash
+# Assuming cwd is the repo root:
+#!/bin/bash
+
+## Specify the build target
+export BUILD_TARGET=inlab2
+
+## Create the build directory, configure and compile the $BUILD_TARGET
+mkdir -p build && cd build && \
+cmake .. -DCMAKE_BUILD_TYPE=Release && \
+make -j$(nproc) $BUILD_TARGET && cd ../
+
+## Specify the input and output files.
+## NOTE: This path is relative to the repo root directory
+export INPUT_FILE=./src/labs/inlab2/inputs/sample_input.csv
+export OUTPUT_FILE=./src/labs/inlab2/outputs/sample_output.csv
+
+## Execute
+./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
 ```
 
-## Options
+### Options
 - `-n [ --num-points ] arg` (optional): Number of interpolation points n.
 - `-m [ --num-samples ] arg`: Number of Lagrange interpolation evaluation points.
 - `-x [ --x-points ] arg`: Distinct and sorted (x) interpolation points if --input-csv is unset.
@@ -19,7 +54,7 @@ File based I/O is supported using CSV (comma separated values) files.
 - `-o [ --output-csv ] arg`: Path for output CSV file with five columns [i, x, f(x), L(x), E(x)].
 - `-F [ --use-fx-function ]`: Use bundled f(x=n) function.
 
-## General options:
+### General options:
 
 - `-h [ --help ]`: Show this help message.
 - `-q [ --quiet ]`: Reduce verbosity.
@@ -48,7 +83,7 @@ Here is a brief description of the `fx_fill` method:
 template <typename T> [[maybe_unused]] void fill_fx(const std::vector<T> &x, std::vector<T> &fx);
 ```
 
-## File Read/Write
+## File I/O
 Although data for `x` and `f(x)` can be entered sequentially in interactive mode, it is recommended to use the
 option to read an input CSV file. The code looks for the headers `x`and `f(x)`, so please use them precisely. There is a
 sample input CSV file under [inputs/sample_input.csv](inputs/sample_input.csv).

@@ -90,12 +90,12 @@ static void performInputChecks(boost::program_options::variables_map &map) {
             readCSV(filename, dataMap);
 
             // Read column x if provided and update the number of points
-            if(dataMap.contains("x")) {
+            if(dataMap.count("x")) {
                 replace(map, "x-points", dataMap["x"]);
                 replace(map, "num-points", static_cast<long double>(dataMap["x"].size()));
             }
             // Read column fx if provided
-            if(dataMap.contains("f(x)")) {
+            if(dataMap.count("f(x)")) {
                 replace(map, "fx-points", dataMap["f(x)"]);
             }
         } catch (...) {
@@ -147,7 +147,7 @@ static void performInputChecks(boost::program_options::variables_map &map) {
 
     // If the use-fx-function option is provided, fill the fx-points vector using the bundled f(x=n) function
     if(map.count("use-fx-function")) {
-        const auto x = map["x-points"].as<std::vector<long double>>();
+        const std::vector<long double> x = map["x-points"].as<std::vector<long double>>();
         try {
             std::vector<long double> fx_vec_inputs(x.size(), 0.0f);
             fill_fx(x, fx_vec_inputs);

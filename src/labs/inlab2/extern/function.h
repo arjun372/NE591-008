@@ -9,6 +9,7 @@
 #pragma once
 
 #include <vector>
+#include <iostream>
 
 /**
  * @brief Fill the `fx` vector, optionally using the values in the `x` vector.
@@ -22,7 +23,7 @@
  * @note The `fx` vector will be modified by this function.
  * @note The `x` vector will not be modified by this function.
  */
-template <typename T> [[maybe_unused]] void fill_fx(const std::vector<T> &x, std::vector<T> &fx) {
+[[maybe_unused]] void fill_fx(const std::vector<long double> &x, std::vector<long double> &fx) {
 
     if (x.size() != fx.size()) {
         std::cerr<<"Warning: Vectors are of different lengths: size(x): "<<x.size()<<", size(f[x]): "<<fx.size()<<"\n";
