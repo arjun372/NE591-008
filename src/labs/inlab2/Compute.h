@@ -11,7 +11,6 @@
 #include <cmath>
 
 #include "utils/CommandLine.h"
-#include "ProcessInputs.h"
 
 /**
  * @brief Fills the Lagrange polynomials for given interpolation points.

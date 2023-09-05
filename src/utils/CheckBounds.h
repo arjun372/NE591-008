@@ -12,6 +12,15 @@
 
 #include "CommandLine.h"
 
+
+static bool isUnfilledDoubleLongVector(boost::program_options::variables_map &values, const std::string &key, const size_t expectedSize) {
+    try {
+        return values[key].as<std::vector<long double>>().size() < expectedSize;
+    } catch (...) {
+        return true;
+    }
+}
+
 /**
  * @brief Checks if the absolute value of the input is greater than or equal to 1.
  *
