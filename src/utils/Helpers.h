@@ -12,9 +12,6 @@
 
 #include <boost/program_options.hpp>
 
-const auto default_precision {std::cout.precision()}; // Default precision for output streams
-constexpr auto max_precision {std::numeric_limits<long double>::digits10 + 1}; // Maximum precision for long double type
-
 /**
  * @brief This function replaces the value of a specified option in a map with a new value.
  *

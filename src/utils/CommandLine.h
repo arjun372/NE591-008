@@ -11,9 +11,8 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 #include <boost/program_options.hpp>
-
-#include "Helpers.h"
 #include "project-config.h"
 
 /**
@@ -29,6 +28,15 @@ typedef struct  {
     std::string SubmissionDate;
     std::string StudentName;
 } HeaderInfo;
+
+struct CommandLineArgs {
+    int argc{};
+    char **argv{};
+};
+
+
+const auto default_precision {std::cout.precision()}; // Default precision for output streams
+constexpr auto max_precision {std::numeric_limits<long double>::digits10 + 1}; // Maximum precision for long double type
 
 /**
  * @class CommandLine
@@ -47,24 +55,15 @@ typedef struct  {
 class CommandLine {
 
 public:
-    /**
-     * @fn CommandLine::CommandLine(HeaderInfo &headerInfo, boost::program_options::options_description &inputs, int argc, char** argv)
-     * @brief The constructor for the CommandLine class.
-     *
-     * This constructor takes a HeaderInfo object and command line arguments, and initializes the class.
-     * It first prints the project header, then adds the input options to the options description.
-     * It then parses the command line arguments and stores them in a variables map.
-     * If the "help" option is present, it prints the options and exits the program.
-     * Finally, it calls the initialize method to print the compile configurations and precision information, and parse the command line arguments.
-     */
-    explicit CommandLine(HeaderInfo &headerInfo, boost::program_options::options_description &inputs, int argc, char** argv) {
+    // TODO rewrite
+    explicit CommandLine(HeaderInfo headerInfo, const boost::program_options::options_description& inputs, CommandLineArgs args) {
 
         printHeader(headerInfo);
 
         boost::program_options::options_description options("");
         options.add(inputs);
         options.add(buildGenerics());
-        boost::program_options::store(boost::program_options::parse_command_line(argc, argv, options), variablesMap);
+        boost::program_options::store(boost::program_options::parse_command_line(args.argc, args.argv, options), variablesMap);
         boost::program_options::notify(variablesMap);
 
         if (variablesMap.count("help")) {
@@ -73,6 +72,10 @@ public:
         }
 
         initialize(options);
+    }
+
+    explicit CommandLine() {
+        variablesMap = boost::program_options::variables_map();
     }
 
     /**
@@ -96,7 +99,6 @@ public:
     }
 
 private:
-    boost::program_options::options_description optionsDescription;
     boost::program_options::variables_map variablesMap;
 
     /**

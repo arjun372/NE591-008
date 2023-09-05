@@ -78,13 +78,13 @@ public:
      * @brief Constructs a new Profiler object.
      * @param num_tries The number of times to execute the function for profiling.
      */
-    Profiler(int num_tries) : _num_tries(num_tries) { }
+    explicit Profiler(int num_tries) : _num_tries(num_tries) { }
 
     /**
      * @brief Returns the number of times the function will be executed for profiling.
      * @return The number of tries.
      */
-    int num_tries() const { return _num_tries; }
+    [[nodiscard]] int num_tries() const { return _num_tries; }
 
     /**
      * @brief Returns a reference to the Randomiser object.
@@ -98,15 +98,15 @@ public:
      * @param function The function to profile.
      * @param num_tries The number of times to execute the function for profiling.
      */
-    void profile_on_average(std::string msg,
-                            std::function<void(int)> function,
+    void profile_on_average(const std::string& msg,
+                            const std::function<void(int)>& function,
                             int num_tries)
     {
         _ussw.restart();
         for (int i = 0; i < num_tries; ++i) function(i);
         _ussw.click();
         std::cout << msg << " completed in "
-                  << ((double)_ussw.duration().count())/num_tries*1000
+                << (static_cast<double>(_ussw.duration().count()))
                   << " us on average" << std::endl;
     }
 
@@ -116,15 +116,15 @@ public:
      * @param function The function to profile.
      * @param num_tries The number of times to execute the function for profiling.
      */
-    void profile_on_total(std::string msg,
-                          std::function<void(int)> function,
+    void profile_on_total(const std::string& msg,
+                          const std::function<void(int)>& function,
                           int num_tries)
     {
         _mssw.restart();
         for (int i = 0; i < num_tries; ++i) function(i);
         _mssw.click();
         std::cout << msg << " completed in "
-                  << ((double)_mssw.duration().count())
+                  << (static_cast<double>(_mssw.duration().count()))
                   << " ms on total" << std::endl;
     }
 
@@ -133,7 +133,7 @@ public:
      * @param msg The message to print before the profiling result.
      * @param function The function to profile.
      */
-    void profile(std::string msg, std::function<void(int)> function)
+    void profile(const std::string& msg, const std::function<void(int)>& function)
     {
         profile_on_average(msg, function, _num_tries);
     }

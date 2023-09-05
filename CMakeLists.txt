@@ -42,7 +42,7 @@ add_definitions(-DPROJECT_SOURCE_DIR="${PROJECT_SOURCE_DIR}")  # Needed to print
 ####################### Project Level CXX flags ################### {{{
 ## Floating point options https://gcc.gnu.org/wiki/FloatingPointMath
 #set(PROJECT_CXX_FLAGS -frounding-math -fsignaling-nans)
-set(PROJECT_CXX_FLAGS_DEBUG -Wall -Wextra -Werror -Wnon-virtual-dtor -Wold-style-cast -Wsign-compare -Wmissing-field-initializers -Wno-unused-function)
+set(PROJECT_CXX_FLAGS_DEBUG -Wall -Wextra -Werror -Wnon-virtual-dtor -Wold-style-cast -Wsign-compare -Wmissing-field-initializers -Wno-unused-parameter -Wno-unused-function)
 list(APPEND PROJECT_CXX_FLAGS ${PROJECT_CXX_FLAGS_DEBUG})
 if(OPTIMIZE_FOR_NATIVE)
     include(CheckCXXCompilerFlag)
