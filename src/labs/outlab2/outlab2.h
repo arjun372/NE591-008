@@ -14,7 +14,7 @@ protected:
     HeaderInfo buildHeaderInfo() override {
         return HeaderInfo {
                 .ProjectName = "OutLab 02",
-                .ProjectDescription = "Lagrange Interpolation Polynomials",
+                .ProjectDescription = "Lagrange Interpolating Polynomials using Neville's Algorithm",
                 .SubmissionDate = "09/08/2023",
                 .StudentName = "Arjun Earthperson",
         };

@@ -25,8 +25,8 @@ protected:
         values.add_options()
                 ("num-points,n", boost::program_options::value<long double>(), "= (optional) number of interpolation points n")
                 ("num-samples,m", boost::program_options::value<long double>(), "= number of Lagrange interpolation evaluation points")
-                ("x-points,x", boost::program_options::value<std::vector<long double>>()->multitoken(), "= distinct and sorted (x) interpolation points if --input-csv is unset")
-                ("fx-points,f", boost::program_options::value<std::vector<long double>>()->multitoken(), "= f(x=n) points if --use-fx-function and --input-csv are unset")
+                ("x-points,x", boost::program_options::value<std::vector<long double>>()->multitoken()->default_value(std::vector<long double>(), ""), "= distinct and sorted (x) interpolation points if --input-csv is unset")
+                ("fx-points,f", boost::program_options::value<std::vector<long double>>()->multitoken()->default_value(std::vector<long double>(), ""), "= f(x=n) points if --use-fx-function and --input-csv are unset")
                 ("input-csv,i", boost::program_options::value<std::string>(), "= path for input CSV file with two columns [x, f(x)]")
                 ("output-csv,o", boost::program_options::value<std::string>(), "= path for output CSV file with five columns [i, x, f(x), L(x), E(x)]")
                 ("use-fx-function,F", "= use bundled f(x=n) function");
@@ -67,7 +67,6 @@ protected:
         std::cout << "\toutput-csv,     o: " << vm["output-csv"].as<std::string>() << "\n";
         CommandLine::printLine();
     }
-
 
     /**
      * @brief This function performs checks on the input parameters and prompts the user to enter valid inputs if the
@@ -156,6 +155,13 @@ protected:
                 messageShown = true;
             }
             std::cin >> input;
+
+            // attempting to insert non-increasing or non-unique value!
+            if(!x_vec_inputs.empty() && asNumber(input) <= x_vec_inputs.back()) {
+                std::cerr<<"Cannot accept non-increasing values for x, try again.\n";
+                continue;
+            }
+
             try {
                 x_vec_inputs.push_back(asNumber(input));
                 replace(map, "x-points", x_vec_inputs);

@@ -80,4 +80,5 @@ Available options are:
 
 ### Troubleshooting Builds ###
 The optionally provided [Dockerfile](Dockerfile) provides a sanitized environment with the minimum dependencies
-and an automated build for this repo.
+and an automated build for this repo. The environment mimics `remote.eos.ncsu.edu` by using `gcc v8.5.0` and 
+`boost 1.66.0`.

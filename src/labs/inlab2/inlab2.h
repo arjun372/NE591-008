@@ -36,7 +36,7 @@ protected:
     HeaderInfo buildHeaderInfo() override {
         return {
                 .ProjectName = "InLab 02",
-                .ProjectDescription = "I/O Setup for Lagrange Interpolation Polynomials",
+                .ProjectDescription = "I/O Setup for Lagrange Interpolating Polynomials",
                 .SubmissionDate = "09/01/2023",
                 .StudentName = "Arjun Earthperson",
         };
