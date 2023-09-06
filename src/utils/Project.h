@@ -6,9 +6,13 @@
 #include "CommandLine.h"
 
 
-template <typename InputType, typename OutputType> class Project {
+template <typename InputType, typename CommandLineParserType, typename OutputType> class Project {
 
 public:
+
+    // Use static_assert and std::is_base_of to enforce T being a derived class of MyBaseClass
+    static_assert(std::is_base_of<CommandLine<InputType>, CommandLineParserType>::value, "CommandLineParserType must be a derived class of CommandLine");
+
     explicit Project(CommandLineArgs args) {
         cmdArgs = args;
     }
@@ -18,28 +22,22 @@ public:
 
     void execute() {
         initialize();
-        performInputArgumentsCheck(terminal.getArguments());
-        printInputArguments(terminal.getArguments());
-        buildInputs(inputs, terminal.getArguments());
         timedRun();
     }
 
 private:
     CommandLineArgs cmdArgs{};
-    CommandLine terminal;
-    InputType inputs;
+    CommandLineParserType terminal;
     OutputType outputs;
 
     void initialize() {
-        boost::program_options::options_description arguments("Parameters");
-        buildInputArguments(arguments);
-        terminal = CommandLine(buildHeaderInfo(), arguments, cmdArgs);
-        inputs = InputType();
+        terminal = CommandLineParserType(buildHeaderInfo(), cmdArgs);
+        terminal.getInputs();
         outputs = OutputType();
     }
 
     void timedRun() {
-        run(outputs, inputs, terminal.getArguments());
+        run(outputs, terminal.getInputs(), terminal.getArguments());
     }
 
 protected:
@@ -47,15 +45,7 @@ protected:
     // Handle
     virtual HeaderInfo buildHeaderInfo() = 0;
 
-    // Handle input arguments
-    virtual void buildInputArguments(boost::program_options::options_description &inputArguments) = 0;
-
-    virtual void printInputArguments(boost::program_options::variables_map &values) = 0;
-    virtual void performInputArgumentsCheck(boost::program_options::variables_map &values) = 0;
-
-    // fill inputs object based on values
-    virtual void buildInputs(InputType &ToFill, boost::program_options::variables_map &values) = 0;
-
-    // fill outputs object based on input and values
+    virtual void preRun(OutputType &output, InputType &input, boost::program_options::variables_map &values) {}
     virtual void run(OutputType &output, InputType &input, boost::program_options::variables_map &values) = 0;
+    virtual void postRun(OutputType &output, InputType &input, boost::program_options::variables_map &values) {}
 };

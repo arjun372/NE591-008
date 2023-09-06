@@ -1,8 +1,8 @@
 /**
- * @file outlab1.cpp
+ * @file outlab1.h
  * @author Arjun Earthperson
  * @date 09/01/2023
- * @brief Entrypoint for outlab1, contains the main() and run() methods.
+ * @brief Entrypoint for outlab1, contains the OutLab1 implementation of LabProject
  *
  * The program performs non-vectorized, elementwise operations on 2D matrices. It uses the Boost library for parsing
  * command line arguments and handling program options. The main function sets up the program information, builds the
@@ -10,12 +10,16 @@
  * logic of the program, and then returns the exit status.
  */
 
+#pragma once
+
 #include <boost/program_options.hpp>
 
 #include "utils/CommandLine.h"
+#include "utils/Project.h"
 #include "Compute.h"
 #include "ProcessInputs.h"
 
+class OutLab1 : public Project<>
 /**
  * @brief This function runs the main logic of the program.
  *

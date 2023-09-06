@@ -23,7 +23,7 @@ typedef struct {
 /**
  * @brief Struct to hold variables for Taylor Series.
  */
-typedef struct {
+typedef struct Output {
     long double running_sum; ///< The running sum of the series.
     Factorial computed_factorial; ///< The computed factorial.
     long double previous_factorial; ///< The previous factorial.
@@ -35,18 +35,6 @@ typedef struct {
 } TaylorSeriesVariables;
 
 static TaylorSeriesVariables mySineVars{};
-
-/**
- * @brief Function to print the variables.
- * @param variables The variables to print.
- */
-void printVars(const TaylorSeriesVariables &variables) {
-    std::cout<<"running sum: "<<std::setprecision(max_precision)<<variables.running_sum<<"\n";
-    std::cout<<"prev factorial: "<<std::setprecision(max_precision)<<variables.previous_factorial<<"\n";
-    std::cout<<"n: "<<std::setprecision(max_precision)<<variables.n<<"\n";
-    std::cout<<"current threshold: "<<std::setprecision(max_precision)<<variables.current_threshold<<"\n";
-    CommandLine::printLine();
-}
 
 /**
  * @brief Function to compute factorial in a naive way.
@@ -72,7 +60,7 @@ long double my_sisd_sin(TaylorSeriesVariables &vars) {
         return vars.running_sum;
     }
     // terminate since we have converged
-    if (vars.current_threshold <= vars.target_threshold) {
+    if (abs(vars.current_threshold) <= vars.target_threshold) {
         return vars.running_sum;
     }
 

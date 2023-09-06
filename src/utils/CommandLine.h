@@ -52,31 +52,23 @@ constexpr auto max_precision {std::numeric_limits<long double>::digits10 + 1}; /
  * The initialize method initializes the class by printing the compile configurations and precision information, and parsing the command line arguments.
  * The printCompileConfigs method prints the compile configurations to the console.
  */
-class CommandLine {
+
+template <typename InputType> class CommandLine {
 
 public:
+
     // TODO rewrite
-    explicit CommandLine(HeaderInfo headerInfo, const boost::program_options::options_description& inputs, CommandLineArgs args) {
-
+    explicit CommandLine(HeaderInfo headerInfo, CommandLineArgs args) {
+        cmdArgs = args;
+        initialized = false;
         printHeader(headerInfo);
-
-        boost::program_options::options_description options("");
-        options.add(inputs);
-        options.add(buildGenerics());
-        boost::program_options::store(boost::program_options::parse_command_line(args.argc, args.argv, options), variablesMap);
-        boost::program_options::notify(variablesMap);
-
-        if (variablesMap.count("help")) {
-            std::cout << options << "\n";
-            exit(0);
-        }
-
-        initialize(options);
     }
 
     explicit CommandLine() {
         variablesMap = boost::program_options::variables_map();
     }
+
+    virtual ~CommandLine() = default;
 
     /**
      * @fn boost::program_options::variables_map &CommandLine::getArguments()
@@ -85,7 +77,17 @@ public:
      * This method returns a reference to the variables map that contains the parsed command line arguments.
      */
     boost::program_options::variables_map &getArguments() {
+        if(!initialized) {
+            initialize();
+        }
         return variablesMap;
+    }
+
+    InputType &getInputs() {
+        if(!initialized) {
+            initialize();
+        }
+        return inputs;
     }
 
     /**
@@ -98,8 +100,19 @@ public:
         std::cout << R"(--------------------------------------------------------------------------------)"<<"\n";
     }
 
+protected:
+    // Handle input arguments
+    virtual void buildInputArguments(boost::program_options::options_description &inputArguments) = 0;
+    virtual void printInputArguments(boost::program_options::variables_map &values) = 0;
+    virtual void performInputArgumentsCheck(boost::program_options::variables_map &values) = 0;
+    // fill inputs object based on values
+    virtual void buildInputs(InputType &ToFill, boost::program_options::variables_map &values) = 0;
+
 private:
     boost::program_options::variables_map variablesMap;
+    bool initialized = false;
+    CommandLineArgs cmdArgs;
+    InputType inputs = InputType();
 
     /**
      * @fn boost::program_options::options_description CommandLine::buildGenerics()
@@ -154,27 +167,41 @@ private:
         printLine();
     }
 
-    /**
-     * @fn void CommandLine::initialize(boost::program_options::options_description &options)
-     * @brief Initializes the class.
-     *
-     * This method initializes the class by printing the compile configurations and precision information, and parsing
-     * the command line arguments.
-     * If the "quiet" option is present, it returns without printing anything.
-     */
-    void initialize(boost::program_options::options_description &options) {
 
-        if (variablesMap.count("quiet")) {
+    void initialize() {
+
+        if(initialized) {
             return;
         }
 
-        printCompileConfigs();
+        initialized = true;
+        boost::program_options::options_description options("Parameters");
+        buildInputArguments(options);
+        options.add(buildGenerics());
+        boost::program_options::store(boost::program_options::parse_command_line(cmdArgs.argc, cmdArgs.argv, options), variablesMap);
+        boost::program_options::notify(variablesMap);
 
-        // print command line options
-        std::cout << options << "\n";
-        printLine();
+        //if help, print options and exit
+        if (variablesMap.count("help")) {
+            std::cout << options << "\n";
+            exit(0);
+        }
 
-        printPrecisionInformation();
+        // print compiler information
+        if (!variablesMap.count("quiet")) {
+            printCompileConfigs();
+            // print command line options
+            std::cout << options << "\n";
+            printLine();
+            printPrecisionInformation();
+        }
+
+        // consume and correct the input arguments
+        performInputArgumentsCheck(variablesMap);
+        // print the input arguments
+        printInputArguments(variablesMap);
+        // finally, build and save the inputs objet
+        buildInputs(inputs, variablesMap);
     }
 
     /**
