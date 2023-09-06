@@ -4,8 +4,8 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(LIB_SRC inlab2.h
             Compute.h
+            Parser.h
             ../../utils/CommandLine.h
-            CommandLineParser.h
             ../../utils/CheckBounds.h
             ../../utils/Helpers.h
             ../../utils/Project.h

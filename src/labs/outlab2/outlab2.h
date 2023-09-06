@@ -20,9 +20,9 @@ protected:
         };
     }
 
-    void run(Output &output, Input &input, boost::program_options::variables_map &values) override {
+    void run(Dictionary &outputs, Input &inputs, boost::program_options::variables_map &values) override {
         std::cout<<"run super\n";
-        InLab2::run(output, input, values);
+        InLab2::run(outputs, inputs, values);
         std::cout<<"run me\n";
     }
 

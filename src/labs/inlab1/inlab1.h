@@ -13,7 +13,7 @@
 
 #include <boost/program_options.hpp>
 
-#include "CommandLineParser.h"
+#include "Parser.h"
 #include "Compute.h"
 
 #include "utils/Project.h"
@@ -29,7 +29,7 @@
  */
 typedef struct Output TaylorSeriesVariables;
 
-class InLab1 : public Project<TaylorSeriesInputs , CommandLineParser, TaylorSeriesVariables> {
+class InLab1 : public Project<TaylorSeriesInputs , Parser, TaylorSeriesVariables> {
 
 public:
     explicit InLab1(CommandLineArgs args) : Project(args) {}
@@ -45,19 +45,10 @@ protected:
         };
     }
 
-    /**
-     * @brief This function runs the main logic of the program.
-     *
-     * @param values A map of variable names to their values.
-     *
-     * It retrieves the angle, convergence threshold and iterations from the variable map, and then computes the sine
-     * of the angle using both the standard library function and a custom implementation. It also measures the time taken
-     * for each computation and the truncation error between the two results.
-     */
-    void run(Output &output, Input &input, boost::program_options::variables_map &values) override {
+    void run(TaylorSeriesVariables &output, TaylorSeriesInputs &input, boost::program_options::variables_map &values) override {
 
         std::cout << std::setw(40) << "Profile\n";
-        CommandLineParser::printLine();
+        Parser::printLine();
         Stopwatch<Microseconds> clock;
         // my_sin(x)
         long double my_sin_val;
@@ -81,15 +72,15 @@ protected:
         auto math_sin_val2 = sin(input.x);
         // truncation error
         const long double truncation_error = abs(math_sin_val2 - my_sin_val2);
-        CommandLineParser::printLine();
+        Parser::printLine();
         const auto precision = values["precision"].as<int>();
         std::cout<<std::setw(44)<<"Outputs\n";
-        CommandLineParser::printLine();
+        Parser::printLine();
         std::cout << "\tConverged at n="<<mySineVars.n<<" at convergence threshold: "<<mySineVars.current_threshold<<"\n\t...\n";
         std::cout << "\tmy_sin(x):"<<std::setw(37)<<std::setprecision(precision) << my_sin_val2<< "\n";
         std::cout << "\tsin(x) from math.h:"<<std::setw(28)<<std::setprecision(precision) << math_sin_val2<< "\n";
         std::cout << "\ttruncation error: "<<std::setw(30)<<std::setprecision(precision) << truncation_error << "\n";
-        CommandLineParser::printLine();
+        Parser::printLine();
         my_sin_val += my_sin_val;
         math_sin_val += math_sin_val;
     }

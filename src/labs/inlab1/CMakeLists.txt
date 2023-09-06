@@ -1,13 +1,13 @@
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(LIB_SRC inlab1.h
-        CommandLineParser.h
-            Compute.h
-            ../../utils/CommandLine.h
-            ../../utils/CheckBounds.h
-            ../../utils/Helpers.h
-            ../../utils/Profiler.h
-            ../../utils/Project.h
+        Parser.h
+        Compute.h
+        ../../utils/CommandLine.h
+        ../../utils/CheckBounds.h
+        ../../utils/Helpers.h
+        ../../utils/Profiler.h
+        ../../utils/Project.h
 )
 add_library(lib_inlab1 ${LIB_SRC})
 set_target_properties(lib_inlab1 PROPERTIES LINKER_LANGUAGE CXX)

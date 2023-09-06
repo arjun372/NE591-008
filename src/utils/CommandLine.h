@@ -208,13 +208,14 @@ private:
      * @fn void CommandLine::printCompileConfigs()
      * @brief Prints the compile configurations to the console.
      *
-     * This method prints the compiler ID, compiler version, compiler flags, and Boost version and libraries to the console.
+     * This method prints the compiler ID, compiler version, compiler flags, and Boost version and libraries to the
+     * console.
      */
     static void printCompileConfigs() {
         std::cout<<"Build Configuration\n";
         std::cout<<"compiler: "<<CXX_COMPILER_ID<<" "<<CXX_COMPILER_VERSION<<"\n";
         std::cout<<"flags: "<<CXX_FLAGS<<"\n";
-        std::cout<<"Boost: "<<Boost_VERSION<<Boost_LIBRARIES<<"\n";
+        std::cout<<"Boost: "<<Boost_VERSION<<"; "<<Boost_LIBRARIES<<"\n";
         printLine();
     }
 };

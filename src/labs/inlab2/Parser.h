@@ -8,12 +8,12 @@ typedef struct Input {
     std::vector<long double> fxData;
 } LagrangePolynomialInputs;
 
-class CommandLineParser : public CommandLine<LagrangePolynomialInputs> {
+class Parser : public CommandLine<LagrangePolynomialInputs> {
 
 public:
-    explicit CommandLineParser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
+    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
 
-    explicit CommandLineParser() = default;
+    explicit Parser() = default;
 
 protected:
     /**
@@ -25,8 +25,8 @@ protected:
         values.add_options()
                 ("num-points,n", boost::program_options::value<long double>(), "= (optional) number of interpolation points n")
                 ("num-samples,m", boost::program_options::value<long double>(), "= number of Lagrange interpolation evaluation points")
-                ("x-points,x", boost::program_options::value<std::vector<long double>>(), "= distinct and sorted (x) interpolation points if --input-csv is unset")
-                ("fx-points,f", boost::program_options::value<std::vector<long double>>(), "= f(x=n) points if --use-fx-function and --input-csv are unset")
+                ("x-points,x", boost::program_options::value<std::vector<long double>>()->multitoken(), "= distinct and sorted (x) interpolation points if --input-csv is unset")
+                ("fx-points,f", boost::program_options::value<std::vector<long double>>()->multitoken(), "= f(x=n) points if --use-fx-function and --input-csv are unset")
                 ("input-csv,i", boost::program_options::value<std::string>(), "= path for input CSV file with two columns [x, f(x)]")
                 ("output-csv,o", boost::program_options::value<std::string>(), "= path for output CSV file with five columns [i, x, f(x), L(x), E(x)]")
                 ("use-fx-function,F", "= use bundled f(x=n) function");
@@ -147,7 +147,7 @@ protected:
         }
 
         const auto n = static_cast<size_t>(map["num-points"].as<long double>());
-        std::vector<long double> x_vec_inputs;
+        std::vector<long double> x_vec_inputs = map["x-points"].as<std::vector<long double>>();
         bool messageShown = false;
         // Prompt the user to enter the interpolation points until the required number of points is provided
         while (isUnfilledDoubleLongVector(map, "x-points", n)) {

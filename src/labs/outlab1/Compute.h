@@ -11,12 +11,12 @@
 #include <cmath>
 
 #include "utils/CommandLine.h"
-#include "ProcessInputs.h"
+#include "Parser.h"
 
 typedef struct MatrixBuildArgs {
     size_t idx_row;
     size_t idx_col;
-    InputParams &inputParams;
+    MatrixConstructParams &inputParams;
 } MatrixBuildArgs;
 
 /**
@@ -163,7 +163,7 @@ typedef struct ArgsPrintMatrix {
     size_t start_col;
     size_t num_rows;
     size_t num_cols;
-    InputParams &inputParams;
+    MatrixConstructParams &inputParams;
     long double (*evaluate)(const MatrixBuildArgs &);
 } ArgsPrintMatrix;
 

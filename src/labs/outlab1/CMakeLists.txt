@@ -2,6 +2,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(LIB_SRC outlab1.h
             Compute.h
+            Parser.h
             ../../utils/CommandLine.h
             ../../utils/CheckBounds.h
             ../../utils/Helpers.h

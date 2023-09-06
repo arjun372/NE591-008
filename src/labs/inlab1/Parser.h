@@ -1,5 +1,3 @@
-
-
 #pragma once
 
 #include "utils/CommandLine.h"
@@ -12,14 +10,14 @@ typedef struct Input {
     size_t N; ///< The maximum number of iterations.
 } TaylorSeriesInputs;
 
-class CommandLineParser : public CommandLine<TaylorSeriesInputs> {
+class Parser : public CommandLine<TaylorSeriesInputs> {
 
 public:
-    explicit CommandLineParser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {
+    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {
 
     }
 
-    explicit CommandLineParser() = default;
+    explicit Parser() = default;
 
 protected:
 /**
@@ -79,12 +77,12 @@ protected:
     }
 
     /**
- * @brief This function prints the input values.
- *
- * @param vm A map of variable names to their values.
- *
- * It retrieves the precision, angle, convergence threshold and iterations from the variable map and prints them.
- */
+     * @brief This function prints the input values.
+     *
+     * @param vm A map of variable names to their values.
+     *
+     * It retrieves the precision, angle, convergence threshold and iterations from the variable map and prints them.
+     */
     void printInputArguments(boost::program_options::variables_map &vm) override {
         const auto precision = vm["precision"].as<int>();
         std::cout<<std::setw(44)<<"Inputs\n";

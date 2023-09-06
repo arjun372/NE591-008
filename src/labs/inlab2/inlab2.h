@@ -20,13 +20,13 @@
 #include "utils/Project.h"
 #include "extern/function.h"
 
-#include "CommandLineParser.h"
+#include "Parser.h"
 #include "Compute.h"
 
 
 typedef std::map<std::string, std::vector<std::string>> Dictionary;
 
-class InLab2 : public Project<LagrangePolynomialInputs, CommandLineParser, Dictionary> {
+class InLab2 : public Project<LagrangePolynomialInputs, Parser, Dictionary> {
 
 public:
     explicit InLab2(CommandLineArgs args) : Project(args) {}
