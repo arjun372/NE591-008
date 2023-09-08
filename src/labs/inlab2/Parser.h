@@ -149,7 +149,7 @@ protected:
         std::vector<long double> x_vec_inputs = map["x-points"].as<std::vector<long double>>();
         bool messageShown = false;
         // Prompt the user to enter the interpolation points until the required number of points is provided
-        while (isUnfilledDoubleLongVector(map, "x-points", n)) {
+        while (isUnfilledVector<long double>(map, "x-points", n)) {
             if (!messageShown) {
                 std::cout << "Enter points for the interval x, sorted, and one at a time: "<<std::endl;
                 messageShown = true;
@@ -187,7 +187,7 @@ protected:
         std::vector<long double> fx_vec_inputs;
         messageShown = false;
         // Prompt the user to enter the f(x) values until the required number of values is provided
-        while (isUnfilledDoubleLongVector(map, "fx-points", n)) {
+        while (isUnfilledVector<long double>(map, "fx-points", n)) {
             if (!messageShown) {
                 std::cout << "Enter "<<n<<" points for f(x) for every x, one at a time: "<<std::endl;
                 messageShown = true;

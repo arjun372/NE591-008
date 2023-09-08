@@ -44,7 +44,8 @@ static bool isFileWritable(const std::string &filepath) {
  * @param filepath The path to the CSV file.
  * @param data A reference to a map where the data will be stored.
  */
-template <typename T> void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> &data) {
+template <typename T>
+void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> &data) {
 
     // Open the CSV file
     std::ifstream inputFile(filepath);
@@ -102,12 +103,26 @@ template <typename T> void readCSV(const std::string &filepath, std::map<std::st
 }
 
 /**
- * @brief Converts a vector of a certain type to a vector of strings.
- * @tparam T The type of the data in the input vector.
- * @param inputVector The vector to be converted.
- * @return A vector of strings.
+ * @brief Converts a vector of any type to a vector of strings.
+ *
+ * This function template takes a vector of any type and converts each element to a string.
+ * The conversion is done using a stringstream and the scientific notation is used for the conversion.
+ * The precision of the conversion can be specified as an optional parameter.
+ *
+ * @tparam T The type of the elements in the input vector. This can be any type that can be streamed into a stringstream.
+ * @param inputVector The vector of elements to be converted to strings.
+ * @param precision The precision to be used for the conversion. This is optional and defaults to 19.
+ * @return A vector of strings where each string is the string representation of the corresponding element in the input
+ * vector.
+ *
+ * Example usage:
+ * @code
+ * std::vector<int> intVector = {1, 2, 3};
+ * std::vector<std::string> stringVector = asStringVector(intVector);
+ * @endcode
  */
-template <typename T> static std::vector<std::string> asStringVector(const std::vector<T>& inputVector, const int precision = 19) {
+template <typename T>
+static std::vector<std::string> asStringVector(const std::vector<T>& inputVector, const int precision = 19) {
     std::vector<std::string> stringVector;
     stringVector.reserve(inputVector.size()); // Reserve space for efficiency
 
@@ -126,7 +141,7 @@ template <typename T> static std::vector<std::string> asStringVector(const std::
  * @param data A reference to a map containing the data to be written.
  * @param columns A vector containing the names of the columns.
  */
-static void writeCSV(const std::string &filepath, std::map<std::string, std::vector<std::string>> &data, std::vector<std::string> columns) {
+static void writeCSV(const std::string &filepath, std::map<std::string, std::vector<std::string>> &data, const std::vector<std::string>& columns) {
     if(!isFileWritable(filepath)) {
         std::cerr<<"Error: Unable to write output CSV to path: "<<filepath<<std::endl;
         return;

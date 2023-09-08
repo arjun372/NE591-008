@@ -57,24 +57,38 @@ template <typename InputType> class CommandLine {
 
 public:
 
-    // TODO rewrite
+    /**
+     * @brief Constructor for the CommandLine class.
+     * @param headerInfo A HeaderInfo object containing information about the project.
+     * @param args Command line arguments.
+     * This constructor initializes the CommandLine object with the provided HeaderInfo object and command line arguments.
+     * It also prints the project header.
+     */
     explicit CommandLine(HeaderInfo headerInfo, CommandLineArgs args) {
         cmdArgs = args;
         initialized = false;
         printHeader(headerInfo);
     }
 
+    /**
+     * @brief Default constructor for the CommandLine class.
+     * This constructor initializes the CommandLine object with an empty variables map.
+     */
     explicit CommandLine() {
         variablesMap = boost::program_options::variables_map();
     }
 
+    /**
+    * @brief Destructor for the CommandLine class.
+    * This is a virtual destructor that does nothing.
+    */
     virtual ~CommandLine() = default;
 
     /**
-     * @fn boost::program_options::variables_map &CommandLine::getArguments()
-     * @brief Returns the parsed command line arguments.
-     *
-     * This method returns a reference to the variables map that contains the parsed command line arguments.
+     * @brief Method to get the parsed command line arguments.
+     * @return A reference to the variables map that contains the parsed command line arguments.
+     * This method returns the parsed command line arguments. If the CommandLine object is not initialized,
+     * it calls the initialize method before returning the arguments.
      */
     boost::program_options::variables_map &getArguments() {
         if(!initialized) {
@@ -83,10 +97,21 @@ public:
         return variablesMap;
     }
 
+    /**
+     * @brief Method to get the current precision.
+     * @return The current precision as an integer.
+     * This method returns the current precision of long double values.
+     */
     int getCurrentPrecision() {
         return variablesMap["precision"].as<int>();
     }
 
+    /**
+     * @brief Method to get the inputs.
+     * @return A reference to the inputs.
+     * This method returns the inputs. If the CommandLine object is not initialized,
+     * it calls the initialize method before returning the inputs.
+     */
     InputType &getInputs() {
         if(!initialized) {
             initialize();
@@ -95,9 +120,7 @@ public:
     }
 
     /**
-     * @fn void CommandLine::printLine()
-     * @brief Prints a line to the console.
-     *
+     * @brief Method to print a line to the console.
      * This method prints a line of dashes to the console.
      */
     static void printLine() {
@@ -119,10 +142,10 @@ private:
     InputType inputs = InputType();
 
     /**
-     * @fn boost::program_options::options_description CommandLine::buildGenerics()
-     * @brief Builds a set of generic command line options.
-     *
-     * This method builds a set of generic command line options, such as "help", "quiet", and "precision", and returns them as an options description.
+     * @brief Method to build a set of generic command line options.
+     * @return An options description containing the generic command line options.
+     * This method builds a set of generic command line options, such as "help", "quiet", and "precision",
+     * and returns them as an options description.
      */
     static boost::program_options::options_description buildGenerics() {
         boost::program_options::options_description generics("General options");
@@ -136,9 +159,8 @@ private:
     }
 
     /**
-     * @fn void CommandLine::printHeader(HeaderInfo &headerInfo)
-     * @brief Prints the project header to the console.
-     *
+     * @brief Method to print the project header to the console.
+     * @param headerInfo A reference to a HeaderInfo object containing information about the project.
      * This method prints the project name, project description, student name, and submission date to the console.
      */
     static void printHeader(HeaderInfo &headerInfo) {
@@ -158,9 +180,7 @@ private:
     }
 
     /**
-     * @fn void CommandLine::printPrecisionInformation()
-     * @brief Prints information about the precision of long double values.
-     *
+     * @brief Method to print information about the precision of long double values.
      * This method prints the default, maximum, and current precision of long double values to the console.
      */
     void printPrecisionInformation() {
@@ -171,7 +191,11 @@ private:
         printLine();
     }
 
-
+    /**
+     * @brief Method to initialize the CommandLine object.
+     * This method initializes the CommandLine object by printing the compile configurations and precision information,
+     * and parsing the command line arguments. If the CommandLine object is already initialized, it does nothing.
+     */
     void initialize() {
 
         if(initialized) {
@@ -209,9 +233,7 @@ private:
     }
 
     /**
-     * @fn void CommandLine::printCompileConfigs()
-     * @brief Prints the compile configurations to the console.
-     *
+     * @brief Method to print the compile configurations to the console.
      * This method prints the compiler ID, compiler version, compiler flags, and Boost version and libraries to the
      * console.
      */

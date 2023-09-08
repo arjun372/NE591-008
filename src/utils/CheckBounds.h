@@ -12,10 +12,26 @@
 
 #include "CommandLine.h"
 
-
-static bool isUnfilledDoubleLongVector(boost::program_options::variables_map &values, const std::string &key, const size_t expectedSize) {
+/**
+ * @brief Checks if the vector stored in the boost::program_options::variables_map under the given key is unfilled.
+ *
+ * This function attempts to retrieve a vector of type T from the variables_map using the provided key.
+ * It then checks if the size of the retrieved vector is less than the expected size, indicating that the vector is
+ * unfilled. If any exception occurs during this process (e.g., the key does not exist in the map, or the value
+ * associated with the key is not a vector of type T), the function catches the exception and returns true, indicating
+ * that the vector is considered as unfilled.
+ *
+ * @tparam T The type of the elements in the vector.
+ * @param values The boost::program_options::variables_map from which to retrieve the vector.
+ * @param key The key associated with the vector in the variables_map.
+ * @param expectedSize The expected size of the vector.
+ * @return true if the vector is unfilled (i.e., its size is less than the expected size or an exception occurred),
+ * false otherwise.
+ */
+template <typename T>
+static bool isUnfilledVector(boost::program_options::variables_map &values, const std::string &key, const size_t expectedSize) {
     try {
-        return values[key].as<std::vector<long double>>().size() < expectedSize;
+        return values[key].as<std::vector<T>>().size() < expectedSize;
     } catch (...) {
         return true;
     }

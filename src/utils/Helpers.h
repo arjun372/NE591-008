@@ -23,24 +23,11 @@
  * @note This function uses the boost library's any class to allow for type erasure,
  * meaning the function can accept any type for the new value.
  */
-
 template<class T>
 void replace(std::map<std::string, boost::program_options::variable_value>& vm, const std::string& opt, const T& val)
 {
     vm[opt].value() = boost::any(val);
 }
-
-/**
- * @brief This structure defines a range with a minimum and maximum value.
- *
- * @tparam Generic The type of the minimum and maximum values.
- *
- * @note This structure is a template, meaning it can be used with any type.
- */
-template <typename Generic> struct Bounds {
-    Generic min;
-    Generic max;
-};
 
 /**
  * @brief This function fills a vector with evenly spaced values between a start and end value.
@@ -53,7 +40,8 @@ template <typename Generic> struct Bounds {
  *
  * @note This function uses the std::generate function to generate the values.
  */
-template <typename T> void fill_linspace(std::vector<T> &result, T start, T end, size_t count) {
+template <typename T>
+void fill_linspace(std::vector<T> &result, T start, T end, size_t count) {
     result.reserve(count);
 
     if (count <= 1) {
