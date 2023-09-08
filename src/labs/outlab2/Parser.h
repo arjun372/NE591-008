@@ -120,7 +120,8 @@ protected:
 
                 // Read column x if provided and update the number of points
                 if(dataMap.count("x")) {
-                    replace(map, "x-points", dataMap["x"]);
+                    std::vector<long double> x_vec_inputs = dataMap["x"];
+                    replace(map, "x-points", x_vec_inputs);
                     replace(map, "num-points", static_cast<long double>(dataMap["x"].size()));
                 }
                 // Read column fx if provided

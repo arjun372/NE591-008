@@ -54,6 +54,8 @@ void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> 
         std::cerr << "Error: Unable to open the input CSV: "<<filepath<<std::endl;
         exit(1);
     }
+    std::vector<std::string> columnIndices;
+
     // Read the header row to get column names
     std::string header;
     if (std::getline(inputFile, header)) {
@@ -64,6 +66,7 @@ void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> 
         // Initialize the map with column names as keys
         for (const auto& columnName : headerTokens) {
             data[columnName].clear(); // Clear any existing data for this column
+            columnIndices.push_back(columnName);
         }
 
         // Read and parse the data rows
@@ -72,26 +75,14 @@ void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> 
             // Tokenize the line using boost::tokenizer
             boost::tokenizer<boost::char_separator<char>> tokens(line, separator);
 
-            // Iterate through the tokens and add them to the corresponding column vectors
-            auto columnIter = data.begin();
-            for (const auto& token : tokens) {
-                if (columnIter == data.end()) {
-                    std::cerr << "Error: More columns in data than in the header." << std::endl;
-                    return;
-                }
 
+            size_t idx = 0;
+            for (const auto& token : tokens) {
                 try {
-                    columnIter->second.push_back(boost::lexical_cast<long double>(token));
+                    (data[columnIndices[idx++]]).push_back(boost::lexical_cast<long double>(token));
                 } catch (const boost::bad_lexical_cast& ex) {
                     std::cerr << "Error: Failed to convert to long double: " << ex.what() << std::endl;
                 }
-
-                ++columnIter;
-            }
-
-            if (columnIter != data.end()) {
-                std::cerr << "Error: More columns in the header than in the data." << std::endl;
-                return;
             }
         }
     } else {

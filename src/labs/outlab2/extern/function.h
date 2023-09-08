@@ -2,7 +2,8 @@
  * @file function.h
  * @author Arjun Earthperson
  * @date 09/08/2023
- * @brief !MISSING!
+ * @brief This file contains the declaration of a user-defined function and a function to fill a vector with the values
+ * of the user-defined function for each value in another vector.
  */
 
 #pragma once
@@ -11,14 +12,14 @@
 #include <iostream>
 
 /**
- * @brief A user-defined function that calculates the value of the function f(x) = x^4 - x^3 - x^2 + x + 1.
+ * @brief A user-defined function that calculates the value of the function f(x) = e^(x)
  * @tparam T The type of the input and output. This should be a numeric type (e.g., int, float, double).
  * @param x The input to the function.
  * @return The value of the function at the input x.
  */
 template <typename T>
 [[maybe_unused]] static inline T user_defined_fx(const T x) {
-    const T fx = pow(x,4) - pow(x,3) - pow(x, 2) + x + 1.0f;
+    const T fx = exp(x);
     return fx;
 }
 
