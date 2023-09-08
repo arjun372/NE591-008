@@ -53,12 +53,12 @@ template <typename Generic> struct Bounds {
  *
  * @note This function uses the std::generate function to generate the values.
  */
-template <typename T> void fill_linspace(std::vector<T> result, T start, T end, size_t count) {
+template <typename T> void fill_linspace(std::vector<T> &result, T start, T end, size_t count) {
     result.reserve(count);
 
     if (count <= 1) {
         result.clear();
-        result.push_back(start);
+        result[0] = start;
         return;
     }
 

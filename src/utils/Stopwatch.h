@@ -42,6 +42,7 @@
 using Seconds = std::chrono::seconds;
 using Milliseconds = std::chrono::milliseconds;
 using Microseconds = std::chrono::microseconds;
+using Nanoseconds = std::chrono::nanoseconds;
 
 /**
  * @brief Stopwatch class template for measuring time durations.

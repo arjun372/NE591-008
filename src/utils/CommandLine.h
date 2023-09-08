@@ -83,6 +83,10 @@ public:
         return variablesMap;
     }
 
+    int getCurrentPrecision() {
+        return variablesMap["precision"].as<int>();
+    }
+
     InputType &getInputs() {
         if(!initialized) {
             initialize();

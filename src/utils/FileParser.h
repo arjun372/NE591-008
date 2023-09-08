@@ -107,12 +107,14 @@ template <typename T> void readCSV(const std::string &filepath, std::map<std::st
  * @param inputVector The vector to be converted.
  * @return A vector of strings.
  */
-template <typename T> std::vector<std::string> asStringVector(const std::vector<T>& inputVector) {
+template <typename T> static std::vector<std::string> asStringVector(const std::vector<T>& inputVector, const int precision = 19) {
     std::vector<std::string> stringVector;
     stringVector.reserve(inputVector.size()); // Reserve space for efficiency
 
     for (const T& value : inputVector) {
-        stringVector.push_back(std::to_string(value));
+        std::stringstream ss;
+        ss << std::scientific << std::setprecision(precision) << value;
+        stringVector.push_back(ss.str());
     }
 
     return stringVector;
@@ -124,7 +126,7 @@ template <typename T> std::vector<std::string> asStringVector(const std::vector<
  * @param data A reference to a map containing the data to be written.
  * @param columns A vector containing the names of the columns.
  */
-void writeCSV(const std::string &filepath, std::map<std::string, std::vector<std::string>> &data, std::vector<std::string> columns) {
+static void writeCSV(const std::string &filepath, std::map<std::string, std::vector<std::string>> &data, std::vector<std::string> columns) {
     if(!isFileWritable(filepath)) {
         std::cerr<<"Error: Unable to write output CSV to path: "<<filepath<<std::endl;
         return;

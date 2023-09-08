@@ -29,9 +29,17 @@
         std::cerr<<"Warning: Vectors are of different lengths: size(x): "<<x.size()<<", size(f[x]): "<<fx.size()<<"\n";
     }
 
-    // trivial
-    for(size_t i = 0; i < x.size(); i++) {
-        fx[i] = 2.0f * x[i];
-    }
+//    fx.push_back(5);
+//    fx.push_back(5);
+//    fx.push_back(5);
+//    fx.push_back(5);
+
+
+
+//
+//    // trivial
+//    for(size_t i = 0; i < x.size(); i++) {
+//        fx[i] = 2.0f * x[i];
+//    }
 
 }

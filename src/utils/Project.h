@@ -25,6 +25,10 @@ public:
         timedRun();
     }
 
+    CommandLineParserType getTerminal() const {
+        return terminal;
+    }
+
 private:
     CommandLineArgs cmdArgs{};
     CommandLineParserType terminal;
