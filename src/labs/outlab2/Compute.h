@@ -1,8 +1,8 @@
 /**
  * @file Compute.h
  * @author Arjun Earthperson
- * @date 09/01/2023
- * @brief Compute methods for inlab2 in NE591-008.
+ * @date 09/08/2023
+ * @brief Compute methods for outlab2 in NE591-008.
  */
 
 #pragma once
@@ -13,23 +13,12 @@
 #include "utils/CommandLine.h"
 #include "utils/Stopwatch.h"
 
-/**
- * @brief Fills the Lagrange polynomials for given interpolation points.
- *
- * This function fills the Lagrange polynomials for given interpolation points.
- *
- * @tparam T The type of the elements in the vectors.
- * @param Lxi The vector to store the Lagrange polynomials.
- * @param xi The vector of interpolation points.
- * @param x The vector of x-coordinates.
- * @param fx The vector of function values.
- */
 template <typename T>
 static void fillLagrangePolys(std::vector<T> &Lxi, const std::vector<T> &xi, const std::vector<T> &x, const std::vector<T> &fx) {
-    Lxi.reserve(xi.size());
 
     const size_t n = std::min(x.size(), fx.size());
     const size_t m = std::min(xi.size(), Lxi.size());
+    Lxi.reserve(m);
 
     Stopwatch<Nanoseconds> timer;
     timer.restart();
@@ -38,19 +27,25 @@ static void fillLagrangePolys(std::vector<T> &Lxi, const std::vector<T> &xi, con
         T Px = 0.0f;
         for(size_t j = 0; j < n; j++) {
             T Pjx = fx[j];
-            for (size_t k = 0; k < n; k++) {
+            // go from k -> j-1
+            T Pjx_product1 = 1.0f;
+            for (size_t k = 0; k < j; k++) {
                 T Pjxk = (xi[i] - x[k]) / (x[j] - x[k]);
-                if (k != j) {
-                    Pjx *= Pjxk;
-                }
+                Pjx_product1 *= Pjxk;
             }
-            Px += Pjx;
+            // skip k == j; then, from from k+1 -> n
+            T Pjx_product2 = 1.0f;
+            for (size_t k = j+1; k < n; k++) {
+                T Pjxk = (xi[i] - x[k]) / (x[j] - x[k]);
+                Pjx_product2 *= Pjxk;
+            }
+            Px += (Pjx * Pjx_product1 * Pjx_product2);
         }
         Lxi[i] = Px;
     }
+
     timer.click();
     std::cout << "Computing m=("<<m<<") Lagrange polynomials for n=("<<n<<") took "
-              << (static_cast<long double>(timer.duration().count())) << " ns"<<std::endl
               << (static_cast<long double>(timer.duration().count())) << " ns"<<std::endl;
 }
 
