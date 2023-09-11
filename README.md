@@ -13,7 +13,7 @@ Sources and file paths for each lab follow the following structure:
 │   │   ├── inlab1
 │   │   │   ├── inlab1.cpp       <= Entrypoint main() and run() methods
 │   │   │   ├── Compute.h        <= Core compute logic
-│   │   │   ├── ProcessInputs.h  <= Input processing and error checking 
+│   │   │   ├── Parser.h         <= Input processing and error checking 
 │   │   │   ├── README.md        <= Usage and examples
 │   │   │   ├── ...
 │   │   ├── outlab1
@@ -56,7 +56,7 @@ Currently supported build targets include:
 |:--:|:----------:|:-----------:|
 | 1  | ✅ `inlab1` | ✅ `outlab1` |
 | 2  | ✅ `inlab2` | ✅ `outlab2` |
-| 3  |            |             |
+| 3  | ✅ `inlab3` |             |
 | 4  |            |             |
 | 5  |            |             |
 | 6  |            |             |
