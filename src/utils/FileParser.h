@@ -18,6 +18,7 @@
 #include <memory>
 #include <mutex>
 #include <thread>
+#include "json.hpp"
 
 /**
  * @brief Checks if a file is writable.
@@ -180,4 +181,28 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
     // Close the CSV file
     csvFile.close();
 
+}
+
+
+// TODO:: Document!
+static void writeJSON(const std::string &filepath, nlohmann::json &data) {
+
+    if(!isFileWritable(filepath)) {
+        std::cerr<<"Error: Unable to write output JSON to path: "<<filepath<<std::endl;
+        return;
+    }
+
+    // Open the CSV file for writing
+    std::ofstream jsonFile(filepath);
+
+    // Check if the file was opened successfully
+    if (!jsonFile.is_open()) {
+        std::cerr << "Error opening the output JSON file"<<filepath<< std::endl;
+        return;
+    }
+
+    // Write the JSON data to the file
+    jsonFile << data.dump(4);  // The '4' argument is for pretty formatting with 4 spaces
+
+    std::cout << "JSON data has been written to " << filepath << std::endl;
 }

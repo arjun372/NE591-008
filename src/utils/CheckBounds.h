@@ -122,3 +122,28 @@ static long double asNumber(const std::string &input) {
         throw;
     }
 }
+
+static void toLowerCase(std::string &mixedCaseStr) {
+    for (char& c : mixedCaseStr) {
+        c = std::tolower(c);
+    }
+}
+
+static void stripSpaces(std::string &spaceyStr) {
+    spaceyStr.erase(std::remove_if(spaceyStr.begin(), spaceyStr.end(), ::isspace), spaceyStr.end());
+}
+
+static bool asYesOrNo(std::string &input) {
+    toLowerCase(input);
+    stripSpaces(input);
+    if(input == "y" || input == "yes") {
+        return true;
+    }
+
+    if(input == "n" || input == "no") {
+        return false;
+    }
+
+    std::cerr << "Unknown value, please specify one of: [yes,y,no,n]\n";
+    throw std::exception();
+}

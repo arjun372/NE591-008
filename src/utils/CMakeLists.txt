@@ -6,6 +6,7 @@ set(UTILS_LIB_SOURCES
         Profiler.h
         Project.h
         FileParser.h
+        json.hpp
     )
 
 # Create utils
