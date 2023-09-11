@@ -1,55 +1,14 @@
+/**
+ * @file Parser.h
+ * @author Arjun Earthperson
+ * @date 09/08/2023
+ * @brief This file contains the Parser class which is responsible for parsing command line arguments and validating
+ * user inputs.
+ */
 
 #pragma once
 
-enum IntegrationRule {
-    RULE_NONE,
-    RULE_COMPOSITE_TRAPEZOIDAL,
-    RULE_COMPOSITE_SIMPSONS,
-    RULE_GAUSSIAN_QUADRATURE,
-};
-
-const char* ruleKey(IntegrationRule value) {
-    static const char* IntegrationRuleKeys[] = {
-            "none",
-            "trapezoidal",
-            "simpsons",
-            "gaussian"
-    };
-    return IntegrationRuleKeys[static_cast<int>(value)];
-}
-
-
-typedef struct Input {
-    long double a = 0;
-    long double b = 0;
-    size_t m = -1;
-    bool flip_integral = false;
-    std::set<IntegrationRule> integral_types = { RULE_NONE };
-
-    void toJSON(nlohmann::json &jsonMap) {
-        jsonMap["a"] = a;
-        jsonMap["b"] = b;
-        jsonMap["m"] = m;
-        jsonMap["rules"] = [this]() -> std::vector<std::string> {
-            std::vector<std::string> result;
-            std::transform(integral_types.begin(), integral_types.end(), std::back_inserter(result), [](IntegrationRule rule) {
-                return ruleKey(rule);
-            });
-            return result;
-        }();
-    }
-} NewtonCotesInputs;
-
-typedef struct Output {
-    long double h;
-    long double integral;
-    void toJSON(nlohmann::json &jsonMap) {
-        jsonMap["h"] = h;
-        jsonMap["integral"] = integral;
-    }
-} NewtonCotesOutputs;
-
-typedef std::map<std::string, std::string> Dictionary;
+#include "InputsOutputs.h"
 
 class Parser : public CommandLine<NewtonCotesInputs> {
 
@@ -106,8 +65,6 @@ protected:
         CommandLine::printLine();
     }
 
-    // flip the interval if a>b
-    // if a==b, trivially 0
     /**
      * @brief This function performs checks on the input parameters and prompts the user to enter valid inputs if the
      * current inputs are invalid.
@@ -215,7 +172,16 @@ protected:
         }
     }
 
-    //TODO:: document
+    /**
+     * @brief Builds the NewtonCotesInputs object with the provided values from the command line
+     *
+     * This function takes the values provided by the user through the command line and
+     * populates the NewtonCotesInputs object accordingly. It also handles the case where
+     * the start value is greater than the stop value by flipping the interval.
+     *
+     * @param inputs Reference to the NewtonCotesInputs object to be populated
+     * @param values Reference to the boost::program_options::variables_map containing the command line values
+     */
     void buildInputs(NewtonCotesInputs &inputs, boost::program_options::variables_map &values) override {
         inputs.a = static_cast<long double>(values["start"].as<long double>());
         inputs.b = static_cast<long double>(values["stop"].as<long double>());

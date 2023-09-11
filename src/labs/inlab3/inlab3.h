@@ -22,15 +22,31 @@
 
 #include "Parser.h"
 #include "Compute.h"
+#include "InputsOutputs.h"
 #include "utils/json.hpp"
 
+/**
+ * @class InLab3
+ * @brief A class for performing numerical integration using Composite Newton-Cotes Formulas
+ *
+ * This class is derived from the Project class and implements the numerical integration
+ * using Composite Newton-Cotes Formulas. It takes command line arguments, parses the inputs,
+ * performs the integration, and outputs the results.
+ */
 class InLab3 : public Project<NewtonCotesInputs, Parser, Dictionary> {
 
 public:
+    /**
+     * @brief Constructor for the InLab3 class
+     * @param args Command line arguments
+     */
     explicit InLab3(CommandLineArgs args) : Project(args) {}
 
 protected:
-
+    /**
+     * @brief Builds the header information for the project
+     * @return HeaderInfo object containing project information
+     */
     HeaderInfo buildHeaderInfo() override {
         return {
                 .ProjectName = "InLab 03",
@@ -40,7 +56,12 @@ protected:
         };
     }
 
-    //TODO:: document
+    /**
+     * @brief Runs the numerical integration using Composite Newton-Cotes Formulas
+     * @param outputs Dictionary object to store the outputs
+     * @param inputs NewtonCotesInputs object containing the parsed inputs
+     * @param values Boost program_options variables_map containing command line arguments
+     */
     void run(Dictionary &outputs, NewtonCotesInputs &inputs, boost::program_options::variables_map &values) override {
 
         // declare the JSON object and file
@@ -85,9 +106,9 @@ protected:
             NewtonCotesOutputs output3;
             fillUsingGaussianQuadratures(output3, inputs);
             computeOutputs.push_back(output3);
-            nlohmann::json json3;
-            output3.toJSON(json3);
-            outputsJSON[ruleKey(RULE_GAUSSIAN_QUADRATURE)] = json3;
+            //nlohmann::json json3;
+            //output3.toJSON(json3);
+            //outputsJSON[ruleKey(RULE_GAUSSIAN_QUADRATURE)] = json3;
             Parser::printLine();
         }
 

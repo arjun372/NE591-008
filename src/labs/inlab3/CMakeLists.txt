@@ -5,6 +5,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(LIB_SRC inlab3.h
             Compute.h
             Parser.h
+            InputsOutputs.h
             ../../utils/CommandLine.h
             ../../utils/CheckBounds.h
             ../../utils/Helpers.h
@@ -19,9 +20,3 @@ target_link_libraries(lib_inlab3 ${LINK_LIBS})
 
 add_executable(inlab3 main.cpp ${LIB_SRC})
 target_link_libraries(inlab3 lib_inlab3)
-
-if(BUILD_TESTS)
-    add_subdirectory(tests)
-endif()
-
-add_subdirectory(inputs)

@@ -12,8 +12,16 @@
 
 #include "utils/CommandLine.h"
 #include "utils/Stopwatch.h"
+#include "InputsOutputs.h"
 
-
+/**
+ * @brief Computes the Lagrange polynomial for a given interpolation point xi.
+ * @tparam T The data type of the elements in the vectors.
+ * @param xi The interpolation point.
+ * @param x A vector containing the x-coordinates of the data points.
+ * @param fx A vector containing the y-coordinates (function values) of the data points.
+ * @return The value of the Lagrange polynomial at the interpolation point xi.
+ */
 template <typename T>
 static T getLagrangePoly(const T xi, const std::vector<T> &x, const std::vector<T> &fx) {
     T Px = 0.0f;
@@ -86,38 +94,23 @@ static void fillInterpolationError(std::vector<T> &IEx, const std::vector<T> &Lx
     );
 }
 
-//template <typename T>
-//T trapezoidalRule(const T a, const T b, const size_t n, const std::vector<T> &x, const std::vector<T> &fx) {
-//    T h = (b - a) / n;
-//    T s = getLagrangePoly(a, x, fx) + getLagrangePoly(b, x, fx);
-//    for (size_t i = 1; i < n; i++) {
-//        s += 2 * getLagrangePoly(a + i * h, x, fx);
-//    }
-//    return (h / 2) * s;
-//}
-
-//long double trapezoidalRule(double a, double b, size_t n) {
-//    long double h = (b - a) / (n);
-//    double s = user_defined_fx(a) + user_defined_fx(b);
-//
-//    for (size_t i = 1; i < n; i++) {
-//        s += 2 * user_defined_fx(a + i * h);
-//    }
-//
-//    return (h / 2) * s;
-//}
-
-// TODO:: Document!
+/**
+ * @brief This function computes the integral of a user-defined function using the trapezoidal rule.
+ * @param outputs A reference to a NewtonCotesOutputs object to store the computed integral and step size.
+ * @param inputs A constant reference to a NewtonCotesInputs object containing the input parameters for the trapezoidal rule.
+ * @return The computed integral value as a long double.
+ * @note The function also prints the time taken to compute the integral.
+ */
 static long double fillUsingTrapezoidal(NewtonCotesOutputs &outputs, const NewtonCotesInputs &inputs) {
-
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
 
     //setup
     const size_t m = inputs.m;
     const long double b = inputs.b;
     const long double a = inputs.a;
     const long double h = (b - a) / m;
+
+    Stopwatch<Nanoseconds> timer;
+    timer.restart();
 
     //long double h = (b - a) / (n);
     long double compositeIntegral = user_defined_fx(a) + user_defined_fx(b);
@@ -141,7 +134,13 @@ static long double fillUsingTrapezoidal(NewtonCotesOutputs &outputs, const Newto
     return outputs.integral;
 }
 
-// TODO:: Document!
+/**
+ * @brief This function computes the integral of a user-defined function using Simpson's rule.
+ * @param outputs A reference to a NewtonCotesOutputs object to store the computed integral and step size.
+ * @param inputs A constant reference to a NewtonCotesInputs object containing the input parameters for Simpson's rule.
+ * @return The computed integral value as a long double.
+ * @note The function also prints the time taken to compute the integral.
+ */
 static long double fillUsingSimpsons(NewtonCotesOutputs &outputs, const NewtonCotesInputs &inputs) {
 
     const size_t m = inputs.m;
@@ -176,7 +175,13 @@ static long double fillUsingSimpsons(NewtonCotesOutputs &outputs, const NewtonCo
     return outputs.integral;
 }
 
-// TODO:: Document!
+/**
+ * @brief This function computes the integral of a user-defined function using Gaussian quadrature.
+ * @param outputs A reference to a NewtonCotesOutputs object to store the computed integral and step size.
+ * @param inputs A constant reference to a NewtonCotesInputs object containing the input parameters for Gaussian quadrature.
+ * @return The computed integral value as a long double.
+ * @note The function is not implemented yet and will print a message indicating that it is not available.
+ */
 static long double fillUsingGaussianQuadratures(NewtonCotesOutputs &outputs, const NewtonCotesInputs &inputs) {
     std::cout << "\tGauss-Legendre Quadrature not available yet."<<std::endl;
 

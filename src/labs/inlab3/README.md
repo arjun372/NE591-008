@@ -1,34 +1,30 @@
-# InLab 03: Integrals using Composite Newton-Cotes Formula
+# InLab 03: Numerical Integration using Composite Newton-Cotes Formula
 
-
-
-File based I/O is supported using CSV (comma separated values) files.
+Supports numerical integration using the composite trapezoidal and simpson's rules. 
+File based I/O is supported using JSON files.
 
 ## Table of Contents
-
-- [InLab 02: I/O Setup for Lagrange Interpolation Polynomials](#inlab-02-io-setup-for-lagrange-interpolation-polynomials)
-    - [Building & Usage](#building--usage)
-        - [Options](#options)
-        - [General options](#general-options)
-    - [Implementing your own `f(x)`](#implementing-your-own-fx)
-    - [File I/O](#file-io)
-    - [Input Format](#input-format)
-    - [Output Format](#output-format)
-        - [Sample Outputs File](#sample-outputs-file)
-    - [Example](#example)
+1. [InLab 03: Numerical Integration using Composite Newton-Cotes Formula](#inlab-03-numerical-integration-using-composite-newton-cotes-formula)
+2. [Building & Usage](#building--usage)
+    - [Parameters](#parameters)
+    - [General options](#general-options)
+3. [Implementing your own `f(x)`](#implementing-your-own-fx)
+4. [Output Format](#output-format)
+    - [Sample Outputs File](#sample-outputs-file)
+5. [Example](#example)
 
 ## Building & Usage
 
 The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
-configuration except choosing the build target, and optionally the input and output files. Here is a repeatable script 
-to perform the build and run the `inlab2` target executable:
+configuration except choosing the build target, and output file. Here is a repeatable script 
+to perform the build and run the `inlab3` target executable:
 
 ```bash
 # Assuming cwd is the repo root:
 #!/bin/bash
 
 ## Specify the build target
-export BUILD_TARGET=inlab2
+export BUILD_TARGET=inlab3
 
 ## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
@@ -37,143 +33,84 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/inlab2/inputs/sample_input.csv
-export OUTPUT_FILE=./src/labs/inlab2/outputs/sample_output.csv
+export OUTPUT_FILE=./src/labs/inlab3/outputs/sample_output.json
 
 ## Execute
-./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
+./build/bin/$BUILD_TARGET -o $OUTPUT_FILE
 ```
 
-### Options
-- `-n [ --num-points ] arg` (optional): Number of interpolation points n.
-- `-m [ --num-samples ] arg`: Number of Lagrange interpolation evaluation points.
-- `-x [ --x-points ] arg`: Distinct and sorted (x) interpolation points if --input-csv is unset.
-- `-f [ --fx-points ] arg`: f(x=n) points if --use-fx-function and --input-csv are unset.
-- `-i [ --input-csv ] arg`: Path for input CSV file with two columns [x, f(x)].
-- `-o [ --output-csv ] arg`: Path for output CSV file with five columns [i, x, f(x), L(x), E(x)].
-- `-F [ --use-fx-function ]`: Use bundled f(x=n) function.
+### Parameters
 
-### General options:
+- `-a [ --start ] arg`: Starting value `a` for the integration interval `[a,b]`
+- `-b [ --stop ] arg`: Stopping value `b` for the integration interval `[a,b]`
+- `-m [ --num-intervals ] arg`: Number of equal intervals from `[a,b]`
+- `-t [ --use-trapezoidal ] arg (=1)`: Set quadrature rule to the composite trapezoidal method
+- `-s [ --use-simpsons ] arg (=1)`: Set quadrature rule to the composite Simpson's method
+- `-g [ --use-gaussian-quadratures ] arg (=1)`: Use Gaussian quadratures for the quadrature rule
+- `-o [ --output-json ] arg`: Path for the output JSON file
 
-- `-h [ --help ]`: Show this help message.
-- `-q [ --quiet ]`: Reduce verbosity.
-- `-p [ --precision ] arg (=15)`: Number of digits to represent long double.
-- `-P [ --profile ]`: Turn on profiling for performance comparison.
+### General options
+
+- `-h [ --help ]`: Show this help message
+- `-q [ --quiet ]`: Reduce verbosity
+- `-p [ --precision ] arg (=15)`: Number of digits to represent long double
+- `-P [ --profile ]`: Turn on profiling for performance comparison
 
 ## Implementing your own `f(x)`
-When using the `--use-fx-function` flag, the code uses outputs from the `fill_fx` method, located in 
-[extern/function.h](extern/function.h). This code is built as a static library `inlab2_extern` and linked to the 
-`inlab2` target. When modifying this code, no additional compilation steps need to be taken.
+You can modify the `user_defined_fx` method located in [extern/function.h](extern/function.h). This code is built as a 
+static library `inlab3_extern` and linked to the `inlab3` target. After modifying this code, no additional compilation 
+steps need to be taken. For example, the current implementation returns `sin(x)`.
 
 Here is a brief description of the `fx_fill` method:
 ```c++
 /**
- * @brief Fill the `fx` vector, optionally using the values in the `x` vector.
- * @param x The input vector containing `x` values.
- * @param fx The output vector to be filled with `fx` values.
- * @details This function takes an input vector `x` and an output vector `fx`.
- *          It fills the `fx` vector with values.
- *          The `fx` vector is assumed to be initially zeroed out.
- *          The function does not return any value.
- * @note The `x` and `fx` vectors must have the same size.
- * @note The `fx` vector will be modified by this function.
- * @note The `x` vector will not be modified by this function.
+ * @brief A user-defined function that calculates the value of the function f(x) = sin(x)
+ * @tparam T The type of the input and output. This should be a numeric type (e.g., int, float, double).
+ * @param x The input to the function.
+ * @return The value of the function at the input x.
  */
-template <typename T> [[maybe_unused]] void fill_fx(const std::vector<T> &x, std::vector<T> &fx);
+template <typename T>
+[[maybe_unused]] static inline T user_defined_fx(const T x) {
+    const T fx = std::sin(x);
+    return fx;
+}
 ```
-
-## File I/O
-Although data for `x` and `f(x)` can be entered sequentially in interactive mode, it is recommended to use the
-option to read an input CSV file. The code looks for the headers `x`and `f(x)`, so please use them precisely. There is a
-sample input CSV file under [inputs/sample_input.csv](inputs/sample_input.csv).
-
-## Input Format
-
-The input points can be provided in three ways:
-
-1. Using the `-x, --x-points` option: The distinct and sorted `(x)` interpolation points can be directly specified as 
-   command-line arguments. For example:
-    ```shell
-    ./inlab2 -n 4 -x 0.5 1.0 1.5 2.0 -m 100 -o output.csv
-    ```
-
-2. Using the `-i, --input-csv` option: The input points can be read from a CSV file with two columns `[x, f(x)]`. 
-   The path to the CSV file should be provided as a command-line argument. For example:
-    
-   ```shell
-    ./inlab2 -i input.csv -m 100 -o output.csv
-    ```
-   
-    ### Sample Inputs File
-    ```shell
-    $ cat ./sample_input.csv
-    x,f(x)
-    0.8364,1.0411
-    -0.2296,0.7325
-    -1.2275,2.3859
-    -0.7006,0.3934
-    -1.0390,1.1686
-    -0.6570,0.3813
-    -0.1797,0.7948
-    0.0814,1.0743
-    -0.1277,0.8583
-    1.1261,1.0381
-    ```
-   
-3. Using the interactive shell mode, where the will prompt the user to enter the values one by one. For example: 
-    ```shell
-    Enter the number of interpolation points: 2
-    Enter points for the interval x, sorted, and one at a time: 
-    3.2
-    5.6
-    Enter 2 points for f(x) for every x, one at a time: 
-    -1.0
-    0.67
-    --------------------------------------------------------------------------------
-                                         Inputs
-    --------------------------------------------------------------------------------
-                   x                             f(x)
-        +3.200000000000000e+00			-1.000000000000000e+00
-        +5.600000000000000e+00			+6.700000000000000e-01
-    ....
-    ```
 
 ## Output Format
 
-The output is written to a CSV file with five columns `[i, x, f(x), L(x), E(x)]`, where:
-- `i` is the index of the evaluation point
-- `x` is the evaluation point
-- `f(x)` is the actual value at the evaluation point
-- `L(x)` is the interpolated value at the evaluation point
-- `E(x)` is the error between the interpolated value and the actual value
+The output is written to a JSON file. 
 
 ### Sample Outputs File
-* `--use-fx-function` set
-    If the flag `--use-fx-function` is set, the output contains five columns `[i, x, f(x), L(x), E(x)]`.
-    ```shell
-    $ cat ./outputs-with-fx-function.csv 
-    i,x(i),L(x),f(x),E(x),
-    1,0.000000,0.000000,0.000000,
-    2,0.000000,0.000000,0.000000,
-    3,0.000000,0.000000,0.000000,
-    ...
-    ```
-* `--use-fx-function` unset
-  If the flag `--use-fx-function` is not set, the output contains three columns `[i, x, L(x)]`.
-    ```shell
-    $ cat ./outputs-without-fx-function.csv 
-    i,x(i),L(x),
-    1,0.000000,0.000000,
-    2,0.000000,0.000000,
-    3,0.000000,0.000000,
-    ...
-    ```
+```json
+{
+  "inputs": {
+    "a": 0.0,
+    "b": 3.141592653589793,
+    "m": 1000,
+    "rules": [
+      "trapezoidal",
+      "simpsons"
+    ]
+  },
+  "outputs": {
+    "simpsons": {
+      "h": 0.003141592653589793,
+      "integral": 2.0000000000010822
+    },
+    "trapezoidal": {
+      "h": 0.003141592653589793,
+      "integral": 1.9999983550656626
+    }
+  }
+}
+```
 
 ## Example:
 
 The following is an example of the program's output:
 
-```shell
+```
+./bin/inlab3 -o output_test.json -m 1000 -a 0 -b 3.141592653589793 --use-simpsons true
 
                     ███╗   ██╗███████╗      ███████╗ █████╗  ██╗
                     ████╗  ██║██╔════╝      ██╔════╝██╔══██╗███║
@@ -183,60 +120,67 @@ The following is an example of the program's output:
                     ╚═╝  ╚═══╝╚══════╝      ╚══════╝ ╚════╝  ╚═╝
         
 --------------------------------------------------------------------------------
-	InLab 02: I/O Setup for Lagrange Interpolation Polynomials
+	InLab 03: Numerical Integration using Composite Newton-Cotes Formulas
 	Arjun Earthperson
-	09/01/2023
+	09/08/2023
 --------------------------------------------------------------------------------
 Build Configuration
-compiler: GNU 11.4.0
-flags: -Wall;-Wextra;-Werror;-Wnon-virtual-dtor;-Wold-style-cast;-Wsign-compare;-Wmissing-field-initializers;-Wno-unused-function;-march=native;-g;-fPIE
-Boost: 1.74.0Boost::program_options
+compiler: GNU 8.5.0
+flags: -Wall;-Wextra;-Werror;-Wnon-virtual-dtor;-Wold-style-cast;-Wsign-compare;-Wmissing-field-initializers;-Wno-unused-parameter;-Wno-unused-function;-march=native;-g;-fPIE
+Boost: 106600; /usr/lib64/libboost_program_options.so
 --------------------------------------------------------------------------------
-
 Parameters:
-  -n [ --num-points ] arg       = (optional) number of interpolation points n
-  -m [ --num-samples ] arg      = number of Lagrange interpolation evaluation 
-                                points
-  -x [ --x-points ] arg         = distinct and sorted (x) interpolation points 
-                                if --input-csv is unset
-  -f [ --fx-points ] arg        = f(x=n) points if --use-fx-function and 
-                                --input-csv are unset
-  -i [ --input-csv ] arg        = path for input CSV file with two columns [x, 
-                                f(x)]
-  -o [ --output-csv ] arg       = path for output CSV file with five columns 
-                                [i, x, f(x), L(x), E(x)]
-  -F [ --use-fx-function ]      = use bundled f(x=n) function
+  -a [ --start ] arg                    = Starting value a for the integration 
+                                        interval [a,b]
+  -b [ --stop ] arg                     = Stopping value b for the integration 
+                                        interval [a,b]
+  -m [ --num-intervals ] arg            = Number of equal intervals from [a,b]
+  -t [ --use-trapezoidal ] arg (=1)     = Set quadrature rule to the composite 
+                                        trapezoidal method
+  -s [ --use-simpsons ] arg (=1)        = Set quadrature rule to the composite 
+                                        Simpson's method
+  -g [ --use-gaussian-quadratures ] arg (=1)
+                                        = Use Gaussian quadratures for as the 
+                                        quadrature rule
+  -o [ --output-json ] arg              = path for the output JSON file
 
 General options:
-  -h [ --help ]                 = Show this help message
-  -q [ --quiet ]                = Reduce verbosity
-  -p [ --precision ] arg (=15)  = Number of digits to represent long double
-  -P [ --profile ]              = Turn on profiling for performance comparison
+  -h [ --help ]                         = Show this help message
+  -q [ --quiet ]                        = Reduce verbosity
+  -p [ --precision ] arg (=15)          = Number of digits to represent long 
+                                        double
+  -P [ --profile ]                      = Turn on profiling for performance 
+                                        comparison
 
 --------------------------------------------------------------------------------
 Precision in digits:  default: 6, maximum: 19, current: 15
 --------------------------------------------------------------------------------
-Reading from file: /tmp/ne591-008/cmake-build-debug-docker/sample_input.csv
+Would you like to use the trapezoidal rule? [YES/no]: y
+y
+Would you like to use Gaussian quadratures? [YES/no]: y
+y
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
-               x                             f(x)
-	+1.041100000000000e+00			+8.364000000000000e-01
-	+7.325000000000000e-01			-2.296000000000000e-01
-	+2.385900000000000e+00			-1.227500000000000e+00
-	+3.934000000000000e-01			-7.006000000000000e-01
-	+1.168600000000000e+00			-1.039000000000000e+00
-	+3.813000000000000e-01			-6.570000000000000e-01
-	+7.948000000000000e-01			-1.797000000000000e-01
-	+1.074300000000000e+00			+8.140000000000000e-02
-	+8.583000000000000e-01			-1.277000000000000e-01
-	+1.038100000000000e+00			+1.126100000000000e+00
+	Interval Count,            m: 1000
+	Interval Start,            a: 0
+	Interval Stop,             b: 3.14159265358979
+	Output JSON,               o: output_test.json
+	Use Trapezoidal Rule,      t: yes
+	Use Simpson's Rule,        s: yes
+	Use Gaussian Quadratures,  g: yes
 --------------------------------------------------------------------------------
-	num-points,     n: 10
-	num-samples,    m: 1000
-	input-csv,      i: /tmp/ne591-008/cmake-build-debug-docker/sample_input.csv
-	output-csv,     o: /tmp/ne591-008/cmake-build-debug-docker/output2.csv
+                                Outputs
 --------------------------------------------------------------------------------
+Computing integral using trapezoidal rule for m=(1000) intervals took 1378674 ns
+Integral over [a,b] using trapezoidal rule: 1.99999835506566
+--------------------------------------------------------------------------------
+Computing integral using Simpson's rule for m=(1000) intervals took 153407 ns
+Integral over [a,b] using Simpson's rule:   2.00000000000108
+--------------------------------------------------------------------------------
+	Gauss-Legendre Quadrature not available yet.
+--------------------------------------------------------------------------------
+JSON data has been written to output_test.json
 
 Process finished with exit code 0
 ```
