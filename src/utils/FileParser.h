@@ -184,7 +184,16 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
 }
 
 
-// TODO:: Document!
+/**
+ * @brief Writes the given JSON data to a file at the specified file path.
+ *
+ * This function checks if the file is writable and opens it for writing. If the file cannot be opened,
+ * an error message is displayed. The JSON data is then written to the file with pretty formatting
+ * (indented with 4 spaces). A success message is displayed upon successful writing of the JSON data.
+ *
+ * @param filepath The path of the file to write the JSON data to.
+ * @param data The JSON data to be written to the file.
+ */
 static void writeJSON(const std::string &filepath, nlohmann::json &data) {
 
     if(!isFileWritable(filepath)) {

@@ -123,16 +123,37 @@ static long double asNumber(const std::string &input) {
     }
 }
 
+/**
+ * @brief Converts all characters in a given string to lowercase.
+ *
+ * @param mixedCaseStr A reference to the input string with mixed case characters.
+ */
 static void toLowerCase(std::string &mixedCaseStr) {
     for (char& c : mixedCaseStr) {
         c = std::tolower(c);
     }
 }
 
+/**
+ * @brief Removes all spaces from a given string.
+ *
+ * @param spaceyStr A reference to the input string containing spaces.
+ */
 static void stripSpaces(std::string &spaceyStr) {
     spaceyStr.erase(std::remove_if(spaceyStr.begin(), spaceyStr.end(), ::isspace), spaceyStr.end());
 }
 
+/**
+ * @brief Converts a given string to a boolean value based on its content.
+ *
+ * The function accepts "yes", "y", "no", and "n" as valid inputs (case-insensitive).
+ * If the input is not one of these values, an exception is thrown.
+ *
+ * @param input A reference to the input string.
+ * @return true If the input string is "yes" or "y".
+ * @return false If the input string is "no" or "n".
+ * @throws std::exception If the input string is not one of the valid values.
+ */
 static bool asYesOrNo(std::string &input) {
     toLowerCase(input);
     stripSpaces(input);
