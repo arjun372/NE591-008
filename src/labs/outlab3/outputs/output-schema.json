@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "number"
+        },
+        "b": {
+          "type": "number"
+        },
+        "m": {
+          "type": "integer"
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["trapezoidal", "simpsons", "gaussian"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": ["a", "b", "m", "rules"]
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "simpsons": {
+          "type": "object",
+          "properties": {
+            "h": {
+              "type": "number"
+            },
+            "integral": {
+              "type": "number"
+            }
+          },
+          "required": ["h", "integral"]
+        },
+        "trapezoidal": {
+          "type": "object",
+          "properties": {
+            "h": {
+              "type": "number"
+            },
+            "integral": {
+              "type": "number"
+            }
+          },
+          "required": ["h", "integral"]
+        },
+        "gaussian": {
+          "type": "object",
+          "properties": {
+            "h": {
+              "type": "number"
+            },
+            "integral": {
+              "type": "number"
+            }
+          },
+          "required": ["h", "integral"]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "inputs": {
+                "properties": {
+                  "rules": {
+                    "contains": {
+                      "const": "trapezoidal"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": ["trapezoidal"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "inputs": {
+                "properties": {
+                  "rules": {
+                    "contains": {
+                      "const": "simpsons"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": ["simpsons"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "inputs": {
+                "properties": {
+                  "rules": {
+                    "contains": {
+                      "const": "gaussian"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": ["gaussian"]
+          }
+        }
+      ]
+    }
+  },
+  "required": ["inputs", "outputs"]
+}
