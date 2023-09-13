@@ -25,12 +25,13 @@ protected:
    */
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()
-                ("start,a", boost::program_options::value<long double>(), "= Starting value a for the integration interval [a,b]")
-                ("stop,b", boost::program_options::value<long double>(), "= Stopping value b for the integration interval [a,b]")
-                ("num-intervals,m", boost::program_options::value<long double>(), "= Number of equal intervals from [a,b]")
+                ("start,a", boost::program_options::value<long double>(), "= Starting value (a) for the integration interval [a,b]")
+                ("stop,b", boost::program_options::value<long double>(), "= Stopping value (b) for the integration interval [a,b]")
+                ("num-intervals,m", boost::program_options::value<long double>(), "= Number of equal intervals (m) from [a,b]")
                 ("use-trapezoidal,t", boost::program_options::value<bool>()->default_value(true), "= Set quadrature rule to the composite trapezoidal method")
                 ("use-simpsons,s", boost::program_options::value<bool>()->default_value(true), "= Set quadrature rule to the composite Simpson's method")
-                ("use-gaussian-quadratures,g", boost::program_options::value<bool>()->default_value(true), "= Use Gaussian quadratures for as the quadrature rule")
+                ("use-gaussian-quadratures,g", boost::program_options::value<bool>()->default_value(true), "= Set quadrature rule to Gauss-Legendre Quadrature method")
+                ("num-quadrature-points,n", boost::program_options::value<long double>(), "= Number of (n) Gauss-Legendre Quadrature points")
                 ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON file");
     }
 
@@ -162,14 +163,31 @@ protected:
         bool gaussian_set = !map["use-gaussian-quadratures"].defaulted();
         while(!gaussian_set) {
             try {
-                std::cout<<"Would you like to use Gaussian quadratures? [YES/no]: ";
+                std::cout<<"Would you like to use Gauss-Legendre Quadrature? [YES/no]: ";
                 std::cin >> input;
-                replace(map, "use-gaussian-quadratures", asYesOrNo(input));
+                const bool useGaussian = asYesOrNo(input);
+                replace(map, "use-gaussian-quadratures", useGaussian);
                 gaussian_set = true;
+
+                if (!useGaussian) {
+                    continue;
+                }
+
+                while (map["num-quadrature-points"].empty() || failsNaturalNumberCheck(map["num-quadrature-points"].as<long double>())) {
+                    std::cout<<"Enter the number of Gauss-Legendre Quadrature points: ";
+                    std::cin >> input;
+                    try {
+                        replace(map, "num-quadrature-points", asNumber(input));
+                    } catch (const std::exception &) {
+                        continue;
+                    }
+                }
             } catch (const std::exception &) {
                 continue;
             }
         }
+
+
     }
 
     /**
@@ -194,6 +212,7 @@ protected:
         }
 
         inputs.m = static_cast<size_t>(values["num-intervals"].as<long double>());
+        inputs.n = !values["num-quadrature-points"].empty() ? static_cast<size_t>(values["num-quadrature-points"].as<long double>()) : 0;
 
         inputs.integral_types = {};
         if(values["use-trapezoidal"].as<bool>()) {

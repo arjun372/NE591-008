@@ -49,9 +49,9 @@ protected:
      */
     HeaderInfo buildHeaderInfo() override {
         return {
-                .ProjectName = "InLab 03",
-                .ProjectDescription = "Numerical Integration using Composite Newton-Cotes Formulas",
-                .SubmissionDate = "09/08/2023",
+                .ProjectName = "OutLab 03",
+                .ProjectDescription = "Numerical Integration using Composite Newton-Cotes & Gauss-Legendre Quadrature",
+                .SubmissionDate = "09/15/2023",
                 .StudentName = "Arjun Earthperson",
         };
     }
@@ -73,7 +73,6 @@ protected:
         JSONFile["inputs"] = inputsJSON;
 
         nlohmann::json outputsJSON;
-        std::vector<NewtonCotesOutputs> computeOutputs;
 
 
         const auto precision = values["precision"].as<int>();
@@ -83,7 +82,6 @@ protected:
         if (inputs.integral_types.count(RULE_COMPOSITE_TRAPEZOIDAL)) {
             NewtonCotesOutputs output1;
             fillUsingTrapezoidal(output1, inputs);
-            computeOutputs.push_back(output1);
             nlohmann::json json1;
             output1.toJSON(json1);
             outputsJSON[ruleKey(RULE_COMPOSITE_TRAPEZOIDAL)] = json1;
@@ -94,7 +92,6 @@ protected:
         if (inputs.integral_types.count(RULE_COMPOSITE_SIMPSONS)) {
             NewtonCotesOutputs output2;
             fillUsingSimpsons(output2, inputs);
-            computeOutputs.push_back(output2);
             nlohmann::json json2;
             output2.toJSON(json2);
             outputsJSON[ruleKey(RULE_COMPOSITE_SIMPSONS)] = json2;
@@ -103,12 +100,12 @@ protected:
         }
 
         if (inputs.integral_types.count(RULE_GAUSSIAN_QUADRATURE)) {
-            NewtonCotesOutputs output3;
+            GaussLegendreOutputs output3;
             fillUsingGaussianQuadratures(output3, inputs);
-            computeOutputs.push_back(output3);
-            //nlohmann::json json3;
-            //output3.toJSON(json3);
-            //outputsJSON[ruleKey(RULE_GAUSSIAN_QUADRATURE)] = json3;
+            nlohmann::json json3;
+            output3.toJSON(json3);
+            outputsJSON[ruleKey(RULE_GAUSSIAN_QUADRATURE)] = json3;
+            std::cout << "Integral over [a,b] using Gauss-Legendre Quadrature:   "<<std::setprecision(precision)<<output3.integral<<std::endl;
             Parser::printLine();
         }
 

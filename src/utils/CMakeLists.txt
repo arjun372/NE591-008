@@ -7,7 +7,8 @@ set(UTILS_LIB_SOURCES
         Project.h
         FileParser.h
         json.hpp
-    )
+        MathLibrary.h
+)
 
 # Create utils
 add_library(utils STATIC ${UTILS_LIB_SOURCES})

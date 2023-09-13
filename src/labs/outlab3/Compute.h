@@ -116,8 +116,10 @@ static long double fillUsingTrapezoidal(NewtonCotesOutputs &outputs, const Newto
     long double compositeIntegral = user_defined_fx(a) + user_defined_fx(b);
 
     for (size_t i = 1; i < m; i++) {
-        compositeIntegral += 2 * user_defined_fx(a + i * h);
+        compositeIntegral += 2.0f * user_defined_fx(a + i * h);
     }
+
+    const long double integral = (h / 2.0f) * compositeIntegral;
 
     timer.click();
     std::cout << "Computing integral using trapezoidal rule for m=("<<m<<") intervals took "
@@ -125,7 +127,7 @@ static long double fillUsingTrapezoidal(NewtonCotesOutputs &outputs, const Newto
 
     // finally, update the output values
     outputs.h = h;
-    outputs.integral = (h / 2.0) * compositeIntegral;
+    outputs.integral = integral;
 
     if (inputs.flip_integral) {
         outputs.integral = -outputs.integral;
@@ -161,12 +163,14 @@ static long double fillUsingSimpsons(NewtonCotesOutputs &outputs, const NewtonCo
         sum += 2.0f * user_defined_fx(a + i * h);
     }
 
+    const long double integral = h * sum / 3.0f;
+
     timer.click();
     std::cout << "Computing integral using Simpson's rule for m=("<<m<<") intervals took "
               << (static_cast<long double>(timer.duration().count())) << " ns"<<std::endl;
 
     outputs.h = h;
-    outputs.integral = h * sum / 3.0f;
+    outputs.integral = integral;
 
     if (inputs.flip_integral) {
         outputs.integral = -outputs.integral;
@@ -175,15 +179,29 @@ static long double fillUsingSimpsons(NewtonCotesOutputs &outputs, const NewtonCo
     return outputs.integral;
 }
 
-/**
- * @brief This function computes the integral of a user-defined function using Gaussian quadrature.
- * @param outputs A reference to a NewtonCotesOutputs object to store the computed integral and step size.
- * @param inputs A constant reference to a NewtonCotesInputs object containing the input parameters for Gaussian quadrature.
- * @return The computed integral value as a long double.
- * @note The function is not implemented yet and will print a message indicating that it is not available.
- */
-static long double fillUsingGaussianQuadratures(NewtonCotesOutputs &outputs, const NewtonCotesInputs &inputs) {
-    std::cout << "\tGauss-Legendre Quadrature not available yet."<<std::endl;
+// TODO:: Document
+static long double fillUsingGaussianQuadratures(GaussLegendreOutputs &outputs, const NewtonCotesInputs &inputs) {
+
+    const size_t m = inputs.m;
+//    const long double b = inputs.b;
+//    const long double a = inputs.a;
+
+    Stopwatch<Nanoseconds> timer;
+    timer.restart();
+
+    // TODO:: IMPLEMENT
+
+    timer.click();
+    std::cout << "Computing integral using Gauss-Legendre Quadrature for m=("<<m<<") intervals took "
+              << (static_cast<long double>(timer.duration().count())) << " ns"<<std::endl;
+
+    outputs.integral = 0.0f;
+
+    outputs.weights = std::vector<long double>();
+    outputs.weights.push_back(0.0f);
+
+    outputs.quadrature_points = std::vector<long double>();
+    outputs.quadrature_points.push_back(0.0f);
 
     if (inputs.flip_integral) {
         outputs.integral = -outputs.integral;
