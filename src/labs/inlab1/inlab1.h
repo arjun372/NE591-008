@@ -42,6 +42,16 @@ protected:
                 .ProjectDescription = "Iterative Taylor series approximation of sin(x)",
                 .SubmissionDate = "08/30/2023",
                 .StudentName = "Arjun Earthperson",
+                .HeaderArt = R"(
+                                       .-'~~~-.
+                                     .'o  oOOOo`.
+                                    :~~~-.oOo   o`.
+                                     `. \ ~-.  oOOo.
+                                       `.; / ~.  OO:
+                                       .'  ;-- `.o.'
+                                      ,'  ; ~~--'~
+                                      ;  ;
+_____________________\|/__________\\;_\\//___\|/_______________________________)",
         };
     }
 

@@ -27,6 +27,7 @@ typedef struct  {
     std::string ProjectDescription;
     std::string SubmissionDate;
     std::string StudentName;
+    std::string HeaderArt;
 } HeaderInfo;
 
 struct CommandLineArgs {
@@ -164,18 +165,21 @@ private:
      * This method prints the project name, project description, student name, and submission date to the console.
      */
     static void printHeader(HeaderInfo &headerInfo) {
-        std::cout << R"(
+        if(!headerInfo.HeaderArt.empty()) {
+            std::cout << headerInfo.HeaderArt<<std::endl;
+        } else {
+            std::cout << R"(
                     ███╗   ██╗███████╗      ███████╗ █████╗  ██╗
                     ████╗  ██║██╔════╝      ██╔════╝██╔══██╗███║
                     ██╔██╗ ██║█████╗  █████╗███████╗╚██████║╚██║
                     ██║╚██╗██║██╔══╝  ╚════╝╚════██║ ╚═══██║ ██║
                     ██║ ╚████║███████╗      ███████║ █████╔╝ ██║
                     ╚═╝  ╚═══╝╚══════╝      ╚══════╝ ╚════╝  ╚═╝
-        )" << "\n";
-        printLine();
-        std::cout << "\t" << headerInfo.ProjectName << ": " << headerInfo.ProjectDescription << "\n";
-        std::cout << "\t" << headerInfo.StudentName << "\n";
-        std::cout << "\t" << headerInfo.SubmissionDate << "\n";
+        )" << std::endl;
+        }
+        std::cout << "\t" << headerInfo.ProjectName << ": " << headerInfo.ProjectDescription << std::endl;
+        std::cout << "\t" <<  headerInfo.StudentName << std::endl;
+        std::cout << "\t" <<  headerInfo.SubmissionDate << std::endl;
         printLine();
     }
 
@@ -238,10 +242,8 @@ private:
      * console.
      */
     static void printCompileConfigs() {
-        std::cout<<"Build Configuration\n";
-        std::cout<<"compiler: "<<CXX_COMPILER_ID<<" "<<CXX_COMPILER_VERSION<<"\n";
-        std::cout<<"flags: "<<CXX_FLAGS<<"\n";
-        std::cout<<"Boost: "<<Boost_VERSION<<"; "<<Boost_LIBRARIES<<"\n";
+        std::cout<<"\tcompiler: "<<CXX_COMPILER_ID<<" "<<CXX_COMPILER_VERSION;
+        std::cout<<", boost: "<<Boost_VERSION<<" "<<Boost_LIBRARIES<<"\n";
         printLine();
     }
 };

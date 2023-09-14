@@ -53,6 +53,30 @@ protected:
                 .ProjectDescription = "Numerical Integration using Composite Newton-Cotes Formulas",
                 .SubmissionDate = "09/08/2023",
                 .StudentName = "Arjun Earthperson",
+                .HeaderArt = R"(
+                    .                                            .
+         *   .                  .              .        .   *          .
+      .         .                     .       .           .      .        .
+            o                             .                   .
+             .              .                  .           .
+              0     .
+                     .          .                 ,                ,    ,
+     .          \          .                         .
+          .      \   ,
+       .          o     .                 .                   .            .
+         .         \                 ,             .                .
+                   #\##\#      .                              .        .
+                 #  #O##\###                .                        .
+       .        #*#  #\##\###                       .                     ,
+            .   ##*#  #\##\##               .                     .
+          .      ##*#  #o##\#         .                             ,       .
+              .     *#  #\#     .                    .             .          ,
+                          \          .                         .
+    ____^/\___^--____/\____O______________/\/\---/\___________---______________
+       /\^   ^  ^    ^                  ^^ ^  '\ ^          ^       ---
+             --           -            --  -      -         ---  __       ^
+       --  __                      ___--  ^  ^                         --  __
+)",
         };
     }
 

@@ -25,6 +25,19 @@ protected:
                 .ProjectDescription = "Lagrange Interpolating Polynomials - the fun parts",
                 .SubmissionDate = "09/08/2023",
                 .StudentName = "Arjun Earthperson",
+                .HeaderArt = R"(
+                       ,,                               .-.
+                      || |                               ) )
+                      || |   ,                          '-'
+                      || |  | |
+                      || '--' |
+                ,,    || .----'
+               || |   || |
+               |  '---'| |
+               '------.| |                                  _____
+               ((_))  || |      (  _                       / /|\ \
+               (o o)  || |      ))("),                    | | | | |
+            ____\_/___||_|_____((__^_))____________________\_\|/_/__ldb)"
         };
     }
 

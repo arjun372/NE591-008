@@ -39,6 +39,31 @@ protected:
                 .ProjectDescription = "I/O Setup for Lagrange Interpolating Polynomials",
                 .SubmissionDate = "09/01/2023",
                 .StudentName = "Arjun Earthperson",
+                .HeaderArt = R"(
+         @\_______/@
+        @|XXXXXXXX |
+       @ |X||    X |
+      @  |X||    X |
+     @   |XXXXXXXX |
+    @    |X||    X |             V
+   @     |X||   .X |
+  @      |X||.  .X |                      V
+ @      |%XXXXXXXX%||
+@       |X||  . . X||
+        |X||   .. X||                               @     @
+        |X||  .   X||.                              ||====%
+        |X|| .    X|| .                             ||    %
+        |X||.     X||   .                           ||====%
+       |XXXXXXXXXXXX||     .                        ||    %
+       |XXXXXXXXXXXX||         .                 .  ||====% .
+       |XX|        X||                .        .    ||    %  .
+       |XX|        X||                   .          ||====%   .
+       |XX|        X||              .          .    ||    %     .
+       |XX|======= X||============================+ || .. %  ........
+===== /            X||                              ||    %
+                   X||           /)                 ||    %
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+)",
         };
     }
 
@@ -59,9 +84,6 @@ protected:
      * Finally, it writes the output map to a CSV file specified by the "output-csv" command line argument.
      */
     void run(Dictionary &outputs, Input &inputs, boost::program_options::variables_map &values) override {
-
-        //build an output map
-        // std::map<std::string, std::vector<std::string>> outputs;
 
         // create indices 1 -> m
         std::vector<size_t> indexVector(inputs.m);

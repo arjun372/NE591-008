@@ -50,9 +50,19 @@ protected:
     HeaderInfo buildHeaderInfo() override {
         return {
                 .ProjectName = "OutLab 03",
-                .ProjectDescription = "Numerical Integration using Composite Newton-Cotes & Gauss-Legendre Quadrature",
+                .ProjectDescription = "Numerical Integration using Newton-Cotes & Gauss-Legendre",
                 .SubmissionDate = "09/15/2023",
                 .StudentName = "Arjun Earthperson",
+                .HeaderArt = R"(
+                            _
+                          _(_)_                          wWWWw   _
+              @@@@       (_)@(_)   vVVVv     _     @@@@  (___) _(_)_
+             @@()@@ wWWWw  (_)\    (___)   _(_)_  @@()@@   Y  (_)@(_)
+              @@@@  (___)     `|/    Y    (_)@(_)  @@@@   \|/   (_)\
+               /      Y       \|    \|/    /(_)    \|      |/      |
+            \ |     \ |/       | / \ | /  \|/       |/    \|      \|/
+        jgs \\|//   \\|///  \\\|//\\\|/// \|///  \\\|//  \\|//  \\\|//
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^)",
         };
     }
 
