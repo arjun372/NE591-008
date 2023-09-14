@@ -188,7 +188,7 @@ private:
      * This method prints the default, maximum, and current precision of long double values to the console.
      */
     void printPrecisionInformation() {
-        std::cout << "Precision in digits:  ";
+        std::cout << "\t\t\tPrecision in digits:  ";
         std::cout << "default: " << default_precision <<", ";
         std::cout << "maximum: " << max_precision <<", ";
         std::cout << "current: " << variablesMap["precision"].as<int>()<<"\n";
