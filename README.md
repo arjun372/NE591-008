@@ -56,7 +56,7 @@ Currently supported build targets include:
 |:--:|:----------:|:-----------:|
 | 1  | ✅ `inlab1` | ✅ `outlab1` |
 | 2  | ✅ `inlab2` | ✅ `outlab2` |
-| 3  | ✅ `inlab3` |             |
+| 3  | ✅ `inlab3` | ✅ `outlab3` |
 | 4  |            |             |
 | 5  |            |             |
 | 6  |            |             |
