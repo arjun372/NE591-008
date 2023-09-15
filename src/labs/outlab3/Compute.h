@@ -113,25 +113,31 @@ static long double fillUsingTrapezoidal(NewtonCotesOutputs &outputs, const Newto
     const long double a = inputs.a;
     const long double h = (b - a) / m;
 
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
+    long double totalTime = 0.0f;
+    for (size_t runs = 0; runs < 1000; runs++) {
 
-    //long double h = (b - a) / (n);
-    long double compositeIntegral = user_defined_fx(a) + user_defined_fx(b);
+        Stopwatch<Nanoseconds> timer;
+        timer.restart();
 
-    for (size_t i = 1; i < m; i++) {
-        compositeIntegral += 2.0f * user_defined_fx(a + i * h);
+        //long double h = (b - a) / (n);
+        long double compositeIntegral = user_defined_fx(a) + user_defined_fx(b);
+
+        for (size_t i = 1; i < m; i++) {
+            compositeIntegral += 2.0f * user_defined_fx(a + i * h);
+        }
+
+        const long double integral = (h / 2.0f) * compositeIntegral;
+
+        timer.click();
+
+        // finally, update the output values
+        outputs.h = h;
+        outputs.integral = integral;
+        totalTime += static_cast<long double>(timer.duration().count());
     }
 
-    const long double integral = (h / 2.0f) * compositeIntegral;
-
-    timer.click();
-    std::cout << "Computing integral using trapezoidal rule for m=("<<m<<") intervals took "
-              << (static_cast<long double>(timer.duration().count())) << " ns"<<std::endl;
-
-    // finally, update the output values
-    outputs.h = h;
-    outputs.integral = integral;
+    std::cout << "Computing 1000 integrals using trapezoidal rule for m=("<<m<<") intervals took "
+            << (totalTime) << " ns, avg: "<<(totalTime)/1000.f<<std::endl;
 
     if (inputs.flip_integral) {
         outputs.integral = -outputs.integral;
@@ -154,27 +160,36 @@ static long double fillUsingSimpsons(NewtonCotesOutputs &outputs, const NewtonCo
     const long double a = inputs.a;
     const long double h = (b - a) / m;
 
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
+    long double totalTime = 0.0f;
+    for (size_t runs = 0; runs < 1000; runs++) {
 
-    long double sum = user_defined_fx(a) + user_defined_fx(b);
+        Stopwatch<Nanoseconds> timer;
+        timer.restart();
 
-    for (size_t i = 1; i < m; i += 2) {
-        sum += 4.0f * user_defined_fx(a + i * h);
+        long double sum = user_defined_fx(a) + user_defined_fx(b);
+
+        for (size_t i = 1; i < m; i += 2) {
+            sum += 4.0f * user_defined_fx(a + i * h);
+        }
+
+        for (size_t i = 2; i < m - 1; i += 2) {
+            sum += 2.0f * user_defined_fx(a + i * h);
+        }
+
+        const long double integral = h * sum / 3.0f;
+
+        timer.click();
+
+        outputs.h = h;
+        outputs.integral = integral;
+        totalTime += static_cast<long double>(timer.duration().count());
     }
 
-    for (size_t i = 2; i < m - 1; i += 2) {
-        sum += 2.0f * user_defined_fx(a + i * h);
-    }
+    std::cout << "Computing 1000 integrals using trapezoidal rule for m=("<<m<<") intervals took "
+              << (totalTime) << " ns, avg: "<<(totalTime)/1000.f<<std::endl;
 
-    const long double integral = h * sum / 3.0f;
-
-    timer.click();
-    std::cout << "Computing integral using Simpson's rule for m=("<<m<<") intervals took "
-              << (static_cast<long double>(timer.duration().count())) << " ns"<<std::endl;
-
-    outputs.h = h;
-    outputs.integral = integral;
+    std::cout << "Computing 1000 integrals using Simpson's rule for m=("<<m<<") intervals took "
+              << (totalTime) << " ns, avg: "<<(totalTime)/1000.f<<std::endl;
 
     if (inputs.flip_integral) {
         outputs.integral = -outputs.integral;
@@ -348,29 +363,36 @@ static long double fillUsingGaussianQuadratures(GaussLegendreOutputs &outputs, c
     const auto a = inputs.a;
     const auto b = inputs.b;
 
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
+    long double totalTime = 0.0f;
+    for (size_t runs = 0; runs < 1000; runs++) {
 
-    auto nodes = std::vector<long double>(n);
-    fillGaussLegendreNodes(nodes, n);
+        Stopwatch<Nanoseconds> timer;
+        timer.restart();
 
-    auto weights = std::vector<long double>(n);
-    fillGaussLegendreWeights(weights, nodes, n);
+        auto nodes = std::vector<long double>(n);
+        fillGaussLegendreNodes(nodes, n);
 
-    long double integral = 0.0f;
-    for (size_t i = 0; i < n; i++) {
-        const long double x_i = 0.5f * ((b - a) * nodes[i] + a + b);
-        integral += weights[i] * user_defined_fx(x_i);
+        auto weights = std::vector<long double>(n);
+        fillGaussLegendreWeights(weights, nodes, n);
+
+        long double integral = 0.0f;
+        for (size_t i = 0; i < n; i++) {
+            const long double x_i = 0.5f * ((b - a) * nodes[i] + a + b);
+            integral += weights[i] * user_defined_fx(x_i);
+        }
+
+        integral *= 0.5f * (b - a);
+        timer.click();
+
+        outputs.integral = integral;
+        outputs.weights = weights;
+        outputs.quadrature_points = nodes;
+
+        totalTime += static_cast<long double>(timer.duration().count());
     }
-    integral *= 0.5f * (b - a);
 
-    timer.click();
-    std::cout << "Computing integral using Gauss-Legendre Quadrature for n=("<<n<<"), degree-"<<(n-1)<<" took "
-              << (static_cast<long double>(timer.duration().count())) << " ns"<<std::endl;
-
-    outputs.integral = integral;
-    outputs.weights = weights;
-    outputs.quadrature_points = nodes;
+    std::cout << "Computing 1000 integrals using Gauss-Legendre Quadrature for n=("<<n<<"), degree-"<<(n-1)<<" took "
+              << (totalTime) << " ns, avg: "<<(totalTime)/1000.f<<std::endl;
 
     if (inputs.flip_integral) {
         outputs.integral = -outputs.integral;

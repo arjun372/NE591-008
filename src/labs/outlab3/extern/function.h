@@ -19,7 +19,7 @@
  */
 template <typename T>
 [[maybe_unused]] static inline T user_defined_fx(const T x) {
-    const T fx = std::sin(x);
+    const T fx = std::exp(x);
     return fx;
 }
 

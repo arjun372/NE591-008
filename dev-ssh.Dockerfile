@@ -10,19 +10,22 @@ ENV BUILD_PACKAGES \
 ENV RUNTIME_PACKAGES \
     libboost-filesystem1.74.0 libboost-program-options1.74.0
 
+ENV DEBUGGER_PACKAGES \
+    gdb gdbserver gdb gdbserver ccache python3 linux-tools-generic-hwe-22.04 linux-tools-generic systemtap-sdt-dev
+
+# SSH dependencies
+ENV SSH_DEPENDENCIES openssh-server sudo rsync
+
 RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     --mount=target=/var/cache/apt,type=cache,sharing=locked \
     rm -f /etc/apt/apt.conf.d/docker-clean && \
     apt update && \
     apt install -y --no-install-recommends $BUILD_PACKAGES $RUNTIME_PACKAGES
 
-FROM base AS debugger
-ENV DEBUGGER_PACKAGES \
-    gdb gdbserver gdb gdbserver ccache python3 linux-tools-generic-hwe-22.04 linux-tools-generic systemtap-sdt-dev
 RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     --mount=target=/var/cache/apt,type=cache,sharing=locked \
     rm -f /etc/apt/apt.conf.d/docker-clean && \
-    apt install -y --no-install-recommends $DEBUGGER_PACKAGES
+    apt install -y --no-install-recommends $DEBUGGER_PACKAGES $BUILD_PACKAGES $RUNTIME_PACKAGES $SSH_DEPENDENCIES
 
 RUN echo kernel.perf_event_paranoid=1 >> /etc/sysctl.d/99-perf.conf && \
     echo kernel.kptr_restrict=0 >> /etc/sysctl.d/99-perf.conf && \
@@ -31,27 +34,11 @@ RUN echo kernel.perf_event_paranoid=1 >> /etc/sysctl.d/99-perf.conf && \
 RUN rm /usr/bin/perf && \
     ln -s /usr/lib/linux-tools/5.19.0-46-generic/perf /usr/bin/perf
 
-ARG UID=1000
-RUN useradd -m -u ${UID} -s /bin/bash debugger
-USER debugger
-ENTRYPOINT ["/bin/bash"]
+RUN mkdir /var/run/sshd && \
+    echo 'root:debugger' | chpasswd && \
+    echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
-FROM base AS builder
-WORKDIR /app
-COPY . .
-# Build type
-ARG CMAKE_BUILD_TYPE=Release
-# Build the tests
-ARG CMAKE_BUILD_TESTS=ON
-# Build the tests
-ARG CMAKE_BUILD_PERFORMANCE_BENCHMARKS=ON
-# Optimize for native builds, trading portability for performance
-ARG CMAKE_OPTIMIZE_FOR_NATIVE=ON
+EXPOSE 22
 
-WORKDIR /app/build
-RUN cmake .. \
-    -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE \
-    -D BUILD_TESTS=$CMAKE_BUILD_TESTS \
-    -D BUILD_PERFORMANCE_BENCHMARKS=$CMAKE_BUILD_PERFORMANCE_BENCHMARKS \
-    -D OPTIMIZE_FOR_NATIVE=$CMAKE_OPTIMIZE_FOR_NATIVE \
-    && make -j$(nproc)
+CMD ["/usr/sbin/sshd","-D"]

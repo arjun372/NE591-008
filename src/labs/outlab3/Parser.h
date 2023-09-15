@@ -168,25 +168,22 @@ protected:
                 const bool useGaussian = asYesOrNo(input);
                 replace(map, "use-gaussian-quadratures", useGaussian);
                 gaussian_set = true;
-
-                if (!useGaussian) {
-                    continue;
-                }
-
-                while (map["num-quadrature-points"].empty() || failsNaturalNumberCheck(map["num-quadrature-points"].as<long double>())) {
-                    std::cout<<"Enter the number of Gauss-Legendre Quadrature points: ";
-                    std::cin >> input;
-                    try {
-                        replace(map, "num-quadrature-points", asNumber(input));
-                    } catch (const std::exception &) {
-                        continue;
-                    }
-                }
             } catch (const std::exception &) {
                 continue;
             }
         }
 
+        if (map["use-gaussian-quadratures"].as<bool>()) {
+            while (map["num-quadrature-points"].empty() || failsNaturalNumberCheck(map["num-quadrature-points"].as<long double>())) {
+                std::cout << "Enter the number of Gauss-Legendre Quadrature points: ";
+                std::cin >> input;
+                try {
+                    replace(map, "num-quadrature-points", asNumber(input));
+                } catch (const std::exception &) {
+                    continue;
+                }
+            }
+        }
 
     }
 
