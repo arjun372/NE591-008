@@ -19,6 +19,15 @@
  */
 template <typename T>
 [[maybe_unused]] static inline T user_defined_fx(const T x) {
+
+    if (x>=-1.0f && x<0.25f) {
+        return std::exp(-x + 0.25f);
+    }
+
+    if (x>=0.25f && x<=1.0f) {
+        return std::exp(x - 0.25f);
+    }
+
     const T fx = std::exp(x);
     return fx;
 }
