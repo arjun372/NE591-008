@@ -26,6 +26,7 @@ benchmark my implementations against the `C++17` and `Boost` library functions.
      - [Instructions](#instructions)
      - [Troubleshooting Windows Issues](#troubleshooting)
    - [Clion Remote Debugging via SSH](#clion-remote-debugging-via-ssh)
+6. [FAQs](#faqs)
 
 ## Locating Source Files ##
 Sources and file paths for each lab follow the following structure:
@@ -162,7 +163,7 @@ docker build --build-arg CMAKE_BUILD_TESTS=ON -t ne591:binary .
 Then, you can run the tests in the Docker container as you would normally do.
 
 ## Development - JetBrains Clion Support
-You can use [JetBrains Clion](https://www.jetbrains.com/clion/download/#section=mac) as the debug environment. 
+You can use [JetBrains Clion](https://www.jetbrains.com/clion/) as the debug environment. 
 Use Docker as the debug toolchain.
 
 ### Prerequisites
@@ -229,3 +230,9 @@ ssh root@localhost
 ```
 
 The password for the root user is "debugger".
+
+## FAQs
+
+* <b>This is a course project. Why all the extra effort?</b>
+  * My hope is that a stripped version of this code can serve as boilerplate so future students can limit all the 
+  hair-pulling to their algorithms, instead of worrying about I/O and input validation.
