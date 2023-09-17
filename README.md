@@ -1,7 +1,7 @@
 # NE591 Lab MonoRepo #
 
-This is a monorepo for my in- and out- lab deliverables for the `NE591-008` course, titled "Mathematical and 
-Computational Methods in Nuclear Engineering". The course aims to provide a theoretical foundation of mathematical 
+This is a monorepo for my in- and out- lab deliverables for the `NE591-008` course, titled `Mathematical and 
+Computational Methods in Nuclear Engineering`. The course aims to provide a theoretical foundation of mathematical 
 methods applied broadly in nuclear engineering and to construct algorithms to implement the resulting formalisms on 
 digital computers. The labs involve designing computer programs in low-level languages (exclusively Fortran or C++) and 
 their implementation, verification, and testing. I have chosen to organize it this way to build on the cumulative code 
@@ -9,6 +9,7 @@ changes from each lab, and to reuse as many helper functions as possible. A seco
 implementations against the `Boost` library functions.
 
 ## Table of Contents
+
 1. [NE591 Lab MonoRepo](#ne591-lab-monorepo)
 2. [Locating Source Files](#locating-source-files)
 3. [Building](#building)
@@ -22,10 +23,9 @@ implementations against the `Boost` library functions.
 5. [Development - JetBrains Clion Support](#development---jetbrains-clion-support)
    - [Prerequisites](#prerequisites)
    - [Clion Docker Toolchain](#clion-docker-toolchain)
-   - [Instructions](#instructions)
-   - [Troubleshooting](#troubleshooting)
-   - [Remote Debugging via SSH](#remote-debugging-via-ssh)
-
+     - [Instructions](#instructions)
+     - [Troubleshooting Windows Issues](#troubleshooting)
+   - [Clion Remote Debugging via SSH](#clion-remote-debugging-via-ssh)
 
 ## Locating Source Files ##
 Sources and file paths for each lab follow the following structure:
@@ -182,9 +182,9 @@ Use Docker as the debug toolchain.
 Developing in Clion using the Docker Toolchain provides a consistent experience. The debugging environment is an
 ephemeral Docker container based on the `eos:debugger` image you just built.
 
-### Instructions
+#### Instructions
 
-1. #### [Create Docker Toolchain](https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html#create-docker-toolchain)
+1. ##### [Create Docker Toolchain](https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html#create-docker-toolchain)
    1. Go to `Settings / Preferences | Build, Execution, Deployment | Toolchains`.
    2. Click `Add toolchain` and select `Docker`.
    3. Click the `screw nut icon` next to the `Docker` field to select a Docker image.
@@ -196,7 +196,7 @@ ephemeral Docker container based on the `eos:debugger` image you just built.
    8. Then save the settings.
 
 
-2. #### [Build, Run, Debug with a Docker Toolchain](https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html#build-run-debug-docker)
+2. ##### [Build, Run, Debug with a Docker Toolchain](https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html#build-run-debug-docker)
    1. After configuring a Docker toolchain, you can select it in `CMake profiles` or in `Makefile` settings. Alternatively, move the toolchain to the top of the list to make it default.
    2. The project folder will mount to the Docker container and building, running, and debugging will be
       performed in it. CLion will start the container and shut it down after the command is executed.
@@ -210,7 +210,7 @@ ephemeral Docker container based on the `eos:debugger` image you just built.
          with your WSL distribution.
       3. Place the project sources into the WSL filesystem, then open it in CLion and configure a Docker toolchain.
 
-### Remote Debugging via SSH
+### Clion Remote Debugging via SSH
 
 The Dockerfile sets up SSH for root access in the `ssh-debugger` stage. This allows you to connect to the running 
 container using SSH and debug the code. To do this, you need to build the SSH target and run the container in the 
