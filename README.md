@@ -1,21 +1,31 @@
 # NE591 Lab MonoRepo #
 
-This is a monorepo for my in- and out- lab deliverables for the `NE591-008` course. I have chosen to organize it 
-this way to build on the cumulative code changes from each lab, and to reuse as many helper functions as possible. 
-A secondary objective is to benchmark my implementations against the `Boost` library functions. 
+This is a monorepo for my in- and out- lab deliverables for the `NE591-008` course, titled "Mathematical and 
+Computational Methods in Nuclear Engineering". The course aims to provide a theoretical foundation of mathematical 
+methods applied broadly in nuclear engineering and to construct algorithms to implement the resulting formalisms on 
+digital computers. The labs involve designing computer programs in low-level languages (exclusively Fortran or C++) and 
+their implementation, verification, and testing. I have chosen to organize it this way to build on the cumulative code 
+changes from each lab, and to reuse as many helper functions as possible. A secondary objective is to benchmark my 
+implementations against the `Boost` library functions.
 
 ## Table of Contents
-1. [NE591 Lab MonoRepo](#NE591-Lab-MonoRepo)
-2. [Locating Source Files](#Locating-Source-Files)
-3. [Building](#Building)
-    - [Build Targets](#Build-Targets)
-    - [Optional CMake Arguments](#Optional-CMake-Arguments)
-4. [Docker Usage Guide](#Docker-Usage-Guide)
-    - [Why Docker?](#Why-Docker?)
-    - [Building the Docker Image](#Building-the-Docker-Image)
-    - [Running the Docker Container](#Running-the-Docker-Container)
-    - [Debugging the Code](#Debugging-the-Code)
-    - [Building and Running Tests](#Building-and-Running-Tests)
+1. [NE591 Lab MonoRepo](#ne591-lab-monorepo)
+2. [Locating Source Files](#locating-source-files)
+3. [Building](#building)
+   - [Build Targets](#build-targets)
+   - [Optional CMake Arguments](#optional-cmake-arguments)
+4. [Docker Usage Guide](#docker-usage-guide)
+   - [Why Docker?](#why-docker)
+   - [Building the Docker Image](#building-the-docker-image)
+   - [Running the Docker Container](#running-the-docker-container)
+   - [Building and Running Tests](#building-and-running-tests)
+5. [Development - JetBrains Clion Support](#development---jetbrains-clion-support)
+   - [Prerequisites](#prerequisites)
+   - [Clion Docker Toolchain](#clion-docker-toolchain)
+   - [Instructions](#instructions)
+   - [Troubleshooting](#troubleshooting)
+   - [Remote Debugging via SSH](#remote-debugging-via-ssh)
+
 
 ## Locating Source Files ##
 Sources and file paths for each lab follow the following structure:
@@ -35,16 +45,26 @@ Sources and file paths for each lab follow the following structure:
 │   ├── ...
 ├── ...
 ├── utils                        <= Helper methods
+│   ├── CheckBounds.h
 │   ├── CommandLine.h
 │   ├── FileParser.h
+│   ├── Helpers.h
+│   ├── json.hpp
+│   ├── MathLibrary.h
+│   ├── Profiler.h
+│   ├── Project.h
+│   ├── Stopwatch.h
 │   ├── ...
 ```
+The `utils` directory contains helper methods used across the project. These include methods for checking bounds, 
+interacting with the command line, I/O operations on CSV and JSON files, general helper functions (`Helpers.h`), a 
+custom math library, and a high-precision profiler and stopwatch for performance analysis.
 
 ## Building ##
 
 The entire codebase has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional 
-configuration except choosing the build target. Here is a repeatable script to perform the
-build and run a target executable:
+configuration except choosing the build target. Here is a repeatable script to perform the build and run a target 
+executable:
 
 ```bash
 # Assuming cwd is the repo root:
@@ -91,56 +111,52 @@ Available options are:
 | PORTABLE                     | Build without flag `-march=native`, trading speed for portability | OFF     |
 | BUILD_PERFORMANCE_BENCHMARKS | Build a separate benchmarks target (for e.g. `inlab1_bench`)      | OFF     |
 
+To use these options, you can add them to the `cmake` command in the build script. For example, to build with tests, you
+would modify the `cmake` command as follows:
+
+```bash
+cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
+```
+
 ## Docker Usage Guide
 
-This repository contains a Dockerfile that is designed to mimic the OS and packages available on the 'remote.eos.ncsu.edu' servers. It uses CentOS 8 as the base image and installs various development tools and libraries. The Dockerfile also sets up SSH for root access in the ssh-debugger stage.
+This repository contains a Dockerfile that is designed to mimic the OS and packages available on the 
+`remote.eos.ncsu.edu` servers. It uses CentOS 8 as the base image and installs various development tools and libraries.
+The Dockerfile also sets up SSH for root access in the ssh-debugger stage.
 
 ### Why Docker?
 
-Docker is a platform that allows us to package our application and its dependencies into a "container" which can run on any Linux machine. This helps to eliminate the "it works on my machine" problem. In this case, the Dockerfile was needed to ensure that the code can be built, run, and debugged in an environment that closely matches the 'remote.eos.ncsu.edu' servers.
+Docker is a platform that allows us to package our application and its dependencies into a container which can run on 
+any Linux/MacOS/Windows machine. This helps to eliminate the "it works on my machine" problem. In this case, the 
+Dockerfile was needed to ensure that the code can be built, run, and debugged in an environment that closely matches 
+the `remote.eos.ncsu.edu` servers.
 
 ### Building the Docker Image
 
-To build the Docker image, navigate to the directory containing the Dockerfile and run the following command:
+To simply run the executables, build an image from the [Dockerfile](Dockerfile) using the following command:
 
 ```bash
-docker build -t my-app .
+docker build -t ne591:binary .
 ```
-
-This command tells Docker to build an image using the Dockerfile in the current directory and tag the image with the name "my-app".
 
 ### Running the Docker Container
 
 To run the Docker container, use the following command:
 
 ```bash
-docker run -it my-app
+docker run --rm -it ne591:binary
 ```
 
-This command tells Docker to run the container interactively (i.e., it attaches a terminal session to the running container) and starts a bash shell.
-
-### Debugging the Code
-
-The Dockerfile sets up SSH for root access in the ssh-debugger stage. This allows you to connect to the running container using SSH and debug the code. To do this, you need to run the container with port 22 exposed:
-
-```bash
-docker run -p 22:22 -it my-app
-```
-
-Then, you can connect to the running container using SSH:
-
-```bash
-ssh root@localhost
-```
-
-The password for the root user is "debugger".
+This command tells Docker to run the container interactively 
+(i.e., it attaches a terminal session to the running container) and starts a bash shell.
 
 ### Building and Running Tests
 
-The Dockerfile includes arguments for building tests and performance benchmarks. To build and run the tests, you can modify the `docker build` command as follows:
+The Dockerfile includes arguments for building tests and performance benchmarks. To build and run the tests, 
+you can modify the `docker build` command as follows:
 
 ```bash
-docker build --build-arg CMAKE_BUILD_TESTS=ON -t my-app .
+docker build --build-arg CMAKE_BUILD_TESTS=ON -t ne591:binary .
 ```
 
 Then, you can run the tests in the Docker container as you would normally do.
@@ -193,3 +209,23 @@ ephemeral Docker container based on the `eos:debugger` image you just built.
       2. In the Docker desktop application, navigate to `Settings | Resources | WSL Integration` and enable integration
          with your WSL distribution.
       3. Place the project sources into the WSL filesystem, then open it in CLion and configure a Docker toolchain.
+
+### Remote Debugging via SSH
+
+The Dockerfile sets up SSH for root access in the `ssh-debugger` stage. This allows you to connect to the running 
+container using SSH and debug the code. To do this, you need to build the SSH target and run the container in the 
+background with port 22 exposed:
+
+```bash
+docker build --target=ssh-debugger -t ne591:ssh-debugger .
+docker run -d -p 2222:22 -it ssh-debugger
+```
+
+Then, you can connect to the running container using SSH. Clion provides native support for debugging remotely. Follow
+[these instructions](https://www.jetbrains.com/help/clion/remote-projects-support.html) to set it up.
+
+```bash
+ssh root@localhost
+```
+
+The password for the root user is "debugger".

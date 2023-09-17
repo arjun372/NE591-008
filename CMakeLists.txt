@@ -8,9 +8,9 @@ set(CMAKE_DISABLE_SOURCE_CHANGES ON)
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
 ####################### Options ################### {{{
-option(BUILD_TESTS "Build the tests" ON)  # Influences CTest.
-option(OPTIMIZE_FOR_NATIVE "Build with -march=native" ON)
-option(BUILD_PERFORMANCE_BENCHMARKS "Build performance benchmarks" ON)
+option(BUILD_TESTS "Build the tests" OFF)  # Influences CTest.
+option(PORTABLE "Build without -march=native" OFF)
+option(BUILD_PERFORMANCE_BENCHMARKS "Build performance benchmarks" OFF)
 ####################### Options ##################### }}}
 
 # Add the resources/cmake folder to Module Search Path
@@ -44,7 +44,7 @@ add_definitions(-DPROJECT_SOURCE_DIR="${PROJECT_SOURCE_DIR}")  # Needed to print
 #set(PROJECT_CXX_FLAGS -frounding-math -fsignaling-nans)
 set(PROJECT_CXX_FLAGS_DEBUG -Wall -Wextra -Werror -Wnon-virtual-dtor -Wold-style-cast -Wsign-compare -Wmissing-field-initializers -Wno-unused-parameter -Wno-unused-function)
 list(APPEND PROJECT_CXX_FLAGS ${PROJECT_CXX_FLAGS_DEBUG})
-if(OPTIMIZE_FOR_NATIVE)
+if(NOT PORTABLE)
     include(CheckCXXCompilerFlag)
     CHECK_CXX_COMPILER_FLAG("-march=native" COMPILER_SUPPORTS_MARCH_NATIVE)
     if(COMPILER_SUPPORTS_MARCH_NATIVE)
