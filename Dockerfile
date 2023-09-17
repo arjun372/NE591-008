@@ -1,44 +1,26 @@
-#syntax=docker/dockerfile:1
-FROM ubuntu:22.04 AS base
+# This Dockerfile creates a multi-stage build with different stages for building, debugging, and running the binary.
+# It uses CentOS 8 as the base image and installs various development tools and libraries.
+# It also sets up SSH for root access in the ssh-debugger stage.
+# The purpose of this Dockerfile is to mimic the OS and packages available on the 'remote.eos.ncsu.edu' servers.
 
-ENV DEBIAN_FRONTEND=noninteractive
-ENV BUILD_PACKAGES \
-    make cmake g++ libboost-program-options-dev \
-    libboost-math-dev libboost-random-dev libboost-filesystem-dev \
-    libboost-date-time-dev
+# Use the official CentOS 8 image as the base image
+FROM centos:8 as base
 
-ENV RUNTIME_PACKAGES \
-    libboost-filesystem1.74.0 libboost-program-options1.74.0
+# Update the CentOS repositories to use the vault repositories instead of the mirror ones
+# Install the "Development Tools" group of packages, EPEL repository, Boost libraries and CMake
+# Clean the yum cache and remove unnecessary packages
+RUN cd /etc/yum.repos.d/ && \
+    sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && \
+    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* && \
+    yum -y update && \
+    yum -y groupinstall "Development Tools" && \
+    yum -y install epel-release boost-devel cmake && yum -y clean all && \
+    yum -y autoremove && dnf clean all && \
+    rm -rf /var/cache/*
 
-RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
-    --mount=target=/var/cache/apt,type=cache,sharing=locked \
-    rm -f /etc/apt/apt.conf.d/docker-clean && \
-    apt update && \
-    apt install -y --no-install-recommends $BUILD_PACKAGES $RUNTIME_PACKAGES
+# Create a new stage based on the base stage
+FROM base as builder
 
-FROM base AS debugger
-ENV DEBUGGER_PACKAGES \
-    gdb gdbserver gdb gdbserver ccache python3 linux-tools-generic-hwe-22.04 linux-tools-generic systemtap-sdt-dev
-RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
-    --mount=target=/var/cache/apt,type=cache,sharing=locked \
-    rm -f /etc/apt/apt.conf.d/docker-clean && \
-    apt install -y --no-install-recommends $DEBUGGER_PACKAGES
-
-RUN echo kernel.perf_event_paranoid=1 >> /etc/sysctl.d/99-perf.conf && \
-    echo kernel.kptr_restrict=0 >> /etc/sysctl.d/99-perf.conf && \
-    sysctl --system
-
-RUN rm /usr/bin/perf && \
-    ln -s /usr/lib/linux-tools/5.19.0-46-generic/perf /usr/bin/perf
-
-ARG UID=1000
-RUN useradd -m -u ${UID} -s /bin/bash debugger
-USER debugger
-ENTRYPOINT ["/bin/bash"]
-
-FROM base AS builder
-WORKDIR /app
-COPY . .
 # Build type
 ARG CMAKE_BUILD_TYPE=Release
 # Build the tests
@@ -46,12 +28,64 @@ ARG CMAKE_BUILD_TESTS=ON
 # Build the tests
 ARG CMAKE_BUILD_PERFORMANCE_BENCHMARKS=ON
 # Optimize for native builds, trading portability for performance
-ARG CMAKE_OPTIMIZE_FOR_NATIVE=ON
+ARG CMAKE_PORTABLE=OFF
 
-WORKDIR /app/build
+# Set the environment variables for the C and C++ compilers
+ENV CC=/usr/bin/gcc
+ENV CXX=/usr/bin/g++
+
+# Set the working directory to /usr/src
+WORKDIR /usr/src
+
+# Copy the current directory contents into the container at /usr/src
+COPY . .
+
+# Build the project using CMake and make in the build folder
+WORKDIR /usr/src/build
 RUN cmake .. \
     -D CMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE \
     -D BUILD_TESTS=$CMAKE_BUILD_TESTS \
     -D BUILD_PERFORMANCE_BENCHMARKS=$CMAKE_BUILD_PERFORMANCE_BENCHMARKS \
-    -D OPTIMIZE_FOR_NATIVE=$CMAKE_OPTIMIZE_FOR_NATIVE \
+    -D PORTABLE=$CMAKE_PORTABLE \
     && make -j$(nproc)
+
+# Create a new stage based on the base stage for debugging
+FROM base as debugger
+
+# Install gdb and gdb-gdbserver for debugging
+# Clean the yum cache and remove unnecessary packages
+RUN yum -y install gdb gdb-gdbserver && \
+    yum -y clean all && \
+    yum -y autoremove && dnf clean all && \
+    rm -rf /var/cache/*
+
+# Create a new stage based on the debugger stage for SSH debugging
+FROM debugger AS ssh-debugger
+
+# Install OpenSSH server and rsync
+# Clean the yum cache and remove unnecessary packages
+# Setup SSH for root access
+RUN yum -y install openssh-server rsync && \
+    yum -y clean all && \
+    yum -y autoremove && dnf clean all && \
+    rm -rf /var/cache/* && \
+    mkdir /var/run/sshd && \
+    ssh-keygen -A && \
+    echo 'root:debugger' | chpasswd && \
+    echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+# Expose port 22 for SSH access
+EXPOSE 22
+
+# Start the SSH daemon
+CMD ["/usr/sbin/sshd","-D"]
+
+# Create a new stage based on the builder stage for running the binary
+FROM builder as binary
+
+# Set the working directory to /usr/src
+WORKDIR /usr/src
+
+# Start a bash shell
+CMD ["/bin/bash"]
