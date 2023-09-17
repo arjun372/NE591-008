@@ -4,9 +4,9 @@ This is a monorepo for my in- and out- lab deliverables for the `NE591-008` cour
 Computational Methods in Nuclear Engineering`. The course aims to provide a theoretical foundation of mathematical 
 methods applied broadly in nuclear engineering and to construct algorithms to implement the resulting formalisms on 
 digital computers. The labs involve designing computer programs in low-level languages (exclusively Fortran or C++) and 
-their implementation, verification, and testing. I have chosen to organize it this way to build on the cumulative code 
-changes from each lab, and to reuse as many helper functions as possible. A secondary objective is to benchmark my 
-implementations against the `Boost` library functions.
+their implementation, verification, and testing. I have chosen to organize this repo in a manner that builds on the 
+cumulative code changes from each lab, and reuses as many helper functions as possible. A secondary objective is to 
+benchmark my implementations against the `C++17` and `Boost` library functions.
 
 ## Table of Contents
 
