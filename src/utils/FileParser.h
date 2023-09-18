@@ -39,6 +39,16 @@ static bool isFileWritable(const std::string &filepath) {
     return true;
 }
 
+/**
+ * @brief Checks if a file exists and is not a directory.
+ *
+ * This function checks if a file exists at the given file path and if it is not a directory.
+ * If the file does not exist or if it is a directory, an error message is displayed and the function returns false.
+ * If the file exists and is not a directory, the function returns true.
+ *
+ * @param filepath The path to the file.
+ * @return True if the file exists and is not a directory, false otherwise.
+ */
 static bool doesFileExist(const std::string &filepath) {
     const std::filesystem::path path(filepath);
     std::error_code ec; // For using the non-throwing overloads of functions below.
@@ -197,7 +207,17 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
 }
 
 
-static void readJSON(const std::string filepath, nlohmann::json &map) {
+/**
+ * @brief Reads a JSON file and stores the data in a JSON object.
+ *
+ * This function opens a JSON file at the given file path for reading. If the file cannot be opened,
+ * an error message is displayed and the program exits. The JSON data is then read from the file and
+ * stored in the provided JSON object.
+ *
+ * @param filepath The path to the JSON file.
+ * @param map A reference to a JSON object where the data will be stored.
+ */
+static void readJSON(const std::string &filepath, nlohmann::json &map) {
 
     // Open the JSON file
     std::ifstream inputFile(filepath);

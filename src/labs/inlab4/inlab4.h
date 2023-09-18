@@ -2,7 +2,7 @@
  * @file inlab4.cpp
  * @author Arjun Earthperson
  * @date 09/15/2023
- * @brief Declaration for the InLab4 class
+ * @brief This file contains the declaration for the InLab4 class.
  *
  */
 
@@ -24,7 +24,11 @@
 #include "InputsOutputs.h"
 #include "utils/json.hpp"
 
-// TODO: Document
+/**
+ * @class InLab4
+ * @brief This class is a child of the Project class and is used to solve a system of linear equations using forward and back substitution.
+ * @details The class takes in command line arguments and uses them to solve the system of equations.
+ */
 class InLab4 : public Project<myBLAS::InputMatrices, Parser, myBLAS::OutputVector> {
 
 public:
@@ -36,11 +40,13 @@ public:
 
 protected:
 
-    // TODO: Document, make sure to give credit to eyemvh. this code was converted from python to c++ and reformatted
-    // for the ANSI character-set with 80 columns.
-    //      https://www.reddit.com/r/asciiart/comments/eyemvh/asciibrot/
-template <typename T>
-static void printMandelbrotSet() {
+    /**
+     * @brief This function prints the Mandelbrot set.
+     * @details The function was converted from Python to C++ and reformatted for the ANSI character-set with 80 columns.
+     * @note Credit to eyemvh from https://www.reddit.com/r/asciiart/comments/eyemvh/asciibrot/
+     */
+    template <typename T>
+    static void printMandelbrotSet() {
         std::vector<std::string> colors;
         for (int i = 16; i <= 232; i++) {
             colors.push_back("\033[38;5;" + std::to_string(i) + "m");
@@ -63,7 +69,7 @@ static void printMandelbrotSet() {
     }
 
     /**
-     * @brief Builds the header information for the project
+     * @brief This function builds the header information for the project.
      * @return HeaderInfo object containing project information
      */
     HeaderInfo buildHeaderInfo() override {
@@ -77,8 +83,13 @@ static void printMandelbrotSet() {
         };
     }
 
-
-    // TODO: Document
+    /**
+     * @brief This function runs the project.
+     * @details It solves the system of linear equations using forward and back substitution.
+     * @param outputs The output vector
+     * @param inputs The input matrices
+     * @param values The variable map
+     */
     void run(myBLAS::OutputVector &outputs, myBLAS::InputMatrices &inputs, boost::program_options::variables_map &values) override {
 
         // Given the matrix A = LU and vector b
