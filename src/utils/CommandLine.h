@@ -177,9 +177,9 @@ private:
                     ╚═╝  ╚═══╝╚══════╝      ╚══════╝ ╚════╝  ╚═╝
         )" << std::endl;
         }
-        std::cout << "\t" << headerInfo.ProjectName << ": " << headerInfo.ProjectDescription << std::endl;
-        std::cout << "\t" <<  headerInfo.StudentName << std::endl;
-        std::cout << "\t" <<  headerInfo.SubmissionDate << std::endl;
+        std::cout << headerInfo.ProjectName << ": " << headerInfo.ProjectDescription << std::endl;
+        std::cout << headerInfo.StudentName << std::endl;
+        std::cout << headerInfo.SubmissionDate << std::endl;
         printLine();
     }
 
@@ -242,7 +242,7 @@ private:
      * console.
      */
     static void printCompileConfigs() {
-        std::cout<<"\tcompiler: "<<CXX_COMPILER_ID<<" "<<CXX_COMPILER_VERSION;
+        std::cout<<"compiler: "<<CXX_COMPILER_ID<<" "<<CXX_COMPILER_VERSION;
         std::cout<<", boost: "<<Boost_VERSION<<" "<<Boost_LIBRARIES<<"\n";
         printLine();
     }

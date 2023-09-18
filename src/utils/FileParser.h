@@ -39,6 +39,19 @@ static bool isFileWritable(const std::string &filepath) {
     return true;
 }
 
+static bool doesFileExist(const std::string &filepath) {
+    const std::filesystem::path path(filepath);
+    std::error_code ec; // For using the non-throwing overloads of functions below.
+    if(!exists(path,ec)) {
+        return false;
+    }
+    if(std::filesystem::is_directory(path, ec)) {
+        std::cerr << "Error: Provided path is a directory. "<<std::endl;
+        return false;
+    }
+    return true;
+}
+
 /**
  * @brief Reads a CSV file and stores the data in a map.
  * @tparam T The type of the data to be read.
@@ -183,6 +196,20 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
 
 }
 
+
+static void readJSON(const std::string filepath, nlohmann::json &map) {
+
+    // Open the JSON file
+    std::ifstream inputFile(filepath);
+
+    if (!inputFile.is_open()) {
+        std::cerr << "Error: Unable to open the input JSON: "<<filepath<<std::endl;
+        exit(1);
+    }
+
+    // read the file
+    map = nlohmann::json::parse(inputFile);
+}
 
 /**
  * @brief Writes the given JSON data to a file at the specified file path.
