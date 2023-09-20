@@ -1,8 +1,8 @@
 /**
- * @file inlab4.cpp
+ * @file outlab4.cpp
  * @author Arjun Earthperson
  * @date 09/15/2023
- * @brief This file contains the declaration for the InLab4 class.
+ * @brief This file contains the declaration for the OutLab4 class.
  *
  */
 
@@ -14,9 +14,6 @@
 #include <iomanip>
 #include <boost/program_options.hpp>
 
-#include "utils/math/blas/Matrix.h"
-#include "utils/math/blas/Vector.h"
-
 #include "utils/Helpers.h"
 #include "utils/CheckBounds.h"
 #include "utils/FileParser.h"
@@ -27,19 +24,24 @@
 #include "InputsOutputs.h"
 #include "utils/json.hpp"
 
+#include "utils/math/blas/Matrix.h"
+#include "utils/math/blas/Vector.h"
+#include "utils/math/blas/MyBLAS.h"
+
+
 /**
- * @class InLab4
+ * @class OutLab4
  * @brief This class is a child of the Project class and is used to solve a system of linear equations using forward and back substitution.
  * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
-class InLab4 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVector> {
+class OutLab4 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVector> {
 
 public:
     /**
-     * @brief Constructor for the inlab4 class
+     * @brief Constructor for the outlab4 class
      * @param args Command line arguments
      */
-    explicit InLab4(CommandLineArgs args) : Project(args) {}
+    explicit OutLab4(CommandLineArgs args) : Project(args) {}
 
 protected:
 
@@ -99,18 +101,36 @@ protected:
         // solve Ax = b, which is LUx = b
         // x = inv(LU)•b
 
-        const auto b = inputs.constants;
-        const auto LU = inputs.LU;
+        const auto A = inputs.coefficients;
+        auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), 0.0f);
+        auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), 0.0f);
 
-        const MyBLAS::Vector y = InLab04::forwardSubstitution<long double>(LU, b);
-        const MyBLAS::Vector x = InLab04::backwardSubstitution<long double>(LU, y);
+        MyBLAS::factorizeLU<long double>(L, U, A);
+
+        const auto b = inputs.constants;
+
+        const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(L, b);
+        const MyBLAS::Vector x = MyBLAS::backwardSubstitution<long double>(U, y);
 
         nlohmann::json results;
         outputs.solution = x;
         outputs.toJSON(results["outputs"]);
 
+
         if(!values.count("quiet")) {
             const auto precision = getTerminal().getCurrentPrecision();
+            Parser::printLine();
+            std::cout << "Lower Triangular Matrix (L):\n";
+            Parser::printLine();
+            std::cout << std::setprecision (precision) << L;
+            Parser::printLine();
+            std::cout << "Upper Triangular Matrix (U):\n";
+            Parser::printLine();
+            std::cout << std::setprecision (precision) << U;
+            Parser::printLine();
+            std::cout << "Factorized Matrix LU: \n";
+            Parser::printLine();
+            std::cout << std::setprecision (precision) << L + U - MyBLAS::Matrix::Eye(A.getCols());
             Parser::printLine();
             std::cout << "Intermediate vector y = inv(L) * b:\n";
             Parser::printLine();

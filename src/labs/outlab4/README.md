@@ -1,6 +1,7 @@
-# InLab 04: System of Linear Equations Solver
+# OutLab 04: System of Linear Equations Solver
 
-File based I/O is supported using JSON files.
+Solves a system of linear equations by performing LU factorization, and solving the LU matrix using forward and backward
+substitution. File based I/O is supported using JSON files.
 
 ## Table of Contents
 1. [Building & Usage](#building--usage)
@@ -15,14 +16,14 @@ File based I/O is supported using JSON files.
 
 The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
 configuration except choosing the build target, and output file. Here is a repeatable script
-to perform the build and run the `inlab4` target executable:
+to perform the build and run the `outlab4` target executable:
 
 ```bash
 # Assuming cwd is the repo root:
 #!/bin/bash
 
 ## Specify the build target
-export BUILD_TARGET=inlab4
+export BUILD_TARGET=outlab4
 
 ## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
@@ -31,8 +32,8 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/inlab4/examples/sample_input.json
-export OUTPUT_FILE=./src/labs/inlab4/examples/sample_output.json
+export INPUT_FILE=./src/labs/outlab4/examples/sample_input.json
+export OUTPUT_FILE=./src/labs/outlab4/examples/sample_output.json
 
 ## Execute
 ./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
@@ -58,17 +59,12 @@ The expected input json file requires the following fields:
 ### Sample Input File
 ```json
 {
-  "lower": [
-    [1.0, 0.0, 0.0],
-    [2.0, 1.0, 0.0],
-    [3.0, 2.0, 1.0]
-  ],
-  "upper": [
-    [1.0, 1.0, 2.0],
-    [0.0, 2.0, 3.0],
-    [0.0, 0.0, 3.0]
-  ],
-  "constants": [7.0, 21.0, 38.0]
+   "coefficients": [
+      [1.0, 1.0, 2.0],
+      [2.0, 4.0, 7.0],
+      [3.0, 7.0, 15.0]
+   ],
+   "constants": [7.0, 21.0, 38.0]
 }
 ```
 

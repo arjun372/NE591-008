@@ -1,7 +1,7 @@
 /**
  * @file InputsOutputs.h
  * @author Arjun Earthperson
- * @date 09/15/2023
+ * @date 09/22/2023
  * @brief This file contains the input and output definitions for this project.
  */
 
@@ -27,7 +27,7 @@ namespace MyBLAS {
         Input() = default;
 
         size_t n = 0; ///< Size of the matrices.
-        MyBLAS::Matrix LU; ///< LU matrix.
+        MyBLAS::Matrix coefficients; ///< LU matrix.
         MyBLAS::Vector constants; ///< Vector of constants.
 
         /**
@@ -36,7 +36,7 @@ namespace MyBLAS {
         */
         void toJSON(nlohmann::json &jsonMap) const {
             jsonMap["n"] = n;
-            jsonMap["LU"] = LU.getData();
+            jsonMap["coefficients"] = coefficients.getData();
             jsonMap["constants"] = constants.getData();
         }
     } InputMatrices;
@@ -48,6 +48,7 @@ namespace MyBLAS {
     typedef struct Output {
         Output() = default;
         MyBLAS::Vector solution; ///< Output vector.
+        MyBLAS::Vector residual;
 
         /**
          * @brief Converts the output vector to a JSON object.
@@ -55,6 +56,7 @@ namespace MyBLAS {
          */
         void toJSON(nlohmann::json &jsonMap) const {
             jsonMap["solution"] = solution.getData();
+            jsonMap["residual"] = residual.getData();
         }
     } OutputVector;
 

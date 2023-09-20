@@ -12,13 +12,13 @@
 
 #include "utils/math/blas/Matrix.h"
 #include "utils/math/blas/Vector.h"
-#include "utils/math/blas/MyBLAS.h"
 
 #include "utils/CommandLine.h"
 #include "utils/Stopwatch.h"
 #include "InputsOutputs.h"
 
-namespace InLab04 {
+
+namespace MyBLAS {
 /**
  * @brief Perform forward substitution
  *
@@ -32,7 +32,16 @@ namespace InLab04 {
  */
     template<typename T>
     MyBLAS::Vector forwardSubstitution(const MyBLAS::Matrix &L, const MyBLAS::Vector &b) {
-        return MyBLAS::forwardSubstitution<T>(L, b);
+        const auto n = static_cast<int64_t>(b.size());
+        MyBLAS::Vector y(n);
+        for (int64_t row = 0; row < n; row++) {
+            T sum = 0.0f;
+            for (int64_t col = 0; col < row; col++) {
+                sum += L[row][col] * y[col];
+            }
+            y[row] = (b[row] - sum);
+        }
+        return y;
     }
 
 /**
@@ -49,6 +58,15 @@ namespace InLab04 {
  */
     template<typename T>
     MyBLAS::Vector backwardSubstitution(const MyBLAS::Matrix &U, const MyBLAS::Vector &y) {
-        return MyBLAS::backwardSubstitution<T>(U, y);
+        const auto n = static_cast<int64_t>(y.size());
+        MyBLAS::Vector x(n);
+        for (int64_t i = n - 1; i >= 0; i--) {
+            T sum = 0.0f;
+            for (int64_t j = i + 1; j < n; j++) {
+                sum += U[i][j] * x[j];
+            }
+            x[i] = (y[i] - sum) / U[i][i];
+        }
+        return x;
     }
 }

@@ -15,7 +15,7 @@
 
 #include "utils/CommandLine.h"
 #include "utils/Stopwatch.h"
-#include "utils/MathLibrary.h"
+#include "utils/math/RootFinder.h"
 #include "extern/function.h"
 
 /**

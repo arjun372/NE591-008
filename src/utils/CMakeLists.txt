@@ -7,7 +7,10 @@ set(UTILS_LIB_SOURCES
         Project.h
         FileParser.h
         json.hpp
-        MathLibrary.h
+        math/RootFinder.h
+        math/blas/Matrix.h
+        math/blas/Vector.h
+        math/blas/MyBLAS.h
 )
 
 # Create utils

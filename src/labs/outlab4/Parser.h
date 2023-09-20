@@ -1,7 +1,7 @@
 /**
  * @file Parser.h
  * @author Arjun Earthperson
- * @date 09/15/2023
+ * @date 09/22/2023
  * @brief This file contains the Parser class which is responsible for parsing command line arguments and validating
  * user inputs.
  */
@@ -13,6 +13,7 @@
 
 #include "utils/math/blas/Matrix.h"
 #include "utils/math/blas/Vector.h"
+
 
 class Parser : public CommandLine<MyBLAS::InputMatrices> {
 
@@ -120,27 +121,16 @@ protected:
         std::vector<long double> constants = inputMap["constants"];
         inputs.constants = MyBLAS::Vector(constants);
 
-        // read the upper matrix, add it to LU, and subtract identity matrix to remove double counting
-        const auto lower = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["lower"]));
-        const auto upper = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["upper"]));
+        // read the coefficient matrix
+        inputs.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
 
-        if (lower.getCols() != upper.getCols() || lower.getRows() != upper.getRows()) {
-            std::cerr<<"Error: Input lower and upper triangular matrices do not have the same dimensions, aborting.\n";
-            exit(-1);
-        }
-
-        if (lower.getCols() != upper.getRows()) {
-            std::cerr<<"Error: Input matrices not square, aborting.\n";
-            exit(-1);
-        }
-
-        if(lower.getRows() != inputs.constants.size()) {
+        if(inputs.coefficients.getRows() != inputs.constants.size()) {
             std::cerr<<"Error: Input constants vector not order n, aborting.\n";
             exit(-1);
         }
 
         // set input order n
-        const auto orderFromInputMatrixDimensions = lower.getRows();
+        const auto orderFromInputMatrixDimensions = inputs.coefficients.getRows();
         if(values["order"].defaulted()) {
             std::cout<<"Reading matrix order (n) from input matrix dimensions: "<<orderFromInputMatrixDimensions<<"\n";
             inputs.n = orderFromInputMatrixDimensions;
@@ -148,33 +138,21 @@ protected:
             const auto orderFromUser = static_cast<size_t>(values["order"].as<long double>());
             inputs.n = orderFromUser > orderFromInputMatrixDimensions ? orderFromInputMatrixDimensions : orderFromUser;
             if (orderFromUser > orderFromInputMatrixDimensions) {
-                std::cerr<<"Warning: Matrix order (n) is larger than input matrices, defaulting to lower value\n";
+                std::cerr<<"Warning: Matrix order (n) is larger than input matrix, defaulting to lower value\n";
             }
         }
-
-        const auto identity = MyBLAS::Matrix::Eye(inputs.n);
-        inputs.LU = lower + upper - identity;
 
         // print the matrices since we are in verbose mode.
         if(!values.count("quiet")) {
             const auto precision = getCurrentPrecision();
             printLine();
-            std::cout << "Lower Triangular Matrix (L):\n";
+            std::cout << "Coefficient Matrix (A):\n";
             printLine();
-            std::cout << std::setprecision (precision) << lower;
-            printLine();
-            std::cout << "Upper Triangular Matrix (U):\n";
-            printLine();
-            std::cout << std::setprecision (precision) << upper;
+            std::cout << std::setprecision (precision) << inputs.coefficients;
             printLine();
             std::cout << "Constants Vector (b):\n";
             printLine();
             std::cout << std::setprecision (precision) << inputs.constants;
-            printLine();
-            printLine();
-            std::cout << "LU Matrix:\n";
-            printLine();
-            std::cout << std::setprecision (precision) << inputs.LU;
         }
     }
 
