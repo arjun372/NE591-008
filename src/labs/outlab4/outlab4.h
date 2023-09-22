@@ -1,7 +1,7 @@
 /**
  * @file outlab4.cpp
  * @author Arjun Earthperson
- * @date 09/15/2023
+ * @date 09/22/2023
  * @brief This file contains the declaration for the OutLab4 class.
  *
  */
@@ -46,27 +46,94 @@ public:
 protected:
 
     /**
-     * @brief This function prints the Mandelbrot set.
-     * @details The function was converted from Python to C++ and reformatted for the ANSI character-set with 80 columns.
-     * @note Credit to eyemvh from https://www.reddit.com/r/asciiart/comments/eyemvh/asciibrot/
+     * @brief Scales a value from one range to another.
+     * @tparam T The data type of the value and range limits
+     * @param value The value to be scaled
+     * @param old_min The lower limit of the original range
+     * @param old_max The upper limit of the original range
+     * @param new_min The lower limit of the new range
+     * @param new_max The upper limit of the new range
+     * @return The scaled value in the new range
+     */
+    template<typename T>
+    static T scale(T value, T old_min, T old_max, T new_min, T new_max) {
+        return (value - old_min) * (new_max - new_min) / (old_max - old_min) + new_min;
+    }
+
+    /**
+     * @brief Prints a Julia set fractal to the console using ANSI color codes.
+     * @tparam T The data type of the complex numbers used in the fractal calculation
+     * @param X The width of the fractal in characters
+     * @param Y The height of the fractal in characters
+     * @param x0 The real part of the complex constant c (default: -1.0)
+     * @param y0 The imaginary part of the complex constant c (default: -0.3)
+     * @param max_iterations The maximum number of iterations for the fractal calculation (default: 112)
+     * @param contrast The contrast factor for the fractal visualization (default: 1.0)
      */
     template <typename T>
-    static void printMandelbrotSet() {
-        std::vector<std::string> colors;
-        for (int i = 16; i <= 232; i++) {
-            colors.push_back("\033[38;5;" + std::to_string(i) + "m");
-        }
-        double xs = -2.25, ys = -1.5, dx = 0.044, dy = 0.12;
-        for (int y = 0; y < 25; ++y) {
-            for (int x = 0; x < 80; ++x) {
-                std::complex<T> z1 = std::complex<T>(xs + x * dx, ys + y * dy);
-                std::complex<T> zn = z1;
-                size_t c = 0;
-                for (; c < 1000; c++) {
-                    zn = zn * zn + z1;
-                    if (std::norm(zn) > 8) break;
+    static void printJuliaSet(const size_t X, const size_t Y, const T x0 = -1.0, const T y0 = -0.3, const size_t max_iterations = 112, const long double contrast = 1.0) {
+        T xs = -1.0, ys = -0.86, dx = 80.0 * 0.03 / static_cast<T>(X), dy = 25.0 * 0.08 / static_cast<T>(Y);
+        std::complex<T> c(x0, y0); // You can change these values for different Julia sets
+        T min = 10000.0f;
+        T max = 0.0f;
+        T avg = 0.0f;
+        for (size_t y = 0; y < Y; ++y) {
+            for (size_t x = 0; x < X; ++x) {
+                std::complex<T> z = std::complex<T>(xs + x * dx, ys + y * dy);
+                size_t iter = 0;
+                for (; iter < max_iterations; iter++) {
+                    z = z * z + c;
+                    if (std::norm(z) > 4.0)
+                        break;
                 }
-                std::cout << colors[c % colors.size()] << "o";//"■";
+                if (std::log(iter) == NAN || std::log(iter) == std::log(0)) {
+                    continue;
+                }
+                if (std::log(iter) < min) {
+                    min = std::log(iter);
+                }
+                if (std::log(iter) > max) {
+                   max = std::log(iter);
+                }
+                avg += std::log(iter);
+            }
+        }
+        avg = avg / (X*Y);
+
+        // ANSI color codes for shades of gray
+        std::vector<std::string> colors3;
+        std::vector<std::string> grayShades;
+        grayShades.emplace_back("\033[38;5;0m");
+        // Generate the color codes
+        for (int i = 0; i < 24; ++i) {
+            int colorCode = 232 + i;
+            grayShades.push_back("\033[38;5;" + std::to_string(colorCode) + "m");
+        }
+        grayShades.emplace_back("\033[38;5;231m");
+        colors3 = grayShades;
+        for (size_t y = 0; y < Y; ++y) {
+            for (size_t x = 0; x < X; ++x) {
+                std::complex<T> z = std::complex<T>(xs + x * dx, ys + y * dy);
+                size_t iter = 0;
+                for (; iter < max_iterations; iter++) {
+                    z = z * z + c;
+                    if (std::norm(z) > 4.0)
+                        break;
+                }
+                const auto itr = std::log(iter) == (std::log(iter) == NAN || std::log(iter) == std::log(0)) ? 0 : std::log(iter);
+                long double enhanced_value = (itr - avg) * contrast + avg;
+                auto colorc = enhanced_value;
+                if (colorc < 0) {
+                    colorc = 0;
+                }
+                colorc = scale<T>(colorc, min, max, 0, colors3.size());
+                if (colorc > colors3.size() - 1) {
+                    colorc = colors3.size() - 1;
+                }
+                if (colorc < 0) {
+                    colorc = 0;
+                }
+                std::cout << colors3[static_cast<size_t>(colorc)] << "█";//"■";
             }
             std::cout << '\n';
         }
@@ -78,11 +145,12 @@ protected:
      * @return HeaderInfo object containing project information
      */
     HeaderInfo buildHeaderInfo() override {
-        printMandelbrotSet<long double>();
+        printJuliaSet<__float128>(80, 20, -0.9, 0.26, 300, 1.0);
+        std::cout<<"Julia set at (-0.9, 0.26), 200 iterations\n";
         return {
-                .ProjectName = "InLab 04",
-                .ProjectDescription = "Solving a system of linear equations using forward, back substitution",
-                .SubmissionDate = "09/15/2023",
+                .ProjectName = "NE591: OutLab 04",
+                .ProjectDescription = "Solving a system of linear equations using LU factorization",
+                .SubmissionDate = "09/22/2023",
                 .StudentName = "Arjun Earthperson",
                 .HeaderArt = " ",
         };
@@ -107,6 +175,16 @@ protected:
 
         MyBLAS::factorizeLU<long double>(L, U, A);
 
+        if(!MyBLAS::isValidUnitLowerTriangularMatrix(L)) {
+            std::cerr << "Factorized matrix L is not unit lower triangular, aborting.\n";
+            exit(-1);
+        }
+
+        if(!MyBLAS::isValidUpperTriangularMatrix(U)) {
+            std::cerr << "Factorized matrix U is not upper triangular, aborting.\n";
+            exit(-1);
+        }
+
         const auto b = inputs.constants;
 
         const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(L, b);
@@ -114,8 +192,10 @@ protected:
 
         nlohmann::json results;
         outputs.solution = x;
+        const auto b_prime = A * x;
+        const auto r = MyBLAS::abs(b - b_prime);
+        outputs.residual = r;
         outputs.toJSON(results["outputs"]);
-
 
         if(!values.count("quiet")) {
             const auto precision = getTerminal().getCurrentPrecision();
@@ -139,6 +219,10 @@ protected:
             std::cout << "Solution vector (x):\n";
             Parser::printLine();
             std::cout << std::setprecision (precision) << x;
+            Parser::printLine();
+            std::cout << "Residual vector r=|b' - b| :\n";
+            Parser::printLine();
+            std::cout << std::setprecision (precision) << r;
             Parser::printLine();
         }
 

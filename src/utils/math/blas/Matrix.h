@@ -9,6 +9,7 @@
 
 #include <vector>
 #include <iostream>
+#include "Vector.h"
 
 namespace MyBLAS {
     /**
@@ -130,6 +131,44 @@ namespace MyBLAS {
             for (size_t i = 0; i < rows; ++i) {
                 for (size_t j = 0; j < cols; ++j) {
                     result[i][j] = this->data[i][j] - rhs.data[i][j];
+                }
+            }
+            return result;
+        }
+
+        /**
+         * @brief Overloaded operator* to multiply two matrices.
+         * @param rhs Matrix to multiply with the current matrix.
+         * @return Resultant matrix after multiplication.
+         */
+        Matrix operator*(const Matrix& rhs) const {
+            if (cols != rhs.rows) {
+                throw std::exception();
+            }
+            Matrix result(rows, rhs.cols, 0);
+            for (size_t i = 0; i < rows; ++i) {
+                for (size_t j = 0; j < rhs.cols; ++j) {
+                    for (size_t k = 0; k < cols; ++k) {
+                        result[i][j] += this->data[i][k] * rhs.data[k][j];
+                    }
+                }
+            }
+            return result;
+        }
+
+        /**
+         * @brief Overloaded operator* to multiply a matrix with a vector.
+         * @param rhs Vector to multiply with the current matrix.
+         * @return Resultant vector after multiplication.
+         */
+        Vector operator*(const Vector& rhs) const {
+            if (cols != rhs.size()) {
+                throw std::exception();
+            }
+            Vector result(rows, 0);
+            for (size_t i = 0; i < rows; ++i) {
+                for (size_t j = 0; j < cols; ++j) {
+                    result[i] += this->data[i][j] * rhs[j];
                 }
             }
             return result;

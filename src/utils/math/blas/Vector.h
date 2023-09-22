@@ -124,6 +124,22 @@ namespace MyBLAS {
         }
 
         /**
+         * @brief Overloaded operator* to multiply two vectors (dot product).
+         * @param rhs Vector to multiply with the current vector.
+         * @return Resultant scalar after multiplication.
+         */
+        long double operator*(const Vector& rhs) const {
+            if (data.size() != rhs.size()) {
+                throw std::exception();
+            }
+            long double result = 0;
+            for (size_t i = 0; i < size(); ++i) {
+                result += this->data[i] * rhs.data[i];
+            }
+            return result;
+        }
+
+        /**
          * @brief Overloaded operator<< to print the vector to an output stream.
          * @param os Output stream to print the vector to.
          * @param m Vector to print.

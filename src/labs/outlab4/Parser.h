@@ -102,14 +102,14 @@ protected:
     }
 
     /**
-     * @brief Builds the NewtonCotesInputs object with the provided values from the command line
+     * @brief Builds the input matrices for the MyBLAS library from a JSON file.
      *
-     * This function takes the values provided by the user through the command line and
-     * populates the NewtonCotesInputs object accordingly. It also handles the case where
-     * the start value is greater than the stop value by flipping the interval.
+     * This function reads the input JSON file and extracts the coefficient matrix and constants vector.
+     * It also validates the dimensions of the input matrices and sets the order of the system.
+     * If the verbose mode is enabled, it prints the input matrices.
      *
-     * @param inputs Reference to the NewtonCotesInputs object to be populated
-     * @param values Reference to the boost::program_options::variables_map containing the command line values
+     * @param inputs Reference to a MyBLAS::InputMatrices object to store the input matrices.
+     * @param values Reference to a boost::program_options::variables_map object containing the command line arguments.
      */
     void buildInputs(MyBLAS::InputMatrices &inputs, boost::program_options::variables_map &values) override {
 

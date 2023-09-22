@@ -1,1 +1,2 @@
-file(COPY sample_input.json DESTINATION ${CMAKE_BINARY_DIR}/)
+file(GLOB JSON_FILES "*.json")
+file(COPY ${JSON_FILES} DESTINATION ${CMAKE_BINARY_DIR}/)

@@ -32,8 +32,8 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/outlab4/examples/sample_input.json
-export OUTPUT_FILE=./src/labs/outlab4/examples/sample_output.json
+export INPUT_FILE=./src/labs/outlab4/examples/sample_input_1.json
+export OUTPUT_FILE=./src/labs/outlab4/examples/sample_output_1.json
 
 ## Execute
 ./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
@@ -75,13 +75,18 @@ The output is written to a JSON file as well.
 ### Sample Outputs File
 ```json
 {
-  "outputs": {
-    "x": [
-      3.0,
-      2.0,
-      1.0
-    ]
-  }
+   "outputs": {
+      "residual": [
+         0.0,
+         0.0,
+         0.0
+      ],
+      "solution": [
+         3.0,
+         2.0,
+         1.0
+      ]
+   }
 }
 ```
 
@@ -90,10 +95,11 @@ The output is written to a JSON file as well.
 The following is an example of the program's output:
 
 ```shell
---------------------------------------------------------------------------------
-InLab 04: Solving a system of linear equations using forward, back substitution
+/tmp/tmp.xEkz05Cjga/cmake-build-debug-hermes-ne591/bin/outlab4 -i ../sample_input_1.json -o sample_output_1.json
+
+NE591: OutLab 04: Solving a system of linear equations using LU factorization
 Arjun Earthperson
-09/15/2023
+09/22/2023
 --------------------------------------------------------------------------------
 compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so
 --------------------------------------------------------------------------------
@@ -113,15 +119,24 @@ General options:
 --------------------------------------------------------------------------------
 			Precision in digits:  default: 6, maximum: 19, current: 15
 --------------------------------------------------------------------------------
-Warning: File already exists at path, will be overwritten 
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
 	Matrix order,  n: 0
-	Input JSON,    i: ../sample_input.json
-	Output JSON,   o: output.json
+	Input JSON,    i: ../sample_input_1.json
+	Output JSON,   o: sample_output_1.json
 --------------------------------------------------------------------------------
 Reading matrix order (n) from input matrix dimensions: 3
+--------------------------------------------------------------------------------
+Coefficient Matrix (A):
+--------------------------------------------------------------------------------
+1 1 2 
+2 4 7 
+3 7 15 
+--------------------------------------------------------------------------------
+Constants Vector (b):
+--------------------------------------------------------------------------------
+7 21 38 
 --------------------------------------------------------------------------------
 Lower Triangular Matrix (L):
 --------------------------------------------------------------------------------
@@ -135,12 +150,7 @@ Upper Triangular Matrix (U):
 0 2 3 
 0 0 3 
 --------------------------------------------------------------------------------
-Constants Vector (b):
---------------------------------------------------------------------------------
-7 21 38 
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-LU Matrix:
+Factorized Matrix LU: 
 --------------------------------------------------------------------------------
 1 1 2 
 2 2 3 
@@ -154,8 +164,11 @@ Solution vector (x):
 --------------------------------------------------------------------------------
 3 2 1 
 --------------------------------------------------------------------------------
-Warning: File already exists at path, will be overwritten 
-JSON data has been written to output.json
+Residual vector r=|b' - b| :
+--------------------------------------------------------------------------------
+0 0 0 
+--------------------------------------------------------------------------------
+JSON data has been written to sample_output_1.json
 
 Process finished with exit code 0
 ```
