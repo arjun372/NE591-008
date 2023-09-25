@@ -45,6 +45,79 @@ public:
 
 protected:
 
+    static std::vector<std::string> getHSV() {
+        std::vector<std::string> colors;
+
+        // 1
+        colors.emplace_back("\033[38;5;016m"); //black
+
+        // 1 + 24
+        for(int i = 232; i < 256; i++) {
+            colors.push_back("\033[38;5;" + std::to_string(i) + "m");
+        }
+
+        // 1 + 24 + 1
+        colors.emplace_back("\033[38;5;231m"); // white
+
+        //
+        std::vector<std::string> hues = {
+            "225",
+            "219",
+            "218",
+            "211",
+            "212",
+            "213",
+            "207",
+            "206",
+            "200",
+            "201",
+            "165",
+            "129",
+            "093",
+            "057",
+            "021",
+            "027",
+            "033",
+            "039",
+            "045",
+            "051",
+            "087",
+            "050",
+            "049",
+            "086",
+            "085",
+            "048",
+            "047",
+            "084",
+            "083",
+            "046",
+            "082",
+            "119",
+            "155",
+            "118",
+            "154",
+            "191",
+            "190",
+            "226",
+            "227",
+            "221",
+            "220",
+            "214",
+            "208",
+            "202",
+            "160",
+            "196",
+            "197",
+            "198",
+            "197",
+        };
+
+        for(auto &hue : hues) {
+            colors.push_back("\033[38;5;" + hue + "m");
+        }
+
+        return colors;
+    }
     /**
      * @brief Scales a value from one range to another.
      * @tparam T The data type of the value and range limits
@@ -73,7 +146,7 @@ protected:
     template <typename T>
     static void printJuliaSet(const size_t X, const size_t Y, const T x0 = -1.0, const T y0 = -0.3, const size_t max_iterations = 112, const long double contrast = 1.0) {
         T xs = -1.0, ys = -0.86, dx = 80.0 * 0.03 / static_cast<T>(X), dy = 25.0 * 0.08 / static_cast<T>(Y);
-        std::complex<T> c(x0, y0); // You can change these values for different Julia sets
+        const std::complex<T> c(x0, y0); // You can change these values for different Julia sets
         T min = 10000.0f;
         T max = 0.0f;
         T avg = 0.0f;
@@ -86,16 +159,22 @@ protected:
                     if (std::norm(z) > 4.0)
                         break;
                 }
-                if (std::log(iter) == NAN || std::log(iter) == std::log(0)) {
+//                if (iter > max) {
+//                    max = iter;
+//                }
+//                if (iter < min) {
+//                    min = iter;
+//                }
+                if (std::log2(iter) == NAN || std::isinf(std::log2(iter))) {
                     continue;
                 }
-                if (std::log(iter) < min) {
-                    min = std::log(iter);
+                if (std::log2(iter) < min) {
+                    min = std::log2(iter);
                 }
-                if (std::log(iter) > max) {
-                   max = std::log(iter);
+                if (std::log2(iter) > max) {
+                   max = std::log2(iter);
                 }
-                avg += std::log(iter);
+                avg += std::log2(iter);
             }
         }
         avg = avg / (X*Y);
@@ -103,7 +182,7 @@ protected:
         // ANSI color codes for shades of gray
         std::vector<std::string> colors3;
         std::vector<std::string> grayShades;
-        grayShades.emplace_back("\033[38;5;0m");
+        grayShades.emplace_back("\033[38;5;016m");
         // Generate the color codes
         for (int i = 0; i < 24; ++i) {
             int colorCode = 232 + i;
@@ -120,7 +199,7 @@ protected:
                     if (std::norm(z) > 4.0)
                         break;
                 }
-                const auto itr = std::log(iter) == (std::log(iter) == NAN || std::log(iter) == std::log(0)) ? 0 : std::log(iter);
+                const auto itr = std::log2(iter) == (std::log2(iter) == NAN || std::isinf(std::log2(iter))) ? 0 : std::log2(iter);
                 long double enhanced_value = (itr - avg) * contrast + avg;
                 auto colorc = enhanced_value;
                 if (colorc < 0) {
@@ -133,7 +212,7 @@ protected:
                 if (colorc < 0) {
                     colorc = 0;
                 }
-                std::cout << colors3[static_cast<size_t>(colorc)] << "█";//"■";
+                std::cout << colors3[static_cast<size_t>(colorc)] << "o";//"█■";
             }
             std::cout << '\n';
         }
@@ -145,7 +224,21 @@ protected:
      * @return HeaderInfo object containing project information
      */
     HeaderInfo buildHeaderInfo() override {
-        printJuliaSet<__float128>(80, 20, -0.9, 0.26, 300, 1.0);
+        printJuliaSet<long double>(80, 20, -0.9, 0.26, 800, 1.2);
+        //        printJuliaSet<__float128>(80, 20);
+        printJuliaSet<__float128>(80, 20, -1.0, -0.3, 176);
+        printJuliaSet<__float128>(80, 20, -1.0, -0.25999999999999995, 176);
+        printJuliaSet<__float128>(80, 20, -0.90, -0.25, 176);
+        printJuliaSet<__float128>(80, 20, -0.78, -0.12, 77);
+        printJuliaSet<__float128>(80, 20, -0.78, -0.12, 200);
+        printJuliaSet<__float128>(80, 20, -0.78, 0.18, 200);
+//        printJuliaSet<__float128>(80, 20, -0.9, 0.26, 200);
+        printJuliaSet<__float128>(80, 20, -0.78, -0.25, 117);
+        printJuliaSet<__float128>(80, 20, -0.78, -0.25, 176);
+        printJuliaSet<__float128>(240, 80, -0.78, -0.25, 176);
+        printJuliaSet<__float128>(80, 20, -0.42, 0.56, 176);
+        printJuliaSet<__float128>(80, 20, -0.66, 0.44, 576);
+        printJuliaSet<__float128>(80, 20, -0.72, 0.12, 40);
         std::cout<<"Julia set at (-0.9, 0.26), 200 iterations\n";
         return {
                 .ProjectName = "NE591: OutLab 04",
@@ -202,7 +295,7 @@ protected:
             Parser::printLine();
             std::cout << "Lower Triangular Matrix (L):\n";
             Parser::printLine();
-            std::cout << std::setprecision (precision) << L;
+            std::cout << std::scientific << std::setprecision (precision) << L;
             Parser::printLine();
             std::cout << "Upper Triangular Matrix (U):\n";
             Parser::printLine();
@@ -210,7 +303,7 @@ protected:
             Parser::printLine();
             std::cout << "Factorized Matrix LU: \n";
             Parser::printLine();
-            std::cout << std::setprecision (precision) << L + U - MyBLAS::Matrix::Eye(A.getCols());
+            std::cout << std::setprecision (precision) << L + U - MyBLAS::Matrix::eye(A.getCols());
             Parser::printLine();
             std::cout << "Intermediate vector y = inv(L) * b:\n";
             Parser::printLine();

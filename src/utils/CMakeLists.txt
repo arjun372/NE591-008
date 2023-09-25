@@ -11,6 +11,7 @@ set(UTILS_LIB_SOURCES
         math/blas/Matrix.h
         math/blas/Vector.h
         math/blas/MyBLAS.h
+        math/blas/LU.h
 )
 
 # Create utils

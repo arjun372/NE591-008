@@ -146,8 +146,9 @@ namespace MyBLAS {
          * @return Reference to the output stream.
          */
         friend std::ostream& operator<<(std::ostream& os, const Vector& m) {
+            const auto width = static_cast<int>(std::cout.precision() + static_cast<std::streamsize>(10));
             for(size_t i = 0; i < m.size(); ++i) {
-                os << m[i] << " ";
+                os << std::setw(width) << std::setfill(' ') << std::scientific << m[i];
             }
             os << '\n';
             return os;

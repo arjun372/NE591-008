@@ -1,7 +1,7 @@
 /**
  * @file Parser.h
  * @author Arjun Earthperson
- * @date 09/15/2023
+ * @date 09/22/2023
  * @brief This file contains the Parser class which is responsible for parsing command line arguments and validating
  * user inputs.
  */
@@ -13,6 +13,8 @@
 
 #include "utils/math/blas/Matrix.h"
 #include "utils/math/blas/Vector.h"
+#include "utils/math/blas/MyBLAS.h"
+
 
 class Parser : public CommandLine<MyBLAS::InputMatrices> {
 
@@ -98,16 +100,24 @@ protected:
                 }
             }
         }
+
+        // set precision to 4 if not set.
+        if(map["precision"].defaulted()) {
+            replace(map, "precision", 6);
+        }
     }
 
     /**
-     * @brief Builds the output object with the provided values from the command line
+     * @brief Builds the input matrices for the MyBLAS library from a JSON file.
      *
-     * @param inputs Reference to the object to be populated
-     * @param values Reference to the boost::program_options::variables_map containing the command line values
+     * This function reads the input JSON file and extracts the coefficient matrix and constants vector.
+     * It also validates the dimensions of the input matrices and sets the order of the system.
+     * If the verbose mode is enabled, it prints the input matrices.
+     *
+     * @param inputs Reference to a MyBLAS::InputMatrices object to store the input matrices.
+     * @param values Reference to a boost::program_options::variables_map object containing the command line arguments.
      */
     void buildInputs(MyBLAS::InputMatrices &inputs, boost::program_options::variables_map &values) override {
-
         // first, read the input file into a json map
         nlohmann::json inputMap;
         readJSON(values["input-json"].as<std::string>(), inputMap);
@@ -119,13 +129,34 @@ protected:
         // read the upper matrix, add it to LU, and subtract identity matrix to remove double counting
         const auto lower = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["lower"]));
         const auto upper = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["upper"]));
+        const auto permutation = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["permutation"]));
+
+        if(!MyBLAS::isPermutationMatrix(permutation)) {
+            std::cerr<<"Error: Input matrix is not a valid permutation matrix, aborting.\n";
+            exit(-1);
+        }
+
+        if(!MyBLAS::isUnitLowerTriangularMatrix(lower)) {
+            std::cerr<<"Error: Input matrix is not a valid unit lower triangular matrix, aborting.\n";
+            exit(-1);
+        }
+
+        if(!MyBLAS::isUpperTriangularMatrix(upper)) {
+            std::cerr<<"Error: Input matrix is not a valid upper triangular matrix, aborting.\n";
+            exit(-1);
+        }
 
         if (lower.getCols() != upper.getCols() || lower.getRows() != upper.getRows()) {
             std::cerr<<"Error: Input lower and upper triangular matrices do not have the same dimensions, aborting.\n";
             exit(-1);
         }
 
-        if (lower.getCols() != upper.getRows()) {
+        if (lower.getCols() != permutation.getCols() || lower.getRows() != permutation.getRows()) {
+            std::cerr<<"Error: Permutation and triangular matrices do not have the same dimensions, aborting.\n";
+            exit(-1);
+        }
+
+        if (!MyBLAS::isSquareMatrix(lower) || !MyBLAS::isSquareMatrix(upper) || !MyBLAS::isSquareMatrix(permutation)) {
             std::cerr<<"Error: Input matrices not square, aborting.\n";
             exit(-1);
         }
@@ -134,6 +165,7 @@ protected:
             std::cerr<<"Error: Input constants vector not order n, aborting.\n";
             exit(-1);
         }
+
 
         // set input order n
         const auto orderFromInputMatrixDimensions = lower.getRows();
@@ -151,26 +183,32 @@ protected:
         const auto identity = MyBLAS::Matrix::eye(inputs.n);
         inputs.LU = lower + upper - identity;
 
+        inputs.permutation = permutation;
+
         // print the matrices since we are in verbose mode.
         if(!values.count("quiet")) {
             const auto precision = getCurrentPrecision();
             printLine();
             std::cout << "Lower Triangular Matrix (L):\n";
             printLine();
-            std::cout << std::setprecision (precision) << lower;
+            std::cout << std::setprecision(precision) << lower;
             printLine();
             std::cout << "Upper Triangular Matrix (U):\n";
             printLine();
-            std::cout << std::setprecision (precision) << upper;
+            std::cout << std::setprecision(precision) << upper;
+            printLine();
+            std::cout << "Permutation Matrix (P):\n";
+            printLine();
+            std::cout << std::setprecision(precision) << inputs.permutation;
             printLine();
             std::cout << "Constants Vector (b):\n";
             printLine();
-            std::cout << std::setprecision (precision) << inputs.constants;
-            printLine();
+            std::cout << std::setprecision(precision) << inputs.constants;
             printLine();
             std::cout << "LU Matrix:\n";
             printLine();
-            std::cout << std::setprecision (precision) << inputs.LU;
+            std::cout << std::setprecision(precision) << inputs.LU;
+            printLine();
         }
     }
 

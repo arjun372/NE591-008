@@ -92,7 +92,7 @@ namespace MyBLAS {
          * @param size Size of the identity matrix.
          * @return Identity matrix of the given size.
          */
-        static Matrix Eye(size_t size) {
+        static Matrix eye(size_t size) {
             Matrix eye(size, size, 0);
             for(size_t i = 0; i < size; ++i) {
                 eye[i][i] = 1;
@@ -181,9 +181,10 @@ namespace MyBLAS {
          * @return Reference to the output stream.
          */
         friend std::ostream& operator<<(std::ostream& os, const Matrix& m) {
+            const auto width = static_cast<int>(std::cout.precision() + static_cast<std::streamsize>(10));
             for(size_t i = 0; i < m.getRows(); ++i) {
                 for(size_t j = 0; j < m.getCols(); ++j) {
-                    os << m[i][j] << ' ';
+                    os << std::setw(width) << std::setfill(' ') << std::scientific << m[i][j];
                 }
                 os << '\n';
             }

@@ -140,4 +140,153 @@ namespace MyBLAS {
         return result;
     }
 
+    /**
+     * @brief Checks if the given matrix is a square matrix.
+     *
+     * This function checks if the input matrix has an equal number of rows and columns.
+     *
+     * @param M The input matrix to be checked.
+     * @return true if the input matrix is a square matrix, false otherwise.
+     */
+    static inline bool isSquareMatrix(const MyBLAS::Matrix &M) {
+        return M.getCols() == M.getRows();
+    }
+
+    /**
+     * @brief Checks if the given matrix is a binary matrix.
+     *
+     * This function checks if all elements of the input matrix are either 0 or 1.
+     *
+     * @param M The input matrix to be checked.
+     * @return true if the input matrix is a binary matrix, false otherwise.
+     */
+    static bool isBinaryMatrix(const MyBLAS::Matrix &M) {
+        const size_t rows = M.getRows();
+        const size_t cols = M.getCols();
+
+        for (size_t i = 0; i < rows; i++) {
+            for (size_t j = 0; j < cols; j++) {
+                if (M[i][j] != 0.0 && M[i][j] != 1.0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * @brief Checks if the given matrix is a valid upper triangular matrix.
+     *
+     * This function checks if the input matrix is square and if all elements
+     * below the main diagonal are zero. If these conditions are met, the matrix
+     * is considered a valid upper triangular matrix.
+     *
+     * @param U The input matrix to be checked.
+     * @return true if the input matrix is a valid upper triangular matrix, false otherwise.
+     */
+    static bool isUpperTriangularMatrix(const MyBLAS::Matrix &U) {
+
+        if(!MyBLAS::isSquareMatrix(U)) {
+            return false;
+        }
+
+        const size_t cols = U.getCols();
+        const size_t rows = U.getRows();
+
+        // Iterate over the rows of the input matrix U
+        for (size_t i = 0; i < rows; i++) {
+            // Iterate over the cols of the input matrix U
+            for (size_t j = 0; j < cols; j++) {
+                // Lower triangular is always 0
+                if (i > j && U[i][j] != 0.0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * @brief Checks if the given matrix is a valid unit lower triangular matrix.
+     *
+     * This function checks if the input matrix is square, if all elements
+     * above the main diagonal are zero, and if all elements on the main diagonal
+     * are one. If these conditions are met, the matrix is considered a valid
+     * unit lower triangular matrix.
+     *
+     * @param L The input matrix to be checked.
+     * @return true if the input matrix is a valid unit lower triangular matrix, false otherwise.
+     */
+    static bool isUnitLowerTriangularMatrix(const MyBLAS::Matrix &L) {
+
+        if(!MyBLAS::isSquareMatrix(L)) {
+            return false;
+        }
+
+        const size_t cols = L.getCols();
+        const size_t rows = L.getRows();
+
+        // Iterate over the rows of the input matrix L
+        for (size_t i = 0; i < rows; i++) {
+            // Iterate over the cols of the input matrix L
+            for (size_t j = 0; j < cols; j++) {
+                // leading diagonal is always 1
+                if (i == j && L[i][j] != 1.0) {
+                    return false;
+                }
+                // upper triangular is always 0
+                if(i < j && L[i][j] != 0.0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * @brief Checks if the given matrix is a valid permutation matrix.
+     *
+     * This function checks if the input matrix is square, binary, and if each row
+     * and each column has exactly one element equal to 1.
+     *
+     * @param P The input matrix to be checked.
+     * @return true if the input matrix is a valid permutation matrix, false otherwise.
+     */
+    static bool isPermutationMatrix(const MyBLAS::Matrix &P) {
+
+        if (!MyBLAS::isSquareMatrix(P)) {
+            return false;
+        }
+
+        if (!MyBLAS::isBinaryMatrix(P)) {
+            return false;
+        }
+
+        const size_t rows = P.getRows();
+        const size_t cols = P.getCols();
+
+        // Initialize row and column counters
+        std::vector<int> rowOnesCount(rows, 0);
+        std::vector<int> colOnesCount(cols, 0);
+
+        // Iterate over the matrix and update the counters
+        for (size_t i = 0; i < rows; i++) {
+            for (size_t j = 0; j < cols; j++) {
+                if (P[i][j] == 1.0) {
+                    rowOnesCount[i]++;
+                    colOnesCount[j]++;
+                }
+            }
+        }
+
+        // Check if each row and each column has exactly one element equal to 1
+        for (size_t i = 0; i < rows; i++) {
+            if (rowOnesCount[i] != 1 || colOnesCount[i] != 1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }
