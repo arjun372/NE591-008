@@ -33,7 +33,8 @@
  */
 
 
-#pragma once
+#ifndef NE591_008_STOPWATCH_H
+#define NE591_008_STOPWATCH_H
 
 
 #include <chrono>
@@ -90,3 +91,5 @@ private:
     TimePointType _initial; ///< The initial time point when the stopwatch was last restarted.
     TimePointType _clicked; ///< The last clicked time point, used to measure durations.
 };
+
+#endif //NE591_008_STOPWATCH_H

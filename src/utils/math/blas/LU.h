@@ -23,7 +23,8 @@
  * implementations
  */
 
-#pragma once
+#ifndef NE591_008_LU_H
+#define NE591_008_LU_H
 
 #include <iostream>
 #include <cmath>
@@ -100,3 +101,5 @@ namespace MyBLAS::LU {
         doolittleFactorize<T>(L, U, A);
     }
 }
+
+#endif //NE591_008_LU_H

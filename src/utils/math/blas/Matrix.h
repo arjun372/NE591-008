@@ -2,16 +2,23 @@
  * @file Matrix.h
  * @author Arjun Earthperson
  * @date 09/22/2023
- * @brief This file contains my BLAS::Matrix implementation.
+ * @brief This file contains my BLAS::Matrix declarations.
 */
 
-#pragma once
+#ifndef NE591_008_MATRIX_H
+#define NE591_008_MATRIX_H
 
 #include <vector>
 #include <iostream>
+#include <algorithm>
+
 #include "Vector.h"
 
 namespace MyBLAS {
+
+    class Matrix;
+    class Vector;
+
     /**
      * @class Matrix
      * @brief Class representing a matrix of long double values.
@@ -175,11 +182,24 @@ namespace MyBLAS {
         }
 
         /**
-         * @brief Overloaded operator<< to print the matrix to an output stream.
-         * @param os Output stream to print the matrix to.
-         * @param m Matrix to print.
-         * @return Reference to the output stream.
-         */
+        * @brief Swaps two rows in the matrix.
+        * @param row1 Index of the first row to swap.
+        * @param row2 Index of the second row to swap.
+        */
+        void swapRows(size_t row1, size_t row2) {
+            if (row1 >= rows || row2 >= rows) {
+                return;
+            }
+            std::swap(data[row1], data[row2]);
+        }
+
+
+        /**
+          * @brief Overloaded operator<< to print the matrix to an output stream.
+          * @param os Output stream to print the matrix to.
+          * @param m Matrix to print.
+          * @return Reference to the output stream.
+          */
         friend std::ostream& operator<<(std::ostream& os, const Matrix& m) {
             const auto width = static_cast<int>(std::cout.precision() + static_cast<std::streamsize>(10));
             for(size_t i = 0; i < m.getRows(); ++i) {
@@ -191,4 +211,65 @@ namespace MyBLAS {
             return os;
         }
     };
-}
+
+    /**
+     * @brief Perform forward substitution
+     *
+     * This function performs forward substitution, which is used in solving a system of linear equations
+     * after the system matrix has been decomposed into a lower triangular matrix (L) and an upper triangular matrix (U).
+     * The forward substitution algorithm iterates through each row of the lower triangular matrix (L) and computes
+     * the corresponding element in the intermediate result vector (y) by subtracting the sum of the product of the
+     * current row elements and the corresponding elements in the intermediate result vector (y) from the corresponding
+     * element in the input vector (b).
+     *
+     * @tparam T Using templates for data type consistency in computation.
+     * @param L A lower triangular matrix.
+     * @param b A vector in the system of linear equations Ax = b.
+     * @return The result vector after performing forward substitution.
+     */
+    template<typename T>
+    static MyBLAS::Vector forwardSubstitution(const MyBLAS::Matrix &L, const MyBLAS::Vector &b) {
+        const auto n = b.size();
+        MyBLAS::Vector y(n);
+        for (size_t row = 0; row < n; row++) {
+            T sum = 0.0f;
+            for (size_t col = 0; col < row; col++) {
+                sum += L[row][col] * y[col];
+            }
+            y[row] = (b[row] - sum);
+        }
+        return y;
+    }
+
+    /**
+     * @brief Perform backward substitution
+     *
+     * This function performs backward substitution, which is used in solving a system of linear equations
+     * after the system matrix has been decomposed into a lower triangular matrix (L) and an upper triangular matrix (U),
+     * and forward substitution has been performed. The backward substitution algorithm iterates through each row of the
+     * upper triangular matrix (U) in reverse order and computes the corresponding element in the solution vector (x) by
+     * subtracting the sum of the product of the current row elements and the corresponding elements in the solution vector
+     * (x) from the corresponding element in the intermediate result vector (y) and then dividing by the diagonal element of
+     * the current row in the upper triangular matrix (U).
+     *
+     * @tparam T Using templates for data type consistency in computation.
+     * @param U An upper triangular matrix.
+     * @param y The result vector after performing forward substitution.
+     * @return The solution vector after performing backward substitution.
+     */
+    template<typename T>
+    static MyBLAS::Vector backwardSubstitution(const MyBLAS::Matrix &U, const MyBLAS::Vector &y) {
+        const auto n = static_cast<int64_t>(y.size());
+        MyBLAS::Vector x(n);
+        for (int64_t i = n - 1; i >= 0; i--) {
+            T sum = 0.0f;
+            for (int64_t j = i + 1; j < n; j++) {
+                sum += U[i][j] * x[j];
+            }
+            x[i] = (y[i] - sum) / U[i][i];
+        }
+        return x;
+    }
+} // MyBLAS
+
+#endif //NE591_008_MATRIX_H

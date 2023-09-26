@@ -4,7 +4,9 @@
  * @date 09/15/2023
  * @brief This file contains root finding math functions
 */
-#pragma once
+
+#ifndef NE591_008_ROOTFINDER_H
+#define NE591_008_ROOTFINDER_H
 
 #include <cmath>
 #include <functional>
@@ -41,3 +43,5 @@ namespace RootFinder {
         return x;
     }
 }
+
+#endif //NE591_008_ROOTFINDER_H

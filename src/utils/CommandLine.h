@@ -8,7 +8,8 @@
  * submission date, and student name.
  */
 
-#pragma once
+#ifndef NE591_008_COMMANDLINE_H
+#define NE591_008_COMMANDLINE_H
 
 #include <string>
 #include <iostream>
@@ -247,3 +248,5 @@ private:
         printLine();
     }
 };
+
+#endif //NE591_008_COMMANDLINE_H

@@ -4,7 +4,9 @@
  * @date 08/30/2023
  * @brief This file contains helper functions and structures used throughout the program.
 */
-#pragma once
+
+#ifndef NE591_008_HELPERS_H
+#define NE591_008_HELPERS_H
 
 #include <iostream>
 #include <iomanip>
@@ -256,3 +258,5 @@ void printJuliaSet(const Canvas &canvas, const T x0, const T y0, const size_t ma
     }
     std::cout << "\033[0m";
 }
+
+#endif //NE591_008_HELPERS_H

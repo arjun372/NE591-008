@@ -5,7 +5,8 @@
  * @brief This file contains the definitions for functions that handle file parsing operations.
 */
 
-#pragma once
+#ifndef NE591_008_FILEPARSER_H
+#define NE591_008_FILEPARSER_H
 
 #include <filesystem>
 #include <iostream>
@@ -262,3 +263,5 @@ static void writeJSON(const std::string &filepath, nlohmann::json &data) {
 
     std::cout << "JSON data has been written to " << filepath << std::endl;
 }
+
+#endif //NE591_008_FILEPARSER_H

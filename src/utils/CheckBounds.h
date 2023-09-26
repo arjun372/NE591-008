@@ -5,7 +5,8 @@
  * @author Arjun Earthperson
  */
 
-#pragma once
+#ifndef NE591_008_CHECKBOUNDS_H
+#define NE591_008_CHECKBOUNDS_H
 
 #include <iostream>
 #include <boost/program_options.hpp>
@@ -168,3 +169,5 @@ static bool asYesOrNo(std::string &input) {
     std::cerr << "Unknown value, please specify one of: [yes,y,no,n]\n";
     throw std::exception();
 }
+
+#endif //NE591_008_CHECKBOUNDS_H
