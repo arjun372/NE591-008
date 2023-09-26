@@ -32,7 +32,8 @@
  * SOFTWARE.
  */
 
-#pragma once
+#ifndef NE591_008_PROFILER_H
+#define NE591_008_PROFILER_H
 
 #include <iomanip>
 #include <iostream>
@@ -144,3 +145,5 @@ private:
     Randomiser _rnd; ///< A Randomiser object for generating random numbers.
     const int _num_tries; ///< The number of times to execute the function for profiling.
 };
+
+#endif //NE591_008_PROFILER_H

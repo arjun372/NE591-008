@@ -6,7 +6,8 @@
  *        The Project class is a generic class that represents a project that can be executed.
 */
 
-#pragma once
+#ifndef NE591_008_PROJECT_H
+#define NE591_008_PROJECT_H
 
 #include <boost/program_options.hpp>
 #include <utility>
@@ -110,3 +111,5 @@ protected:
      */
     virtual void postRun(OutputType &output, InputType &input, boost::program_options::variables_map &values) {}
 };
+
+#endif //NE591_008_PROJECT_H
