@@ -11,8 +11,8 @@
 #include <iostream>
 #include <cmath>
 
-#include "utils/CommandLine.h"
-#include "utils/Stopwatch.h"
+#include "CommandLine.h"
+#include "Stopwatch.h"
 
 /**
  * @brief This function computes the Lagrange polynomials for a given set of data points.

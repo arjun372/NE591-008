@@ -14,8 +14,8 @@
 
 #include <boost/program_options.hpp>
 
-#include "utils/CommandLine.h"
-#include "utils/Project.h"
+#include "CommandLine.h"
+#include "Project.h"
 #include "Compute.h"
 #include "Parser.h"
 

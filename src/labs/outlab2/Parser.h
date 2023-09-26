@@ -4,10 +4,10 @@
 #include <iomanip>
 #include <string>
 
-#include "utils/CheckBounds.h"
-#include "utils/CommandLine.h"
-#include "utils/FileParser.h"
-#include "utils/Helpers.h"
+#include "CheckBounds.h"
+#include "CommandLine.h"
+#include "FileParser.h"
+#include "Helpers.h"
 
 #include "extern/function.h"
 

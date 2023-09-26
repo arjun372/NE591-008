@@ -9,12 +9,11 @@
 #pragma once
 
 #include "InputsOutputs.h"
-#include "utils/json.hpp"
+#include "CommandLine.h"
+#include "FileParser.h"
+#include "Helpers.h"
 
-#include "utils/math/blas/Matrix.h"
-#include "utils/math/blas/Vector.h"
-
-class Parser : public CommandLine<MyBLAS::InputMatrices> {
+class Parser : public CommandLine<InputMatrices> {
 
 public:
     explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
@@ -106,7 +105,7 @@ protected:
      * @param inputs Reference to the object to be populated
      * @param values Reference to the boost::program_options::variables_map containing the command line values
      */
-    void buildInputs(MyBLAS::InputMatrices &inputs, boost::program_options::variables_map &values) override {
+    void buildInputs(InputMatrices &inputs, boost::program_options::variables_map &values) override {
 
         // first, read the input file into a json map
         nlohmann::json inputMap;

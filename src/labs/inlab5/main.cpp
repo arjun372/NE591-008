@@ -1,6 +1,6 @@
 
 #include "inlab5.h"
-#include "utils/CommandLine.h"
+#include "CommandLine.h"
 
 /**
  * @brief The main function of the program.

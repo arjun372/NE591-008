@@ -1,8 +1,8 @@
 #pragma once
 
-#include "utils/CommandLine.h"
-#include "utils/CheckBounds.h"
-#include "utils/Helpers.h"
+#include "CommandLine.h"
+#include "CheckBounds.h"
+#include "Helpers.h"
 
 typedef struct Input {
     long double x; ///< The x value.

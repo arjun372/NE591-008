@@ -119,7 +119,7 @@ static std::vector<std::string> getGrays256bitANSI() {
 template<typename T>
 struct CanvasType {
     size_t width = 80;
-    size_t height = 25;
+    size_t height = 24;
     T x_start = -1.4;
     T y_start = -0.9;
     T x_range = 2.9;

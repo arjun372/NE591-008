@@ -14,10 +14,10 @@
 #include <iomanip>
 #include <boost/program_options.hpp>
 
-#include "utils/Helpers.h"
-#include "utils/CheckBounds.h"
-#include "utils/FileParser.h"
-#include "utils/Project.h"
+#include "Helpers.h"
+#include "CheckBounds.h"
+#include "FileParser.h"
+#include "Project.h"
 #include "extern/function.h"
 
 #include "Parser.h"

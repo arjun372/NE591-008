@@ -14,19 +14,19 @@
 #include <iomanip>
 #include <boost/program_options.hpp>
 
-#include "utils/Helpers.h"
-#include "utils/CheckBounds.h"
-#include "utils/FileParser.h"
-#include "utils/Project.h"
+#include "Helpers.h"
+#include "CheckBounds.h"
+#include "FileParser.h"
+#include "Project.h"
 
 #include "Parser.h"
 #include "Compute.h"
 #include "InputsOutputs.h"
-#include "utils/json.hpp"
+#include "json.hpp"
 
-#include "utils/math/blas/Matrix.h"
-#include "utils/math/blas/Vector.h"
-#include "utils/math/blas/MyBLAS.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/Vector.h"
+#include "math/blas/MyBLAS.h"
 
 
 /**
@@ -53,7 +53,7 @@ protected:
     HeaderInfo buildHeaderInfo() override {
         Canvas canvas;
         printJuliaSet<__float128>(canvas, -0.8, 0.156, 300); //"o█■"
-        std::cout<<"\t\t\t\tJulia set at (-0.8, 0.156), 300 iterations\n";
+        std::cout<<"\t\t\tJulia set at (-0.8, 0.156), 300 iterations\n";
         return {
                 .ProjectName = "InLab 05",
                 .ProjectDescription = "Linear equations with permutation matrix, forward, back substitution",

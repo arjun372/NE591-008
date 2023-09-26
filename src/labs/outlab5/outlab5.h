@@ -1,12 +1,13 @@
 /**
- * @file outlab4.cpp
+ * @file outlab5.cpp
  * @author Arjun Earthperson
- * @date 09/22/2023
- * @brief This file contains the declaration for the OutLab4 class.
+ * @date 09/29/2023
+ * @brief This file contains the declaration for the OutLab5 class.
  *
  */
 
-#pragma once
+#ifndef NE591_008_OUTLAB5_H
+#define NE591_008_OUTLAB5_H
 
 #include <variant>
 #include <numeric>
@@ -14,49 +15,45 @@
 #include <iomanip>
 #include <boost/program_options.hpp>
 
-#include "Helpers.h"
-#include "CheckBounds.h"
-#include "FileParser.h"
-#include "Project.h"
-
-#include "Parser.h"
-#include "Compute.h"
 #include "InputsOutputs.h"
-#include "json.hpp"
+#include "Parser.h"
 
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
+#include "Project.h"
+#include "CommandLine.h"
+
 #include "math/blas/MyBLAS.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/LU.h"
+
+#include "json.hpp"
+#include "Compute.h"
 
 
 /**
- * @class OutLab4
+ * @class OutLab5
  * @brief This class is a child of the Project class and is used to solve a system of linear equations using forward and back substitution.
  * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
-class OutLab4 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVector> {
+class OutLab5 : public Project<InputMatrices, Parser, Results> {
 
 public:
     /**
      * @brief Constructor for the outlab4 class
      * @param args Command line arguments
      */
-    explicit OutLab4(CommandLineArgs args) : Project(args) {}
+    explicit OutLab5(CommandLineArgs args) : Project(args) {}
 
 protected:
-
     /**
      * @brief This function builds the header information for the project.
      * @return HeaderInfo object containing project information
      */
     HeaderInfo buildHeaderInfo() override {
-        Canvas canvas;
-        printJuliaSet<__float128>(canvas, -0.9, 0.26, 200);
-        std::cout<<"\t\t\tJulia set at (-0.9, 0.26), 200 iterations\n";
+        std::cout<<"Julia set at (-0.9, 0.26), 200 iterations\n";
         return {
-                .ProjectName = "NE591: OutLab 04",
-                .ProjectDescription = "Solving a system of linear equations using LU factorization",
-                .SubmissionDate = "09/22/2023",
+                .ProjectName = "NE591: OutLab 05",
+                .ProjectDescription = "Solving a system of linear equations using LUP factorization",
+                .SubmissionDate = "09/29/2023",
                 .StudentName = "Arjun Earthperson",
                 .HeaderArt = " ",
         };
@@ -69,24 +66,26 @@ protected:
      * @param inputs The input matrices
      * @param values The variable map
      */
-    void run(MyBLAS::OutputVector &outputs, MyBLAS::InputMatrices &inputs, boost::program_options::variables_map &values) override {
+    void run(Results &outputs, InputMatrices &inputs, boost::program_options::variables_map &values) override {
 
         // Given the matrix A = LU and vector b
         // solve Ax = b, which is LUx = b
         // x = inv(LU)•b
 
-        const auto A = inputs.coefficients;
+        auto A = inputs.coefficients;
         auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), 0.0f);
         auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), 0.0f);
 
-        MyBLAS::factorizeLU<long double>(L, U, A);
+        MyBLAS::Matrix P;
 
-        if(!MyBLAS::isValidUnitLowerTriangularMatrix(L)) {
+        factorizeLUP<long double>(L, U, A, P);
+
+        if(!MyBLAS::isUnitLowerTriangularMatrix(L)) {
             std::cerr << "Factorized matrix L is not unit lower triangular, aborting.\n";
             exit(-1);
         }
 
-        if(!MyBLAS::isValidUpperTriangularMatrix(U)) {
+        if(!MyBLAS::isUpperTriangularMatrix(U)) {
             std::cerr << "Factorized matrix U is not upper triangular, aborting.\n";
             exit(-1);
         }
@@ -136,3 +135,5 @@ protected:
     }
 
 };
+
+#endif // NE591_008_OUTLAB5_H

@@ -10,14 +10,9 @@
 #include <iostream>
 #include <cmath>
 
-#include "utils/math/blas/Matrix.h"
-#include "utils/math/blas/Vector.h"
-#include "utils/math/blas/MyBLAS.h"
-
-#include "utils/CommandLine.h"
-#include "utils/Stopwatch.h"
-#include "InputsOutputs.h"
-
+#include "math/blas/MyBLAS.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/Vector.h"
 namespace InLab04 {
 /**
  * @brief Perform forward substitution
@@ -31,7 +26,7 @@ namespace InLab04 {
  * @return The result vector after performing forward substitution.
  */
     template<typename T>
-    MyBLAS::Vector forwardSubstitution(const MyBLAS::Matrix &L, const MyBLAS::Vector &b) {
+    MyBLAS::Vector doForwardSubstitution(const MyBLAS::Matrix &L, const MyBLAS::Vector &b) {
         return MyBLAS::forwardSubstitution<T>(L, b);
     }
 
@@ -48,7 +43,7 @@ namespace InLab04 {
  * @return The solution vector after performing backward substitution.
  */
     template<typename T>
-    MyBLAS::Vector backwardSubstitution(const MyBLAS::Matrix &U, const MyBLAS::Vector &y) {
+    MyBLAS::Vector doBackwardSubstitution(const MyBLAS::Matrix &U, const MyBLAS::Vector &y) {
         return MyBLAS::backwardSubstitution<T>(U, y);
     }
 }

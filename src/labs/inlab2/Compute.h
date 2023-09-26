@@ -10,7 +10,7 @@
 #include <iostream>
 #include <cmath>
 
-#include "utils/CommandLine.h"
+#include "CommandLine.h"
 
 /**
  * @brief Fills the Lagrange polynomials for given interpolation points.

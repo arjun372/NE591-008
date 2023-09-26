@@ -11,11 +11,11 @@
 #include <iostream>
 #include <cmath>
 
-#include "utils/math/blas/Matrix.h"
-#include "utils/math/blas/Vector.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/Vector.h"
 
-#include "utils/CommandLine.h"
-#include "utils/Stopwatch.h"
+#include "CommandLine.h"
+#include "Stopwatch.h"
 #include "InputsOutputs.h"
 
 /**

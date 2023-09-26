@@ -3,12 +3,12 @@
 
 #include <numeric>
 
-#include "utils/CommandLine.h"
-#include "utils/Project.h"
+#include "CommandLine.h"
+#include "Project.h"
 
 #include "Parser.h"
 #include "Compute.h"
-#include "utils/Stopwatch.h"
+#include "Stopwatch.h"
 
 typedef std::map<std::string, std::vector<std::string>> Dictionary;
 

@@ -9,10 +9,10 @@
 #pragma once
 
 #include "InputsOutputs.h"
-#include "utils/json.hpp"
+#include "json.hpp"
 
-#include "utils/math/blas/Matrix.h"
-#include "utils/math/blas/Vector.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/Vector.h"
 
 
 class Parser : public CommandLine<MyBLAS::InputMatrices> {

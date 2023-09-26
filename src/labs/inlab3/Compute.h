@@ -10,8 +10,8 @@
 #include <iostream>
 #include <cmath>
 
-#include "utils/CommandLine.h"
-#include "utils/Stopwatch.h"
+#include "CommandLine.h"
+#include "Stopwatch.h"
 #include "InputsOutputs.h"
 
 /**

@@ -14,25 +14,18 @@
 #include <iomanip>
 #include <boost/program_options.hpp>
 
-#include "utils/math/blas/Matrix.h"
-#include "utils/math/blas/Vector.h"
-
-#include "utils/Helpers.h"
-#include "utils/CheckBounds.h"
-#include "utils/FileParser.h"
-#include "utils/Project.h"
-
 #include "Parser.h"
 #include "Compute.h"
 #include "InputsOutputs.h"
-#include "utils/json.hpp"
+#include "Project.h"
+#include "FileParser.h"
 
 /**
  * @class InLab4
  * @brief This class is a child of the Project class and is used to solve a system of linear equations using forward and back substitution.
  * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
-class InLab4 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVector> {
+class InLab4 : public Project<InputMatrices, Parser, OutputVector> {
 
 public:
     /**
@@ -93,7 +86,7 @@ protected:
      * @param inputs The input matrices
      * @param values The variable map
      */
-    void run(MyBLAS::OutputVector &outputs, MyBLAS::InputMatrices &inputs, boost::program_options::variables_map &values) override {
+    void run(OutputVector &outputs, InputMatrices &inputs, boost::program_options::variables_map &values) override {
 
         // Given the matrix A = LU and vector b
         // solve Ax = b, which is LUx = b
@@ -102,8 +95,8 @@ protected:
         const auto b = inputs.constants;
         const auto LU = inputs.LU;
 
-        const MyBLAS::Vector y = InLab04::forwardSubstitution<long double>(LU, b);
-        const MyBLAS::Vector x = InLab04::backwardSubstitution<long double>(LU, y);
+        const MyBLAS::Vector y = InLab04::doForwardSubstitution<long double>(LU, b);
+        const MyBLAS::Vector x = InLab04::doBackwardSubstitution<long double>(LU, y);
 
         nlohmann::json results;
         outputs.solution = x;

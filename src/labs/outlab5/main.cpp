@@ -1,5 +1,5 @@
 
-#include "outlab4.h"
+#include "outlab5.h"
 #include "CommandLine.h"
 
 /**
@@ -15,6 +15,6 @@ int main(int argc, char **argv) {
             .argc = argc,
             .argv = argv,
     };
-    auto labProject = OutLab4(args);
+    auto labProject = OutLab5(args);
     labProject.execute();
 }

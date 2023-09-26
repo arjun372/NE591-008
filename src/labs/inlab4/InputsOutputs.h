@@ -9,15 +9,9 @@
 
 #include <utility>
 
-#include "utils/math/blas/Matrix.h"
-#include "utils/math/blas/Vector.h"
-#include "utils/json.hpp"
-
-/**
- * @namespace MyBLAS
- * @brief Namespace for the Basic Linear Algebra Subprograms (BLAS) library.
- */
-namespace MyBLAS {
+#include "math/blas/Matrix.h"
+#include "math/blas/Vector.h"
+#include "json.hpp"
 
     /**
      * @struct Input
@@ -57,5 +51,3 @@ namespace MyBLAS {
             jsonMap["solution"] = solution.getData();
         }
     } OutputVector;
-
-}

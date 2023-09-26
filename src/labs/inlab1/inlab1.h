@@ -16,12 +16,12 @@
 #include "Parser.h"
 #include "Compute.h"
 
-#include "utils/Project.h"
-#include "utils/CheckBounds.h"
-#include "utils/CommandLine.h"
-#include "utils/Stopwatch.h"
-#include "utils/Helpers.h"
-#include "utils/Profiler.h"
+#include "Project.h"
+#include "CheckBounds.h"
+#include "CommandLine.h"
+#include "Stopwatch.h"
+#include "Helpers.h"
+#include "Profiler.h"
 
 
 /**

@@ -6,17 +6,14 @@
  * user inputs.
  */
 
-#pragma once
+#ifndef NE591_008_OUTLAB5_PARSER_H
+#define NE591_008_OUTLAB5_PARSER_H
 
-#include "InputsOutputs.h"
-#include "json.hpp"
+#include "CommandLine.h"
+#include "FileParser.h"
+#include "Helpers.h"
 
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
-#include "math/blas/MyBLAS.h"
-
-
-class Parser : public CommandLine<MyBLAS::InputMatrices> {
+class Parser : public CommandLine<InputMatrices> {
 
 public:
     explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
@@ -32,6 +29,7 @@ protected:
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()
                 ("order,n", boost::program_options::value<long double>()->default_value(0), "= order of the square matrix (n is a natural number)")
+                ("no-pivoting, p", "Do not use partial pivoting during LU factorization")
                 ("input-json,i", boost::program_options::value<std::string>(), "= input JSON file containing the LU matrix and constants vector B")
                 ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON file");
     }
@@ -47,6 +45,8 @@ protected:
         const auto n  = static_cast<size_t>(vm["order"].as<long double>());
         const auto inputFilepath = vm["input-json"].as<std::string>();
         const auto outputFilepath =  vm["output-json"].as<std::string>();
+        const bool noPivoting = vm.count("no-pivoting") != 0;
+
         // list the parameters
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
@@ -54,6 +54,7 @@ protected:
         std::cout << "\tMatrix order,  n: " << n << "\n";
         std::cout << "\tInput JSON,    i: " << inputFilepath << "\n";
         std::cout << "\tOutput JSON,   o: " << outputFilepath << "\n";
+        std::cout << "\tUse Pivoting,  p: " << (noPivoting ? "No" : "Yes") << "\n";
         CommandLine::printLine();
     }
 
@@ -100,11 +101,6 @@ protected:
                 }
             }
         }
-
-        // set precision to 4 if not set.
-        if(map["precision"].defaulted()) {
-            replace(map, "precision", 6);
-        }
     }
 
     /**
@@ -117,7 +113,8 @@ protected:
      * @param inputs Reference to a MyBLAS::InputMatrices object to store the input matrices.
      * @param values Reference to a boost::program_options::variables_map object containing the command line arguments.
      */
-    void buildInputs(MyBLAS::InputMatrices &inputs, boost::program_options::variables_map &values) override {
+    void buildInputs(InputMatrices &inputs, boost::program_options::variables_map &values) override {
+
         // first, read the input file into a json map
         nlohmann::json inputMap;
         readJSON(values["input-json"].as<std::string>(), inputMap);
@@ -126,49 +123,16 @@ protected:
         std::vector<long double> constants = inputMap["constants"];
         inputs.constants = MyBLAS::Vector(constants);
 
-        // read the upper matrix, add it to LU, and subtract identity matrix to remove double counting
-        const auto lower = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["lower"]));
-        const auto upper = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["upper"]));
-        const auto permutation = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["permutation"]));
+        // read the coefficient matrix
+        inputs.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
 
-        if(!MyBLAS::isPermutationMatrix(permutation)) {
-            std::cerr<<"Error: Input matrix is not a valid permutation matrix, aborting.\n";
-            exit(-1);
-        }
-
-        if(!MyBLAS::isUnitLowerTriangularMatrix(lower)) {
-            std::cerr<<"Error: Input matrix is not a valid unit lower triangular matrix, aborting.\n";
-            exit(-1);
-        }
-
-        if(!MyBLAS::isUpperTriangularMatrix(upper)) {
-            std::cerr<<"Error: Input matrix is not a valid upper triangular matrix, aborting.\n";
-            exit(-1);
-        }
-
-        if (lower.getCols() != upper.getCols() || lower.getRows() != upper.getRows()) {
-            std::cerr<<"Error: Input lower and upper triangular matrices do not have the same dimensions, aborting.\n";
-            exit(-1);
-        }
-
-        if (lower.getCols() != permutation.getCols() || lower.getRows() != permutation.getRows()) {
-            std::cerr<<"Error: Permutation and triangular matrices do not have the same dimensions, aborting.\n";
-            exit(-1);
-        }
-
-        if (!MyBLAS::isSquareMatrix(lower) || !MyBLAS::isSquareMatrix(upper) || !MyBLAS::isSquareMatrix(permutation)) {
-            std::cerr<<"Error: Input matrices not square, aborting.\n";
-            exit(-1);
-        }
-
-        if(lower.getRows() != inputs.constants.size()) {
+        if(inputs.coefficients.getRows() != inputs.constants.size()) {
             std::cerr<<"Error: Input constants vector not order n, aborting.\n";
             exit(-1);
         }
 
-
         // set input order n
-        const auto orderFromInputMatrixDimensions = lower.getRows();
+        const auto orderFromInputMatrixDimensions = inputs.coefficients.getRows();
         if(values["order"].defaulted()) {
             std::cout<<"Reading matrix order (n) from input matrix dimensions: "<<orderFromInputMatrixDimensions<<"\n";
             inputs.n = orderFromInputMatrixDimensions;
@@ -176,40 +140,24 @@ protected:
             const auto orderFromUser = static_cast<size_t>(values["order"].as<long double>());
             inputs.n = orderFromUser > orderFromInputMatrixDimensions ? orderFromInputMatrixDimensions : orderFromUser;
             if (orderFromUser > orderFromInputMatrixDimensions) {
-                std::cerr<<"Warning: Matrix order (n) is larger than input matrices, defaulting to lower value\n";
+                std::cerr<<"Warning: Matrix order (n) is larger than input matrix, defaulting to lower value\n";
             }
         }
-
-        const auto identity = MyBLAS::Matrix::eye(inputs.n);
-        inputs.LU = lower + upper - identity;
-
-        inputs.permutation = permutation;
 
         // print the matrices since we are in verbose mode.
         if(!values.count("quiet")) {
             const auto precision = getCurrentPrecision();
             printLine();
-            std::cout << "Lower Triangular Matrix (L):\n";
+            std::cout << "Coefficient Matrix (A):\n";
             printLine();
-            std::cout << std::setprecision(precision) << lower;
-            printLine();
-            std::cout << "Upper Triangular Matrix (U):\n";
-            printLine();
-            std::cout << std::setprecision(precision) << upper;
-            printLine();
-            std::cout << "Permutation Matrix (P):\n";
-            printLine();
-            std::cout << std::setprecision(precision) << inputs.permutation;
+            std::cout << std::setprecision (precision) << inputs.coefficients;
             printLine();
             std::cout << "Constants Vector (b):\n";
             printLine();
-            std::cout << std::setprecision(precision) << inputs.constants;
-            printLine();
-            std::cout << "LU Matrix:\n";
-            printLine();
-            std::cout << std::setprecision(precision) << inputs.LU;
-            printLine();
+            std::cout << std::setprecision (precision) << inputs.constants;
         }
     }
 
 };
+
+#endif //NE591_008_OUTLAB5_PARSER_H

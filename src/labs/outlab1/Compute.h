@@ -10,7 +10,7 @@
 #include <iostream>
 #include <cmath>
 
-#include "utils/CommandLine.h"
+#include "CommandLine.h"
 #include "Parser.h"
 
 typedef struct MatrixBuildArgs {

@@ -13,9 +13,9 @@
 
 #include "InputsOutputs.h"
 
-#include "utils/CommandLine.h"
-#include "utils/Stopwatch.h"
-#include "utils/math/RootFinder.h"
+#include "CommandLine.h"
+#include "Stopwatch.h"
+#include "math/RootFinder.h"
 #include "extern/function.h"
 
 /**

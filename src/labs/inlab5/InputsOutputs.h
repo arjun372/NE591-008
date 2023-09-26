@@ -9,9 +9,9 @@
 
 #include <utility>
 
-#include "utils/math/blas/Matrix.h"
-#include "utils/math/blas/Vector.h"
-#include "utils/json.hpp"
+#include "math/blas/Matrix.h"
+#include "math/blas/Vector.h"
+#include "json.hpp"
 
 /**
  * @namespace MyBLAS

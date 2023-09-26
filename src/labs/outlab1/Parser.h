@@ -10,9 +10,9 @@
 #include <iostream>
 #include <iomanip>
 
-#include "utils/CommandLine.h"
-#include "utils/Helpers.h"
-#include "utils/CheckBounds.h"
+#include "CommandLine.h"
+#include "Helpers.h"
+#include "CheckBounds.h"
 
 /**
  * @brief A structure to hold the input parameters.

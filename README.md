@@ -92,7 +92,7 @@ Currently supported build targets include:
 | 2  | ✅ `inlab2` | ✅ `outlab2` |
 | 3  | ✅ `inlab3` | ✅ `outlab3` |
 | 4  | ✅ `inlab4` | ✅ `outlab4` |
-| 5  | ✅ `inlab5` |             |
+| 5  | ✅ `inlab5` | ✅ `outlab5` |
 | 6  |            |             |
 | 7  |            |             |
 | 8  |            |             |
