@@ -1,19 +1,20 @@
-# NE591 Lab MonoRepo #
+# NE591 MonoRepo
 
-This is a monorepo for my in- and out- lab deliverables for the `NE591-008` course, titled `Mathematical and 
-Computational Methods in Nuclear Engineering`. The course aims to provide a theoretical foundation of mathematical 
+This is a monorepo for my class project and inlab, outlab deliverables for the `NE591-008` course, titled `Mathematical
+and Computational Methods in Nuclear Engineering`. The course aims to provide a theoretical foundation of mathematical 
 methods applied broadly in nuclear engineering and to construct algorithms to implement the resulting formalisms on 
 digital computers. The labs involve designing computer programs in low-level languages (exclusively Fortran or C++) and 
 their implementation, verification, and testing. I have chosen to organize this repo in a manner that builds on the 
-cumulative code changes from each lab, and reuses as many helper functions as possible. A secondary objective is to 
-benchmark my implementations against the `C++17` and `Boost` library functions.
+cumulative code changes from each deliverable, and reuses as many helper functions as possible. A secondary objective is
+to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library functions.
 
 ## Table of Contents
 
-1. [NE591 Lab MonoRepo](#ne591-lab-monorepo)
+1. [NE591 MonoRepo](#ne591-monorepo)
 2. [Locating Source Files](#locating-source-files)
 3. [Building](#building)
-   - [Build Targets](#build-targets)
+   - [Class Project](#class-project)
+   - [InLabs and OutLabs](#inlabs-and-outlabs)
    - [Optional CMake Arguments](#optional-cmake-arguments)
 4. [Docker Usage Guide](#docker-usage-guide)
    - [Why Docker?](#why-docker)
@@ -28,40 +29,53 @@ benchmark my implementations against the `C++17` and `Boost` library functions.
    - [Clion Remote Debugging via SSH](#clion-remote-debugging-via-ssh)
 6. [FAQs](#faqs)
 
-## Locating Source Files ##
+## Locating Source Files
 Sources and file paths for each lab follow the following structure:
 ```
 ├── README.md   <= You are now here
 ├── src
-│   ├── labs
-│   │   ├── inlab1
-│   │   │   ├── inlab1.cpp       <= Entrypoint main() and run() methods
+│   ├── project     <= Class project deliverables
+│   │   ├── project1
+│   │   │   ├── main.cpp         <= Stub entrypoint main() method
+│   │   │   ├── project1.cpp       <= run() method
 │   │   │   ├── Compute.h        <= Core compute logic
-│   │   │   ├── Parser.h         <= Input processing and error checking 
+│   │   │   ├── Parser.h         <= Argument parsing and error checking 
+│   │   │   ├── InputOutputs.h   <= Struct definitions for file I/O
 │   │   │   ├── README.md        <= Usage and examples
+│   │   │   ├── examples         <= Directory with example inputs and outputs
+│   │   │   ├── tests            <= CTests implemented using Google Test Suite
+│   │   │   ├── ...
+│   │   ├── project2
+│   │   ├── ...
+│   ├── labs        <= InLab, OutLab deliverables
+│   │   ├── inlab1
+│   │   │   ├── main.cpp         <= Stub entrypoint main() method
+│   │   │   ├── inlab1.cpp       <= run() method
+│   │   │   ├── Compute.h        <= Core compute logic
+│   │   │   ├── Parser.h         <= Argument parsing and error checking 
+│   │   │   ├── InputOutputs.h   <= Struct definitions for file I/O
+│   │   │   ├── README.md        <= Usage and examples
+│   │   │   ├── examples         <= Directory with example inputs and outputs
+│   │   │   ├── tests            <= CTests implemented using Google Test Suite
 │   │   │   ├── ...
 │   │   ├── outlab1
 │   │   ├── inlab2
+│   │   ├── outlab2
 │   │   ├── ...
 │   ├── ...
 ├── ...
 ├── utils                        <= Helper methods
+│   ├── math                     
+│   │   ├── blas                 <= Self implemented Math, BLAS libraries
 │   ├── CheckBounds.h
-│   ├── CommandLine.h
-│   ├── FileParser.h
-│   ├── Helpers.h
-│   ├── json.hpp
-│   ├── MathLibrary.h
-│   ├── Profiler.h
-│   ├── Project.h
-│   ├── Stopwatch.h
+│   ├── CommandLine.h            <= Other helper functions
 │   ├── ...
 ```
-The `utils` directory contains helper methods used across the project. These include methods for checking bounds, 
-interacting with the command line, I/O operations on CSV and JSON files, general helper functions (`Helpers.h`), a 
-custom math library, and a high-precision profiler and stopwatch for performance analysis.
+The `utils` directory contains helper methods used across the project. These include a helper math library, methods for 
+checking bounds, interacting with the command line, I/O operations on CSV and JSON files, general helper functions, and 
+a high-precision profiler for performance analysis.
 
-## Building ##
+## Building
 
 The entire codebase has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional 
 configuration except choosing the build target. Here is a repeatable script to perform the build and run a target 
@@ -83,26 +97,113 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 ./build/bin/$BUILD_TARGET
 ```
 
-### Build Targets ###
-Currently supported build targets include:
+### Class Project
 
-| #  |   InLab    |   OutLab    |
-|:--:|:----------:|:-----------:|
-| 1  | ✅ `inlab1` | ✅ `outlab1` |
-| 2  | ✅ `inlab2` | ✅ `outlab2` |
-| 3  | ✅ `inlab3` | ✅ `outlab3` |
-| 4  | ✅ `inlab4` | ✅ `outlab4` |
-| 5  | ✅ `inlab5` | ✅ `outlab5` |
-| 6  |            |             |
-| 7  |            |             |
-| 8  |            |             |
-| 9  |            |             |
-| 10 |            |             |
-| 11 |            |             |
-| 12 |            |             |
-| 13 |            |             |
+Currently supported inlab, outlab build targets include:
 
-### Optional CMake Arguments ###
+<table>
+  <tr>
+    <th colspan="1" style="text-align:center;"><strong>#</strong></th>
+    <th colspan="2" style="text-align:center;"><strong>Project Milestone</strong></th>
+  </tr>
+   <tr>
+    <td>1</td>
+    <td><code>✅ project1</code>,<code>✅ project1_tests</code></td>
+  </tr>
+   <tr>
+    <td>2</td>
+    <td></td>
+  </tr>
+   <tr>
+    <td>3</td>
+    <td></td>
+  </tr>
+   <tr>
+    <td>4</td>
+    <td></td>
+  </tr>
+   <tr>
+    <td>5</td>
+    <td></td>
+  </tr>
+</table>
+
+### InLabs and OutLabs
+
+<table>
+  <tr>
+    <th colspan="1" style="text-align:center;"><strong>#</strong></th>
+    <th colspan="1" style="text-align:center;"><strong>InLab</strong></th>
+    <th colspan="1" style="text-align:center;"><strong>OutLab</strong></th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td><code>✅ inlab1</code>,<code>✅ inlab1_tests</code></td>
+    <td><code>✅ outlab1</code>,<code>✅ outlab1_tests</code></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td><code>✅ inlab2</code>,<code>✅ inlab2_tests</code></td>
+    <td><code>✅ outlab2</code>,<code>✅ outlab2_tests</code></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td><code>✅ inlab3</code>,<code>✅ inlab3_tests</code></td>
+    <td><code>✅ outlab3</code>,<code>✅ outlab3_tests</code></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td><code>✅ inlab4</code>,<code>✅ inlab4_tests</code></td>
+    <td><code>✅ outlab4</code>,<code>✅ outlab4_tests</code></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td><code>✅ inlab5</code>,<code>✅ inlab5_tests</code></td>
+    <td><code>✅ outlab5</code>,<code>✅ outlab5_tests</code></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+### Optional CMake Arguments
 
 Available options are:
 
@@ -128,7 +229,7 @@ The Dockerfile also sets up SSH for root access in the ssh-debugger stage.
 ### Why Docker?
 
 Docker is a platform that allows us to package our application and its dependencies into a container which can run on 
-any Linux/MacOS/Windows machine. This helps to eliminate the "it works on my machine" problem. In this case, the 
+any Linux/macOS/Windows machine. This helps to eliminate the "it works on my machine" problem. In this case, the 
 Dockerfile was needed to ensure that the code can be built, run, and debugged in an environment that closely matches 
 the `remote.eos.ncsu.edu` servers.
 
