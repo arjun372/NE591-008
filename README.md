@@ -30,14 +30,14 @@ to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library
 6. [FAQs](#faqs)
 
 ## Locating Source Files
-Sources and file paths for each lab follow the following structure:
+Sources and file paths for each deliverable follow the following structure:
 ```
 ├── README.md   <= You are now here
 ├── src
 │   ├── project     <= Class project deliverables
 │   │   ├── project1
 │   │   │   ├── main.cpp         <= Stub entrypoint main() method
-│   │   │   ├── project1.cpp       <= run() method
+│   │   │   ├── project1.cpp     <= run() method
 │   │   │   ├── Compute.h        <= Core compute logic
 │   │   │   ├── Parser.h         <= Argument parsing and error checking 
 │   │   │   ├── InputOutputs.h   <= Struct definitions for file I/O
@@ -70,6 +70,7 @@ Sources and file paths for each lab follow the following structure:
 │   ├── CheckBounds.h
 │   ├── CommandLine.h            <= Other helper functions
 │   ├── ...
+├── external                     <= External dependencies
 ```
 The `utils` directory contains helper methods used across the project. These include a helper math library, methods for 
 checking bounds, interacting with the command line, I/O operations on CSV and JSON files, general helper functions, and 
