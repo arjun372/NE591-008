@@ -108,7 +108,7 @@ Available options are:
 
 | CMake Option                 | Description                                                       | Default |
 |------------------------------|-------------------------------------------------------------------|---------|
-| BUILD_TESTS                  | Build a separate test target (for e.g. `inlab1_tests`)            | OFF     |
+| BUILD_TESTS                  | Build a separate test target (for e.g. `inlab1_tests`)            | ON      |
 | PORTABLE                     | Build without flag `-march=native`, trading speed for portability | OFF     |
 | BUILD_PERFORMANCE_BENCHMARKS | Build a separate benchmarks target (for e.g. `inlab1_bench`)      | OFF     |
 

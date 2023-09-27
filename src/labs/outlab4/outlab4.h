@@ -27,6 +27,7 @@
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
 #include "math/blas/MyBLAS.h"
+#include "math/blas/LU.h"
 
 
 /**
@@ -71,24 +72,25 @@ protected:
      */
     void run(MyBLAS::OutputVector &outputs, MyBLAS::InputMatrices &inputs, boost::program_options::variables_map &values) override {
 
-        // Given the matrix A = LU and vector b
-        // solve Ax = b, which is LUx = b
-        // x = inv(LU)•b
+        /**
+            1. Given the matrix A = LU and vector b, solve Ax = b, which is LUx = b.
+            2. Let y = Ux. Now, we have two systems of linear equations: Ly = b and Ux = y.
+            3. Solve the first system Ly = b using forward substitution.
+            4. Solve the second system Ux = y using backward substitution.
+        **/
 
         const auto A = inputs.coefficients;
-        auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), 0.0f);
-        auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), 0.0f);
+        auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
+        auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
 
-        MyBLAS::factorizeLU<long double>(L, U, A);
+        MyBLAS::LU::factorize<long double>(L, U, A);
 
-        if(!MyBLAS::isValidUnitLowerTriangularMatrix(L)) {
-            std::cerr << "Factorized matrix L is not unit lower triangular, aborting.\n";
-            exit(-1);
+        if(!MyBLAS::isUnitLowerTriangularMatrix(L)) {
+            std::cerr << "Warning: Factorized matrix L is not unit lower triangular, expect undefined behavior.\n";
         }
 
-        if(!MyBLAS::isValidUpperTriangularMatrix(U)) {
-            std::cerr << "Factorized matrix U is not upper triangular, aborting.\n";
-            exit(-1);
+        if(!MyBLAS::isUpperTriangularMatrix(U)) {
+            std::cerr << "Warning: Factorized matrix U is not upper triangular, expect undefined behavior.\n";
         }
 
         const auto b = inputs.constants;
@@ -116,7 +118,7 @@ protected:
             Parser::printLine();
             std::cout << "Factorized Matrix LU: \n";
             Parser::printLine();
-            std::cout << std::setprecision (precision) << L + U - MyBLAS::Matrix::eye(A.getCols());
+            std::cout << std::setprecision (precision) << L + U - MyBLAS::Matrix<long double>::eye(A.getCols());
             Parser::printLine();
             std::cout << "Intermediate vector y = inv(L) * b:\n";
             Parser::printLine();

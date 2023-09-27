@@ -22,8 +22,8 @@ typedef struct Input {
     Input() = default;
 
     size_t n = 0; ///< Size of the matrices.
-    MyBLAS::Matrix coefficients{}; ///< LU matrix.
-    MyBLAS::Vector constants{}; ///< Vector of constants.
+    MyBLAS::Matrix<long double> coefficients{}; ///< LU matrix.
+    MyBLAS::Vector<long double> constants{}; ///< Vector of constants.
 
     /**
     * @brief Converts the input parameters to a JSON object.
@@ -39,9 +39,9 @@ typedef struct Input {
 typedef struct Map {
     Map() = default;
 
-    MyBLAS::Matrix L;
-    MyBLAS::Matrix U;
-    MyBLAS::Matrix P;
+    MyBLAS::Matrix<long double> L;
+    MyBLAS::Matrix<long double> U;
+    MyBLAS::Matrix<long double> P;
 
     /**
     * @brief Converts the input parameters to a JSON object.
@@ -61,8 +61,8 @@ typedef struct Map {
 typedef struct Output {
     Output() = default;
 
-    MyBLAS::Vector solution; ///< Output vector.
-    MyBLAS::Vector residual;
+    MyBLAS::Vector<long double> solution; ///< Output vector.
+    MyBLAS::Vector<long double> residual;
 
     /**
      * @brief Converts the output vector to a JSON object.

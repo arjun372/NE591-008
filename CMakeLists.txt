@@ -8,7 +8,7 @@ set(CMAKE_DISABLE_SOURCE_CHANGES ON)
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
 ####################### Options ################### {{{
-option(BUILD_TESTS "Build the tests" OFF)  # Influences CTest.
+option(BUILD_TESTS "Build the tests" ON)  # Influences CTest.
 option(PORTABLE "Build without -march=native" OFF)
 option(BUILD_PERFORMANCE_BENCHMARKS "Build performance benchmarks" OFF)
 ####################### Options ##################### }}}
@@ -55,9 +55,15 @@ endif()
 add_compile_options(${PROJECT_CXX_FLAGS})
 ####################### Project Level CXX flags ################### }}}
 
-######################## End compiler configurations #################### }}}
+if(BUILD_TESTS)
+    include(CTest)
+    # Enable testing for the project
+    enable_testing()
+    # Add Google Test as a subdirectory
+    add_subdirectory(external/googletest)
+endif ()
 
-include(CTest)
+######################## End compiler configurations #################### }}}
 
 ## BOOST,ss
 set(BOOST_MIN_VERSION "1.66.0" COMPONENTS program_options) # COMPONENTS program_options

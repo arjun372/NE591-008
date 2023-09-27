@@ -30,9 +30,9 @@ protected:
    */
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()
-                ("order,n", boost::program_options::value<long double>()->default_value(0), "= order of the square matrix (n is a natural number)")
-                ("input-json,i", boost::program_options::value<std::string>(), "= input JSON file containing the LU matrix and constants vector B")
-                ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON file");
+                ("order,n", boost::program_options::value<long double>()->default_value(0), "= order of the square matrix (natural number)")
+                ("input-json,i", boost::program_options::value<std::string>(), "= input JSON containing L, U, and b")
+                ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
     }
 
     /**

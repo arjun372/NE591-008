@@ -27,9 +27,9 @@ namespace MyBLAS {
         Input() = default;
 
         size_t n = 0; ///< Size of the matrices.
-        MyBLAS::Matrix LU; ///< LU matrix.
-        MyBLAS::Matrix permutation; ///< LU matrix.
-        MyBLAS::Vector constants; ///< Vector of constants.
+        MyBLAS::Matrix<long double> LU; ///< LU matrix.
+        MyBLAS::Matrix<long double> permutation; ///< LU matrix.
+        MyBLAS::Vector<long double> constants; ///< Vector of constants.
 
         /**
         * @brief Converts the input parameters to a JSON object.
@@ -49,7 +49,7 @@ namespace MyBLAS {
      */
     typedef struct Output {
         Output() = default;
-        MyBLAS::Vector solution; ///< Output vector.
+        MyBLAS::Vector<long double> solution; ///< Output vector.
 
         /**
          * @brief Converts the output vector to a JSON object.

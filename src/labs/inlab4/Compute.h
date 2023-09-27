@@ -26,7 +26,7 @@ namespace InLab04 {
  * @return The result vector after performing forward substitution.
  */
     template<typename T>
-    MyBLAS::Vector doForwardSubstitution(const MyBLAS::Matrix &L, const MyBLAS::Vector &b) {
+    MyBLAS::Vector<T> doForwardSubstitution(const MyBLAS::Matrix<T> &L, const MyBLAS::Vector<T> &b) {
         return MyBLAS::forwardSubstitution<T>(L, b);
     }
 
@@ -43,7 +43,7 @@ namespace InLab04 {
  * @return The solution vector after performing backward substitution.
  */
     template<typename T>
-    MyBLAS::Vector doBackwardSubstitution(const MyBLAS::Matrix &U, const MyBLAS::Vector &y) {
+    MyBLAS::Vector<T> doBackwardSubstitution(const MyBLAS::Matrix<T> &U, const MyBLAS::Vector<T> &y) {
         return MyBLAS::backwardSubstitution<T>(U, y);
     }
 }

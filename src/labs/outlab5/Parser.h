@@ -28,10 +28,10 @@ protected:
    */
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()
-                ("order,n", boost::program_options::value<long double>()->default_value(0), "= order of the square matrix (n is a natural number)")
-                ("no-pivoting, p", "Do not use partial pivoting during LU factorization")
-                ("input-json,i", boost::program_options::value<std::string>(), "= input JSON file containing the LU matrix and constants vector B")
-                ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON file");
+                ("no-pivoting", "Do not perform partial pivoting")
+                ("order,n", boost::program_options::value<long double>()->default_value(0), "= order of the square matrix (natural number)")
+                ("input-json,i", boost::program_options::value<std::string>(), "= input JSON containing L, U, and b")
+                ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
     }
 
     /**
@@ -54,7 +54,7 @@ protected:
         std::cout << "\tMatrix order,  n: " << n << "\n";
         std::cout << "\tInput JSON,    i: " << inputFilepath << "\n";
         std::cout << "\tOutput JSON,   o: " << outputFilepath << "\n";
-        std::cout << "\tUse Pivoting,  p: " << (noPivoting ? "No" : "Yes") << "\n";
+        std::cout << "\tUse Pivoting    : " << (noPivoting ? "No" : "Yes") << "\n";
         CommandLine::printLine();
     }
 

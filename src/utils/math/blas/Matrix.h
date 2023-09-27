@@ -16,17 +16,18 @@
 
 namespace MyBLAS {
 
-    class Matrix;
-    class Vector;
+    template <typename T> class Matrix;
+    template <typename T> class Vector;
 
     /**
      * @class Matrix
-     * @brief Class representing a matrix of long double values.
+     * @brief Class representing a matrix of T type values.
      */
+    template <typename T>
     class Matrix {
 
     protected:
-        std::vector<std::vector<long double>> data; ///< 2D vector representing the matrix data.
+        std::vector<std::vector<T>> data; ///< 2D vector representing the matrix data.
         size_t rows, cols; ///< Number of rows and columns in the matrix.
 
     public:
@@ -40,13 +41,13 @@ namespace MyBLAS {
          * @brief Constructor that initializes the matrix with a given 2D vector.
          * @param _data 2D vector to initialize the matrix with.
          */
-        explicit Matrix(std::vector<std::vector<long double>> &_data) : data(_data), rows(_data.size()), cols(_data.size()) {}
+        explicit Matrix(std::vector<std::vector<T>> &_data) : data(_data), rows(_data.size()), cols(_data.size()) {}
 
         /**
          * @brief Constructor that initializes the matrix with a given 2D vector.
          * @param _data 2D vector to initialize the matrix with.
          */
-        explicit Matrix(std::vector<std::vector<long double>> _data) : data(_data), rows(_data.size()), cols(_data.size()) {}
+        explicit Matrix(std::vector<std::vector<T>> _data) : data(_data), rows(_data.size()), cols(_data.size()) {}
 
         /**
          * @brief Parameterized constructor that initializes the matrix with a given size and initial value.
@@ -54,14 +55,34 @@ namespace MyBLAS {
          * @param _cols Number of columns in the matrix.
          * @param _initial Initial value for all elements in the matrix.
          */
-        Matrix(size_t _rows, size_t _cols, const long double _initial) : data(_rows, std::vector<long double>(_cols, _initial)), rows(_rows), cols(_cols) {}
+        Matrix(size_t _rows, size_t _cols, const T _initial = 0) : data(_rows, std::vector<T>(_cols, _initial)), rows(_rows), cols(_cols) {}
+
+        /**
+         * @brief Constructor that initializes the matrix with a given initializer list.
+         * @param initList Initializer list to initialize the matrix with.
+         */
+        Matrix(std::initializer_list<std::initializer_list<T>> initList) {
+            rows = initList.size();
+            cols = initList.begin()->size();
+            data.resize(rows);
+            size_t i = 0;
+            for (const auto &row : initList) {
+                data[i].resize(cols);
+                size_t j = 0;
+                for (const auto &elem : row) {
+                    data[i][j] = elem;
+                    ++j;
+                }
+                ++i;
+            }
+        }
 
         /**
          * @brief Overloaded operator[] to access individual rows of the matrix.
          * @param rowNum Index of the row to access.
          * @return Reference to the row at the given index.
          */
-        std::vector<long double>& operator[](const size_t rowNum) {
+        std::vector<T>& operator[](const size_t rowNum) {
             return data[rowNum];
         }
 
@@ -70,7 +91,7 @@ namespace MyBLAS {
          * @param rowNum Index of the row to access.
          * @return Const reference to the row at the given index.
          */
-        const std::vector<long double>& operator[](const size_t rowNum) const {
+        const std::vector<T>& operator[](const size_t rowNum) const {
             return data[rowNum];
         }
 
@@ -78,7 +99,7 @@ namespace MyBLAS {
          * @brief Getter for the matrix data.
          * @return Const reference to the matrix data.
          */
-        [[nodiscard]] const std::vector<std::vector<long double>> &getData() const {
+        [[nodiscard]] const std::vector<std::vector<T>> &getData() const {
             return data;
         }
 
@@ -168,11 +189,11 @@ namespace MyBLAS {
          * @param rhs Vector to multiply with the current matrix.
          * @return Resultant vector after multiplication.
          */
-        Vector operator*(const Vector& rhs) const {
+        Vector<T> operator*(const Vector<T>& rhs) const {
             if (cols != rhs.size()) {
                 throw std::exception();
             }
-            Vector result(rows, 0);
+            Vector<T> result(rows, 0);
             for (size_t i = 0; i < rows; ++i) {
                 for (size_t j = 0; j < cols; ++j) {
                     result[i] += this->data[i][j] * rhs[j];
@@ -180,6 +201,114 @@ namespace MyBLAS {
             }
             return result;
         }
+
+
+        /**
+         * @brief Sets a submatrix within the current matrix.
+         * @param rowStart Starting row index for the submatrix.
+         * @param colStart Starting column index for the submatrix.
+         * @param subMatrix The submatrix to set.
+         */
+        void setSubMatrix(size_t rowStart, size_t colStart, const Matrix<T>& subMatrix) {
+            size_t subRows = subMatrix.getRows();
+            size_t subCols = subMatrix.getCols();
+
+            if (rowStart + subRows > rows || colStart + subCols > cols) {
+                throw std::exception();
+            }
+
+            for (size_t i = 0; i < subRows; ++i) {
+                for (size_t j = 0; j < subCols; ++j) {
+                    data[rowStart + i][colStart + j] = subMatrix[i][j];
+                }
+            }
+        }
+
+        /**
+         * @brief Extracts a submatrix from the current matrix.
+         * @param rowStart Starting row index for the submatrix.
+         * @param colStart Starting column index for the submatrix.
+         * @param subRows Number of rows in the submatrix.
+         * @param subCols Number of columns in the submatrix.
+         * @return The extracted submatrix.
+         */
+        Matrix<T> subMatrix(size_t rowStart, size_t colStart, size_t subRows, size_t subCols) const {
+            if (rowStart + subRows > rows || colStart + subCols > cols) {
+                throw std::exception();
+            }
+
+            Matrix<T> subMatrix(subRows, subCols, 0);
+            for (size_t i = 0; i < subRows; ++i) {
+                for (size_t j = 0; j < subCols; ++j) {
+                    subMatrix[i][j] = data[rowStart + i][colStart + j];
+                }
+            }
+
+            return subMatrix;
+        }
+
+
+        /**
+         * @brief Overloaded operator* to multiply the matrix by a scalar.
+         * @param scalar Scalar to multiply the matrix with.
+         * @return Resultant matrix after multiplication.
+         */
+        Matrix operator*(const T& scalar) const {
+            Matrix result(rows, cols, 0);
+            for (size_t i = 0; i < rows; ++i) {
+                for (size_t j = 0; j < cols; ++j) {
+                    result[i][j] = this->data[i][j] * scalar;
+                }
+            }
+            return result;
+        }
+
+        /**
+         * @brief Overloaded operator/ to divide the matrix by a scalar.
+         * @param scalar Scalar to divide the matrix by.
+         * @return Resultant matrix after division.
+         */
+        Matrix operator/(const T& scalar) const {
+            const T divisor = scalar == 0 ? NAN : scalar;
+            Matrix result(rows, cols, 0);
+            for (size_t i = 0; i < rows; ++i) {
+                for (size_t j = 0; j < cols; ++j) {
+                    result[i][j] = this->data[i][j] / divisor;
+                }
+            }
+            return result;
+        }
+
+        /**
+         * @brief Overloaded operator+ to add a scalar to the matrix.
+         * @param scalar Scalar to add to the matrix.
+         * @return Resultant matrix after addition.
+         */
+        Matrix operator+(const T& scalar) const {
+            Matrix result(rows, cols, 0);
+            for (size_t i = 0; i < rows; ++i) {
+                for (size_t j = 0; j < cols; ++j) {
+                    result[i][j] = this->data[i][j] + scalar;
+                }
+            }
+            return result;
+        }
+
+        /**
+         * @brief Overloaded operator- to subtract a scalar from the matrix.
+         * @param scalar Scalar to subtract from the matrix.
+         * @return Resultant matrix after subtraction.
+         */
+        Matrix operator-(const T& scalar) const {
+            Matrix result(rows, cols, 0);
+            for (size_t i = 0; i < rows; ++i) {
+                for (size_t j = 0; j < cols; ++j) {
+                    result[i][j] = this->data[i][j] - scalar;
+                }
+            }
+            return result;
+        }
+
 
         /**
         * @brief Swaps two rows in the matrix.
@@ -204,7 +333,7 @@ namespace MyBLAS {
             const auto width = static_cast<int>(std::cout.precision() + static_cast<std::streamsize>(10));
             for(size_t i = 0; i < m.getRows(); ++i) {
                 for(size_t j = 0; j < m.getCols(); ++j) {
-                    os << std::setw(width) << std::setfill(' ') << std::scientific << m[i][j];
+                    os << std::setw(width) << std::setfill(' ') << std::scientific << static_cast<long double>(m[i][j]);
                 }
                 os << '\n';
             }
@@ -228,11 +357,11 @@ namespace MyBLAS {
      * @return The result vector after performing forward substitution.
      */
     template<typename T>
-    static MyBLAS::Vector forwardSubstitution(const MyBLAS::Matrix &L, const MyBLAS::Vector &b) {
+    static MyBLAS::Vector<T> forwardSubstitution(const MyBLAS::Matrix<T> &L, const MyBLAS::Vector<T> &b) {
         const auto n = b.size();
-        MyBLAS::Vector y(n);
+        auto y = MyBLAS::Vector<T>(n);
         for (size_t row = 0; row < n; row++) {
-            T sum = 0.0f;
+            T sum = 0;
             for (size_t col = 0; col < row; col++) {
                 sum += L[row][col] * y[col];
             }
@@ -258,17 +387,40 @@ namespace MyBLAS {
      * @return The solution vector after performing backward substitution.
      */
     template<typename T>
-    static MyBLAS::Vector backwardSubstitution(const MyBLAS::Matrix &U, const MyBLAS::Vector &y) {
-        const auto n = static_cast<int64_t>(y.size());
-        MyBLAS::Vector x(n);
+    static MyBLAS::Vector<T> backwardSubstitution(const MyBLAS::Matrix<T> &U, const MyBLAS::Vector<T> &y) {
+        const auto n = y.size();
+        auto x = MyBLAS::Vector<T>(n, static_cast<T>(0));
         for (int64_t i = n - 1; i >= 0; i--) {
-            T sum = 0.0f;
-            for (int64_t j = i + 1; j < n; j++) {
+            T sum = 0;
+            for (size_t j = i + 1; j < n; j++) {
                 sum += U[i][j] * x[j];
             }
             x[i] = (y[i] - sum) / U[i][i];
         }
         return x;
+    }
+
+    // TODO:: Document
+    template <typename T, typename T2>
+    static MyBLAS::Matrix<T> cast(const MyBLAS::Matrix<T2> &input) {
+        MyBLAS::Matrix<T> output = Matrix<T>(input.getRows(), input.getCols(), 0);
+
+        for (size_t row = 0; row < output.getRows(); row++) {
+            for (size_t col = 0; col < output.getCols(); col++) {
+                output[row][col] = static_cast<T>(input[row][col]);
+            }
+        }
+        return output;
+    }
+
+    // TODO:: Document
+    template <typename T, typename T2>
+    static MyBLAS::Vector<T> cast(const MyBLAS::Vector<T2> &input) {
+        MyBLAS::Vector<T> output = Vector<T>(input.size(), 0);
+        for (size_t idx = 0; idx < output.size(); idx++) {
+            output[idx] = static_cast<T>(input[idx]);
+        }
+        return output;
     }
 } // MyBLAS
 

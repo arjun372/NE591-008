@@ -15,6 +15,7 @@
 #include <iostream>
 #include <boost/program_options.hpp>
 #include "project-config.h"
+#include "Helpers.h"
 
 /**
  * @struct HeaderInfo
@@ -106,6 +107,16 @@ public:
      */
     int getCurrentPrecision() {
         return variablesMap["precision"].as<int>();
+    }
+
+    /**
+     * @brief Method to set the precision of long double values.
+     * @param precisionToSet The desired precision as an integer (default value is 5).
+     * This method sets the precision of long double values to the specified value.
+     * If no value is provided, the default precision is set to 5.
+     */
+    void setPrecision(int precisionToSet = 5) {
+        replace(variablesMap, "precision", std::setprecision(precisionToSet)._M_n);
     }
 
     /**

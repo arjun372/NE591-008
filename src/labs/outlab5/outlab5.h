@@ -68,66 +68,93 @@ protected:
      */
     void run(Results &outputs, InputMatrices &inputs, boost::program_options::variables_map &values) override {
 
-        // Given the matrix A = LU and vector b
-        // solve Ax = b, which is LUx = b
-        // x = inv(LU)•b
+        /**
+            1. Given the matrix A = LU and vector b, solve Ax = b, which is LUx = b.
+            2. Perform row pivoting on A to obtain a permuted matrix PA = LU, where P is a permutation matrix.
+            3. Let y = Ux. Now, we have two systems of linear equations: Ly = Pb and Ux = y.
+            4. Solve the first system Ly = Pb using forward substitution.
+            5. Solve the second system Ux = y using backward substitution.
+        **/
 
-        auto A = inputs.coefficients;
-        auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), 0.0f);
-        auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), 0.0f);
+        const auto A = inputs.coefficients;
+        auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
+        auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
 
-        MyBLAS::Matrix P;
-
-        factorizeLUP<long double>(L, U, A, P);
+        MyBLAS::Matrix<long double> P = factorizeLUP(L, U, A);
 
         if(!MyBLAS::isUnitLowerTriangularMatrix(L)) {
-            std::cerr << "Factorized matrix L is not unit lower triangular, aborting.\n";
-            exit(-1);
+            std::cerr << "Warning: Factorized matrix L is not unit lower triangular, expect undefined behavior.\n";
         }
 
         if(!MyBLAS::isUpperTriangularMatrix(U)) {
-            std::cerr << "Factorized matrix U is not upper triangular, aborting.\n";
-            exit(-1);
+            std::cerr << "Warning: Factorized matrix U is not upper triangular, expect undefined behavior.\n";
         }
 
-        const auto b = inputs.constants;
+        if(!MyBLAS::isPermutationMatrix(P)) {
+            std::cerr << "Warning: Generated matrix P is not a permutation matrix, expect undefined behavior.\n";
+        }
 
-        const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(L, b);
+        const auto pivot = !values.count("no-pivoting");
+
+        const auto b = inputs.constants;
+        const auto Pb = pivot ? (P * b) : b;
+
+        const auto LU = L + U - MyBLAS::Matrix<long double>::eye(A.getRows());
+
+        const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(L, Pb);
         const MyBLAS::Vector x = MyBLAS::backwardSubstitution<long double>(U, y);
 
         nlohmann::json results;
         outputs.solution = x;
+
         const auto b_prime = A * x;
-        const auto r = MyBLAS::abs(b - b_prime);
+        const auto r = b - b_prime;
         outputs.residual = r;
+
+        const auto maxResidual = MyBLAS::max<long double>(MyBLAS::abs(r));
+
         outputs.toJSON(results["outputs"]);
 
         if(!values.count("quiet")) {
             const auto precision = getTerminal().getCurrentPrecision();
+
             Parser::printLine();
             std::cout << "Lower Triangular Matrix (L):\n";
             Parser::printLine();
-            std::cout << std::scientific << std::setprecision (precision) << L;
+            std::cout << std::scientific << std::setprecision(precision) << L;
             Parser::printLine();
             std::cout << "Upper Triangular Matrix (U):\n";
             Parser::printLine();
-            std::cout << std::setprecision (precision) << U;
+            std::cout << std::setprecision(precision) << U;
             Parser::printLine();
-            std::cout << "Factorized Matrix LU: \n";
+//            std::cout << "Composite Matrix (LU):\n";
+//            Parser::printLine();
+//            std::cout << std::setprecision(precision) << LU;
+//            Parser::printLine();
+            if (pivot) {
+                std::cout << "Permutation Matrix (P):\n";
+                Parser::printLine();
+                std::cout << std::setprecision(precision) << P;
+                Parser::printLine();
+                std::cout << "Permuted constants (Pb = P * b):\n";
+                Parser::printLine();
+                std::cout << std::setprecision(precision) << Pb;
+                Parser::printLine();
+            }
+            std::cout << "Intermediate vector (y), where (Ly = Pb):\n";
             Parser::printLine();
-            std::cout << std::setprecision (precision) << L + U - MyBLAS::Matrix::eye(A.getCols());
+            std::cout << std::setprecision(precision) << y;
             Parser::printLine();
-            std::cout << "Intermediate vector y = inv(L) * b:\n";
+            std::cout << "Solution vector (x), where (Ux = y):\n";
             Parser::printLine();
-            std::cout << std::setprecision (precision) << y;
+            std::cout << std::setprecision(precision) << x;
             Parser::printLine();
-            std::cout << "Solution vector (x):\n";
+            std::cout << "Residual vector (r = b - Ax) :\n";
             Parser::printLine();
-            std::cout << std::setprecision (precision) << x;
+            std::cout << std::setprecision(precision) << r;
             Parser::printLine();
-            std::cout << "Residual vector r=|b' - b| :\n";
-            Parser::printLine();
-            std::cout << std::setprecision (precision) << r;
+            std::cout << "Max Residual abs(r): ";
+            std::cout << std::setprecision(max_precision) << maxResidual << std::endl;
             Parser::printLine();
         }
 

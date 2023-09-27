@@ -55,7 +55,7 @@ namespace MyBLAS::LU {
      * each column i, it computes the elements of the i-th row of U and the i-th column of L.
      */
     template <typename T>
-    static void doolittleFactorize(MyBLAS::Matrix &L, MyBLAS::Matrix &U, const MyBLAS::Matrix &A) {
+    static void doolittleFactorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
 
         const size_t n = A.getCols();
 
@@ -63,7 +63,7 @@ namespace MyBLAS::LU {
         for (size_t i = 0; i < n; i++) {
             // Compute the elements of the i-th row of U
             for (size_t k = i; k < n; k++) {
-                T sum = 0.0f;
+                T sum = 0;
                 // Calculate the sum of the product of the corresponding elements of L and U
                 for (size_t j = 0; j < i; j++) {
                     sum += (L[i][j] * U[j][k]);
@@ -77,7 +77,7 @@ namespace MyBLAS::LU {
 
             // Compute the elements of the i-th column of L
             for (size_t k = i + 1; k < n; k++) {
-                T sum = 0.0f;
+                T sum = 0;
                 // Calculate the sum of the product of the corresponding elements of L and U
                 for (size_t j = 0; j < i; j++) {
                     sum += (L[k][j] * U[j][i]);
@@ -89,6 +89,53 @@ namespace MyBLAS::LU {
         }
     }
 
+    // TODO:: Document
+    template <typename T>
+    static void recursiveLUFactorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+        const size_t n = A.getCols();
+
+        if (n == 1) {
+            U[0][0] = A[0][0];
+            L[0][0] = 1;
+            return;
+        }
+
+        // Divide A into four submatrices
+        MyBLAS::Matrix<T> A11 = A.subMatrix(0, 0, 1, 1);
+        MyBLAS::Matrix<T> A12 = A.subMatrix(0, 1, 1, n - 1);
+        MyBLAS::Matrix<T> A21 = A.subMatrix(1, 0, n - 1, 1);
+        MyBLAS::Matrix<T> A22 = A.subMatrix(1, 1, n - 1, n - 1);
+
+        // Compute the LU factorization of A11
+        U[0][0] = A11[0][0];
+        L[0][0] = 1;
+
+        // Update A12 and A21
+        A12 = A12 / U[0][0];
+        A21 = L[0][0] * A21;
+
+        // Update A22
+        A22 = A22 - A21 * A12;
+
+        // Recursively apply the same procedure to the updated A22
+        MyBLAS::Matrix<T> L22(n - 1, n - 1);
+        MyBLAS::Matrix<T> U22(n - 1, n - 1);
+        recursiveLUFactorize(L22, U22, A22);
+
+        // Combine the results
+        Matrix<T> L11(1, 1, L[0][0]);
+        L.setSubMatrix(0, 0, L11);
+        L.setSubMatrix(0, 1, A12);
+        L.setSubMatrix(1, 0, A21);
+        L.setSubMatrix(1, 1, L22);
+
+        Matrix<T> U11(1, 1, U[0][0]);
+        U.setSubMatrix(0, 0, U11);
+        U.setSubMatrix(0, 1, A12);
+        U.setSubMatrix(1, 0, A21);
+        U.setSubMatrix(1, 1, U22);
+    }
+
     /**
      * @brief Factorizes a given matrix A into lower and upper triangular matrices L,U.
      * @tparam T The data type of the matrix elements.
@@ -97,8 +144,9 @@ namespace MyBLAS::LU {
      * @param[in] A The input matrix to be factorized.
      */
     template <typename T>
-    static void factorize(MyBLAS::Matrix &L, MyBLAS::Matrix &U, const MyBLAS::Matrix &A) {
+    static void factorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, Matrix<T> A) {
         doolittleFactorize<T>(L, U, A);
+       // recursiveLUFactorize(L, U, A);
     }
 }
 

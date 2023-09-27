@@ -55,7 +55,7 @@ namespace MyBLAS {
      * each column i, it computes the elements of the i-th row of U and the i-th column of L.
      */
     template <typename T>
-    static void doolittleFactorizeLU(MyBLAS::Matrix &L, MyBLAS::Matrix &U, const MyBLAS::Matrix &A) {
+    static void doolittleFactorizeLU(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
 
         const size_t n = A.getCols();
 
@@ -97,7 +97,7 @@ namespace MyBLAS {
      * @param[in] A The input matrix to be factorized.
      */
     template <typename T>
-    static void factorizeLU(MyBLAS::Matrix &L, MyBLAS::Matrix &U, const MyBLAS::Matrix &A) {
+    static void factorizeLU(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
         doolittleFactorizeLU<T>(L, U, A);
     }
 
@@ -111,7 +111,8 @@ namespace MyBLAS {
      * @param U The input matrix to be checked.
      * @return true if the input matrix is a valid upper triangular matrix, false otherwise.
      */
-    static bool isValidUpperTriangularMatrix(const MyBLAS::Matrix &U) {
+    template <typename T>
+    static bool isValidUpperTriangularMatrix(const MyBLAS::Matrix<T> &U) {
         const size_t cols = U.getCols();
         const size_t rows = U.getRows();
 
@@ -125,7 +126,7 @@ namespace MyBLAS {
             // Iterate over the cols of the input matrix U
             for (size_t j = 0; j < cols; j++) {
                 // Lower triangular is always 0
-                if (i > j && U[i][j] != 0.0) {
+                if (i > j && U[i][j] != 0) {
                     return false;
                 }
             }
@@ -144,7 +145,8 @@ namespace MyBLAS {
      * @param L The input matrix to be checked.
      * @return true if the input matrix is a valid unit lower triangular matrix, false otherwise.
      */
-    static bool isValidUnitLowerTriangularMatrix(const MyBLAS::Matrix &L) {
+    template <typename T>
+    static bool isValidUnitLowerTriangularMatrix(const MyBLAS::Matrix<T> &L) {
         const size_t cols = L.getCols();
         const size_t rows = L.getRows();
 
@@ -158,11 +160,11 @@ namespace MyBLAS {
             // Iterate over the cols of the input matrix L
             for (size_t j = 0; j < cols; j++) {
                 // leading diagonal is always 1
-                if (i == j && L[i][j] != 1.0) {
+                if (i == j && L[i][j] != 1) {
                     return false;
                 }
                 // upper triangular is always 0
-                if(i < j && L[i][j] != 0.0) {
+                if(i < j && L[i][j] != 0) {
                     return false;
                 }
             }

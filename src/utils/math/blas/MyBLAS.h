@@ -56,10 +56,11 @@ namespace MyBLAS {
      * @brief Calculates the absolute value of the vector.
      * @return Vector with the absolute value of each element.
      */
-    static Vector abs(const Vector& a) {
-        Vector result(a.size(), 0);
+    template <typename T>
+    static Vector<T> abs(const Vector<T>& a) {
+        Vector<T> result(a.size(), 0);
         for (size_t i = 0; i < a.size(); ++i) {
-            result[i] = std::abs(a[i]);
+            result[i] = fabsl(a[i]);
         }
         return result;
     }
@@ -68,11 +69,12 @@ namespace MyBLAS {
     * @brief Calculates the absolute value of the matrix.
     * @return Matrix with the absolute value of each element.
     */
-    static Matrix abs(const Matrix& a) {
-        Matrix result(a.getRows(), a.getCols(), 0);
+    template <typename T>
+    static Matrix<T> abs(const Matrix<T>& a) {
+        Matrix<T> result(a.getRows(), a.getCols(), 0);
         for (size_t i = 0; i < a.getRows(); ++i) {
             for (size_t j = 0; j < a.getCols(); ++j) {
-                result[i][j] = std::abs(a[i][j]);
+                result[i][j] = fabsl(a[i][j]);
             }
         }
         return result;
@@ -86,7 +88,8 @@ namespace MyBLAS {
      * @param M The input matrix to be checked.
      * @return true if the input matrix is a square matrix, false otherwise.
      */
-    static inline bool isSquareMatrix(const MyBLAS::Matrix &M) {
+    template<typename T>
+    static inline bool isSquareMatrix(const MyBLAS::Matrix<T> &M) {
         return M.getCols() == M.getRows();
     }
 
@@ -98,13 +101,14 @@ namespace MyBLAS {
      * @param M The input matrix to be checked.
      * @return true if the input matrix is a binary matrix, false otherwise.
      */
-    static bool isBinaryMatrix(const MyBLAS::Matrix &M) {
+    template<typename T>
+    static bool isBinaryMatrix(const MyBLAS::Matrix<T> &M) {
         const size_t rows = M.getRows();
         const size_t cols = M.getCols();
 
         for (size_t i = 0; i < rows; i++) {
             for (size_t j = 0; j < cols; j++) {
-                if (M[i][j] != 0.0 && M[i][j] != 1.0) {
+                if (M[i][j] != 0 && M[i][j] != 1) {
                     return false;
                 }
             }
@@ -122,7 +126,8 @@ namespace MyBLAS {
      * @param U The input matrix to be checked.
      * @return true if the input matrix is a valid upper triangular matrix, false otherwise.
      */
-    static bool isUpperTriangularMatrix(const MyBLAS::Matrix &U) {
+    template<typename T>
+    static bool isUpperTriangularMatrix(const MyBLAS::Matrix<T> &U) {
         if(!MyBLAS::isSquareMatrix(U)) {
             return false;
         }
@@ -134,8 +139,12 @@ namespace MyBLAS {
         for (size_t i = 0; i < rows; i++) {
             // Iterate over the cols of the input matrix U
             for (size_t j = 0; j < cols; j++) {
+                // NANs and +inf, -inf make the matrix invalid
+                if(std::isinf(U[i][j]) || std::isnan(U[i][j])) {
+                    return false;
+                }
                 // Lower triangular is always 0
-                if (i > j && U[i][j] != 0.0) {
+                if (i > j && U[i][j] != 0) {
                     return false;
                 }
             }
@@ -154,7 +163,8 @@ namespace MyBLAS {
      * @param L The input matrix to be checked.
      * @return true if the input matrix is a valid unit lower triangular matrix, false otherwise.
      */
-    static bool isUnitLowerTriangularMatrix(const MyBLAS::Matrix &L) {
+    template<typename T>
+    static bool isUnitLowerTriangularMatrix(const MyBLAS::Matrix<T> &L) {
 
         if(!MyBLAS::isSquareMatrix(L)) {
             return false;
@@ -167,12 +177,16 @@ namespace MyBLAS {
         for (size_t i = 0; i < rows; i++) {
             // Iterate over the cols of the input matrix L
             for (size_t j = 0; j < cols; j++) {
+                // NANs and +inf, -inf make the matrix invalid
+                if(std::isinf(L[i][j]) || std::isnan(L[i][j])) {
+                    return false;
+                }
                 // leading diagonal is always 1
-                if (i == j && L[i][j] != 1.0) {
+                if (i == j && L[i][j] != 1) {
                     return false;
                 }
                 // upper triangular is always 0
-                if(i < j && L[i][j] != 0.0) {
+                if(i < j && L[i][j] != 0) {
                     return false;
                 }
             }
@@ -189,7 +203,8 @@ namespace MyBLAS {
      * @param P The input matrix to be checked.
      * @return true if the input matrix is a valid permutation matrix, false otherwise.
      */
-    static bool isPermutationMatrix(const MyBLAS::Matrix &P) {
+    template<typename T>
+    static bool isPermutationMatrix(const MyBLAS::Matrix<T> &P) {
 
         if (!MyBLAS::isSquareMatrix(P)) {
             return false;
@@ -209,10 +224,17 @@ namespace MyBLAS {
         // Iterate over the matrix and update the counters
         for (size_t i = 0; i < rows; i++) {
             for (size_t j = 0; j < cols; j++) {
-                if (P[i][j] == 1.0) {
+
+                // NANs and +inf, -inf make the matrix invalid
+                if(P[i][j] == FP_NAN || P[i][j] == NAN || P[i][j] == FP_INFINITE || std::isinf(P[i][j])) {
+                    return false;
+                }
+
+                if (P[i][j] == 1) {
                     rowOnesCount[i]++;
                     colOnesCount[j]++;
                 }
+
             }
         }
 
@@ -224,6 +246,50 @@ namespace MyBLAS {
         }
 
         return true;
+    }
+
+    /**
+     * @brief Global function to multiply a scalar with a matrix.
+     * @param scalar Scalar to multiply the matrix with.
+     * @param matrix Matrix to be multiplied.
+     * @return Resultant matrix after multiplication.
+     */
+    template <typename T>
+    MyBLAS::Matrix<T> operator*(const T& scalar, const MyBLAS::Matrix<T>& matrix) {
+        return matrix * scalar;
+    }
+
+    /**
+     * @brief Global function to add a scalar to a matrix.
+     * @param scalar Scalar to add to the matrix.
+     * @param matrix Matrix to be added to.
+     * @return Resultant matrix after addition.
+     */
+    template <typename T>
+    MyBLAS::Matrix<T> operator+(const T& scalar, const MyBLAS::Matrix<T>& matrix) {
+        return matrix + scalar;
+    }
+
+    /**
+     * @brief Global function to multiply a scalar with a vector.
+     * @param scalar Scalar to multiply the matrix with.
+     * @param matrix Vector to be multiplied.
+     * @return Resultant matrix after multiplication.
+     */
+    template <typename T>
+    MyBLAS::Vector<T> operator*(const T& scalar, const MyBLAS::Vector<T>& vector) {
+        return vector * scalar;
+    }
+
+    /**
+     * @brief Global function to add a scalar to a vector.
+     * @param scalar Scalar to add to the matrix.
+     * @param matrix Vector to be added to.
+     * @return Resultant matrix after addition.
+     */
+    template <typename T>
+    MyBLAS::Vector<T> operator+(const T& scalar, const MyBLAS::Vector<T>& vector) {
+        return vector + scalar;
     }
 }
 
