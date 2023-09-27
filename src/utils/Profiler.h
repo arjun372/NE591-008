@@ -38,6 +38,7 @@
 #include <iomanip>
 #include <iostream>
 #include <functional>
+#include <random>
 
 #include "Stopwatch.h"
 
@@ -48,8 +49,17 @@ struct Randomiser
 {
     static double get(double min, double max)
     {
-        // TODO: rand() has limited randomness; use C++11 random library.
-        return ((max - min) * rand() / RAND_MAX + min);
+        // Create a random device
+        std::random_device rd;
+
+        // Initialize a random number generator engine
+        std::mt19937 engine(rd());
+
+        // Initialize a uniform real distribution with min and max
+        std::uniform_real_distribution<> dist(min, max);
+
+        // Generate and return a random number within the range
+        return dist(engine);
     }
 };
 

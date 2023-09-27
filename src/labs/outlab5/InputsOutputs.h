@@ -63,6 +63,7 @@ typedef struct Output {
 
     MyBLAS::Vector<long double> solution; ///< Output vector.
     MyBLAS::Vector<long double> residual;
+    long double max_residual = 0;
 
     /**
      * @brief Converts the output vector to a JSON object.

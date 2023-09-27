@@ -29,6 +29,7 @@ protected:
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()
                 ("no-pivoting", "Do not perform partial pivoting")
+                ("alternate-method", "Use alternate factorization method")
                 ("order,n", boost::program_options::value<long double>()->default_value(0), "= order of the square matrix (natural number)")
                 ("input-json,i", boost::program_options::value<std::string>(), "= input JSON containing L, U, and b")
                 ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
@@ -46,15 +47,17 @@ protected:
         const auto inputFilepath = vm["input-json"].as<std::string>();
         const auto outputFilepath =  vm["output-json"].as<std::string>();
         const bool noPivoting = vm.count("no-pivoting") != 0;
+        const bool alternateMethod = vm.count("alternate-method") != 0;
 
         // list the parameters
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        std::cout << "\tMatrix order,  n: " << n << "\n";
-        std::cout << "\tInput JSON,    i: " << inputFilepath << "\n";
-        std::cout << "\tOutput JSON,   o: " << outputFilepath << "\n";
-        std::cout << "\tUse Pivoting    : " << (noPivoting ? "No" : "Yes") << "\n";
+        std::cout << "\tMatrix order,        n: " << n << "\n";
+        std::cout << "\tInput JSON,          i: " << inputFilepath << "\n";
+        std::cout << "\tOutput JSON,         o: " << outputFilepath << "\n";
+        std::cout << "\tUse Pivoting          : " << (noPivoting ? "No" : "Yes") << "\n";
+        std::cout << "\tUse Alternate Method  : " << (alternateMethod ? "Yes" : "No") << "\n";
         CommandLine::printLine();
     }
 

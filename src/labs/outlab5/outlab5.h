@@ -38,7 +38,7 @@ class OutLab5 : public Project<InputMatrices, Parser, Results> {
 
 public:
     /**
-     * @brief Constructor for the outlab4 class
+     * @brief Constructor for the outlab5 class
      * @param args Command line arguments
      */
     explicit OutLab5(CommandLineArgs args) : Project(args) {}
@@ -76,11 +76,27 @@ protected:
             5. Solve the second system Ux = y using backward substitution.
         **/
 
+        nlohmann::json results;
+        inputs.toJSON(results["inputs"]);
+
         const auto A = inputs.coefficients;
+
         auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
         auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
 
-        MyBLAS::Matrix<long double> P = factorizeLUP(L, U, A);
+        const auto pivot = !values.count("no-pivoting");
+        const bool alternateMethod = values.count("alternate-method") != 0;
+        MyBLAS::Matrix<long double> P;
+
+        if (pivot) {
+            if (alternateMethod) {
+                P = MyBLAS::cast<long double, bool>(MyBLAS::cast<bool, long double>(dooLittleFactorizeLUP(L, U, A)));
+            } else {
+                P = MyBLAS::cast<long double, bool>(MyBLAS::cast<bool, long double>(factorizeLUwithPartialPivoting(L, U, A)));
+            }
+        } else {
+           MyBLAS::LU::factorize(L, U, A);
+        }
 
         if(!MyBLAS::isUnitLowerTriangularMatrix(L)) {
             std::cerr << "Warning: Factorized matrix L is not unit lower triangular, expect undefined behavior.\n";
@@ -90,21 +106,26 @@ protected:
             std::cerr << "Warning: Factorized matrix U is not upper triangular, expect undefined behavior.\n";
         }
 
-        if(!MyBLAS::isPermutationMatrix(P)) {
-            std::cerr << "Warning: Generated matrix P is not a permutation matrix, expect undefined behavior.\n";
+        if (pivot) {
+            if (!MyBLAS::isPermutationMatrix(P)) {
+                std::cerr << "Warning: Generated matrix P is not a permutation matrix, expect undefined behavior.\n";
+            }
         }
 
-        const auto pivot = !values.count("no-pivoting");
+        IntermediateResults intermediates;
+        intermediates.L = L;
+        intermediates.U = U;
+        if(pivot) {
+            intermediates.P = P;
+        }
+        intermediates.toJSON(results["intermediates"]);
 
         const auto b = inputs.constants;
         const auto Pb = pivot ? (P * b) : b;
 
-        const auto LU = L + U - MyBLAS::Matrix<long double>::eye(A.getRows());
-
         const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(L, Pb);
         const MyBLAS::Vector x = MyBLAS::backwardSubstitution<long double>(U, y);
 
-        nlohmann::json results;
         outputs.solution = x;
 
         const auto b_prime = A * x;
@@ -112,6 +133,7 @@ protected:
         outputs.residual = r;
 
         const auto maxResidual = MyBLAS::max<long double>(MyBLAS::abs(r));
+        outputs.max_residual = maxResidual;
 
         outputs.toJSON(results["outputs"]);
 
@@ -127,10 +149,6 @@ protected:
             Parser::printLine();
             std::cout << std::setprecision(precision) << U;
             Parser::printLine();
-//            std::cout << "Composite Matrix (LU):\n";
-//            Parser::printLine();
-//            std::cout << std::setprecision(precision) << LU;
-//            Parser::printLine();
             if (pivot) {
                 std::cout << "Permutation Matrix (P):\n";
                 Parser::printLine();
@@ -141,7 +159,7 @@ protected:
                 std::cout << std::setprecision(precision) << Pb;
                 Parser::printLine();
             }
-            std::cout << "Intermediate vector (y), where (Ly = Pb):\n";
+            std::cout << "Intermediate vector (y), where (Ly = "<< (pivot ? "Pb" : "b") << "):\n";
             Parser::printLine();
             std::cout << std::setprecision(precision) << y;
             Parser::printLine();

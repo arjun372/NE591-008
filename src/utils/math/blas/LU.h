@@ -89,7 +89,18 @@ namespace MyBLAS::LU {
         }
     }
 
-    // TODO:: Document
+    /**
+     * @brief Performs recursive LU factorization on a given matrix.
+     *
+     * This function performs LU factorization on a given matrix A and stores the results in matrices L and U.
+     * The function uses a recursive divide-and-conquer approach, dividing the matrix into four submatrices and
+     * recursively applying the same procedure to the updated submatrix A22.
+     *
+     * @tparam T The data type of the elements in the matrices.
+     * @param L The lower triangular matrix resulting from the LU factorization.
+     * @param U The upper triangular matrix resulting from the LU factorization.
+     * @param A The input matrix to be factorized.
+     */
     template <typename T>
     static void recursiveLUFactorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
         const size_t n = A.getCols();

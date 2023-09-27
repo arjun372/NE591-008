@@ -226,7 +226,7 @@ namespace MyBLAS {
             for (size_t j = 0; j < cols; j++) {
 
                 // NANs and +inf, -inf make the matrix invalid
-                if(P[i][j] == FP_NAN || P[i][j] == NAN || P[i][j] == FP_INFINITE || std::isinf(P[i][j])) {
+                if(std::isinf(P[i][j]) || std::isnan(P[i][j])) {
                     return false;
                 }
 

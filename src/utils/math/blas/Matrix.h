@@ -400,7 +400,17 @@ namespace MyBLAS {
         return x;
     }
 
-    // TODO:: Document
+    /**
+     * @brief Casts the elements of a given matrix to a specified type.
+     *
+     * This function creates a new matrix with the same dimensions as the input matrix and fills it with the
+     * elements of the input matrix cast to the specified type.
+     *
+     * @tparam T The data type to cast the elements to.
+     * @tparam T2 The original data type of the elements in the input matrix.
+     * @param input The input matrix whose elements are to be cast.
+     * @return A new matrix with the elements of the input matrix cast to the specified type.
+     */
     template <typename T, typename T2>
     static MyBLAS::Matrix<T> cast(const MyBLAS::Matrix<T2> &input) {
         MyBLAS::Matrix<T> output = Matrix<T>(input.getRows(), input.getCols(), 0);
@@ -413,7 +423,17 @@ namespace MyBLAS {
         return output;
     }
 
-    // TODO:: Document
+    /**
+     * @brief Casts the elements of a given vector to a specified type.
+     *
+     * This function creates a new vector with the same size as the input vector and fills it with the
+     * elements of the input vector cast to the specified type.
+     *
+     * @tparam T The data type to cast the elements to.
+     * @tparam T2 The original data type of the elements in the input vector.
+     * @param input The input vector whose elements are to be cast.
+     * @return A new vector with the elements of the input vector cast to the specified type.
+     */
     template <typename T, typename T2>
     static MyBLAS::Vector<T> cast(const MyBLAS::Vector<T2> &input) {
         MyBLAS::Vector<T> output = Vector<T>(input.size(), 0);
