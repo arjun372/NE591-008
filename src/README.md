@@ -13,5 +13,7 @@ Sources and file paths for each deliverable follow the following structure:
 │   │   ├── inlab13
 │   │   ├── outlab13
 │   ├── ...
-├── ...
+│   ├── utils               <= Helper methods
+│   ├── CMakeLists.txt
+│   ├── README.md           <= This README
 ```
