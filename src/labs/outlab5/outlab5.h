@@ -49,7 +49,9 @@ protected:
      * @return HeaderInfo object containing project information
      */
     HeaderInfo buildHeaderInfo() override {
-        std::cout<<"Julia set at (-0.9, 0.26), 200 iterations\n";
+        Canvas canvas;
+        printJuliaSet<__float128>(canvas, -0.4, 0.6, 300); //"o█■"
+        std::cout<<"\t\tJulia set at (-0.4, 0.6), 200 iterations\n";
         return {
                 .ProjectName = "NE591: OutLab 05",
                 .ProjectDescription = "Solving a system of linear equations using LUP factorization",
