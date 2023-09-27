@@ -140,17 +140,17 @@ Currently supported inlab, outlab build targets include:
   <tr>
     <td>1</td>
     <td><code>✅ inlab1</code>  <code>❌ inlab1_tests</code></td>
-    <td><code>✅ outlab1</code>  <code>✅ outlab1_tests</code></td>
+    <td><code>✅ outlab1</code>  <code>❌ outlab1_tests</code></td>
   </tr>
   <tr>
     <td>2</td>
     <td><code>✅ inlab2</code>  <code>❌ inlab2_tests</code></td>
-    <td><code>✅ outlab2</code>  <code>✅ outlab2_tests</code></td>
+    <td><code>✅ outlab2</code>  <code>❌ outlab2_tests</code></td>
   </tr>
   <tr>
     <td>3</td>
     <td><code>✅ inlab3</code>  <code>❌ inlab3_tests</code></td>
-    <td><code>✅ outlab3</code>  <code>✅ outlab3_tests</code></td>
+    <td><code>✅ outlab3</code>  <code>❌ outlab3_tests</code></td>
   </tr>
   <tr>
     <td>4</td>
