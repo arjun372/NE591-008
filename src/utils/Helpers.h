@@ -32,6 +32,31 @@ void replace(std::map<std::string, boost::program_options::variable_value>& vm, 
 }
 
 /**
+* @brief Synchronizes the values of a given key between a JSON object and a Boost variables_map object.
+*
+* This function first checks if the key exists in the variables_map. If it does, the value is updated
+* in the JSON object. Then, if the key exists in the JSON object, the value is read from the JSON object
+* and updated in the variables_map.
+*
+* @tparam T The type of the value associated with the key.
+* @param key The key to synchronize between the JSON object and the variables_map.
+* @param inputMap The JSON object containing the key-value pairs.
+* @param map The Boost variables_map object containing the key-value pairs.
+*/
+template <typename T>
+void syncMapKeys(std::string &key, nlohmann::json &inputMap, boost::program_options::variables_map &map) {
+    // first, check if key is in the variables_map
+    if(map.count(key)) {
+        // if yes, update it in the JSON map.
+        inputMap[key] = map[key].as<T>();
+    }
+    // then, if key is in the JSON map, read value from the JSON map into the variables_map.
+    if (inputMap.contains(key)) {
+        replace(map, key, static_cast<T>(inputMap[key]));
+    }
+}
+
+/**
  * @brief This function fills a vector with evenly spaced values between a start and end value.
  *
  * @tparam T The type of the values to be generated.
@@ -100,16 +125,42 @@ size_t juliaSetIterations(const std::complex<T>& z0, const std::complex<T>& c, s
  * @brief Generates a vector of 256-bit ANSI gray shades.
  * @return A vector of ANSI escape codes representing gray shades.
  */
-static std::vector<std::string> getGrays256bitANSI() {
+static std::vector<std::string> getGrays256bitANSI(double scaling_factor = 1e-7, double growth_rate = 0.3) {
+
+    const long double x_min = 232;
+    const long double x_max = 255;
+    auto x = std::vector<long double>(26);
+    fill_linspace(x, x_min, x_max, 26);
+
+    auto y = std::vector<long double>(26);
+    auto y_min = std::numeric_limits<long double>::max();
+    auto y_max = std::numeric_limits<long double>::min();
+    for (size_t i = 0; i < x.size(); i++) {
+        y[i] = scaling_factor * std::exp(growth_rate * x[i]);
+        if(y[i] > y_max) {
+            y_max = y[i];
+        }
+        if (y[i] < y_min) {
+            y_min = y[i];
+        }
+    }
+
+    // 26 shades of gray
     std::vector<std::string> grayShades;
     grayShades.emplace_back("\033[38;5;016m"); // black
-    // 24 shades of gray
-    for (int i = 0; i < 24; ++i) {
+    for (size_t i = 0; i < 24; ++i) {
         int colorCode = 232 + i;
         grayShades.push_back("\033[38;5;" + std::to_string(colorCode) + "m");
     }
     grayShades.emplace_back("\033[38;5;231m"); // white
-    return grayShades;
+
+    std::vector<std::string> toneMap;
+    for (size_t i = 0; i <= 25; ++i) {
+        auto yi = 0 + (y[i] - y_min) * (25 - 0) / (y_max - y_min);
+        auto idx = static_cast<int>(std::floor(yi));
+        toneMap.push_back(grayShades[idx]);
+    }
+    return toneMap;
 }
 
 /**
@@ -120,10 +171,10 @@ template<typename T>
 struct CanvasType {
     size_t width = 80;
     size_t height = 24;
-    T x_start = -1.4;
-    T y_start = -0.9;
-    T x_range = 2.9;
-    T y_range = 1.9;
+    T x_start = -2;
+    T y_start = -2;
+    T x_stop  = 2;
+    T y_stop = 2;
     std::string character = "█";
     T contrast = 1.0;
 };
@@ -219,8 +270,10 @@ static std::vector<std::string> getHSV256bitANSI() {
 template <typename T>
 void printJuliaSet(const Canvas &canvas, const T x0, const T y0, const size_t max_iterations = 120) {
 
-    T x_step =canvas.x_range / static_cast<T>(canvas.width);
-    T y_step = canvas.y_range / static_cast<T>(canvas.height);
+    const T x_range = fabsl(canvas.x_stop - canvas.x_start);
+    const T y_range = fabsl(canvas.y_stop - canvas.y_start);
+    T x_step = x_range / static_cast<T>(canvas.width);
+    T y_step = y_range / static_cast<T>(canvas.height);
 
     const std::complex<T> c(x0, y0);
 

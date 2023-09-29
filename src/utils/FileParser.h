@@ -119,6 +119,45 @@ void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> 
 }
 
 /**
+ * @brief Reads a CSV file without headers and stores the data in a 2D vector.
+ * @tparam T The type of the data to be read.
+ * @param filepath The path to the CSV file.
+ * @param data A reference to a 2D vector where the data will be stored.
+ */
+template <typename T>
+void readCSVRowWiseNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &data) {
+
+    // Open the CSV file
+    std::ifstream inputFile(filepath);
+
+    if (!inputFile.is_open()) {
+        std::cerr << "Error: Unable to open the input CSV: "<<filepath<<std::endl;
+        exit(1);
+    }
+
+    // Read and parse the data rows
+    std::string line;
+    while (std::getline(inputFile, line)) {
+        // Tokenize the line using boost::tokenizer
+        boost::char_separator<char> separator(",");
+        boost::tokenizer<boost::char_separator<char>> tokens(line, separator);
+
+        std::vector<T> row;
+        for (const auto& token : tokens) {
+            try {
+                row.push_back(boost::lexical_cast<T>(token));
+            } catch (const boost::bad_lexical_cast& ex) {
+                std::cerr << "Error: Failed to convert to type T: " << ex.what() << std::endl;
+            }
+        }
+        data.push_back(row);
+    }
+
+    // Close the file
+    inputFile.close();
+}
+
+/**
  * @brief Converts a vector of any type to a vector of strings.
  *
  * This function template takes a vector of any type and converts each element to a string.

@@ -104,6 +104,20 @@ namespace MyBLAS {
         }
 
         /**
+         * @brief Adds a new row to the end of the matrix.
+         * @param row Vector representing the new row to be added.
+         */
+        void push_back(const std::vector<T>& row) {
+            if (data.empty()) {
+                cols = row.size();
+            } else if (cols != row.size()) {
+                throw std::invalid_argument("Error: Row size does not match the matrix column size.");
+            }
+            data.push_back(row);
+            ++rows;
+        }
+
+        /**
          * @brief Getter for the number of rows in the matrix.
          * @return Number of rows in the matrix.
          */

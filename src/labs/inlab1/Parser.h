@@ -45,7 +45,7 @@ protected:
     void performInputArgumentsCheck(boost::program_options::variables_map &values) override {
 
         std::string input;
-        while(values["angle"].empty() || failsCheck1(values["angle"].as<long double>())) {
+        while(values["angle"].empty() || absoluteValueFailsGreaterThan1Check(values["angle"].as<long double>())) {
             std::cout<<"Enter a value for the angle x [radian]: ";
             std::cin >> input;
             try {
@@ -55,7 +55,7 @@ protected:
             }
         }
 
-        while(values["convergence-threshold"].empty() || failsCheck2(values["convergence-threshold"].as<long double>())) {
+        while(values["convergence-threshold"].empty() || failsPositiveNumberCheck(values["convergence-threshold"].as<long double>())) {
             std::cout<<"Enter a value for the stopping criterion e [e > 0]: ";
             std::cin >> input;
             try {

@@ -200,10 +200,12 @@ private:
      * This method prints the default, maximum, and current precision of long double values to the console.
      */
     void printPrecisionInformation() {
+        const auto precision = variablesMap["precision"].as<int>();
+        std::cout<<std::setprecision(precision);
         std::cout << "\t\t\tPrecision in digits:  ";
         std::cout << "default: " << default_precision <<", ";
         std::cout << "maximum: " << max_precision <<", ";
-        std::cout << "current: " << variablesMap["precision"].as<int>()<<"\n";
+        std::cout << "current: " << precision <<"\n";
         printLine();
     }
 

@@ -39,32 +39,50 @@ static bool isUnfilledVector(boost::program_options::variables_map &values, cons
 }
 
 /**
- * @brief Checks if the absolute value of the input is greater than or equal to 1.
+ * @brief Checks if the input value is a positive number.
  *
+ * @tparam T The type of the input value.
  * @param value The input value to be checked.
- * @return true If the absolute value of the input is greater than or equal to 1.
- * @return false If the absolute value of the input is less than 1.
+ * @return true If the input value is not a positive number.
+ * @return false If the input value is a positive number.
  */
-static bool failsCheck1(long double value) {
-    const long double max = 1.0f;
-    if (abs(value) >= max) {
-        std::cerr <<"Error: " << "abs(x) is greater than " << std::setprecision (19) << max << "\n";
+template <typename T>
+static bool failsPositiveNumberCheck(T value) {
+    if (value <= 0) {
+        std::cerr <<"Error: " << "Input should be a positive number\n";
         return true;
     }
     return false;
 }
 
 /**
- * @brief Checks if the input value is less than or equal to 0.
+ * @brief Checks if the input value is a non-negative number.
+ *
+ * @tparam T The type of the input value.
+ * @param value The input value to be checked.
+ * @return true If the input value is a negative number.
+ * @return false If the input value is a non-negative number.
+ */
+template <typename T>
+static bool failsNonNegativeNumberCheck(T value) {
+    if (value < 0) {
+        std::cerr <<"Error: " << "Input should be a non-negative number\n";
+        return true;
+    }
+    return false;
+}
+
+/**
+ * @brief Checks if the absolute value of the input is greater than or equal to 1.
  *
  * @param value The input value to be checked.
- * @return true If the input value is less than or equal to 0.
- * @return false If the input value is greater than 0.
+ * @return true If the absolute value of the input is greater than or equal to 1.
+ * @return false If the absolute value of the input is less than 1.
  */
-static bool failsCheck2(long double value) {
-    const long double min = 0.0f;
-    if (value <= min) {
-        std::cerr <<"Error: " << "error threshold is not greater than " << std::setprecision (19) << min << "\n";
+static bool absoluteValueFailsGreaterThan1Check(long double value) {
+    const long double max = 1.0f;
+    if (abs(value) >= max) {
+        std::cerr <<"Error: " << "abs(x) is greater than " << std::setprecision (19) << max << "\n";
         return true;
     }
     return false;
@@ -96,6 +114,81 @@ static bool failsNaturalNumberCheck(long double value) {
 
     return error;
 }
+
+/**
+ * @brief Checks if the input value is a whole number.
+ *
+ * @tparam T The type of the input value.
+ * @param value The input value to be checked.
+ * @return true If the input value is not a whole number.
+ * @return false If the input value is a whole number.
+ */
+template <typename T>
+static bool failsWholeNumberCheck(T value) {
+
+    bool error = failsNaturalNumberCheck(static_cast<long double>(value));
+
+    if (value == 0) {
+        std::cerr <<"Error: " << "Input should be a whole number, i.e. it cannot be zero\n";
+        error = true;
+    }
+
+    return error;
+}
+
+/**
+ * @brief Checks if the input value is within the specified range (inclusive).
+ *
+ * @tparam T The type of the input value.
+ * @param value The input value to be checked.
+ * @param min The minimum value of the range.
+ * @param max The maximum value of the range.
+ * @return true If the input value is outside the specified range.
+ * @return false If the input value is within the specified range.
+ */
+template <typename T>
+static bool failsInclusiveRangeCheck(T value, T min, T max) {
+    if (value < min || value > max) {
+        std::cerr << "Error: Input should be within the range [" << min << ", " << max << "]\n";
+        return true;
+    }
+    return false;
+}
+
+/**
+ * @brief Checks if the input value is within the specified range (exclusive).
+ *
+ * @tparam T The type of the input value.
+ * @param value The input value to be checked.
+ * @param min The minimum value of the range.
+ * @param max The maximum value of the range.
+ * @return true If the input value is outside the specified range.
+ * @return false If the input value is within the specified range.
+ */
+template <typename T>
+static bool failsExclusiveRangeCheck(T value, T min, T max) {
+    if (value <= min || value > max) {
+        std::cerr << "Error: Input should be within the range (" << min << ", " << max << ")\n";
+        return true;
+    }
+    return false;
+}
+
+
+/**
+ * @brief Checks if the input value is a valid probability (between 0 and 1 inclusive).
+ *
+ * @tparam T The type of the input value.
+ * @param value The input value to be checked.
+ * @return true If the input value is not a valid probability.
+ * @return false If the input value is a valid probability.
+ */
+template <typename T>
+static bool failsProbabilityCheck(T value) {
+    return failsInclusiveRangeCheck(value, 0, 1);
+}
+
+
 
 /**
  * @brief Converts a string to a long double number.
@@ -168,6 +261,63 @@ static bool asYesOrNo(std::string &input) {
 
     std::cerr << "Unknown value, please specify one of: [yes,y,no,n]\n";
     throw std::exception();
+}
+
+
+/**
+ * @brief Checks if the input value fails any of the provided checks.
+ *
+ * This function iterates through a vector of check functions and calls each of them with the input value.
+ * If any of the check functions return true, the function returns true, indicating that the value fails
+ * at least one of the checks. If none of the check functions return true, the function returns false,
+ * indicating that the value passes all the checks.
+ *
+ * @tparam T The type of the input value.
+ * @param value The input value to be checked.
+ * @param checks A vector of check functions, each taking an input value of type T and returning a bool.
+ * @return true If the input value fails any of the provided checks.
+ * @return false If the input value passes all the provided checks.
+ */
+template <typename T>
+static bool valueFailsChecks(const T value, const std::vector<std::function<bool(T)>> &checks) {
+    return std::any_of(checks.begin(), checks.end(), [value](const auto &check) { return check(value); });
+}
+
+/**
+ * @brief This function performs checks on the input and updates it if necessary.
+ *
+ * The function first synchronizes any differences between the JSON object and the variables_map object.
+ * Then, it enters a loop where it prompts the user to enter a value for the specified key until a valid value is entered.
+ * A value is considered valid if it passes all the checks specified in the checkList.
+ * If the entered value is invalid, the function catches the exception and prompts the user to enter a new value.
+ *
+ * @tparam T The type of the value to be checked and updated.
+ *
+ * @param key The key for which the value is to be checked and updated.
+ * @param inputMap The JSON object that contains the current values.
+ * @param map The variables_map object that contains the current values.
+ * @param checkList A list of functions that perform checks on the value. Each function takes a value of type T and returns a boolean indicating whether the value passed the check.
+ *
+ * @note The function uses the syncMapKeys function to synchronize the JSON and variables_map objects, and the valueFailsChecks function to check whether a value fails any of the checks.
+ * @note The function uses the asNumber function to convert the user's input to a number, and the replace function to update the value in the variables_map object.
+ * @note The function catches any exceptions thrown by the asNumber or replace functions and continues prompting the user for a new value.
+ */
+template <typename T>
+static void performChecksAndUpdateInput(std::string key, nlohmann::json &inputMap, boost::program_options::variables_map &map, std::vector<std::function<bool(T)>> &checkList) {
+
+    // first, sync any differences between the JSON and variables_map
+    syncMapKeys<T>(key, inputMap, map);
+
+    while(map[key].empty() || valueFailsChecks<T>(map[key].as<T>(), checkList)) {
+        std::cout << "Enter a value for " << key << ":";
+        std::string input;
+        std::cin >> input;
+        try {
+            replace(map, key, static_cast<T>(asNumber(input)));
+        } catch (const std::exception &) {
+            continue;
+        }
+    }
 }
 
 #endif //NE591_008_CHECKBOUNDS_H
