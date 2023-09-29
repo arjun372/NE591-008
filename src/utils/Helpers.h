@@ -122,6 +122,31 @@ size_t juliaSetIterations(const std::complex<T>& z0, const std::complex<T>& c, s
     return iter;
 }
 
+// TODO:: Document
+template<typename T>
+struct ToneMap {
+    T scaling_factor = 1e-7;
+    T growth_rate = 0.3;
+};
+
+/**
+ * @brief A struct representing the properties of a canvas for rendering ANSI characters
+ * @tparam T The type of the numbers used for the canvas dimensions and properties.
+ */
+template<typename T>
+struct CanvasType {
+    size_t width = 80;
+    size_t height = 24;
+    T x_start = -2;
+    T y_start = -2;
+    T x_stop  = 2;
+    T y_stop = 2;
+    std::string character = "█";
+    T contrast = 1.0;
+    ToneMap<T> tone_map;
+};
+typedef CanvasType<__float128> Canvas;
+
 /**
  * @brief Generates a vector of 256-bit ANSI gray shades.
  * @return A vector of ANSI escape codes representing gray shades.
@@ -163,23 +188,6 @@ static std::vector<std::string> getGrays256bitANSI(double scaling_factor = 1e-7,
     }
     return toneMap;
 }
-
-/**
- * @brief A struct representing the properties of a canvas for rendering ANSI characters
- * @tparam T The type of the numbers used for the canvas dimensions and properties.
- */
-template<typename T>
-struct CanvasType {
-    size_t width = 80;
-    size_t height = 24;
-    T x_start = -2;
-    T y_start = -2;
-    T x_stop  = 2;
-    T y_stop = 2;
-    std::string character = "█";
-    T contrast = 1.0;
-};
-typedef CanvasType<__float128> Canvas;
 
 
 /**
@@ -297,7 +305,7 @@ void printJuliaSet(const Canvas &canvas, const T x0, const T y0, const size_t ma
     }
     avg = avg / (canvas.width * canvas.height);
 
-    std::vector<std::string> colors = getGrays256bitANSI();
+    std::vector<std::string> colors = getGrays256bitANSI(canvas.tone_map.scaling_factor, canvas.tone_map.growth_rate);
     for (size_t y = 0; y < canvas.height; ++y) {
         for (size_t x = 0; x < canvas.width; ++x) {
             std::complex<T> z = std::complex<T>(canvas.x_start + x * x_step, canvas.y_start + y * y_step);
