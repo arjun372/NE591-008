@@ -118,7 +118,7 @@ protected:
         readJSON(values["input-json"].as<std::string>(), inputMap);
 
         // read the constants
-        std::vector<long double> constants = inputMap["constants"];
+        MyBLAS::Vector<long double> constants = MyBLAS::Vector(std::vector<long double>(inputMap["constants"]));
         inputs.constants = MyBLAS::Vector(constants);
 
         // read the coefficient matrix

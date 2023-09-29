@@ -13,6 +13,7 @@
 #include <limits>
 
 #include <boost/program_options.hpp>
+#include "json.hpp"
 
 /**
  * @brief This function replaces the value of a specified option in a map with a new value.

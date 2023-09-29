@@ -19,6 +19,9 @@
 #include <memory>
 #include <mutex>
 #include <thread>
+
+#include "math/blas/Matrix.h"
+
 #include "json.hpp"
 
 /**
