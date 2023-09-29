@@ -47,7 +47,7 @@ export OUTPUT_RESULTS=./src/labs/project1/examples/example_output_results.json
 export OUTPUT_COMPUTED_FLUX=./src/labs/project1/examples/example_computed_flux.csv
 
 ## Execute
-./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o OUTPUT_RESULTS -f OUTPUT_COMPUTED_FLUX
+./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o $OUTPUT_RESULTS -f $OUTPUT_COMPUTED_FLUX
 ```
 
 ### Parameters
