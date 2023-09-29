@@ -40,11 +40,11 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_PARAMETERS=./src/projects/project1/examples/example_input_parameters.json
-export INPUT_SOURCETERMS=./src/projects/project1/examples/example_source_terms.csv
+export INPUT_PARAMETERS=./src/project/project1/examples/example_input_parameters.json
+export INPUT_SOURCETERMS=./src/project/project1/examples/example_source_terms.csv
 
-export OUTPUT_RESULTS=./src/projects/project1/examples/example_output_results.json
-export OUTPUT_COMPUTED_FLUX=./src/projects/project1/examples/example_computed_flux.csv
+export OUTPUT_RESULTS=./src/project/project1/examples/example_output_results.json
+export OUTPUT_COMPUTED_FLUX=./src/project/project1/examples/example_computed_flux.csv
 
 ## Execute
 ./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o $OUTPUT_RESULTS -f $OUTPUT_COMPUTED_FLUX
