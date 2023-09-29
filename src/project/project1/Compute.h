@@ -13,6 +13,7 @@
 
 #include "math/blas/Matrix.h"
 #include "math/blas/LU.h"
+#include "math/blas/LUP.h"
 
 /**
  * @brief Calculates the mesh spacings in the x and y directions.
@@ -39,146 +40,140 @@ void calculate_mesh_spacings(SolverInputs &inputs)
 }
 
 /**
- * @brief Initializes the matrix A and the right-hand-side vector B with zeros.
+ * @brief Initializes the diffusion matrix and vector.
  *
- * This function creates an m x n matrix A and an m x n right-hand-side vector B,
- * initializing all elements to zero.
+ * This function initializes the diffusion matrix A and the right-hand-side vector B.
+ * The matrix and vector are resized to m x n and all elements are initialized to zero.
  *
- * @param m The number of mesh points in the x-direction, excluding the boundary points.
- * @param n The number of mesh points in the y-direction, excluding the boundary points.
- * @param[out] A The m x n matrix A initialized with zeros.
- * @param[out] B The m x n right-hand-side vector B initialized with zeros.
+ * @tparam T The type of the elements in the matrix and vector.
+ * @param m The number of rows in the matrix and vector.
+ * @param n The number of columns in the matrix and vector.
+ * @return IntermediateResults The initialized diffusion matrix A and right-hand-side vector B.
  */
-void initialize_matrix_and_vector(int m, int n, std::vector<std::vector<double>>& A, std::vector<double>& B)
-{
+template <typename T>
+static IntermediateResults initialize_diffusion_matrix_and_vector(size_t m, size_t n) {
+
+    IntermediateResults intermediates;
+
     // Resize the matrix A to m x n and initialize all elements to zero
-    A.resize(m * n, std::vector<double>(m * n, 0.0));
+    intermediates.diffusion_matrix_A = MyBLAS::Matrix<T>(std::vector<std::vector<T>>(m * n, std::vector<T>(m * n, 0)));
 
     // Resize the right-hand-side vector B to m x n and initialize all elements to zero
-    B.resize(m * n, 0.0);
+    intermediates.right_hand_side_vector_B = MyBLAS::Vector<T>(std::vector<T>(m * n, 0));
+
+    return intermediates;
 }
 
 /**
- * @brief Fills the matrix A and the right-hand-side vector B using the given equation and input parameters.
+ * @brief Fills the diffusion matrix and vector.
  *
- * This function loops through all the nodes i = 1, ..., m and j = 1, ..., n, and fills the matrix A and
- * the right-hand-side vector B using the given equation and the input parameters.
+ * This function fills the diffusion matrix A and the right-hand-side vector B based on the given inputs.
+ * The diagonal and off-diagonal elements of the matrix A are calculated using the given equations.
+ * The right-hand-side vector B is filled using the fixed source q(i, j).
  *
- * @param m The number of mesh points in the x-direction, excluding the boundary points.
- * @param n The number of mesh points in the y-direction, excluding the boundary points.
- * @param D The constant diffusion coefficient.
- * @param Sigma_a The constant macroscopic removal cross-section.
- * @param delta The mesh spacing in the x-direction.
- * @param gamma The mesh spacing in the y-direction.
- * @param q The non-uniformly distributed fixed source at node i, j.
- * @param[out] A The filled m x n matrix A.
- * @param[out] B The filled m x n right-hand-side vector B.
+ * @param inputs The inputs for the solver.
+ * @param intermediates The intermediate results including the diffusion matrix A and right-hand-side vector B.
  */
-void fill_matrix_and_vector(int m, int n, double D, double Sigma_a, double delta, double gamma, const std::vector<std::vector<double>>& q, std::vector<std::vector<double>>& A, std::vector<double>& B)
-{
+static void naive_fill_diffusion_matrix_and_vector(SolverInputs &inputs, IntermediateResults &intermediates) {
+
+    const size_t m = inputs.m;
+    const size_t n = inputs.n;
+
+    const long double D = inputs.diffusion_coefficient;
+    const long double D_over_delta_squared = D / (inputs.delta * inputs.delta);
+    const long double minus_D_over_delta_squared = -D_over_delta_squared;
+    const long double D_over_gamma_squared = D / (inputs.gamma * inputs.gamma);
+    const long double minus_D_over_gamma_squared = -D_over_gamma_squared;
+    const long double cross_section = inputs.macroscopic_removal_cross_section;
+    const long double diagonal = 2.0 * (D_over_delta_squared + D_over_gamma_squared) + cross_section;
+
     // Loop through all the nodes i = 1, ..., m and j = 1, ..., n
-    for (int i = 1; i <= m; ++i)
+    for (size_t i = 1; i <= m; ++i)
     {
-        for (int j = 1; j <= n; ++j)
+        for (size_t j = 1; j <= n; ++j)
         {
             // Calculate the index of the current node in the matrix A and vector B
             int idx = (i - 1) * n + (j - 1);
 
             // Fill the diagonal element of the matrix A using the given equation
-            A[idx][idx] = 2 * D * (1 / (delta * delta) + 1 / (gamma * gamma)) + Sigma_a;
+            intermediates.diffusion_matrix_A[idx][idx] = diagonal;
 
             // Fill the off-diagonal elements of the matrix A using the given equation
             if (i > 1)
             {
-                A[idx][idx - n] = -D / (delta * delta);
+                intermediates.diffusion_matrix_A[idx][idx - n] = minus_D_over_delta_squared;
             }
             if (i < m)
             {
-                A[idx][idx + n] = -D / (delta * delta);
+                intermediates.diffusion_matrix_A[idx][idx + n] =  minus_D_over_delta_squared;
             }
             if (j > 1)
             {
-                A[idx][idx - 1] = -D / (gamma * gamma);
+                intermediates.diffusion_matrix_A[idx][idx - 1] =  minus_D_over_gamma_squared;
             }
             if (j < n)
             {
-                A[idx][idx + 1] = -D / (gamma * gamma);
+                intermediates.diffusion_matrix_A[idx][idx + 1] = minus_D_over_gamma_squared;
             }
 
             // Fill the right-hand-side vector B using the fixed source q(i, j)
-            B[idx] = q[i - 1][j - 1];
+            intermediates.right_hand_side_vector_B[idx] = inputs.sources[i - 1][j - 1];
         }
     }
 }
 
 /**
- * @brief Solves the linear system A * phi = B using LU factorization with pivoting.
+ * @brief Solves the linear system.
  *
- * This function solves the linear system A * phi = B using LU factorization with pivoting
- * and stores the solution in the vector phi.
+ * This function solves the linear system by factorizing the diffusion matrix A into L, U, and P matrices.
+ * It also checks if the factorized matrices L and U are unit lower triangular and upper triangular respectively,
+ * and if the generated matrix P is a permutation matrix.
  *
- * @param A The m x n matrix A.
- * @param B The m x n right-hand-side vector B.
- * @param[out] phi The solution vector containing the scalar fluxes at each node i, j.
+ * @param intermediates The intermediate results including the diffusion matrix A and the factorized matrices L, U, and P.
  */
-void solve_linear_system(const std::vector<std::vector<double>>& A, const std::vector<double>& B, std::vector<double>& phi)
-{
-    // Use Eigen library to solve the linear system A * phi = B using LU factorization with pivoting
-//    Eigen::MatrixXd A_eigen(A.size(), A[0].size());
-//    Eigen::VectorXd B_eigen(B.size());
-//    Eigen::VectorXd phi_eigen;
-//
-//    for (int i = 0; i < A.size(); ++i)
-//    {
-//        for (int j = 0; j < A[0].size(); ++j)
-//        {
-//            A_eigen(i, j) = A[i][j];
-//        }
-//        B_eigen(i) = B[i];
-//    }
-//
-//    phi_eigen = A_eigen.partialPivLu().solve(B_eigen);
-//
-//    // Copy the solution from the Eigen vector to the output vector phi
-//    phi.resize(phi_eigen.size());
-//    for (int i = 0; i < phi_eigen.size(); ++i)
-//    {
-//        phi[i] = phi_eigen(i);
-//    }
+static void naive_solve_linear_system(IntermediateResults &intermediates) {
+
+    const auto rows = intermediates.diffusion_matrix_A.getRows();
+    const auto cols = intermediates.diffusion_matrix_A.getCols();
+
+    intermediates.L = MyBLAS::Matrix(rows, cols, static_cast<long double>(0));
+    intermediates.U = MyBLAS::Matrix(rows, cols, static_cast<long double>(0));
+    intermediates.P = MyBLAS::LUP::factorize(intermediates.L, intermediates.U, intermediates.diffusion_matrix_A);
+
+    if(!MyBLAS::isUnitLowerTriangularMatrix(intermediates.L)) {
+        std::cerr << "Warning: Factorized matrix L is not unit lower triangular, expect undefined behavior.\n";
+    }
+
+    if(!MyBLAS::isUpperTriangularMatrix(intermediates.U)) {
+        std::cerr << "Warning: Factorized matrix U is not upper triangular, expect undefined behavior.\n";
+    }
+
+    if (!MyBLAS::isPermutationMatrix(intermediates.P)) {
+        std::cerr << "Warning: Generated matrix P is not a permutation matrix, expect undefined behavior.\n";
+    }
 }
 
 /**
- * @brief Writes the scalar fluxes phi(i, j) to an output file.
+ * @brief Fills the fluxes.
  *
- * This function writes the scalar fluxes phi(i, j) for i = 1, ..., m and j = 1, ..., n
- * to an output file.
+ * This function fills the fluxes based on the given phi vector.
+ * The fluxes are stored in a matrix with m+2 rows and n+2 columns.
  *
- * @param output_file The name of the output file.
- * @param m The number of mesh points in the x-direction, excluding the boundary points.
- * @param n The number of mesh points in the y-direction, excluding the boundary points.
- * @param phi The solution vector containing the scalar fluxes at each node i, j.
+ * @param phi The phi vector.
+ * @param inputs The inputs for the solver.
+ * @param outputs The outputs of the solver including the fluxes.
  */
-void write_output(std::string &output_file, int m, int n, const std::vector<double>& phi)
-{
-    std::ofstream out(output_file);
+static void fill_fluxes(MyBLAS::Vector<long double> phi, SolverInputs &inputs, SolverOutputs &outputs) {
+    const size_t m = inputs.m;
+    const size_t n = inputs.n;
 
-    if (out.is_open())
-    {
-        // Write the scalar fluxes phi(i, j) to the output file
-        for (int i = 1; i <= m; ++i)
-        {
-            for (int j = 1; j <= n; ++j)
-            {
-                int idx = (i - 1) * n + (j - 1);
-                out << "phi(" << i << ", " << j << ") = " << phi[idx] << std::endl;
-            }
+    outputs.fluxes = MyBLAS::Matrix<long double>(m+2, n+2, 0);
+
+    for (size_t i = 1; i <= m; i++) {
+        for (size_t j = 1; j <= n; j++) {
+            const size_t idx = (i - 1) * n + (j - 1);
+            outputs.fluxes[i][j] = phi[idx];
         }
-
-        out.close();
-    }
-    else
-    {
-        std::cerr << "Unable to open output file: " << output_file << std::endl;
     }
 }
 

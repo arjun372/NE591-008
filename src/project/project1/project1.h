@@ -78,114 +78,165 @@ protected:
     void run(SolverOutputs &outputs, SolverInputs &inputs, boost::program_options::variables_map &values) override {
 
         /**
-            1. Given the matrix A = LU and vector b, solve Ax = b, which is LUx = b.
-            2. Perform row pivoting on A to obtain a permuted matrix PA = LU, where P is a permutation matrix.
-            3. Let y = Ux. Now, we have two systems of linear equations: Ly = Pb and Ux = y.
-            4. Solve the first system Ly = Pb using forward substitution.
-            5. Solve the second system Ux = y using backward substitution.
+            1. Read input parameters: Read the values of 𝑎, 𝑏, 𝑚, 𝑛, 𝐷, and Σₐ from an input file. Also,
+            read the non-uniformly distributed fixed source 𝑞(𝑖,𝑗) for 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛 from the input file.
+
+            2. Calculate mesh spacings: Compute the mesh spacings 𝛿 and 𝛾 using the formulas 𝛿 = 𝑎/(𝑚+1) and 𝛾 = 𝑏/(𝑛+1).
+
+            3. Initialize the matrix and right-hand-side vector: Create an 𝑚×𝑛 matrix A and an 𝑚×𝑛 right-hand-side
+            vector B. Initialize all elements of A and B to zero.
+
+            4. Fill the matrix A and vector B: Loop through all the nodes 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛, and fill the
+            matrix A and vector B using the given equation:
+
+                   −D((φ(i+1,j) - 2φ(i,j) + φ(i-1,j))/δ² + (φ(i,j+1) - 2φ(i,j) + φ(i,j-1))/γ²) + Σₐφ(i,j) = q(i,j)
+
+            Note that the boundary conditions are already taken into account as the fluxes at the boundaries are zero.
+
+            5. Solve the linear system: Solve the linear system A * 𝜙 = B using LU factorization with pivoting.
+            The solution vector 𝜙 will contain the scalar fluxes at each node 𝑖, 𝑗, where 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛.
+
+            6. Output the results: Write the scalar fluxes 𝜙(𝑖,𝑗) for 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛 to an output file.
         **/
 
-//        nlohmann::json results;
-//        inputs.toJSON(results["inputs"]);
-//
-//       // const auto A = inputs.coefficients;
-//
-//        auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
-//        auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
-//
-//        const auto pivot = !values.count("no-pivoting");
-//        const bool alternateMethod = values.count("alternate-method") != 0;
-//        MyBLAS::Matrix<long double> P;
-//
-//        if (pivot) {
-//            if (alternateMethod) {
-//                P = MyBLAS::cast<long double, bool>(MyBLAS::cast<bool, long double>(dooLittleFactorizeLUP(L, U, A)));
-//            } else {
-//                P = MyBLAS::cast<long double, bool>(MyBLAS::cast<bool, long double>(factorizeLUwithPartialPivoting(L, U, A)));
-//            }
-//        } else {
-//           MyBLAS::LU::factorize(L, U, A);
-//        }
-//
-//        if(!MyBLAS::isUnitLowerTriangularMatrix(L)) {
-//            std::cerr << "Warning: Factorized matrix L is not unit lower triangular, expect undefined behavior.\n";
-//        }
-//
-//        if(!MyBLAS::isUpperTriangularMatrix(U)) {
-//            std::cerr << "Warning: Factorized matrix U is not upper triangular, expect undefined behavior.\n";
-//        }
-//
-//        if (pivot) {
-//            if (!MyBLAS::isPermutationMatrix(P)) {
-//                std::cerr << "Warning: Generated matrix P is not a permutation matrix, expect undefined behavior.\n";
-//            }
-//        }
-//
-//        IntermediateResults intermediates;
-//        intermediates.L = L;
-//        intermediates.U = U;
-//        if(pivot) {
-//            intermediates.P = P;
-//        }
-//        intermediates.toJSON(results["intermediates"]);
-//
-//        const auto b = inputs.constants;
-//        const auto Pb = pivot ? (P * b) : b;
-//
-//        const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(L, Pb);
-//        const MyBLAS::Vector x = MyBLAS::backwardSubstitution<long double>(U, y);
-//
-//        outputs.solution = x;
-//
-//        const auto b_prime = A * x;
-//        const auto r = b - b_prime;
-//        outputs.residual = r;
-//
-//        const auto maxResidual = MyBLAS::max<long double>(MyBLAS::abs(r));
-//        outputs.max_residual = maxResidual;
-//
-//        outputs.toJSON(results["outputs"]);
-//
-//        if(!values.count("quiet")) {
-//            const auto precision = getTerminal().getCurrentPrecision();
-//
-//            Parser::printLine();
-//            std::cout << "Lower Triangular Matrix (L):\n";
-//            Parser::printLine();
-//            std::cout << std::scientific << std::setprecision(precision) << L;
-//            Parser::printLine();
-//            std::cout << "Upper Triangular Matrix (U):\n";
-//            Parser::printLine();
-//            std::cout << std::setprecision(precision) << U;
-//            Parser::printLine();
-//            if (pivot) {
-//                std::cout << "Permutation Matrix (P):\n";
-//                Parser::printLine();
-//                std::cout << std::setprecision(precision) << P;
-//                Parser::printLine();
-//                std::cout << "Permuted constants (Pb = P * b):\n";
-//                Parser::printLine();
-//                std::cout << std::setprecision(precision) << Pb;
-//                Parser::printLine();
-//            }
-//            std::cout << "Intermediate vector (y), where (Ly = "<< (pivot ? "Pb" : "b") << "):\n";
-//            Parser::printLine();
-//            std::cout << std::setprecision(precision) << y;
-//            Parser::printLine();
-//            std::cout << "Solution vector (x), where (Ux = y):\n";
-//            Parser::printLine();
-//            std::cout << std::setprecision(precision) << x;
-//            Parser::printLine();
-//            std::cout << "Residual vector (r = b - Ax) :\n";
-//            Parser::printLine();
-//            std::cout << std::setprecision(precision) << r;
-//            Parser::printLine();
-//            std::cout << "Max Residual abs(r): ";
-//            std::cout << std::setprecision(max_precision) << maxResidual << std::endl;
-//            Parser::printLine();
-//        }
-//
-//        writeJSON(values["output-json"].as<std::string>(), results);
+        const bool quietMode = values.count("quiet");
+
+        std::vector<Stopwatch<Nanoseconds>> clocks = std::vector<Stopwatch<Nanoseconds>>(5);
+        std::vector<long double> durations = std::vector<long double>(5);
+        nlohmann::json profiler;
+        IntermediateResults intermediates;
+
+        // Step 1. Initialize matrices
+        clocks[0].restart();
+        {
+            for(size_t i = 0; i < 10; i++) {
+                intermediates = initialize_diffusion_matrix_and_vector<long double>(inputs.m, inputs.n);
+                naive_fill_diffusion_matrix_and_vector(inputs, intermediates);
+            }
+        }
+        clocks[0].click();
+        durations[0] = static_cast<long double>(clocks[0].duration().count()) / 10.0;
+        profiler["exclusive"]["initialize_and_fill"] = durations[0];
+        profiler["cumulative"]["initialize_and_fill"] = durations[0];
+
+        if (!quietMode) {
+            Parser::printLine();
+            std::cout << "Diffusion Matrix A: \n";
+            Parser::printLine();
+            std::cout << intermediates.diffusion_matrix_A;
+            Parser::printLine();
+            std::cout << "Right Hand Side Vector B: \n";
+            Parser::printLine();
+            std::cout << intermediates.right_hand_side_vector_B;
+        }
+
+        // Step 2.1 Perform LU factorization with pivoting
+        clocks[1].restart();
+        {
+            naive_solve_linear_system(intermediates);
+        }
+        clocks[1].click();
+        durations[1] = static_cast<long double>(clocks[1].duration().count());
+        profiler["exclusive"]["lup_factorize"] = durations[1];
+        profiler["cumulative"]["lup_factorize"] = durations[1] + durations[0];
+
+        MyBLAS::Vector<long double> b, Pb, y, phi;
+        clocks[2].restart();
+        {
+            b = intermediates.right_hand_side_vector_B;
+            Pb = intermediates.P * intermediates.right_hand_side_vector_B;
+            y = MyBLAS::forwardSubstitution<long double>(intermediates.L, Pb);
+            phi = MyBLAS::backwardSubstitution<long double>(intermediates.U, y);
+        }
+        clocks[2].click();
+        durations[2] = static_cast<long double>(clocks[2].duration().count());
+        profiler["exclusive"]["fb_substitution"] = durations[2];
+        profiler["cumulative"]["fb_substitution"] = durations[2] + durations[1] + durations[0];
+
+        profiler["exclusive"]["solve_linear_system"] = durations[2] + durations[1];
+        profiler["cumulative"]["solve_linear_system"] = durations[2] + durations[1] + durations[0];
+
+        MyBLAS::Vector<long double> b_prime, r;
+        long double maxResidual;
+        clocks[3].restart();
+        {
+            // compute fluxes
+            fill_fluxes(phi, inputs, outputs);
+            b_prime = intermediates.diffusion_matrix_A * phi;
+            r = b - b_prime;
+            outputs.residual = r;
+            outputs.solution = phi;
+
+            maxResidual = MyBLAS::max<long double>(MyBLAS::abs(r));
+        }
+        clocks[3].click();
+        durations[3] = static_cast<long double>(clocks[3].duration().count());
+        profiler["exclusive"]["residuals"] = durations[3];
+        profiler["cumulative"]["residuals"] = durations[3] + durations[2] + durations[1] + durations[0];
+
+
+        if(!values.count("quiet")) {
+            Parser::printLine();
+            std::cout << "Lower Triangular Matrix (L):\n";
+            Parser::printLine();
+            std::cout << intermediates.L;
+            Parser::printLine();
+            std::cout << "Upper Triangular Matrix (U):\n";
+            Parser::printLine();
+            std::cout << intermediates.U;
+            Parser::printLine();
+            std::cout << "Permutation Matrix (P):\n";
+            Parser::printLine();
+            std::cout << intermediates.P;
+            Parser::printLine();
+            std::cout << "Permuted constants (Pb = P * b):\n";
+            Parser::printLine();
+            std::cout << Pb;
+            Parser::printLine();
+            std::cout << "Intermediate vector (y), where (Ly = Pb):\n";
+            Parser::printLine();
+            std::cout << y;
+            Parser::printLine();
+            std::cout << "Solution vector (x, phi), where (Ux = y):\n";
+            Parser::printLine();
+            std::cout << phi;
+            Parser::printLine();
+            Parser::printLine();
+            std::cout << "Computed flux 𝜙(𝑖,𝑗): \n";
+            Parser::printLine();
+            std::cout << outputs.fluxes;
+            Parser::printLine();
+            std::cout << "Residual vector (r = b - Ax) :\n";
+            Parser::printLine();
+            std::cout << r;
+            Parser::printLine();
+            std::cout << "Max Residual abs(r): ";
+            std::cout << std::setprecision(max_precision) << maxResidual << std::endl;
+            Parser::printLine();
+        }
+
+        clocks[4].restart();
+        {
+            // write json
+            if (values.count("output-results-json")) {
+                nlohmann::json results;
+                inputs.toJSON(results["inputs"]);
+                outputs.toJSON(results["outputs"]);
+                writeJSON(values["output-results-json"].as<std::string>(), results);
+            }
+
+            if (values.count("output-flux-csv")) {
+                writeCSVMatrixNoHeaders(values["output-flux-csv"].as<std::string>(), outputs.fluxes);
+            }
+        }
+        clocks[4].click();
+        durations[4] = static_cast<long double>(clocks[4].duration().count());
+        profiler["exclusive"]["post-process"] = durations[4];
+        profiler["cumulative"]["post-process"] = durations[4] + durations[3] + durations[2] + durations[1] + durations[0];
+        profiler["total"] = durations[4] + durations[3] + durations[2] + durations[1] + durations[0];
+        profiler["problem_size"] = inputs.m * inputs.n;
+
+        writeJSON("profile_"+std::to_string(inputs.m)+"x"+std::to_string(inputs.n)+".json", profiler);
     }
 
 };

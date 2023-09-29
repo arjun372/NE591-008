@@ -1,30 +1,37 @@
-# OutLab 05: System of Linear Equations Solver, with Pivoting
+# Project Milestone 1: LUP Factorization based Serial Diffusion Equation Solver
 
-Solves a system of linear equations solver, with pivoting. You can use the `--no-pivoting` flag to turn off pivoting.
-You can use the `--alternate-method` flag to use a different way of performing LU factorization.
-File based I/O is supported using JSON files.
+Serial 2D, one speed, time-independent, neutron diffusion equation solver. Matrix equation solved using LU factorization
+with pivotin. File I/O is performed using a combination of `CSV` and `JSON` files.
 
 ## Table of Contents
-1. [Building & Usage](#building--usage)
-    - [Parameters](#parameters)
-    - [General options](#general-options)
-2. [Input Format](#input-format)
-3. [Output Format](#output-format)
-    - [Sample Outputs File](#sample-outputs-file)
-4. [Example](#example)
+
+1. [Project Milestone 1: LUP Factorization based Serial Diffusion Equation Solver](#project-milestone-1-lup-factorization-based-serial-diffusion-equation-solver)
+2. [Building & Usage](#building--usage)
+   - [Parameters](#parameters)
+   - [Solver Methods](#solver-methods)
+   - [General options](#general-options)
+3. [Input Format](#input-format)
+   - [Sample Input Files](#sample-input-files)
+     - [[REQUIRED] Source Term q(i,j) CSV](#source-term-qij-csv-required)
+     - [Parameters JSON](#parameters-json)
+4. [Output Format](#output-format)
+   - [Sample Outputs Files](#sample-outputs-files)
+     - [Computed Flux 𝜙(𝑖,𝑗) CSV](#computed-flux-𝜙𝑖𝑗-csv)
+     - [Results JSON](#results-json)
+5. [Example](#example)
 
 ## Building & Usage
 
 The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
 configuration except choosing the build target, and output file. Here is a repeatable script
-to perform the build and run the `outlab5` target executable:
+to perform the build and run the `project1` target executable:
 
 ```bash
 # Assuming cwd is the repo root:
 #!/bin/bash
 
 ## Specify the build target
-export BUILD_TARGET=outlab5
+export BUILD_TARGET=project1
 
 ## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
@@ -33,116 +40,139 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/outlab5/examples/outlab5_input_4.json
-export OUTPUT_FILE=./src/labs/outlab5/examples/outlab5_output_4.json
+export INPUT_PARAMETERS=./src/labs/project1/examples/example_input_parameters.json
+export INPUT_SOURCETERMS=./src/labs/project1/examples/example_source_terms.csv
+
+export OUTPUT_RESULTS=./src/labs/project1/examples/example_output_results.json
+export OUTPUT_COMPUTED_FLUX=./src/labs/project1/examples/example_computed_flux.csv
 
 ## Execute
-./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
+./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o OUTPUT_RESULTS -f OUTPUT_COMPUTED_FLUX
 ```
 
 ### Parameters
 
-- `--no-pivoting`: Do not perform partial pivoting
-- `--alternate-method`: Use alternate factorization method
-- `-n [ --order ] arg`: order of the square matrix (n is a natural number)
-- `-i [ --input-json ] arg`: input JSON file containing the LU matrix and constants vector B
-- `-o [ --output-json ] arg`: path for the output JSON file
+- `-a arg`: Length of 1st dimension (+ve real)
+- `-b arg`: Length of 2nd dimension (+ve real)
+- `-m arg`: Number of mesh-points in 1st dimension
+- `-n arg`: Number of mesh-points in 2nd dimension
+- `-D arg`: Diffusion coefficient D (+ve real)
+- `--cross-section arg`: Removal cross-section Σₐ (+ve real)
+- `-i [ --input-parameter-json ] arg`: Path to input parameter JSON
+- `-s [ --source-terms-csv ] arg`: Path to source-terms 𝑞(𝑖,𝑗) CSV
+- `-o [ --output-results-json ] arg`: Path to output results JSON
+- `-f [ --output-flux-csv ] arg`: Path to computed flux 𝜙(𝑖,𝑗) CSV
+
+### Solver Methods
+
+- `--use-LUP`: Use the LUP method
+- `--use-point-jacobi`: [DISABLED] Use the Point-Jacobi method
+- `--use-gauss-seidel`: [DISABLED] Use the Gauss-Seidel method
+- `--use-SOR`: [DISABLED] Use the SOR method
 
 ### General options
 
 - `-h [ --help ]`: Show this help message
 - `-q [ --quiet ]`: Reduce verbosity
 - `-p [ --precision ] arg (=15)`: Number of digits to represent long double
-- `-P [ --profile ]`: Turn on profiling for performance comparison
-
+- `-P [ --profile ]`: Turn on performance profiling
+- 
 ## Input Format
 
-The expected input json file requires the following fields:
+<p style="background: black"><span style="font-weight: 900; color: red">CAUTION:</span> There are <span style="font-weight: 900; color: red">TWO</span> input files!</p> 
 
-### Sample Input File
-```json
-{
-  "coefficients": [
-    [1.0, 2.0, 3.0, 4.0, 5.0],
-    [2.0, 3.0, 4.0, 5.0, 1.0],
-    [3.0, 4.0, 5.0, 1.0, 2.0],
-    [4.0, 5.0, 1.0, 2.0, 3.0],
-    [5.0, 1.0, 2.0, 3.0, 4.0]
-  ],
-  "constants": [
-    1.1,
-    1.2,
-    1.3,
-    1.4,
-    1.5
-  ]
-}
-```
+### Sample Input Files
+
+#### Source Term q(i,j) CSV [REQUIRED]:
+   One `.csv` file, containing a 2D array (m x n), with the source terms in the following format:
+   ```text
+   1.1,1.2,1.3
+   2.1,2.2,2.3
+   3.1,3.2,3.3
+   ```
+
+#### Parameters JSON:
+   One `.json` file, containing quantifcation parameters. If not supplied, parameters will be read interactively over the
+   terminal.
+   ```json
+   {
+      "D": 0.07,
+      "cross-section": 0.0033,
+      "dimensions": {
+         "a": 100,
+         "b": 100
+      },
+      "mesh": {
+         "m": 3,
+         "n": 3
+      }
+   }
+   ```
 
 ## Output Format
 
-The output is written to a JSON file as well.
+<p style="background: black"><span style="font-weight: 900; color: yellow">CAUTION:</span> There are <span style="font-weight: 900; color: yellow">TWO</span> output files!</p>
 
-### Sample Outputs File
-```json
-{
-    "inputs": {
-       "coefficients": [
-          [1.0, 2.0, 3.0, 4.0, 5.0],
-          [2.0, 3.0, 4.0, 5.0, 1.0],
-          [3.0, 4.0, 5.0, 1.0, 2.0],
-          [4.0, 5.0, 1.0, 2.0, 3.0],
-          [5.0, 1.0, 2.0, 3.0, 4.0]
-       ],
-        "constants": [
-            1.1,
-            1.2,
-            1.3,
-            1.4,
-            1.5
-        ],
-        "n": 5
-    },
-    "intermediates": {
-        "lower": [
-            [1.0, 0.0, 0.0, 0.0, 0.0],
-            [0.8, 1.0, 0.0, 0.0, 0.0],
-            [0.6, 0.8095238095238095, 1.0, 0.0, 0.0],
-            [0.4, 0.6190476190476191, 0.8333333333333334, 1.0, 0.0],
-            [0.2, 0.42857142857142855, 0.6666666666666666, 0.875, 1.0]
-        ],
-        "permutation": [
-            [0.0, 0.0, 0.0, 0.0, 1.0],
-            [0.0, 0.0, 0.0, 1.0, 0.0],
-            [0.0, 0.0, 1.0, 0.0, 0.0],
-            [0.0, 1.0, 0.0, 0.0, 0.0],
-            [1.0, 0.0, 0.0, 0.0, 0.0]
-        ],
-        "upper": [
-            [5.0, 1.0, 2.0, 3.0, 4.0],
-            [0.0, 4.2, -0.6, -0.4, -0.2],
-            [0.0, 0.0, 4.285714285714286, -0.47619047619047616, -0.23809523809523808],
-            [0.0, 0.0, 0.0, 4.444444444444445, -0.277777777777777],
-            [0.0, 0.0, 0.0, 0.0, 4.6875]
-        ]
-    },
-    "outputs": {
-        "max_residual": 1.0842021724855044e-19,
-        "residual": [
-            -1.0842021724855044e-19,
-            0.0,
-            -1.0842021724855044e-19,
-            1.0842021724855044e-19,
-            0.0
-        ],
-        "solution": [
-            0.16666666666666666,
-            0.06666666666666665,
-            0.0666666666666667,
-            0.06666666666666665,
-            0.0666666666666667
-        ]
-    }
+### Sample Outputs Files 
+
+Both output files are optional, but if not supplied, outputs will be written to terminal only.
+
+#### Computed Flux 𝜙(𝑖,𝑗) CSV:
+      ```text
+      0.00000, 0.00000, 0.00000, 0.00000, 0.00000
+      0.00000, 322.680, 360.942, 377.734, 0.00000
+      0.00000, 615.877, 663.982, 672.529, 0.00000
+      0.00000, 873.227, 927.464, 928.282, 0.00000
+      0.00000, 0.00000, 0.00000, 0.00000, 0.00000
+      ```
+
+
+#### Results JSON:
+   ```json
+   {
+       "outputs": {
+           "max_residual": 2.168404344971009e-19,
+           "residual": [
+               0,
+               1.0842021724855044e-19,
+               0,
+               -2.168404344971009e-19,
+               2.168404344971009e-19,
+               0,
+               2.168404344971009e-19,
+               0,
+               2.168404344971009e-19
+           ],
+           "solution": [
+              322.6797742410937,
+              360.9424588400793,
+              377.7344809335781,
+              615.8771291565212,
+              663.981599580839,
+              672.5292781157306,
+              873.2268411659375,
+              927.4639484321724,
+              928.2815478584218
+           ]
+       },
+      "inputs": {
+         "D": 0.07,
+         "cross-section": 0.0033,
+         "dimensions": {
+            "a": 100.0,
+            "b": 100.0
+         },
+         "mesh": {
+            "m": 3,
+            "n": 3,
+            "𝛾": 25.0,
+            "𝛿": 25.0
+         },
+         "methods": [
+            "LUP"
+         ]
+      }
+
 }
 ```
 
@@ -151,94 +181,152 @@ The output is written to a JSON file as well.
 The following is an example of the program's output:
 
 ```shell
-NE591: OutLab 05: Solving a system of linear equations using LUP factorization
+NE591: Project Milestone 1: Serial Neutron Diffusion Code
 Arjun Earthperson
 09/29/2023
 --------------------------------------------------------------------------------
 compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so
 --------------------------------------------------------------------------------
 Parameters:
-  --no-pivoting                 Do not perform partial pivoting
-  --alternate-method            Use alternate factorization method
-  -n [ --order ] arg (=0)       = order of the square matrix (natural number)
-  -i [ --input-json ] arg       = input JSON containing L, U, and b
-  -o [ --output-json ] arg      = path for the output JSON
+  -a arg                            = Length of 1st dimension (+ve real)
+  -b arg                            = Length of 2nd dimension (+ve real)
+  -m arg                            = Number of mesh-points in 1st dimension
+  -n arg                            = Number of mesh-points in 2nd dimension
+  -D arg                            = Diffusion coefficient D (+ve real)
+  --cross-section arg               = Removal cross-section Σₐ (+ve real)
+  -i [ --input-parameter-json ] arg = Path to input parameter JSON
+  -s [ --source-terms-csv ] arg     = Path to source-terms 𝑞(𝑖,𝑗) CSV
+  -o [ --output-results-json ] arg  = Path to output results JSON
+  -f [ --output-flux-csv ] arg      = Path to computed flux 𝜙(𝑖,𝑗) CSV
+
+Solver Methods:
+  --use-LUP                         = Use the LUP method
+  --use-point-jacobi                = [DISABLED] Use the Point-Jacobi method
+  --use-gauss-seidel                = [DISABLED] Use the Gauss-Seidel method
+  --use-SOR                         = [DISABLED] Use the SOR method
 
 General options:
-  -h [ --help ]                 = Show this help message
-  -q [ --quiet ]                = Reduce verbosity
-  -p [ --precision ] arg (=15)  = Number of digits to represent long double
-  -P [ --profile ]              = Turn on profiling for performance comparison
+  -h [ --help ]                     = Show this help message
+  -q [ --quiet ]                    = Reduce verbosity
+  -p [ --precision ] arg (=15)      = Number of digits to represent long double
+  -P [ --profile ]                  = Turn on performance profiling
 
 --------------------------------------------------------------------------------
-			Precision in digits:  default: 6, maximum: 19, current: 6
+			Precision in digits:  default: 6, maximum: 19, current: 1
 --------------------------------------------------------------------------------
+Warning: File already exists at path, will be overwritten 
 Warning: File already exists at path, will be overwritten 
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
-	Matrix order,        n: 0
-	Input JSON,          i: ../sample_input_4.json
-	Output JSON,         o: sample_output_4.json
-	Use Pivoting          : Yes
-	Use Alternate Method  : No
+	Input JSON                              i: ../example_input_parameters.json
+	Output JSON                             o: ../example_output_results.json
+	----
+	Use LUP method                           : Yes
+	Use Point-Jacobi method                  : No
+	Use Gauss-Seidel method                  : No
+	Use SOR method                           : No
+	----
+	1st dimension length,                   a: 100
+	2nd dimension length,                   b: 100
+	1st dimension mesh-points,              m: 3
+	2nd dimension mesh-points,              n: 3
+	Diffusion coefficient,                  D: 0.07
+	Macroscopic removal cross-section,     Σₐ: 0.0033
 --------------------------------------------------------------------------------
-Reading matrix order (n) from input matrix dimensions: 5
+                              Intermediates
 --------------------------------------------------------------------------------
-Coefficient Matrix (A):
+	Mesh spacing in the 1st dimension,     𝛿: 2e+01
+	Mesh spacing in the 2nd dimension,     𝛾: 2e+01
 --------------------------------------------------------------------------------
-    1.000000e+00    2.000000e+00    3.000000e+00    4.000000e+00    5.000000e+00
-    2.000000e+00    3.000000e+00    4.000000e+00    5.000000e+00    1.000000e+00
-    3.000000e+00    4.000000e+00    5.000000e+00    1.000000e+00    2.000000e+00
-    4.000000e+00    5.000000e+00    1.000000e+00    2.000000e+00    3.000000e+00
-    5.000000e+00    1.000000e+00    2.000000e+00    3.000000e+00    4.000000e+00
+Source terms 𝑞(𝑖,𝑗):
 --------------------------------------------------------------------------------
-Constants Vector (b):
+    1.1e+00    1.2e+00    1.3e+00
+    2.1e+00    2.2e+00    2.3e+00
+    3.1e+00    3.2e+00    3.3e+00
 --------------------------------------------------------------------------------
-    1.100000e+00    1.200000e+00    1.300000e+00    1.400000e+00    1.500000e+00
+Diffusion Matrix A: 
+--------------------------------------------------------------------------------
+    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+   -1.1e-04    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00   -1.1e-04    3.7e-03    0.0e+00    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    0.0e+00
+   -1.1e-04    0.0e+00    0.0e+00    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00    0.0e+00
+    0.0e+00   -1.1e-04    0.0e+00   -1.1e-04    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00
+    0.0e+00    0.0e+00   -1.1e-04    0.0e+00   -1.1e-04    3.7e-03    0.0e+00    0.0e+00   -1.1e-04
+    0.0e+00    0.0e+00    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    3.7e-03   -1.1e-04    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00   -1.1e-04    0.0e+00   -1.1e-04    3.7e-03   -1.1e-04
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00   -1.1e-04    0.0e+00   -1.1e-04    3.7e-03
+--------------------------------------------------------------------------------
+Right Hand Side Vector B: 
+--------------------------------------------------------------------------------
+    1.1e+00    1.2e+00    1.3e+00    2.1e+00    2.2e+00    2.3e+00    3.1e+00    3.2e+00    3.3e+00
 --------------------------------------------------------------------------------
 Lower Triangular Matrix (L):
 --------------------------------------------------------------------------------
-    1.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00
-    8.000000e-01    1.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00
-    6.000000e-01    8.095238e-01    1.000000e+00    0.000000e+00    0.000000e+00
-    4.000000e-01    6.190476e-01    8.333333e-01    1.000000e+00    0.000000e+00
-    2.000000e-01    4.285714e-01    6.666667e-01    8.750000e-01    1.000000e+00
+    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+   -3.0e-02    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00   -3.0e-02    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+   -3.0e-02   -8.9e-04   -2.7e-05    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00   -3.0e-02   -8.9e-04   -3.0e-02    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00   -3.0e-02   -8.0e-07   -3.0e-02    1.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00   -3.0e-02   -9.0e-04   -2.7e-05    1.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00   -3.0e-02   -9.0e-04   -3.0e-02    1.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00   -3.0e-02   -8.0e-07   -3.0e-02    1.0e+00
 --------------------------------------------------------------------------------
 Upper Triangular Matrix (U):
 --------------------------------------------------------------------------------
-    5.000000e+00    1.000000e+00    2.000000e+00    3.000000e+00    4.000000e+00
-    0.000000e+00    4.200000e+00   -6.000000e-01   -4.000000e-01   -2.000000e-01
-    0.000000e+00    0.000000e+00    4.285714e+00   -4.761905e-01   -2.380952e-01
-    0.000000e+00    0.000000e+00    0.000000e+00    4.444444e+00   -2.777778e-01
-    0.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00    4.687500e+00
+    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    3.7e-03   -1.1e-04   -3.3e-06   -1.1e-04    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    3.7e-03   -1.0e-07   -3.3e-06   -1.1e-04    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.1e-04   -3.0e-09   -1.1e-04    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.1e-04   -3.4e-06   -1.1e-04    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.0e-07   -3.4e-06   -1.1e-04
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.1e-04   -3.0e-09
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.1e-04
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03
 --------------------------------------------------------------------------------
 Permutation Matrix (P):
 --------------------------------------------------------------------------------
-    0.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00    1.000000e+00
-    0.000000e+00    0.000000e+00    0.000000e+00    1.000000e+00    0.000000e+00
-    0.000000e+00    0.000000e+00    1.000000e+00    0.000000e+00    0.000000e+00
-    0.000000e+00    1.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00
-    1.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00
+    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00
 --------------------------------------------------------------------------------
 Permuted constants (Pb = P * b):
 --------------------------------------------------------------------------------
-    1.500000e+00    1.400000e+00    1.300000e+00    1.200000e+00    1.100000e+00
+    1.1e+00    1.2e+00    1.3e+00    2.1e+00    2.2e+00    2.3e+00    3.1e+00    3.2e+00    3.3e+00
 --------------------------------------------------------------------------------
 Intermediate vector (y), where (Ly = Pb):
 --------------------------------------------------------------------------------
-    1.500000e+00    2.000000e-01    2.380952e-01    2.777778e-01    3.125000e-01
+    1.1e+00    1.2e+00    1.3e+00    2.1e+00    2.3e+00    2.4e+00    3.2e+00    3.4e+00    3.5e+00
 --------------------------------------------------------------------------------
-Solution vector (x), where (Ux = y):
+Solution vector (x, phi), where (Ux = y):
 --------------------------------------------------------------------------------
-    1.666667e-01    6.666667e-02    6.666667e-02    6.666667e-02    6.666667e-02
+    3.2e+02    3.6e+02    3.8e+02    6.2e+02    6.6e+02    6.7e+02    8.7e+02    9.3e+02    9.3e+02
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Computed flux 𝜙(𝑖,𝑗): 
+--------------------------------------------------------------------------------
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
+    0.0e+00    3.2e+02    3.6e+02    3.8e+02    0.0e+00
+    0.0e+00    6.2e+02    6.6e+02    6.7e+02    0.0e+00
+    0.0e+00    8.7e+02    9.3e+02    9.3e+02    0.0e+00
+    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
 --------------------------------------------------------------------------------
 Residual vector (r = b - Ax) :
 --------------------------------------------------------------------------------
-   -1.084202e-19    0.000000e+00   -1.084202e-19    1.084202e-19    0.000000e+00
+    0.0e+00    1.1e-19    0.0e+00   -2.2e-19    2.2e-19    0.0e+00    2.2e-19    0.0e+00    2.2e-19
 --------------------------------------------------------------------------------
-Max Residual abs(r): 1.0842021724855044340e-19
+Max Residual abs(r): 2.1684043449710088680e-19
 --------------------------------------------------------------------------------
 
+JSON data has been written to profile_3x3.json
+
 Process finished with exit code 0
+
 ```

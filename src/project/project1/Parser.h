@@ -30,16 +30,16 @@ protected:
    */
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()
-                (",a", boost::program_options::value<long double>(), "= Length of 1st dimension (positive real)")
-                (",b", boost::program_options::value<long double>(), "= Length of 2nd dimension (positive real)")
-                (",m", boost::program_options::value<long double>(), "= Mesh-points in 1st dimension (natural number)")
-                (",n", boost::program_options::value<long double>(), "= Mesh-points in 2nd dimension (natural number)")
-                (",D", boost::program_options::value<long double>(), "= Diffusion coefficient D (positive real)")
-                ("cross-section", boost::program_options::value<long double>(), "= Removal cross-section Σₐ (positive real)")
+                (",a", boost::program_options::value<long double>(), "= Length of 1st dimension (+ve real)")
+                (",b", boost::program_options::value<long double>(), "= Length of 2nd dimension (+ve real)")
+                (",m", boost::program_options::value<long double>(), "= Number of mesh-points in 1st dimension")
+                (",n", boost::program_options::value<long double>(), "= Number of mesh-points in 2nd dimension")
+                (",D", boost::program_options::value<long double>(), "= Diffusion coefficient D (+ve real)")
+                ("cross-section", boost::program_options::value<long double>(), "= Removal cross-section Σₐ (+ve real)")
                 ("input-parameter-json,i", boost::program_options::value<std::string>(), "= Path to input parameter JSON")
-                ("source-terms-csv,s", boost::program_options::value<std::string>(), "= Path to source-terms matrix CSV")
+                ("source-terms-csv,s", boost::program_options::value<std::string>(), "= Path to source-terms 𝑞(𝑖,𝑗) CSV")
                 ("output-results-json,o", boost::program_options::value<std::string>(), "= Path to output results JSON")
-                ("output-flux-csv,f", boost::program_options::value<std::string>(), "= Path to computed flux matrix CSV");
+                ("output-flux-csv,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗) CSV");
 
         boost::program_options::options_description methods("Solver Methods");
         methods.add_options()
@@ -70,7 +70,7 @@ protected:
         std::cout << "\tInput JSON                              i: " << (vm.count("input-parameter-json") ? vm["input-parameter-json"].as<std::string>() : "None")<< "\n";
         std::cout << "\tOutput JSON                             o: " << (vm.count("output-results-json") ? vm["output-results-json"].as<std::string>() : "None")<< "\n";
         std::cout << "\t----\n";
-        std::cout << "\tUse LUP method                           : " << (vm.count("use-LUP") ? "Yes" : "No") << "\n";
+        std::cout << "\tUse LUP method                           : " << (vm.count("use-LUP") ? "Yes" : "Yes") << "\n";
         std::cout << "\tUse Point-Jacobi method                  : " << (vm.count("use-point-jacobi") ? "Yes" : "No") << "\n";
         std::cout << "\tUse Gauss-Seidel method                  : " << (vm.count("use-gauss-seidel") ? "Yes" : "No") << "\n";
         std::cout << "\tUse SOR method                           : " << (vm.count("use-SOR") ? "Yes" : "No") << "\n";
@@ -238,22 +238,22 @@ protected:
         const auto sourceTermsFilepath = map["source-terms-csv"].as<std::string>();
         readCSVRowWiseNoHeaders<long double>(sourceTermsFilepath, inputs.sources);
 
-        if(inputs.sources.getRows() < 3 || inputs.sources.getCols() < 3) {
-            std::cerr<<"ERROR: No Source terms matrix dimension (rows="<<inputs.sources.getRows()<<", columns="<<inputs.sources.getCols()<<")  can be less than 3!"<<inputs.m<<std::endl;
-            std::cerr<<"ABORTING."<<inputs.m<<std::endl;
+        if(inputs.sources.getRows() < 1 || inputs.sources.getCols() < 1) {
+            std::cerr<<"ERROR: No Source terms matrix dimension (rows="<<inputs.sources.getRows()<<", columns="<<inputs.sources.getCols()<<")  can be less than 1!\n";
+            std::cerr<<"ABORTING.\n";
             exit(-1);
         }
 
-        // internal nodes plus boundary nodes
-        if ((inputs.m + 2) != inputs.sources.getRows()) {
-            inputs.m = inputs.sources.getRows() - 2;
-            std::cerr<<"WARNING: Source terms matrix rows != (m + 2), overriding m = (rows - 2) = "<<inputs.m<<std::endl;
+        // 1st dimension internal nodes
+        if (inputs.m != inputs.sources.getRows()) {
+            inputs.m = inputs.sources.getRows();
+            std::cerr<<"WARNING: Source terms matrix rows != m, overriding m to "<<inputs.m<<std::endl;
         }
 
-        // internal nodes plus boundary nodes
-        if ((inputs.n + 2) != inputs.sources.getCols()) {
-            inputs.n = inputs.sources.getCols() - 2;
-            std::cerr<<"WARNING: Source terms matrix column != (n + 2), overriding n = (columns - 2) = "<<inputs.n<<std::endl;
+        // 2nd dimension internal nodes
+        if (inputs.n != inputs.sources.getCols()) {
+            inputs.n = inputs.sources.getCols();
+            std::cerr<<"WARNING: Source terms matrix columns != n, overriding n to "<<inputs.n<<std::endl;
         }
 
         if (!map.count("quiet")) {

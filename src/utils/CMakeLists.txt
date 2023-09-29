@@ -12,6 +12,7 @@ set(UTILS_LIB_HEADERS
         math/blas/Vector.h
         math/blas/Matrix.h
         math/blas/LU.h
+        math/blas/LUP.h
 )
 
 set(UTILS_LIB_SOURCES

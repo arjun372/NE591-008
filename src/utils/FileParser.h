@@ -246,6 +246,33 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
 
 }
 
+template <typename T>
+static void writeCSVMatrixNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &data) {
+
+    if(!isFileWritable(filepath)) {
+        std::cerr<<"Error: Unable to write output CSV to path: "<<filepath<<std::endl;
+        return;
+    }
+
+    // Open the CSV file for writing
+    std::ofstream csvFile(filepath);
+
+    // Check if the file was opened successfully
+    if (!csvFile.is_open()) {
+        std::cerr << "Error opening the output CSV file"<<filepath<< std::endl;
+        return;
+    }
+
+    for(size_t i = 0; i < data.getRows(); i++) {
+        for(size_t j = 0; j < data.getCols(); j++) {
+            csvFile << data[i][j] << ((j == data.getCols() - 1) ? "\n" : ",");
+        }
+    }
+
+    // Close the CSV file
+    csvFile.close();
+}
+
 
 /**
  * @brief Reads a JSON file and stores the data in a JSON object.

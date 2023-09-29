@@ -52,6 +52,12 @@ namespace MyBLAS {
         explicit Vector(std::vector<T> &_data) : data(_data), isRow(false) {}
 
         /**
+         * @brief Constructor that initializes the vector with a given vector. The vector is assumed to be a column vector.
+         * @param _data Vector to initialize the vector with.
+         */
+        explicit Vector(std::vector<T> _data) : data(_data), isRow(false) {}
+
+        /**
          * @brief Parameterized constructor that initializes the vector with a given size, initial value, and row/column indicator.
          * @param size Size of the vector.
          * @param initial Initial value for all elements in the vector.

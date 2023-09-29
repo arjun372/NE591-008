@@ -46,7 +46,7 @@ const char* methodKey(SolverMethod value) {
     */
 typedef struct Input {
     Input() = default;
-    std::set<SolverMethod> solver_methods;
+    std::set<SolverMethod> solver_methods = { METHOD_LUP };
     long double a = 1;
     long double b = 1;
     size_t m = 1;
@@ -68,9 +68,8 @@ typedef struct Input {
         jsonMap["dimensions"]["b"] = b;
         jsonMap["mesh"]["m"] = m;
         jsonMap["mesh"]["n"] = n;
-        jsonMap["mesh"]["D"] = delta;
-        jsonMap["mesh"]["cross-section"] = gamma;
-        jsonMap["mesh"]["sources"] = sources.getData();
+        jsonMap["mesh"]["𝛿"] = delta;
+        jsonMap["mesh"]["𝛾"] = gamma;
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
             std::transform(solver_methods.begin(), solver_methods.end(), std::back_inserter(result), [](SolverMethod method) {
@@ -87,6 +86,10 @@ typedef struct Map {
     MyBLAS::Matrix<long double> L;
     MyBLAS::Matrix<long double> U;
     MyBLAS::Matrix<long double> P;
+    MyBLAS::Matrix<long double> x;
+
+    MyBLAS::Matrix<long double> diffusion_matrix_A; ///< Diffusion Matrix A
+    MyBLAS::Vector<long double> right_hand_side_vector_B; ///< Right Hand Side Vector B
 
     /**
     * @brief Converts the input parameters to a JSON object.
@@ -118,7 +121,6 @@ typedef struct Output {
         jsonMap["solution"] = solution.getData();
         jsonMap["residual"] = residual.getData();
         jsonMap["max_residual"] = MyBLAS::max<long double>(MyBLAS::abs(residual));
-        jsonMap["fluxes"] = "Please review corresponding output CSV";
     }
 } SolverOutputs;
 
