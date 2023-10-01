@@ -10,7 +10,7 @@ to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library
 
 ## Table of Contents
 
-1. [NE591 MonoRepo](#ne591-monorepo)
+1. [Overview](#ne591-monorepo)
 2. [Locating Source Files](#locating-source-files)
 3. [Building](#building)
    - [Build Environments](#build-environments)
@@ -30,7 +30,8 @@ to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library
      - [Instructions](#instructions)
      - [Troubleshooting Windows Issues](#troubleshooting)
    - [Clion Remote Debugging via SSH](#clion-remote-debugging-via-ssh)
-6. [FAQs](#faqs)
+6. [License](#license)
+7. [FAQs](#faqs)
 
 ## Locating Source Files
 Sources and file paths for each deliverable follow the following structure:
@@ -113,6 +114,9 @@ servers, which, as of Fall 2023, provide support for the following dependencies:
    * `C/C++ compiler : GNU 10.2.0`
    * `CUDA: 12.0.0`
    * `MPI: OpenMPI 4.1.0`
+
+To facilitate local development, equivalent Dockerfiles have been created. Checkout [eos.Dockerfile](eos.Dockerfile) 
+and [hazel.Dockerfile](hazel.Dockerfile) and the [Docker instructions](#docker-usage-guide) below.
 
 ### Class Project
 Currently supported project build targets include:
@@ -238,18 +242,22 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
 
 ## Docker Usage Guide
 
-This repository contains a Dockerfile that is designed to mimic the OS and packages available on the 
-`remote.eos.ncsu.edu` servers. It uses CentOS 8 as the base image and installs various development tools and libraries.
-The Dockerfile also sets up SSH for root access in the ssh-debugger stage.
+This repository contains Dockerfiles that are designed to mimic the OS and packages available on the
+`login.hpc.ncsu.edu` and `remote.eos.ncsu.edu` servers. These Dockerfiles also set up SSH for remote debugging access 
+with tools such as [JetBrains Clion](#development---jetbrains-clion-support).
 
 ### Why Docker?
 
 Docker is a platform that allows us to package our application and its dependencies into a container which can run on 
 any Linux/macOS/Windows machine. This helps to eliminate the "it works on my machine" problem. In this case, the 
-Dockerfile was needed to ensure that the code can be built, run, and debugged in an environment that closely matches 
-the `remote.eos.ncsu.edu` servers.
+Dockerfiles were needed to ensure that the code can be built, run, and debugged in an environment that closely matches 
+the `login.hpc.ncsu.edu` and `remote.eos.ncsu.edu` servers.
 
 ### Building the Docker Image
+
+The current default [Dockerfile](Dockerfile) is a symlink to [eos.Dockerfile](eos.Dockerfile). You can change it to build
+for [hazel.Dockerfile](hazel.Dockerfile) instead. Alternatively, you can always specify the Dockerfile to use using the 
+`-f <your.Dockerfile>` option.
 
 To simply run the executables, build an image from the [Dockerfile](Dockerfile) using the following command:
 
@@ -348,8 +356,16 @@ ssh root@localhost
 
 The password for the root user is "debugger".
 
+## [License](LICENSE)
+
+This project is licensed under the [Unlicense](http://unlicense.org/) - a license with no conditions whatsoever which 
+dedicates works to the public domain. Unlicensed works, modifications, and larger works may be distributed under 
+different terms and without source code. 
+
+However, note that this code uses libraries that are bound by their own licenses.
+
 ## FAQs
 
 * <b>This is a course project. Why all the extra effort?</b>
-  * My hope is that a stripped version of this code can serve as boilerplate so future students can limit all the 
-  hair-pulling to their algorithms, instead of worrying about I/O and input validation.
+    * My hope is that a stripped version of this code can serve as boilerplate so future students can limit all the
+      hair-pulling to their algorithms, instead of worrying about I/O and input validation.
