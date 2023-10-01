@@ -33,7 +33,7 @@ namespace MyRelaxationMethod {
 
         MyBLAS::Vector<T> new_x(n, 0);
 
-        for (results.iterations = 0; results.iterations < max_iterations; results.iterations++) {
+        for (results.iterations = 0; results.iterations < max_iterations; (results.iterations)++) {
             for (size_t i = 0; i < n; ++i) {
                 T sum = 0;
                 for (size_t j = 0; j < n; ++j) {
@@ -46,10 +46,10 @@ namespace MyRelaxationMethod {
 
             // Check for convergence
 
-            T L2_norm = MyBLAS::L2Norm<MyBLAS::Vector<T>, T>(new_x, results.x, n);
+            iterative_error_squared = MyBLAS::L2Norm<MyBLAS::Vector<T>, T>(new_x, results.x, n);
 
 
-            if (L2_norm < tolerance_squared) {
+            if (iterative_error_squared < tolerance_squared) {
                 results.converged = true;
                 break;
             }

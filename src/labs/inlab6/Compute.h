@@ -21,20 +21,22 @@
 namespace Compute {
 
     // TODO:: DOCUMENT
-    static void usingPointJacobi(RelaxationMethodOutputs &outputs) {
-        MyBLAS::Matrix<long double> &A = outputs.inputs.coefficients;
-        MyBLAS::Vector<long double> &b = outputs.inputs.constants;
-        const size_t max_iterations = outputs.inputs.max_iterations;
-        const long double threshold = outputs.inputs.threshold;
+    static void usingPointJacobi(RelaxationMethodOutputs &outputs, InputMatrices & inputs) {
+        MyBLAS::Matrix<long double> &A = inputs.coefficients;
+        MyBLAS::Vector<long double> &b = inputs.constants;
+        const size_t max_iterations = inputs.max_iterations;
+        const long double threshold = inputs.threshold;
 
         Stopwatch<Nanoseconds> timer;
         timer.restart();
         {
-            outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold);
+            auto solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold);
+            outputs.solution = solution;
         }
         timer.click();
 
-        outputs.execution_time = static_cast<long double>(timer.duration().count());
+        const auto time = static_cast<long double>(timer.duration().count());
+        outputs.execution_time = time;
     }
 
     // TODO:: DOCUMENT

@@ -185,6 +185,9 @@ protected:
             }
         }
 
+        inputs.threshold = values["threshold"].as<long double>();
+        inputs.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
+
         if(values["use-point-jacobi"].as<bool>()) {
             inputs.methods.insert(MyRelaxationMethod::Type::METHOD_POINT_JACOBI);
         }

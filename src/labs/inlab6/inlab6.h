@@ -90,10 +90,9 @@ protected:
         const auto b = inputs.constants;
 
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
-            RelaxationMethodOutputs pointJacobiResults;
-            pointJacobiResults.inputs = inputs;
-            Compute::usingPointJacobi(pointJacobiResults);
-            pointJacobiResults.toJSON(results[MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
+            RelaxationMethodOutputs pointJacobiResults(inputs);
+            Compute::usingPointJacobi(pointJacobiResults, inputs);
+            pointJacobiResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
             Parser::printLine();
             std::cout<<"Point Seidel Method Results"<<std::endl;
             Parser::printLine();
@@ -101,7 +100,8 @@ protected:
             std::cout<<"\tconverged                 : "<<(pointJacobiResults.solution.converged ? "Yes" : "No")<<std::endl;
             std::cout<<"\titerative error           : "<<(pointJacobiResults.solution.iterative_error)<<std::endl;
             std::cout<<"\tabsolute maximum residual : "<<(pointJacobiResults.getMaxResidual())<<std::endl;
-            std::cout<<"\texecution time (ns)       : "<<(pointJacobiResults.getMaxResidual())<<std::endl;
+            std::cout<<"\texecution time (ns)       : "<<(pointJacobiResults.execution_time)<<std::endl;
+            std::cout<<"\texecution time (ms)       : "<<(pointJacobiResults.execution_time/1.0e6)<<std::endl;
         }
 
 //        outputs.solution = x;

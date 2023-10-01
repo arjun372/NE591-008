@@ -22,7 +22,6 @@ namespace MyRelaxationMethod {
     // TODO:: Document
     const char* TypeKey(MyRelaxationMethod::Type value) {
         static const char* relaxationMethodTypeKeys[] = {
-                "LUP",
                 "point-jacobi",
                 "gauss-seidel",
                 "SOR",

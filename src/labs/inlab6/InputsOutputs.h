@@ -20,6 +20,15 @@
 typedef struct Input {
     Input() = default;
 
+//    // Copy constructor
+//    Input(const Input& other)
+//            : threshold(other.threshold),
+//              max_iterations(other.max_iterations),
+//              n(other.n),
+//              coefficients(other.coefficients),
+//              constants(other.constants),
+//              methods(other.methods) {}
+
     long double threshold = 0; ////< The convergence threshold
     size_t max_iterations = 0; ////< Maximum number of iterations to perform
     size_t n = 0; ///< Size of the matrices.
@@ -47,6 +56,10 @@ typedef struct Input {
 
 // TODO:: DOCUMENT
 typedef struct Output {
+    explicit Output(InputMatrices inputMatrices) {
+        inputs = inputMatrices;
+    };
+
     Output() = default;
     InputMatrices inputs;
     MyRelaxationMethod::Solution<long double> solution;
