@@ -13,6 +13,9 @@ to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library
 1. [NE591 MonoRepo](#ne591-monorepo)
 2. [Locating Source Files](#locating-source-files)
 3. [Building](#building)
+   - [Build Environments](#build-environments)
+     - [EOS](#eos)
+     - [Hazel](#hazel)
    - [Class Project](#class-project)
    - [InLabs and OutLabs](#inlabs-and-outlabs)
    - [Optional CMake Arguments](#optional-cmake-arguments)
@@ -78,9 +81,8 @@ a high-precision profiler for performance analysis.
 
 ## Building
 
-The entire codebase has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional 
-configuration except choosing the build target. Here is a repeatable script to perform the build and run a target 
-executable:
+The source code requires no additional configuration except choosing the build target. Here is a repeatable script to
+perform the build and run a target executable:
 
 ```bash
 # Assuming cwd is the repo root:
@@ -97,6 +99,20 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 ## Execute
 ./build/bin/$BUILD_TARGET
 ```
+
+### Build Environments
+The entire codebase has been built and tested on the NCSU Hazel `login.hpc.ncsu.edu` and EOS `remote.eos.ncsu.edu` 
+servers, which, as of Fall 2023, provide support for the following dependencies:
+
+#### EOS
+   * `Boost : 1.66.0`
+   * `C/C++ compiler : GNU 8.5.0`
+
+#### Hazel
+   * `Boost : 1.72.0`
+   * `C/C++ compiler : GNU 10.2.0`
+   * `CUDA: 12.0.0`
+   * `MPI: OpenMPI 4.1.0`
 
 ### Class Project
 Currently supported project build targets include:
@@ -164,8 +180,7 @@ Currently supported inlab, outlab build targets include:
   </tr>
   <tr>
     <td>6</td>
-    <td></td>
-    <td></td>
+    <td><code>✅ inlab6</code>  <code>✅ inlab6_tests</code></td>
   </tr>
   <tr>
     <td>7</td>
