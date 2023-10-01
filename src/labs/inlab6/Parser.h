@@ -12,6 +12,7 @@
 #include "CommandLine.h"
 #include "FileParser.h"
 #include "Helpers.h"
+#include "CheckBounds.h"
 
 class Parser : public CommandLine<InputMatrices> {
 
@@ -28,11 +29,19 @@ protected:
    */
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()
-                ("no-pivoting", "Do not perform partial pivoting")
-                ("alternate-method", "Use alternate factorization method")
-                ("order,n", boost::program_options::value<long double>()->default_value(0), "= order of the square matrix (natural number)")
-                ("input-json,i", boost::program_options::value<std::string>(), "= input JSON containing L, U, and b")
+                ("threshold,t", boost::program_options::value<long double>(), "= iterative convergence threshold [𝜀 > 0]")
+                ("max-iterations,k", boost::program_options::value<long double>(), "= maximum number of iterations [n ∈ ℕ]")
+                ("order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]")
+                ("input-json,i", boost::program_options::value<std::string>(), "= input JSON containing A, and b")
                 ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
+
+        boost::program_options::options_description methods("Solver Methods");
+        methods.add_options()
+                ("use-point-jacobi", "= Use the Point-Jacobi method")
+                ("use-gauss-seidel", "= [DISABLED] Use the Gauss-Seidel method")
+                ("use-SOR", "= [DISABLED] Use the SOR method")
+                ("use-SSOR", "= [DISABLED] Use the symmetric SOR method");
+        values.add(methods);
     }
 
     /**
@@ -42,22 +51,19 @@ protected:
      *
      */
     void printInputArguments(boost::program_options::variables_map &vm) override {
-        // retrieve the inputs
-        const auto n  = static_cast<size_t>(vm["order"].as<long double>());
-        const auto inputFilepath = vm["input-json"].as<std::string>();
-        const auto outputFilepath =  vm["output-json"].as<std::string>();
-        const bool noPivoting = vm.count("no-pivoting") != 0;
-        const bool alternateMethod = vm.count("alternate-method") != 0;
-
         // list the parameters
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        std::cout << "\tMatrix order,        n: " << n << "\n";
-        std::cout << "\tInput JSON,          i: " << inputFilepath << "\n";
-        std::cout << "\tOutput JSON,         o: " << outputFilepath << "\n";
-        std::cout << "\tUse Pivoting          : " << (noPivoting ? "No" : "Yes") << "\n";
-        std::cout << "\tUse Alternate Method  : " << (alternateMethod ? "Yes" : "No") << "\n";
+        std::cout << "\tInput JSON (for A, b),  i: " << vm["input-json"].as<std::string>() << "\n";
+        std::cout << "\tOutput JSON (for x),    o: " << vm["output-json"].as<std::string>() << "\n";
+        std::cout << "\tConvergence Threshold,  𝜀: " << vm["threshold"].as<long double>() << "\n";
+        std::cout << "\tMax iterations,         k: " << static_cast<size_t>(vm["max-iterations"].as<long double>()) << "\n";
+        std::cout << "\tMatrix order,           n: " << (vm.count("order") ? std::to_string(static_cast<size_t>(vm["order"].as<long double>())) : "None provided, will be inferred from input JSON")<< "\n";
+        std::cout << "\tUse Gauss-Siedel         : " << (vm["use-gauss-seidel"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse Point-Jacobi         : " << (vm["use-point-jacobi"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse SOR                  : " << (vm["use-SOR"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse SSOR                 : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
         CommandLine::printLine();
     }
 
@@ -104,6 +110,33 @@ protected:
                 }
             }
         }
+
+        // read the input json and populate the variables_map
+        nlohmann::json inputMap;
+        try {
+            readJSON(map["input-json"].as<std::string>(), inputMap);
+        } catch (...) {
+            // initialize input map if no file was read
+        }
+
+        std::vector<std::function<bool(long double)>> checks;
+
+        // add checks for parameters 𝜀 and k
+        checks.clear();
+        checks.emplace_back([](long double value) { return failsPositiveNumberCheck(value); });
+        performChecksAndUpdateInput<long double>("threshold", inputMap, map, checks);
+
+        checks.emplace_back([](long double value) { return failsWholeNumberCheck(value); });
+        performChecksAndUpdateInput<long double>("max-iterations", inputMap, map, checks);
+
+        if(map.count("order")) {
+            performChecksAndUpdateInput<long double>("order", inputMap, map, checks);
+        }
+
+        promptAndSetFlags("use-point-jacobi", "Point Jacobi method", map);
+        promptAndSetFlags("use-gauss-seidel", "Gauss-Seidel method", map);
+        promptAndSetFlags("use-SOR", "SOR method", map);
+        promptAndSetFlags("use-SSOR", "symmetric SOR method", map);
     }
 
     /**
@@ -129,6 +162,11 @@ protected:
         // read the coefficient matrix
         inputs.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
 
+        if(!MyBLAS::isSquareMatrix(inputs.coefficients)) {
+            std::cerr<<"Error: Input coefficients matrix A not square, aborting.\n";
+            exit(-1);
+        }
+
         if(inputs.coefficients.getRows() != inputs.constants.size()) {
             std::cerr<<"Error: Input constants vector not order n, aborting.\n";
             exit(-1);
@@ -136,7 +174,7 @@ protected:
 
         // set input order n
         const auto orderFromInputMatrixDimensions = inputs.coefficients.getRows();
-        if(values["order"].defaulted()) {
+        if(!values.count("order")) {
             std::cout<<"Reading matrix order (n) from input matrix dimensions: "<<orderFromInputMatrixDimensions<<"\n";
             inputs.n = orderFromInputMatrixDimensions;
         } else { // user provided some value for n, validate against input dimensions
@@ -145,6 +183,22 @@ protected:
             if (orderFromUser > orderFromInputMatrixDimensions) {
                 std::cerr<<"Warning: Matrix order (n) is larger than input matrix, defaulting to lower value\n";
             }
+        }
+
+        if(values["use-point-jacobi"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_POINT_JACOBI);
+        }
+
+        if(values["use-gauss-seidel"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL);
+        }
+
+        if(values["use-SOR"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SOR);
+        }
+
+        if(values["use-SSOR"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SSOR);
         }
 
         // print the matrices since we are in verbose mode.

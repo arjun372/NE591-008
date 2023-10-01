@@ -291,6 +291,18 @@ namespace MyBLAS {
     MyBLAS::Vector<T> operator+(const T& scalar, const MyBLAS::Vector<T>& vector) {
         return vector + scalar;
     }
+
+    //TODO:: Document
+    template <typename ContainerType, typename DataType>
+    inline DataType L2Norm(ContainerType &a, ContainerType &b, const size_t n) {
+        DataType norm = 0;
+        for(size_t i = 0; i < n; i++) {
+            const auto difference = a[i] - b[i];
+            const auto squared = std::pow(difference, 2);
+            norm += squared;
+        }
+        return norm;
+    }
 }
 
 #endif //NE591_008_MYBLAS_H

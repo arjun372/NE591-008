@@ -13,67 +13,66 @@
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
 #include "json.hpp"
+#include "math/relaxation_methods/RelaxationMethods.h"
+#include "math/blas/MyBLAS.h"
 
-/**
-    * @struct Input
-    * @brief Struct representing the input matrices for the BLAS library.
-    */
+// TODO:: DOCUMENT
 typedef struct Input {
     Input() = default;
 
+    long double threshold = 0; ////< The convergence threshold
+    size_t max_iterations = 0; ////< Maximum number of iterations to perform
     size_t n = 0; ///< Size of the matrices.
-    MyBLAS::Matrix<long double> coefficients{}; ///< LU matrix.
-    MyBLAS::Vector<long double> constants{}; ///< Vector of constants.
+    MyBLAS::Matrix<long double> coefficients{}; ///< Coefficient matrix A
+    MyBLAS::Vector<long double> constants{}; ///< Vector of constants b.
 
-    /**
-    * @brief Converts the input parameters to a JSON object.
-    * @param jsonMap A reference to the JSON object to store the input parameters.
-    */
+    std::set<MyRelaxationMethod::Type> methods = {};
+
+    // TODO:: DOCUMENT
     void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["n"] = n;
+        jsonMap["threshold"] = threshold;
+        jsonMap["order"] = n;
+        jsonMap["max-iterations"] = max_iterations;
         jsonMap["coefficients"] = coefficients.getData();
         jsonMap["constants"] = constants.getData();
+        jsonMap["methods"] = [this]() -> std::vector<std::string> {
+            std::vector<std::string> result;
+            std::transform(methods.begin(), methods.end(), std::back_inserter(result), [](MyRelaxationMethod::Type method) {
+                return MyRelaxationMethod::TypeKey(method);
+            });
+            return result;
+        }();
     }
 } InputMatrices;
 
-typedef struct Map {
-    Map() = default;
-
-    MyBLAS::Matrix<long double> L;
-    MyBLAS::Matrix<long double> U;
-    MyBLAS::Matrix<long double> P;
-
-    /**
-    * @brief Converts the input parameters to a JSON object.
-    * @param jsonMap A reference to the JSON object to store the input parameters.
-    */
-    void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["lower"] = L.getData();
-        jsonMap["upper"] = U.getData();
-        jsonMap["permutation"] = P.getData();
-    }
-} IntermediateResults;
-
-/**
- * @struct Output
- * @brief Struct representing the output vector for the BLAS library.
- */
+// TODO:: DOCUMENT
 typedef struct Output {
     Output() = default;
+    InputMatrices inputs;
+    MyRelaxationMethod::Solution<long double> solution;
+    long double execution_time = 0;
 
-    MyBLAS::Vector<long double> solution; ///< Output vector.
-    MyBLAS::Vector<long double> residual;
-    long double max_residual = 0;
-
-    /**
-     * @brief Converts the output vector to a JSON object.
-     * @param jsonMap A reference to the JSON object to store the output vector.
-     */
-    void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["solution"] = solution.getData();
-        jsonMap["residual"] = residual.getData();
-        jsonMap["max_residual"] = MyBLAS::max<long double>(residual);
+    // TODO:: DOCUMENT
+    [[nodiscard]] long double getMaxResidual() const {
+        const auto b_prime = inputs.coefficients * solution.x;
+        return MyBLAS::max<long double>(MyBLAS::abs(inputs.constants - b_prime));
     }
-} Results;
+
+    // TODO:: DOCUMENT
+    void toJSON(nlohmann::json &jsonMap) const {
+        jsonMap["converged"] = solution.converged;
+
+        jsonMap["iterations"]["maximum"] = inputs.max_iterations;
+        jsonMap["iterations"]["actual"] = solution.iterations;
+
+        jsonMap["iterative-error"]["maximum"] = inputs.threshold;
+        jsonMap["iterative-error"]["actual"] = solution.iterative_error;
+
+        jsonMap["solution"] = solution.x.getData();
+        jsonMap["max-residual"] = getMaxResidual();
+
+        jsonMap["execution-time-ns"] = execution_time;
+    }
+} RelaxationMethodOutputs;
 
 #endif //NE591_008_OUTLAB_5_INPUTOUTPUTS_H

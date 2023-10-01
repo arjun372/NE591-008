@@ -13,6 +13,7 @@
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
 #include "json.hpp"
+#include "math/blas/MyBLAS.h"
 
 /**
     * @struct Input
@@ -72,7 +73,7 @@ typedef struct Output {
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["solution"] = solution.getData();
         jsonMap["residual"] = residual.getData();
-        jsonMap["max_residual"] = MyBLAS::max<long double>(residual);
+        jsonMap["max-residual"] = MyBLAS::max<long double>(MyBLAS::abs(residual));
     }
 } Results;
 

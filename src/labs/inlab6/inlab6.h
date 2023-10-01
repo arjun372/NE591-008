@@ -30,11 +30,11 @@
 
 
 /**
- * @class OutLab5
- * @brief This class is a child of the Project class and is used to solve a system of linear equations using forward and back substitution.
+ * @class InLab6
+ * @brief This class is a child of the Project class
  * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
-class InLab6 : public Project<InputMatrices, Parser, Results> {
+class InLab6 : public Project<InputMatrices, Parser, RelaxationMethodOutputs> {
 
 public:
     /**
@@ -59,11 +59,11 @@ protected:
         canvas.y_stop = 0.632387653651;
 
         canvas.tone_map.growth_rate = 0.25;
-        printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
+     //   printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
         std::cout<<"Julia set at ("<<x<<","<<y<<"), "<<iterations<<" iterations\n";
         return {
-                .ProjectName = "NE591: OutLab 05",
-                .ProjectDescription = "Solving a system of linear equations using LUP factorization",
+                .ProjectName = "NE591: InLab 06",
+                .ProjectDescription = "Solving a system of linear equations using the Point Jacobi method",
                 .SubmissionDate = "09/29/2023",
                 .StudentName = "Arjun Earthperson",
                 .HeaderArt = " ",
@@ -77,116 +77,82 @@ protected:
      * @param inputs The input matrices
      * @param values The variable map
      */
-    void run(Results &outputs, InputMatrices &inputs, boost::program_options::variables_map &values) override {
+    void run(RelaxationMethodOutputs &outputs, InputMatrices &inputs, boost::program_options::variables_map &values) override {
 
         /**
-            1. Given the matrix A = LU and vector b, solve Ax = b, which is LUx = b.
-            2. Perform row pivoting on A to obtain a permuted matrix PA = LU, where P is a permutation matrix.
-            3. Let y = Ux. Now, we have two systems of linear equations: Ly = Pb and Ux = y.
-            4. Solve the first system Ly = Pb using forward substitution.
-            5. Solve the second system Ux = y using backward substitution.
+         * TODO:: Document
         **/
 
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);
 
         const auto A = inputs.coefficients;
-
-        auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
-        auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
-
-        const auto pivot = !values.count("no-pivoting");
-        const bool alternateMethod = values.count("alternate-method") != 0;
-        MyBLAS::Matrix<long double> P;
-
-        if (pivot) {
-            if (alternateMethod) {
-                P = MyBLAS::cast<long double, bool>(MyBLAS::cast<bool, long double>(dooLittleFactorizeLUP(L, U, A)));
-            } else {
-                P = MyBLAS::cast<long double, bool>(MyBLAS::cast<bool, long double>(factorizeLUwithPartialPivoting(L, U, A)));
-            }
-        } else {
-           MyBLAS::LU::factorize(L, U, A);
-        }
-
-        if(!MyBLAS::isUnitLowerTriangularMatrix(L)) {
-            std::cerr << "Warning: Factorized matrix L is not unit lower triangular, expect undefined behavior.\n";
-        }
-
-        if(!MyBLAS::isUpperTriangularMatrix(U)) {
-            std::cerr << "Warning: Factorized matrix U is not upper triangular, expect undefined behavior.\n";
-        }
-
-        if (pivot) {
-            if (!MyBLAS::isPermutationMatrix(P)) {
-                std::cerr << "Warning: Generated matrix P is not a permutation matrix, expect undefined behavior.\n";
-            }
-        }
-
-        IntermediateResults intermediates;
-        intermediates.L = L;
-        intermediates.U = U;
-        if(pivot) {
-            intermediates.P = P;
-        }
-        intermediates.toJSON(results["intermediates"]);
-
         const auto b = inputs.constants;
-        const auto Pb = pivot ? (P * b) : b;
 
-        const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(L, Pb);
-        const MyBLAS::Vector x = MyBLAS::backwardSubstitution<long double>(U, y);
-
-        outputs.solution = x;
-
-        const auto b_prime = A * x;
-        const auto r = b - b_prime;
-        outputs.residual = r;
-
-        const auto maxResidual = MyBLAS::max<long double>(MyBLAS::abs(r));
-        outputs.max_residual = maxResidual;
-
-        outputs.toJSON(results["outputs"]);
-
-        if(!values.count("quiet")) {
-            const auto precision = getTerminal().getCurrentPrecision();
-
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
+            RelaxationMethodOutputs pointJacobiResults;
+            pointJacobiResults.inputs = inputs;
+            Compute::usingPointJacobi(pointJacobiResults);
+            pointJacobiResults.toJSON(results[MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
             Parser::printLine();
-            std::cout << "Lower Triangular Matrix (L):\n";
+            std::cout<<"Point Seidel Method Results"<<std::endl;
             Parser::printLine();
-            std::cout << std::scientific << std::setprecision(precision) << L;
-            Parser::printLine();
-            std::cout << "Upper Triangular Matrix (U):\n";
-            Parser::printLine();
-            std::cout << std::setprecision(precision) << U;
-            Parser::printLine();
-            if (pivot) {
-                std::cout << "Permutation Matrix (P):\n";
-                Parser::printLine();
-                std::cout << std::setprecision(precision) << P;
-                Parser::printLine();
-                std::cout << "Permuted constants (Pb = P * b):\n";
-                Parser::printLine();
-                std::cout << std::setprecision(precision) << Pb;
-                Parser::printLine();
-            }
-            std::cout << "Intermediate vector (y), where (Ly = "<< (pivot ? "Pb" : "b") << "):\n";
-            Parser::printLine();
-            std::cout << std::setprecision(precision) << y;
-            Parser::printLine();
-            std::cout << "Solution vector (x), where (Ux = y):\n";
-            Parser::printLine();
-            std::cout << std::setprecision(precision) << x;
-            Parser::printLine();
-            std::cout << "Residual vector (r = b - Ax) :\n";
-            Parser::printLine();
-            std::cout << std::setprecision(precision) << r;
-            Parser::printLine();
-            std::cout << "Max Residual abs(r): ";
-            std::cout << std::setprecision(max_precision) << maxResidual << std::endl;
-            Parser::printLine();
+            std::cout<<"\ttotal iterations          : "<<(pointJacobiResults.solution.iterations)<<std::endl;
+            std::cout<<"\tconverged                 : "<<(pointJacobiResults.solution.converged ? "Yes" : "No")<<std::endl;
+            std::cout<<"\titerative error           : "<<(pointJacobiResults.solution.iterative_error)<<std::endl;
+            std::cout<<"\tabsolute maximum residual : "<<(pointJacobiResults.getMaxResidual())<<std::endl;
+            std::cout<<"\texecution time (ns)       : "<<(pointJacobiResults.getMaxResidual())<<std::endl;
         }
 
+//        outputs.solution = x;
+//
+//        const auto b_prime = A * x;
+//        const auto r = b - b_prime;
+//        outputs.residual = r;
+//
+//        const auto maxResidual = outputs.getMaxResidual();
+//
+//        outputs.toJSON(results["outputs"]);
+//
+//        if(!values.count("quiet")) {
+//            const auto precision = getTerminal().getCurrentPrecision();
+//
+//            Parser::printLine();
+//            std::cout << "Lower Triangular Matrix (L):\n";
+//            Parser::printLine();
+//            std::cout << std::scientific << std::setprecision(precision) << L;
+//            Parser::printLine();
+//            std::cout << "Upper Triangular Matrix (U):\n";
+//            Parser::printLine();
+//            std::cout << std::setprecision(precision) << U;
+//            Parser::printLine();
+//            if (pivot) {
+//                std::cout << "Permutation Matrix (P):\n";
+//                Parser::printLine();
+//                std::cout << std::setprecision(precision) << P;
+//                Parser::printLine();
+//                std::cout << "Permuted constants (Pb = P * b):\n";
+//                Parser::printLine();
+//                std::cout << std::setprecision(precision) << Pb;
+//                Parser::printLine();
+//            }
+//            std::cout << "Intermediate vector (y), where (Ly = "<< (pivot ? "Pb" : "b") << "):\n";
+//            Parser::printLine();
+//            std::cout << std::setprecision(precision) << y;
+//            Parser::printLine();
+//            std::cout << "Solution vector (x), where (Ux = y):\n";
+//            Parser::printLine();
+//            std::cout << std::setprecision(precision) << x;
+//            Parser::printLine();
+//            std::cout << "Residual vector (r = b - Ax) :\n";
+//            Parser::printLine();
+//            std::cout << std::setprecision(precision) << r;
+//            Parser::printLine();
+//            std::cout << "Max Residual abs(r): ";
+//            std::cout << std::setprecision(max_precision) << maxResidual << std::endl;
+//            Parser::printLine();
+//        }
+//
         writeJSON(values["output-json"].as<std::string>(), results);
     }
 

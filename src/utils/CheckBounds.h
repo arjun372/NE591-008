@@ -126,7 +126,17 @@ static bool failsNaturalNumberCheck(long double value) {
 template <typename T>
 static bool failsWholeNumberCheck(T value) {
 
-    bool error = failsNaturalNumberCheck(static_cast<long double>(value));
+    const long double min = 0;
+    auto error = false;
+
+    if (value <= min) {
+        std::cerr <<"Error: " << "Input should be a positive number\n";
+        error = true;
+    }
+    if (ceil(value) != floor(value)) {
+        std::cerr <<"Error: " << "Input should be a natural number\n";
+        error = true;
+    }
 
     if (value == 0) {
         std::cerr <<"Error: " << "Input should be a whole number, i.e. it cannot be zero\n";
@@ -248,7 +258,7 @@ static void stripSpaces(std::string &spaceyStr) {
  * @return false If the input string is "no" or "n".
  * @throws std::exception If the input string is not one of the valid values.
  */
-static bool asYesOrNo(std::string &input) {
+static bool asYesOrNo(std::string input) {
     toLowerCase(input);
     stripSpaces(input);
     if(input == "y" || input == "yes") {
@@ -314,6 +324,27 @@ static void performChecksAndUpdateInput(std::string key, nlohmann::json &inputMa
         std::cin >> input;
         try {
             replace(map, key, static_cast<T>(asNumber(input)));
+        } catch (const std::exception &) {
+            continue;
+        }
+    }
+}
+
+// TODO:: Document
+static void promptAndSetFlags(std::string key, std::string description, boost::program_options::variables_map &map) {
+    bool flagSet = map.count(key);
+    if (flagSet) {
+        replace(map, key, asYesOrNo("yes"));
+        return;
+    }
+
+    while(!flagSet) {
+        try {
+            std::cout<<"Would you like to use the "<<description<<"? [YES/no]: ";
+            std::string input;
+            std::cin >> input;
+            replace(map, key, asYesOrNo(input));
+            flagSet = true;
         } catch (const std::exception &) {
             continue;
         }

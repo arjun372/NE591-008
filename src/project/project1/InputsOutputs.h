@@ -120,7 +120,7 @@ typedef struct Output {
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["solution"] = solution.getData();
         jsonMap["residual"] = residual.getData();
-        jsonMap["max_residual"] = MyBLAS::max<long double>(MyBLAS::abs(residual));
+        jsonMap["max-residual"] = MyBLAS::max<long double>(MyBLAS::abs(residual));
     }
 } SolverOutputs;
 

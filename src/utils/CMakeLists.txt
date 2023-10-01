@@ -13,6 +13,12 @@ set(UTILS_LIB_HEADERS
         math/blas/Matrix.h
         math/blas/LU.h
         math/blas/LUP.h
+        math/relaxation_methods/PointJacobi.h
+        math/relaxation_methods/GaussSeidel.h
+        math/relaxation_methods/SOR.h
+        math/relaxation_methods/SSOR.h
+        math/blas/Ops.h
+        math/relaxation_methods/RelaxationMethods.h
 )
 
 set(UTILS_LIB_SOURCES
