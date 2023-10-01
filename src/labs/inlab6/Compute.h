@@ -30,8 +30,7 @@ namespace Compute {
         Stopwatch<Nanoseconds> timer;
         timer.restart();
         {
-            auto solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold);
-            outputs.solution = solution;
+            outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold);
         }
         timer.click();
 
