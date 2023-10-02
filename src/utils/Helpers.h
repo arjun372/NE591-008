@@ -122,10 +122,30 @@ size_t juliaSetIterations(const std::complex<T>& z0, const std::complex<T>& c, s
     return iter;
 }
 
-// TODO:: Document
+/**
+ * @brief A template structure for ToneMap.
+ *
+ * This structure is used to map tones using a scaling factor and a growth rate.
+ * It is a template structure, so it can be used with any data type.
+ *
+ * @tparam T This is the type of the scaling factor and the growth rate. It can be any type that supports assignment and arithmetic operations.
+ */
 template<typename T>
 struct ToneMap {
+    /**
+     * @brief The scaling factor for the tone map.
+     *
+     * This is the factor by which the input tone will be scaled.
+     * It is initialized to a very small value (1e-7) to prevent large initial tones.
+     */
     T scaling_factor = 1e-7;
+
+    /**
+     * @brief The growth rate for the tone map.
+     *
+     * This is the rate at which the tone map grows.
+     * It is initialized to a moderate value (0.3) to allow for a reasonable growth rate.
+     */
     T growth_rate = 0.3;
 };
 

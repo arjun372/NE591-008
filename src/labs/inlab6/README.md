@@ -1,7 +1,6 @@
-# OutLab 05: System of Linear Equations Solver, with Pivoting
+# InLab 06: Iterative Linear Equations Solver: Point-Jacobi
 
-Solves a system of linear equations solver, with pivoting. You can use the `--no-pivoting` flag to turn off pivoting.
-You can use the `--alternate-method` flag to use a different way of performing LU factorization.
+Solves a system of linear equations using the point-Jacobi method.
 File based I/O is supported using JSON files.
 
 ## Table of Contents
@@ -17,14 +16,14 @@ File based I/O is supported using JSON files.
 
 The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
 configuration except choosing the build target, and output file. Here is a repeatable script
-to perform the build and run the `outlab5` target executable:
+to perform the build and run the `inlab6` target executable:
 
 ```bash
 # Assuming cwd is the repo root:
 #!/bin/bash
 
 ## Specify the build target
-export BUILD_TARGET=outlab5
+export BUILD_TARGET=inlab6
 
 ## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
@@ -33,20 +32,27 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/outlab5/examples/outlab5_input_4.json
-export OUTPUT_FILE=./src/labs/outlab5/examples/outlab5_output_4.json
+export INPUT_FILE=./src/labs/inlab6/examples/inlab6_input_1.json
+export OUTPUT_FILE=./src/labs/inlab6/examples/inlab6_output_1.json
 
 ## Execute
 ./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
 ```
 
 ### Parameters
+- `-t [ --threshold ] arg     `: iterative convergence threshold [𝜀 > 0]
+- `-k [ --max-iterations ] arg`: maximum number of iterations [n ∈ ℕ]
+- `-n [ --order ] arg`: order of the square matrix [n ∈ ℕ]
+- `-i [ --input-json ] arg`: input JSON containing A, and b
+- `-o [ --output-json ] arg`: path for the output JSON
 
-- `--no-pivoting`: Do not perform partial pivoting
-- `--alternate-method`: Use alternate factorization method
-- `-n [ --order ] arg`: order of the square matrix (n is a natural number)
-- `-i [ --input-json ] arg`: input JSON file containing the LU matrix and constants vector B
-- `-o [ --output-json ] arg`: path for the output JSON file
+### Solver Methods
+
+- `--use-LUP`: Use the LUP method
+- `--use-point-jacobi`: [DISABLED] Use the Point-Jacobi method
+- `--use-gauss-seidel`: [DISABLED] Use the Gauss-Seidel method
+- `--use-SOR`: [DISABLED] Use the SOR method
+
 
 ### General options
 
@@ -62,20 +68,13 @@ The expected input json file requires the following fields:
 ### Sample Input File
 ```json
 {
-  "coefficients": [
-    [1.0, 2.0, 3.0, 4.0, 5.0],
-    [2.0, 3.0, 4.0, 5.0, 1.0],
-    [3.0, 4.0, 5.0, 1.0, 2.0],
-    [4.0, 5.0, 1.0, 2.0, 3.0],
-    [5.0, 1.0, 2.0, 3.0, 4.0]
-  ],
-  "constants": [
-    1.1,
-    1.2,
-    1.3,
-    1.4,
-    1.5
-  ]
+   "coefficients": [
+      [ 36.1, -9.00, -9.00,  0.00],
+      [-9.00,  36.1,  0.00, -9.00],
+      [-9.00,  0.00,  36.1, -9.00],
+      [ 0.00, -9.00, -9.00,  36.1]
+   ],
+   "constants": [1.00, 1.00, 1.00, 1.00]
 }
 ```
 
@@ -86,63 +85,42 @@ The output is written to a JSON file as well.
 ### Sample Outputs File
 ```json
 {
-    "inputs": {
-       "coefficients": [
-          [1.0, 2.0, 3.0, 4.0, 5.0],
-          [2.0, 3.0, 4.0, 5.0, 1.0],
-          [3.0, 4.0, 5.0, 1.0, 2.0],
-          [4.0, 5.0, 1.0, 2.0, 3.0],
-          [5.0, 1.0, 2.0, 3.0, 4.0]
-       ],
-        "constants": [
-            1.1,
-            1.2,
-            1.3,
-            1.4,
-            1.5
-        ],
-        "n": 5
-    },
-    "intermediates": {
-        "lower": [
-            [1.0, 0.0, 0.0, 0.0, 0.0],
-            [0.8, 1.0, 0.0, 0.0, 0.0],
-            [0.6, 0.8095238095238095, 1.0, 0.0, 0.0],
-            [0.4, 0.6190476190476191, 0.8333333333333334, 1.0, 0.0],
-            [0.2, 0.42857142857142855, 0.6666666666666666, 0.875, 1.0]
-        ],
-        "permutation": [
-            [0.0, 0.0, 0.0, 0.0, 1.0],
-            [0.0, 0.0, 0.0, 1.0, 0.0],
-            [0.0, 0.0, 1.0, 0.0, 0.0],
-            [0.0, 1.0, 0.0, 0.0, 0.0],
-            [1.0, 0.0, 0.0, 0.0, 0.0]
-        ],
-        "upper": [
-            [5.0, 1.0, 2.0, 3.0, 4.0],
-            [0.0, 4.2, -0.6, -0.4, -0.2],
-            [0.0, 0.0, 4.285714285714286, -0.47619047619047616, -0.23809523809523808],
-            [0.0, 0.0, 0.0, 4.444444444444445, -0.277777777777777],
-            [0.0, 0.0, 0.0, 0.0, 4.6875]
-        ]
-    },
-    "outputs": {
-        "max_residual": 1.0842021724855044e-19,
-        "residual": [
-            -1.0842021724855044e-19,
-            0.0,
-            -1.0842021724855044e-19,
-            1.0842021724855044e-19,
-            0.0
-        ],
-        "solution": [
-            0.16666666666666666,
-            0.06666666666666665,
-            0.0666666666666667,
-            0.06666666666666665,
-            0.0666666666666667
-        ]
-    }
+   "inputs": {
+      "coefficients": [
+         [ 36.1, -9.00, -9.00,  0.00],
+         [-9.00,  36.1,  0.00, -9.00],
+         [-9.00,  0.00,  36.1, -9.00],
+         [ 0.00, -9.00, -9.00,  36.1]
+      ],
+      "constants": [1.00, 1.00, 1.00, 1.00],
+      "max-iterations": 5000,
+      "methods": [
+         "point-jacobi"
+      ],
+      "order": 4,
+      "threshold": 0.0001
+   },
+   "outputs": {
+      "point-jacobi": {
+         "converged": true,
+         "execution-time-ns": 2352.0,
+         "iterations": {
+            "actual": 10,
+            "maximum": 5000
+         },
+         "iterative-error": {
+            "actual": 5.2623026955029647e-05,
+            "maximum": 0.0001
+         },
+         "max-residual": 0.0009498456365382851,
+         "solution": [
+            0.05519614112505313,
+            0.05519614112505313,
+            0.05519614112505313,
+            0.05519614112505313
+         ]
+      }
+   }
 }
 ```
 
@@ -151,94 +129,77 @@ The output is written to a JSON file as well.
 The following is an example of the program's output:
 
 ```shell
-NE591: OutLab 05: Solving a system of linear equations using LUP factorization
+NE591: InLab 06: Solving a system of linear equations using the Point Jacobi method
 Arjun Earthperson
 09/29/2023
 --------------------------------------------------------------------------------
 compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so
 --------------------------------------------------------------------------------
 Parameters:
-  --no-pivoting                 Do not perform partial pivoting
-  --alternate-method            Use alternate factorization method
-  -n [ --order ] arg (=0)       = order of the square matrix (natural number)
-  -i [ --input-json ] arg       = input JSON containing L, U, and b
+  -t [ --threshold ] arg        = iterative convergence threshold [𝜀 > 0]
+  -k [ --max-iterations ] arg   = maximum number of iterations [n ∈ ℕ]
+  -n [ --order ] arg            = order of the square matrix [n ∈ ℕ]
+  -i [ --input-json ] arg       = input JSON containing A, and b
   -o [ --output-json ] arg      = path for the output JSON
+
+Solver Methods:
+  --use-point-jacobi            = Use the Point-Jacobi method
+  --use-gauss-seidel            = [DISABLED] Use the Gauss-Seidel method
+  --use-SOR                     = [DISABLED] Use the SOR method
+  --use-SSOR                    = [DISABLED] Use the symmetric SOR method
 
 General options:
   -h [ --help ]                 = Show this help message
   -q [ --quiet ]                = Reduce verbosity
   -p [ --precision ] arg (=15)  = Number of digits to represent long double
-  -P [ --profile ]              = Turn on profiling for performance comparison
+  -P [ --profile ]              = Turn on performance profiling
 
 --------------------------------------------------------------------------------
 			Precision in digits:  default: 6, maximum: 19, current: 6
 --------------------------------------------------------------------------------
 Warning: File already exists at path, will be overwritten 
+Would you like to use the Gauss-Seidel method? [YES/no]: n
+Would you like to use the SOR method? [YES/no]: n
+Would you like to use the symmetric SOR method? [YES/no]: y
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
-	Matrix order,        n: 0
-	Input JSON,          i: ../sample_input_4.json
-	Output JSON,         o: sample_output_4.json
-	Use Pivoting          : Yes
-	Use Alternate Method  : No
+	Input JSON (for A, b),  i: ../inlab6_input_1.json
+	Output JSON (for x),    o: ../inlab6_output_1.json
+	Convergence Threshold,  𝜀: 0.0001
+	Max iterations,         k: 5000
+	Matrix order,           n: None provided, will be inferred from input JSON
+	Use Gauss-Siedel         : No
+	Use Point-Jacobi         : Yes
+	Use SOR                  : No
+	Use SSOR                 : Yes
 --------------------------------------------------------------------------------
-Reading matrix order (n) from input matrix dimensions: 5
+Reading matrix order (n) from input matrix dimensions: 4
 --------------------------------------------------------------------------------
 Coefficient Matrix (A):
 --------------------------------------------------------------------------------
-    1.000000e+00    2.000000e+00    3.000000e+00    4.000000e+00    5.000000e+00
-    2.000000e+00    3.000000e+00    4.000000e+00    5.000000e+00    1.000000e+00
-    3.000000e+00    4.000000e+00    5.000000e+00    1.000000e+00    2.000000e+00
-    4.000000e+00    5.000000e+00    1.000000e+00    2.000000e+00    3.000000e+00
-    5.000000e+00    1.000000e+00    2.000000e+00    3.000000e+00    4.000000e+00
+    3.610000e+01   -9.000000e+00   -9.000000e+00    0.000000e+00
+   -9.000000e+00    3.610000e+01    0.000000e+00   -9.000000e+00
+   -9.000000e+00    0.000000e+00    3.610000e+01   -9.000000e+00
+    0.000000e+00   -9.000000e+00   -9.000000e+00    3.610000e+01
 --------------------------------------------------------------------------------
 Constants Vector (b):
 --------------------------------------------------------------------------------
-    1.100000e+00    1.200000e+00    1.300000e+00    1.400000e+00    1.500000e+00
+    1.000000e+00    1.000000e+00    1.000000e+00    1.000000e+00
 --------------------------------------------------------------------------------
-Lower Triangular Matrix (L):
+Point Seidel Method Results
 --------------------------------------------------------------------------------
-    1.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00
-    8.000000e-01    1.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00
-    6.000000e-01    8.095238e-01    1.000000e+00    0.000000e+00    0.000000e+00
-    4.000000e-01    6.190476e-01    8.333333e-01    1.000000e+00    0.000000e+00
-    2.000000e-01    4.285714e-01    6.666667e-01    8.750000e-01    1.000000e+00
+	total iterations          : 10
+	converged                 : Yes
+	iterative error           : 5.262303e-05
+	absolute maximum residual : 9.498456e-04
+	execution time (ns)       : 7.620000e+03
+	execution time (ms)       : 7.620000e-03
+	execution time (s)        : 7.620000e-06
 --------------------------------------------------------------------------------
-Upper Triangular Matrix (U):
+Symmetric Successive over-relaxation (SOR) not implemented yet.
 --------------------------------------------------------------------------------
-    5.000000e+00    1.000000e+00    2.000000e+00    3.000000e+00    4.000000e+00
-    0.000000e+00    4.200000e+00   -6.000000e-01   -4.000000e-01   -2.000000e-01
-    0.000000e+00    0.000000e+00    4.285714e+00   -4.761905e-01   -2.380952e-01
-    0.000000e+00    0.000000e+00    0.000000e+00    4.444444e+00   -2.777778e-01
-    0.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00    4.687500e+00
---------------------------------------------------------------------------------
-Permutation Matrix (P):
---------------------------------------------------------------------------------
-    0.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00    1.000000e+00
-    0.000000e+00    0.000000e+00    0.000000e+00    1.000000e+00    0.000000e+00
-    0.000000e+00    0.000000e+00    1.000000e+00    0.000000e+00    0.000000e+00
-    0.000000e+00    1.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00
-    1.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00    0.000000e+00
---------------------------------------------------------------------------------
-Permuted constants (Pb = P * b):
---------------------------------------------------------------------------------
-    1.500000e+00    1.400000e+00    1.300000e+00    1.200000e+00    1.100000e+00
---------------------------------------------------------------------------------
-Intermediate vector (y), where (Ly = Pb):
---------------------------------------------------------------------------------
-    1.500000e+00    2.000000e-01    2.380952e-01    2.777778e-01    3.125000e-01
---------------------------------------------------------------------------------
-Solution vector (x), where (Ux = y):
---------------------------------------------------------------------------------
-    1.666667e-01    6.666667e-02    6.666667e-02    6.666667e-02    6.666667e-02
---------------------------------------------------------------------------------
-Residual vector (r = b - Ax) :
---------------------------------------------------------------------------------
-   -1.084202e-19    0.000000e+00   -1.084202e-19    1.084202e-19    0.000000e+00
---------------------------------------------------------------------------------
-Max Residual abs(r): 1.0842021724855044340e-19
---------------------------------------------------------------------------------
+JSON data has been written to ../inlab6_output_1.json
 
 Process finished with exit code 0
 ```

@@ -330,7 +330,28 @@ static void performChecksAndUpdateInput(std::string key, nlohmann::json &inputMa
     }
 }
 
-// TODO:: Document
+/**
+ * @brief This function prompts the user for input and sets flags in a boost::program_options::variables_map based on
+ * the user's input.
+ *
+ * @param key The key in the variables_map to set. This is also used to check if the flag has already been set.
+ * @param description A description of the flag. This is used in the prompt to the user.
+ * @param map A reference to the variables_map where the flag will be set.
+ *
+ * The function first checks if the flag identified by the key has already been set in the variables_map. If it has,
+ * the function replaces the value of the flag with the result of the asYesOrNo function called with "yes" as an
+ * argument, and then returns.
+ *
+ * If the flag has not been set, the function enters a loop where it prompts the user with the question "Would you like
+ * to use the [description]? [YES/no]: ". The user's input is then read into a string.
+ *
+ * The function then attempts to replace the value of the flag in the variables_map with the result of the asYesOrNo
+ * function called with the user's input as an argument. If this is successful, the flagSet variable is set to true and
+ * the loop ends.
+ *
+ * If an exception is thrown during this process, the function catches it and continues with the next iteration of the
+ * loop, prompting the user again.
+ */
 static void promptAndSetFlags(std::string key, std::string description, boost::program_options::variables_map &map) {
     bool flagSet = map.count(key);
     if (flagSet) {

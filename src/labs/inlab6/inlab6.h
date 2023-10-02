@@ -50,16 +50,15 @@ protected:
      */
     HeaderInfo buildHeaderInfo() override {
         Canvas canvas;
-        auto x = -0.03;
-        auto y = 0.77;
-        auto iterations = 337;
-        canvas.x_start = -0.396934597844;
-        canvas.x_stop = -0.085211129213;
-        canvas.y_start = 0.414181225609;
-        canvas.y_stop = 0.632387653651;
-
-        canvas.tone_map.growth_rate = 0.25;
-     //   printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
+        auto x = -0.292;
+        auto y = -0.66;
+        auto iterations = 200;
+        canvas.x_start = -0.007514104707;
+        canvas.x_stop = 0.075446744304;
+        canvas.y_start = 0.825578589953;
+        canvas.y_stop = 0.883651184261;
+        canvas.tone_map.growth_rate = 0.3;
+        printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
         std::cout<<"Julia set at ("<<x<<","<<y<<"), "<<iterations<<" iterations\n";
         return {
                 .ProjectName = "NE591: InLab 06",
@@ -68,6 +67,17 @@ protected:
                 .StudentName = "Arjun Earthperson",
                 .HeaderArt = " ",
         };
+    }
+
+    // TODO:: Document
+    static void printResults(RelaxationMethodOutputs &results) {
+        std::cout<<"\ttotal iterations          : "<<(results.solution.iterations)<<std::endl;
+        std::cout<<"\tconverged                 : "<<(results.solution.converged ? "Yes" : "No")<<std::endl;
+        std::cout<<"\titerative error           : "<<(results.solution.iterative_error)<<std::endl;
+        std::cout<<"\tabsolute maximum residual : "<<(results.getMaxResidual())<<std::endl;
+        std::cout<<"\texecution time (ns)       : "<<(results.execution_time)<<std::endl;
+        std::cout<<"\texecution time (ms)       : "<<(results.execution_time/1.0e6)<<std::endl;
+        std::cout<<"\texecution time (s)        : "<<(results.execution_time/1.0e9)<<std::endl;
     }
 
     /**
@@ -86,9 +96,6 @@ protected:
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);
 
-        const auto A = inputs.coefficients;
-        const auto b = inputs.constants;
-
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
             RelaxationMethodOutputs pointJacobiResults(inputs);
             Compute::usingPointJacobi(pointJacobiResults, inputs);
@@ -96,63 +103,25 @@ protected:
             Parser::printLine();
             std::cout<<"Point Seidel Method Results"<<std::endl;
             Parser::printLine();
-            std::cout<<"\ttotal iterations          : "<<(pointJacobiResults.solution.iterations)<<std::endl;
-            std::cout<<"\tconverged                 : "<<(pointJacobiResults.solution.converged ? "Yes" : "No")<<std::endl;
-            std::cout<<"\titerative error           : "<<(pointJacobiResults.solution.iterative_error)<<std::endl;
-            std::cout<<"\tabsolute maximum residual : "<<(pointJacobiResults.getMaxResidual())<<std::endl;
-            std::cout<<"\texecution time (ns)       : "<<(pointJacobiResults.execution_time)<<std::endl;
-            std::cout<<"\texecution time (ms)       : "<<(pointJacobiResults.execution_time/1.0e6)<<std::endl;
+            printResults(pointJacobiResults);
         }
 
-//        outputs.solution = x;
-//
-//        const auto b_prime = A * x;
-//        const auto r = b - b_prime;
-//        outputs.residual = r;
-//
-//        const auto maxResidual = outputs.getMaxResidual();
-//
-//        outputs.toJSON(results["outputs"]);
-//
-//        if(!values.count("quiet")) {
-//            const auto precision = getTerminal().getCurrentPrecision();
-//
-//            Parser::printLine();
-//            std::cout << "Lower Triangular Matrix (L):\n";
-//            Parser::printLine();
-//            std::cout << std::scientific << std::setprecision(precision) << L;
-//            Parser::printLine();
-//            std::cout << "Upper Triangular Matrix (U):\n";
-//            Parser::printLine();
-//            std::cout << std::setprecision(precision) << U;
-//            Parser::printLine();
-//            if (pivot) {
-//                std::cout << "Permutation Matrix (P):\n";
-//                Parser::printLine();
-//                std::cout << std::setprecision(precision) << P;
-//                Parser::printLine();
-//                std::cout << "Permuted constants (Pb = P * b):\n";
-//                Parser::printLine();
-//                std::cout << std::setprecision(precision) << Pb;
-//                Parser::printLine();
-//            }
-//            std::cout << "Intermediate vector (y), where (Ly = "<< (pivot ? "Pb" : "b") << "):\n";
-//            Parser::printLine();
-//            std::cout << std::setprecision(precision) << y;
-//            Parser::printLine();
-//            std::cout << "Solution vector (x), where (Ux = y):\n";
-//            Parser::printLine();
-//            std::cout << std::setprecision(precision) << x;
-//            Parser::printLine();
-//            std::cout << "Residual vector (r = b - Ax) :\n";
-//            Parser::printLine();
-//            std::cout << std::setprecision(precision) << r;
-//            Parser::printLine();
-//            std::cout << "Max Residual abs(r): ";
-//            std::cout << std::setprecision(max_precision) << maxResidual << std::endl;
-//            Parser::printLine();
-//        }
-//
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)) {
+            Parser::printLine();
+            std::cout<<"Gauss Seidel not implemented yet."<<std::endl;
+        }
+
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SOR)) {
+            Parser::printLine();
+            std::cout<<"Successive over-relaxation (SOR) not implemented yet."<<std::endl;
+        }
+
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SSOR)) {
+            Parser::printLine();
+            std::cout<<"Symmetric Successive over-relaxation (SOR) not implemented yet."<<std::endl;
+        }
+
+        Parser::printLine();
         writeJSON(values["output-json"].as<std::string>(), results);
     }
 

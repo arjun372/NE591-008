@@ -16,18 +16,14 @@
 #include "math/relaxation_methods/RelaxationMethods.h"
 #include "math/blas/MyBLAS.h"
 
-// TODO:: DOCUMENT
+/**
+ * @brief A structure to hold the input parameters for the relaxation method.
+ *
+ * This structure contains the convergence threshold, maximum number of iterations,
+ * size of the matrices, coefficient matrix, vector of constants, and the set of methods.
+ */
 typedef struct Input {
     Input() = default;
-
-//    // Copy constructor
-//    Input(const Input& other)
-//            : threshold(other.threshold),
-//              max_iterations(other.max_iterations),
-//              n(other.n),
-//              coefficients(other.coefficients),
-//              constants(other.constants),
-//              methods(other.methods) {}
 
     long double threshold = 0; ////< The convergence threshold
     size_t max_iterations = 0; ////< Maximum number of iterations to perform
@@ -37,7 +33,11 @@ typedef struct Input {
 
     std::set<MyRelaxationMethod::Type> methods = {};
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Converts the input parameters to a JSON object.
+     *
+     * @param jsonMap The JSON object to which the input parameters are added.
+     */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["threshold"] = threshold;
         jsonMap["order"] = n;
@@ -54,7 +54,11 @@ typedef struct Input {
     }
 } InputMatrices;
 
-// TODO:: DOCUMENT
+/**
+ * @brief A structure to hold the output of the relaxation method.
+ *
+ * This structure contains the input parameters, the solution, and the execution time.
+ */
 typedef struct Output {
     explicit Output(InputMatrices inputMatrices) {
         inputs = inputMatrices;
@@ -65,13 +69,21 @@ typedef struct Output {
     MyRelaxationMethod::Solution<long double> solution;
     long double execution_time = 0;
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Calculates the maximum residual of the solution.
+     *
+     * @return The maximum residual of the solution.
+     */
     [[nodiscard]] long double getMaxResidual() const {
         const auto b_prime = inputs.coefficients * solution.x;
         return MyBLAS::max<long double>(MyBLAS::abs(inputs.constants - b_prime));
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Converts the output parameters to a JSON object.
+     *
+     * @param jsonMap The JSON object to which the output parameters are added.
+     */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["converged"] = solution.converged;
 

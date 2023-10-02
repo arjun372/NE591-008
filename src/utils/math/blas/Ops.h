@@ -2,7 +2,7 @@
  * @file Ops.h
  * @author Arjun Earthperson
  * @date 09/30/2023
- * @brief TODO:: Document
+ * @brief This file contains the definition of the L2Norm function, which calculates the L2 norm (Euclidean distance) between two containers.
 */
 
 #ifndef NE591_008_OPS_H
@@ -13,11 +13,30 @@
 
 namespace MyBLAS {
 
-    // real: norm_2 v = sqrt (sum (v [i] * v [i]))
-    // complex: norm_2 v = sqrt (sum (v [i] * conj (v [i])))
-    template <typename T>
-    T norm(T &vectorType) {
-
+    /**
+     * @brief Calculates the L2 norm (Euclidean distance) between two containers.
+     *
+     * For real numbers, the L2 norm is defined as sqrt(sum(v[i] * v[i])).
+     * For complex numbers, the L2 norm is defined as sqrt(sum(v[i] * conj(v[i]))).
+     *
+     * @tparam ContainerType The type of the containers. This should be a container type that supports indexing with the [] operator.
+     * @tparam DataType The type of the data contained in the containers. This should be a type that supports subtraction and multiplication.
+     *
+     * @param a The first container.
+     * @param b The second container.
+     * @param n The size of the containers. This function assumes that both containers have the same size.
+     *
+     * @return The L2 norm (Euclidean distance) between the two containers.
+     */
+    template <typename ContainerType, typename DataType>
+    inline DataType L2Norm(ContainerType &a, ContainerType &b, const size_t n) {
+        DataType norm = 0;
+        for(size_t i = 0; i < n; i++) {
+            const auto difference = a[i] - b[i];
+            const auto squared = std::pow(difference, 2);
+            norm += squared;
+        }
+        return norm;
     }
 }
 #endif //NE591_008_OPS_H

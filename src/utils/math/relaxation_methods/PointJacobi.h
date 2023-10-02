@@ -12,6 +12,8 @@
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
 
+#include "math/blas/Ops.h"
+
 #include "math/relaxation_methods/RelaxationMethods.h"
 
 /**
@@ -21,6 +23,10 @@
 namespace MyRelaxationMethod {
 
     /**
+     * The Jacobi method requires the matrix `A` to be diagonally dominant, or else it may not converge to the correct
+     * solution. A diagonally dominant matrix is one where the absolute value of each diagonal element is greater than
+     * the sum of the absolute values of the other elements in the same row.
+     *
      * @brief This function applies the Point Jacobi method to solve a system of linear equations.
      * @tparam T The data type of the matrix and vectors (usually float or double).
      * @param A The matrix in the system of equations.
