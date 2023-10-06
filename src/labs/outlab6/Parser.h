@@ -6,15 +6,15 @@
  * user inputs.
  */
 
-#ifndef NE591_008_INLAB6_PARSER_H
-#define NE591_008_INLAB6_PARSER_H
+#ifndef NE591_008_OUTLAB6_PARSER_H
+#define NE591_008_OUTLAB6_PARSER_H
 
 #include "CommandLine.h"
 #include "FileParser.h"
 #include "Helpers.h"
 #include "CheckBounds.h"
 
-class Parser : public CommandLine<InLab6Inputs> {
+class Parser : public CommandLine<OutLab6Inputs> {
 
 public:
     explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
@@ -149,7 +149,7 @@ protected:
      * @param inputs Reference to a MyBLAS::InputMatrices object to store the input matrices.
      * @param values Reference to a boost::program_options::variables_map object containing the command line arguments.
      */
-    void buildInputs(InLab6Inputs &inputs, boost::program_options::variables_map &values) override {
+    void buildInputs(OutLab6Inputs &inputs, boost::program_options::variables_map &values) override {
 
         // first, read the input file into a json map
         nlohmann::json inputMap;
@@ -157,36 +157,36 @@ protected:
 
         // read the constants
         MyBLAS::Vector<long double> constants = MyBLAS::Vector(std::vector<long double>(inputMap["constants"]));
-        inputs.constants = MyBLAS::Vector(constants);
+        inputs.input.constants = MyBLAS::Vector(constants);
 
         // read the coefficient matrix
-        inputs.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
+        inputs.input.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
 
-        if(!MyBLAS::isSquareMatrix(inputs.coefficients)) {
+        if(!MyBLAS::isSquareMatrix(inputs.input.coefficients)) {
             std::cerr<<"Error: Input coefficients matrix A not square, aborting.\n";
             exit(-1);
         }
 
-        if(inputs.coefficients.getRows() != inputs.constants.size()) {
+        if(inputs.input.coefficients.getRows() != inputs.input.constants.size()) {
             std::cerr<<"Error: Input constants vector not order n, aborting.\n";
             exit(-1);
         }
 
         // set input order n
-        const auto orderFromInputMatrixDimensions = inputs.coefficients.getRows();
+        const auto orderFromInputMatrixDimensions = inputs.input.coefficients.getRows();
         if(!values.count("order")) {
             std::cout<<"Reading matrix order (n) from input matrix dimensions: "<<orderFromInputMatrixDimensions<<"\n";
-            inputs.n = orderFromInputMatrixDimensions;
+            inputs.input.n = orderFromInputMatrixDimensions;
         } else { // user provided some value for n, validate against input dimensions
             const auto orderFromUser = static_cast<size_t>(values["order"].as<long double>());
-            inputs.n = orderFromUser > orderFromInputMatrixDimensions ? orderFromInputMatrixDimensions : orderFromUser;
+            inputs.input.n = orderFromUser > orderFromInputMatrixDimensions ? orderFromInputMatrixDimensions : orderFromUser;
             if (orderFromUser > orderFromInputMatrixDimensions) {
                 std::cerr<<"Warning: Matrix order (n) is larger than input matrix, defaulting to lower value\n";
             }
         }
 
-        inputs.threshold = values["threshold"].as<long double>();
-        inputs.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
+        inputs.input.threshold = values["threshold"].as<long double>();
+        inputs.input.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
 
         if(values["use-point-jacobi"].as<bool>()) {
             inputs.methods.insert(MyRelaxationMethod::Type::METHOD_POINT_JACOBI);
@@ -210,14 +210,14 @@ protected:
             printLine();
             std::cout << "Coefficient Matrix (A):\n";
             printLine();
-            std::cout << std::setprecision (precision) << inputs.coefficients;
+            std::cout << std::setprecision (precision) << inputs.input.coefficients;
             printLine();
             std::cout << "Constants Vector (b):\n";
             printLine();
-            std::cout << std::setprecision (precision) << inputs.constants;
+            std::cout << std::setprecision (precision) << inputs.input.constants;
         }
     }
 
 };
 
-#endif //NE591_008_INLAB6_PARSER_H
+#endif //NE591_008_OUTLAB6_PARSER_H

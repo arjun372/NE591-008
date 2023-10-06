@@ -1,21 +1,20 @@
 /**
  * @file InputsOutputs.h
  * @author Arjun Earthperson
- * @date 09/29/2023
+ * @date 10/06/2023
  * @brief This file contains the input and output definitions for this project.
  */
 
-#ifndef NE591_008_INLAB6_INPUTOUTPUTS_H
-#define NE591_008_INLAB6_INPUTOUTPUTS_H
+#ifndef NE591_008_OUTLAB6_INPUTOUTPUTS_H
+#define NE591_008_OUTLAB6_INPUTOUTPUTS_H
 
 #include <utility>
 
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
-#include "json.hpp"
-#include "math/relaxation_methods/RelaxationMethods.h"
 #include "math/blas/MyBLAS.h"
 #include "math/LinearSolver.h"
+#include "json.hpp"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.
@@ -26,13 +25,8 @@
 typedef struct Input {
     Input() = default;
 
-    long double threshold = 0; ////< The convergence threshold
-    size_t max_iterations = 0; ////< Maximum number of iterations to perform
-    size_t n = 0; ///< Size of the matrices.
-    MyBLAS::Matrix<long double> coefficients{}; ///< Coefficient matrix A
-    MyBLAS::Vector<long double> constants{}; ///< Vector of constants b.
-
-    std::set<MyRelaxationMethod::Type> methods = {};
+    std::set<MyLinearSolvingMethod::Type> methods = {};
+    MyLinearSolvingMethod::Input<long double> input;
 
     /**
      * @brief Converts the input parameters to a JSON object.
@@ -40,20 +34,20 @@ typedef struct Input {
      * @param jsonMap The JSON object to which the input parameters are added.
      */
     void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["threshold"] = threshold;
-        jsonMap["order"] = n;
-        jsonMap["max-iterations"] = max_iterations;
-        jsonMap["coefficients"] = coefficients.getData();
-        jsonMap["constants"] = constants.getData();
+        jsonMap["threshold"] = input.threshold;
+        jsonMap["order"] = input.n;
+        jsonMap["max-iterations"] = input.max_iterations;
+        jsonMap["coefficients"] = input.coefficients.getData();
+        jsonMap["constants"] = input.constants.getData();
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
-            std::transform(methods.begin(), methods.end(), std::back_inserter(result), [](MyRelaxationMethod::Type method) {
-                return MyRelaxationMethod::TypeKey(method);
+            std::transform(methods.begin(), methods.end(), std::back_inserter(result), [](MyLinearSolvingMethod::Type method) {
+                return MyLinearSolvingMethod::TypeKey(method);
             });
             return result;
         }();
     }
-} InLab6Inputs;
+} OutLab6Inputs;
 
 /**
  * @brief A structure to hold the output of the relaxation method.
@@ -61,24 +55,15 @@ typedef struct Input {
  * This structure contains the input parameters, the solution, and the execution time.
  */
 typedef struct Output {
-    explicit Output(InLab6Inputs inputMatrices) {
+    explicit Output(OutLab6Inputs inputMatrices) {
         inputs = inputMatrices;
     };
 
     Output() = default;
-    InLab6Inputs inputs;
+    OutLab6Inputs inputs;
     MyLinearSolvingMethod::Solution<long double> solution;
     long double execution_time = 0;
 
-    /**
-     * @brief Calculates the maximum residual of the solution.
-     *
-     * @return The maximum residual of the solution.
-     */
-    [[nodiscard]] long double getMaxResidual() const {
-        const auto b_prime = inputs.coefficients * solution.x;
-        return MyBLAS::max<long double>(MyBLAS::abs(inputs.constants - b_prime));
-    }
 
     /**
      * @brief Converts the output parameters to a JSON object.
@@ -88,17 +73,17 @@ typedef struct Output {
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["converged"] = solution.converged;
 
-        jsonMap["iterations"]["maximum"] = inputs.max_iterations;
+        jsonMap["iterations"]["maximum"] = inputs.input.max_iterations;
         jsonMap["iterations"]["actual"] = solution.iterations;
 
-        jsonMap["iterative-error"]["maximum"] = inputs.threshold;
+        jsonMap["iterative-error"]["maximum"] = inputs.input.threshold;
         jsonMap["iterative-error"]["actual"] = solution.iterative_error;
 
         jsonMap["solution"] = solution.x.getData();
-        jsonMap["max-residual"] = getMaxResidual();
+        jsonMap["max-residual"] = solution.getMaxResidual(inputs.input.coefficients, inputs.input.constants);
 
         jsonMap["execution-time-ns"] = execution_time;
     }
-} InLab6Outputs;
+} OutLab6Outputs;
 
-#endif //NE591_008_INLAB6_INPUTOUTPUTS_H
+#endif //NE591_008_OUTLAB6_INPUTOUTPUTS_H

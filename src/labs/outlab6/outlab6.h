@@ -1,13 +1,13 @@
 /**
- * @file inlab6.cpp
+ * @file outlab6.cpp
  * @author Arjun Earthperson
- * @date 09/29/2023
- * @brief This file contains the declaration for the InLab6 class.
+ * @date 10/06/2023
+ * @brief This file contains the declaration for the OutLab6 class.
  *
  */
 
-#ifndef NE591_008_INLAB6_H
-#define NE591_008_INLAB6_H
+#ifndef NE591_008_OUTLAB6_H
+#define NE591_008_OUTLAB6_H
 
 #include <variant>
 #include <numeric>
@@ -30,18 +30,18 @@
 
 
 /**
- * @class InLab6
+ * @class OutLab6
  * @brief This class is a child of the Project class
  * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
-class InLab6 : public Project<InLab6Inputs, Parser, InLab6Outputs> {
+class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
 
 public:
     /**
-     * @brief Constructor for the outlab5 class
+     * @brief Constructor for the outlab6 class
      * @param args Command line arguments
      */
-    explicit InLab6(CommandLineArgs args) : Project(args) {}
+    explicit OutLab6(CommandLineArgs args) : Project(args) {}
 
 protected:
     /**
@@ -61,8 +61,8 @@ protected:
         printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
         std::cout<<"Julia set at ("<<x<<","<<y<<"), "<<iterations<<" iterations\n";
         return {
-                .ProjectName = "NE591: InLab 06",
-                .ProjectDescription = "Solving a system of linear equations using the Point Jacobi method",
+                .ProjectName = "NE591: OutLab 06",
+                .ProjectDescription = "Solving a system of linear equations using iterative and factorization methods",
                 .SubmissionDate = "09/29/2023",
                 .StudentName = "Arjun Earthperson",
                 .HeaderArt = " ",
@@ -70,11 +70,11 @@ protected:
     }
 
     // TODO:: Document
-    static void printResults(InLab6Outputs &results) {
+    static void printResults(OutLab6Outputs &results) {
         std::cout<<"\ttotal iterations          : "<<(results.solution.iterations)<<std::endl;
         std::cout<<"\tconverged                 : "<<(results.solution.converged ? "Yes" : "No")<<std::endl;
         std::cout<<"\titerative error           : "<<(results.solution.iterative_error)<<std::endl;
-        std::cout<<"\tabsolute maximum residual : "<<(results.getMaxResidual())<<std::endl;
+        std::cout<<"\tabsolute maximum residual : "<<(results.solution.getMaxResidual(results.inputs.input.coefficients, results.inputs.input.constants))<<std::endl;
         std::cout<<"\texecution time (ns)       : "<<(results.execution_time)<<std::endl;
         std::cout<<"\texecution time (ms)       : "<<(results.execution_time/1.0e6)<<std::endl;
         std::cout<<"\texecution time (s)        : "<<(results.execution_time/1.0e9)<<std::endl;
@@ -87,7 +87,7 @@ protected:
      * @param inputs The input matrices
      * @param values The variable map
      */
-    void run(InLab6Outputs &outputs, InLab6Inputs &inputs, boost::program_options::variables_map &values) override {
+    void run(OutLab6Outputs &outputs, OutLab6Inputs &inputs, boost::program_options::variables_map &values) override {
 
         /**
          * TODO:: Document
@@ -97,7 +97,7 @@ protected:
         inputs.toJSON(results["inputs"]);
 
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
-            InLab6Outputs pointJacobiResults(inputs);
+            OutLab6Outputs pointJacobiResults(inputs);
             Compute::usingPointJacobi(pointJacobiResults, inputs);
             pointJacobiResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
             Parser::printLine();
@@ -127,4 +127,4 @@ protected:
 
 };
 
-#endif // NE591_008_INLAB6_H
+#endif // NE591_008_OUTLAB6_H

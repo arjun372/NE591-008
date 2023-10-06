@@ -15,6 +15,7 @@
 #include "math/blas/Ops.h"
 
 #include "math/relaxation_methods/RelaxationMethods.h"
+#include "math/LinearSolver.h"
 
 /**
  * @namespace MyRelaxationMethod
@@ -38,10 +39,10 @@ namespace MyRelaxationMethod {
      * @note The function uses the L2 norm to check for convergence. If the system does not converge within the specified number of iterations, the function will return the current solution and set the 'converged' flag to false.
      */
     template <typename T>
-    Solution<T> applyPointJacobi(const MyBLAS::Matrix<T>& A, const MyBLAS::Vector<T>& b, const size_t max_iterations, const T tolerance) {
+    MyLinearSolvingMethod::Solution<T> applyPointJacobi(const MyBLAS::Matrix<T>& A, const MyBLAS::Vector<T>& b, const size_t max_iterations, const T tolerance) {
 
         const size_t n = A.getRows();   // Get the number of rows in the matrix A
-        Solution<T> results(n);    // Initialize the results object with the size of the matrix
+        MyLinearSolvingMethod::Solution<T> results(n);    // Initialize the results object with the size of the matrix
 
         if(!MyBLAS::isSquareMatrix(A)) { // Check if the matrix A is square, if not return the results object
             return results;

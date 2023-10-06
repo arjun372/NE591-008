@@ -185,6 +185,7 @@ Currently supported inlab, outlab build targets include:
   <tr>
     <td>6</td>
     <td><code>✅ inlab6</code>  <code>✅ inlab6_tests</code></td>
+    <td><code>✅ outlab6</code>  <code>❌ outlab6_tests</code></td>
   </tr>
   <tr>
     <td>7</td>

@@ -42,29 +42,6 @@ namespace MyRelaxationMethod {
         return relaxationMethodTypeKeys[static_cast<int>(value)];
     }
 
-    /**
-     * @brief Struct template to represent a solution.
-     *
-     * This struct template represents a solution. It contains a boolean to indicate if the solution has converged,
-     * a size_t to represent the number of iterations, a T to represent the iterative error, and a Vector of T to represent the solution.
-     *
-     * @tparam T The type of the elements in the solution vector.
-     */
-    template <typename T>
-    struct Solution {
-        explicit Solution<T>(MyBLAS::Vector<T> &initial) {
-            x = initial;
-        }
-        explicit Solution<T>(size_t size) {
-            x = MyBLAS::Vector<T>(size, 0);
-        }
-        Solution() = default;
-        bool converged = false;
-        size_t iterations = 0;
-        T iterative_error = std::numeric_limits<T>::max();
-        MyBLAS::Vector<T> x;
-    };
-
 }
 
 #endif //NE591_008_RELAXATIONMETHODS_H

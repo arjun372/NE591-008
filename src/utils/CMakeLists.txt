@@ -19,6 +19,8 @@ set(UTILS_LIB_HEADERS
         math/relaxation_methods/SSOR.h
         math/blas/Ops.h
         math/relaxation_methods/RelaxationMethods.h
+        math/blas/Factorize.h
+        math/LinearSolver.h
 )
 
 set(UTILS_LIB_SOURCES
