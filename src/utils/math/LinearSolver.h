@@ -8,8 +8,8 @@
 #ifndef NE591_008_LINEARSOLVER_H
 #define NE591_008_LINEARSOLVER_H
 
-#include "math/blas/Factorize.h"
-#include "math/relaxation_methods/RelaxationMethods.h"
+#include "math/factorization/Factorize.h"
+#include "math/relaxation/RelaxationMethods.h"
 
 #include <variant>
 
@@ -38,9 +38,10 @@ namespace MyLinearSolvingMethod {
     // TODO:: DOCUMENT
     template <typename T>
     struct Input {
-        size_t n = 0; ////< Size of the matrix/vector
-        T threshold = 0; ////< The convergence threshold
-        size_t max_iterations = 0; ////< Maximum number of iterations to perform
+        size_t n = std::numeric_limits<size_t>::quiet_NaN(); ////< Size of the matrix/vector
+        T threshold = std::numeric_limits<T>::quiet_NaN(); ////< The convergence threshold
+        T relaxation_factor = std::numeric_limits<T>::quiet_NaN();; ////< The relaxation factor, also known as the optimal weight or omega, ω
+        size_t max_iterations = std::numeric_limits<size_t>::quiet_NaN();; ////< Maximum number of iterations to perform
         MyBLAS::Matrix<T> coefficients{}; ///< Coefficient matrix A
         MyBLAS::Vector<T> constants{}; ///< Vector of constants b.
     };
@@ -61,9 +62,9 @@ namespace MyLinearSolvingMethod {
         Solution() = default;
         MyLinearSolvingMethod::Type method;
         bool converged = false;
-        size_t iterations = 0;
-        T iterative_error = std::numeric_limits<T>::max();
-        MyBLAS::Vector<T> x;
+        size_t iterations = std::numeric_limits<size_t>::quiet_NaN();
+        T iterative_error = std::numeric_limits<T>::quiet_NaN();;
+        MyBLAS::Vector<T> x{};
 
 
         [[nodiscard]] MyBLAS::Vector<T> getResidual(MyBLAS::Matrix<T> a) const {

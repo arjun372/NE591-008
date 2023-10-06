@@ -23,7 +23,7 @@
 
 #include "math/blas/MyBLAS.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/LU.h"
+#include "math/factorization/LU.h"
 
 #include "json.hpp"
 #include "Compute.h"

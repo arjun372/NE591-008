@@ -21,7 +21,8 @@ namespace MyRelaxationMethod {
         METHOD_POINT_JACOBI,
         METHOD_GAUSS_SEIDEL,
         METHOD_SOR,
-        METHOD_SSOR
+        METHOD_SSOR,
+        METHOD_SORJ,
     };
 
     /**
@@ -37,9 +38,47 @@ namespace MyRelaxationMethod {
                 "point-jacobi",
                 "gauss-seidel",
                 "SOR",
-                "SSOR"
+                "SSOR",
+                "SORJ"
         };
         return relaxationMethodTypeKeys[static_cast<int>(value)];
+    }
+
+    //TODO:: DOCUMENT
+    template<typename T>
+    T inline approximateOptimalRelaxationFactor(const size_t meshX, const size_t meshY) {
+        const T dx = 1 / (static_cast<T>(meshX) - 1);
+        const T dy = 1 / (static_cast<T>(meshY) - 1);
+        const T rho = std::cos(M_PIl * dx) + std::cos(M_PIl * dy);
+        const T factor = 2 / (1 + std::sqrt(1 - std::pow(rho, 2)));
+        return factor;
+    }
+
+    //TODO:: DOCUMENT
+    template<typename T>
+    T inline approximateOptimalRelaxationFactor(const size_t meshXY) {
+        return approximateOptimalRelaxationFactor<T>(meshXY, meshXY);
+    }
+
+    // TODO:: DOCUMENT
+    template <typename T>
+    bool passesPreChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
+
+        if(!MyBLAS::isSquareMatrix(A)) {
+            std::cerr<<"Error: Failed pre-check: coefficient matrix is non-square.\n";
+            return false;
+        }
+
+        if(!MyBLAS::noZerosInDiagonal(A)) {
+            std::cerr<<"Error: Failed pre-check: coefficient matrix diagonal contains 0.\n";
+            return false;
+        }
+
+        if(!MyBLAS::isDiagonallyDominant(A)) {
+            std::cout<<"Warning: coefficient matrix is not diagonally dominant, may not converge\n";
+        }
+
+        return true;
     }
 
 }

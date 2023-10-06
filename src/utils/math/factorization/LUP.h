@@ -29,12 +29,14 @@
 #include <iostream>
 #include <cmath>
 
-#include "Matrix.h"
-#include "Vector.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/Vector.h"
 #include "LU.h"
 
 #include "../../CommandLine.h"
 #include "../../Stopwatch.h"
+#include "Factorize.h"
+#include "math/LinearSolver.h"
 
 /**
  * @namespace MyBLAS
@@ -56,7 +58,7 @@ namespace MyBLAS::LUP {
      * @return The permutation matrix.
      */
     template <typename T>
-    static MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+    MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
 
         MyBLAS::Matrix pivotedA = A;
 
@@ -104,7 +106,7 @@ namespace MyBLAS::LUP {
      * @return The permutation matrix.
      */
     template <typename T>
-    static MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+    MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
         const size_t n = A.getCols();
 
         MyBLAS::Matrix<T> P = MyBLAS::Matrix<T>::eye(n);
@@ -180,7 +182,7 @@ namespace MyBLAS::LUP {
      * @return The permutation matrix.
      */
     template <typename T>
-    static MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+    MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
         const auto n = A.getRows();
 
         // Initialize L, U, and P
@@ -233,9 +235,39 @@ namespace MyBLAS::LUP {
      * @note The function does not check if the input matrix A is square. It is the responsibility of the caller to ensure this.
      */
     template <typename T>
-    static MyBLAS::Matrix<T> factorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+    MyBLAS::Matrix<T> factorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
         return dooLittleFactorizeLUP(L, U, A);
     }
+
+    // TODO:: DOCUMENT
+    template <typename T>
+    MyFactorizationMethod::Parameters<T> factorize(const MyBLAS::Matrix<T> &A) {
+        MyFactorizationMethod::Parameters<T> parameters(A.getRows());
+        parameters.P = dooLittleFactorizeLUP(parameters.L, parameters.U, A);
+        return parameters;
+    }
+
+    // TODO:: DOCUMENT
+    template <typename T>
+    MyLinearSolvingMethod::Solution<T> applyLUP(const MyBLAS::Matrix<T>& A, const MyBLAS::Vector<T>& b, const T tolerance = 0) {
+
+        const size_t n = A.getRows();   // Get the number of rows in the matrix A
+
+        MyFactorizationMethod::Parameters<T> parameters(n);
+        parameters.P = dooLittleFactorizeLUP(parameters.L, parameters.U, A);
+
+        MyLinearSolvingMethod::Solution<T> results(n);    // Initialize the results object with the size of the matrix
+
+        const auto Pb = parameters.P * b;
+
+        const MyBLAS::Vector<T> y = MyBLAS::forwardSubstitution<T>(parameters.L, Pb);
+        const MyBLAS::Vector<T> x = MyBLAS::backwardSubstitution<T>(parameters.U, y);
+
+        results.x = x;
+
+        return results;
+    }
+
 }
 
 #endif //NE591_008_LUP_H

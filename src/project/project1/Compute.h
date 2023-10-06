@@ -12,8 +12,8 @@
 #include <cmath>
 
 #include "math/blas/Matrix.h"
-#include "math/blas/LU.h"
-#include "math/blas/LUP.h"
+#include "math/factorization/LU.h"
+#include "math/factorization/LUP.h"
 
 /**
  * @brief Calculates the mesh spacings in the x and y directions.

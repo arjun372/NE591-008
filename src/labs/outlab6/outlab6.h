@@ -23,7 +23,7 @@
 
 #include "math/blas/MyBLAS.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/LU.h"
+#include "math/factorization/LU.h"
 
 #include "json.hpp"
 #include "Compute.h"
@@ -50,20 +50,20 @@ protected:
      */
     HeaderInfo buildHeaderInfo() override {
         Canvas canvas;
-        auto x = -0.292;
+        auto x = 0.13;
         auto y = -0.66;
-        auto iterations = 200;
+        auto iterations = 80;
         canvas.x_start = -0.007514104707;
         canvas.x_stop = 0.075446744304;
         canvas.y_start = 0.825578589953;
         canvas.y_stop = 0.883651184261;
-        canvas.tone_map.growth_rate = 0.3;
+        canvas.tone_map.growth_rate = 0.25;
         printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
         std::cout<<"Julia set at ("<<x<<","<<y<<"), "<<iterations<<" iterations\n";
         return {
                 .ProjectName = "NE591: OutLab 06",
-                .ProjectDescription = "Solving a system of linear equations using iterative and factorization methods",
-                .SubmissionDate = "09/29/2023",
+                .ProjectDescription = "Solving a system of linear equations using iterative methods",
+                .SubmissionDate = "10/06/2023",
                 .StudentName = "Arjun Earthperson",
                 .HeaderArt = " ",
         };
@@ -80,45 +80,87 @@ protected:
         std::cout<<"\texecution time (s)        : "<<(results.execution_time/1.0e9)<<std::endl;
     }
 
-    /**
-     * @brief This function runs the project.
-     * @details It solves the system of linear equations using forward and back substitution.
-     * @param outputs The output vector
-     * @param inputs The input matrices
-     * @param values The variable map
-     */
+    // TODO:: DOCUMENT
     void run(OutLab6Outputs &outputs, OutLab6Inputs &inputs, boost::program_options::variables_map &values) override {
 
         /**
          * TODO:: Document
         **/
 
+        size_t n = 8;
+        auto A = MyBLAS::generateOrthogonalMatrix<long double>(n);
+        auto x = MyBLAS::generateVector<long double>(n);
+        auto b = A*x;
+        outputs.inputs.input.coefficients = A;
+        inputs.input.coefficients = A;
+        outputs.inputs.input.constants = b;
+        outputs.inputs.input.relaxation_factor = 1.1110;
+        inputs.input.relaxation_factor = 1.1110;
+        inputs.input.constants = b;
+        outputs.inputs.input.n = n;
+        inputs.input.n = n;
+
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);
 
+        if (inputs.methods.count(MyFactorizationMethod::Type::METHOD_LUP)) {
+            OutLab6Outputs runResults(inputs);
+            Compute::usingLUP(runResults, inputs);
+            runResults.toJSON(results["outputs"][MyFactorizationMethod::TypeKey(MyFactorizationMethod::Type::METHOD_LUP)]);
+            Parser::printLine();
+            std::cout<<"LUP Factorization Results"<<std::endl;
+            Parser::printLine();
+            printResults(runResults);
+        }
+
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
-            OutLab6Outputs pointJacobiResults(inputs);
-            Compute::usingPointJacobi(pointJacobiResults, inputs);
-            pointJacobiResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
+            OutLab6Outputs runResults(inputs);
+            Compute::usingPointJacobi(runResults, inputs);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
             Parser::printLine();
-            std::cout<<"Point Seidel Method Results"<<std::endl;
+            std::cout<<"Point Jacobi Method Results"<<std::endl;
             Parser::printLine();
-            printResults(pointJacobiResults);
+            printResults(runResults);
         }
 
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)) {
+            OutLab6Outputs runResults(inputs);
+            Compute::usingGaussSeidel(runResults, inputs);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)]);
             Parser::printLine();
-            std::cout<<"Gauss Seidel not implemented yet."<<std::endl;
+            std::cout<<"Gauss-Seidel Method Results"<<std::endl;
+            Parser::printLine();
+            printResults(runResults);
         }
 
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SOR)) {
+            OutLab6Outputs runResults(inputs);
+            Compute::usingSOR(runResults, inputs);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SOR)]);
             Parser::printLine();
-            std::cout<<"Successive over-relaxation (SOR) not implemented yet."<<std::endl;
+            std::cout<<"SOR Method Results"<<std::endl;
+            Parser::printLine();
+            printResults(runResults);
+        }
+
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORJ)) {
+            OutLab6Outputs runResults(inputs);
+            Compute::usingJacobiSOR(runResults, inputs);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORJ)]);
+            Parser::printLine();
+            std::cout<<"SOR Point Jacobi Method Results"<<std::endl;
+            Parser::printLine();
+            printResults(runResults);
         }
 
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SSOR)) {
+            OutLab6Outputs runResults(inputs);
+            Compute::usingSymmetricSOR(runResults, inputs);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SSOR)]);
             Parser::printLine();
-            std::cout<<"Symmetric Successive over-relaxation (SOR) not implemented yet."<<std::endl;
+            std::cout<<"Symmetric SOR Method Results"<<std::endl;
+            Parser::printLine();
+            printResults(runResults);
         }
 
         Parser::printLine();

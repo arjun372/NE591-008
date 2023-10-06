@@ -13,7 +13,7 @@
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
 #include "json.hpp"
-#include "math/relaxation_methods/RelaxationMethods.h"
+#include "math/relaxation/RelaxationMethods.h"
 #include "math/blas/MyBLAS.h"
 #include "math/LinearSolver.h"
 

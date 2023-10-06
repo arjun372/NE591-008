@@ -12,7 +12,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include "Vector.h"
+#include "math/blas/Vector.h"
 
 namespace MyBLAS {
 
@@ -121,13 +121,29 @@ namespace MyBLAS {
          * @brief Getter for the number of rows in the matrix.
          * @return Number of rows in the matrix.
          */
-        [[nodiscard]] size_t getRows() const { return rows; }
+        [[nodiscard]] size_t getRows() const {
+            if (rows != data.size()) {
+                throw std::invalid_argument("Error: Matrix row size does not match the allocated matrix rows.");
+            }
+            return rows;
+        }
 
         /**
          * @brief Getter for the number of columns in the matrix.
          * @return Number of columns in the matrix.
          */
-        [[nodiscard]] size_t getCols() const { return cols; }
+        [[nodiscard]] size_t getCols() const {
+            size_t colSize;
+            try {
+                colSize = data[0].size();
+            } catch (...) {
+                colSize = 0;
+            }
+            if (cols != colSize) {
+                throw std::invalid_argument("Error: Matrix column size does not match the allocated matrix columns.");
+            }
+            return cols;
+        }
 
         /**
          * @brief Static function to get the identity matrix of a given size.

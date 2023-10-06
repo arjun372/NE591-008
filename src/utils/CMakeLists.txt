@@ -11,15 +11,15 @@ set(UTILS_LIB_HEADERS
         math/blas/MyBLAS.h
         math/blas/Vector.h
         math/blas/Matrix.h
-        math/blas/LU.h
-        math/blas/LUP.h
-        math/relaxation_methods/PointJacobi.h
-        math/relaxation_methods/GaussSeidel.h
-        math/relaxation_methods/SOR.h
-        math/relaxation_methods/SSOR.h
         math/blas/Ops.h
-        math/relaxation_methods/RelaxationMethods.h
-        math/blas/Factorize.h
+        math/factorization/LU.h
+        math/factorization/LUP.h
+        math/factorization/Factorize.h
+        math/relaxation/PointJacobi.h
+        math/relaxation/GaussSeidel.h
+        math/relaxation/SOR.h
+        math/relaxation/SSOR.h
+        math/relaxation/RelaxationMethods.h
         math/LinearSolver.h
 )
 

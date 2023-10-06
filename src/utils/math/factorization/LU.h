@@ -29,8 +29,8 @@
 #include <iostream>
 #include <cmath>
 
-#include "Matrix.h"
-#include "Vector.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/Vector.h"
 
 #include "../../CommandLine.h"
 #include "../../Stopwatch.h"

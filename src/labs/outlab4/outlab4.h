@@ -27,7 +27,7 @@
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
 #include "math/blas/MyBLAS.h"
-#include "math/blas/LU.h"
+#include "math/factorization/LU.h"
 
 
 /**

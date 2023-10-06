@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "math/blas/MyBLAS.h"
-#include "math/blas/LU.h"
+#include "math/factorization/LU.h"
 
 
 class FactorizeValidLUMatrixTest : public ::testing::TestWithParam<MyBLAS::Matrix<long double>> {

@@ -29,17 +29,20 @@ protected:
    */
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()
-                ("threshold,t", boost::program_options::value<long double>(), "= iterative convergence threshold [𝜀 > 0]")
-                ("max-iterations,k", boost::program_options::value<long double>(), "= maximum number of iterations [n ∈ ℕ]")
+                ("threshold,t", boost::program_options::value<long double>(), "= convergence threshold [𝜀 > 0]")
+                ("max-iterations,k", boost::program_options::value<long double>(), "= maximum iterations [n ∈ ℕ]")
+                ("relaxation-factor,w", boost::program_options::value<long double>(), "= SOR weight, typical w ∈ [0,2]")
                 ("order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]")
                 ("input-json,i", boost::program_options::value<std::string>(), "= input JSON containing A, and b")
                 ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
 
         boost::program_options::options_description methods("Solver Methods");
         methods.add_options()
+                ("use-LUP", "= Use LUP factorization")
                 ("use-point-jacobi", "= Use the Point-Jacobi method")
-                ("use-gauss-seidel", "= [DISABLED] Use the Gauss-Seidel method")
-                ("use-SOR", "= [DISABLED] Use the SOR method")
+                ("use-gauss-seidel", "= Use the Gauss-Seidel method")
+                ("use-SOR", "= Use the SOR method")
+                ("use-SORJ", "= Use the SOR Jacobi method")
                 ("use-SSOR", "= [DISABLED] Use the symmetric SOR method");
         values.add(methods);
     }
@@ -55,15 +58,18 @@ protected:
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        std::cout << "\tInput JSON (for A, b),  i: " << vm["input-json"].as<std::string>() << "\n";
-        std::cout << "\tOutput JSON (for x),    o: " << vm["output-json"].as<std::string>() << "\n";
-        std::cout << "\tConvergence Threshold,  𝜀: " << vm["threshold"].as<long double>() << "\n";
-        std::cout << "\tMax iterations,         k: " << static_cast<size_t>(vm["max-iterations"].as<long double>()) << "\n";
-        std::cout << "\tMatrix order,           n: " << (vm.count("order") ? std::to_string(static_cast<size_t>(vm["order"].as<long double>())) : "None provided, will be inferred from input JSON")<< "\n";
-        std::cout << "\tUse Gauss-Siedel         : " << (vm["use-gauss-seidel"].as<bool>() ? "Yes" : "No") << "\n";
-        std::cout << "\tUse Point-Jacobi         : " << (vm["use-point-jacobi"].as<bool>() ? "Yes" : "No") << "\n";
-        std::cout << "\tUse SOR                  : " << (vm["use-SOR"].as<bool>() ? "Yes" : "No") << "\n";
-        std::cout << "\tUse SSOR                 : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tInput JSON (for A, b),   i: " << vm["input-json"].as<std::string>() << "\n";
+        std::cout << "\tOutput JSON (for x),     o: " << vm["output-json"].as<std::string>() << "\n";
+        std::cout << "\tConvergence Threshold,   𝜀: " << vm["threshold"].as<long double>() << "\n";
+        std::cout << "\tMax iterations,          k: " << static_cast<size_t>(vm["max-iterations"].as<long double>()) << "\n";
+        std::cout << "\tMatrix order,            n: " << (vm.count("order") ? std::to_string(static_cast<size_t>(vm["order"].as<long double>())) : "None provided, will be inferred from input JSON")<< "\n";
+        std::cout << "\tSOR weight,              ω: " << (vm.count("relaxation-factor") ? std::to_string(vm["relaxation-factor"].as<long double>()) : "N/A")<< "\n";
+        std::cout << "\tUse LUP factorization     : " << (vm["use-LUP"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse Gauss-Seidel          : " << (vm["use-gauss-seidel"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse Point-Jacobi          : " << (vm["use-point-jacobi"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse SOR                   : " << (vm["use-SOR"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse Point-Jacobi with SOR : " << (vm["use-SORJ"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse SSOR                  : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
         CommandLine::printLine();
     }
 
@@ -133,10 +139,17 @@ protected:
             performChecksAndUpdateInput<long double>("order", inputMap, map, checks);
         }
 
+        promptAndSetFlags("use-LUP", "LUP factorization method", map);
         promptAndSetFlags("use-point-jacobi", "Point Jacobi method", map);
         promptAndSetFlags("use-gauss-seidel", "Gauss-Seidel method", map);
         promptAndSetFlags("use-SOR", "SOR method", map);
+        promptAndSetFlags("use-SORJ", "Point-Jacobi with SOR method", map);
         promptAndSetFlags("use-SSOR", "symmetric SOR method", map);
+
+        if(map["use-SOR"].as<bool>() || map["use-SORJ"].as<bool>() || map["use-SSOR"].as<bool>()) {
+            checks.clear();
+            performChecksAndUpdateInput<long double>("relaxation-factor", inputMap, map, checks);
+        }
     }
 
     /**
@@ -188,6 +201,10 @@ protected:
         inputs.input.threshold = values["threshold"].as<long double>();
         inputs.input.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
 
+        if(values["use-LUP"].as<bool>()) {
+            inputs.methods.insert(MyFactorizationMethod::Type::METHOD_LUP);
+        }
+
         if(values["use-point-jacobi"].as<bool>()) {
             inputs.methods.insert(MyRelaxationMethod::Type::METHOD_POINT_JACOBI);
         }
@@ -200,8 +217,16 @@ protected:
             inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SOR);
         }
 
+        if(values["use-SORJ"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SORJ);
+        }
+
         if(values["use-SSOR"].as<bool>()) {
             inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SSOR);
+        }
+
+        if (values.count("relaxation-factor")) {
+            inputs.input.relaxation_factor = values["relaxation-factor"].as<long double>();
         }
 
         // print the matrices since we are in verbose mode.

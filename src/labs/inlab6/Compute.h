@@ -12,9 +12,9 @@
 #include <cmath>
 
 #include "math/blas/Matrix.h"
-#include "math/blas/LU.h"
+#include "math/factorization/LU.h"
 
-#include "math/relaxation_methods/PointJacobi.h"
+#include "math/relaxation/PointJacobi.h"
 
 /**
  * @namespace Compute
