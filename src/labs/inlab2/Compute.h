@@ -24,17 +24,15 @@
  * @param fx The vector of function values.
  */
 template <typename T>
-void fillLagrangePolys(std::vector<T> &Lxi, const std::vector<T> &xi,
-                       const std::vector<T> &x, const std::vector<T> &fx) {
+void fillLagrangePolys(std::vector<T> &Lxi, const std::vector<T> &xi, const std::vector<T> &x,
+                       const std::vector<T> &fx) {
     Lxi.reserve(xi.size() + x.size() - fx.size());
 }
 
 /**
- * @brief Fills the interpolation error for given Lagrange polynomials and
- * function values.
+ * @brief Fills the interpolation error for given Lagrange polynomials and function values.
  *
- * This function fills the interpolation error for given Lagrange polynomials
- * and function values.
+ * This function fills the interpolation error for given Lagrange polynomials and function values.
  *
  * @tparam T The type of the elements in the vectors.
  * @param IEx The vector to store the interpolation error.
@@ -42,7 +40,6 @@ void fillLagrangePolys(std::vector<T> &Lxi, const std::vector<T> &xi,
  * @param fx The vector of function values.
  */
 template <typename T>
-void fillInterpolationError(std::vector<T> &IEx, const std::vector<T> &Lxi,
-                            const std::vector<T> &fx) {
+void fillInterpolationError(std::vector<T> &IEx, const std::vector<T> &Lxi, const std::vector<T> &fx) {
     IEx.reserve((Lxi.size() + fx.size()) / 2);
 }

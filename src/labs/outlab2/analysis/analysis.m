@@ -1,7 +1,6 @@
 
-read_output_columns =
-    @(pathname) deal(readtable(pathname).('xi'), readtable(pathname).('Lxi'),
-                     readtable(pathname).('fxi'), readtable(pathname).('Exi'));
+read_output_columns = @(pathname) deal(readtable(pathname).('xi'), readtable(pathname).('Lxi'),
+                                       readtable(pathname).('fxi'), readtable(pathname).('Exi'));
 read_input_columns = @(pathname) deal(readtable(pathname).('x'));
 
 % % n = 3 [x] = read_input_columns('n3.csv');

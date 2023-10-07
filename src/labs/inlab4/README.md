@@ -9,6 +9,7 @@ File based I/O is supported using JSON files.
 <div style="display: none">[TOC]</div>
 
 ## Overview
+
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
@@ -66,16 +67,44 @@ The expected input json file requires the following fields:
 ```json
 {
   "lower": [
-    [1.0, 0.0, 0.0],
-    [2.0, 1.0, 0.0],
-    [3.0, 2.0, 1.0]
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      2.0,
+      1.0,
+      0.0
+    ],
+    [
+      3.0,
+      2.0,
+      1.0
+    ]
   ],
   "upper": [
-    [1.0, 1.0, 2.0],
-    [0.0, 2.0, 3.0],
-    [0.0, 0.0, 3.0]
+    [
+      1.0,
+      1.0,
+      2.0
+    ],
+    [
+      0.0,
+      2.0,
+      3.0
+    ],
+    [
+      0.0,
+      0.0,
+      3.0
+    ]
   ],
-  "constants": [7.0, 21.0, 38.0]
+  "constants": [
+    7.0,
+    21.0,
+    38.0
+  ]
 }
 ```
 

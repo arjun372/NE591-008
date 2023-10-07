@@ -2,8 +2,7 @@
  * @file Stopwatch.h
  * @author Arjun Earthperson
  * @date 08/30/2023
- * @brief This file contains the Stopwatch class which is a utility for
- * measuring time durations in various units.
+ * @brief This file contains the Stopwatch class which is a utility for measuring time durations in various units.
  */
 
 /*
@@ -61,29 +60,23 @@ template <class D> class Stopwatch {
 
     /**
      * @brief Get the duration in the given type.
-     * @return The duration from the initial time point to the last clicked time
-     * point, cast to the template duration type.
+     * @return The duration from the initial time point to the last clicked time point, cast to the template duration
+     * type.
      */
-    D duration() const {
-        return std::chrono::duration_cast<D>(_clicked - _initial);
-    }
+    D duration() const { return std::chrono::duration_cast<D>(_clicked - _initial); }
 
     /**
      * @brief Get the duration in seconds, in double precision.
-     * @return The duration from the initial time point to the last clicked time
-     * point, cast to double precision seconds.
+     * @return The duration from the initial time point to the last clicked time point, cast to double precision
+     * seconds.
      */
     [[nodiscard]] double elapsed_seconds() const {
-        return std::chrono::duration_cast<std::chrono::duration<double>>(
-                   duration())
-            .count();
+        return std::chrono::duration_cast<std::chrono::duration<double>>(duration()).count();
     }
 
     /**
-     * @brief Restart the stopwatch by setting the initial and clicked time
-     * points to the current time.
-     * @return A reference to the stopwatch object, allowing for method
-     * chaining.
+     * @brief Restart the stopwatch by setting the initial and clicked time points to the current time.
+     * @return A reference to the stopwatch object, allowing for method chaining.
      */
     Stopwatch &restart() {
         _initial = ResolutionType::now();
@@ -93,8 +86,7 @@ template <class D> class Stopwatch {
 
     /**
      * @brief Save the current time as the clicked time point.
-     * @return A reference to the stopwatch object, allowing for method
-     * chaining.
+     * @return A reference to the stopwatch object, allowing for method chaining.
      */
     Stopwatch &click() {
         _clicked = ResolutionType::now();
@@ -102,10 +94,8 @@ template <class D> class Stopwatch {
     }
 
   private:
-    TimePointType _initial; ///< The initial time point when the stopwatch was
-                            ///< last restarted.
-    TimePointType
-        _clicked; ///< The last clicked time point, used to measure durations.
+    TimePointType _initial; ///< The initial time point when the stopwatch was last restarted.
+    TimePointType _clicked; ///< The last clicked time point, used to measure durations.
 };
 
 #endif // NE591_008_STOPWATCH_H

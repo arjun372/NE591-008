@@ -24,14 +24,12 @@ enum IntegrationRule {
  * @return The string representation of the IntegrationRule.
  */
 const char *ruleKey(IntegrationRule value) {
-    static const char *IntegrationRuleKeys[] = {"none", "trapezoidal",
-                                                "simpsons", "gaussian"};
+    static const char *IntegrationRuleKeys[] = {"none", "trapezoidal", "simpsons", "gaussian"};
     return IntegrationRuleKeys[static_cast<int>(value)];
 }
 
 /**
- * @brief Struct representing the input parameters for the Newton-Cotes
- * integration methods.
+ * @brief Struct representing the input parameters for the Newton-Cotes integration methods.
  */
 typedef struct Input {
     long double a = 0;
@@ -45,8 +43,7 @@ typedef struct Input {
         jsonMap["m"] = m;
         jsonMap["rules"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
-            std::transform(integral_types.begin(), integral_types.end(),
-                           std::back_inserter(result),
+            std::transform(integral_types.begin(), integral_types.end(), std::back_inserter(result),
                            [](IntegrationRule rule) { return ruleKey(rule); });
             return result;
         }();
@@ -54,8 +51,7 @@ typedef struct Input {
 } NewtonCotesInputs;
 
 /**
- * @brief Struct representing the output parameters for the Newton-Cotes
- * integration methods.
+ * @brief Struct representing the output parameters for the Newton-Cotes integration methods.
  */
 typedef struct Output {
     long double h;

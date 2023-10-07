@@ -30,13 +30,11 @@
 
 /**
  * @class InLab5
- * @brief This class is a child of the Project class and is used to solve a
- * system of linear equations using forward and back substitution, with pivoting
- * @details The class takes in command line arguments and uses them to solve the
- * system of equations.
+ * @brief This class is a child of the Project class and is used to solve a system of linear equations using forward and
+ * back substitution, with pivoting
+ * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
-class InLab5
-    : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVector> {
+class InLab5 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVector> {
 
   public:
     /**
@@ -56,8 +54,7 @@ class InLab5
         std::cout << "\t\t\tJulia set at (-0.8, 0.156), 300 iterations\n";
         return {
             .ProjectName = "InLab 05",
-            .ProjectDescription = "Linear equations with permutation matrix, "
-                                  "forward, back substitution",
+            .ProjectDescription = "Linear equations with permutation matrix, forward, back substitution",
             .SubmissionDate = "09/22/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = " ",
@@ -66,8 +63,7 @@ class InLab5
 
     /**
      * @brief This function runs the project.
-     * @details It solves the system of linear equations using forward and back
-     * substitution, with pivoting
+     * @details It solves the system of linear equations using forward and back substitution, with pivoting
      * @param outputs The output vector
      * @param inputs The input matrices
      * @param values The variable map
@@ -83,10 +79,8 @@ class InLab5
 
         const auto Pb = P * b;
 
-        const MyBLAS::Vector y =
-            MyBLAS::forwardSubstitution<long double>(LU, Pb);
-        const MyBLAS::Vector x =
-            MyBLAS::backwardSubstitution<long double>(LU, y);
+        const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(LU, Pb);
+        const MyBLAS::Vector x = MyBLAS::backwardSubstitution<long double>(LU, y);
 
         nlohmann::json results;
         outputs.solution = x;

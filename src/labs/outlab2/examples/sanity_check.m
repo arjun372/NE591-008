@@ -1,6 +1,4 @@
-% Define the parametric function f(x) = x ^ 4 - x ^ 3 - x ^
-                                        2 + x + 1 f = @(x) x.^ 4 - x.^ 3 - x.^
-                                                      2 + x + 1;
+% Define the parametric function f(x) = x ^ 4 - x ^ 3 - x ^ 2 + x + 1 f = @(x) x.^ 4 - x.^ 3 - x.^ 2 + x + 1;
 
 % Define the range of x values you want to plot over xmin = -1.5;
 % Minimum x value xmax = 1.5;  % Maximum x value
@@ -16,8 +14,7 @@ at the smooth curve points y_smooth = f(x_smooth);
 
 % Number of points to sample n = 10;
 
-% Generate n random x values in the specified range x_samples =
-    xmin + (xmax - xmin) * rand(1, n);
+% Generate n random x values in the specified range x_samples = xmin + (xmax - xmin) * rand(1, n);
 
 % Evaluate the function f(x)
 at the sampled x values y_samples = f(x_samples);

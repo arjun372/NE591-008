@@ -31,8 +31,7 @@
 /**
  * @class OutLab6
  * @brief This class is a child of the Project class
- * @details The class takes in command line arguments and uses them to solve the
- * system of equations.
+ * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
 class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
 
@@ -59,12 +58,10 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
         canvas.y_stop = 0.883651184261;
         canvas.tone_map.growth_rate = 0.25;
         printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
-        std::cout << "Julia set at (" << x << "," << y << "), " << iterations
-                  << " iterations\n";
+        std::cout << "Julia set at (" << x << "," << y << "), " << iterations << " iterations\n";
         return {
             .ProjectName = "NE591: OutLab 06",
-            .ProjectDescription =
-                "Solving a system of linear equations using iterative methods",
+            .ProjectDescription = "Solving a system of linear equations using iterative methods",
             .SubmissionDate = "10/06/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = " ",
@@ -76,25 +73,17 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
      * @param results The results of the computation.
      */
     static void printResults(OutLab6Outputs &results) {
-        std::cout << "\ttotal iterations          : "
-                  << (results.solution.iterations) << std::endl;
-        std::cout << "\tconverged                 : "
-                  << (results.solution.converged ? "Yes" : "No") << std::endl;
-        std::cout << "\titerative error           : "
-                  << (results.solution.iterative_error) << std::endl;
-        std::cout << "\tL2 error                  : "
-                  << (results.getSolutionError()) << std::endl;
+        std::cout << "\ttotal iterations          : " << (results.solution.iterations) << std::endl;
+        std::cout << "\tconverged                 : " << (results.solution.converged ? "Yes" : "No") << std::endl;
+        std::cout << "\titerative error           : " << (results.solution.iterative_error) << std::endl;
+        std::cout << "\tL2 error                  : " << (results.getSolutionError()) << std::endl;
         std::cout << "\tabsolute maximum residual : "
-                  << (results.solution.getMaxResidual(
-                         results.inputs.input.coefficients,
-                         results.inputs.input.constants))
+                  << (results.solution.getMaxResidual(results.inputs.input.coefficients,
+                                                      results.inputs.input.constants))
                   << std::endl;
-        std::cout << "\texecution time (ns)       : "
-                  << (results.execution_time) << std::endl;
-        std::cout << "\texecution time (ms)       : "
-                  << (results.execution_time / 1.0e6) << std::endl;
-        std::cout << "\texecution time (s)        : "
-                  << (results.execution_time / 1.0e9) << std::endl;
+        std::cout << "\texecution time (ns)       : " << (results.execution_time) << std::endl;
+        std::cout << "\texecution time (ms)       : " << (results.execution_time / 1.0e6) << std::endl;
+        std::cout << "\texecution time (s)        : " << (results.execution_time / 1.0e9) << std::endl;
     }
 
     /**
@@ -103,14 +92,11 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
      * @param inputs The inputs to the computation.
      * @param values The values used in the computation.
      */
-    void run(OutLab6Outputs &outputs, OutLab6Inputs &inputs,
-             boost::program_options::variables_map &values) override {
+    void run(OutLab6Outputs &outputs, OutLab6Inputs &inputs, boost::program_options::variables_map &values) override {
 
         /**
-         * @brief This section of the function handles the computation using
-         * different methods.
-         * @details The methods include LUP Factorization, Point Jacobi,
-         * Gauss-Seidel, SOR, SOR Point Jacobi, and SSOR.
+         * @brief This section of the function handles the computation using different methods.
+         * @details The methods include LUP Factorization, Point Jacobi, Gauss-Seidel, SOR, SOR Point Jacobi, and SSOR.
          */
 
         nlohmann::json results;
@@ -119,32 +105,30 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
         if (inputs.methods.count(MyFactorizationMethod::Type::METHOD_LUP)) {
             OutLab6Outputs runResults(inputs);
             Compute::usingLUP(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyFactorizationMethod::TypeKey(
-                MyFactorizationMethod::Type::METHOD_LUP)]);
+            runResults.toJSON(
+                results["outputs"][MyFactorizationMethod::TypeKey(MyFactorizationMethod::Type::METHOD_LUP)]);
             Parser::printLine();
             std::cout << "LUP Factorization Results" << std::endl;
             Parser::printLine();
             printResults(runResults);
         }
 
-        if (inputs.methods.count(
-                MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
             OutLab6Outputs runResults(inputs);
             Compute::usingPointJacobi(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(
-                MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
+            runResults.toJSON(
+                results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
             Parser::printLine();
             std::cout << "Point Jacobi Method Results" << std::endl;
             Parser::printLine();
             printResults(runResults);
         }
 
-        if (inputs.methods.count(
-                MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)) {
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)) {
             OutLab6Outputs runResults(inputs);
             Compute::usingGaussSeidel(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(
-                MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)]);
+            runResults.toJSON(
+                results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)]);
             Parser::printLine();
             std::cout << "Gauss-Seidel Method Results" << std::endl;
             Parser::printLine();
@@ -154,8 +138,7 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SOR)) {
             OutLab6Outputs runResults(inputs);
             Compute::usingSOR(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(
-                MyRelaxationMethod::Type::METHOD_SOR)]);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SOR)]);
             Parser::printLine();
             std::cout << "SOR Method Results" << std::endl;
             Parser::printLine();
@@ -165,8 +148,7 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORJ)) {
             OutLab6Outputs runResults(inputs);
             Compute::usingJacobiSOR(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(
-                MyRelaxationMethod::Type::METHOD_SORJ)]);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORJ)]);
             Parser::printLine();
             std::cout << "SOR Point Jacobi Method Results" << std::endl;
             Parser::printLine();
@@ -176,8 +158,7 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SSOR)) {
             OutLab6Outputs runResults(inputs);
             Compute::usingSymmetricSOR(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(
-                MyRelaxationMethod::Type::METHOD_SSOR)]);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SSOR)]);
             Parser::printLine();
             std::cout << "Symmetric SOR Method Results" << std::endl;
             Parser::printLine();

@@ -35,8 +35,8 @@ grid on grid minor box on % Plot f(x)
 as a smooth line plot(points, error, '--');
 set(gca, 'ColorOrderIndex', 1) scatter(points, error, 'LineWidth', 2);
 
-legend('Trapezoidal Rule', "Simpson's Rule", 'Gauss-Legendre Quadrature',
-       'Interpreter', 'latex', 'Location', 'northeast');
+legend('Trapezoidal Rule', "Simpson's Rule", 'Gauss-Legendre Quadrature', 'Interpreter', 'latex', 'Location',
+       'northeast');
 
 xticks((points));
 
@@ -52,8 +52,7 @@ ylabel('Absolute Error', 'Interpreter', 'latex');
 pos(4) = 420;
 set(gcf, 'Position', pos);
 % print(gcf, strcat(filename, '.error.png'), '-dpng', '-r600');
-% exportgraphics(gcf, strcat(filename, '.png'), 'BackgroundColor', 'white',
-                 'ContentType', 'image', 'Resolution', 600);
+% exportgraphics(gcf, strcat(filename, '.png'), 'BackgroundColor', 'white', 'ContentType', 'image', 'Resolution', 600);
 hold off;
 
 F = figure;
@@ -69,8 +68,8 @@ grid on grid minor box on % Plot f(x)
 as a smooth line plot(points, runtime, '--');
 set(gca, 'ColorOrderIndex', 1) scatter(points, runtime, 'LineWidth', 2);
 
-legend('Trapezoidal Rule', "Simpson's Rule", 'Gauss-Legendre Quadrature',
-       'Interpreter', 'latex', 'Location', 'northwest');
+legend('Trapezoidal Rule', "Simpson's Rule", 'Gauss-Legendre Quadrature', 'Interpreter', 'latex', 'Location',
+       'northwest');
 
 xticks((points));
 
@@ -86,6 +85,5 @@ ylabel('Runtime [$\mu$s]', 'Interpreter', 'latex');
 pos(4) = 420;
 set(gcf, 'Position', pos);
 % print(gcf, strcat(filename, '.runtime.png'), '-dpng', '-r600');
-% exportgraphics(gcf, strcat(filename, '.png'), 'BackgroundColor', 'white',
-                 'ContentType', 'image', 'Resolution', 600);
+% exportgraphics(gcf, strcat(filename, '.png'), 'BackgroundColor', 'white', 'ContentType', 'image', 'Resolution', 600);
 hold off;

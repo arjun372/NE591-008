@@ -17,7 +17,6 @@
 namespace MyBLAS {
 
 template <typename T> class Matrix;
-
 template <typename T> class Vector;
 
 /**
@@ -27,9 +26,8 @@ template <typename T> class Vector;
 template <typename T> class Matrix {
 
   protected:
-    std::vector<std::vector<T>>
-        data;          ///< 2D vector representing the matrix data.
-    size_t rows, cols; ///< Number of rows and columns in the matrix.
+    std::vector<std::vector<T>> data; ///< 2D vector representing the matrix data.
+    size_t rows, cols;                ///< Number of rows and columns in the matrix.
 
   public:
     /**
@@ -41,30 +39,25 @@ template <typename T> class Matrix {
      * @brief Constructor that initializes the matrix with a given 2D vector.
      * @param _data 2D vector to initialize the matrix with.
      */
-    explicit Matrix(std::vector<std::vector<T>> &_data)
-        : data(_data), rows(_data.size()), cols(_data.size()) {}
+    explicit Matrix(std::vector<std::vector<T>> &_data) : data(_data), rows(_data.size()), cols(_data.size()) {}
 
     /**
      * @brief Constructor that initializes the matrix with a given 2D vector.
      * @param _data 2D vector to initialize the matrix with.
      */
-    explicit Matrix(std::vector<std::vector<T>> _data)
-        : data(_data), rows(_data.size()), cols(_data.size()) {}
+    explicit Matrix(std::vector<std::vector<T>> _data) : data(_data), rows(_data.size()), cols(_data.size()) {}
 
     /**
-     * @brief Parameterized constructor that initializes the matrix with a given
-     * size and initial value.
+     * @brief Parameterized constructor that initializes the matrix with a given size and initial value.
      * @param _rows Number of rows in the matrix.
      * @param _cols Number of columns in the matrix.
      * @param _initial Initial value for all elements in the matrix.
      */
     Matrix(size_t _rows, size_t _cols, const T _initial = 0)
-        : data(_rows, std::vector<T>(_cols, _initial)), rows(_rows),
-          cols(_cols) {}
+        : data(_rows, std::vector<T>(_cols, _initial)), rows(_rows), cols(_cols) {}
 
     /**
-     * @brief Constructor that initializes the matrix with a given initializer
-     * list.
+     * @brief Constructor that initializes the matrix with a given initializer list.
      * @param initList Initializer list to initialize the matrix with.
      */
     Matrix(std::initializer_list<std::initializer_list<T>> initList) {
@@ -91,22 +84,17 @@ template <typename T> class Matrix {
     std::vector<T> &operator[](const size_t rowNum) { return data[rowNum]; }
 
     /**
-     * @brief Overloaded operator[] to access individual rows of the matrix
-     * (const version).
+     * @brief Overloaded operator[] to access individual rows of the matrix (const version).
      * @param rowNum Index of the row to access.
      * @return Const reference to the row at the given index.
      */
-    const std::vector<T> &operator[](const size_t rowNum) const {
-        return data[rowNum];
-    }
+    const std::vector<T> &operator[](const size_t rowNum) const { return data[rowNum]; }
 
     /**
      * @brief Getter for the matrix data.
      * @return Const reference to the matrix data.
      */
-    [[nodiscard]] const std::vector<std::vector<T>> &getData() const {
-        return data;
-    }
+    [[nodiscard]] const std::vector<std::vector<T>> &getData() const { return data; }
 
     /**
      * @brief Adds a new row to the end of the matrix.
@@ -116,8 +104,7 @@ template <typename T> class Matrix {
         if (data.empty()) {
             cols = row.size();
         } else if (cols != row.size()) {
-            throw std::invalid_argument(
-                "Error: Row size does not match the matrix column size.");
+            throw std::invalid_argument("Error: Row size does not match the matrix column size.");
         }
         data.push_back(row);
         ++rows;
@@ -129,8 +116,7 @@ template <typename T> class Matrix {
      */
     [[nodiscard]] size_t getRows() const {
         if (rows != data.size()) {
-            throw std::invalid_argument("Error: Matrix row size does not match "
-                                        "the allocated matrix rows.");
+            throw std::invalid_argument("Error: Matrix row size does not match the allocated matrix rows.");
         }
         return rows;
     }
@@ -147,8 +133,7 @@ template <typename T> class Matrix {
             colSize = 0;
         }
         if (cols != colSize) {
-            throw std::invalid_argument("Error: Matrix column size does not "
-                                        "match the allocated matrix columns.");
+            throw std::invalid_argument("Error: Matrix column size does not match the allocated matrix columns.");
         }
         return cols;
     }
@@ -246,8 +231,7 @@ template <typename T> class Matrix {
      * @param colStart Starting column index for the submatrix.
      * @param subMatrix The submatrix to set.
      */
-    void setSubMatrix(size_t rowStart, size_t colStart,
-                      const Matrix<T> &subMatrix) {
+    void setSubMatrix(size_t rowStart, size_t colStart, const Matrix<T> &subMatrix) {
         size_t subRows = subMatrix.getRows();
         size_t subCols = subMatrix.getCols();
 
@@ -270,8 +254,7 @@ template <typename T> class Matrix {
      * @param subCols Number of columns in the submatrix.
      * @return The extracted submatrix.
      */
-    Matrix<T> subMatrix(size_t rowStart, size_t colStart, size_t subRows,
-                        size_t subCols) const {
+    Matrix<T> subMatrix(size_t rowStart, size_t colStart, size_t subRows, size_t subCols) const {
         if (rowStart + subRows > rows || colStart + subCols > cols) {
             throw std::exception();
         }
@@ -366,12 +349,10 @@ template <typename T> class Matrix {
      * @return Reference to the output stream.
      */
     friend std::ostream &operator<<(std::ostream &os, const Matrix &m) {
-        const auto width = static_cast<int>(std::cout.precision() +
-                                            static_cast<std::streamsize>(10));
+        const auto width = static_cast<int>(std::cout.precision() + static_cast<std::streamsize>(10));
         for (size_t i = 0; i < m.getRows(); ++i) {
             for (size_t j = 0; j < m.getCols(); ++j) {
-                os << std::setw(width) << std::setfill(' ') << std::scientific
-                   << static_cast<long double>(m[i][j]);
+                os << std::setw(width) << std::setfill(' ') << std::scientific << static_cast<long double>(m[i][j]);
             }
             os << '\n';
         }
@@ -382,14 +363,12 @@ template <typename T> class Matrix {
 /**
  * @brief Perform forward substitution
  *
- * This function performs forward substitution, which is used in solving a
- * system of linear equations after the system matrix has been decomposed into a
- * lower triangular matrix (L) and an upper triangular matrix (U). The forward
- * substitution algorithm iterates through each row of the lower triangular
- * matrix (L) and computes the corresponding element in the intermediate result
- * vector (y) by subtracting the sum of the product of the current row elements
- * and the corresponding elements in the intermediate result vector (y) from the
- * corresponding element in the input vector (b).
+ * This function performs forward substitution, which is used in solving a system of linear equations
+ * after the system matrix has been decomposed into a lower triangular matrix (L) and an upper triangular matrix (U).
+ * The forward substitution algorithm iterates through each row of the lower triangular matrix (L) and computes
+ * the corresponding element in the intermediate result vector (y) by subtracting the sum of the product of the
+ * current row elements and the corresponding elements in the intermediate result vector (y) from the corresponding
+ * element in the input vector (b).
  *
  * @tparam T Using templates for data type consistency in computation.
  * @param L A lower triangular matrix.
@@ -397,8 +376,7 @@ template <typename T> class Matrix {
  * @return The result vector after performing forward substitution.
  */
 template <typename T>
-static MyBLAS::Vector<T> forwardSubstitution(const MyBLAS::Matrix<T> &L,
-                                             const MyBLAS::Vector<T> &b) {
+static MyBLAS::Vector<T> forwardSubstitution(const MyBLAS::Matrix<T> &L, const MyBLAS::Vector<T> &b) {
     const auto n = b.size();
     auto y = MyBLAS::Vector<T>(n);
     for (size_t row = 0; row < n; row++) {
@@ -414,15 +392,12 @@ static MyBLAS::Vector<T> forwardSubstitution(const MyBLAS::Matrix<T> &L,
 /**
  * @brief Perform backward substitution
  *
- * This function performs backward substitution, which is used in solving a
- * system of linear equations after the system matrix has been decomposed into a
- * lower triangular matrix (L) and an upper triangular matrix (U), and forward
- * substitution has been performed. The backward substitution algorithm iterates
- * through each row of the upper triangular matrix (U) in reverse order and
- * computes the corresponding element in the solution vector (x) by subtracting
- * the sum of the product of the current row elements and the corresponding
- * elements in the solution vector (x) from the corresponding element in the
- * intermediate result vector (y) and then dividing by the diagonal element of
+ * This function performs backward substitution, which is used in solving a system of linear equations
+ * after the system matrix has been decomposed into a lower triangular matrix (L) and an upper triangular matrix (U),
+ * and forward substitution has been performed. The backward substitution algorithm iterates through each row of the
+ * upper triangular matrix (U) in reverse order and computes the corresponding element in the solution vector (x) by
+ * subtracting the sum of the product of the current row elements and the corresponding elements in the solution vector
+ * (x) from the corresponding element in the intermediate result vector (y) and then dividing by the diagonal element of
  * the current row in the upper triangular matrix (U).
  *
  * @tparam T Using templates for data type consistency in computation.
@@ -431,8 +406,7 @@ static MyBLAS::Vector<T> forwardSubstitution(const MyBLAS::Matrix<T> &L,
  * @return The solution vector after performing backward substitution.
  */
 template <typename T>
-static MyBLAS::Vector<T> backwardSubstitution(const MyBLAS::Matrix<T> &U,
-                                              const MyBLAS::Vector<T> &y) {
+static MyBLAS::Vector<T> backwardSubstitution(const MyBLAS::Matrix<T> &U, const MyBLAS::Vector<T> &y) {
     const auto n = y.size();
     auto x = MyBLAS::Vector<T>(n, static_cast<T>(0));
     for (int64_t i = n - 1; i >= 0; i--) {
@@ -448,18 +422,15 @@ static MyBLAS::Vector<T> backwardSubstitution(const MyBLAS::Matrix<T> &U,
 /**
  * @brief Casts the elements of a given matrix to a specified type.
  *
- * This function creates a new matrix with the same dimensions as the input
- * matrix and fills it with the elements of the input matrix cast to the
- * specified type.
+ * This function creates a new matrix with the same dimensions as the input matrix and fills it with the
+ * elements of the input matrix cast to the specified type.
  *
  * @tparam T The data type to cast the elements to.
  * @tparam T2 The original data type of the elements in the input matrix.
  * @param input The input matrix whose elements are to be cast.
- * @return A new matrix with the elements of the input matrix cast to the
- * specified type.
+ * @return A new matrix with the elements of the input matrix cast to the specified type.
  */
-template <typename T, typename T2>
-static MyBLAS::Matrix<T> cast(const MyBLAS::Matrix<T2> &input) {
+template <typename T, typename T2> static MyBLAS::Matrix<T> cast(const MyBLAS::Matrix<T2> &input) {
     MyBLAS::Matrix<T> output = Matrix<T>(input.getRows(), input.getCols(), 0);
 
     for (size_t row = 0; row < output.getRows(); row++) {
@@ -473,17 +444,15 @@ static MyBLAS::Matrix<T> cast(const MyBLAS::Matrix<T2> &input) {
 /**
  * @brief Casts the elements of a given vector to a specified type.
  *
- * This function creates a new vector with the same size as the input vector and
- * fills it with the elements of the input vector cast to the specified type.
+ * This function creates a new vector with the same size as the input vector and fills it with the
+ * elements of the input vector cast to the specified type.
  *
  * @tparam T The data type to cast the elements to.
  * @tparam T2 The original data type of the elements in the input vector.
  * @param input The input vector whose elements are to be cast.
- * @return A new vector with the elements of the input vector cast to the
- * specified type.
+ * @return A new vector with the elements of the input vector cast to the specified type.
  */
-template <typename T, typename T2>
-static MyBLAS::Vector<T> cast(const MyBLAS::Vector<T2> &input) {
+template <typename T, typename T2> static MyBLAS::Vector<T> cast(const MyBLAS::Vector<T2> &input) {
     MyBLAS::Vector<T> output = Vector<T>(input.size(), 0);
     for (size_t idx = 0; idx < output.size(); idx++) {
         output[idx] = static_cast<T>(input[idx]);

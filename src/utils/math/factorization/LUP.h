@@ -4,28 +4,22 @@
  * @date 09/22/2023
  * @brief LU factorization with pivoting
  *
- * This file contains the implementation of the LU factorization algorithm using
- * Doolittle's method. Doolittle's method is an iterative, direct method for LU
- * decomposition, which is suitable for small to moderately sized matrices with
- * relatively well-conditioned properties. It is a straightforward and
- * easy-to-understand algorithm that can be implemented efficiently using simple
- * loops. However, it may not be as numerically stable as other methods, such as
- * Crout's method or Gaussian elimination with partial pivoting, when dealing
- * with ill-conditioned matrices. It also doesn't take advantage of any matrix
- * structure or sparsity, which can be a drawback for certain specialized
- * applications.
+ * This file contains the implementation of the LU factorization algorithm using Doolittle's method.
+ * Doolittle's method is an iterative, direct method for LU decomposition, which is suitable for small
+ * to moderately sized matrices with relatively well-conditioned properties. It is a straightforward
+ * and easy-to-understand algorithm that can be implemented efficiently using simple loops. However,
+ * it may not be as numerically stable as other methods, such as Crout's method or Gaussian elimination
+ * with partial pivoting, when dealing with ill-conditioned matrices. It also doesn't take advantage of
+ * any matrix structure or sparsity, which can be a drawback for certain specialized applications.
  *
- * An alternative approach to LU decomposition is the recursive LU
- * decomposition, also known as divide-and-conquer LU decomposition. This method
- * is more suitable for larger matrices, ill-conditioned matrices, and cases
- * where numerical stability or special structure exploitation is crucial.
- * However, it may require more effort to implement and can be less predictable
- * in terms of performance for very large matrices since deep recursions can
- * cause stack overflows.
+ * An alternative approach to LU decomposition is the recursive LU decomposition, also known as
+ * divide-and-conquer LU decomposition. This method is more suitable for larger matrices, ill-conditioned
+ * matrices, and cases where numerical stability or special structure exploitation is crucial. However,
+ * it may require more effort to implement and can be less predictable in terms of performance for very large matrices
+ * since deep recursions can cause stack overflows.
  *
- * My intention is to implement LU factorization using Doolittle's method for
- * OutLab 04, and switch over to the divide-and-conquer method for Lab05 since
- * it will require pivoting anyway. This way, I am exposed to more
+ * My intention is to implement LU factorization using Doolittle's method for OutLab 04, and switch over to the
+ * divide-and-conquer method for Lab05 since it will require pivoting anyway. This way, I am exposed to more
  * implementations
  */
 
@@ -51,13 +45,11 @@
 namespace MyBLAS::LUP {
 
 /**
- * @brief Performs Doolittle's LU factorization with partial pivoting on a given
- * matrix.
+ * @brief Performs Doolittle's LU factorization with partial pivoting on a given matrix.
  *
- * This method first finds the pivot row by identifying the maximum absolute
- * value in each column. It then swaps the pivot row with the current row in
- * both the matrix and the permutation matrix. Finally, it performs Doolittle's
- * LU factorization on the pivoted matrix.
+ * This method first finds the pivot row by identifying the maximum absolute value in each column.
+ * It then swaps the pivot row with the current row in both the matrix and the permutation matrix.
+ * Finally, it performs Doolittle's LU factorization on the pivoted matrix.
  *
  * @tparam T The data type of the matrix elements.
  * @param L The lower triangular matrix after factorization.
@@ -66,9 +58,7 @@ namespace MyBLAS::LUP {
  * @return The permutation matrix.
  */
 template <typename T>
-MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L,
-                                        MyBLAS::Matrix<T> &U,
-                                        const MyBLAS::Matrix<T> &A) {
+MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
 
     MyBLAS::Matrix pivotedA = A;
 
@@ -102,15 +92,12 @@ MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L,
 }
 
 /**
- * @brief Performs recursive LU factorization with partial pivoting on a given
- * matrix.
+ * @brief Performs recursive LU factorization with partial pivoting on a given matrix.
  *
- * This method first finds the maximum absolute value in the first column of the
- * matrix and swaps the corresponding row with the first row.It then divides the
- * matrix into four submatrices and performs LU factorization on the top-left
- * submatrix. The method then updates the other submatrices and recursively
- * applies the same procedure to the bottom-right submatrix. Finally, it
- * combines the results into the final L and U matrices.
+ * This method first finds the maximum absolute value in the first column of the matrix and swaps the corresponding row
+ * with the first row.It then divides the matrix into four submatrices and performs LU factorization on the top-left
+ * submatrix. The method then updates the other submatrices and recursively applies the same procedure to the
+ * bottom-right submatrix. Finally, it combines the results into the final L and U matrices.
  *
  * @tparam T The data type of the matrix elements.
  * @param L The lower triangular matrix after factorization.
@@ -119,9 +106,7 @@ MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L,
  * @return The permutation matrix.
  */
 template <typename T>
-MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L,
-                                        MyBLAS::Matrix<T> &U,
-                                        const MyBLAS::Matrix<T> &A) {
+MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
     const size_t n = A.getCols();
 
     MyBLAS::Matrix<T> P = MyBLAS::Matrix<T>::eye(n);
@@ -186,11 +171,9 @@ MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L,
  * @brief Performs LU factorization with partial pivoting on a given matrix.
  *
  * This method first initializes the L, U, and P matrices.
- * It then finds the pivot element in each column of the U matrix and swaps the
- * corresponding row with the current row in the U, L, and P matrices. The
- * method then performs Gaussian elimination to update the U matrix and
- * calculates the corresponding elements in the L matrix. Finally, it sets the
- * diagonal elements of the L matrix to 1.
+ * It then finds the pivot element in each column of the U matrix and swaps the corresponding row with the current row
+ * in the U, L, and P matrices. The method then performs Gaussian elimination to update the U matrix and calculates the
+ * corresponding elements in the L matrix. Finally, it sets the diagonal elements of the L matrix to 1.
  *
  * @tparam T The data type of the matrix elements.
  * @param L The lower triangular matrix after factorization.
@@ -199,8 +182,7 @@ MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L,
  * @return The permutation matrix.
  */
 template <typename T>
-MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L,
-                                                 MyBLAS::Matrix<T> &U,
+MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U,
                                                  const MyBLAS::Matrix<T> &A) {
     const auto n = A.getRows();
 
@@ -243,76 +225,55 @@ MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L,
 }
 
 /**
- * @brief This function performs LU factorization on a given matrix A and stores
- * the results in matrices L and U. The function uses the Doolittle's method for
- * LU factorization and is a part of the MyBLAS library.
+ * @brief This function performs LU factorization on a given matrix A and stores the results in matrices L and U.
+ * The function uses the Doolittle's method for LU factorization and is a part of the MyBLAS library.
  *
- * @tparam T This is the data type of the elements in the matrices. It can be
- * any numeric type.
- * @param L This is the output parameter representing the lower triangular
- * matrix after factorization.
- * @param U This is the output parameter representing the upper triangular
- * matrix after factorization.
- * @param A This is the input matrix that is to be factorized. It should be a
- * square matrix.
- * @return The function returns the permutation matrix P from the LU
- * factorization.
- * @note The function does not check if the input matrix A is square. It is the
- * responsibility of the caller to ensure this.
+ * @tparam T This is the data type of the elements in the matrices. It can be any numeric type.
+ * @param L This is the output parameter representing the lower triangular matrix after factorization.
+ * @param U This is the output parameter representing the upper triangular matrix after factorization.
+ * @param A This is the input matrix that is to be factorized. It should be a square matrix.
+ * @return The function returns the permutation matrix P from the LU factorization.
+ * @note The function does not check if the input matrix A is square. It is the responsibility of the caller to
+ * ensure this.
  */
 template <typename T>
-MyBLAS::Matrix<T> factorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U,
-                            const MyBLAS::Matrix<T> &A) {
+MyBLAS::Matrix<T> factorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
     return dooLittleFactorizeLUP(L, U, A);
 }
 
 /**
- * @brief This function performs LU factorization on a given matrix A and stores
- * the results in matrices L and U. The function uses the Doolittle's method for
- * LU factorization and is a part of the MyBLAS library.
+ * @brief This function performs LU factorization on a given matrix A and stores the results in matrices L and U.
+ * The function uses the Doolittle's method for LU factorization and is a part of the MyBLAS library.
  *
- * @tparam T This is the data type of the elements in the matrices. It can be
- * any numeric type.
- * @param A This is the input matrix that is to be factorized. It should be a
- * square matrix.
- * @return The function returns a Parameters object which contains the lower
- * triangular matrix L, the upper triangular matrix U, and the permutation
- * matrix P from the LU factorization.
- * @note The function does not check if the input matrix A is square. It is the
- * responsibility of the caller to ensure this.
+ * @tparam T This is the data type of the elements in the matrices. It can be any numeric type.
+ * @param A This is the input matrix that is to be factorized. It should be a square matrix.
+ * @return The function returns a Parameters object which contains the lower triangular matrix L, the upper
+ * triangular matrix U, and the permutation matrix P from the LU factorization.
+ * @note The function does not check if the input matrix A is square. It is the responsibility of the caller to
+ * ensure this.
  */
-template <typename T>
-MyFactorizationMethod::Parameters<T> factorize(const MyBLAS::Matrix<T> &A) {
+template <typename T> MyFactorizationMethod::Parameters<T> factorize(const MyBLAS::Matrix<T> &A) {
     MyFactorizationMethod::Parameters<T> parameters(A.getRows());
     parameters.P = dooLittleFactorizeLUP(parameters.L, parameters.U, A);
     return parameters;
 }
 
 /**
- * @brief This function solves a system of linear equations Ax = b using LU
- * factorization with partial pivoting.
+ * @brief This function solves a system of linear equations Ax = b using LU factorization with partial pivoting.
  *
- * The function first performs LU factorization on the matrix A using the
- * Doolittle's method. It then solves the system Ly = Pb and Ux = y using
- * forward and backward substitution, respectively.
+ * The function first performs LU factorization on the matrix A using the Doolittle's method.
+ * It then solves the system Ly = Pb and Ux = y using forward and backward substitution, respectively.
  *
- * @tparam T This is the data type of the elements in the matrices and vectors.
- * It can be any numeric type.
- * @param A This is the input matrix that represents the coefficients of the
- * linear equations. It should be square.
- * @param b This is the input vector that represents the constant terms of the
- * linear equations.
- * @param tolerance This is the tolerance for the forward and backward
- * substitution. The default value is 0.
- * @return The function returns a Solution object which contains the solution
- * vector x.
- * @note The function does not check if the input matrix A is square or if the
- * dimensions of A and b are compatible. It is the responsibility of the caller
- * to ensure this.
+ * @tparam T This is the data type of the elements in the matrices and vectors. It can be any numeric type.
+ * @param A This is the input matrix that represents the coefficients of the linear equations. It should be square.
+ * @param b This is the input vector that represents the constant terms of the linear equations.
+ * @param tolerance This is the tolerance for the forward and backward substitution. The default value is 0.
+ * @return The function returns a Solution object which contains the solution vector x.
+ * @note The function does not check if the input matrix A is square or if the dimensions of A and b are compatible.
+ * It is the responsibility of the caller to ensure this.
  */
 template <typename T>
-MyLinearSolvingMethod::Solution<T> applyLUP(const MyBLAS::Matrix<T> &A,
-                                            const MyBLAS::Vector<T> &b,
+MyLinearSolvingMethod::Solution<T> applyLUP(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b,
                                             const T tolerance = 0) {
 
     const size_t n = A.getRows(); // Get the number of rows in the matrix A
@@ -320,15 +281,12 @@ MyLinearSolvingMethod::Solution<T> applyLUP(const MyBLAS::Matrix<T> &A,
     MyFactorizationMethod::Parameters<T> parameters(n);
     parameters.P = dooLittleFactorizeLUP(parameters.L, parameters.U, A);
 
-    MyLinearSolvingMethod::Solution<T> results(
-        n); // Initialize the results object with the size of the matrix
+    MyLinearSolvingMethod::Solution<T> results(n); // Initialize the results object with the size of the matrix
 
     const auto Pb = parameters.P * b;
 
-    const MyBLAS::Vector<T> y =
-        MyBLAS::forwardSubstitution<T>(parameters.L, Pb);
-    const MyBLAS::Vector<T> x =
-        MyBLAS::backwardSubstitution<T>(parameters.U, y);
+    const MyBLAS::Vector<T> y = MyBLAS::forwardSubstitution<T>(parameters.L, Pb);
+    const MyBLAS::Vector<T> x = MyBLAS::backwardSubstitution<T>(parameters.U, y);
 
     results.x = x;
 

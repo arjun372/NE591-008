@@ -24,6 +24,6 @@
  */
 namespace MyBLAS {
 
-// nothing implemented here because a permutation matrix is trivially multiplied
-// by another matrix to shuffle rows / columns
+// nothing implemented here because a permutation matrix is trivially multiplied by another matrix to shuffle
+// rows / columns
 }

@@ -3,8 +3,7 @@
  * @author Arjun Earthperson
  * @date 09/01/2023
  * @brief This file contains the declaration of the function `fill_fx`.
- *        The function is used to fill a vector with values based on another
- * vector.
+ *        The function is used to fill a vector with values based on another vector.
  */
 
 #pragma once
@@ -24,12 +23,11 @@
  * @note The `fx` vector will be modified by this function.
  * @note The `x` vector will not be modified by this function.
  */
-[[maybe_unused]] void fill_fx(const std::vector<long double> &x,
-                              std::vector<long double> &fx) {
+[[maybe_unused]] void fill_fx(const std::vector<long double> &x, std::vector<long double> &fx) {
 
     if (x.size() != fx.size()) {
-        std::cerr << "Warning: Vectors are of different lengths: size(x): "
-                  << x.size() << ", size(f[x]): " << fx.size() << "\n";
+        std::cerr << "Warning: Vectors are of different lengths: size(x): " << x.size() << ", size(f[x]): " << fx.size()
+                  << "\n";
     }
 
     //    fx.push_back(5);

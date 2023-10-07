@@ -28,8 +28,7 @@ typedef struct Input {
 
     /**
      * @brief Converts the input parameters to a JSON object.
-     * @param jsonMap A reference to the JSON object to store the input
-     * parameters.
+     * @param jsonMap A reference to the JSON object to store the input parameters.
      */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["n"] = n;
@@ -47,8 +46,7 @@ typedef struct Map {
 
     /**
      * @brief Converts the input parameters to a JSON object.
-     * @param jsonMap A reference to the JSON object to store the input
-     * parameters.
+     * @param jsonMap A reference to the JSON object to store the input parameters.
      */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["lower"] = L.getData();
@@ -75,8 +73,7 @@ typedef struct Output {
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["solution"] = solution.getData();
         jsonMap["residual"] = residual.getData();
-        jsonMap["max-residual"] =
-            MyBLAS::max<long double>(MyBLAS::abs(residual));
+        jsonMap["max-residual"] = MyBLAS::max<long double>(MyBLAS::abs(residual));
     }
 } Results;
 

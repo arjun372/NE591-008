@@ -2,15 +2,12 @@
  * @file outlab1.h
  * @author Arjun Earthperson
  * @date 09/01/2023
- * @brief Entrypoint for outlab1, contains the OutLab1 implementation of
- * LabProject
+ * @brief Entrypoint for outlab1, contains the OutLab1 implementation of LabProject
  *
- * The program performs non-vectorized, elementwise operations on 2D matrices.
- * It uses the Boost library for parsing command line arguments and handling
- * program options. The main function sets up the program information, builds
- * the input options, parses the command line arguments, checks the input
- * values, prints the input values, runs the main logic of the program, and then
- * returns the exit status.
+ * The program performs non-vectorized, elementwise operations on 2D matrices. It uses the Boost library for parsing
+ * command line arguments and handling program options. The main function sets up the program information, builds the
+ * input options, parses the command line arguments, checks the input values, prints the input values, runs the main
+ * logic of the program, and then returns the exit status.
  */
 
 #pragma once
@@ -35,8 +32,7 @@ class OutLab1 : public Project<MatrixConstructParams, Parser, NoOutput> {
     HeaderInfo buildHeaderInfo() override {
         return HeaderInfo{
             .ProjectName = "OutLab 01",
-            .ProjectDescription = "Non-vectorized, elementwise (mul, add) "
-                                  "operations on 2D matrices",
+            .ProjectDescription = "Non-vectorized, elementwise (mul, add) operations on 2D matrices",
             .SubmissionDate = "09/01/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = R"(
@@ -63,14 +59,11 @@ __/_______\________\__\_/________\_ _/_____/_____________/_______\____/_______
      *
      * @param values A map of variables parsed from the command line arguments.
      *
-     * The function first extracts the input parameters from the values map. It
-     * then builds and prints three matrices A, B, and F using the input
-     * parameters. After that, it computes and prints three more matrices C, D,
-     * and E using the previously built matrices and the scalar value from the
-     * input parameters.
+     * The function first extracts the input parameters from the values map. It then builds and prints three matrices A,
+     * B, and F using the input parameters. After that, it computes and prints three more matrices C, D, and E using the
+     * previously built matrices and the scalar value from the input parameters.
      */
-    void run(NoOutput &output, MatrixConstructParams &input,
-             boost::program_options::variables_map &values) override {
+    void run(NoOutput &output, MatrixConstructParams &input, boost::program_options::variables_map &values) override {
 
         // build matrix
         ArgsPrintMatrix matrix{

@@ -10,8 +10,7 @@ grid on grid minor box on % Plot f(x)
 as a smooth line plot(xi, f_xi, 'LineWidth', 2);
 % Plot L(x)
 as points with E(x)
-as the error bars errorbar(xi, L_xi, E_xi, ".", 'LineWidth', 0.75, 'Color',
-                           'k');
+as the error bars errorbar(xi, L_xi, E_xi, ".", 'LineWidth', 0.75, 'Color', 'k');
 scatter(xi, L_xi, 50, 'red');
 
 % Define the function f = @(x) exp(x);
@@ -31,11 +30,8 @@ x = x(1 : end - 1);
 % derivative of e ^ x is e ^ x % ddf = @(x) exp(x);
 % second derivative of e ^ x is e ^ x % dddf = @(x) exp(x);
 % third derivative of e ^ x is e ^ x % ddddf = @(x) exp(x);
-% fourth derivative of e ^ x is e ^
-    x % % for (i = 0; i <= n; i++) % Define the nodes x_nodes =
-    linspace(-1, 1, n);
-% change this to your actual nodes %
-    Compute the maximum of the fourth derivative in the interval[-1, 1] z =
+% fourth derivative of e ^ x is e ^ x % % for (i = 0; i <= n; i++) % Define the nodes x_nodes = linspace(-1, 1, n);
+% change this to your actual nodes % Compute the maximum of the fourth derivative in the interval[-1, 1] z =
     xi'; % linspace(-1, 1, m); max_ddddf = max(y);
 % Compute the product term
 product_term = prod(repmat(z', 1, length(x_nodes)) - repmat(x_nodes, length(z), 1), 2);

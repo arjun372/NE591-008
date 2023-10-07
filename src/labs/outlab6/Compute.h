@@ -2,8 +2,8 @@
  * @file Compute.h
  * @author Arjun Earthperson
  * @date 10/06/2023
- * @brief This file contains the Compute namespace which includes methods for
- * solving linear systems using various methods.
+ * @brief This file contains the Compute namespace which includes methods for solving linear systems using various
+ * methods.
  */
 
 #ifndef NE591_008_OUTLAB6_COMPUTE_H
@@ -23,15 +23,13 @@
 
 /**
  * @namespace Compute
- * @brief Namespace containing methods for solving linear systems using various
- * methods.
+ * @brief Namespace containing methods for solving linear systems using various methods.
  */
 namespace Compute {
 
 /**
  * @brief Solves a linear system using LUP decomposition.
- * @param outputs The output data structure to store the solution and execution
- * time.
+ * @param outputs The output data structure to store the solution and execution time.
  * @param inputs The input data structure containing the system to solve.
  */
 void usingLUP(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
@@ -55,8 +53,7 @@ void usingLUP(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 
 /**
  * @brief Solves a linear system using the Point Jacobi method.
- * @param outputs The output data structure to store the solution and execution
- * time.
+ * @param outputs The output data structure to store the solution and execution time.
  * @param inputs The input data structure containing the system to solve.
  */
 void usingPointJacobi(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
@@ -72,10 +69,7 @@ void usingPointJacobi(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 
     Stopwatch<Nanoseconds> timer;
     timer.restart();
-    {
-        outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(
-            A, b, max_iterations, threshold);
-    }
+    { outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold); }
     timer.click();
 
     const auto time = static_cast<long double>(timer.duration().count());
@@ -84,8 +78,7 @@ void usingPointJacobi(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 
 /**
  * @brief Solves a linear system using the Gauss-Seidel method.
- * @param outputs The output data structure to store the solution and execution
- * time.
+ * @param outputs The output data structure to store the solution and execution time.
  * @param inputs The input data structure containing the system to solve.
  */
 void usingGaussSeidel(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
@@ -101,10 +94,7 @@ void usingGaussSeidel(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 
     Stopwatch<Nanoseconds> timer;
     timer.restart();
-    {
-        outputs.solution = MyRelaxationMethod::applyGaussSeidel<long double>(
-            A, b, max_iterations, threshold);
-    }
+    { outputs.solution = MyRelaxationMethod::applyGaussSeidel<long double>(A, b, max_iterations, threshold); }
     timer.click();
 
     const auto time = static_cast<long double>(timer.duration().count());
@@ -112,10 +102,8 @@ void usingGaussSeidel(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 }
 
 /**
- * @brief Solves a linear system using the Successive Over-Relaxation (SOR)
- * method.
- * @param outputs The output data structure to store the solution and execution
- * time.
+ * @brief Solves a linear system using the Successive Over-Relaxation (SOR) method.
+ * @param outputs The output data structure to store the solution and execution time.
  * @param inputs The input data structure containing the system to solve.
  */
 void usingSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
@@ -132,10 +120,7 @@ void usingSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 
     Stopwatch<Nanoseconds> timer;
     timer.restart();
-    {
-        outputs.solution = MyRelaxationMethod::applySOR<long double>(
-            A, b, max_iterations, threshold, omega);
-    }
+    { outputs.solution = MyRelaxationMethod::applySOR<long double>(A, b, max_iterations, threshold, omega); }
     timer.click();
 
     const auto time = static_cast<long double>(timer.duration().count());
@@ -144,8 +129,7 @@ void usingSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 
 /**
  * @brief Solves a linear system using the Jacobi SOR method.
- * @param outputs The output data structure to store the solution and execution
- * time.
+ * @param outputs The output data structure to store the solution and execution time.
  * @param inputs The input data structure containing the system to solve.
  */
 void usingJacobiSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
@@ -162,10 +146,7 @@ void usingJacobiSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 
     Stopwatch<Nanoseconds> timer;
     timer.restart();
-    {
-        outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(
-            A, b, max_iterations, threshold, omega);
-    }
+    { outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold, omega); }
     timer.click();
 
     const auto time = static_cast<long double>(timer.duration().count());
@@ -174,8 +155,7 @@ void usingJacobiSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 
 /**
  * @brief Solves a linear system using the Symmetric SOR method.
- * @param outputs The output data structure to store the solution and execution
- * time.
+ * @param outputs The output data structure to store the solution and execution time.
  * @param inputs The input data structure containing the system to solve.
  */
 void usingSymmetricSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
@@ -192,10 +172,7 @@ void usingSymmetricSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
 
     Stopwatch<Nanoseconds> timer;
     timer.restart();
-    {
-        outputs.solution = MyRelaxationMethod::applySSOR<long double>(
-            A, b, max_iterations, threshold, omega);
-    }
+    { outputs.solution = MyRelaxationMethod::applySSOR<long double>(A, b, max_iterations, threshold, omega); }
     timer.click();
 
     const auto time = static_cast<long double>(timer.duration().count());

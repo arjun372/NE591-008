@@ -10,6 +10,7 @@ File based I/O is supported using JSON files.
 <div style="display: none">[TOC]</div>
 
 ## Overview
+
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
@@ -93,42 +94,67 @@ The output is written to a JSON file as well.
 
 ```json
 {
-   "inputs": {
-      "coefficients": [
-         [ 36.1, -9.00, -9.00,  0.00],
-         [-9.00,  36.1,  0.00, -9.00],
-         [-9.00,  0.00,  36.1, -9.00],
-         [ 0.00, -9.00, -9.00,  36.1]
+  "inputs": {
+    "coefficients": [
+      [
+        36.1,
+        -9.00,
+        -9.00,
+        0.00
       ],
-      "constants": [1.00, 1.00, 1.00, 1.00],
-      "max-iterations": 5000,
-      "methods": [
-         "point-jacobi"
+      [
+        -9.00,
+        36.1,
+        0.00,
+        -9.00
       ],
-      "order": 4,
-      "threshold": 0.0001
-   },
-   "outputs": {
-      "point-jacobi": {
-         "converged": true,
-         "execution-time-ns": 2352.0,
-         "iterations": {
-            "actual": 10,
-            "maximum": 5000
-         },
-         "iterative-error": {
-            "actual": 5.2623026955029647e-05,
-            "maximum": 0.0001
-         },
-         "max-residual": 0.0009498456365382851,
-         "solution": [
-            0.05519614112505313,
-            0.05519614112505313,
-            0.05519614112505313,
-            0.05519614112505313
-         ]
-      }
-   }
+      [
+        -9.00,
+        0.00,
+        36.1,
+        -9.00
+      ],
+      [
+        0.00,
+        -9.00,
+        -9.00,
+        36.1
+      ]
+    ],
+    "constants": [
+      1.00,
+      1.00,
+      1.00,
+      1.00
+    ],
+    "max-iterations": 5000,
+    "methods": [
+      "point-jacobi"
+    ],
+    "order": 4,
+    "threshold": 0.0001
+  },
+  "outputs": {
+    "point-jacobi": {
+      "converged": true,
+      "execution-time-ns": 2352.0,
+      "iterations": {
+        "actual": 10,
+        "maximum": 5000
+      },
+      "iterative-error": {
+        "actual": 5.2623026955029647e-05,
+        "maximum": 0.0001
+      },
+      "max-residual": 0.0009498456365382851,
+      "solution": [
+        0.05519614112505313,
+        0.05519614112505313,
+        0.05519614112505313,
+        0.05519614112505313
+      ]
+    }
+  }
 }
 ```
 

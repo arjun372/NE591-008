@@ -27,13 +27,11 @@
 
 /**
  * @class OutLab3
- * @brief A class for performing numerical integration using Composite
- * Newton-Cotes Formulas
+ * @brief A class for performing numerical integration using Composite Newton-Cotes Formulas
  *
- * This class is derived from the Project class and implements the numerical
- * integration using Composite Newton-Cotes Formulas. It takes command line
- * arguments, parses the inputs, performs the integration, and outputs the
- * results.
+ * This class is derived from the Project class and implements the numerical integration
+ * using Composite Newton-Cotes Formulas. It takes command line arguments, parses the inputs,
+ * performs the integration, and outputs the results.
  */
 class OutLab3 : public Project<NewtonCotesInputs, Parser, Dictionary> {
 
@@ -52,8 +50,7 @@ class OutLab3 : public Project<NewtonCotesInputs, Parser, Dictionary> {
     HeaderInfo buildHeaderInfo() override {
         return {
             .ProjectName = "OutLab 03",
-            .ProjectDescription =
-                "Numerical Integration using Newton-Cotes & Gauss-Legendre",
+            .ProjectDescription = "Numerical Integration using Newton-Cotes & Gauss-Legendre",
             .SubmissionDate = "09/15/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = R"(
@@ -79,15 +76,12 @@ class OutLab3 : public Project<NewtonCotesInputs, Parser, Dictionary> {
     }
 
     /**
-     * @brief Runs the numerical integration using Composite Newton-Cotes
-     * Formulas
+     * @brief Runs the numerical integration using Composite Newton-Cotes Formulas
      * @param outputs Dictionary object to store the outputs
      * @param inputs NewtonCotesInputs object containing the parsed inputs
-     * @param values Boost program_options variables_map containing command line
-     * arguments
+     * @param values Boost program_options variables_map containing command line arguments
      */
-    void run(Dictionary &outputs, NewtonCotesInputs &inputs,
-             boost::program_options::variables_map &values) override {
+    void run(Dictionary &outputs, NewtonCotesInputs &inputs, boost::program_options::variables_map &values) override {
 
         // declare the JSON object and file
         nlohmann::json JSONFile;
@@ -109,9 +103,8 @@ class OutLab3 : public Project<NewtonCotesInputs, Parser, Dictionary> {
             nlohmann::json json1;
             output1.toJSON(json1);
             outputsJSON[ruleKey(RULE_COMPOSITE_TRAPEZOIDAL)] = json1;
-            std::cout << "Integral over [a,b] using trapezoidal rule: "
-                      << std::setprecision(precision) << output1.integral
-                      << std::endl;
+            std::cout << "Integral over [a,b] using trapezoidal rule: " << std::setprecision(precision)
+                      << output1.integral << std::endl;
             Parser::printLine();
         }
 
@@ -121,9 +114,8 @@ class OutLab3 : public Project<NewtonCotesInputs, Parser, Dictionary> {
             nlohmann::json json2;
             output2.toJSON(json2);
             outputsJSON[ruleKey(RULE_COMPOSITE_SIMPSONS)] = json2;
-            std::cout << "Integral over [a,b] using Simpson's rule:   "
-                      << std::setprecision(precision) << output2.integral
-                      << std::endl;
+            std::cout << "Integral over [a,b] using Simpson's rule:   " << std::setprecision(precision)
+                      << output2.integral << std::endl;
             Parser::printLine();
         }
 
@@ -133,10 +125,8 @@ class OutLab3 : public Project<NewtonCotesInputs, Parser, Dictionary> {
             nlohmann::json json3;
             output3.toJSON(json3);
             outputsJSON[ruleKey(RULE_GAUSSIAN_QUADRATURE)] = json3;
-            std::cout
-                << "Integral over [a,b] using Gauss-Legendre Quadrature:   "
-                << std::setprecision(precision) << output3.integral
-                << std::endl;
+            std::cout << "Integral over [a,b] using Gauss-Legendre Quadrature:   " << std::setprecision(precision)
+                      << output3.integral << std::endl;
             Parser::printLine();
         }
 

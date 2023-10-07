@@ -22,10 +22,9 @@
 
 /**
  * @class InLab4
- * @brief This class is a child of the Project class and is used to solve a
- * system of linear equations using forward and back substitution.
- * @details The class takes in command line arguments and uses them to solve the
- * system of equations.
+ * @brief This class is a child of the Project class and is used to solve a system of linear equations using forward and
+ * back substitution.
+ * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
 class InLab4 : public Project<InputMatrices, Parser, OutputVector> {
 
@@ -39,10 +38,9 @@ class InLab4 : public Project<InputMatrices, Parser, OutputVector> {
   protected:
     /**
      * @brief This function prints the Mandelbrot set.
-     * @details The function was converted from Python to C++ and reformatted
-     * for the ANSI character-set with 80 columns.
-     * @note Credit to eyemvh from
-     * https://www.reddit.com/r/asciiart/comments/eyemvh/asciibrot/
+     * @details The function was converted from Python to C++ and reformatted for the ANSI character-set with 80
+     * columns.
+     * @note Credit to eyemvh from https://www.reddit.com/r/asciiart/comments/eyemvh/asciibrot/
      */
     template <typename T> static void printMandelbrotSet() {
         std::vector<std::string> colors;
@@ -75,8 +73,7 @@ class InLab4 : public Project<InputMatrices, Parser, OutputVector> {
         printMandelbrotSet<long double>();
         return {
             .ProjectName = "InLab 04",
-            .ProjectDescription = "Solving a system of linear equations using "
-                                  "forward, back substitution",
+            .ProjectDescription = "Solving a system of linear equations using forward, back substitution",
             .SubmissionDate = "09/15/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = " ",
@@ -85,14 +82,12 @@ class InLab4 : public Project<InputMatrices, Parser, OutputVector> {
 
     /**
      * @brief This function runs the project.
-     * @details It solves the system of linear equations using forward and back
-     * substitution.
+     * @details It solves the system of linear equations using forward and back substitution.
      * @param outputs The output vector
      * @param inputs The input matrices
      * @param values The variable map
      */
-    void run(OutputVector &outputs, InputMatrices &inputs,
-             boost::program_options::variables_map &values) override {
+    void run(OutputVector &outputs, InputMatrices &inputs, boost::program_options::variables_map &values) override {
 
         // Given the matrix A = LU and vector b
         // solve Ax = b, which is LUx = b
@@ -101,10 +96,8 @@ class InLab4 : public Project<InputMatrices, Parser, OutputVector> {
         const auto b = inputs.constants;
         const auto LU = inputs.LU;
 
-        const MyBLAS::Vector y =
-            InLab04::doForwardSubstitution<long double>(LU, b);
-        const MyBLAS::Vector x =
-            InLab04::doBackwardSubstitution<long double>(LU, y);
+        const MyBLAS::Vector y = InLab04::doForwardSubstitution<long double>(LU, b);
+        const MyBLAS::Vector x = InLab04::doBackwardSubstitution<long double>(LU, y);
 
         nlohmann::json results;
         outputs.solution = x;

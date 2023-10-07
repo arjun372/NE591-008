@@ -32,8 +32,7 @@ typedef struct Input {
 
     /**
      * @brief Converts the input parameters to a JSON object.
-     * @param jsonMap A reference to the JSON object to store the input
-     * parameters.
+     * @param jsonMap A reference to the JSON object to store the input parameters.
      */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["n"] = n;

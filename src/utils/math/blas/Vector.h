@@ -21,7 +21,7 @@ template <typename T> class Vector {
 
   protected:
     std::vector<T> data; ///< Vector representing the vector data.
-    bool isRow; ///< Boolean indicating whether the vector is a row vector.
+    bool isRow;          ///< Boolean indicating whether the vector is a row vector.
 
   public:
     /**
@@ -30,46 +30,39 @@ template <typename T> class Vector {
     Vector() : isRow(false) {}
 
     /**
-     * @brief Constructor that initializes the vector with a given vector and
-     * row/column indicator.
+     * @brief Constructor that initializes the vector with a given vector and row/column indicator.
      * @param _data Vector to initialize the vector with.
      * @param _isRow Boolean indicating whether the vector is a row vector.
      */
-    explicit Vector(std::vector<T> &_data, bool _isRow)
-        : data(_data), isRow(_isRow) {}
+    explicit Vector(std::vector<T> &_data, bool _isRow) : data(_data), isRow(_isRow) {}
 
     /**
-     * @brief Constructor that initializes the vector with a given vector and
-     * row/column indicator.
+     * @brief Constructor that initializes the vector with a given vector and row/column indicator.
      * @param _data Vector to initialize the vector with.
      * @param _isRow Boolean indicating whether the vector is a row vector.
      */
-    explicit Vector(std::vector<T> _data, bool _isRow)
-        : data(std::move(_data)), isRow(_isRow) {}
+    explicit Vector(std::vector<T> _data, bool _isRow) : data(std::move(_data)), isRow(_isRow) {}
 
     /**
-     * @brief Constructor that initializes the vector with a given vector. The
-     * vector is assumed to be a column vector.
+     * @brief Constructor that initializes the vector with a given vector. The vector is assumed to be a column vector.
      * @param _data Vector to initialize the vector with.
      */
     explicit Vector(std::vector<T> &_data) : data(_data), isRow(false) {}
 
     /**
-     * @brief Constructor that initializes the vector with a given vector. The
-     * vector is assumed to be a column vector.
+     * @brief Constructor that initializes the vector with a given vector. The vector is assumed to be a column vector.
      * @param _data Vector to initialize the vector with.
      */
     explicit Vector(std::vector<T> _data) : data(_data), isRow(false) {}
 
     /**
-     * @brief Parameterized constructor that initializes the vector with a given
-     * size, initial value, and row/column indicator.
+     * @brief Parameterized constructor that initializes the vector with a given size, initial value, and row/column
+     * indicator.
      * @param size Size of the vector.
      * @param initial Initial value for all elements in the vector.
      * @param _isRow Boolean indicating whether the vector is a row vector.
      */
-    explicit Vector(size_t size, const T initial = 0, bool _isRow = false)
-        : data(size, initial), isRow(_isRow) {}
+    explicit Vector(size_t size, const T initial = 0, bool _isRow = false) : data(size, initial), isRow(_isRow) {}
 
     /**
      * @brief Getter for the vector data.
@@ -91,8 +84,7 @@ template <typename T> class Vector {
     T &operator[](const size_t idx) { return data[idx]; }
 
     /**
-     * @brief Overloaded operator[] to access individual elements of the vector
-     * (const version).
+     * @brief Overloaded operator[] to access individual elements of the vector (const version).
      * @param idx Index of the element to access.
      * @return Const reference to the element at the given index.
      */
@@ -205,11 +197,9 @@ template <typename T> class Vector {
      * @return Reference to the output stream.
      */
     friend std::ostream &operator<<(std::ostream &os, const Vector &m) {
-        const auto width = static_cast<int>(std::cout.precision() +
-                                            static_cast<std::streamsize>(10));
+        const auto width = static_cast<int>(std::cout.precision() + static_cast<std::streamsize>(10));
         for (size_t i = 0; i < m.size(); ++i) {
-            os << std::setw(width) << std::setfill(' ') << std::scientific
-               << static_cast<long double>(m[i]);
+            os << std::setw(width) << std::setfill(' ') << std::scientific << static_cast<long double>(m[i]);
         }
         os << '\n';
         return os;

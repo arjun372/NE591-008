@@ -30,10 +30,9 @@
 
 /**
  * @class Project1
- * @brief This class is a child of the Project class and is used to solve a
- * system of linear equations using forward and back substitution.
- * @details The class takes in command line arguments and uses them to solve the
- * system of equations.
+ * @brief This class is a child of the Project class and is used to solve a system of linear equations using forward and
+ * back substitution.
+ * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
 class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
 
@@ -59,8 +58,7 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
         canvas.y_start = 0.825578589953;
         canvas.y_stop = 0.883651184261;
         printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
-        std::cout << "Julia set at (" << x << "," << y << "), " << iterations
-                  << " iterations\n";
+        std::cout << "Julia set at (" << x << "," << y << "), " << iterations << " iterations\n";
         return {
             .ProjectName = "NE591: Project Milestone 1",
             .ProjectDescription = "Serial Neutron Diffusion Code",
@@ -72,49 +70,40 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
 
     /**
      * @brief This function runs the project.
-     * @details It solves the system of linear equations using forward and back
-     * substitution.
+     * @details It solves the system of linear equations using forward and back substitution.
      * @param outputs The output vector
      * @param inputs The input matrices
      * @param values The variable map
      */
-    void run(SolverOutputs &outputs, SolverInputs &inputs,
-             boost::program_options::variables_map &values) override {
+    void run(SolverOutputs &outputs, SolverInputs &inputs, boost::program_options::variables_map &values) override {
 
         /**
-            1. Read input parameters: Read the values of 𝑎, 𝑏, 𝑚, 𝑛, 𝐷, and Σₐ
-        from an input file. Also, read the non-uniformly distributed fixed
-        source 𝑞(𝑖,𝑗) for 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛 from the input file.
+            1. Read input parameters: Read the values of 𝑎, 𝑏, 𝑚, 𝑛, 𝐷, and Σₐ from an input file. Also,
+            read the non-uniformly distributed fixed source 𝑞(𝑖,𝑗) for 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛 from the input
+        file.
 
-            2. Calculate mesh spacings: Compute the mesh spacings 𝛿 and 𝛾 using
-        the formulas 𝛿 = 𝑎/(𝑚+1) and 𝛾 = 𝑏/(𝑛+1).
+            2. Calculate mesh spacings: Compute the mesh spacings 𝛿 and 𝛾 using the formulas 𝛿 = 𝑎/(𝑚+1) and 𝛾 =
+        𝑏/(𝑛+1).
 
-            3. Initialize the matrix and right-hand-side vector: Create an 𝑚×𝑛
-        matrix A and an 𝑚×𝑛 right-hand-side vector B. Initialize all elements of
-        A and B to zero.
+            3. Initialize the matrix and right-hand-side vector: Create an 𝑚×𝑛 matrix A and an 𝑚×𝑛 right-hand-side
+            vector B. Initialize all elements of A and B to zero.
 
-            4. Fill the matrix A and vector B: Loop through all the nodes 𝑖 = 1,
-        … , 𝑚 and 𝑗 = 1, … , 𝑛, and fill the matrix A and vector B using the
-        given equation:
+            4. Fill the matrix A and vector B: Loop through all the nodes 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛, and fill the
+            matrix A and vector B using the given equation:
 
-                   −D((φ(i+1,j) - 2φ(i,j) + φ(i-1,j))/δ² + (φ(i,j+1) - 2φ(i,j) +
-        φ(i,j-1))/γ²) + Σₐφ(i,j) = q(i,j)
+                   −D((φ(i+1,j) - 2φ(i,j) + φ(i-1,j))/δ² + (φ(i,j+1) - 2φ(i,j) + φ(i,j-1))/γ²) + Σₐφ(i,j) = q(i,j)
 
-            Note that the boundary conditions are already taken into account as
-        the fluxes at the boundaries are zero.
+            Note that the boundary conditions are already taken into account as the fluxes at the boundaries are zero.
 
-            5. Solve the linear system: Solve the linear system A * 𝜙 = B using
-        LU factorization with pivoting. The solution vector 𝜙 will contain the
-        scalar fluxes at each node 𝑖, 𝑗, where 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛.
+            5. Solve the linear system: Solve the linear system A * 𝜙 = B using LU factorization with pivoting.
+            The solution vector 𝜙 will contain the scalar fluxes at each node 𝑖, 𝑗, where 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛.
 
-            6. Output the results: Write the scalar fluxes 𝜙(𝑖,𝑗) for 𝑖 = 1, … ,
-        𝑚 and 𝑗 = 1, … , 𝑛 to an output file.
+            6. Output the results: Write the scalar fluxes 𝜙(𝑖,𝑗) for 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛 to an output file.
         **/
 
         const bool quietMode = values.count("quiet");
 
-        std::vector<Stopwatch<Nanoseconds>> clocks =
-            std::vector<Stopwatch<Nanoseconds>>(5);
+        std::vector<Stopwatch<Nanoseconds>> clocks = std::vector<Stopwatch<Nanoseconds>>(5);
         std::vector<long double> durations = std::vector<long double>(5);
         nlohmann::json profiler;
         IntermediateResults intermediates;
@@ -123,15 +112,12 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
         clocks[0].restart();
         {
             for (size_t i = 0; i < 10; i++) {
-                intermediates =
-                    initialize_diffusion_matrix_and_vector<long double>(
-                        inputs.m, inputs.n);
+                intermediates = initialize_diffusion_matrix_and_vector<long double>(inputs.m, inputs.n);
                 naive_fill_diffusion_matrix_and_vector(inputs, intermediates);
             }
         }
         clocks[0].click();
-        durations[0] =
-            static_cast<long double>(clocks[0].duration().count()) / 10.0;
+        durations[0] = static_cast<long double>(clocks[0].duration().count()) / 10.0;
         profiler["exclusive"]["initialize_and_fill"] = durations[0];
         profiler["cumulative"]["initialize_and_fill"] = durations[0];
 
@@ -165,13 +151,10 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
         clocks[2].click();
         durations[2] = static_cast<long double>(clocks[2].duration().count());
         profiler["exclusive"]["fb_substitution"] = durations[2];
-        profiler["cumulative"]["fb_substitution"] =
-            durations[2] + durations[1] + durations[0];
+        profiler["cumulative"]["fb_substitution"] = durations[2] + durations[1] + durations[0];
 
-        profiler["exclusive"]["solve_linear_system"] =
-            durations[2] + durations[1];
-        profiler["cumulative"]["solve_linear_system"] =
-            durations[2] + durations[1] + durations[0];
+        profiler["exclusive"]["solve_linear_system"] = durations[2] + durations[1];
+        profiler["cumulative"]["solve_linear_system"] = durations[2] + durations[1] + durations[0];
 
         MyBLAS::Vector<long double> b_prime, r;
         long double maxResidual;
@@ -189,8 +172,7 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
         clocks[3].click();
         durations[3] = static_cast<long double>(clocks[3].duration().count());
         profiler["exclusive"]["residuals"] = durations[3];
-        profiler["cumulative"]["residuals"] =
-            durations[3] + durations[2] + durations[1] + durations[0];
+        profiler["cumulative"]["residuals"] = durations[3] + durations[2] + durations[1] + durations[0];
 
         if (!values.count("quiet")) {
             Parser::printLine();
@@ -228,8 +210,7 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
             std::cout << r;
             Parser::printLine();
             std::cout << "Max Residual abs(r): ";
-            std::cout << std::setprecision(max_precision) << maxResidual
-                      << std::endl;
+            std::cout << std::setprecision(max_precision) << maxResidual << std::endl;
             Parser::printLine();
         }
 
@@ -240,29 +221,22 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
                 nlohmann::json results;
                 inputs.toJSON(results["inputs"]);
                 outputs.toJSON(results["outputs"]);
-                writeJSON(values["output-results-json"].as<std::string>(),
-                          results);
+                writeJSON(values["output-results-json"].as<std::string>(), results);
             }
 
             if (values.count("output-flux-csv")) {
-                writeCSVMatrixNoHeaders(
-                    values["output-flux-csv"].as<std::string>(),
-                    outputs.fluxes);
+                writeCSVMatrixNoHeaders(values["output-flux-csv"].as<std::string>(), outputs.fluxes);
             }
         }
         clocks[4].click();
         durations[4] = static_cast<long double>(clocks[4].duration().count());
         profiler["exclusive"]["post-process"] = durations[4];
-        profiler["cumulative"]["post-process"] = durations[4] + durations[3] +
-                                                 durations[2] + durations[1] +
-                                                 durations[0];
-        profiler["total"] = durations[4] + durations[3] + durations[2] +
-                            durations[1] + durations[0];
+        profiler["cumulative"]["post-process"] =
+            durations[4] + durations[3] + durations[2] + durations[1] + durations[0];
+        profiler["total"] = durations[4] + durations[3] + durations[2] + durations[1] + durations[0];
         profiler["problem_size"] = inputs.m * inputs.n;
 
-        writeJSON("profile_" + std::to_string(inputs.m) + "x" +
-                      std::to_string(inputs.n) + ".json",
-                  profiler);
+        writeJSON("profile_" + std::to_string(inputs.m) + "x" + std::to_string(inputs.n) + ".json", profiler);
     }
 };
 

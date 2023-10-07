@@ -2,8 +2,7 @@
  * @file Random.h
  * @author Arjun Earthperson
  * @date 10/06/2023
- * @brief This file contains the Random namespace which provides functions for
- * generating random vectors and matrices.
+ * @brief This file contains the Random namespace which provides functions for generating random vectors and matrices.
  */
 
 #ifndef NE591_008_RANDOM_H
@@ -18,8 +17,7 @@
 
 /**
  * @namespace Random
- * @brief This namespace provides functions for generating random vectors and
- * matrices.
+ * @brief This namespace provides functions for generating random vectors and matrices.
  */
 namespace Random {
 
@@ -32,9 +30,7 @@ namespace Random {
  * @param seed The seed for the random number generator.
  * @return A vector of random numbers.
  */
-template <typename T>
-MyBLAS::Vector<T> generate(const size_t n, T min = 0, T max = 1,
-                           const long long seed = 372) {
+template <typename T> MyBLAS::Vector<T> generate(const size_t n, T min = 0, T max = 1, const long long seed = 372) {
     if (max < min) {
         auto temp = max;
         max = min;
@@ -61,8 +57,7 @@ MyBLAS::Vector<T> generate(const size_t n, T min = 0, T max = 1,
  * @return A matrix of random numbers.
  */
 template <typename T>
-MyBLAS::Matrix<T> generate(const size_t rows, const size_t cols, T min = 0,
-                           T max = 1, const long long seed = 372) {
+MyBLAS::Matrix<T> generate(const size_t rows, const size_t cols, T min = 0, T max = 1, const long long seed = 372) {
     if (max < min) {
         auto temp = max;
         max = min;
@@ -89,13 +84,10 @@ MyBLAS::Matrix<T> generate(const size_t rows, const size_t cols, T min = 0,
  * @param seed The seed for the random number generator.
  * @return A binary matrix.
  */
-template <typename T>
-MyBLAS::Matrix<T> binary(const size_t rows, const size_t cols,
-                         const long long seed = 372) {
+template <typename T> MyBLAS::Matrix<T> binary(const size_t rows, const size_t cols, const long long seed = 372) {
     std::random_device rd;
     std::mt19937 stream(seed);
-    std::uniform_real_distribution<T> uniform(static_cast<T>(0),
-                                              static_cast<T>(1));
+    std::uniform_real_distribution<T> uniform(static_cast<T>(0), static_cast<T>(1));
     MyBLAS::Matrix<T> samples(rows, cols);
     for (size_t row = 0; row < rows; row++) {
         for (size_t col = 0; col < cols; col++) {

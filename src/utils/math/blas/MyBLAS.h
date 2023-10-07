@@ -45,15 +45,12 @@ template <typename T> Matrix<T> abs(const Matrix<T> &a) {
 /**
  * @brief Checks if the given matrix is a square matrix.
  *
- * This function checks if the input matrix has an equal number of rows and
- * columns.
+ * This function checks if the input matrix has an equal number of rows and columns.
  *
  * @param M The input matrix to be checked.
  * @return true if the input matrix is a square matrix, false otherwise.
  */
-template <typename T> inline bool isSquareMatrix(const MyBLAS::Matrix<T> &M) {
-    return M.getCols() == M.getRows();
-}
+template <typename T> inline bool isSquareMatrix(const MyBLAS::Matrix<T> &M) { return M.getCols() == M.getRows(); }
 
 /**
  * @brief Checks if the given matrix is a binary matrix.
@@ -85,8 +82,7 @@ template <typename T> bool isBinaryMatrix(const MyBLAS::Matrix<T> &M) {
  * is considered a valid upper triangular matrix.
  *
  * @param U The input matrix to be checked.
- * @return true if the input matrix is a valid upper triangular matrix, false
- * otherwise.
+ * @return true if the input matrix is a valid upper triangular matrix, false otherwise.
  */
 template <typename T> bool isUpperTriangularMatrix(const MyBLAS::Matrix<T> &U) {
     if (!MyBLAS::isSquareMatrix(U)) {
@@ -122,11 +118,9 @@ template <typename T> bool isUpperTriangularMatrix(const MyBLAS::Matrix<T> &U) {
  * unit lower triangular matrix.
  *
  * @param L The input matrix to be checked.
- * @return true if the input matrix is a valid unit lower triangular matrix,
- * false otherwise.
+ * @return true if the input matrix is a valid unit lower triangular matrix, false otherwise.
  */
-template <typename T>
-bool isUnitLowerTriangularMatrix(const MyBLAS::Matrix<T> &L) {
+template <typename T> bool isUnitLowerTriangularMatrix(const MyBLAS::Matrix<T> &L) {
 
     if (!MyBLAS::isSquareMatrix(L)) {
         return false;
@@ -163,8 +157,7 @@ bool isUnitLowerTriangularMatrix(const MyBLAS::Matrix<T> &L) {
  * and each column has exactly one element equal to 1.
  *
  * @param P The input matrix to be checked.
- * @return true if the input matrix is a valid permutation matrix, false
- * otherwise.
+ * @return true if the input matrix is a valid permutation matrix, false otherwise.
  */
 template <typename T> bool isPermutationMatrix(const MyBLAS::Matrix<T> &P) {
 
@@ -210,23 +203,18 @@ template <typename T> bool isPermutationMatrix(const MyBLAS::Matrix<T> &P) {
 }
 
 /**
- * @brief Checks if all diagonal elements of a matrix are below a certain
- * threshold.
+ * @brief Checks if all diagonal elements of a matrix are below a certain threshold.
  *
- * This function iterates over the diagonal elements of the input matrix A and
- * checks if their absolute values are below a given threshold.If any diagonal
- * element is not below the threshold, the function returns false. The function
- * also checks for invalid values (NANs and infinities).
+ * This function iterates over the diagonal elements of the input matrix A and checks if their absolute values are
+ * below a given threshold.If any diagonal element is not below the threshold, the function returns false. The
+ * function also checks for invalid values (NANs and infinities).
  *
  * @tparam T The data type of the matrix elements.
  * @param A The input matrix to be checked.
  * @param threshold The threshold value to compare against. Default is 0.
- * @return true if all diagonal elements are below the threshold, false
- * otherwise.
+ * @return true if all diagonal elements are below the threshold, false otherwise.
  */
-template <typename T>
-bool allDiagonalElementsBelowThreshold(const MyBLAS::Matrix<T> &A,
-                                       T threshold = 0) {
+template <typename T> bool allDiagonalElementsBelowThreshold(const MyBLAS::Matrix<T> &A, T threshold = 0) {
 
     const size_t n = A.getRows(); // or A.getCols(), since A is a square matrix
     const T absolute_threshold = std::abs(threshold);
@@ -249,8 +237,8 @@ bool allDiagonalElementsBelowThreshold(const MyBLAS::Matrix<T> &A,
 /**
  * @brief Checks if there are no zeros in the diagonal of a matrix.
  *
- * This function uses the allDiagonalElementsBelowThreshold function to check if
- * there are no zeros in the diagonal of the input matrix A.
+ * This function uses the allDiagonalElementsBelowThreshold function to check if there are no zeros in the diagonal
+ * of the input matrix A.
  *
  * @tparam T The data type of the matrix elements.
  * @param A The input matrix to be checked.
@@ -263,10 +251,9 @@ template <typename T> bool noZerosInDiagonal(const MyBLAS::Matrix<T> &A) {
 /**
  * @brief Checks if the given matrix is diagonally dominant.
  *
- * This function checks if the input matrix is square, and if the absolute value
- * of each diagonal element is greater than the sum of the absolute values of
- * the other elements in the same row. If these conditions are met, the matrix
- * is considered diagonally dominant.
+ * This function checks if the input matrix is square, and if the absolute value of each diagonal element
+ * is greater than the sum of the absolute values of the other elements in the same row. If these conditions are met,
+ * the matrix is considered diagonally dominant.
  *
  * @param A The input matrix to be checked.
  * @return true if the matrix is diagonally dominant, false otherwise.
@@ -289,8 +276,7 @@ template <typename T> bool isDiagonallyDominant(const MyBLAS::Matrix<T> &A) {
                 sum += std::abs(A[i][j]);
             }
         }
-        // Check if the absolute value of the diagonal element is less than or
-        // equal to the sum
+        // Check if the absolute value of the diagonal element is less than or equal to the sum
         if (std::abs(A[i][i]) <= sum) {
             return false;
         }
@@ -301,17 +287,13 @@ template <typename T> bool isDiagonallyDominant(const MyBLAS::Matrix<T> &A) {
 /**
  * @brief Makes the given matrix diagonally dominant.
  *
- * This function modifies the input matrix such that the absolute value of each
- * diagonal element is greater than the sum of the absolute values of the other
- * elements in the same row.
+ * This function modifies the input matrix such that the absolute value of each diagonal element
+ * is greater than the sum of the absolute values of the other elements in the same row.
  *
  * @param A The input matrix to be modified.
- * @param dominance_offset The offset to be added to the diagonal elements to
- * make the matrix diagonally dominant.
+ * @param dominance_offset The offset to be added to the diagonal elements to make the matrix diagonally dominant.
  */
-template <typename T>
-void makeDiagonallyDominant(MyBLAS::Matrix<T> &A,
-                            const T dominance_offset = 1) {
+template <typename T> void makeDiagonallyDominant(MyBLAS::Matrix<T> &A, const T dominance_offset = 1) {
 
     const size_t n = A.getRows(); // or A.getCols(), since A is a square matrix
 
@@ -324,13 +306,10 @@ void makeDiagonallyDominant(MyBLAS::Matrix<T> &A,
         }
         // get the diagonal value
         const T leadingDiagonalMagnitude = std::abs(A[row][row]);
-        nonDiagonalSum -=
-            leadingDiagonalMagnitude; // Subtract the diagonal element
+        nonDiagonalSum -= leadingDiagonalMagnitude; // Subtract the diagonal element
 
         if (leadingDiagonalMagnitude <= nonDiagonalSum) {
-            const T sign = (leadingDiagonalMagnitude == A[row][row])
-                               ? 1
-                               : -1; // retain the sign
+            const T sign = (leadingDiagonalMagnitude == A[row][row]) ? 1 : -1; // retain the sign
             A[row][row] = sign * (nonDiagonalSum + dominance_offset);
         }
     }
@@ -339,16 +318,15 @@ void makeDiagonallyDominant(MyBLAS::Matrix<T> &A,
 /**
  * @brief Checks if two matrices have the same rank.
  *
- * This function compares the number of rows in matrix A with the size of vector
- * b to determine if they have the same rank.
+ * This function compares the number of rows in matrix A with the size of vector b to determine if they have the
+ * same rank.
  *
  * @tparam T The data type of the matrix and vector elements.
  * @param A The input matrix to be checked.
  * @param b The input vector to be checked.
  * @return true if the matrix and vector have the same rank, false otherwise.
  */
-template <typename T>
-bool haveEqualRank(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
+template <typename T> bool haveEqualRank(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
     return A.getRows() == b.size();
 }
 
@@ -358,8 +336,7 @@ bool haveEqualRank(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
  * @param matrix Matrix to be multiplied.
  * @return Resultant matrix after multiplication.
  */
-template <typename T>
-MyBLAS::Matrix<T> operator*(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
+template <typename T> MyBLAS::Matrix<T> operator*(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
     return matrix * scalar;
 }
 
@@ -369,8 +346,7 @@ MyBLAS::Matrix<T> operator*(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
  * @param matrix Matrix to be added to.
  * @return Resultant matrix after addition.
  */
-template <typename T>
-MyBLAS::Matrix<T> operator+(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
+template <typename T> MyBLAS::Matrix<T> operator+(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
     return matrix + scalar;
 }
 
@@ -380,8 +356,7 @@ MyBLAS::Matrix<T> operator+(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
  * @param matrix Vector to be multiplied.
  * @return Resultant matrix after multiplication.
  */
-template <typename T>
-MyBLAS::Vector<T> operator*(const T &scalar, const MyBLAS::Vector<T> &vector) {
+template <typename T> MyBLAS::Vector<T> operator*(const T &scalar, const MyBLAS::Vector<T> &vector) {
     return vector * scalar;
 }
 
@@ -391,8 +366,7 @@ MyBLAS::Vector<T> operator*(const T &scalar, const MyBLAS::Vector<T> &vector) {
  * @param matrix Vector to be added to.
  * @return Resultant matrix after addition.
  */
-template <typename T>
-MyBLAS::Vector<T> operator+(const T &scalar, const MyBLAS::Vector<T> &vector) {
+template <typename T> MyBLAS::Vector<T> operator+(const T &scalar, const MyBLAS::Vector<T> &vector) {
     return vector + scalar;
 }
 
@@ -401,12 +375,9 @@ MyBLAS::Vector<T> operator+(const T &scalar, const MyBLAS::Vector<T> &vector) {
  * @param rhs Matrix to compute the inner product with.
  * @return The inner product of the two matrices.
  */
-template <typename T>
-MyBLAS::Matrix<T> innerProduct(const MyBLAS::Matrix<T> &A,
-                               const MyBLAS::Matrix<T> &B) {
+template <typename T> MyBLAS::Matrix<T> innerProduct(const MyBLAS::Matrix<T> &A, const MyBLAS::Matrix<T> &B) {
     if (A.getRows() != B.getRows() || A.getCols() != B.getCols()) {
-        throw std::invalid_argument(
-            "Error: Matrices must have the same dimensions for inner product.");
+        throw std::invalid_argument("Error: Matrices must have the same dimensions for inner product.");
     }
     MyBLAS::Matrix<T> result(A.getRows(), B.getCols());
     for (size_t row = 0; row < A.getRows(); row++) {
