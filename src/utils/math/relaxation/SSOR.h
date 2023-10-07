@@ -2,8 +2,8 @@
  * @file SSOR.h
  * @author Arjun Earthperson
  * @date 09/30/2023
- * @brief TODO:: Document
- * Symmetric successive over-relaxation
+ * @brief This file contains the implementation of the Symmetric Successive Over-Relaxation (SSOR) method for solving
+ * systems of linear equations.
 */
 
 #ifndef NE591_008_SSOR_H
@@ -22,7 +22,16 @@
 namespace MyRelaxationMethod {
 
 
-    //TODO:: DOCUMENT
+    /**
+     * @brief Applies the Symmetric Successive Over-Relaxation (SSOR) method to solve a system of linear equations.
+     * @tparam T The data type of the elements in the matrix and vectors (e.g., double, float).
+     * @param A The matrix of coefficients in the system of linear equations.
+     * @param b The vector of constants in the system of linear equations.
+     * @param max_iterations The maximum number of iterations to perform.
+     * @param tolerance The tolerance for convergence. If the L2 norm of the difference between the new and old solution vectors is less than this value, the method is considered to have converged.
+     * @param relaxation_factor The relaxation factor to use in the method. This is a value between 0 and 2 that determines the rate of convergence. A value of 1 corresponds to the Gauss-Seidel method, while a value of 2 corresponds to the Jacobi method.
+     * @return A Solution object containing the solution vector, the number of iterations performed, whether the method converged, and the final error.
+     */
     template<typename T>
     MyLinearSolvingMethod::Solution<T> applySSOR(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b,
                                                 const size_t max_iterations, const T tolerance,

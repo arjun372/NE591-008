@@ -40,8 +40,19 @@ namespace MyBLAS {
         }
         return norm;
     }
-
-    // TODO:: DOCUMENT
+    /**
+     * @brief Overloaded function that calculates the L2 norm (Euclidean distance) between two MyBLAS::Vector objects.
+     *
+     * This function uses the L2Norm function defined above to calculate the L2 norm.
+     * The size of the vectors is determined by the smaller of the two vectors.
+     *
+     * @tparam T The type of the data contained in the vectors. This should be a type that supports subtraction and multiplication.
+     *
+     * @param a The first vector.
+     * @param b The second vector.
+     *
+     * @return The L2 norm (Euclidean distance) between the two vectors.
+     */
     template <typename T>
     T L2Norm(const MyBLAS::Vector<T> &a, const MyBLAS::Vector<T> &b) {
         const size_t n = std::min(a.size(), b.size());

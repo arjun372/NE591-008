@@ -2,7 +2,8 @@
  * @file Compute.h
  * @author Arjun Earthperson
  * @date 10/06/2023
- * @brief TODO:: DOCUMENT
+ * @brief This file contains the Compute namespace which includes methods for solving linear systems using various
+ * methods.
  */
 
 #ifndef NE591_008_OUTLAB6_COMPUTE_H

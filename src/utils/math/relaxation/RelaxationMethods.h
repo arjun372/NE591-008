@@ -44,7 +44,18 @@ namespace MyRelaxationMethod {
         return relaxationMethodTypeKeys[static_cast<int>(value)];
     }
 
-    //TODO:: DOCUMENT
+    /**
+     * @brief Function to approximate the optimal relaxation factor for a given mesh size.
+     *
+     * This function calculates the optimal relaxation factor for a given mesh size in the x and y directions.
+     * The relaxation factor is used in the Successive Over-Relaxation (SOR) method to speed up the convergence of the
+     * solution.
+     *
+     * @tparam T The data type of the mesh size and the relaxation factor.
+     * @param meshX The size of the mesh in the x direction.
+     * @param meshY The size of the mesh in the y direction.
+     * @return The approximate optimal relaxation factor.
+     */
     template<typename T>
     T inline approximateOptimalRelaxationFactor(const size_t meshX, const size_t meshY) {
         const T dx = 1 / (static_cast<T>(meshX) - 1);
@@ -54,13 +65,34 @@ namespace MyRelaxationMethod {
         return factor;
     }
 
-    //TODO:: DOCUMENT
+    /**
+     * @brief Function to approximate the optimal relaxation factor for a square mesh.
+     *
+     * This function calculates the optimal relaxation factor for a square mesh of a given size.
+     * The relaxation factor is used in the Successive Over-Relaxation (SOR) method to speed up the convergence of the
+     * solution.
+     *
+     * @tparam T The data type of the mesh size and the relaxation factor.
+     * @param meshXY The size of the square mesh.
+     * @return The approximate optimal relaxation factor.
+     */
     template<typename T>
     T inline approximateOptimalRelaxationFactor(const size_t meshXY) {
         return approximateOptimalRelaxationFactor<T>(meshXY, meshXY);
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Function to perform pre-checks on the coefficient matrix and the right-hand side vector.
+     *
+     * This function performs several pre-checks on the coefficient matrix and the right-hand side vector before solving
+     * the system of linear equations. The checks include verifying that the coefficient matrix is square, that its
+     * diagonal does not contain zeros, and that it is diagonally dominant.
+     *
+     * @tparam T The data type of the elements in the coefficient matrix and the right-hand side vector.
+     * @param A The coefficient matrix.
+     * @param b The right-hand side vector.
+     * @return True if all pre-checks pass, false otherwise.
+     */
     template <typename T>
     bool passesPreChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
 

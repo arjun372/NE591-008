@@ -69,7 +69,10 @@ protected:
         };
     }
 
-    // TODO:: Document
+    /**
+     * @brief This function prints the results of the computation.
+     * @param results The results of the computation.
+     */
     static void printResults(InLab6Outputs &results) {
         std::cout<<"\ttotal iterations          : "<<(results.solution.iterations)<<std::endl;
         std::cout<<"\tconverged                 : "<<(results.solution.converged ? "Yes" : "No")<<std::endl;
@@ -88,10 +91,6 @@ protected:
      * @param values The variable map
      */
     void run(InLab6Outputs &outputs, InLab6Inputs &inputs, boost::program_options::variables_map &values) override {
-
-        /**
-         * TODO:: Document
-        **/
 
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);

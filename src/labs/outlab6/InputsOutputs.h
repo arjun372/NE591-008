@@ -68,7 +68,14 @@ typedef struct Output {
 
     long double execution_time = std::numeric_limits<long double>::quiet_NaN();
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Calculates and returns the error of the solution.
+     *
+     * This function calculates the error of the solution by comparing it with the known solution.
+     * The error is calculated using the L2 Norm (Euclidean Norm) and then taking the square root of the result.
+     *
+     * @return The error of the solution as a long double.
+     */
     [[maybe_unused]] [[nodiscard]] long double getSolutionError() const {
         return std::sqrt(MyBLAS::L2Norm(solution.x, inputs.known_solution));
     }

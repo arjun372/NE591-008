@@ -69,7 +69,10 @@ protected:
         };
     }
 
-    // TODO:: Document
+    /**
+     * @brief This function prints the results of the computation.
+     * @param results The results of the computation.
+     */
     static void printResults(OutLab6Outputs &results) {
         std::cout<<"\ttotal iterations          : "<<(results.solution.iterations)<<std::endl;
         std::cout<<"\tconverged                 : "<<(results.solution.converged ? "Yes" : "No")<<std::endl;
@@ -81,12 +84,18 @@ protected:
         std::cout<<"\texecution time (s)        : "<<(results.execution_time/1.0e9)<<std::endl;
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief This function runs the computation.
+     * @param outputs The outputs of the computation.
+     * @param inputs The inputs to the computation.
+     * @param values The values used in the computation.
+     */
     void run(OutLab6Outputs &outputs, OutLab6Inputs &inputs, boost::program_options::variables_map &values) override {
 
         /**
-         * TODO:: Document
-        **/
+         * @brief This section of the function handles the computation using different methods.
+         * @details The methods include LUP Factorization, Point Jacobi, Gauss-Seidel, SOR, SOR Point Jacobi, and SSOR.
+         */
 
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);

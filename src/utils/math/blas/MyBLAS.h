@@ -212,7 +212,18 @@ namespace MyBLAS {
         return true;
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Checks if all diagonal elements of a matrix are below a certain threshold.
+     *
+     * This function iterates over the diagonal elements of the input matrix A and checks if their absolute values are
+     * below a given threshold.If any diagonal element is not below the threshold, the function returns false. The
+     * function also checks for invalid values (NANs and infinities).
+     *
+     * @tparam T The data type of the matrix elements.
+     * @param A The input matrix to be checked.
+     * @param threshold The threshold value to compare against. Default is 0.
+     * @return true if all diagonal elements are below the threshold, false otherwise.
+     */
     template<typename T>
     bool allDiagonalElementsBelowThreshold(const MyBLAS::Matrix<T> &A, T threshold = 0) {
 
@@ -234,7 +245,16 @@ namespace MyBLAS {
         return true;
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Checks if there are no zeros in the diagonal of a matrix.
+     *
+     * This function uses the allDiagonalElementsBelowThreshold function to check if there are no zeros in the diagonal
+     * of the input matrix A.
+     *
+     * @tparam T The data type of the matrix elements.
+     * @param A The input matrix to be checked.
+     * @return true if there are no zeros in the diagonal, false otherwise.
+     */
     template<typename T>
     bool noZerosInDiagonal(const MyBLAS::Matrix<T> &A) {
         return !MyBLAS::allDiagonalElementsBelowThreshold(A, static_cast<T>(0));
@@ -310,7 +330,17 @@ namespace MyBLAS {
         }
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Checks if two matrices have the same rank.
+     *
+     * This function compares the number of rows in matrix A with the size of vector b to determine if they have the
+     * same rank.
+     *
+     * @tparam T The data type of the matrix and vector elements.
+     * @param A The input matrix to be checked.
+     * @param b The input vector to be checked.
+     * @return true if the matrix and vector have the same rank, false otherwise.
+     */
     template<typename T>
     bool haveEqualRank(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
         return A.getRows() == b.size();

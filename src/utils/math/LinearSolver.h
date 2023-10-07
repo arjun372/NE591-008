@@ -2,7 +2,7 @@
  * @file LinearSolver.h
  * @author Arjun Earthperson
  * @date 10/06/2023
- * @brief TODO:: DOCUMENT
+ * @brief This file contains the definition of the LinearSolver class and its associated methods.
 */
 
 #ifndef NE591_008_LINEARSOLVER_H
@@ -13,16 +13,26 @@
 
 #include <variant>
 
-// TODO:: DOCUMENT
+/**
+ * @brief Namespace containing the definition of the LinearSolver class and its associated methods.
+ */
 namespace MyLinearSolvingMethod {
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief A variant type that can hold either a factorization method or a relaxation method.
+     */
     using Type = std::variant<MyFactorizationMethod::Type, MyRelaxationMethod::Type>;
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief A helper template that always evaluates to false.
+     */
     template<class...> inline constexpr bool always_false_v = false;
 
-    // TODO :: DOCUMENT
+    /**
+     * @brief Function that returns the key of the type of the given value.
+     * @param value The value whose type key is to be returned.
+     * @return The key of the type of the given value.
+     */
     const char *TypeKey(const Type& value) {
         return std::visit([](auto&& arg) {
             using T = std::decay_t<decltype(arg)>;
@@ -35,7 +45,10 @@ namespace MyLinearSolvingMethod {
         }, value);
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Structure that represents the input to the linear solver.
+     * @tparam T The type of the elements in the matrix/vector.
+     */
     template <typename T>
     struct Input {
         size_t n = std::numeric_limits<size_t>::quiet_NaN(); ////< Size of the matrix/vector
@@ -47,7 +60,10 @@ namespace MyLinearSolvingMethod {
     };
 
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Structure that represents the solution of the linear solver.
+     * @tparam T The type of the elements in the matrix/vector.
+     */
     template <typename T>
     struct Solution {
 

@@ -223,23 +223,34 @@ namespace MyBLAS::LUP {
         return P;
     }
 
-/**
+    /**
      * @brief This function performs LU factorization on a given matrix A and stores the results in matrices L and U.
      * The function uses the Doolittle's method for LU factorization and is a part of the MyBLAS library.
      *
-     * @tparam T This is the data type of the elements in the matrices. It can be any numeric type (int, float, double, etc.).
+     * @tparam T This is the data type of the elements in the matrices. It can be any numeric type.
      * @param L This is the output parameter representing the lower triangular matrix after factorization.
      * @param U This is the output parameter representing the upper triangular matrix after factorization.
      * @param A This is the input matrix that is to be factorized. It should be a square matrix.
      * @return The function returns the permutation matrix P from the LU factorization.
-     * @note The function does not check if the input matrix A is square. It is the responsibility of the caller to ensure this.
+     * @note The function does not check if the input matrix A is square. It is the responsibility of the caller to
+     * ensure this.
      */
     template <typename T>
     MyBLAS::Matrix<T> factorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
         return dooLittleFactorizeLUP(L, U, A);
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief This function performs LU factorization on a given matrix A and stores the results in matrices L and U.
+     * The function uses the Doolittle's method for LU factorization and is a part of the MyBLAS library.
+     *
+     * @tparam T This is the data type of the elements in the matrices. It can be any numeric type.
+     * @param A This is the input matrix that is to be factorized. It should be a square matrix.
+     * @return The function returns a Parameters object which contains the lower triangular matrix L, the upper
+     * triangular matrix U, and the permutation matrix P from the LU factorization.
+     * @note The function does not check if the input matrix A is square. It is the responsibility of the caller to
+     * ensure this.
+     */
     template <typename T>
     MyFactorizationMethod::Parameters<T> factorize(const MyBLAS::Matrix<T> &A) {
         MyFactorizationMethod::Parameters<T> parameters(A.getRows());
@@ -247,7 +258,20 @@ namespace MyBLAS::LUP {
         return parameters;
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief This function solves a system of linear equations Ax = b using LU factorization with partial pivoting.
+     *
+     * The function first performs LU factorization on the matrix A using the Doolittle's method.
+     * It then solves the system Ly = Pb and Ux = y using forward and backward substitution, respectively.
+     *
+     * @tparam T This is the data type of the elements in the matrices and vectors. It can be any numeric type.
+     * @param A This is the input matrix that represents the coefficients of the linear equations. It should be square.
+     * @param b This is the input vector that represents the constant terms of the linear equations.
+     * @param tolerance This is the tolerance for the forward and backward substitution. The default value is 0.
+     * @return The function returns a Solution object which contains the solution vector x.
+     * @note The function does not check if the input matrix A is square or if the dimensions of A and b are compatible.
+     * It is the responsibility of the caller to ensure this.
+     */
     template <typename T>
     MyLinearSolvingMethod::Solution<T> applyLUP(const MyBLAS::Matrix<T>& A, const MyBLAS::Vector<T>& b, const T tolerance = 0) {
 

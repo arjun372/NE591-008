@@ -2,13 +2,8 @@
  * @file Factorize.h
  * @author Arjun Earthperson
  * @date 10/06/2023
- * @brief TODO:: DOCUMENT
- *
- * This file contains the implementation of forward and backward substitution algorithms, which are part of the LU
- * decomposition method for solving a system of linear equations. The LU decomposition method involves decomposing a
- * given matrix (A) into a lower triangular matrix (L) and an upper triangular matrix (U), such that A = LU. Then,
- * forward elimination (forward substitution) and back substitution (backward substitution) are performed to solve the
- * system of linear equations.
+ * @brief This file contains the declaration of the MyFactorizationMethod namespace, which includes methods and
+ * structures for matrix factorization.
  *
  * There are other approaches to performing forward and backward elimination, such as:
  *
@@ -45,16 +40,26 @@
 #ifndef NE591_008_FACTORIZE_H
 #define NE591_008_FACTORIZE_H
 
-// TODO:: DOCUMENT
+/**
+ * @namespace MyFactorizationMethod
+ * @brief This namespace contains methods and structures for matrix factorization.
+ */
 namespace MyFactorizationMethod {
 
-    // TODO:: DOCUMENT
+    /**
+     * @enum Type
+     * @brief Enumeration of the types of factorization methods.
+     */
     enum Type {
         METHOD_LU, ////< LU factorization
         METHOD_LUP, ////< LU factorization with pivoting
     };
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Function to get the string representation of the factorization method type.
+     * @param value The factorization method type.
+     * @return The string representation of the factorization method type.
+     */
     const char *TypeKey(MyFactorizationMethod::Type value) {
         static const char *methodTypeKeys[] = {
                 "LU",
@@ -63,7 +68,11 @@ namespace MyFactorizationMethod {
         return methodTypeKeys[static_cast<int>(value)];
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @struct Parameters
+     * @brief Structure to hold the parameters for the factorization methods.
+     * @tparam T The data type of the matrix elements.
+     */
     template <typename T>
     struct Parameters {
         Parameters() = default;
@@ -77,7 +86,13 @@ namespace MyFactorizationMethod {
         MyBLAS::Matrix<T> P;
     };
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Function to check if the input matrices pass the pre-checks for the factorization methods.
+     * @tparam T The data type of the matrix elements.
+     * @param A The coefficient matrix.
+     * @param b The constant matrix.
+     * @return True if the matrices pass the pre-checks, false otherwise.
+     */
     template <typename T>
     bool passesPreChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
 
@@ -96,7 +111,15 @@ namespace MyFactorizationMethod {
         return passes;
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Function to check if the factorized matrices pass the post-checks for the factorization methods.
+     * @tparam T The data type of the matrix elements.
+     * @param A The original matrix.
+     * @param L The lower triangular matrix.
+     * @param U The upper triangular matrix.
+     * @param P The permutation matrix.
+     * @return True if the matrices pass the post-checks, false otherwise.
+     */
     template <typename T>
     bool passesPostChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Matrix<T> &L, const MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &P) {
 
