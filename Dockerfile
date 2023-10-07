@@ -14,7 +14,7 @@ RUN cd /etc/yum.repos.d/ && \
     sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* && \
     yum -y update && \
     yum -y groupinstall "Development Tools" && \
-    yum -y install epel-release boost-devel cmake && yum -y clean all && \
+    yum -y install epel-release boost-devel cmake doxygen && yum -y clean all && \
     yum -y autoremove && dnf clean all && \
     rm -rf /var/cache/*
 
