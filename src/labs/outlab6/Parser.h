@@ -9,6 +9,8 @@
 #ifndef NE591_008_OUTLAB6_PARSER_H
 #define NE591_008_OUTLAB6_PARSER_H
 
+#include "math/blas/system/Circuit.h"
+
 #include "CommandLine.h"
 #include "FileParser.h"
 #include "Helpers.h"
@@ -34,6 +36,7 @@ protected:
                 ("relaxation-factor,w", boost::program_options::value<long double>(), "= SOR weight, typical w ∈ [0,2]")
                 ("order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]")
                 ("input-json,i", boost::program_options::value<std::string>(), "= input JSON containing A, and b")
+                ("generate,g", "= Generate A,b ignoring input-json")
                 ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
 
         boost::program_options::options_description methods("Solver Methods");
@@ -58,7 +61,10 @@ protected:
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        std::cout << "\tInput JSON (for A, b),   i: " << vm["input-json"].as<std::string>() << "\n";
+        const bool gen = vm.count("generate");
+        const auto inputJson = vm.count("input-json") ? vm["input-json"].as<std::string>() : "None provided";
+        std::cout << "\tGenerate A,b,            g: " << (gen ? "Yes" : "No") << "\n";
+        std::cout << "\tInput JSON (for A, b),   i: " << (gen ? "[IGNORED] " : " ")<<inputJson<<"\n";
         std::cout << "\tOutput JSON (for x),     o: " << vm["output-json"].as<std::string>() << "\n";
         std::cout << "\tConvergence Threshold,   𝜀: " << vm["threshold"].as<long double>() << "\n";
         std::cout << "\tMax iterations,          k: " << static_cast<size_t>(vm["max-iterations"].as<long double>()) << "\n";
@@ -69,7 +75,7 @@ protected:
         std::cout << "\tUse Point-Jacobi          : " << (vm["use-point-jacobi"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\tUse SOR                   : " << (vm["use-SOR"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\tUse Point-Jacobi with SOR : " << (vm["use-SORJ"].as<bool>() ? "Yes" : "No") << "\n";
-        std::cout << "\tUse SSOR                  : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse symmetric SOR         : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
         CommandLine::printLine();
     }
 
@@ -89,16 +95,19 @@ protected:
 
         std::string input;
 
-        // Check if input file path is provided
-        if(!map.count("input-json") || map["input-json"].empty() || !doesFileExist(map["input-json"].as<std::string>())) {
-            while(!map.count("input-json") || map["input-json"].empty() || !doesFileExist(map["input-json"].as<std::string>())) {
-                std::cerr << "Error: No input JSON filepath provided.\n" << std::endl;
-                std::cout << "Enter input file path (file extension is .json): ";
-                std::cin >> input;
-                try {
-                    replace(map, "input-json", input);
-                } catch (const std::exception &) {
-                    continue;
+        // only if not generating already
+        if(!map.count("generate")) {
+            // Check if input file path is provided
+            if(!map.count("input-json") || map["input-json"].empty() || !doesFileExist(map["input-json"].as<std::string>())) {
+                while(!map.count("input-json") || map["input-json"].empty() || !doesFileExist(map["input-json"].as<std::string>())) {
+                    std::cerr << "Error: No input JSON filepath provided.\n" << std::endl;
+                    std::cout << "Enter input file path (file extension is .json): ";
+                    std::cin >> input;
+                    try {
+                        replace(map, "input-json", input);
+                    } catch (const std::exception &) {
+                        continue;
+                    }
                 }
             }
         }
@@ -137,6 +146,10 @@ protected:
 
         if(map.count("order")) {
             performChecksAndUpdateInput<long double>("order", inputMap, map, checks);
+        } else if (map.count("generate")) {
+            checks.clear();
+            checks.emplace_back([](long double value) { return failsNaturalNumberCheck(value); });
+            performChecksAndUpdateInput<long double>("order", inputMap, map, checks);
         }
 
         promptAndSetFlags("use-LUP", "LUP factorization method", map);
@@ -166,14 +179,25 @@ protected:
 
         // first, read the input file into a json map
         nlohmann::json inputMap;
-        readJSON(values["input-json"].as<std::string>(), inputMap);
+        if(values.count("input-json")) {
+            readJSON(values["input-json"].as<std::string>(), inputMap);
+        }
+        const bool generate = values.count("generate");
+        if(generate) {
+            if(!values.count("order")) {
+                std::cerr<<"Error: User did not provide matrix order n, aborting\n";
+                exit(-1);
+            }
+            auto n = static_cast<size_t>(values["order"].as<long double>());
+            inputs.input.n = n;
+            MyBLAS::System::Circuit(n, inputs.input.coefficients, inputs.input.constants, inputs.known_solution);
+        } else {
+            // read the constants
+            inputs.input.constants = MyBLAS::Vector(MyBLAS::Vector(std::vector<long double>(inputMap["constants"])));
+            // read the coefficient matrix
+            inputs.input.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
+        }
 
-        // read the constants
-        MyBLAS::Vector<long double> constants = MyBLAS::Vector(std::vector<long double>(inputMap["constants"]));
-        inputs.input.constants = MyBLAS::Vector(constants);
-
-        // read the coefficient matrix
-        inputs.input.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
 
         if(!MyBLAS::isSquareMatrix(inputs.input.coefficients)) {
             std::cerr<<"Error: Input coefficients matrix A not square, aborting.\n";
@@ -185,16 +209,20 @@ protected:
             exit(-1);
         }
 
-        // set input order n
-        const auto orderFromInputMatrixDimensions = inputs.input.coefficients.getRows();
-        if(!values.count("order")) {
-            std::cout<<"Reading matrix order (n) from input matrix dimensions: "<<orderFromInputMatrixDimensions<<"\n";
-            inputs.input.n = orderFromInputMatrixDimensions;
-        } else { // user provided some value for n, validate against input dimensions
-            const auto orderFromUser = static_cast<size_t>(values["order"].as<long double>());
-            inputs.input.n = orderFromUser > orderFromInputMatrixDimensions ? orderFromInputMatrixDimensions : orderFromUser;
-            if (orderFromUser > orderFromInputMatrixDimensions) {
-                std::cerr<<"Warning: Matrix order (n) is larger than input matrix, defaulting to lower value\n";
+        if(!generate) {
+            // set input order n
+            const auto orderFromInputMatrixDimensions = inputs.input.coefficients.getRows();
+            if (!values.count("order")) {
+                std::cout << "Reading matrix order (n) from input matrix dimensions: " << orderFromInputMatrixDimensions
+                          << "\n";
+                inputs.input.n = orderFromInputMatrixDimensions;
+            } else { // user provided some value for n, validate against input dimensions
+                const auto orderFromUser = static_cast<size_t>(values["order"].as<long double>());
+                inputs.input.n =
+                        orderFromUser > orderFromInputMatrixDimensions ? orderFromInputMatrixDimensions : orderFromUser;
+                if (orderFromUser > orderFromInputMatrixDimensions) {
+                    std::cerr << "Warning: Matrix order (n) is larger than input matrix, defaulting to lower value\n";
+                }
             }
         }
 
@@ -230,7 +258,7 @@ protected:
         }
 
         // print the matrices since we are in verbose mode.
-        if(!values.count("quiet")) {
+        if(!values.count("quiet") && inputs.input.n <= 16){
             const auto precision = getCurrentPrecision();
             printLine();
             std::cout << "Coefficient Matrix (A):\n";

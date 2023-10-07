@@ -31,7 +31,7 @@ namespace MyBLAS {
      * @return The L2 norm (Euclidean distance) between the two containers.
      */
     template <typename ContainerType, typename DataType>
-    inline DataType L2Norm(ContainerType &a, ContainerType &b, const size_t n) {
+    inline DataType L2Norm(const ContainerType &a, const ContainerType &b, const size_t n) {
         DataType norm = 0;
         for(size_t i = 0; i < n; i++) {
             const auto difference = a[i] - b[i];
@@ -43,35 +43,9 @@ namespace MyBLAS {
 
     // TODO:: DOCUMENT
     template <typename T>
-    MyBLAS::Matrix<T> generateOrthogonalMatrix(size_t n, long long seed = 372) {
-        std::random_device rd;
-        std::mt19937 gen(seed);
-        std::uniform_real_distribution<> dis(1, 10.0);
-
-        auto A = MyBLAS::Matrix<T>(n, n);
-        for (size_t i = 0; i < n; ++i) {
-            for (size_t j = 0; j < n; ++j) {
-                A[i][j] = dis(gen);
-            }
-            // Add a large number to the diagonal element to ensure diagonal dominance
-            A[i][i] += 10.0 * static_cast<T>(n);
-        }
-        return A;
-    }
-
-    // TODO:: DOCUMENT
-    template <typename T>
-    MyBLAS::Vector<T> generateVector(size_t n) {
-        std::random_device rd;
-        std::mt19937 gen(rd());
-        std::uniform_real_distribution<> dis(1, 10);
-
-        MyBLAS::Vector<T> x(n);
-        for (size_t i = 0; i < n; ++i) {
-            x[i] = dis(gen);
-        }
-
-        return x;
+    T L2Norm(const MyBLAS::Vector<T> &a, const MyBLAS::Vector<T> &b) {
+        const size_t n = std::min(a.size(), b.size());
+        return MyBLAS::L2Norm<MyBLAS::Vector<T>, T>(a, b, n);
     }
 }
 #endif //NE591_008_OPS_H

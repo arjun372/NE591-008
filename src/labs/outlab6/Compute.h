@@ -1,8 +1,8 @@
 /**
  * @file Compute.h
  * @author Arjun Earthperson
- * @date 09/29/2023
- * @brief This file contains the Compute namespace which includes methods for outlab6 in NE591-008.
+ * @date 10/06/2023
+ * @brief TODO:: DOCUMENT
  */
 
 #ifndef NE591_008_OUTLAB6_COMPUTE_H
@@ -22,12 +22,16 @@
 
 /**
  * @namespace Compute
- * @brief This namespace contains methods for performing various computations.
+ * @brief Namespace containing methods for solving linear systems using various methods.
  */
 namespace Compute {
 
-    // TODO:: Document
-    static void usingLUP(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
+    /**
+     * @brief Solves a linear system using LUP decomposition.
+     * @param outputs The output data structure to store the solution and execution time.
+     * @param inputs The input data structure containing the system to solve.
+     */
+    void usingLUP(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
         MyBLAS::Vector<long double> &b = inputs.input.constants;
 
@@ -45,15 +49,16 @@ namespace Compute {
 
         const auto time = static_cast<long double>(timer.duration().count());
         outputs.execution_time = time;
+        outputs.solution.converged = true;
 
     }
 
     /**
-     * @brief This method applies the Point Jacobi relaxation method to the given input matrices.
-     * @param outputs A reference to the OutLab6Outputs object where the results will be stored.
-     * @param inputs A reference to the OutLab6Inputs object that contains the input matrices.
+     * @brief Solves a linear system using the Point Jacobi method.
+     * @param outputs The output data structure to store the solution and execution time.
+     * @param inputs The input data structure containing the system to solve.
      */
-    static void usingPointJacobi(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
+    void usingPointJacobi(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
         MyBLAS::Vector<long double> &b = inputs.input.constants;
         const size_t max_iterations = inputs.input.max_iterations;
@@ -75,8 +80,12 @@ namespace Compute {
         outputs.execution_time = time;
     }
 
-    // TODO:: DOCUMENT
-    static void usingGaussSeidel(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
+    /**
+     * @brief Solves a linear system using the Gauss-Seidel method.
+     * @param outputs The output data structure to store the solution and execution time.
+     * @param inputs The input data structure containing the system to solve.
+     */
+    void usingGaussSeidel(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
         MyBLAS::Vector<long double> &b = inputs.input.constants;
         const size_t max_iterations = inputs.input.max_iterations;
@@ -98,8 +107,12 @@ namespace Compute {
         outputs.execution_time = time;
     }
 
-    // TODO:: DOCUMENT
-    static void usingSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
+    /**
+      * @brief Solves a linear system using the Successive Over-Relaxation (SOR) method.
+      * @param outputs The output data structure to store the solution and execution time.
+      * @param inputs The input data structure containing the system to solve.
+      */
+    void usingSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
         MyBLAS::Vector<long double> &b = inputs.input.constants;
         const size_t max_iterations = inputs.input.max_iterations;
@@ -122,8 +135,12 @@ namespace Compute {
         outputs.execution_time = time;
     }
 
-    // TODO:: DOCUMENT
-    static void usingJacobiSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
+    /**
+     * @brief Solves a linear system using the Jacobi SOR method.
+     * @param outputs The output data structure to store the solution and execution time.
+     * @param inputs The input data structure containing the system to solve.
+     */
+    void usingJacobiSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
         MyBLAS::Vector<long double> &b = inputs.input.constants;
         const size_t max_iterations = inputs.input.max_iterations;
@@ -146,8 +163,12 @@ namespace Compute {
         outputs.execution_time = time;
     }
 
-    // TODO:: DOCUMENT
-    static void usingSymmetricSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
+    /**
+     * @brief Solves a linear system using the Symmetric SOR method.
+     * @param outputs The output data structure to store the solution and execution time.
+     * @param inputs The input data structure containing the system to solve.
+     */
+    void usingSymmetricSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
         MyBLAS::Vector<long double> &b = inputs.input.constants;
         const size_t max_iterations = inputs.input.max_iterations;

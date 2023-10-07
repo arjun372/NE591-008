@@ -277,6 +277,39 @@ namespace MyBLAS {
         return true;
     }
 
+
+    /**
+     * @brief Makes the given matrix diagonally dominant.
+     *
+     * This function modifies the input matrix such that the absolute value of each diagonal element
+     * is greater than the sum of the absolute values of the other elements in the same row.
+     *
+     * @param A The input matrix to be modified.
+     * @param dominance_offset The offset to be added to the diagonal elements to make the matrix diagonally dominant.
+     */
+    template<typename T>
+    void makeDiagonallyDominant(MyBLAS::Matrix<T> &A, const T dominance_offset = 1) {
+
+        const size_t n = A.getRows(); // or A.getCols(), since A is a square matrix
+
+        // Iterate over the rows of the input matrix A
+        for(size_t row = 0; row < n; row++) {
+            T nonDiagonalSum = 0;
+            // Iterate over the columns of the input matrix A
+            for(size_t col = 0; col < n; col++) {
+                nonDiagonalSum += std::abs(A[row][col]);
+            }
+            // get the diagonal value
+            const T leadingDiagonalMagnitude = std::abs(A[row][row]);
+            nonDiagonalSum -= leadingDiagonalMagnitude; // Subtract the diagonal element
+
+            if(leadingDiagonalMagnitude <= nonDiagonalSum) {
+                const T sign = (leadingDiagonalMagnitude == A[row][row]) ? 1 : -1; // retain the sign
+                A[row][row] = sign * (nonDiagonalSum + dominance_offset);
+            }
+        }
+    }
+
     // TODO:: DOCUMENT
     template<typename T>
     bool haveEqualRank(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
@@ -326,6 +359,25 @@ namespace MyBLAS {
     template <typename T>
     MyBLAS::Vector<T> operator+(const T& scalar, const MyBLAS::Vector<T>& vector) {
         return vector + scalar;
+    }
+
+    /**
+     * @brief Computes the inner product of two matrices.
+     * @param rhs Matrix to compute the inner product with.
+     * @return The inner product of the two matrices.
+     */
+    template <typename T>
+    MyBLAS::Matrix<T> innerProduct(const MyBLAS::Matrix<T>& A, const MyBLAS::Matrix<T>& B) {
+        if (A.getRows() != B.getRows() || A.getCols() != B.getCols()) {
+            throw std::invalid_argument("Error: Matrices must have the same dimensions for inner product.");
+        }
+        MyBLAS::Matrix<T> result(A.getRows(), B.getCols());
+        for (size_t row = 0; row < A.getRows(); row++) {
+            for (size_t col = 0; col < B.getCols(); col++) {
+                result[row][col] = A[row][col] * B[row][col];
+            }
+        }
+        return result;
     }
 }
 

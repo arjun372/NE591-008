@@ -74,6 +74,7 @@ protected:
         std::cout<<"\ttotal iterations          : "<<(results.solution.iterations)<<std::endl;
         std::cout<<"\tconverged                 : "<<(results.solution.converged ? "Yes" : "No")<<std::endl;
         std::cout<<"\titerative error           : "<<(results.solution.iterative_error)<<std::endl;
+        std::cout<<"\tL2 error                  : "<<(results.getSolutionError())<<std::endl;
         std::cout<<"\tabsolute maximum residual : "<<(results.solution.getMaxResidual(results.inputs.input.coefficients, results.inputs.input.constants))<<std::endl;
         std::cout<<"\texecution time (ns)       : "<<(results.execution_time)<<std::endl;
         std::cout<<"\texecution time (ms)       : "<<(results.execution_time/1.0e6)<<std::endl;
@@ -86,19 +87,6 @@ protected:
         /**
          * TODO:: Document
         **/
-
-        size_t n = 8;
-        auto A = MyBLAS::generateOrthogonalMatrix<long double>(n);
-        auto x = MyBLAS::generateVector<long double>(n);
-        auto b = A*x;
-        outputs.inputs.input.coefficients = A;
-        inputs.input.coefficients = A;
-        outputs.inputs.input.constants = b;
-        outputs.inputs.input.relaxation_factor = 1.1110;
-        inputs.input.relaxation_factor = 1.1110;
-        inputs.input.constants = b;
-        outputs.inputs.input.n = n;
-        inputs.input.n = n;
 
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);

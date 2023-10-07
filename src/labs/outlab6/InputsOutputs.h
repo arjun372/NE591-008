@@ -15,6 +15,7 @@
 #include "math/blas/MyBLAS.h"
 #include "math/LinearSolver.h"
 #include "json.hpp"
+#include "math/blas/Ops.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.
@@ -27,6 +28,7 @@ typedef struct Input {
 
     std::set<MyLinearSolvingMethod::Type> methods = {};
     MyLinearSolvingMethod::Input<long double> input;
+    MyBLAS::Vector<long double> known_solution;
 
     /**
      * @brief Converts the input parameters to a JSON object.
@@ -39,6 +41,7 @@ typedef struct Input {
         jsonMap["max-iterations"] = input.max_iterations;
         jsonMap["coefficients"] = input.coefficients.getData();
         jsonMap["constants"] = input.constants.getData();
+        jsonMap["known-solution"] = known_solution.getData();
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
             std::transform(methods.begin(), methods.end(), std::back_inserter(result), [](MyLinearSolvingMethod::Type method) {
@@ -62,8 +65,13 @@ typedef struct Output {
     Output() = default;
     OutLab6Inputs inputs;
     MyLinearSolvingMethod::Solution<long double> solution;
-    long double execution_time = 0;
 
+    long double execution_time = std::numeric_limits<long double>::quiet_NaN();
+
+    // TODO:: DOCUMENT
+    [[maybe_unused]] [[nodiscard]] long double getSolutionError() const {
+        return std::sqrt(MyBLAS::L2Norm(solution.x, inputs.known_solution));
+    }
 
     /**
      * @brief Converts the output parameters to a JSON object.
@@ -81,7 +89,7 @@ typedef struct Output {
 
         jsonMap["solution"] = solution.x.getData();
         jsonMap["max-residual"] = solution.getMaxResidual(inputs.input.coefficients, inputs.input.constants);
-
+        jsonMap["l2-error"] = getSolutionError();
         jsonMap["execution-time-ns"] = execution_time;
     }
 } OutLab6Outputs;

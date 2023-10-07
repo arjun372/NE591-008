@@ -21,6 +21,8 @@ set(UTILS_LIB_HEADERS
         math/relaxation/SSOR.h
         math/relaxation/RelaxationMethods.h
         math/LinearSolver.h
+        math/blas/system/Circuit.h
+        math/Random.h
 )
 
 set(UTILS_LIB_SOURCES
