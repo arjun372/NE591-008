@@ -3,15 +3,16 @@
  * @author Arjun Earthperson
  * @date 08/30/2023
  * @brief This file contains the definition of the Project class template.
- *        The Project class is a generic class that represents a project that can be executed.
-*/
+ *        The Project class is a generic class that represents a project that
+ * can be executed.
+ */
 
 #ifndef NE591_008_PROJECT_H
 #define NE591_008_PROJECT_H
 
+#include "CommandLine.h"
 #include <boost/program_options.hpp>
 #include <utility>
-#include "CommandLine.h"
 
 /**
  * @class Project
@@ -20,22 +21,24 @@
  * @tparam CommandLineParserType The type of the command line parser.
  * @tparam OutputType The type of the output data.
  */
-template <typename InputType, typename CommandLineParserType, typename OutputType> class Project {
+template <typename InputType, typename CommandLineParserType,
+          typename OutputType>
+class Project {
 
-public:
-
+  public:
     /**
-     * @brief A static assertion to ensure that CommandLineParserType is a derived class of CommandLine.
+     * @brief A static assertion to ensure that CommandLineParserType is a
+     * derived class of CommandLine.
      */
-    static_assert(std::is_base_of<CommandLine<InputType>, CommandLineParserType>::value, "CommandLineParserType must be a derived class of CommandLine");
+    static_assert(
+        std::is_base_of<CommandLine<InputType>, CommandLineParserType>::value,
+        "CommandLineParserType must be a derived class of CommandLine");
 
     /**
      * @brief Constructor that initializes the command line arguments.
      * @param args The command line arguments.
      */
-    explicit Project(CommandLineArgs args) {
-        cmdArgs = args;
-    }
+    explicit Project(CommandLineArgs args) { cmdArgs = args; }
 
     /**
      * @brief Default virtual destructor.
@@ -54,11 +57,9 @@ public:
      * @brief Returns the terminal.
      * @return The terminal.
      */
-    CommandLineParserType getTerminal() const {
-        return terminal;
-    }
+    CommandLineParserType getTerminal() const { return terminal; }
 
-private:
+  private:
     CommandLineArgs cmdArgs{};
     CommandLineParserType terminal;
     OutputType outputs;
@@ -79,8 +80,7 @@ private:
         run(outputs, terminal.getInputs(), terminal.getArguments());
     }
 
-protected:
-
+  protected:
     /**
      * @brief Builds the header information.
      * @return The header information.
@@ -93,7 +93,8 @@ protected:
      * @param input The input data.
      * @param values The variable map.
      */
-    virtual void preRun(OutputType &output, InputType &input, boost::program_options::variables_map &values) {}
+    virtual void preRun(OutputType &output, InputType &input,
+                        boost::program_options::variables_map &values) {}
 
     /**
      * @brief Executes the project.
@@ -101,7 +102,8 @@ protected:
      * @param input The input data.
      * @param values The variable map.
      */
-    virtual void run(OutputType &output, InputType &input, boost::program_options::variables_map &values) = 0;
+    virtual void run(OutputType &output, InputType &input,
+                     boost::program_options::variables_map &values) = 0;
 
     /**
      * @brief A hook for performing actions after the run.
@@ -109,7 +111,8 @@ protected:
      * @param input The input data.
      * @param values The variable map.
      */
-    virtual void postRun(OutputType &output, InputType &input, boost::program_options::variables_map &values) {}
+    virtual void postRun(OutputType &output, InputType &input,
+                         boost::program_options::variables_map &values) {}
 };
 
-#endif //NE591_008_PROJECT_H
+#endif // NE591_008_PROJECT_H

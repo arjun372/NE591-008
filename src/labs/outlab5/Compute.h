@@ -8,19 +8,20 @@
 #ifndef NE591_008_OUTLAB_5_COMPUTE_H
 #define NE591_008_OUTLAB_5_COMPUTE_H
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 #include "math/blas/Matrix.h"
 #include "math/factorization/LU.h"
 
-
 /**
- * @brief Performs Doolittle's LU factorization with partial pivoting on a given matrix.
+ * @brief Performs Doolittle's LU factorization with partial pivoting on a given
+ * matrix.
  *
- * This method first finds the pivot row by identifying the maximum absolute value in each column.
- * It then swaps the pivot row with the current row in both the matrix and the permutation matrix.
- * Finally, it performs Doolittle's LU factorization on the pivoted matrix.
+ * This method first finds the pivot row by identifying the maximum absolute
+ * value in each column. It then swaps the pivot row with the current row in
+ * both the matrix and the permutation matrix. Finally, it performs Doolittle's
+ * LU factorization on the pivoted matrix.
  *
  * @tparam T The data type of the matrix elements.
  * @param L The lower triangular matrix after factorization.
@@ -29,7 +30,9 @@
  * @return The permutation matrix.
  */
 template <typename T>
-static MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+static MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L,
+                                               MyBLAS::Matrix<T> &U,
+                                               const MyBLAS::Matrix<T> &A) {
 
     MyBLAS::Matrix pivotedA = A;
 
@@ -63,12 +66,15 @@ static MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Mat
 }
 
 /**
- * @brief Performs recursive LU factorization with partial pivoting on a given matrix.
+ * @brief Performs recursive LU factorization with partial pivoting on a given
+ * matrix.
  *
- * This method first finds the maximum absolute value in the first column of the matrix and swaps the corresponding row
- * with the first row.It then divides the matrix into four submatrices and performs LU factorization on the top-left
- * submatrix. The method then updates the other submatrices and recursively applies the same procedure to the
- * bottom-right submatrix. Finally, it combines the results into the final L and U matrices.
+ * This method first finds the maximum absolute value in the first column of the
+ * matrix and swaps the corresponding row with the first row.It then divides the
+ * matrix into four submatrices and performs LU factorization on the top-left
+ * submatrix. The method then updates the other submatrices and recursively
+ * applies the same procedure to the bottom-right submatrix. Finally, it
+ * combines the results into the final L and U matrices.
  *
  * @tparam T The data type of the matrix elements.
  * @param L The lower triangular matrix after factorization.
@@ -77,7 +83,9 @@ static MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Mat
  * @return The permutation matrix.
  */
 template <typename T>
-static MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+static MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L,
+                                               MyBLAS::Matrix<T> &U,
+                                               const MyBLAS::Matrix<T> &A) {
     const size_t n = A.getCols();
 
     MyBLAS::Matrix<T> P = MyBLAS::Matrix<T>::eye(n);
@@ -142,9 +150,11 @@ static MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Mat
  * @brief Performs LU factorization with partial pivoting on a given matrix.
  *
  * This method first initializes the L, U, and P matrices.
- * It then finds the pivot element in each column of the U matrix and swaps the corresponding row with the current row
- * in the U, L, and P matrices. The method then performs Gaussian elimination to update the U matrix and calculates the
- * corresponding elements in the L matrix. Finally, it sets the diagonal elements of the L matrix to 1.
+ * It then finds the pivot element in each column of the U matrix and swaps the
+ * corresponding row with the current row in the U, L, and P matrices. The
+ * method then performs Gaussian elimination to update the U matrix and
+ * calculates the corresponding elements in the L matrix. Finally, it sets the
+ * diagonal elements of the L matrix to 1.
  *
  * @tparam T The data type of the matrix elements.
  * @param L The lower triangular matrix after factorization.
@@ -153,7 +163,9 @@ static MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Mat
  * @return The permutation matrix.
  */
 template <typename T>
-static MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+static MyBLAS::Matrix<T>
+factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U,
+                               const MyBLAS::Matrix<T> &A) {
     const auto n = A.getRows();
 
     // Initialize L, U, and P
@@ -194,9 +206,10 @@ static MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, My
     return P;
 }
 
-//template <typename T>
-//static MyBLAS::Matrix<T> factorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
-//    return dooLittleFactorizeLUP(L, U, A);
-//}
+// template <typename T>
+// static MyBLAS::Matrix<T> factorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T>
+// &U, const MyBLAS::Matrix<T> &A) {
+//     return dooLittleFactorizeLUP(L, U, A);
+// }
 
-#endif //NE591_008_OUTLAB_5_COMPUTE_H
+#endif // NE591_008_OUTLAB_5_COMPUTE_H

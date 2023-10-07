@@ -2,8 +2,9 @@
  * @file Stopwatch.h
  * @author Arjun Earthperson
  * @date 08/30/2023
- * @brief This file contains the Stopwatch class which is a utility for measuring time durations in various units.
-*/
+ * @brief This file contains the Stopwatch class which is a utility for
+ * measuring time durations in various units.
+ */
 
 /*
  * MIT License
@@ -32,10 +33,8 @@
  * SOFTWARE.
  */
 
-
 #ifndef NE591_008_STOPWATCH_H
 #define NE591_008_STOPWATCH_H
-
 
 #include <chrono>
 
@@ -49,9 +48,8 @@ using Nanoseconds = std::chrono::nanoseconds;
  * @brief Stopwatch class template for measuring time durations.
  * @tparam D The duration type (e.g., Seconds, Milliseconds, Microseconds).
  */
-template<class D> class Stopwatch
-{
-public:
+template <class D> class Stopwatch {
+  public:
     // Define types for high resolution clock and time point
     using ResolutionType = std::chrono::high_resolution_clock;
     using TimePointType = std::chrono::time_point<ResolutionType>;
@@ -63,33 +61,51 @@ public:
 
     /**
      * @brief Get the duration in the given type.
-     * @return The duration from the initial time point to the last clicked time point, cast to the template duration
-     * type.
+     * @return The duration from the initial time point to the last clicked time
+     * point, cast to the template duration type.
      */
-    D duration() const { return std::chrono::duration_cast<D>(_clicked-_initial); }
+    D duration() const {
+        return std::chrono::duration_cast<D>(_clicked - _initial);
+    }
 
     /**
      * @brief Get the duration in seconds, in double precision.
-     * @return The duration from the initial time point to the last clicked time point, cast to double precision
-     * seconds.
+     * @return The duration from the initial time point to the last clicked time
+     * point, cast to double precision seconds.
      */
-    [[nodiscard]] double elapsed_seconds() const { return std::chrono::duration_cast<std::chrono::duration<double>>(duration()).count(); }
+    [[nodiscard]] double elapsed_seconds() const {
+        return std::chrono::duration_cast<std::chrono::duration<double>>(
+                   duration())
+            .count();
+    }
 
     /**
-     * @brief Restart the stopwatch by setting the initial and clicked time points to the current time.
-     * @return A reference to the stopwatch object, allowing for method chaining.
+     * @brief Restart the stopwatch by setting the initial and clicked time
+     * points to the current time.
+     * @return A reference to the stopwatch object, allowing for method
+     * chaining.
      */
-    Stopwatch& restart() { _initial = ResolutionType::now(); _clicked = _initial; return *this; }
+    Stopwatch &restart() {
+        _initial = ResolutionType::now();
+        _clicked = _initial;
+        return *this;
+    }
 
     /**
      * @brief Save the current time as the clicked time point.
-     * @return A reference to the stopwatch object, allowing for method chaining.
+     * @return A reference to the stopwatch object, allowing for method
+     * chaining.
      */
-    Stopwatch& click() { _clicked = ResolutionType::now(); return *this; }
+    Stopwatch &click() {
+        _clicked = ResolutionType::now();
+        return *this;
+    }
 
-private:
-    TimePointType _initial; ///< The initial time point when the stopwatch was last restarted.
-    TimePointType _clicked; ///< The last clicked time point, used to measure durations.
+  private:
+    TimePointType _initial; ///< The initial time point when the stopwatch was
+                            ///< last restarted.
+    TimePointType
+        _clicked; ///< The last clicked time point, used to measure durations.
 };
 
-#endif //NE591_008_STOPWATCH_H
+#endif // NE591_008_STOPWATCH_H

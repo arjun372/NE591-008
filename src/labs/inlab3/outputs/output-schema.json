@@ -18,13 +18,22 @@
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["trapezoidal", "simpsons", "gaussian"]
+            "enum": [
+              "trapezoidal",
+              "simpsons",
+              "gaussian"
+            ]
           },
           "minItems": 1,
           "uniqueItems": true
         }
       },
-      "required": ["a", "b", "m", "rules"]
+      "required": [
+        "a",
+        "b",
+        "m",
+        "rules"
+      ]
     },
     "outputs": {
       "type": "object",
@@ -39,7 +48,10 @@
               "type": "number"
             }
           },
-          "required": ["h", "integral"]
+          "required": [
+            "h",
+            "integral"
+          ]
         },
         "trapezoidal": {
           "type": "object",
@@ -51,7 +63,10 @@
               "type": "number"
             }
           },
-          "required": ["h", "integral"]
+          "required": [
+            "h",
+            "integral"
+          ]
         },
         "gaussian": {
           "type": "object",
@@ -63,7 +78,10 @@
               "type": "number"
             }
           },
-          "required": ["h", "integral"]
+          "required": [
+            "h",
+            "integral"
+          ]
         }
       },
       "allOf": [
@@ -82,7 +100,9 @@
             }
           },
           "then": {
-            "required": ["trapezoidal"]
+            "required": [
+              "trapezoidal"
+            ]
           }
         },
         {
@@ -100,7 +120,9 @@
             }
           },
           "then": {
-            "required": ["simpsons"]
+            "required": [
+              "simpsons"
+            ]
           }
         },
         {
@@ -118,11 +140,16 @@
             }
           },
           "then": {
-            "required": ["gaussian"]
+            "required": [
+              "gaussian"
+            ]
           }
         }
       ]
     }
   },
-  "required": ["inputs", "outputs"]
+  "required": [
+    "inputs",
+    "outputs"
+  ]
 }

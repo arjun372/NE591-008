@@ -1,4 +1,4 @@
-# NE591 MonoRepo
+# NE591 Monorepo
 
 This is a monorepo for my class project and inlab, outlab deliverables for the `NE591-008` course, titled `Mathematical
 and Computational Methods in Nuclear Engineering`. The course aims to provide a theoretical foundation of mathematical 
@@ -8,8 +8,9 @@ their implementation, verification, and testing. I have chosen to organize this 
 cumulative code changes from each deliverable, and reuses as many helper functions as possible. A secondary objective is
 to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library functions.
 
-## Table of Contents
-
+<div style="display: none">[TOC]</div>
+<details>
+<summary><strong>Table of Contents</strong></summary>
 1. [Overview](#ne591-monorepo)
 2. [Locating Source Files](#locating-source-files)
 3. [Building](#building)
@@ -32,6 +33,8 @@ to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library
    - [Clion Remote Debugging via SSH](#clion-remote-debugging-via-ssh)
 6. [License](#license)
 7. [FAQs](#faqs)
+
+</details>
 
 ## Locating Source Files
 Sources and file paths for each deliverable follow the following structure:
@@ -357,7 +360,7 @@ ssh root@localhost
 
 The password for the root user is "debugger".
 
-## [License](LICENSE)
+## License
 
 This project is licensed under the [Unlicense](http://unlicense.org/) - a license with no conditions whatsoever which 
 dedicates works to the public domain. Unlicensed works, modifications, and larger works may be distributed under 

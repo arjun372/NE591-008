@@ -7,42 +7,42 @@
 
 #pragma once
 
-#include <iostream>
-#include <iomanip>
 #include <functional>
+#include <iomanip>
+#include <iostream>
 
 #include <boost/program_options.hpp>
 
-#include "Parser.h"
 #include "Compute.h"
+#include "Parser.h"
 
-#include "Project.h"
 #include "CheckBounds.h"
 #include "CommandLine.h"
-#include "Stopwatch.h"
 #include "Helpers.h"
 #include "Profiler.h"
-
+#include "Project.h"
+#include "Stopwatch.h"
 
 /**
  * @brief Struct to hold variables for Taylor Series.
  */
 typedef struct Output TaylorSeriesVariables;
 
-class InLab1 : public Project<TaylorSeriesInputs , Parser, TaylorSeriesVariables> {
+class InLab1
+    : public Project<TaylorSeriesInputs, Parser, TaylorSeriesVariables> {
 
-public:
+  public:
     explicit InLab1(CommandLineArgs args) : Project(args) {}
 
-protected:
-
+  protected:
     HeaderInfo buildHeaderInfo() override {
-        return HeaderInfo {
-                .ProjectName = "InLab 01",
-                .ProjectDescription = "Iterative Taylor series approximation of sin(x)",
-                .SubmissionDate = "08/30/2023",
-                .StudentName = "Arjun Earthperson",
-                .HeaderArt = R"(
+        return HeaderInfo{
+            .ProjectName = "InLab 01",
+            .ProjectDescription =
+                "Iterative Taylor series approximation of sin(x)",
+            .SubmissionDate = "08/30/2023",
+            .StudentName = "Arjun Earthperson",
+            .HeaderArt = R"(
                                        .-'~~~-.
                                      .'o  oOOOo`.
                                     :~~~-.oOo   o`.
@@ -55,7 +55,8 @@ _____________________\|/__________\\;_\\//___\|/_______________________________)
         };
     }
 
-    void run(TaylorSeriesVariables &output, TaylorSeriesInputs &input, boost::program_options::variables_map &values) override {
+    void run(TaylorSeriesVariables &output, TaylorSeriesInputs &input,
+             boost::program_options::variables_map &values) override {
 
         std::cout << std::setw(40) << "Profile\n";
         Parser::printLine();
@@ -63,36 +64,45 @@ _____________________\|/__________\\;_\\//___\|/_______________________________)
         // my_sin(x)
         long double my_sin_val;
         clock.restart();
-        for(int i = 0; i < 1000; i++) {
-            my_sin_val = my_sin(static_cast<long double>(i)/1000.0f, input.N, input.target_threshold);
+        for (int i = 0; i < 1000; i++) {
+            my_sin_val = my_sin(static_cast<long double>(i) / 1000.0f, input.N,
+                                input.target_threshold);
         }
         clock.click();
 
-        std::cout << " my_sin(x) completed in: " << static_cast<long double>(clock.duration().count()*1.0f) << "ns" << std::endl;
+        std::cout << " my_sin(x) completed in: "
+                  << static_cast<long double>(clock.duration().count() * 1.0f)
+                  << "ns" << std::endl;
         auto my_sin_val2 = my_sin(input.x, input.N, input.target_threshold);
         // sin(x)
         long double math_sin_val;
         Stopwatch<Microseconds> clock2;
         clock2.restart();
-        for(int i = 0; i < 1000; i++) {
-            math_sin_val = sin(static_cast<long double>(i)/1000.0f);
+        for (int i = 0; i < 1000; i++) {
+            math_sin_val = sin(static_cast<long double>(i) / 1000.0f);
         }
         clock2.click();
-        std::cout << " sin(x) completed in: " << static_cast<long double>(clock2.duration().count()*1.0f) << "ns" << std::endl;
+        std::cout << " sin(x) completed in: "
+                  << static_cast<long double>(clock2.duration().count() * 1.0f)
+                  << "ns" << std::endl;
         auto math_sin_val2 = sin(input.x);
         // truncation error
         const long double truncation_error = abs(math_sin_val2 - my_sin_val2);
         Parser::printLine();
         const auto precision = values["precision"].as<int>();
-        std::cout<<std::setw(44)<<"Outputs\n";
+        std::cout << std::setw(44) << "Outputs\n";
         Parser::printLine();
-        std::cout << "\tConverged at n="<<mySineVars.n<<" at convergence threshold: "<<mySineVars.current_threshold<<"\n\t...\n";
-        std::cout << "\tmy_sin(x):"<<std::setw(37)<<std::setprecision(precision) << my_sin_val2<< "\n";
-        std::cout << "\tsin(x) from math.h:"<<std::setw(28)<<std::setprecision(precision) << math_sin_val2<< "\n";
-        std::cout << "\ttruncation error: "<<std::setw(30)<<std::setprecision(precision) << truncation_error << "\n";
+        std::cout << "\tConverged at n=" << mySineVars.n
+                  << " at convergence threshold: "
+                  << mySineVars.current_threshold << "\n\t...\n";
+        std::cout << "\tmy_sin(x):" << std::setw(37)
+                  << std::setprecision(precision) << my_sin_val2 << "\n";
+        std::cout << "\tsin(x) from math.h:" << std::setw(28)
+                  << std::setprecision(precision) << math_sin_val2 << "\n";
+        std::cout << "\ttruncation error: " << std::setw(30)
+                  << std::setprecision(precision) << truncation_error << "\n";
         Parser::printLine();
         my_sin_val += my_sin_val;
         math_sin_val += math_sin_val;
     }
-
 };

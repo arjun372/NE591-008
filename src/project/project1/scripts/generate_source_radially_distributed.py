@@ -7,8 +7,11 @@ mean = 1.0E-5
 std_dev = 1.0E-6
 min_ = 1.0E-7
 max_ = 2.0E-4
+
+
 def gaussian(x, y, mu_x, mu_y, sigma_x, sigma_y):
-    return np.exp(-((x - mu_x)**2 / (2 * sigma_x**2) + (y - mu_y)**2 / (2 * sigma_y**2)))
+    return np.exp(-((x - mu_x) ** 2 / (2 * sigma_x ** 2) + (y - mu_y) ** 2 / (2 * sigma_y ** 2)))
+
 
 def apply_gaussian(m, n, filepath):
     gaussian_params = [
@@ -44,6 +47,7 @@ def plot_map(inputfile, outputfile):
     # Save the heatmap to a file
     plt.savefig(outputfile, dpi=600)
     plt.close()
+
 
 # apply_gaussian(2, 2,   "../analysis/sources/raw/project1_sources_2x2.csv")
 # plot_map("../analysis/sources/raw/project1_sources_2x2.csv", "../analysis/sources/plots/project1_sources_2x2.png")

@@ -1,6 +1,6 @@
 # OutLab 01: Non-vectorized, elementwise (mul, add) operations on 2D matrices
 
-This program performs non-vectorized, elementwise operations on 2D matrices. It takes in three matrices (A, B, F) and a 
+This program performs non-vectorized, elementwise operations on 2D matrices. It takes in three matrices (A, B, F) and a
 scalar (k), and performs the following operations:
 
 - Matrix C = A + B
@@ -35,5 +35,5 @@ To run the program, use the following command:
 ./outlab1 -k 1.356 -M 7 -N 8 -J 9
 ```
 
-This command will perform the operations with a scalar of 1.356, and matrices A and B of size 7x8, and matrix F of size 
+This command will perform the operations with a scalar of 1.356, and matrices A and B of size 7x8, and matrix F of size
 8x9.

@@ -1,10 +1,11 @@
 # OutLab 03: Numerical Integration using Composite Newton-Cotes & Gauss-Legendre Quadratures
 
-Supports numerical integration using Gauss-Legendre Quadratures, and the composite trapezoidal and Simpson's rules. 
-Implements Netwon-Raphson's root finding method to compute nodes and weights for any degree. 
+Supports numerical integration using Gauss-Legendre Quadratures, and the composite trapezoidal and Simpson's rules.
+Implements Netwon-Raphson's root finding method to compute nodes and weights for any degree.
 File based I/O is supported using JSON files.
 
 ## Table of Contents
+
 1. [InLab 03: Numerical Integration using Composite Newton-Cotes Formula](#inlab-03-numerical-integration-using-composite-newton-cotes-formula)
 2. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
@@ -17,7 +18,7 @@ File based I/O is supported using JSON files.
 ## Building & Usage
 
 The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
-configuration except choosing the build target, and output file. Here is a repeatable script 
+configuration except choosing the build target, and output file. Here is a repeatable script
 to perform the build and run the `outlab3` target executable:
 
 ```bash
@@ -59,11 +60,13 @@ export OUTPUT_FILE=./src/labs/outlab3/outputs/sample_output.json
 - `-P [ --profile ]`: Turn on profiling for performance comparison
 
 ## Implementing your own `f(x)`
-You can modify the `user_defined_fx` method located in [extern/function.h](extern/function.h). This code is built as a 
-static library `outlab3_extern` and linked to the `outlab3` target. After modifying this code, no additional compilation 
+
+You can modify the `user_defined_fx` method located in [extern/function.h](extern/function.h). This code is built as a
+static library `outlab3_extern` and linked to the `outlab3` target. After modifying this code, no additional compilation
 steps need to be taken. For example, the current implementation returns `sin(x)`.
 
 Here is a brief description of the `user_defined_fx` method:
+
 ```c++
 /**
  * @brief A user-defined function that calculates the value of the function f(x) = sin(x)
@@ -80,9 +83,10 @@ template <typename T>
 
 ## Output Format
 
-The output is written to a JSON file. 
+The output is written to a JSON file.
 
 ### Sample Outputs File
+
 ```json
 {
    "inputs": {

@@ -10,10 +10,10 @@
 
 #include <utility>
 
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
 #include "json.hpp"
+#include "math/blas/Matrix.h"
 #include "math/blas/MyBLAS.h"
+#include "math/blas/Vector.h"
 
 /**
  * @brief Enumeration representing the different integration rules.
@@ -30,23 +30,19 @@ enum SolverMethod {
  * @param value The IntegrationRule value.
  * @return The string representation of the IntegrationRule.
  */
-const char* methodKey(SolverMethod value) {
-    static const char* SolverMethodKeys[] = {
-            "LUP",
-            "point-jacobi",
-            "gauss-seidel",
-            "SOR"
-    };
+const char *methodKey(SolverMethod value) {
+    static const char *SolverMethodKeys[] = {"LUP", "point-jacobi",
+                                             "gauss-seidel", "SOR"};
     return SolverMethodKeys[static_cast<int>(value)];
 }
 
 /**
-    * @struct Input
-    * @brief Struct representing the input matrices for the BLAS library.
-    */
+ * @struct Input
+ * @brief Struct representing the input matrices for the BLAS library.
+ */
 typedef struct Input {
     Input() = default;
-    std::set<SolverMethod> solver_methods = { METHOD_LUP };
+    std::set<SolverMethod> solver_methods = {METHOD_LUP};
     long double a = 1;
     long double b = 1;
     size_t m = 1;
@@ -58,9 +54,10 @@ typedef struct Input {
     MyBLAS::Matrix<long double> sources = MyBLAS::Matrix<long double>();
 
     /**
-    * @brief Converts the input parameters to a JSON object.
-    * @param jsonMap A reference to the JSON object to store the input parameters.
-    */
+     * @brief Converts the input parameters to a JSON object.
+     * @param jsonMap A reference to the JSON object to store the input
+     * parameters.
+     */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["D"] = diffusion_coefficient;
         jsonMap["cross-section"] = macroscopic_removal_cross_section;
@@ -72,9 +69,10 @@ typedef struct Input {
         jsonMap["mesh"]["𝛾"] = gamma;
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
-            std::transform(solver_methods.begin(), solver_methods.end(), std::back_inserter(result), [](SolverMethod method) {
-                return methodKey(method);
-            });
+            std::transform(solver_methods.begin(), solver_methods.end(),
+                           std::back_inserter(result), [](SolverMethod method) {
+                               return methodKey(method);
+                           });
             return result;
         }();
     }
@@ -89,12 +87,14 @@ typedef struct Map {
     MyBLAS::Matrix<long double> x;
 
     MyBLAS::Matrix<long double> diffusion_matrix_A; ///< Diffusion Matrix A
-    MyBLAS::Vector<long double> right_hand_side_vector_B; ///< Right Hand Side Vector B
+    MyBLAS::Vector<long double>
+        right_hand_side_vector_B; ///< Right Hand Side Vector B
 
     /**
-    * @brief Converts the input parameters to a JSON object.
-    * @param jsonMap A reference to the JSON object to store the input parameters.
-    */
+     * @brief Converts the input parameters to a JSON object.
+     * @param jsonMap A reference to the JSON object to store the input
+     * parameters.
+     */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["lower"] = L.getData();
         jsonMap["upper"] = U.getData();
@@ -120,8 +120,9 @@ typedef struct Output {
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["solution"] = solution.getData();
         jsonMap["residual"] = residual.getData();
-        jsonMap["max-residual"] = MyBLAS::max<long double>(MyBLAS::abs(residual));
+        jsonMap["max-residual"] =
+            MyBLAS::max<long double>(MyBLAS::abs(residual));
     }
 } SolverOutputs;
 
-#endif //NE591_008_PROJECT1_INPUTOUTPUTS_H
+#endif // NE591_008_PROJECT1_INPUTOUTPUTS_H

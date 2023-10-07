@@ -4,6 +4,7 @@ LU factorization with pivoting. Factorization using forward and backward substit
 JSON files.
 
 ## Table of Contents
+
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
@@ -57,6 +58,7 @@ export OUTPUT_FILE=./src/labs/inlab5/examples/sample_output.json
 The expected input json file requires the following fields:
 
 ### Sample Input File
+
 ```json
 {
    "lower": [
@@ -95,6 +97,7 @@ The expected input json file requires the following fields:
 The output is written to a JSON file as well.
 
 ### Sample Outputs File
+
 ```json
 {
    "outputs": {

@@ -10,18 +10,19 @@
 
 #include <utility>
 
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
-#include "math/blas/MyBLAS.h"
-#include "math/LinearSolver.h"
 #include "json.hpp"
+#include "math/LinearSolver.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/MyBLAS.h"
 #include "math/blas/Ops.h"
+#include "math/blas/Vector.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.
  *
- * This structure contains the convergence threshold, maximum number of iterations,
- * size of the matrices, coefficient matrix, vector of constants, and the set of methods.
+ * This structure contains the convergence threshold, maximum number of
+ * iterations, size of the matrices, coefficient matrix, vector of constants,
+ * and the set of methods.
  */
 typedef struct Input {
     Input() = default;
@@ -44,9 +45,11 @@ typedef struct Input {
         jsonMap["known-solution"] = known_solution.getData();
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
-            std::transform(methods.begin(), methods.end(), std::back_inserter(result), [](MyLinearSolvingMethod::Type method) {
-                return MyLinearSolvingMethod::TypeKey(method);
-            });
+            std::transform(methods.begin(), methods.end(),
+                           std::back_inserter(result),
+                           [](MyLinearSolvingMethod::Type method) {
+                               return MyLinearSolvingMethod::TypeKey(method);
+                           });
             return result;
         }();
     }
@@ -55,12 +58,11 @@ typedef struct Input {
 /**
  * @brief A structure to hold the output of the relaxation method.
  *
- * This structure contains the input parameters, the solution, and the execution time.
+ * This structure contains the input parameters, the solution, and the execution
+ * time.
  */
 typedef struct Output {
-    explicit Output(OutLab6Inputs inputMatrices) {
-        inputs = inputMatrices;
-    };
+    explicit Output(OutLab6Inputs inputMatrices) { inputs = inputMatrices; };
 
     Output() = default;
     OutLab6Inputs inputs;
@@ -71,8 +73,9 @@ typedef struct Output {
     /**
      * @brief Calculates and returns the error of the solution.
      *
-     * This function calculates the error of the solution by comparing it with the known solution.
-     * The error is calculated using the L2 Norm (Euclidean Norm) and then taking the square root of the result.
+     * This function calculates the error of the solution by comparing it with
+     * the known solution. The error is calculated using the L2 Norm (Euclidean
+     * Norm) and then taking the square root of the result.
      *
      * @return The error of the solution as a long double.
      */
@@ -95,10 +98,11 @@ typedef struct Output {
         jsonMap["iterative-error"]["actual"] = solution.iterative_error;
 
         jsonMap["solution"] = solution.x.getData();
-        jsonMap["max-residual"] = solution.getMaxResidual(inputs.input.coefficients, inputs.input.constants);
+        jsonMap["max-residual"] = solution.getMaxResidual(
+            inputs.input.coefficients, inputs.input.constants);
         jsonMap["l2-error"] = getSolutionError();
         jsonMap["execution-time-ns"] = execution_time;
     }
 } OutLab6Outputs;
 
-#endif //NE591_008_OUTLAB6_INPUTOUTPUTS_H
+#endif // NE591_008_OUTLAB6_INPUTOUTPUTS_H
