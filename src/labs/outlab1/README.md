@@ -1,3 +1,7 @@
+<div style="display: none">
+\page outlab1 OutLab 01: Elementwise Ops on 2D Matrices
+</div>
+
 # OutLab 01: Non-vectorized, elementwise (mul, add) operations on 2D matrices
 
 This program performs non-vectorized, elementwise operations on 2D matrices. It takes in three matrices (A, B, F) and a 

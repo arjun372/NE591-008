@@ -1,27 +1,31 @@
+<div style="display: none">
+\page inlab2 InLab 02: Lagrange Interpolation Polynomials I
+</div>
+
 # InLab 02: I/O Setup for Lagrange Interpolation Polynomials
 
-This program is designed to setup the I/O requirements for performing Lagrange interpolation. It takes in a set of 
-points and returns the interpolated values at specified evaluation points. 
+This program is designed to setup the I/O requirements for performing Lagrange interpolation. It takes in a set of
+points and returns the interpolated values at specified evaluation points.
 
 File based I/O is supported using CSV (comma separated values) files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
 
-- [InLab 02: I/O Setup for Lagrange Interpolation Polynomials](#inlab-02-io-setup-for-lagrange-interpolation-polynomials)
-    - [Building & Usage](#building--usage)
-        - [Options](#options)
-        - [General options](#general-options)
-    - [Implementing your own `f(x)`](#implementing-your-own-fx)
-    - [File I/O](#file-io)
-    - [Input Format](#input-format)
-    - [Output Format](#output-format)
-        - [Sample Outputs File](#sample-outputs-file)
-    - [Example](#example)
+## Overview
+- [Building & Usage](#building--usage)
+    - [Options](#options)
+    - [General options](#general-options)
+- [Implementing your own `f(x)`](#implementing-your-own-fx)
+- [File I/O](#file-io)
+- [Input Format](#input-format)
+- [Output Format](#output-format)
+    - [Sample Outputs File](#sample-outputs-file)
+- [Example](#example)
 
 ## Building & Usage
 
 The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
-configuration except choosing the build target, and optionally the input and output files. Here is a repeatable script 
+configuration except choosing the build target, and optionally the input and output files. Here is a repeatable script
 to perform the build and run the `inlab2` target executable:
 
 ```bash
@@ -46,6 +50,7 @@ export OUTPUT_FILE=./src/labs/inlab2/outputs/sample_output.csv
 ```
 
 ### Options
+
 - `-n [ --num-points ] arg` (optional): Number of interpolation points n.
 - `-m [ --num-samples ] arg`: Number of Lagrange interpolation evaluation points.
 - `-x [ --x-points ] arg`: Distinct and sorted (x) interpolation points if --input-csv is unset.
@@ -62,12 +67,14 @@ export OUTPUT_FILE=./src/labs/inlab2/outputs/sample_output.csv
 - `-P [ --profile ]`: Turn on profiling for performance comparison.
 
 ## Implementing your own `f(x)`
-When using the `--use-fx-function` flag, the code uses outputs from the `fill_fx` method, located in 
-[extern/function.h](extern/function.h). This code is built as a static library `inlab2_extern` and linked to the 
+
+When using the `--use-fx-function` flag, the code uses outputs from the `fill_fx` method, located in
+[extern/function.h](extern/function.h). This code is built as a static library `inlab2_extern` and linked to the
 `inlab2` target. When modifying this code, no additional compilation steps need to be taken.
 
 Here is a brief description of the `fx_fill` method:
-```c++
+
+```
 /**
  * @brief Fill the `fx` vector, optionally using the values in the `x` vector.
  * @param x The input vector containing `x` values.
@@ -80,10 +87,13 @@ Here is a brief description of the `fx_fill` method:
  * @note The `fx` vector will be modified by this function.
  * @note The `x` vector will not be modified by this function.
  */
+```
+```cpp
 template <typename T> [[maybe_unused]] void fill_fx(const std::vector<T> &x, std::vector<T> &fx);
 ```
 
 ## File I/O
+
 Although data for `x` and `f(x)` can be entered sequentially in interactive mode, it is recommended to use the
 option to read an input CSV file. The code looks for the headers `x`and `f(x)`, so please use them precisely. There is a
 sample input CSV file under [inputs/sample_input.csv](inputs/sample_input.csv).
@@ -92,20 +102,20 @@ sample input CSV file under [inputs/sample_input.csv](inputs/sample_input.csv).
 
 The input points can be provided in three ways:
 
-1. Using the `-x, --x-points` option: The distinct and sorted `(x)` interpolation points can be directly specified as 
+1. Using the `-x, --x-points` option: The distinct and sorted `(x)` interpolation points can be directly specified as
    command-line arguments. For example:
     ```shell
     ./inlab2 -n 4 -x 0.5 1.0 1.5 2.0 -m 100 -o output.csv
     ```
 
-2. Using the `-i, --input-csv` option: The input points can be read from a CSV file with two columns `[x, f(x)]`. 
+2. Using the `-i, --input-csv` option: The input points can be read from a CSV file with two columns `[x, f(x)]`.
    The path to the CSV file should be provided as a command-line argument. For example:
-    
+
    ```shell
     ./inlab2 -i input.csv -m 100 -o output.csv
     ```
-   
-    ### Sample Inputs File
+
+   ### Sample Inputs File
     ```shell
     $ cat ./sample_input.csv
     x,f(x)
@@ -120,8 +130,8 @@ The input points can be provided in three ways:
     -0.1277,0.8583
     1.1261,1.0381
     ```
-   
-3. Using the interactive shell mode, where the will prompt the user to enter the values one by one. For example: 
+
+3. Using the interactive shell mode, where the will prompt the user to enter the values one by one. For example:
     ```shell
     Enter the number of interpolation points: 2
     Enter points for the interval x, sorted, and one at a time: 
@@ -142,6 +152,7 @@ The input points can be provided in three ways:
 ## Output Format
 
 The output is written to a CSV file with five columns `[i, x, f(x), L(x), E(x)]`, where:
+
 - `i` is the index of the evaluation point
 - `x` is the evaluation point
 - `f(x)` is the actual value at the evaluation point
@@ -149,8 +160,9 @@ The output is written to a CSV file with five columns `[i, x, f(x), L(x), E(x)]`
 - `E(x)` is the error between the interpolated value and the actual value
 
 ### Sample Outputs File
+
 * `--use-fx-function` set
-    If the flag `--use-fx-function` is set, the output contains five columns `[i, x, f(x), L(x), E(x)]`.
+  If the flag `--use-fx-function` is set, the output contains five columns `[i, x, f(x), L(x), E(x)]`.
     ```shell
     $ cat ./outputs-with-fx-function.csv 
     i,x(i),L(x),f(x),E(x),

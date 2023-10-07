@@ -1,9 +1,15 @@
+<div style="display: none">
+\page inlab6 InLab 06: Point-Jacobi - Linear Equations Solver
+</div>
+
 # InLab 06: Iterative Linear Equations Solver: Point-Jacobi
 
 Solves a system of linear equations using the point-Jacobi method.
 File based I/O is supported using JSON files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
+
+## Overview
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
@@ -40,6 +46,7 @@ export OUTPUT_FILE=./src/labs/inlab6/examples/inlab6_output_1.json
 ```
 
 ### Parameters
+
 - `-t [ --threshold ] arg     `: iterative convergence threshold [𝜀 > 0]
 - `-k [ --max-iterations ] arg`: maximum number of iterations [n ∈ ℕ]
 - `-n [ --order ] arg`: order of the square matrix [n ∈ ℕ]
@@ -53,7 +60,6 @@ export OUTPUT_FILE=./src/labs/inlab6/examples/inlab6_output_1.json
 - `--use-gauss-seidel`: [DISABLED] Use the Gauss-Seidel method
 - `--use-SOR`: [DISABLED] Use the SOR method
 
-
 ### General options
 
 - `-h [ --help ]`: Show this help message
@@ -66,6 +72,7 @@ export OUTPUT_FILE=./src/labs/inlab6/examples/inlab6_output_1.json
 The expected input json file requires the following fields:
 
 ### Sample Input File
+
 ```json
 {
    "coefficients": [
@@ -83,6 +90,7 @@ The expected input json file requires the following fields:
 The output is written to a JSON file as well.
 
 ### Sample Outputs File
+
 ```json
 {
    "inputs": {

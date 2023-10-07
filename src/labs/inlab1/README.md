@@ -1,6 +1,12 @@
+<div style="display: none">
+\page inlab1 InLab 01: Taylor series approximation of sin(x)
+</div>
+
 # InLab 01: Iterative Taylor series approximation of sin(x)
 
 It uses an iterative Taylor series approximation to calculate the sine of an angle.
+
+<div style="display: none">[TOC]</div>
 
 ## Usage
 The program runs in interactive mode. However, input arguments can be provided for convenience. 

@@ -1,10 +1,16 @@
+<div style="display: none">
+\page outlab5 OutLab 05: LUP - Linear Equations Solver II
+</div>
+
 # OutLab 05: System of Linear Equations Solver, with Pivoting
 
 Solves a system of linear equations solver, with pivoting. You can use the `--no-pivoting` flag to turn off pivoting.
 You can use the `--alternate-method` flag to use a different way of performing LU factorization.
 File based I/O is supported using JSON files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
+
+## Overview
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
@@ -60,6 +66,7 @@ export OUTPUT_FILE=./src/labs/outlab5/examples/outlab5_output_4.json
 The expected input json file requires the following fields:
 
 ### Sample Input File
+
 ```json
 {
   "coefficients": [
@@ -84,6 +91,7 @@ The expected input json file requires the following fields:
 The output is written to a JSON file as well.
 
 ### Sample Outputs File
+
 ```json
 {
     "inputs": {

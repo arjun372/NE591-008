@@ -1,4 +1,4 @@
-# NE591 MonoRepo
+# NE591 Monorepo - Overview
 
 This is a monorepo for my class project and inlab, outlab deliverables for the `NE591-008` course, titled `Mathematical
 and Computational Methods in Nuclear Engineering`. The course aims to provide a theoretical foundation of mathematical 
@@ -8,30 +8,29 @@ their implementation, verification, and testing. I have chosen to organize this 
 cumulative code changes from each deliverable, and reuses as many helper functions as possible. A secondary objective is
 to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library functions.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
 
-1. [Overview](#ne591-monorepo)
-2. [Locating Source Files](#locating-source-files)
-3. [Building](#building)
-   - [Build Environments](#build-environments)
-     - [EOS](#eos)
-     - [Hazel](#hazel)
-   - [Class Project](#class-project)
-   - [InLabs and OutLabs](#inlabs-and-outlabs)
-   - [Optional CMake Arguments](#optional-cmake-arguments)
-4. [Docker Usage Guide](#docker-usage-guide)
-   - [Why Docker?](#why-docker)
-   - [Building the Docker Image](#building-the-docker-image)
-   - [Running the Docker Container](#running-the-docker-container)
-   - [Building and Running Tests](#building-and-running-tests)
-5. [Development - JetBrains Clion Support](#development---jetbrains-clion-support)
-   - [Prerequisites](#prerequisites)
-   - [Clion Docker Toolchain](#clion-docker-toolchain)
-     - [Instructions](#instructions)
-     - [Troubleshooting Windows Issues](#troubleshooting)
-   - [Clion Remote Debugging via SSH](#clion-remote-debugging-via-ssh)
-6. [License](#license)
-7. [FAQs](#faqs)
+1. [Locating Source Files](#locating-source-files)
+2. [Building](#building)
+    - [Build Environments](#build-environments)
+        - [EOS](#eos)
+        - [Hazel](#hazel)
+    - [Class Project](#class-project)
+    - [InLabs and OutLabs](#inlabs-and-outlabs)
+    - [Optional CMake Arguments](#optional-cmake-arguments)
+3. [Docker Usage Guide](#docker-usage-guide)
+    - [Why Docker?](#why-docker)
+    - [Building the Docker Image](#building-the-docker-image)
+    - [Running the Docker Container](#running-the-docker-container)
+    - [Building and Running Tests](#building-and-running-tests)
+4. [Development - JetBrains Clion Support](#development---jetbrains-clion-support)
+    - [Prerequisites](#prerequisites)
+    - [Clion Docker Toolchain](#clion-docker-toolchain)
+        - [Instructions](#instructions)
+        - [Troubleshooting Windows Issues](#troubleshooting)
+    - [Clion Remote Debugging via SSH](#clion-remote-debugging-via-ssh)
+5. [License](#license)
+6. [FAQs](#faqs)
 
 ## Locating Source Files
 Sources and file paths for each deliverable follow the following structure:
@@ -357,7 +356,7 @@ ssh root@localhost
 
 The password for the root user is "debugger".
 
-## [License](LICENSE)
+## License
 
 This project is licensed under the [Unlicense](http://unlicense.org/) - a license with no conditions whatsoever which 
 dedicates works to the public domain. Unlicensed works, modifications, and larger works may be distributed under 
