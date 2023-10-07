@@ -1,25 +1,18 @@
-name: Doxygen
+name: Doxygen GitHub Pages Deploy Action
 
 on:
   push:
     branches:
       - '**'
+  workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Doxygen
-        run: sudo apt-get install doxygen
-
-      - name: Generate Doxygen
-        run: doxygen docs/Doxyfile
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+      - uses: DenverCoder1/doxygen-github-pages-action@v1.3.0
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: /docs/emitted/html
+          folder: docs/emitted/html
+          config_file: docs/Doxyfile
