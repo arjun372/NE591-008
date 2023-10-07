@@ -11,8 +11,8 @@
  */
 int main(int argc, char **argv) {
     CommandLineArgs args = {
-            .argc = argc,
-            .argv = argv,
+        .argc = argc,
+        .argv = argv,
     };
     auto labProject = OutLab2(args);
     labProject.execute();

@@ -12,6 +12,7 @@ File based I/O is supported using CSV (comma separated values) files.
 <div style="display: none">[TOC]</div>
 
 ## Overview
+
 - [Building & Usage](#building--usage)
     - [Options](#options)
     - [General options](#general-options)
@@ -88,6 +89,7 @@ Here is a brief description of the `fx_fill` method:
  * @note The `x` vector will not be modified by this function.
  */
 ```
+
 ```cpp
 template <typename T> [[maybe_unused]] void fill_fx(const std::vector<T> &x, std::vector<T> &fx);
 ```

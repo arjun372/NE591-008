@@ -1,9 +1,9 @@
 add_subdirectory(../../utils utils)
 add_subdirectory(examples)
 
-if(BUILD_TESTS)
+if (BUILD_TESTS)
     add_subdirectory(tests)
-endif()
+endif ()
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 

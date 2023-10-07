@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include <vector>
 #include <iostream>
+#include <vector>
 
 /**
  * @brief A user-defined function that calculates the value of the function f(x) = e^(x)
@@ -17,14 +17,13 @@
  * @param x The input to the function.
  * @return The value of the function at the input x.
  */
-template <typename T>
-[[maybe_unused]] static inline T user_defined_fx(const T x) {
+template <typename T> [[maybe_unused]] static inline T user_defined_fx(const T x) {
 
-    if (x>=-1.0f && x<0.25f) {
+    if (x >= -1.0f && x < 0.25f) {
         return std::exp(-x + 0.25f);
     }
 
-    if (x>=0.25f && x<=1.0f) {
+    if (x >= 0.25f && x <= 1.0f) {
         return std::exp(x - 0.25f);
     }
 
@@ -38,14 +37,11 @@ template <typename T>
  * @param x A vector of inputs to the function.
  * @param fx A vector that will be filled with the function's values at the inputs in the x vector.
  */
-template <typename T>
-[[maybe_unused]] static void fill_fx(std::vector<T> &x, std::vector<T> &fx) {
+template <typename T> [[maybe_unused]] static void fill_fx(std::vector<T> &x, std::vector<T> &fx) {
 
     fx.clear();
     fx.resize(x.size());
 
     // Use std::transform with a lambda function to evaluate fx for each x value
-    std::transform(x.begin(), x.end(), fx.begin(), [](T x) {
-        return user_defined_fx(x);
-    });
+    std::transform(x.begin(), x.end(), fx.begin(), [](T x) { return user_defined_fx(x); });
 }

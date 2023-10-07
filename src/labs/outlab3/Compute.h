@@ -7,27 +7,28 @@
 
 #pragma once
 
-#include <iostream>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
+#include <iostream>
 
 #include "InputsOutputs.h"
 
 #include "CommandLine.h"
 #include "Stopwatch.h"
-#include "math/RootFinder.h"
 #include "extern/function.h"
+#include "math/RootFinder.h"
 
 /**
  * @brief This function computes the integral of a user-defined function using the trapezoidal rule.
  * @param outputs A reference to a NewtonCotesOutputs object to store the computed integral and step size.
- * @param inputs A constant reference to a NewtonCotesInputs object containing the input parameters for the trapezoidal rule.
+ * @param inputs A constant reference to a NewtonCotesInputs object containing the input parameters for the trapezoidal
+ * rule.
  * @return The computed integral value as a long double.
  * @note The function also prints the time taken to compute the integral.
  */
 static long double fillUsingTrapezoidal(NewtonCotesOutputs &outputs, const NewtonCotesInputs &inputs) {
 
-    //setup
+    // setup
     const size_t m = inputs.m;
     const long double b = inputs.b;
     const long double a = inputs.a;
@@ -39,7 +40,7 @@ static long double fillUsingTrapezoidal(NewtonCotesOutputs &outputs, const Newto
         Stopwatch<Nanoseconds> timer;
         timer.restart();
 
-        //long double h = (b - a) / (n);
+        // long double h = (b - a) / (n);
         long double compositeIntegral = user_defined_fx(a) + user_defined_fx(b);
 
         for (size_t i = 1; i < m; i++) {
@@ -56,8 +57,8 @@ static long double fillUsingTrapezoidal(NewtonCotesOutputs &outputs, const Newto
         totalTime += static_cast<long double>(timer.duration().count());
     }
 
-    std::cout << "Computing 1000 integrals using trapezoidal rule for m=("<<m<<") intervals took "
-            << (totalTime) << " ns, avg: "<<(totalTime)/1000.f<<std::endl;
+    std::cout << "Computing 1000 integrals using trapezoidal rule for m=(" << m << ") intervals took " << (totalTime)
+              << " ns, avg: " << (totalTime) / 1000.f << std::endl;
 
     if (inputs.flip_integral) {
         outputs.integral = -outputs.integral;
@@ -105,8 +106,8 @@ static long double fillUsingSimpsons(NewtonCotesOutputs &outputs, const NewtonCo
         totalTime += static_cast<long double>(timer.duration().count());
     }
 
-    std::cout << "Computing 1000 integrals using Simpson's rule for m=("<<m<<") intervals took "
-              << (totalTime) << " ns, avg: "<<(totalTime)/1000.f<<std::endl;
+    std::cout << "Computing 1000 integrals using Simpson's rule for m=(" << m << ") intervals took " << (totalTime)
+              << " ns, avg: " << (totalTime) / 1000.f << std::endl;
 
     if (inputs.flip_integral) {
         outputs.integral = -outputs.integral;
@@ -201,9 +202,8 @@ template <typename T> static inline T getGaussLegendreWeight(const size_t n, con
  */
 template <typename T>
 static void fillGaussLegendreWeights(std::vector<T> &weights, const std::vector<T> &nodes, const size_t n) {
-    std::transform(nodes.begin(), nodes.end(), weights.begin(), [n](const T &node) {
-        return getGaussLegendreWeight(n, node);
-    });
+    std::transform(nodes.begin(), nodes.end(), weights.begin(),
+                   [n](const T &node) { return getGaussLegendreWeight(n, node); });
 }
 
 /**
@@ -251,8 +251,8 @@ template <typename T> static T getGaussLegendreNode(const size_t index, const si
 template <typename T> static void fillGaussLegendreNodes(std::vector<T> &nodes, const size_t n) {
     nodes.clear();
     nodes.resize(n);
-    for(size_t i = 1; i <= n; i++) {
-        nodes[i-1] = getGaussLegendreNode<T>(i, n);
+    for (size_t i = 1; i <= n; i++) {
+        nodes[i - 1] = getGaussLegendreNode<T>(i, n);
     }
 }
 
@@ -308,8 +308,8 @@ static long double fillUsingGaussianQuadratures(GaussLegendreOutputs &outputs, c
         totalTime += static_cast<long double>(timer.duration().count());
     }
 
-    std::cout << "Computing 1000 integrals using Gauss-Legendre Quadrature for n=("<<n<<"), degree-"<<(n-1)<<" took "
-              << (totalTime) << " ns, avg: "<<(totalTime)/1000.f<<std::endl;
+    std::cout << "Computing 1000 integrals using Gauss-Legendre Quadrature for n=(" << n << "), degree-" << (n - 1)
+              << " took " << (totalTime) << " ns, avg: " << (totalTime) / 1000.f << std::endl;
 
     if (inputs.flip_integral) {
         outputs.integral = -outputs.integral;

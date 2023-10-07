@@ -7,17 +7,17 @@ with pivotin. File I/O is performed using a combination of `CSV` and `JSON` file
 
 1. [Project Milestone 1: LUP Factorization based Serial Diffusion Equation Solver](#project-milestone-1-lup-factorization-based-serial-diffusion-equation-solver)
 2. [Building & Usage](#building--usage)
-   - [Parameters](#parameters)
-   - [Solver Methods](#solver-methods)
-   - [General options](#general-options)
+    - [Parameters](#parameters)
+    - [Solver Methods](#solver-methods)
+    - [General options](#general-options)
 3. [Input Format](#input-format)
-   - [Sample Input Files](#sample-input-files)
-     - [[REQUIRED] Source Term q(i,j) CSV](#source-term-qij-csv-required)
-     - [Parameters JSON](#parameters-json)
+    - [Sample Input Files](#sample-input-files)
+        - [[REQUIRED] Source Term q(i,j) CSV](#source-term-qij-csv-required)
+        - [Parameters JSON](#parameters-json)
 4. [Output Format](#output-format)
-   - [Sample Outputs Files](#sample-outputs-files)
-     - [Computed Flux 𝜙(𝑖,𝑗) CSV](#computed-flux-𝜙𝑖𝑗-csv)
-     - [Results JSON](#results-json)
+    - [Sample Outputs Files](#sample-outputs-files)
+        - [Computed Flux 𝜙(𝑖,𝑗) CSV](#computed-flux-𝜙𝑖𝑗-csv)
+        - [Results JSON](#results-json)
 5. [Example](#example)
 
 ## Building & Usage
@@ -76,7 +76,8 @@ export OUTPUT_COMPUTED_FLUX=./src/project/project1/examples/example_computed_flu
 - `-q [ --quiet ]`: Reduce verbosity
 - `-p [ --precision ] arg (=15)`: Number of digits to represent long double
 - `-P [ --profile ]`: Turn on performance profiling
-- 
+-
+
 ## Input Format
 
 <p style="background: black"><span style="font-weight: 900; color: red">CAUTION:</span> There are <span style="font-weight: 900; color: red">TWO</span> input files!</p> 
@@ -84,7 +85,9 @@ export OUTPUT_COMPUTED_FLUX=./src/project/project1/examples/example_computed_flu
 ### Sample Input Files
 
 #### Source Term q(i,j) CSV [REQUIRED]:
-   One `.csv` file, containing a 2D array (m x n), with the source terms in the following format:
+
+One `.csv` file, containing a 2D array (m x n), with the source terms in the following format:
+
    ```text
    1.1,1.2,1.3
    2.1,2.2,2.3
@@ -92,8 +95,10 @@ export OUTPUT_COMPUTED_FLUX=./src/project/project1/examples/example_computed_flu
    ```
 
 #### Parameters JSON:
-   One `.json` file, containing quantifcation parameters. If not supplied, parameters will be read interactively over the
-   terminal.
+
+One `.json` file, containing quantifcation parameters. If not supplied, parameters will be read interactively over the
+terminal.
+
    ```json
    {
       "D": 0.07,
@@ -113,11 +118,12 @@ export OUTPUT_COMPUTED_FLUX=./src/project/project1/examples/example_computed_flu
 
 <p style="background: black"><span style="font-weight: 900; color: yellow">CAUTION:</span> There are <span style="font-weight: 900; color: yellow">TWO</span> output files!</p>
 
-### Sample Outputs Files 
+### Sample Outputs Files
 
 Both output files are optional, but if not supplied, outputs will be written to terminal only.
 
 #### Computed Flux 𝜙(𝑖,𝑗) CSV:
+
       ```text
       0.00000, 0.00000, 0.00000, 0.00000, 0.00000
       0.00000, 322.680, 360.942, 377.734, 0.00000
@@ -126,8 +132,8 @@ Both output files are optional, but if not supplied, outputs will be written to 
       0.00000, 0.00000, 0.00000, 0.00000, 0.00000
       ```
 
-
 #### Results JSON:
+
    ```json
    {
        "outputs": {

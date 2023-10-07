@@ -12,27 +12,33 @@
 
 class Parser : public CommandLine<NewtonCotesInputs> {
 
-public:
+  public:
     explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
 
     explicit Parser() = default;
 
-protected:
+  protected:
     /**
-   * @brief This function builds the input options for the program.
-   *
-   * @return A boost::program_options::options_description object containing the description of the input options.
-   */
+     * @brief This function builds the input options for the program.
+     *
+     * @return A boost::program_options::options_description object containing the description of the input options.
+     */
     void buildInputArguments(boost::program_options::options_description &values) override {
-        values.add_options()
-                ("start,a", boost::program_options::value<long double>(), "= Starting value (a) for the integration interval [a,b]")
-                ("stop,b", boost::program_options::value<long double>(), "= Stopping value (b) for the integration interval [a,b]")
-                ("num-intervals,m", boost::program_options::value<long double>(), "= Number of equal intervals (m) from [a,b]")
-                ("use-trapezoidal,t", boost::program_options::value<bool>()->default_value(true), "= Set quadrature rule to the composite trapezoidal method")
-                ("use-simpsons,s", boost::program_options::value<bool>()->default_value(true), "= Set quadrature rule to the composite Simpson's method")
-                ("use-gaussian-quadratures,g", boost::program_options::value<bool>()->default_value(true), "= Set quadrature rule to Gauss-Legendre Quadrature method")
-                ("num-quadrature-points,n", boost::program_options::value<long double>(), "= Number of (n) Gauss-Legendre Quadrature points")
-                ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON file");
+        values.add_options()("start,a", boost::program_options::value<long double>(),
+                             "= Starting value (a) for the integration interval [a,b]")(
+            "stop,b", boost::program_options::value<long double>(),
+            "= Stopping value (b) for the integration interval [a,b]")("num-intervals,m",
+                                                                       boost::program_options::value<long double>(),
+                                                                       "= Number of equal intervals (m) from [a,b]")(
+            "use-trapezoidal,t", boost::program_options::value<bool>()->default_value(true),
+            "= Set quadrature rule to the composite trapezoidal method")(
+            "use-simpsons,s", boost::program_options::value<bool>()->default_value(true),
+            "= Set quadrature rule to the composite Simpson's method")(
+            "use-gaussian-quadratures,g", boost::program_options::value<bool>()->default_value(true),
+            "= Set quadrature rule to Gauss-Legendre Quadrature method")(
+            "num-quadrature-points,n", boost::program_options::value<long double>(),
+            "= Number of (n) Gauss-Legendre Quadrature points")(
+            "output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON file");
     }
 
     /**
@@ -45,12 +51,12 @@ protected:
 
         // retrieve the inputs
         const auto precision = vm["precision"].as<int>();
-        const auto a  = vm["start"].as<long double>();
-        const auto b  = vm["stop"].as<long double>();
-        const auto m  = static_cast<size_t>(vm["num-intervals"].as<long double>());
-        const auto use_trapezoidal  = vm["use-trapezoidal"].as<bool>();
-        const auto use_simpson  = vm["use-simpsons"].as<bool>();
-        const auto use_gaussian  = vm["use-gaussian-quadratures"].as<bool>();
+        const auto a = vm["start"].as<long double>();
+        const auto b = vm["stop"].as<long double>();
+        const auto m = static_cast<size_t>(vm["num-intervals"].as<long double>());
+        const auto use_trapezoidal = vm["use-trapezoidal"].as<bool>();
+        const auto use_simpson = vm["use-simpsons"].as<bool>();
+        const auto use_gaussian = vm["use-gaussian-quadratures"].as<bool>();
 
         // list the parameters
         CommandLine::printLine();
@@ -83,8 +89,10 @@ protected:
         std::string input;
 
         // Check if output file path is provided and writable
-        if(!map.count("output-json") || map["output-json"].empty() || !isFileWritable(map["output-json"].as<std::string>())) {
-            while(!map.count("output-json") || map["output-json"].empty() || !isFileWritable(map["output-json"].as<std::string>())) {
+        if (!map.count("output-json") || map["output-json"].empty() ||
+            !isFileWritable(map["output-json"].as<std::string>())) {
+            while (!map.count("output-json") || map["output-json"].empty() ||
+                   !isFileWritable(map["output-json"].as<std::string>())) {
                 std::cerr << "Error: No output JSON filepath provided.\n" << std::endl;
                 std::cout << "Enter output file path (file extension is .json): ";
                 std::cin >> input;
@@ -126,8 +134,8 @@ protected:
             }
         }
 
-        while(map["num-intervals"].empty() || failsNaturalNumberCheck(map["num-intervals"].as<long double>())) {
-            std::cout<<"Enter the number of integration intervals (m): ";
+        while (map["num-intervals"].empty() || failsNaturalNumberCheck(map["num-intervals"].as<long double>())) {
+            std::cout << "Enter the number of integration intervals (m): ";
             std::cin >> input;
             try {
                 replace(map, "num-intervals", asNumber(input));
@@ -137,9 +145,9 @@ protected:
         }
 
         bool trapezoidal_set = !map["use-trapezoidal"].defaulted();
-        while(!trapezoidal_set) {
+        while (!trapezoidal_set) {
             try {
-                std::cout<<"Would you like to use the trapezoidal rule? [YES/no]: ";
+                std::cout << "Would you like to use the trapezoidal rule? [YES/no]: ";
                 std::cin >> input;
                 replace(map, "use-trapezoidal", asYesOrNo(input));
                 trapezoidal_set = true;
@@ -149,9 +157,9 @@ protected:
         }
 
         bool simpsons_set = !map["use-simpsons"].defaulted();
-        while(!simpsons_set) {
+        while (!simpsons_set) {
             try {
-                std::cout<<"Would you like to use Simpson's rule? [YES/no]: ";
+                std::cout << "Would you like to use Simpson's rule? [YES/no]: ";
                 std::cin >> input;
                 replace(map, "use-simpsons", asYesOrNo(input));
                 simpsons_set = true;
@@ -161,9 +169,9 @@ protected:
         }
 
         bool gaussian_set = !map["use-gaussian-quadratures"].defaulted();
-        while(!gaussian_set) {
+        while (!gaussian_set) {
             try {
-                std::cout<<"Would you like to use Gauss-Legendre Quadrature? [YES/no]: ";
+                std::cout << "Would you like to use Gauss-Legendre Quadrature? [YES/no]: ";
                 std::cin >> input;
                 const bool useGaussian = asYesOrNo(input);
                 replace(map, "use-gaussian-quadratures", useGaussian);
@@ -174,7 +182,8 @@ protected:
         }
 
         if (map["use-gaussian-quadratures"].as<bool>()) {
-            while (map["num-quadrature-points"].empty() || failsNaturalNumberCheck(map["num-quadrature-points"].as<long double>())) {
+            while (map["num-quadrature-points"].empty() ||
+                   failsNaturalNumberCheck(map["num-quadrature-points"].as<long double>())) {
                 std::cout << "Enter the number of Gauss-Legendre Quadrature points: ";
                 std::cin >> input;
                 try {
@@ -184,7 +193,6 @@ protected:
                 }
             }
         }
-
     }
 
     /**
@@ -202,27 +210,28 @@ protected:
         inputs.b = static_cast<long double>(values["stop"].as<long double>());
         inputs.flip_integral = inputs.a > inputs.b;
         // flip interval if a > b
-        if(inputs.flip_integral) {
+        if (inputs.flip_integral) {
             auto temp = inputs.b;
             inputs.b = inputs.a;
             inputs.a = temp;
         }
 
         inputs.m = static_cast<size_t>(values["num-intervals"].as<long double>());
-        inputs.n = !values["num-quadrature-points"].empty() ? static_cast<size_t>(values["num-quadrature-points"].as<long double>()) : 0;
+        inputs.n = !values["num-quadrature-points"].empty()
+                       ? static_cast<size_t>(values["num-quadrature-points"].as<long double>())
+                       : 0;
 
         inputs.integral_types = {};
-        if(values["use-trapezoidal"].as<bool>()) {
+        if (values["use-trapezoidal"].as<bool>()) {
             inputs.integral_types.insert(RULE_COMPOSITE_TRAPEZOIDAL);
         }
 
-        if(values["use-simpsons"].as<bool>()) {
+        if (values["use-simpsons"].as<bool>()) {
             inputs.integral_types.insert(RULE_COMPOSITE_SIMPSONS);
         }
 
-        if(values["use-gaussian-quadratures"].as<bool>()) {
+        if (values["use-gaussian-quadratures"].as<bool>()) {
             inputs.integral_types.insert(RULE_GAUSSIAN_QUADRATURE);
         }
     }
-
 };

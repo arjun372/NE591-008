@@ -4,14 +4,14 @@
  * @date 08/30/2023
  * @brief This file contains the definition of the Project class template.
  *        The Project class is a generic class that represents a project that can be executed.
-*/
+ */
 
 #ifndef NE591_008_PROJECT_H
 #define NE591_008_PROJECT_H
 
+#include "CommandLine.h"
 #include <boost/program_options.hpp>
 #include <utility>
-#include "CommandLine.h"
 
 /**
  * @class Project
@@ -22,20 +22,18 @@
  */
 template <typename InputType, typename CommandLineParserType, typename OutputType> class Project {
 
-public:
-
+  public:
     /**
      * @brief A static assertion to ensure that CommandLineParserType is a derived class of CommandLine.
      */
-    static_assert(std::is_base_of<CommandLine<InputType>, CommandLineParserType>::value, "CommandLineParserType must be a derived class of CommandLine");
+    static_assert(std::is_base_of<CommandLine<InputType>, CommandLineParserType>::value,
+                  "CommandLineParserType must be a derived class of CommandLine");
 
     /**
      * @brief Constructor that initializes the command line arguments.
      * @param args The command line arguments.
      */
-    explicit Project(CommandLineArgs args) {
-        cmdArgs = args;
-    }
+    explicit Project(CommandLineArgs args) { cmdArgs = args; }
 
     /**
      * @brief Default virtual destructor.
@@ -54,11 +52,9 @@ public:
      * @brief Returns the terminal.
      * @return The terminal.
      */
-    CommandLineParserType getTerminal() const {
-        return terminal;
-    }
+    CommandLineParserType getTerminal() const { return terminal; }
 
-private:
+  private:
     CommandLineArgs cmdArgs{};
     CommandLineParserType terminal;
     OutputType outputs;
@@ -75,12 +71,9 @@ private:
     /**
      * @brief Executes the project and measures the execution time.
      */
-    void timedRun() {
-        run(outputs, terminal.getInputs(), terminal.getArguments());
-    }
+    void timedRun() { run(outputs, terminal.getInputs(), terminal.getArguments()); }
 
-protected:
-
+  protected:
     /**
      * @brief Builds the header information.
      * @return The header information.
@@ -112,4 +105,4 @@ protected:
     virtual void postRun(OutputType &output, InputType &input, boost::program_options::variables_map &values) {}
 };
 
-#endif //NE591_008_PROJECT_H
+#endif // NE591_008_PROJECT_H

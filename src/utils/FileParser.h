@@ -3,15 +3,15 @@
  * @author Arjun Earthperson
  * @date 09/01/2023
  * @brief This file contains the definitions for functions that handle file parsing operations.
-*/
+ */
 
 #ifndef NE591_008_FILEPARSER_H
 #define NE591_008_FILEPARSER_H
 
-#include <filesystem>
-#include <iostream>
-#include <fstream>
 #include <boost/tokenizer.hpp>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
 #include <string>
 
 #include <chrono>
@@ -32,12 +32,12 @@
 static bool isFileWritable(const std::string &filepath) {
     const std::filesystem::path path(filepath);
     std::error_code ec; // For using the non-throwing overloads of functions below.
-    if(exists(path,ec)) {
-        if(std::filesystem::is_directory(path, ec)) {
-            std::cerr << "Error: Provided path is a directory. "<<std::endl;
+    if (exists(path, ec)) {
+        if (std::filesystem::is_directory(path, ec)) {
+            std::cerr << "Error: Provided path is a directory. " << std::endl;
             return false;
         }
-        std::cerr << "Warning: File already exists at path, will be overwritten "<<std::endl;
+        std::cerr << "Warning: File already exists at path, will be overwritten " << std::endl;
         return true;
     }
     return true;
@@ -56,11 +56,11 @@ static bool isFileWritable(const std::string &filepath) {
 static bool doesFileExist(const std::string &filepath) {
     const std::filesystem::path path(filepath);
     std::error_code ec; // For using the non-throwing overloads of functions below.
-    if(!exists(path,ec)) {
+    if (!exists(path, ec)) {
         return false;
     }
-    if(std::filesystem::is_directory(path, ec)) {
-        std::cerr << "Error: Provided path is a directory. "<<std::endl;
+    if (std::filesystem::is_directory(path, ec)) {
+        std::cerr << "Error: Provided path is a directory. " << std::endl;
         return false;
     }
     return true;
@@ -72,14 +72,13 @@ static bool doesFileExist(const std::string &filepath) {
  * @param filepath The path to the CSV file.
  * @param data A reference to a map where the data will be stored.
  */
-template <typename T>
-void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> &data) {
+template <typename T> void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> &data) {
 
     // Open the CSV file
     std::ifstream inputFile(filepath);
 
     if (!inputFile.is_open()) {
-        std::cerr << "Error: Unable to open the input CSV: "<<filepath<<std::endl;
+        std::cerr << "Error: Unable to open the input CSV: " << filepath << std::endl;
         exit(1);
     }
     std::vector<std::string> columnIndices;
@@ -92,7 +91,7 @@ void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> 
         boost::tokenizer<boost::char_separator<char>> headerTokens(header, separator);
 
         // Initialize the map with column names as keys
-        for (const auto& columnName : headerTokens) {
+        for (const auto &columnName : headerTokens) {
             data[columnName].clear(); // Clear any existing data for this column
             columnIndices.push_back(columnName);
         }
@@ -103,12 +102,11 @@ void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> 
             // Tokenize the line using boost::tokenizer
             boost::tokenizer<boost::char_separator<char>> tokens(line, separator);
 
-
             size_t idx = 0;
-            for (const auto& token : tokens) {
+            for (const auto &token : tokens) {
                 try {
                     (data[columnIndices[idx++]]).push_back(boost::lexical_cast<long double>(token));
-                } catch (const boost::bad_lexical_cast& ex) {
+                } catch (const boost::bad_lexical_cast &ex) {
                     std::cerr << "Error: Failed to convert to long double: " << ex.what() << std::endl;
                 }
             }
@@ -127,14 +125,13 @@ void readCSV(const std::string &filepath, std::map<std::string, std::vector<T>> 
  * @param filepath The path to the CSV file.
  * @param data A reference to a 2D vector where the data will be stored.
  */
-template <typename T>
-void readCSVRowWiseNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &data) {
+template <typename T> void readCSVRowWiseNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &data) {
 
     // Open the CSV file
     std::ifstream inputFile(filepath);
 
     if (!inputFile.is_open()) {
-        std::cerr << "Error: Unable to open the input CSV: "<<filepath<<std::endl;
+        std::cerr << "Error: Unable to open the input CSV: " << filepath << std::endl;
         exit(1);
     }
 
@@ -146,10 +143,10 @@ void readCSVRowWiseNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &dat
         boost::tokenizer<boost::char_separator<char>> tokens(line, separator);
 
         std::vector<T> row;
-        for (const auto& token : tokens) {
+        for (const auto &token : tokens) {
             try {
                 row.push_back(boost::lexical_cast<T>(token));
-            } catch (const boost::bad_lexical_cast& ex) {
+            } catch (const boost::bad_lexical_cast &ex) {
                 std::cerr << "Error: Failed to convert to type T: " << ex.what() << std::endl;
             }
         }
@@ -167,7 +164,8 @@ void readCSVRowWiseNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &dat
  * The conversion is done using a stringstream and the scientific notation is used for the conversion.
  * The precision of the conversion can be specified as an optional parameter.
  *
- * @tparam T The type of the elements in the input vector. This can be any type that can be streamed into a stringstream.
+ * @tparam T The type of the elements in the input vector. This can be any type that can be streamed into a
+ * stringstream.
  * @param inputVector The vector of elements to be converted to strings.
  * @param precision The precision to be used for the conversion. This is optional and defaults to 19.
  * @return A vector of strings where each string is the string representation of the corresponding element in the input
@@ -180,11 +178,11 @@ void readCSVRowWiseNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &dat
  * @endcode
  */
 template <typename T>
-static std::vector<std::string> asStringVector(const std::vector<T>& inputVector, const int precision = 19) {
+static std::vector<std::string> asStringVector(const std::vector<T> &inputVector, const int precision = 19) {
     std::vector<std::string> stringVector;
     stringVector.reserve(inputVector.size()); // Reserve space for efficiency
 
-    for (const T& value : inputVector) {
+    for (const T &value : inputVector) {
         std::stringstream ss;
         ss << std::scientific << std::setprecision(precision) << value;
         stringVector.push_back(ss.str());
@@ -199,9 +197,10 @@ static std::vector<std::string> asStringVector(const std::vector<T>& inputVector
  * @param data A reference to a map containing the data to be written.
  * @param columns A vector containing the names of the columns.
  */
-static void writeCSV(const std::string &filepath, std::map<std::string, std::vector<std::string>> &data, const std::vector<std::string>& columns) {
-    if(!isFileWritable(filepath)) {
-        std::cerr<<"Error: Unable to write output CSV to path: "<<filepath<<std::endl;
+static void writeCSV(const std::string &filepath, std::map<std::string, std::vector<std::string>> &data,
+                     const std::vector<std::string> &columns) {
+    if (!isFileWritable(filepath)) {
+        std::cerr << "Error: Unable to write output CSV to path: " << filepath << std::endl;
         return;
     }
 
@@ -210,13 +209,13 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
 
     // Check if the file was opened successfully
     if (!csvFile.is_open()) {
-        std::cerr << "Error opening the output CSV file"<<filepath<< std::endl;
+        std::cerr << "Error opening the output CSV file" << filepath << std::endl;
         return;
     }
 
     // Write the header row
-    for(const auto &column : columns) {
-        if(data.count(column)) {
+    for (const auto &column : columns) {
+        if (data.count(column)) {
             csvFile << column << ",";
         }
     }
@@ -233,7 +232,7 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
 
     // Write the data rows
     for (size_t i = 0; i < numRows; i++) {
-        for(const auto &column : columns) {
+        for (const auto &column : columns) {
             if (data.count(column)) {
                 if (i < data[column].size()) {
                     csvFile << data[column][i];
@@ -246,14 +245,12 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
 
     // Close the CSV file
     csvFile.close();
-
 }
 
-template <typename T>
-static void writeCSVMatrixNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &data) {
+template <typename T> static void writeCSVMatrixNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &data) {
 
-    if(!isFileWritable(filepath)) {
-        std::cerr<<"Error: Unable to write output CSV to path: "<<filepath<<std::endl;
+    if (!isFileWritable(filepath)) {
+        std::cerr << "Error: Unable to write output CSV to path: " << filepath << std::endl;
         return;
     }
 
@@ -262,12 +259,12 @@ static void writeCSVMatrixNoHeaders(const std::string &filepath, MyBLAS::Matrix<
 
     // Check if the file was opened successfully
     if (!csvFile.is_open()) {
-        std::cerr << "Error opening the output CSV file"<<filepath<< std::endl;
+        std::cerr << "Error opening the output CSV file" << filepath << std::endl;
         return;
     }
 
-    for(size_t i = 0; i < data.getRows(); i++) {
-        for(size_t j = 0; j < data.getCols(); j++) {
+    for (size_t i = 0; i < data.getRows(); i++) {
+        for (size_t j = 0; j < data.getCols(); j++) {
             csvFile << data[i][j] << ((j == data.getCols() - 1) ? "\n" : ",");
         }
     }
@@ -275,7 +272,6 @@ static void writeCSVMatrixNoHeaders(const std::string &filepath, MyBLAS::Matrix<
     // Close the CSV file
     csvFile.close();
 }
-
 
 /**
  * @brief Reads a JSON file and stores the data in a JSON object.
@@ -293,7 +289,7 @@ static void readJSON(const std::string &filepath, nlohmann::json &map) {
     std::ifstream inputFile(filepath);
 
     if (!inputFile.is_open()) {
-        std::cerr << "Error: Unable to open the input JSON: "<<filepath<<std::endl;
+        std::cerr << "Error: Unable to open the input JSON: " << filepath << std::endl;
         exit(1);
     }
 
@@ -313,8 +309,8 @@ static void readJSON(const std::string &filepath, nlohmann::json &map) {
  */
 static void writeJSON(const std::string &filepath, nlohmann::json &data) {
 
-    if(!isFileWritable(filepath)) {
-        std::cerr<<"Error: Unable to write output JSON to path: "<<filepath<<std::endl;
+    if (!isFileWritable(filepath)) {
+        std::cerr << "Error: Unable to write output JSON to path: " << filepath << std::endl;
         return;
     }
 
@@ -323,14 +319,14 @@ static void writeJSON(const std::string &filepath, nlohmann::json &data) {
 
     // Check if the file was opened successfully
     if (!jsonFile.is_open()) {
-        std::cerr << "Error opening the output JSON file"<<filepath<< std::endl;
+        std::cerr << "Error opening the output JSON file" << filepath << std::endl;
         return;
     }
 
     // Write the JSON data to the file
-    jsonFile << data.dump(4);  // The '4' argument is for pretty formatting with 4 spaces
+    jsonFile << data.dump(4); // The '4' argument is for pretty formatting with 4 spaces
 
     std::cout << "JSON data has been written to " << filepath << std::endl;
 }
 
-#endif //NE591_008_FILEPARSER_H
+#endif // NE591_008_FILEPARSER_H

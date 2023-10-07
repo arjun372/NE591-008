@@ -11,6 +11,7 @@ File based I/O is supported using JSON files.
 <div style="display: none">[TOC]</div>
 
 ## Overview
+
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
@@ -79,6 +80,7 @@ Here is a brief description of the `user_defined_fx` method:
  * @return The value of the function at the input x.
  */
 ``` 
+
 ```c++
 template <typename T>
 [[maybe_unused]] static inline T user_defined_fx(const T x) {

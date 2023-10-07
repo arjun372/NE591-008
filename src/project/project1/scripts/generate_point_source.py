@@ -7,8 +7,11 @@ mean = 1.0E-5
 std_dev = 1.0E-20
 min_ = 1.0E-7
 max_ = 2.0E-4
+
+
 def gaussian(x, y, mu_x, mu_y, sigma_x, sigma_y):
-    return np.exp(-((x - mu_x)**2 / (2 * sigma_x**2) + (y - mu_y)**2 / (2 * sigma_y**2)))
+    return np.exp(-((x - mu_x) ** 2 / (2 * sigma_x ** 2) + (y - mu_y) ** 2 / (2 * sigma_y ** 2)))
+
 
 def apply_gaussian(m, n, filepath):
     gaussian_params = [
@@ -19,9 +22,9 @@ def apply_gaussian(m, n, filepath):
     #     for i in range(m):
     #         for j in range(n):
     #             q[i, j] += gaussian(i, j, params["mu_x"], params["mu_y"], params["sigma_x"], params["sigma_y"])
-        # q += np.random.uniform(min_, max_, (m, n))
+    # q += np.random.uniform(min_, max_, (m, n))
     # Normalize the source strength to a desired maximum value, e.g., 1.0
-    q[int(m/2), int(n/2)] = mean
+    q[int(m / 2), int(n / 2)] = mean
     q = q / np.max(q)
     # Save the matrix to a CSV file
     np.savetxt(filepath, q, delimiter=",", fmt="%.6f")
@@ -45,6 +48,7 @@ def plot_map(inputfile, outputfile):
     # Save the heatmap to a file
     plt.savefig(outputfile, dpi=600)
     plt.close()
+
 
 # apply_gaussian(2, 2,   "../analysis/sources/raw/project1_sources_2x2.csv")
 # plot_map("../analysis/sources/raw/project1_sources_2x2.csv", "../analysis/sources/plots/project1_sources_2x2.png")

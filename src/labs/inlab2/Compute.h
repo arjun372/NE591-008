@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 #include "CommandLine.h"
 
@@ -24,7 +24,8 @@
  * @param fx The vector of function values.
  */
 template <typename T>
-void fillLagrangePolys(std::vector<T> &Lxi, const std::vector<T> &xi, const std::vector<T> &x, const std::vector<T> &fx) {
+void fillLagrangePolys(std::vector<T> &Lxi, const std::vector<T> &xi, const std::vector<T> &x,
+                       const std::vector<T> &fx) {
     Lxi.reserve(xi.size() + x.size() - fx.size());
 }
 

@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include <vector>
 #include <iostream>
+#include <vector>
 
 /**
  * @brief Fill the `fx` vector, optionally using the values in the `x` vector.
@@ -26,20 +26,18 @@
 [[maybe_unused]] void fill_fx(const std::vector<long double> &x, std::vector<long double> &fx) {
 
     if (x.size() != fx.size()) {
-        std::cerr<<"Warning: Vectors are of different lengths: size(x): "<<x.size()<<", size(f[x]): "<<fx.size()<<"\n";
+        std::cerr << "Warning: Vectors are of different lengths: size(x): " << x.size() << ", size(f[x]): " << fx.size()
+                  << "\n";
     }
 
-//    fx.push_back(5);
-//    fx.push_back(5);
-//    fx.push_back(5);
-//    fx.push_back(5);
+    //    fx.push_back(5);
+    //    fx.push_back(5);
+    //    fx.push_back(5);
+    //    fx.push_back(5);
 
-
-
-//
-//    // trivial
-//    for(size_t i = 0; i < x.size(); i++) {
-//        fx[i] = 2.0f * x[i];
-//    }
-
+    //
+    //    // trivial
+    //    for(size_t i = 0; i < x.size(); i++) {
+    //        fx[i] = 2.0f * x[i];
+    //    }
 }

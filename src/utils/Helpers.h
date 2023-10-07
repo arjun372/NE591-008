@@ -3,17 +3,17 @@
  * @author Arjun Earthperson
  * @date 08/30/2023
  * @brief This file contains helper functions and structures used throughout the program.
-*/
+ */
 
 #ifndef NE591_008_HELPERS_H
 #define NE591_008_HELPERS_H
 
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <limits>
 
-#include <boost/program_options.hpp>
 #include "json.hpp"
+#include <boost/program_options.hpp>
 
 /**
  * @brief This function replaces the value of a specified option in a map with a new value.
@@ -26,28 +26,27 @@
  * @note This function uses the boost library's any class to allow for type erasure,
  * meaning the function can accept any type for the new value.
  */
-template<class T>
-void replace(std::map<std::string, boost::program_options::variable_value>& vm, const std::string& opt, const T& val)
-{
+template <class T>
+void replace(std::map<std::string, boost::program_options::variable_value> &vm, const std::string &opt, const T &val) {
     vm[opt].value() = boost::any(val);
 }
 
 /**
-* @brief Synchronizes the values of a given key between a JSON object and a Boost variables_map object.
-*
-* This function first checks if the key exists in the variables_map. If it does, the value is updated
-* in the JSON object. Then, if the key exists in the JSON object, the value is read from the JSON object
-* and updated in the variables_map.
-*
-* @tparam T The type of the value associated with the key.
-* @param key The key to synchronize between the JSON object and the variables_map.
-* @param inputMap The JSON object containing the key-value pairs.
-* @param map The Boost variables_map object containing the key-value pairs.
-*/
+ * @brief Synchronizes the values of a given key between a JSON object and a Boost variables_map object.
+ *
+ * This function first checks if the key exists in the variables_map. If it does, the value is updated
+ * in the JSON object. Then, if the key exists in the JSON object, the value is read from the JSON object
+ * and updated in the variables_map.
+ *
+ * @tparam T The type of the value associated with the key.
+ * @param key The key to synchronize between the JSON object and the variables_map.
+ * @param inputMap The JSON object containing the key-value pairs.
+ * @param map The Boost variables_map object containing the key-value pairs.
+ */
 template <typename T>
 void syncMapKeys(std::string &key, nlohmann::json &inputMap, boost::program_options::variables_map &map) {
     // first, check if key is in the variables_map
-    if(map.count(key)) {
+    if (map.count(key)) {
         // if yes, update it in the JSON map.
         inputMap[key] = map[key].as<T>();
     }
@@ -68,8 +67,7 @@ void syncMapKeys(std::string &key, nlohmann::json &inputMap, boost::program_opti
  *
  * @note This function uses the std::generate function to generate the values.
  */
-template <typename T>
-void fill_linspace(std::vector<T> &result, T start, T end, size_t count) {
+template <typename T> void fill_linspace(std::vector<T> &result, T start, T end, size_t count) {
     result.reserve(count);
 
     if (count <= 1) {
@@ -97,8 +95,7 @@ void fill_linspace(std::vector<T> &result, T start, T end, size_t count) {
  * @param new_max The upper limit of the new range
  * @return The scaled value in the new range
  */
-template<typename T>
-static T scale(T value, T old_min, T old_max, T new_min, T new_max) {
+template <typename T> static T scale(T value, T old_min, T old_max, T new_min, T new_max) {
     return (value - old_min) * (new_max - new_min) / (old_max - old_min) + new_min;
 }
 
@@ -111,7 +108,7 @@ static T scale(T value, T old_min, T old_max, T new_min, T new_max) {
  * @return The number of iterations before the point escapes the Julia set.
  */
 template <typename T>
-size_t juliaSetIterations(const std::complex<T>& z0, const std::complex<T>& c, size_t max_iterations) {
+size_t juliaSetIterations(const std::complex<T> &z0, const std::complex<T> &c, size_t max_iterations) {
     std::complex<T> z = z0;
     size_t iter = 0;
     for (; iter < max_iterations; iter++) {
@@ -128,10 +125,10 @@ size_t juliaSetIterations(const std::complex<T>& z0, const std::complex<T>& c, s
  * This structure is used to map tones using a scaling factor and a growth rate.
  * It is a template structure, so it can be used with any data type.
  *
- * @tparam T This is the type of the scaling factor and the growth rate. It can be any type that supports assignment and arithmetic operations.
+ * @tparam T This is the type of the scaling factor and the growth rate. It can be any type that supports assignment and
+ * arithmetic operations.
  */
-template<typename T>
-struct ToneMap {
+template <typename T> struct ToneMap {
     /**
      * @brief The scaling factor for the tone map.
      *
@@ -153,13 +150,12 @@ struct ToneMap {
  * @brief A struct representing the properties of a canvas for rendering ANSI characters
  * @tparam T The type of the numbers used for the canvas dimensions and properties.
  */
-template<typename T>
-struct CanvasType {
+template <typename T> struct CanvasType {
     size_t width = 80;
     size_t height = 24;
     T x_start = -2;
     T y_start = -2;
-    T x_stop  = 2;
+    T x_stop = 2;
     T y_stop = 2;
     std::string character = "█";
     T contrast = 1.0;
@@ -183,7 +179,7 @@ static std::vector<std::string> getGrays256bitANSI(double scaling_factor = 1e-7,
     auto y_max = std::numeric_limits<long double>::min();
     for (size_t i = 0; i < x.size(); i++) {
         y[i] = scaling_factor * std::exp(growth_rate * x[i]);
-        if(y[i] > y_max) {
+        if (y[i] > y_max) {
             y_max = y[i];
         }
         if (y[i] < y_min) {
@@ -209,7 +205,6 @@ static std::vector<std::string> getGrays256bitANSI(double scaling_factor = 1e-7,
     return toneMap;
 }
 
-
 /**
  * @brief Generates a vector of 256-bit ANSI HSV colors.
  * @return A vector of ANSI escape codes representing HSV colors.
@@ -218,10 +213,10 @@ static std::vector<std::string> getHSV256bitANSI() {
     std::vector<std::string> colors;
 
     // 1
-    colors.emplace_back("\033[38;5;016m"); //black
+    colors.emplace_back("\033[38;5;016m"); // black
 
     // 1 + 24
-    for(int i = 232; i < 256; i++) {
+    for (int i = 232; i < 256; i++) {
         colors.push_back("\033[38;5;" + std::to_string(i) + "m");
     }
 
@@ -230,58 +225,13 @@ static std::vector<std::string> getHSV256bitANSI() {
 
     //
     std::vector<std::string> hues = {
-            "225",
-            "219",
-            "218",
-            "211",
-            "212",
-            "213",
-            "207",
-            "206",
-            "200",
-            "201",
-            "165",
-            "129",
-            "093",
-            "057",
-            "021",
-            "027",
-            "033",
-            "039",
-            "045",
-            "051",
-            "087",
-            "050",
-            "049",
-            "086",
-            "085",
-            "048",
-            "047",
-            "084",
-            "083",
-            "046",
-            "082",
-            "119",
-            "155",
-            "118",
-            "154",
-            "191",
-            "190",
-            "226",
-            "227",
-            "221",
-            "220",
-            "214",
-            "208",
-            "202",
-            "160",
-            "196",
-            "197",
-            "198",
-            "197",
+        "225", "219", "218", "211", "212", "213", "207", "206", "200", "201", "165", "129", "093",
+        "057", "021", "027", "033", "039", "045", "051", "087", "050", "049", "086", "085", "048",
+        "047", "084", "083", "046", "082", "119", "155", "118", "154", "191", "190", "226", "227",
+        "221", "220", "214", "208", "202", "160", "196", "197", "198", "197",
     };
 
-    for(auto &hue : hues) {
+    for (auto &hue : hues) {
         colors.push_back("\033[38;5;" + hue + "m");
     }
 
@@ -341,4 +291,4 @@ void printJuliaSet(const Canvas &canvas, const T x0, const T y0, const size_t ma
     std::cout << "\033[0m";
 }
 
-#endif //NE591_008_HELPERS_H
+#endif // NE591_008_HELPERS_H

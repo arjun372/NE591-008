@@ -8,38 +8,36 @@
 
 #pragma once
 
-#include <variant>
-#include <numeric>
-#include <iostream>
-#include <iomanip>
 #include <boost/program_options.hpp>
+#include <iomanip>
+#include <iostream>
+#include <numeric>
+#include <variant>
 
-#include "Helpers.h"
 #include "CheckBounds.h"
 #include "FileParser.h"
+#include "Helpers.h"
 #include "Project.h"
 #include "extern/function.h"
 
-#include "Parser.h"
 #include "Compute.h"
-
+#include "Parser.h"
 
 typedef std::map<std::string, std::vector<std::string>> Dictionary;
 
 class InLab2 : public Project<LagrangePolynomialInputs, Parser, Dictionary> {
 
-public:
+  public:
     explicit InLab2(CommandLineArgs args) : Project(args) {}
 
-protected:
-
+  protected:
     HeaderInfo buildHeaderInfo() override {
         return {
-                .ProjectName = "InLab 02",
-                .ProjectDescription = "I/O Setup for Lagrange Interpolating Polynomials",
-                .SubmissionDate = "09/01/2023",
-                .StudentName = "Arjun Earthperson",
-                .HeaderArt = R"(
+            .ProjectName = "InLab 02",
+            .ProjectDescription = "I/O Setup for Lagrange Interpolating Polynomials",
+            .SubmissionDate = "09/01/2023",
+            .StudentName = "Arjun Earthperson",
+            .HeaderArt = R"(
          @\_______/@
         @|XXXXXXXX |
        @ |X||    X |
@@ -72,14 +70,14 @@ protected:
      *
      * @param values A map of variables parsed from the command line arguments.
      *
-     * The run() function creates an InputParams object and populates it with the appropriate values from the command line
-     * arguments.
+     * The run() function creates an InputParams object and populates it with the appropriate values from the command
+     * line arguments.
      *
      * After that, it creates an output map and populates it with the indices, uniform interval, Lagrange interpolated
      * samples, and interpolation error samples.
      *
-     * If the "use-fx-function" command line argument is present, it also calculates the interpolation errors and adds them
-     * to the output map.
+     * If the "use-fx-function" command line argument is present, it also calculates the interpolation errors and adds
+     * them to the output map.
      *
      * Finally, it writes the output map to a CSV file specified by the "output-csv" command line argument.
      */
@@ -102,7 +100,7 @@ protected:
         outputs.emplace("L(x)", asStringVector(lagrangePolynomials));
 
         // Interpolation error samples E[L(x)-f(x)]
-        if(values.count("use-fx-function")) {
+        if (values.count("use-fx-function")) {
             auto functionAtX = std::vector<long double>(inputs.m, 0);
             fillInterpolationError(functionAtX, lagrangePolynomials, inputs.fxData);
             outputs.emplace("f(x)", asStringVector(lagrangePolynomials));
@@ -112,8 +110,6 @@ protected:
             outputs.emplace("E(x)", asStringVector(lagrangePolynomials));
         }
 
-
         writeCSV(values["output-csv"].as<std::string>(), outputs, {"i", "x(i)", "L(x)", "f(x)", "E(x)"});
     }
-
 };

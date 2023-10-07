@@ -15,24 +15,24 @@
 
 class Parser : public CommandLine<InputMatrices> {
 
-public:
+  public:
     explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
 
     explicit Parser() = default;
 
-protected:
+  protected:
     /**
-   * @brief This function builds the input options for the program.
-   *
-   * @return A boost::program_options::options_description object containing the description of the input options.
-   */
+     * @brief This function builds the input options for the program.
+     *
+     * @return A boost::program_options::options_description object containing the description of the input options.
+     */
     void buildInputArguments(boost::program_options::options_description &values) override {
-        values.add_options()
-                ("no-pivoting", "Do not perform partial pivoting")
-                ("alternate-method", "Use alternate factorization method")
-                ("order,n", boost::program_options::value<long double>()->default_value(0), "= order of the square matrix (natural number)")
-                ("input-json,i", boost::program_options::value<std::string>(), "= input JSON containing L, U, and b")
-                ("output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
+        values.add_options()("no-pivoting", "Do not perform partial pivoting")("alternate-method",
+                                                                               "Use alternate factorization method")(
+            "order,n", boost::program_options::value<long double>()->default_value(0),
+            "= order of the square matrix (natural number)")(
+            "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing L, U, and b")(
+            "output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
     }
 
     /**
@@ -43,9 +43,9 @@ protected:
      */
     void printInputArguments(boost::program_options::variables_map &vm) override {
         // retrieve the inputs
-        const auto n  = static_cast<size_t>(vm["order"].as<long double>());
+        const auto n = static_cast<size_t>(vm["order"].as<long double>());
         const auto inputFilepath = vm["input-json"].as<std::string>();
-        const auto outputFilepath =  vm["output-json"].as<std::string>();
+        const auto outputFilepath = vm["output-json"].as<std::string>();
         const bool noPivoting = vm.count("no-pivoting") != 0;
         const bool alternateMethod = vm.count("alternate-method") != 0;
 
@@ -78,8 +78,10 @@ protected:
         std::string input;
 
         // Check if input file path is provided
-        if(!map.count("input-json") || map["input-json"].empty() || !doesFileExist(map["input-json"].as<std::string>())) {
-            while(!map.count("input-json") || map["input-json"].empty() || !doesFileExist(map["input-json"].as<std::string>())) {
+        if (!map.count("input-json") || map["input-json"].empty() ||
+            !doesFileExist(map["input-json"].as<std::string>())) {
+            while (!map.count("input-json") || map["input-json"].empty() ||
+                   !doesFileExist(map["input-json"].as<std::string>())) {
                 std::cerr << "Error: No input JSON filepath provided.\n" << std::endl;
                 std::cout << "Enter input file path (file extension is .json): ";
                 std::cin >> input;
@@ -92,8 +94,10 @@ protected:
         }
 
         // Check if output file path is provided and writable
-        if(!map.count("output-json") || map["output-json"].empty() || !isFileWritable(map["output-json"].as<std::string>())) {
-            while(!map.count("output-json") || map["output-json"].empty() || !isFileWritable(map["output-json"].as<std::string>())) {
+        if (!map.count("output-json") || map["output-json"].empty() ||
+            !isFileWritable(map["output-json"].as<std::string>())) {
+            while (!map.count("output-json") || map["output-json"].empty() ||
+                   !isFileWritable(map["output-json"].as<std::string>())) {
                 std::cerr << "Error: No output JSON filepath provided.\n" << std::endl;
                 std::cout << "Enter output file path (file extension is .json): ";
                 std::cin >> input;
@@ -129,38 +133,38 @@ protected:
         // read the coefficient matrix
         inputs.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
 
-        if(inputs.coefficients.getRows() != inputs.constants.size()) {
-            std::cerr<<"Error: Input constants vector not order n, aborting.\n";
+        if (inputs.coefficients.getRows() != inputs.constants.size()) {
+            std::cerr << "Error: Input constants vector not order n, aborting.\n";
             exit(-1);
         }
 
         // set input order n
         const auto orderFromInputMatrixDimensions = inputs.coefficients.getRows();
-        if(values["order"].defaulted()) {
-            std::cout<<"Reading matrix order (n) from input matrix dimensions: "<<orderFromInputMatrixDimensions<<"\n";
+        if (values["order"].defaulted()) {
+            std::cout << "Reading matrix order (n) from input matrix dimensions: " << orderFromInputMatrixDimensions
+                      << "\n";
             inputs.n = orderFromInputMatrixDimensions;
         } else { // user provided some value for n, validate against input dimensions
             const auto orderFromUser = static_cast<size_t>(values["order"].as<long double>());
             inputs.n = orderFromUser > orderFromInputMatrixDimensions ? orderFromInputMatrixDimensions : orderFromUser;
             if (orderFromUser > orderFromInputMatrixDimensions) {
-                std::cerr<<"Warning: Matrix order (n) is larger than input matrix, defaulting to lower value\n";
+                std::cerr << "Warning: Matrix order (n) is larger than input matrix, defaulting to lower value\n";
             }
         }
 
         // print the matrices since we are in verbose mode.
-        if(!values.count("quiet")) {
+        if (!values.count("quiet")) {
             const auto precision = getCurrentPrecision();
             printLine();
             std::cout << "Coefficient Matrix (A):\n";
             printLine();
-            std::cout << std::setprecision (precision) << inputs.coefficients;
+            std::cout << std::setprecision(precision) << inputs.coefficients;
             printLine();
             std::cout << "Constants Vector (b):\n";
             printLine();
-            std::cout << std::setprecision (precision) << inputs.constants;
+            std::cout << std::setprecision(precision) << inputs.constants;
         }
     }
-
 };
 
-#endif //NE591_008_OUTLAB5_PARSER_H
+#endif // NE591_008_OUTLAB5_PARSER_H

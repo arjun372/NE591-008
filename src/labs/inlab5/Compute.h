@@ -8,15 +8,15 @@
 
 #pragma once
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
 
 #include "CommandLine.h"
-#include "Stopwatch.h"
 #include "InputsOutputs.h"
+#include "Stopwatch.h"
 
 /**
  * @namespace MyBLAS
@@ -24,6 +24,6 @@
  */
 namespace MyBLAS {
 
-    // nothing implemented here because a permutation matrix is trivially multiplied by another matrix to shuffle
-    // rows / columns
+// nothing implemented here because a permutation matrix is trivially multiplied by another matrix to shuffle
+// rows / columns
 }

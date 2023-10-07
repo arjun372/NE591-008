@@ -9,7 +9,8 @@ It uses an iterative Taylor series approximation to calculate the sine of an ang
 <div style="display: none">[TOC]</div>
 
 ## Usage
-The program runs in interactive mode. However, input arguments can be provided for convenience. 
+
+The program runs in interactive mode. However, input arguments can be provided for convenience.
 The program accepts the following input variables:
 
 - `-x [ --angle ] arg`: The angle in radians. The absolute value of x should be less than 1.0.
@@ -24,7 +25,8 @@ The program also has the following general options:
 
 ## Example
 
-To run the program with an angle of 0.5 radians, a convergence threshold of 1e-8, and 100 iterations, use the following command:
+To run the program with an angle of 0.5 radians, a convergence threshold of 1e-8, and 100 iterations, use the following
+command:
 
 ```
 ./inlab1 -x 0.5 -t 1e-9 -n 100

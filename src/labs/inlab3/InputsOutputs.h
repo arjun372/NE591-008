@@ -23,13 +23,8 @@ enum IntegrationRule {
  * @param value The IntegrationRule value.
  * @return The string representation of the IntegrationRule.
  */
-const char* ruleKey(IntegrationRule value) {
-    static const char* IntegrationRuleKeys[] = {
-            "none",
-            "trapezoidal",
-            "simpsons",
-            "gaussian"
-    };
+const char *ruleKey(IntegrationRule value) {
+    static const char *IntegrationRuleKeys[] = {"none", "trapezoidal", "simpsons", "gaussian"};
     return IntegrationRuleKeys[static_cast<int>(value)];
 }
 
@@ -41,16 +36,15 @@ typedef struct Input {
     long double b = 0;
     size_t m = -1;
     bool flip_integral = false;
-    std::set<IntegrationRule> integral_types = { RULE_NONE };
+    std::set<IntegrationRule> integral_types = {RULE_NONE};
     void toJSON(nlohmann::json &jsonMap) {
         jsonMap["a"] = a;
         jsonMap["b"] = b;
         jsonMap["m"] = m;
         jsonMap["rules"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
-            std::transform(integral_types.begin(), integral_types.end(), std::back_inserter(result), [](IntegrationRule rule) {
-                return ruleKey(rule);
-            });
+            std::transform(integral_types.begin(), integral_types.end(), std::back_inserter(result),
+                           [](IntegrationRule rule) { return ruleKey(rule); });
             return result;
         }();
     }

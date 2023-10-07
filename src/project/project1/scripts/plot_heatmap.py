@@ -1,5 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Load the q_matrix from the CSV file
 q_matrix = np.loadtxt("../examples/project1_source-terms_2.csv", delimiter=",")

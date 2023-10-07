@@ -34,11 +34,16 @@
  *                                        diagonal matrix (Σ), and another orthogonal matrix (V^T), such that A = UΣV^T.
  *                                        Then, the system of linear equations is transformed into a new system, and the
  *                                        solution is obtained using the inverse of the diagonal matrix. Computational
- *                                        complexity: O(n^3). Numerical stability: Stable, but computationally expensive.
+ *                                        complexity: O(n^3). Numerical stability: Stable, but computationally
+ * expensive.
  */
 
 #ifndef NE591_008_FACTORIZE_H
 #define NE591_008_FACTORIZE_H
+
+#include "math/blas/MyBLAS.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/Vector.h"
 
 /**
  * @namespace MyFactorizationMethod
@@ -46,106 +51,106 @@
  */
 namespace MyFactorizationMethod {
 
-    /**
-     * @enum Type
-     * @brief Enumeration of the types of factorization methods.
-     */
-    enum Type {
-        METHOD_LU, ////< LU factorization
-        METHOD_LUP, ////< LU factorization with pivoting
+/**
+ * @enum Type
+ * @brief Enumeration of the types of factorization methods.
+ */
+enum Type {
+    METHOD_LU,  ////< LU factorization
+    METHOD_LUP, ////< LU factorization with pivoting
+};
+
+/**
+ * @brief Function to get the string representation of the factorization method type.
+ * @param value The factorization method type.
+ * @return The string representation of the factorization method type.
+ */
+const char *TypeKey(MyFactorizationMethod::Type value) {
+    static const char *methodTypeKeys[] = {
+        "LU",
+        "LUP",
     };
-
-    /**
-     * @brief Function to get the string representation of the factorization method type.
-     * @param value The factorization method type.
-     * @return The string representation of the factorization method type.
-     */
-    const char *TypeKey(MyFactorizationMethod::Type value) {
-        static const char *methodTypeKeys[] = {
-                "LU",
-                "LUP",
-        };
-        return methodTypeKeys[static_cast<int>(value)];
-    }
-
-    /**
-     * @struct Parameters
-     * @brief Structure to hold the parameters for the factorization methods.
-     * @tparam T The data type of the matrix elements.
-     */
-    template <typename T>
-    struct Parameters {
-        Parameters() = default;
-        explicit Parameters(const size_t n) {
-            L = MyBLAS::Matrix<T>(n, n, 1);
-            U = MyBLAS::Matrix<T>(n, n, 0);
-            P = MyBLAS::Matrix<T>(n, n, 1);
-        };
-        MyBLAS::Matrix<T> L;
-        MyBLAS::Matrix<T> U;
-        MyBLAS::Matrix<T> P;
-    };
-
-    /**
-     * @brief Function to check if the input matrices pass the pre-checks for the factorization methods.
-     * @tparam T The data type of the matrix elements.
-     * @param A The coefficient matrix.
-     * @param b The constant matrix.
-     * @return True if the matrices pass the pre-checks, false otherwise.
-     */
-    template <typename T>
-    bool passesPreChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
-
-        bool passes = true;
-
-        if(!MyBLAS::isSquareMatrix(A)) {
-            std::cerr<<"Error: Failed pre-check: coefficient matrix is non-square.\n";
-            passes = false;
-        }
-
-        if(!MyBLAS::haveEqualRank(A, b)) {
-            std::cerr<<"Error: Failed pre-check: coefficient and constant matrix not equal rank.\n";
-            passes = false;
-        }
-
-        return passes;
-    }
-
-    /**
-     * @brief Function to check if the factorized matrices pass the post-checks for the factorization methods.
-     * @tparam T The data type of the matrix elements.
-     * @param A The original matrix.
-     * @param L The lower triangular matrix.
-     * @param U The upper triangular matrix.
-     * @param P The permutation matrix.
-     * @return True if the matrices pass the post-checks, false otherwise.
-     */
-    template <typename T>
-    bool passesPostChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Matrix<T> &L, const MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &P) {
-
-        bool passes = true;
-        if(!MyBLAS::allDiagonalElementsBelowThreshold(U, 1e-20)) {
-            std::cerr<<"Warning: upper triangular matrix leading diagonal contains values very close to 0, matrix maybe non-singular.\n";
-            passes = false;
-        }
-
-        if(!MyBLAS::isUpperTriangularMatrix(U)) {
-            std::cerr<<"Error: Failed post-check: upper triangular matrix not really upper triangular.\n";
-            passes = false;
-        }
-
-        if(!MyBLAS::isUnitLowerTriangularMatrix(L)) {
-            std::cerr<<"Error: Failed post-check: lower triangular matrix not really unit lower triangular.\n";
-            passes = false;
-        }
-
-        if(!MyBLAS::isPermutationMatrix(P)) {
-            std::cerr<<"Error: Failed post-check: assumed permutation matrix not really a permuted.\n";
-            passes = false;
-        }
-
-        return passes;
-    }
-
+    return methodTypeKeys[static_cast<int>(value)];
 }
-#endif //NE591_008_FACTORIZE_H
+
+/**
+ * @struct Parameters
+ * @brief Structure to hold the parameters for the factorization methods.
+ * @tparam T The data type of the matrix elements.
+ */
+template <typename T> struct Parameters {
+    Parameters() = default;
+    explicit Parameters(const size_t n) {
+        L = MyBLAS::Matrix<T>(n, n, 1);
+        U = MyBLAS::Matrix<T>(n, n, 0);
+        P = MyBLAS::Matrix<T>(n, n, 1);
+    };
+    MyBLAS::Matrix<T> L;
+    MyBLAS::Matrix<T> U;
+    MyBLAS::Matrix<T> P;
+};
+
+/**
+ * @brief Function to check if the input matrices pass the pre-checks for the factorization methods.
+ * @tparam T The data type of the matrix elements.
+ * @param A The coefficient matrix.
+ * @param b The constant matrix.
+ * @return True if the matrices pass the pre-checks, false otherwise.
+ */
+template <typename T> bool passesPreChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
+
+    bool passes = true;
+
+    if (!MyBLAS::isSquareMatrix(A)) {
+        std::cerr << "Error: Failed pre-check: coefficient matrix is non-square.\n";
+        passes = false;
+    }
+
+    if (!MyBLAS::haveEqualRank(A, b)) {
+        std::cerr << "Error: Failed pre-check: coefficient and constant matrix not equal rank.\n";
+        passes = false;
+    }
+
+    return passes;
+}
+
+/**
+ * @brief Function to check if the factorized matrices pass the post-checks for the factorization methods.
+ * @tparam T The data type of the matrix elements.
+ * @param A The original matrix.
+ * @param L The lower triangular matrix.
+ * @param U The upper triangular matrix.
+ * @param P The permutation matrix.
+ * @return True if the matrices pass the post-checks, false otherwise.
+ */
+template <typename T>
+bool passesPostChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Matrix<T> &L, const MyBLAS::Matrix<T> &U,
+                      const MyBLAS::Matrix<T> &P) {
+
+    bool passes = true;
+    if (!MyBLAS::allDiagonalElementsBelowThreshold(U, 1e-20)) {
+        std::cerr << "Warning: upper triangular matrix leading diagonal contains values very close to 0, matrix maybe "
+                     "non-singular.\n";
+        passes = false;
+    }
+
+    if (!MyBLAS::isUpperTriangularMatrix(U)) {
+        std::cerr << "Error: Failed post-check: upper triangular matrix not really upper triangular.\n";
+        passes = false;
+    }
+
+    if (!MyBLAS::isUnitLowerTriangularMatrix(L)) {
+        std::cerr << "Error: Failed post-check: lower triangular matrix not really unit lower triangular.\n";
+        passes = false;
+    }
+
+    if (!MyBLAS::isPermutationMatrix(P)) {
+        std::cerr << "Error: Failed post-check: assumed permutation matrix not really a permuted.\n";
+        passes = false;
+    }
+
+    return passes;
+}
+
+} // namespace MyFactorizationMethod
+#endif // NE591_008_FACTORIZE_H

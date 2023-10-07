@@ -7,12 +7,12 @@
 
 #pragma once
 
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
+#include "CheckBounds.h"
 #include "CommandLine.h"
 #include "Helpers.h"
-#include "CheckBounds.h"
 
 /**
  * @brief A structure to hold the input parameters.
@@ -31,23 +31,21 @@ typedef struct Input {
 
 class Parser : public CommandLine<MatrixConstructParams> {
 
-public:
-    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {
-
-    }
+  public:
+    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
 
     explicit Parser() = default;
 
-protected:
+  protected:
     /**
      * @brief This function builds the input options for the program.
      */
     void buildInputArguments(boost::program_options::options_description &arguments) override {
-        arguments.add_options()
-                ("scalar,k", boost::program_options::value<long double>(), "= scalar multiplier for [A]")
-                ("m-rank,M", boost::program_options::value<long double>(), "= row rank for [A], row rank for [B]")
-                ("n-rank,N", boost::program_options::value<long double>(), "= column rank for [B], row rank for [F]")
-                ("j-rank,J", boost::program_options::value<long double>(), "= column rank for [F]");
+        arguments.add_options()("scalar,k", boost::program_options::value<long double>(),
+                                "= scalar multiplier for [A]")("m-rank,M", boost::program_options::value<long double>(),
+                                                               "= row rank for [A], row rank for [B]")(
+            "n-rank,N", boost::program_options::value<long double>(), "= column rank for [B], row rank for [F]")(
+            "j-rank,J", boost::program_options::value<long double>(), "= column rank for [F]");
     }
 
     /**
@@ -123,7 +121,7 @@ protected:
         std::cout << "\tscalar, k: " << std::setprecision(precision) << k << "\n";
         std::cout << "\tm-rank, M: " << M << "\n";
         std::cout << "\tn-rank, N: " << N << "\n";
-        std::cout << "\tj-rank, J: " << J<< "\n";
+        std::cout << "\tj-rank, J: " << J << "\n";
         CommandLine::printLine();
     }
 

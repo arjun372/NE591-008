@@ -1,7 +1,9 @@
 import numpy as np
 
+
 def multi_lobe(x, y, m, n, k_x, k_y):
     return np.sin(k_x * np.pi * x / m) * np.cos(k_y * np.pi * y / n)
+
 
 m = 64
 n = 64

@@ -29,7 +29,7 @@ set(UTILS_LIB_SOURCES
         utils_stub.cpp
 )
 
-if(NOT TARGET utils)
+if (NOT TARGET utils)
     # Create utils
     add_library(utils STATIC ${UTILS_LIB_SOURCES} ${UTILS_LIB_HEADERS})
     target_include_directories(utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

@@ -1,6 +1,6 @@
 
-#include "inlab6.h"
 #include "CommandLine.h"
+#include "inlab6.h"
 
 /**
  * @brief The main function of the program.
@@ -12,8 +12,8 @@
  */
 int main(int argc, char **argv) {
     CommandLineArgs args = {
-            .argc = argc,
-            .argv = argv,
+        .argc = argc,
+        .argv = argv,
     };
     auto labProject = InLab6(args);
     labProject.execute();

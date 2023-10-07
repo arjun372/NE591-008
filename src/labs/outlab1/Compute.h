@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 #include "CommandLine.h"
 #include "Parser.h"
@@ -53,9 +53,7 @@ static inline long double elementFromB(const MatrixBuildArgs &args) {
  * @param args A struct containing the row and column indices of the element.
  * @return The computed value of the element.
  */
-static inline long double elementFromC(const MatrixBuildArgs &args) {
-    return elementFromA(args) + elementFromB(args);
-}
+static inline long double elementFromC(const MatrixBuildArgs &args) { return elementFromA(args) + elementFromB(args); }
 
 /**
  * @brief Computes the value of an element in matrix D.
@@ -66,9 +64,7 @@ static inline long double elementFromC(const MatrixBuildArgs &args) {
  * @param args A struct containing the row and column indices of the element and the constant k.
  * @return The computed value of the element.
  */
-static inline long double elementFromD(const MatrixBuildArgs &args) {
-    return args.inputParams.k * elementFromA(args);
-}
+static inline long double elementFromD(const MatrixBuildArgs &args) { return args.inputParams.k * elementFromA(args); }
 
 /**
  * @brief Computes the value of an element in matrix F.
@@ -104,22 +100,22 @@ static inline long double elementFromE(const MatrixBuildArgs &args) {
     long double accumulator = 0.0f;
 
     // loop n -> N
-    for(size_t n = 1; n <= args.inputParams.N; n++) {
+    for (size_t n = 1; n <= args.inputParams.N; n++) {
 
         // build args for evaluating element A(m,n)
         const MatrixBuildArgs argA = {
-                .idx_row = args.idx_row,
-                .idx_col = n,
-                .inputParams = args.inputParams,
+            .idx_row = args.idx_row,
+            .idx_col = n,
+            .inputParams = args.inputParams,
         };
 
         const long double a_mxn = elementFromA(argA);
 
         // build args for evaluating element F(n,j)
         const MatrixBuildArgs argF = {
-                .idx_row = n,
-                .idx_col = args.idx_col,
-                .inputParams = args.inputParams,
+            .idx_row = n,
+            .idx_col = args.idx_col,
+            .inputParams = args.inputParams,
         };
 
         const long double f_nxj = elementFromF(argF);
@@ -191,13 +187,13 @@ typedef struct ArgsPrintMatrix {
  */
 static void printMatrix(const ArgsPrintMatrix &args, const std::string &title) {
     // print the title
-    std::cout<<std::endl<<title<<std::endl<<std::endl;
+    std::cout << std::endl << title << std::endl << std::endl;
 
     // loop over rows
-    for(auto idx_row = args.start_row; idx_row <= args.num_rows; idx_row++) {
+    for (auto idx_row = args.start_row; idx_row <= args.num_rows; idx_row++) {
 
         // loop over columns
-        for(auto idx_col = args.start_col; idx_col <= args.num_cols; idx_col++) {
+        for (auto idx_col = args.start_col; idx_col <= args.num_cols; idx_col++) {
 
             // construct a new variable in the hope that the compiler will unfold this loop and vectorize the
             // evaluate op.
@@ -210,12 +206,12 @@ static void printMatrix(const ArgsPrintMatrix &args, const std::string &title) {
             // get the element value
             const auto value = args.evaluate(points);
 
-            //print two decimal points
+            // print two decimal points
             std::printf("%.2Lf  ", value);
         }
         // newline at end of columns
-        std::cout<<std::endl;
+        std::cout << std::endl;
     }
     // padding
-    std::cout<<std::endl;
+    std::cout << std::endl;
 }

@@ -8,12 +8,11 @@
 #ifndef NE591_008_OUTLAB_5_COMPUTE_H
 #define NE591_008_OUTLAB_5_COMPUTE_H
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 #include "math/blas/Matrix.h"
 #include "math/factorization/LU.h"
-
 
 /**
  * @brief Performs Doolittle's LU factorization with partial pivoting on a given matrix.
@@ -153,7 +152,8 @@ static MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Mat
  * @return The permutation matrix.
  */
 template <typename T>
-static MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+static MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U,
+                                                        const MyBLAS::Matrix<T> &A) {
     const auto n = A.getRows();
 
     // Initialize L, U, and P
@@ -194,9 +194,9 @@ static MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, My
     return P;
 }
 
-//template <typename T>
-//static MyBLAS::Matrix<T> factorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
-//    return dooLittleFactorizeLUP(L, U, A);
-//}
+// template <typename T>
+// static MyBLAS::Matrix<T> factorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+//     return dooLittleFactorizeLUP(L, U, A);
+// }
 
-#endif //NE591_008_OUTLAB_5_COMPUTE_H
+#endif // NE591_008_OUTLAB_5_COMPUTE_H

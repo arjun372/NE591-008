@@ -10,12 +10,12 @@
 
 #include <utility>
 
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
-#include "math/blas/MyBLAS.h"
-#include "math/LinearSolver.h"
 #include "json.hpp"
+#include "math/LinearSolver.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/MyBLAS.h"
 #include "math/blas/Ops.h"
+#include "math/blas/Vector.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.
@@ -44,9 +44,8 @@ typedef struct Input {
         jsonMap["known-solution"] = known_solution.getData();
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
-            std::transform(methods.begin(), methods.end(), std::back_inserter(result), [](MyLinearSolvingMethod::Type method) {
-                return MyLinearSolvingMethod::TypeKey(method);
-            });
+            std::transform(methods.begin(), methods.end(), std::back_inserter(result),
+                           [](MyLinearSolvingMethod::Type method) { return MyLinearSolvingMethod::TypeKey(method); });
             return result;
         }();
     }
@@ -58,9 +57,7 @@ typedef struct Input {
  * This structure contains the input parameters, the solution, and the execution time.
  */
 typedef struct Output {
-    explicit Output(OutLab6Inputs inputMatrices) {
-        inputs = inputMatrices;
-    };
+    explicit Output(OutLab6Inputs inputMatrices) { inputs = inputMatrices; };
 
     Output() = default;
     OutLab6Inputs inputs;
@@ -101,4 +98,4 @@ typedef struct Output {
     }
 } OutLab6Outputs;
 
-#endif //NE591_008_OUTLAB6_INPUTOUTPUTS_H
+#endif // NE591_008_OUTLAB6_INPUTOUTPUTS_H

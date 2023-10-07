@@ -7,11 +7,11 @@
 
 #pragma once
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
-#include "math/blas/MyBLAS.h"
 #include "math/blas/Matrix.h"
+#include "math/blas/MyBLAS.h"
 #include "math/blas/Vector.h"
 namespace InLab04 {
 /**
@@ -25,10 +25,9 @@ namespace InLab04 {
  * @param b A vector in the system of linear equations Ax = b.
  * @return The result vector after performing forward substitution.
  */
-    template<typename T>
-    MyBLAS::Vector<T> doForwardSubstitution(const MyBLAS::Matrix<T> &L, const MyBLAS::Vector<T> &b) {
-        return MyBLAS::forwardSubstitution<T>(L, b);
-    }
+template <typename T> MyBLAS::Vector<T> doForwardSubstitution(const MyBLAS::Matrix<T> &L, const MyBLAS::Vector<T> &b) {
+    return MyBLAS::forwardSubstitution<T>(L, b);
+}
 
 /**
  * @brief Perform backward substitution
@@ -42,8 +41,7 @@ namespace InLab04 {
  * @param y The result vector after performing forward substitution.
  * @return The solution vector after performing backward substitution.
  */
-    template<typename T>
-    MyBLAS::Vector<T> doBackwardSubstitution(const MyBLAS::Matrix<T> &U, const MyBLAS::Vector<T> &y) {
-        return MyBLAS::backwardSubstitution<T>(U, y);
-    }
+template <typename T> MyBLAS::Vector<T> doBackwardSubstitution(const MyBLAS::Matrix<T> &U, const MyBLAS::Vector<T> &y) {
+    return MyBLAS::backwardSubstitution<T>(U, y);
 }
+} // namespace InLab04

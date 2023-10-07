@@ -1,10 +1,10 @@
 # NE591 Monorepo - Overview
 
 This is a monorepo for my class project and inlab, outlab deliverables for the `NE591-008` course, titled `Mathematical
-and Computational Methods in Nuclear Engineering`. The course aims to provide a theoretical foundation of mathematical 
-methods applied broadly in nuclear engineering and to construct algorithms to implement the resulting formalisms on 
-digital computers. The labs involve designing computer programs in low-level languages (exclusively Fortran or C++) and 
-their implementation, verification, and testing. I have chosen to organize this repo in a manner that builds on the 
+and Computational Methods in Nuclear Engineering`. The course aims to provide a theoretical foundation of mathematical
+methods applied broadly in nuclear engineering and to construct algorithms to implement the resulting formalisms on
+digital computers. The labs involve designing computer programs in low-level languages (exclusively Fortran or C++) and
+their implementation, verification, and testing. I have chosen to organize this repo in a manner that builds on the
 cumulative code changes from each deliverable, and reuses as many helper functions as possible. A secondary objective is
 to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library functions.
 
@@ -33,7 +33,9 @@ to benchmark my implementations against the `C++17`, `CUDA`, and `Boost` library
 6. [FAQs](#faqs)
 
 ## Locating Source Files
+
 Sources and file paths for each deliverable follow the following structure:
+
 ```
 ├── README.md   <= You are now here
 ├── src
@@ -75,8 +77,9 @@ Sources and file paths for each deliverable follow the following structure:
 │   ├── ...
 ├── external                     <= External dependencies
 ```
-The `utils` directory contains helper methods used across the project. These include a helper math library, methods for 
-checking bounds, interacting with the command line, I/O operations on CSV and JSON files, general helper functions, and 
+
+The `utils` directory contains helper methods used across the project. These include a helper math library, methods for
+checking bounds, interacting with the command line, I/O operations on CSV and JSON files, general helper functions, and
 a high-precision profiler for performance analysis.
 
 ## Building
@@ -101,23 +104,27 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 ```
 
 ### Build Environments
-The entire codebase has been built and tested on the NCSU Hazel `login.hpc.ncsu.edu` and EOS `remote.eos.ncsu.edu` 
+
+The entire codebase has been built and tested on the NCSU Hazel `login.hpc.ncsu.edu` and EOS `remote.eos.ncsu.edu`
 servers, which, as of Fall 2023, provide support for the following dependencies:
 
 #### EOS
-   * `Boost : 1.66.0`
-   * `C/C++ compiler : GNU 8.5.0`
+
+* `Boost : 1.66.0`
+* `C/C++ compiler : GNU 8.5.0`
 
 #### Hazel
-   * `Boost : 1.72.0`
-   * `C/C++ compiler : GNU 10.2.0`
-   * `CUDA: 12.0.0`
-   * `MPI: OpenMPI 4.1.0`
 
-To facilitate local development, equivalent Dockerfiles have been created. Checkout [eos.Dockerfile](eos.Dockerfile) 
+* `Boost : 1.72.0`
+* `C/C++ compiler : GNU 10.2.0`
+* `CUDA: 12.0.0`
+* `MPI: OpenMPI 4.1.0`
+
+To facilitate local development, equivalent Dockerfiles have been created. Checkout [eos.Dockerfile](eos.Dockerfile)
 and [hazel.Dockerfile](hazel.Dockerfile) and the [Docker instructions](#docker-usage-guide) below.
 
 ### Class Project
+
 Currently supported project build targets include:
 <table>
   <tr>
@@ -243,20 +250,21 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
 ## Docker Usage Guide
 
 This repository contains Dockerfiles that are designed to mimic the OS and packages available on the
-`login.hpc.ncsu.edu` and `remote.eos.ncsu.edu` servers. These Dockerfiles also set up SSH for remote debugging access 
+`login.hpc.ncsu.edu` and `remote.eos.ncsu.edu` servers. These Dockerfiles also set up SSH for remote debugging access
 with tools such as [JetBrains Clion](#development---jetbrains-clion-support).
 
 ### Why Docker?
 
-Docker is a platform that allows us to package our application and its dependencies into a container which can run on 
-any Linux/macOS/Windows machine. This helps to eliminate the "it works on my machine" problem. In this case, the 
-Dockerfiles were needed to ensure that the code can be built, run, and debugged in an environment that closely matches 
+Docker is a platform that allows us to package our application and its dependencies into a container which can run on
+any Linux/macOS/Windows machine. This helps to eliminate the "it works on my machine" problem. In this case, the
+Dockerfiles were needed to ensure that the code can be built, run, and debugged in an environment that closely matches
 the `login.hpc.ncsu.edu` and `remote.eos.ncsu.edu` servers.
 
 ### Building the Docker Image
 
-The current default [Dockerfile](Dockerfile) is a symlink to [eos.Dockerfile](eos.Dockerfile). You can change it to build
-for [hazel.Dockerfile](hazel.Dockerfile) instead. Alternatively, you can always specify the Dockerfile to use using the 
+The current default [Dockerfile](Dockerfile) is a symlink to [eos.Dockerfile](eos.Dockerfile). You can change it to
+build
+for [hazel.Dockerfile](hazel.Dockerfile) instead. Alternatively, you can always specify the Dockerfile to use using the
 `-f <your.Dockerfile>` option.
 
 To simply run the executables, build an image from the [Dockerfile](Dockerfile) using the following command:
@@ -273,12 +281,12 @@ To run the Docker container, use the following command:
 docker run --rm -it ne591:binary
 ```
 
-This command tells Docker to run the container interactively 
+This command tells Docker to run the container interactively
 (i.e., it attaches a terminal session to the running container) and starts a bash shell.
 
 ### Building and Running Tests
 
-The Dockerfile includes arguments for building tests and performance benchmarks. To build and run the tests, 
+The Dockerfile includes arguments for building tests and performance benchmarks. To build and run the tests,
 you can modify the `docker build` command as follows:
 
 ```bash
@@ -288,58 +296,64 @@ docker build --build-arg CMAKE_BUILD_TESTS=ON -t ne591:binary .
 Then, you can run the tests in the Docker container as you would normally do.
 
 ## Development - JetBrains Clion Support
-You can use [JetBrains Clion](https://www.jetbrains.com/clion/) as the debug environment. 
+
+You can use [JetBrains Clion](https://www.jetbrains.com/clion/) as the debug environment.
 Use Docker as the debug toolchain.
 
 ### Prerequisites
+
 * Docker
 * CLion
 
 1. In Clion, first set your terminal to Bash.
-   1. Go to `Settings / Preferences | Tools | Terminal`
-   2. Under `Application Settings`, look for `Shell Path` and set it to `Bash`.
+    1. Go to `Settings / Preferences | Tools | Terminal`
+    2. Under `Application Settings`, look for `Shell Path` and set it to `Bash`.
 
 2. Then, build the docker `debugger` target, and save the built image with the tag `eos:debugger`.
       ```shell
           docker build --target=debugger -t eos:debugger .
       ```
-   
+
 ### Clion Docker Toolchain
+
 Developing in Clion using the Docker Toolchain provides a consistent experience. The debugging environment is an
 ephemeral Docker container based on the `eos:debugger` image you just built.
 
 #### Instructions
 
 1. ##### [Create Docker Toolchain](https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html#create-docker-toolchain)
-   1. Go to `Settings / Preferences | Build, Execution, Deployment | Toolchains`.
-   2. Click `Add toolchain` and select `Docker`.
-   3. Click the `screw nut icon` next to the `Docker` field to select a Docker image.
-      1. You can also configure a `Docker server` in `Settings / Preferences | Build, Execution, Deployment | Docker` and then select it in the toolchain settings.
-   4. Select the Docker Image `eos:debugger` and wait until the tool detection finishes.
-   5. Set the `C Compiler` to `Let CMake Detect`. It should detect `gcc`.
-   6. Set the `C++ Compiler` to `Let CMake Detect`. It should detect `g++`.
-   7. Set the `Debugger` to `Docker GDB`.
-   8. Then save the settings.
+    1. Go to `Settings / Preferences | Build, Execution, Deployment | Toolchains`.
+    2. Click `Add toolchain` and select `Docker`.
+    3. Click the `screw nut icon` next to the `Docker` field to select a Docker image.
+        1. You can also configure a `Docker server` in `Settings / Preferences | Build, Execution, Deployment | Docker`
+           and then select it in the toolchain settings.
+    4. Select the Docker Image `eos:debugger` and wait until the tool detection finishes.
+    5. Set the `C Compiler` to `Let CMake Detect`. It should detect `gcc`.
+    6. Set the `C++ Compiler` to `Let CMake Detect`. It should detect `g++`.
+    7. Set the `Debugger` to `Docker GDB`.
+    8. Then save the settings.
 
 
 2. ##### [Build, Run, Debug with a Docker Toolchain](https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html#build-run-debug-docker)
-   1. After configuring a Docker toolchain, you can select it in `CMake profiles` or in `Makefile` settings. Alternatively, move the toolchain to the top of the list to make it default.
-   2. The project folder will mount to the Docker container and building, running, and debugging will be
-      performed in it. CLion will start the container and shut it down after the command is executed.
-
+    1. After configuring a Docker toolchain, you can select it in `CMake profiles` or in `Makefile` settings.
+       Alternatively, move the toolchain to the top of the list to make it default.
+    2. The project folder will mount to the Docker container and building, running, and debugging will be
+       performed in it. CLion will start the container and shut it down after the command is executed.
 
 ### Troubleshooting
+
 * #### [Improve Docker Toolchain performance on Windows](https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html#windows-performance)
-   * To get better performance on Windows, we recommend using Docker with the WSL 2 backend.
-      1. Set up `Docker Desktop` with the [WSL 2 backend](https://docs.docker.com/desktop/windows/wsl/).
-      2. In the Docker desktop application, navigate to `Settings | Resources | WSL Integration` and enable integration
-         with your WSL distribution.
-      3. Place the project sources into the WSL filesystem, then open it in CLion and configure a Docker toolchain.
+    * To get better performance on Windows, we recommend using Docker with the WSL 2 backend.
+        1. Set up `Docker Desktop` with the [WSL 2 backend](https://docs.docker.com/desktop/windows/wsl/).
+        2. In the Docker desktop application, navigate to `Settings | Resources | WSL Integration` and enable
+           integration
+           with your WSL distribution.
+        3. Place the project sources into the WSL filesystem, then open it in CLion and configure a Docker toolchain.
 
 ### Clion Remote Debugging via SSH
 
-The Dockerfile sets up SSH for root access in the `ssh-debugger` stage. This allows you to connect to the running 
-container using SSH and debug the code. To do this, you need to build the SSH target and run the container in the 
+The Dockerfile sets up SSH for root access in the `ssh-debugger` stage. This allows you to connect to the running
+container using SSH and debug the code. To do this, you need to build the SSH target and run the container in the
 background with port 22 exposed:
 
 ```bash
@@ -358,9 +372,9 @@ The password for the root user is "debugger".
 
 ## License
 
-This project is licensed under the [Unlicense](http://unlicense.org/) - a license with no conditions whatsoever which 
-dedicates works to the public domain. Unlicensed works, modifications, and larger works may be distributed under 
-different terms and without source code. 
+This project is licensed under the [Unlicense](http://unlicense.org/) - a license with no conditions whatsoever which
+dedicates works to the public domain. Unlicensed works, modifications, and larger works may be distributed under
+different terms and without source code.
 
 However, note that this code uses libraries that are bound by their own licenses.
 

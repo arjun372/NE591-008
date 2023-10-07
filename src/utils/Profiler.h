@@ -3,7 +3,7 @@
  * @author Arjun Earthperson
  * @date 08/30/2023
  * @brief This file contains helper classes and functions for profiling and random number generation.
-*/
+ */
 
 /*
  * MIT License
@@ -35,9 +35,9 @@
 #ifndef NE591_008_PROFILER_H
 #define NE591_008_PROFILER_H
 
+#include <functional>
 #include <iomanip>
 #include <iostream>
-#include <functional>
 #include <random>
 
 #include "Stopwatch.h"
@@ -45,10 +45,8 @@
 /**
  * @brief A struct that provides a static method for generating random double numbers within a given range.
  */
-struct Randomiser
-{
-    static double get(double min, double max)
-    {
+struct Randomiser {
+    static double get(double min, double max) {
         // Create a random device
         std::random_device rd;
 
@@ -67,8 +65,7 @@ struct Randomiser
  * @brief Initializes the random number generator with the current time as the seed.
  * @return Always returns true.
  */
-inline bool _init_randomiser()
-{
+inline bool _init_randomiser() {
     srand(time(nullptr));
 
     return true;
@@ -82,14 +79,13 @@ static const bool init_randomiser = _init_randomiser();
 /**
  * @brief A class that provides methods for profiling the execution time of functions.
  */
-class Profiler
-{
-public:
+class Profiler {
+  public:
     /**
      * @brief Constructs a new Profiler object.
      * @param num_tries The number of times to execute the function for profiling.
      */
-    explicit Profiler(int num_tries) : _num_tries(num_tries) { }
+    explicit Profiler(int num_tries) : _num_tries(num_tries) {}
 
     /**
      * @brief Returns the number of times the function will be executed for profiling.
@@ -101,7 +97,7 @@ public:
      * @brief Returns a reference to the Randomiser object.
      * @return A const reference to the Randomiser object.
      */
-    [[nodiscard]] Randomiser const& rnd() const { return _rnd; }
+    [[nodiscard]] Randomiser const &rnd() const { return _rnd; }
 
     /**
      * @brief Profiles the execution time of a function on average.
@@ -109,16 +105,13 @@ public:
      * @param function The function to profile.
      * @param num_tries The number of times to execute the function for profiling.
      */
-    void profile_on_average(const std::string& msg,
-                            const std::function<void(int)>& function,
-                            int num_tries)
-    {
+    void profile_on_average(const std::string &msg, const std::function<void(int)> &function, int num_tries) {
         _ussw.restart();
-        for (int i = 0; i < num_tries; ++i) function(i);
+        for (int i = 0; i < num_tries; ++i)
+            function(i);
         _ussw.click();
-        std::cout << msg << " completed in "
-                << (static_cast<double>(_ussw.duration().count()))
-                  << " us on average" << std::endl;
+        std::cout << msg << " completed in " << (static_cast<double>(_ussw.duration().count())) << " us on average"
+                  << std::endl;
     }
 
     /**
@@ -127,33 +120,30 @@ public:
      * @param function The function to profile.
      * @param num_tries The number of times to execute the function for profiling.
      */
-    void profile_on_total(const std::string& msg,
-                          const std::function<void(int)>& function,
-                          int num_tries)
-    {
+    void profile_on_total(const std::string &msg, const std::function<void(int)> &function, int num_tries) {
         _mssw.restart();
-        for (int i = 0; i < num_tries; ++i) function(i);
+        for (int i = 0; i < num_tries; ++i)
+            function(i);
         _mssw.click();
-        std::cout << msg << " completed in "
-                  << (static_cast<double>(_mssw.duration().count()))
-                  << " ms on total" << std::endl;
+        std::cout << msg << " completed in " << (static_cast<double>(_mssw.duration().count())) << " ms on total"
+                  << std::endl;
     }
 
     /**
-     * @brief Profiles the execution time of a function on average using the number of tries specified in the constructor.
+     * @brief Profiles the execution time of a function on average using the number of tries specified in the
+     * constructor.
      * @param msg The message to print before the profiling result.
      * @param function The function to profile.
      */
-    void profile(const std::string& msg, const std::function<void(int)>& function)
-    {
+    void profile(const std::string &msg, const std::function<void(int)> &function) {
         profile_on_average(msg, function, _num_tries);
     }
 
-private:
+  private:
     Stopwatch<Microseconds> _ussw; ///< A Stopwatch object for measuring time in microseconds.
     Stopwatch<Milliseconds> _mssw; ///< A Stopwatch object for measuring time in milliseconds.
-    Randomiser _rnd; ///< A Randomiser object for generating random numbers.
-    const int _num_tries; ///< The number of times to execute the function for profiling.
+    Randomiser _rnd;               ///< A Randomiser object for generating random numbers.
+    const int _num_tries;          ///< The number of times to execute the function for profiling.
 };
 
-#endif //NE591_008_PROFILER_H
+#endif // NE591_008_PROFILER_H

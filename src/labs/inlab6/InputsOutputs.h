@@ -10,12 +10,12 @@
 
 #include <utility>
 
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
 #include "json.hpp"
-#include "math/relaxation/RelaxationMethods.h"
-#include "math/blas/MyBLAS.h"
 #include "math/LinearSolver.h"
+#include "math/blas/Matrix.h"
+#include "math/blas/MyBLAS.h"
+#include "math/blas/Vector.h"
+#include "math/relaxation/RelaxationMethods.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.
@@ -26,11 +26,11 @@
 typedef struct Input {
     Input() = default;
 
-    long double threshold = 0; ////< The convergence threshold
-    size_t max_iterations = 0; ////< Maximum number of iterations to perform
-    size_t n = 0; ///< Size of the matrices.
+    long double threshold = 0;                  ////< The convergence threshold
+    size_t max_iterations = 0;                  ////< Maximum number of iterations to perform
+    size_t n = 0;                               ///< Size of the matrices.
     MyBLAS::Matrix<long double> coefficients{}; ///< Coefficient matrix A
-    MyBLAS::Vector<long double> constants{}; ///< Vector of constants b.
+    MyBLAS::Vector<long double> constants{};    ///< Vector of constants b.
 
     std::set<MyRelaxationMethod::Type> methods = {};
 
@@ -47,9 +47,8 @@ typedef struct Input {
         jsonMap["constants"] = constants.getData();
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
-            std::transform(methods.begin(), methods.end(), std::back_inserter(result), [](MyRelaxationMethod::Type method) {
-                return MyRelaxationMethod::TypeKey(method);
-            });
+            std::transform(methods.begin(), methods.end(), std::back_inserter(result),
+                           [](MyRelaxationMethod::Type method) { return MyRelaxationMethod::TypeKey(method); });
             return result;
         }();
     }
@@ -61,9 +60,7 @@ typedef struct Input {
  * This structure contains the input parameters, the solution, and the execution time.
  */
 typedef struct Output {
-    explicit Output(InLab6Inputs inputMatrices) {
-        inputs = inputMatrices;
-    };
+    explicit Output(InLab6Inputs inputMatrices) { inputs = inputMatrices; };
 
     Output() = default;
     InLab6Inputs inputs;
@@ -101,4 +98,4 @@ typedef struct Output {
     }
 } InLab6Outputs;
 
-#endif //NE591_008_INLAB6_INPUTOUTPUTS_H
+#endif // NE591_008_INLAB6_INPUTOUTPUTS_H

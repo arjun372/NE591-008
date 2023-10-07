@@ -8,8 +8,8 @@
 #ifndef NE591_008_CHECKBOUNDS_H
 #define NE591_008_CHECKBOUNDS_H
 
-#include <iostream>
 #include <boost/program_options.hpp>
+#include <iostream>
 
 #include "CommandLine.h"
 
@@ -30,7 +30,8 @@
  * false otherwise.
  */
 template <typename T>
-static bool isUnfilledVector(boost::program_options::variables_map &values, const std::string &key, const size_t expectedSize) {
+static bool isUnfilledVector(boost::program_options::variables_map &values, const std::string &key,
+                             const size_t expectedSize) {
     try {
         return values[key].as<std::vector<T>>().size() < expectedSize;
     } catch (...) {
@@ -46,10 +47,10 @@ static bool isUnfilledVector(boost::program_options::variables_map &values, cons
  * @return true If the input value is not a positive number.
  * @return false If the input value is a positive number.
  */
-template <typename T>
-static bool failsPositiveNumberCheck(T value) {
+template <typename T> static bool failsPositiveNumberCheck(T value) {
     if (value <= 0) {
-        std::cerr <<"Error: " << "Input should be a positive number\n";
+        std::cerr << "Error: "
+                  << "Input should be a positive number\n";
         return true;
     }
     return false;
@@ -63,10 +64,10 @@ static bool failsPositiveNumberCheck(T value) {
  * @return true If the input value is a negative number.
  * @return false If the input value is a non-negative number.
  */
-template <typename T>
-static bool failsNonNegativeNumberCheck(T value) {
+template <typename T> static bool failsNonNegativeNumberCheck(T value) {
     if (value < 0) {
-        std::cerr <<"Error: " << "Input should be a non-negative number\n";
+        std::cerr << "Error: "
+                  << "Input should be a non-negative number\n";
         return true;
     }
     return false;
@@ -82,7 +83,8 @@ static bool failsNonNegativeNumberCheck(T value) {
 static bool absoluteValueFailsGreaterThan1Check(long double value) {
     const long double max = 1.0f;
     if (abs(value) >= max) {
-        std::cerr <<"Error: " << "abs(x) is greater than " << std::setprecision (19) << max << "\n";
+        std::cerr << "Error: "
+                  << "abs(x) is greater than " << std::setprecision(19) << max << "\n";
         return true;
     }
     return false;
@@ -99,16 +101,19 @@ static bool failsNaturalNumberCheck(long double value) {
     const long double min = 0;
     auto error = false;
     if (value <= min) {
-        std::cerr <<"Error: " << "Input should be a positive number\n";
+        std::cerr << "Error: "
+                  << "Input should be a positive number\n";
         error = true;
     }
     if (ceil(value) != floor(value)) {
-        std::cerr <<"Error: " << "Input should be a natural number\n";
+        std::cerr << "Error: "
+                  << "Input should be a natural number\n";
         error = true;
     }
 
     if (value == 0) {
-        std::cerr <<"Error: " << "Input cannot be zero\n";
+        std::cerr << "Error: "
+                  << "Input cannot be zero\n";
         error = true;
     }
 
@@ -123,23 +128,25 @@ static bool failsNaturalNumberCheck(long double value) {
  * @return true If the input value is not a whole number.
  * @return false If the input value is a whole number.
  */
-template <typename T>
-static bool failsWholeNumberCheck(T value) {
+template <typename T> static bool failsWholeNumberCheck(T value) {
 
     const long double min = 0;
     auto error = false;
 
     if (value <= min) {
-        std::cerr <<"Error: " << "Input should be a positive number\n";
+        std::cerr << "Error: "
+                  << "Input should be a positive number\n";
         error = true;
     }
     if (ceil(value) != floor(value)) {
-        std::cerr <<"Error: " << "Input should be a natural number\n";
+        std::cerr << "Error: "
+                  << "Input should be a natural number\n";
         error = true;
     }
 
     if (value == 0) {
-        std::cerr <<"Error: " << "Input should be a whole number, i.e. it cannot be zero\n";
+        std::cerr << "Error: "
+                  << "Input should be a whole number, i.e. it cannot be zero\n";
         error = true;
     }
 
@@ -156,8 +163,7 @@ static bool failsWholeNumberCheck(T value) {
  * @return true If the input value is outside the specified range.
  * @return false If the input value is within the specified range.
  */
-template <typename T>
-static bool failsInclusiveRangeCheck(T value, T min, T max) {
+template <typename T> static bool failsInclusiveRangeCheck(T value, T min, T max) {
     if (value < min || value > max) {
         std::cerr << "Error: Input should be within the range [" << min << ", " << max << "]\n";
         return true;
@@ -175,15 +181,13 @@ static bool failsInclusiveRangeCheck(T value, T min, T max) {
  * @return true If the input value is outside the specified range.
  * @return false If the input value is within the specified range.
  */
-template <typename T>
-static bool failsExclusiveRangeCheck(T value, T min, T max) {
+template <typename T> static bool failsExclusiveRangeCheck(T value, T min, T max) {
     if (value <= min || value > max) {
         std::cerr << "Error: Input should be within the range (" << min << ", " << max << ")\n";
         return true;
     }
     return false;
 }
-
 
 /**
  * @brief Checks if the input value is a valid probability (between 0 and 1 inclusive).
@@ -193,12 +197,7 @@ static bool failsExclusiveRangeCheck(T value, T min, T max) {
  * @return true If the input value is not a valid probability.
  * @return false If the input value is a valid probability.
  */
-template <typename T>
-static bool failsProbabilityCheck(T value) {
-    return failsInclusiveRangeCheck(value, 0, 1);
-}
-
-
+template <typename T> static bool failsProbabilityCheck(T value) { return failsInclusiveRangeCheck(value, 0, 1); }
 
 /**
  * @brief Converts a string to a long double number.
@@ -233,7 +232,7 @@ static long double asNumber(const std::string &input) {
  * @param mixedCaseStr A reference to the input string with mixed case characters.
  */
 static void toLowerCase(std::string &mixedCaseStr) {
-    for (char& c : mixedCaseStr) {
+    for (char &c : mixedCaseStr) {
         c = std::tolower(c);
     }
 }
@@ -261,18 +260,17 @@ static void stripSpaces(std::string &spaceyStr) {
 static bool asYesOrNo(std::string input) {
     toLowerCase(input);
     stripSpaces(input);
-    if(input == "y" || input == "yes") {
+    if (input == "y" || input == "yes") {
         return true;
     }
 
-    if(input == "n" || input == "no") {
+    if (input == "n" || input == "no") {
         return false;
     }
 
     std::cerr << "Unknown value, please specify one of: [yes,y,no,n]\n";
     throw std::exception();
 }
-
 
 /**
  * @brief Checks if the input value fails any of the provided checks.
@@ -288,8 +286,7 @@ static bool asYesOrNo(std::string input) {
  * @return true If the input value fails any of the provided checks.
  * @return false If the input value passes all the provided checks.
  */
-template <typename T>
-static bool valueFailsChecks(const T value, const std::vector<std::function<bool(T)>> &checks) {
+template <typename T> static bool valueFailsChecks(const T value, const std::vector<std::function<bool(T)>> &checks) {
     return std::any_of(checks.begin(), checks.end(), [value](const auto &check) { return check(value); });
 }
 
@@ -297,28 +294,34 @@ static bool valueFailsChecks(const T value, const std::vector<std::function<bool
  * @brief This function performs checks on the input and updates it if necessary.
  *
  * The function first synchronizes any differences between the JSON object and the variables_map object.
- * Then, it enters a loop where it prompts the user to enter a value for the specified key until a valid value is entered.
- * A value is considered valid if it passes all the checks specified in the checkList.
- * If the entered value is invalid, the function catches the exception and prompts the user to enter a new value.
+ * Then, it enters a loop where it prompts the user to enter a value for the specified key until a valid value is
+ * entered. A value is considered valid if it passes all the checks specified in the checkList. If the entered value is
+ * invalid, the function catches the exception and prompts the user to enter a new value.
  *
  * @tparam T The type of the value to be checked and updated.
  *
  * @param key The key for which the value is to be checked and updated.
  * @param inputMap The JSON object that contains the current values.
  * @param map The variables_map object that contains the current values.
- * @param checkList A list of functions that perform checks on the value. Each function takes a value of type T and returns a boolean indicating whether the value passed the check.
+ * @param checkList A list of functions that perform checks on the value. Each function takes a value of type T and
+ * returns a boolean indicating whether the value passed the check.
  *
- * @note The function uses the syncMapKeys function to synchronize the JSON and variables_map objects, and the valueFailsChecks function to check whether a value fails any of the checks.
- * @note The function uses the asNumber function to convert the user's input to a number, and the replace function to update the value in the variables_map object.
- * @note The function catches any exceptions thrown by the asNumber or replace functions and continues prompting the user for a new value.
+ * @note The function uses the syncMapKeys function to synchronize the JSON and variables_map objects, and the
+ * valueFailsChecks function to check whether a value fails any of the checks.
+ * @note The function uses the asNumber function to convert the user's input to a number, and the replace function to
+ * update the value in the variables_map object.
+ * @note The function catches any exceptions thrown by the asNumber or replace functions and continues prompting the
+ * user for a new value.
  */
 template <typename T>
-static void performChecksAndUpdateInput(std::string key, nlohmann::json &inputMap, boost::program_options::variables_map &map, std::vector<std::function<bool(T)>> &checkList) {
+static void performChecksAndUpdateInput(std::string key, nlohmann::json &inputMap,
+                                        boost::program_options::variables_map &map,
+                                        std::vector<std::function<bool(T)>> &checkList) {
 
     // first, sync any differences between the JSON and variables_map
     syncMapKeys<T>(key, inputMap, map);
 
-    while(map[key].empty() || valueFailsChecks<T>(map[key].as<T>(), checkList)) {
+    while (map[key].empty() || valueFailsChecks<T>(map[key].as<T>(), checkList)) {
         std::cout << "Enter a value for " << key << ":";
         std::string input;
         std::cin >> input;
@@ -359,9 +362,9 @@ static void promptAndSetFlags(std::string key, std::string description, boost::p
         return;
     }
 
-    while(!flagSet) {
+    while (!flagSet) {
         try {
-            std::cout<<"Would you like to use the "<<description<<"? [YES/no]: ";
+            std::cout << "Would you like to use the " << description << "? [YES/no]: ";
             std::string input;
             std::cin >> input;
             replace(map, key, asYesOrNo(input));
@@ -372,4 +375,4 @@ static void promptAndSetFlags(std::string key, std::string description, boost::p
     }
 }
 
-#endif //NE591_008_CHECKBOUNDS_H
+#endif // NE591_008_CHECKBOUNDS_H

@@ -1,5 +1,7 @@
 # Locating Source Files
+
 Sources and file paths for each deliverable follow the following structure:
+
 ```
 ├── src  <= You are now here
 │   ├── project              <= Class project deliverables

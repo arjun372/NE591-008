@@ -8,8 +8,8 @@
 #ifndef NE591_008_PROJECT1_COMPUTE_H
 #define NE591_008_PROJECT1_COMPUTE_H
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 #include "math/blas/Matrix.h"
 #include "math/factorization/LU.h"
@@ -30,8 +30,7 @@
  * @param[out] inputs.delta The mesh spacing in the x-direction.
  * @param[out] inputs.gamma The mesh spacing in the y-direction.
  */
-void calculate_mesh_spacings(SolverInputs &inputs)
-{
+void calculate_mesh_spacings(SolverInputs &inputs) {
     // Compute the mesh spacing in the x-direction using the formula: delta = a / (m + 1)
     inputs.delta = inputs.a / (inputs.m + 1);
 
@@ -50,8 +49,7 @@ void calculate_mesh_spacings(SolverInputs &inputs)
  * @param n The number of columns in the matrix and vector.
  * @return IntermediateResults The initialized diffusion matrix A and right-hand-side vector B.
  */
-template <typename T>
-static IntermediateResults initialize_diffusion_matrix_and_vector(size_t m, size_t n) {
+template <typename T> static IntermediateResults initialize_diffusion_matrix_and_vector(size_t m, size_t n) {
 
     IntermediateResults intermediates;
 
@@ -88,10 +86,8 @@ static void naive_fill_diffusion_matrix_and_vector(SolverInputs &inputs, Interme
     const long double diagonal = 2.0 * (D_over_delta_squared + D_over_gamma_squared) + cross_section;
 
     // Loop through all the nodes i = 1, ..., m and j = 1, ..., n
-    for (size_t i = 1; i <= m; ++i)
-    {
-        for (size_t j = 1; j <= n; ++j)
-        {
+    for (size_t i = 1; i <= m; ++i) {
+        for (size_t j = 1; j <= n; ++j) {
             // Calculate the index of the current node in the matrix A and vector B
             int idx = (i - 1) * n + (j - 1);
 
@@ -99,20 +95,16 @@ static void naive_fill_diffusion_matrix_and_vector(SolverInputs &inputs, Interme
             intermediates.diffusion_matrix_A[idx][idx] = diagonal;
 
             // Fill the off-diagonal elements of the matrix A using the given equation
-            if (i > 1)
-            {
+            if (i > 1) {
                 intermediates.diffusion_matrix_A[idx][idx - n] = minus_D_over_delta_squared;
             }
-            if (i < m)
-            {
-                intermediates.diffusion_matrix_A[idx][idx + n] =  minus_D_over_delta_squared;
+            if (i < m) {
+                intermediates.diffusion_matrix_A[idx][idx + n] = minus_D_over_delta_squared;
             }
-            if (j > 1)
-            {
-                intermediates.diffusion_matrix_A[idx][idx - 1] =  minus_D_over_gamma_squared;
+            if (j > 1) {
+                intermediates.diffusion_matrix_A[idx][idx - 1] = minus_D_over_gamma_squared;
             }
-            if (j < n)
-            {
+            if (j < n) {
                 intermediates.diffusion_matrix_A[idx][idx + 1] = minus_D_over_gamma_squared;
             }
 
@@ -129,7 +121,8 @@ static void naive_fill_diffusion_matrix_and_vector(SolverInputs &inputs, Interme
  * It also checks if the factorized matrices L and U are unit lower triangular and upper triangular respectively,
  * and if the generated matrix P is a permutation matrix.
  *
- * @param intermediates The intermediate results including the diffusion matrix A and the factorized matrices L, U, and P.
+ * @param intermediates The intermediate results including the diffusion matrix A and the factorized matrices L, U, and
+ * P.
  */
 static void naive_solve_linear_system(IntermediateResults &intermediates) {
 
@@ -140,11 +133,11 @@ static void naive_solve_linear_system(IntermediateResults &intermediates) {
     intermediates.U = MyBLAS::Matrix(rows, cols, static_cast<long double>(0));
     intermediates.P = MyBLAS::LUP::factorize(intermediates.L, intermediates.U, intermediates.diffusion_matrix_A);
 
-    if(!MyBLAS::isUnitLowerTriangularMatrix(intermediates.L)) {
+    if (!MyBLAS::isUnitLowerTriangularMatrix(intermediates.L)) {
         std::cerr << "Warning: Factorized matrix L is not unit lower triangular, expect undefined behavior.\n";
     }
 
-    if(!MyBLAS::isUpperTriangularMatrix(intermediates.U)) {
+    if (!MyBLAS::isUpperTriangularMatrix(intermediates.U)) {
         std::cerr << "Warning: Factorized matrix U is not upper triangular, expect undefined behavior.\n";
     }
 
@@ -167,7 +160,7 @@ static void fill_fluxes(MyBLAS::Vector<long double> phi, SolverInputs &inputs, S
     const size_t m = inputs.m;
     const size_t n = inputs.n;
 
-    outputs.fluxes = MyBLAS::Matrix<long double>(m+2, n+2, 0);
+    outputs.fluxes = MyBLAS::Matrix<long double>(m + 2, n + 2, 0);
 
     for (size_t i = 1; i <= m; i++) {
         for (size_t j = 1; j <= n; j++) {
@@ -177,4 +170,4 @@ static void fill_fluxes(MyBLAS::Vector<long double> phi, SolverInputs &inputs, S
     }
 }
 
-#endif //NE591_008_PROJECT1_COMPUTE_H
+#endif // NE591_008_PROJECT1_COMPUTE_H

@@ -1,26 +1,24 @@
 #pragma once
 
-#include "CommandLine.h"
 #include "CheckBounds.h"
+#include "CommandLine.h"
 #include "Helpers.h"
 
 typedef struct Input {
-    long double x; ///< The x value.
+    long double x;                ///< The x value.
     long double target_threshold; ///< The target threshold.
-    size_t N; ///< The maximum number of iterations.
+    size_t N;                     ///< The maximum number of iterations.
 } TaylorSeriesInputs;
 
 class Parser : public CommandLine<TaylorSeriesInputs> {
 
-public:
-    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {
-
-    }
+  public:
+    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
 
     explicit Parser() = default;
 
-protected:
-/**
+  protected:
+    /**
      * @brief This function builds the input options for the program.
      *
      * @return A description of the input options.
@@ -28,10 +26,11 @@ protected:
      * It defines the options for angle, convergence threshold and iterations, and adds them to the options description.
      */
     void buildInputArguments(boost::program_options::options_description &values) override {
-        values.add_options()
-                ("angle,x", boost::program_options::value<long double>(), "= angle in radians [abs(x) < 1.0]")
-                ("convergence-threshold,t", boost::program_options::value<long double>(), "= iterative convergence threshold [e > 0]")
-                ("iterations,n", boost::program_options::value<long double>(), "= total number of iterations");
+        values.add_options()("angle,x", boost::program_options::value<long double>(),
+                             "= angle in radians [abs(x) < 1.0]")("convergence-threshold,t",
+                                                                  boost::program_options::value<long double>(),
+                                                                  "= iterative convergence threshold [e > 0]")(
+            "iterations,n", boost::program_options::value<long double>(), "= total number of iterations");
     }
 
     /**
@@ -45,8 +44,8 @@ protected:
     void performInputArgumentsCheck(boost::program_options::variables_map &values) override {
 
         std::string input;
-        while(values["angle"].empty() || absoluteValueFailsGreaterThan1Check(values["angle"].as<long double>())) {
-            std::cout<<"Enter a value for the angle x [radian]: ";
+        while (values["angle"].empty() || absoluteValueFailsGreaterThan1Check(values["angle"].as<long double>())) {
+            std::cout << "Enter a value for the angle x [radian]: ";
             std::cin >> input;
             try {
                 replace(values, "angle", asNumber(input));
@@ -55,8 +54,9 @@ protected:
             }
         }
 
-        while(values["convergence-threshold"].empty() || failsPositiveNumberCheck(values["convergence-threshold"].as<long double>())) {
-            std::cout<<"Enter a value for the stopping criterion e [e > 0]: ";
+        while (values["convergence-threshold"].empty() ||
+               failsPositiveNumberCheck(values["convergence-threshold"].as<long double>())) {
+            std::cout << "Enter a value for the stopping criterion e [e > 0]: ";
             std::cin >> input;
             try {
                 replace(values, "convergence-threshold", asNumber(input));
@@ -65,8 +65,8 @@ protected:
             }
         }
 
-        while(values["iterations"].empty() || failsNaturalNumberCheck(values["iterations"].as<long double>())) {
-            std::cout<<"Enter maximum number of iterations (natural number): ";
+        while (values["iterations"].empty() || failsNaturalNumberCheck(values["iterations"].as<long double>())) {
+            std::cout << "Enter maximum number of iterations (natural number): ";
             std::cin >> input;
             try {
                 replace(values, "iterations", asNumber(input));
@@ -85,11 +85,13 @@ protected:
      */
     void printInputArguments(boost::program_options::variables_map &vm) override {
         const auto precision = vm["precision"].as<int>();
-        std::cout<<std::setw(44)<<"Inputs\n";
+        std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        std::cout << "\tangle, x: "<<std::setprecision(precision) << vm["angle"].as<long double>()<< "\n";
-        std::cout << "\tconvergence-threshold, t: "<<std::setprecision(precision) << vm["convergence-threshold"].as<long double>()<< "\n";
-        std::cout << "\titerations, n: "<<std::setprecision(default_precision) << vm["iterations"].as<long double>()<< "\n";
+        std::cout << "\tangle, x: " << std::setprecision(precision) << vm["angle"].as<long double>() << "\n";
+        std::cout << "\tconvergence-threshold, t: " << std::setprecision(precision)
+                  << vm["convergence-threshold"].as<long double>() << "\n";
+        std::cout << "\titerations, n: " << std::setprecision(default_precision) << vm["iterations"].as<long double>()
+                  << "\n";
         CommandLine::printLine();
     }
 

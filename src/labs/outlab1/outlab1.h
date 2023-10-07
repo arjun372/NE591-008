@@ -15,27 +15,27 @@
 #include <boost/program_options.hpp>
 
 #include "CommandLine.h"
-#include "Project.h"
 #include "Compute.h"
 #include "Parser.h"
+#include "Project.h"
 
 typedef struct Output {
 
 } NoOutput;
 
-class OutLab1 : public Project<MatrixConstructParams , Parser, NoOutput> {
+class OutLab1 : public Project<MatrixConstructParams, Parser, NoOutput> {
 
-public:
+  public:
     explicit OutLab1(CommandLineArgs args) : Project(args) {}
 
-protected:
+  protected:
     HeaderInfo buildHeaderInfo() override {
-        return HeaderInfo {
-                .ProjectName = "OutLab 01",
-                .ProjectDescription = "Non-vectorized, elementwise (mul, add) operations on 2D matrices",
-                .SubmissionDate = "09/01/2023",
-                .StudentName = "Arjun Earthperson",
-                .HeaderArt = R"(
+        return HeaderInfo{
+            .ProjectName = "OutLab 01",
+            .ProjectDescription = "Non-vectorized, elementwise (mul, add) operations on 2D matrices",
+            .SubmissionDate = "09/01/2023",
+            .StudentName = "Arjun Earthperson",
+            .HeaderArt = R"(
                                                _
                  ___                          (_)
                _/XXX\
@@ -67,12 +67,12 @@ __/_______\________\__\_/________\_ _/_____/_____________/_______\____/_______
 
         // build matrix
         ArgsPrintMatrix matrix{
-                .start_row = 1, // spec says indexing starts from 1 not 0.
-                .start_col = 1, // spec says indexing starts from 1 not 0.
-                .num_rows = input.M,
-                .num_cols = input.N,
-                .inputParams = input,
-                .evaluate = elementFromA,
+            .start_row = 1, // spec says indexing starts from 1 not 0.
+            .start_col = 1, // spec says indexing starts from 1 not 0.
+            .num_rows = input.M,
+            .num_cols = input.N,
+            .inputParams = input,
+            .evaluate = elementFromA,
         };
         printMatrix(matrix, "Matrix A: ");
         Parser::printLine();
@@ -111,6 +111,5 @@ __/_______\________\__\_/________\_ _/_____/_____________/_______\____/_______
         matrix.evaluate = elementFromE;
         printMatrix(matrix, "Matrix E = AF");
         Parser::printLine();
-
     }
 };

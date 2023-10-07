@@ -9,9 +9,9 @@
 
 #include <utility>
 
+#include "json.hpp"
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
-#include "json.hpp"
 
 /**
  * @namespace MyBLAS
@@ -19,45 +19,43 @@
  */
 namespace MyBLAS {
 
-    /**
-     * @struct Input
-     * @brief Struct representing the input matrices for the BLAS library.
-     */
-    typedef struct Input {
-        Input() = default;
+/**
+ * @struct Input
+ * @brief Struct representing the input matrices for the BLAS library.
+ */
+typedef struct Input {
+    Input() = default;
 
-        size_t n = 0; ///< Size of the matrices.
-        MyBLAS::Matrix<long double> LU; ///< LU matrix.
-        MyBLAS::Matrix<long double> permutation; ///< LU matrix.
-        MyBLAS::Vector<long double> constants; ///< Vector of constants.
-
-        /**
-        * @brief Converts the input parameters to a JSON object.
-        * @param jsonMap A reference to the JSON object to store the input parameters.
-        */
-        void toJSON(nlohmann::json &jsonMap) const {
-            jsonMap["n"] = n;
-            jsonMap["LU"] = LU.getData();
-            jsonMap["permutation"] = permutation.getData();
-            jsonMap["constants"] = constants.getData();
-        }
-    } InputMatrices;
+    size_t n = 0;                            ///< Size of the matrices.
+    MyBLAS::Matrix<long double> LU;          ///< LU matrix.
+    MyBLAS::Matrix<long double> permutation; ///< LU matrix.
+    MyBLAS::Vector<long double> constants;   ///< Vector of constants.
 
     /**
-     * @struct Output
-     * @brief Struct representing the output vector for the BLAS library.
+     * @brief Converts the input parameters to a JSON object.
+     * @param jsonMap A reference to the JSON object to store the input parameters.
      */
-    typedef struct Output {
-        Output() = default;
-        MyBLAS::Vector<long double> solution; ///< Output vector.
+    void toJSON(nlohmann::json &jsonMap) const {
+        jsonMap["n"] = n;
+        jsonMap["LU"] = LU.getData();
+        jsonMap["permutation"] = permutation.getData();
+        jsonMap["constants"] = constants.getData();
+    }
+} InputMatrices;
 
-        /**
-         * @brief Converts the output vector to a JSON object.
-         * @param jsonMap A reference to the JSON object to store the output vector.
-         */
-        void toJSON(nlohmann::json &jsonMap) const {
-            jsonMap["solution"] = solution.getData();
-        }
-    } OutputVector;
+/**
+ * @struct Output
+ * @brief Struct representing the output vector for the BLAS library.
+ */
+typedef struct Output {
+    Output() = default;
+    MyBLAS::Vector<long double> solution; ///< Output vector.
 
-}
+    /**
+     * @brief Converts the output vector to a JSON object.
+     * @param jsonMap A reference to the JSON object to store the output vector.
+     */
+    void toJSON(nlohmann::json &jsonMap) const { jsonMap["solution"] = solution.getData(); }
+} OutputVector;
+
+} // namespace MyBLAS
