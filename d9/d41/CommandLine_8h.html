@@ -120,11 +120,11 @@ $(document).ready(function(){initNavTree('d9/d41/CommandLine_8h.html','../../');
 
 <p>This file contains the definition of the <a class="el" href="../../dd/d02/classCommandLine.html" title="A class to parse command line arguments and display information about the project.">CommandLine</a> class and the <a class="el" href="../../d9/d41/CommandLine_8h.html#d3/db0/structHeaderInfo" title="A struct to store information about the project.">HeaderInfo</a> struct.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../">Helpers.h</a>&quot;</code><br />
-<code>#include &quot;project-config.h&quot;</code><br />
-<code>#include &lt;boost/program_options.hpp&gt;</code><br />
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;boost/program_options.hpp&gt;</code><br />
+<code>#include &quot;project-config.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">Helpers.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for CommandLine.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -157,9 +157,9 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a490c76b355e69aabc18b99fa3ab795c3"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d41/CommandLine_8h.html#a490c76b355e69aabc18b99fa3ab795c3">default_precision</a></td></tr>
+<tr class="memitem:a490c76b355e69aabc18b99fa3ab795c3"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d41/CommandLine_8h.html#a490c76b355e69aabc18b99fa3ab795c3">default_precision</a> {std::cout.precision()}</td></tr>
 <tr class="separator:a490c76b355e69aabc18b99fa3ab795c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78959ecd5c09c39ab16731c88cff9f9b"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d41/CommandLine_8h.html#a78959ecd5c09c39ab16731c88cff9f9b">max_precision</a></td></tr>
+<tr class="memitem:a78959ecd5c09c39ab16731c88cff9f9b"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d41/CommandLine_8h.html#a78959ecd5c09c39ab16731c88cff9f9b">max_precision</a> {std::numeric_limits&lt;long double&gt;::digits10 + 1}</td></tr>
 <tr class="separator:a78959ecd5c09c39ab16731c88cff9f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -271,14 +271,12 @@ argv</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const auto default_precision</td>
+          <td class="memname">const auto default_precision {std::cout.precision()}</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    std::cout.precision()}</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00102">Parser::printInputArguments()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00086">Parser::printInputArguments()</a>.</p>
 
 </div>
 </div>
@@ -292,7 +290,7 @@ argv</td>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto max_precision</td>
+          <td class="memname">constexpr auto max_precision {std::numeric_limits&lt;long double&gt;::digits10 + 1}</td>
         </tr>
       </table>
   </td>
@@ -301,10 +299,8 @@ argv</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{std::numeric_limits&lt;long double&gt;::digits10 +</div>
-<div class="line">                             1}</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00084">OutLab5::run()</a>, and <a class="el" href="../../#l00081">Project1::run()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00080">OutLab5::run()</a>, and <a class="el" href="../../#l00078">Project1::run()</a>.</p>
 
 </div>
 </div>

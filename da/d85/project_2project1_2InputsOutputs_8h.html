@@ -123,16 +123,16 @@ $(document).ready(function(){initNavTree('da/d85/project_2project1_2InputsOutput
 <p>This file contains the input and output definitions for this project.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;utility&gt;</code><br />
-<code>#include &quot;json.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/Matrix.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">math/blas/MyBLAS.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/Vector.h</a>&quot;</code><br />
+<code>#include &quot;json.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">math/blas/MyBLAS.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for InputsOutputs.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/dff/project_2project1_2InputsOutputs_8h__incl.svg" width="463" height="351"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/dff/project_2project1_2InputsOutputs_8h__incl.svg" width="458" height="351"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -290,10 +290,14 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The string representation of the IntegrationRule. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                          {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *SolverMethodKeys[] = {<span class="stringliteral">&quot;LUP&quot;</span>, <span class="stringliteral">&quot;point-jacobi&quot;</span>,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                             <span class="stringliteral">&quot;gauss-seidel&quot;</span>, <span class="stringliteral">&quot;SOR&quot;</span>};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> SolverMethodKeys[<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(value)];</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* SolverMethodKeys[] = {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="stringliteral">&quot;LUP&quot;</span>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="stringliteral">&quot;point-jacobi&quot;</span>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="stringliteral">&quot;gauss-seidel&quot;</span>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="stringliteral">&quot;SOR&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> SolverMethodKeys[<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(value)];</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>

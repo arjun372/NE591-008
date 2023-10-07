@@ -207,8 +207,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;: <a class="code" href="../../db/d91/classProject.html#a359b12313a7436da04ef315d384d32c8">Project</a>(args) {}</div>
-<div class="ttc" id="aclassProject_html_a359b12313a7436da04ef315d384d32c8"><div class="ttname"><a href="../../db/d91/classProject.html#a359b12313a7436da04ef315d384d32c8">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::Project</a></div><div class="ttdeci">Project(CommandLineArgs args)</div><div class="ttdoc">A static assertion to ensure that CommandLineParserType is a derived class of CommandLine.</div><div class="ttdef"><b>Definition:</b> Project.h:41</div></div>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;: <a class="code" href="../../db/d91/classProject.html#a359b12313a7436da04ef315d384d32c8">Project</a>(args) {}</div>
+<div class="ttc" id="aclassProject_html_a359b12313a7436da04ef315d384d32c8"><div class="ttname"><a href="../../db/d91/classProject.html#a359b12313a7436da04ef315d384d32c8">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::Project</a></div><div class="ttdeci">Project(CommandLineArgs args)</div><div class="ttdoc">A static assertion to ensure that CommandLineParserType is a derived class of CommandLine.</div><div class="ttdef"><b>Definition:</b> Project.h:36</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -240,42 +240,41 @@ Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The header information. </dd></dl>
 
 <p>Implements <a class="el" href="../../db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;</a>.</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                          {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            .ProjectName = <span class="stringliteral">&quot;InLab 02&quot;</span>,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            .ProjectDescription =</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="stringliteral">&quot;I/O Setup for Lagrange Interpolating Polynomials&quot;</span>,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            .SubmissionDate = <span class="stringliteral">&quot;09/01/2023&quot;</span>,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            .StudentName = <span class="stringliteral">&quot;Arjun Earthperson&quot;</span>,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            .HeaderArt = R<span class="stringliteral">&quot;(</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="stringliteral">         @\_______/@</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="stringliteral">        @|XXXXXXXX |</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="stringliteral">       @ |X||    X |</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="stringliteral">      @  |X||    X |</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="stringliteral">     @   |XXXXXXXX |</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="stringliteral">    @    |X||    X |             V</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="stringliteral">   @     |X||   .X |</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="stringliteral">  @      |X||.  .X |                      V</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="stringliteral"> @      |%XXXXXXXX%||</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="stringliteral">@       |X||  . . X||</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="stringliteral">        |X||   .. X||                               @     @</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="stringliteral">        |X||  .   X||.                              ||====%</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="stringliteral">        |X|| .    X|| .                             ||    %</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="stringliteral">        |X||.     X||   .                           ||====%</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="stringliteral">       |XXXXXXXXXXXX||     .                        ||    %</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="stringliteral">       |XXXXXXXXXXXX||         .                 .  ||====% .</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="stringliteral">       |XX|        X||                .        .    ||    %  .</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="stringliteral">       |XX|        X||                   .          ||====%   .</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="stringliteral">       |XX|        X||              .          .    ||    %     .</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="stringliteral">       |XX|======= X||============================+ || .. %  ........</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="stringliteral">===== /            X||                              ||    %</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="stringliteral">                   X||           /)                 ||    %</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="stringliteral">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="stringliteral">)&quot;,</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="stringliteral">        };</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="stringliteral">    }</span></div>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                          {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                .ProjectName = <span class="stringliteral">&quot;InLab 02&quot;</span>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                .ProjectDescription = <span class="stringliteral">&quot;I/O Setup for Lagrange Interpolating Polynomials&quot;</span>,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                .SubmissionDate = <span class="stringliteral">&quot;09/01/2023&quot;</span>,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                .StudentName = <span class="stringliteral">&quot;Arjun Earthperson&quot;</span>,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                .HeaderArt = R<span class="stringliteral">&quot;(</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="stringliteral">         @\_______/@</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="stringliteral">        @|XXXXXXXX |</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="stringliteral">       @ |X||    X |</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="stringliteral">      @  |X||    X |</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="stringliteral">     @   |XXXXXXXX |</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="stringliteral">    @    |X||    X |             V</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="stringliteral">   @     |X||   .X |</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="stringliteral">  @      |X||.  .X |                      V</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="stringliteral"> @      |%XXXXXXXX%||</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="stringliteral">@       |X||  . . X||</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="stringliteral">        |X||   .. X||                               @     @</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="stringliteral">        |X||  .   X||.                              ||====%</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="stringliteral">        |X|| .    X|| .                             ||    %</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="stringliteral">        |X||.     X||   .                           ||====%</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="stringliteral">       |XXXXXXXXXXXX||     .                        ||    %</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="stringliteral">       |XXXXXXXXXXXX||         .                 .  ||====% .</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="stringliteral">       |XX|        X||                .        .    ||    %  .</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="stringliteral">       |XX|        X||                   .          ||====%   .</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="stringliteral">       |XX|        X||              .          .    ||    %     .</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="stringliteral">       |XX|======= X||============================+ || .. %  ........</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="stringliteral">===== /            X||                              ||    %</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="stringliteral">                   X||           /)                 ||    %</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="stringliteral">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="stringliteral">)&quot;,</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="stringliteral">        };</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="stringliteral">    }</span></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00031">HeaderInfo::ProjectName</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00028">HeaderInfo::ProjectName</a>.</p>
 
 </div>
 </div>
@@ -303,12 +302,12 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Executes the project. </p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                   {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="../../db/d91/classProject.html#acbe73feefb53a07d8e760324b104acc9">initialize</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a524174b93fd777a689b64e49cc6ff1db">timedRun</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="ttc" id="aclassProject_html_a524174b93fd777a689b64e49cc6ff1db"><div class="ttname"><a href="../../db/d91/classProject.html#a524174b93fd777a689b64e49cc6ff1db">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::timedRun</a></div><div class="ttdeci">void timedRun()</div><div class="ttdoc">Executes the project and measures the execution time.</div><div class="ttdef"><b>Definition:</b> Project.h:79</div></div>
-<div class="ttc" id="aclassProject_html_acbe73feefb53a07d8e760324b104acc9"><div class="ttname"><a href="../../db/d91/classProject.html#acbe73feefb53a07d8e760324b104acc9">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the project.</div><div class="ttdef"><b>Definition:</b> Project.h:70</div></div>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                   {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="../../db/d91/classProject.html#acbe73feefb53a07d8e760324b104acc9">initialize</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a524174b93fd777a689b64e49cc6ff1db">timedRun</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="ttc" id="aclassProject_html_a524174b93fd777a689b64e49cc6ff1db"><div class="ttname"><a href="../../db/d91/classProject.html#a524174b93fd777a689b64e49cc6ff1db">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::timedRun</a></div><div class="ttdeci">void timedRun()</div><div class="ttdoc">Executes the project and measures the execution time.</div><div class="ttdef"><b>Definition:</b> Project.h:78</div></div>
+<div class="ttc" id="aclassProject_html_acbe73feefb53a07d8e760324b104acc9"><div class="ttname"><a href="../../db/d91/classProject.html#acbe73feefb53a07d8e760324b104acc9">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the project.</div><div class="ttdef"><b>Definition:</b> Project.h:69</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -337,8 +336,10 @@ Private Attributes</h2></td></tr>
 
 <p>Returns the terminal. </p>
 <dl class="section return"><dt>Returns</dt><dd>The terminal. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>; }</div>
-<div class="ttc" id="aclassProject_html_a6a745ed8b9a383f5c1fe341a530301ed"><div class="ttname"><a href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::terminal</a></div><div class="ttdeci">Parser terminal</div><div class="ttdef"><b>Definition:</b> Project.h:64</div></div>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                              {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="ttc" id="aclassProject_html_a6a745ed8b9a383f5c1fe341a530301ed"><div class="ttname"><a href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::terminal</a></div><div class="ttdeci">Parser terminal</div><div class="ttdef"><b>Definition:</b> Project.h:63</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -366,15 +367,15 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the project. </p>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                      {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a> = CommandLineParserType(<a class="code" href="../../db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd">buildHeaderInfo</a>(), <a class="code" href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">cmdArgs</a>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a> = OutputType();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="ttc" id="aclassCommandLine_html_ad9d8cf54a3f65df6a00700fd2282c667"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">CommandLine::getInputs</a></div><div class="ttdeci">InputType &amp; getInputs()</div><div class="ttdoc">Method to get the inputs.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:139</div></div>
-<div class="ttc" id="aclassProject_html_a06149764196c5bb48dfb591ab1c9bf34"><div class="ttname"><a href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::outputs</a></div><div class="ttdeci">Dictionary outputs</div><div class="ttdef"><b>Definition:</b> Project.h:65</div></div>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                      {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a> = CommandLineParserType(<a class="code" href="../../db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd">buildHeaderInfo</a>(), <a class="code" href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">cmdArgs</a>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a> = OutputType();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="ttc" id="aclassCommandLine_html_ad9d8cf54a3f65df6a00700fd2282c667"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">CommandLine::getInputs</a></div><div class="ttdeci">InputType &amp; getInputs()</div><div class="ttdoc">Method to get the inputs.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:128</div></div>
+<div class="ttc" id="aclassProject_html_a06149764196c5bb48dfb591ab1c9bf34"><div class="ttname"><a href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::outputs</a></div><div class="ttdeci">Dictionary outputs</div><div class="ttdef"><b>Definition:</b> Project.h:64</div></div>
 <div class="ttc" id="aclassProject_html_a253538a3f4435358c94fd6e682b154dd"><div class="ttname"><a href="../../db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::buildHeaderInfo</a></div><div class="ttdeci">virtual HeaderInfo buildHeaderInfo()=0</div><div class="ttdoc">Builds the header information.</div></div>
-<div class="ttc" id="aclassProject_html_a44d2055fa63fb0d7684efd9a7db32272"><div class="ttname"><a href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::cmdArgs</a></div><div class="ttdeci">CommandLineArgs cmdArgs</div><div class="ttdef"><b>Definition:</b> Project.h:63</div></div>
+<div class="ttc" id="aclassProject_html_a44d2055fa63fb0d7684efd9a7db32272"><div class="ttname"><a href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::cmdArgs</a></div><div class="ttdeci">CommandLineArgs cmdArgs</div><div class="ttdef"><b>Definition:</b> Project.h:62</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -427,7 +428,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                                                    {}</div>
+<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -480,7 +481,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                                                   {}</div>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -537,53 +538,48 @@ Private Attributes</h2></td></tr>
 <p>Finally, it writes the output map to a CSV file specified by the "output-csv" command line argument. </p>
 
 <p>Implements <a class="el" href="../../db/d91/classProject.html#a02f8b0f24035e49482aaf78a020a7b8c">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;</a>.</p>
-<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                                                 {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">// create indices 1 -&gt; m</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        std::vector&lt;size_t&gt; indexVector(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        std::iota(indexVector.begin(), indexVector.end(), 1);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;i&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(indexVector));</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment">// uniform interval over [a,b]</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> xMinMax =</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            std::minmax_element(inputs.<a class="code" href="../../d4/dae/structInput.html#a23f5145614880c39c4993a7c2be87a75">xData</a>.begin(), inputs.<a class="code" href="../../d4/dae/structInput.html#a23f5145614880c39c4993a7c2be87a75">xData</a>.end());</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">auto</span> uniformXiInterval = std::vector&lt;long double&gt;(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>, 0);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <a class="code" href="../../db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12">fill_linspace</a>(uniformXiInterval, *xMinMax.first, *xMinMax.second,</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                      inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;x(i)&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(uniformXiInterval));</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">// Lagrange interpolated samples L[x(i)]</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keyword">auto</span> lagrangePolynomials = std::vector&lt;long double&gt;(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>, 0);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="../../d9/d0a/labs_2inlab2_2Compute_8h.html#a827f648b7f3ed31127aa4a2b85d5d04c">fillLagrangePolys</a>(lagrangePolynomials, uniformXiInterval, inputs.<a class="code" href="../../d4/dae/structInput.html#a23f5145614880c39c4993a7c2be87a75">xData</a>,</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                          inputs.<a class="code" href="../../d4/dae/structInput.html#a224b2949fec707c29b33269fcc755398">fxData</a>);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;L(x)&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(lagrangePolynomials));</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="comment">// Interpolation error samples E[L(x)-f(x)]</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span> (values.count(<span class="stringliteral">&quot;use-fx-function&quot;</span>)) {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keyword">auto</span> functionAtX = std::vector&lt;long double&gt;(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>, 0);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <a class="code" href="../../d9/d0a/labs_2inlab2_2Compute_8h.html#a2a98239096d5e9c9afe7ef0741d9d8e3">fillInterpolationError</a>(functionAtX, lagrangePolynomials,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                   inputs.<a class="code" href="../../d4/dae/structInput.html#a224b2949fec707c29b33269fcc755398">fxData</a>);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;f(x)&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(lagrangePolynomials));</div>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                                                                                     {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="comment">// create indices 1 -&gt; m</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        std::vector&lt;size_t&gt; indexVector(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        std::iota(indexVector.begin(), indexVector.end(), 1);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;i&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(indexVector));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">// uniform interval over [a,b]</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> xMinMax = std::minmax_element(inputs.<a class="code" href="../../d4/dae/structInput.html#a23f5145614880c39c4993a7c2be87a75">xData</a>.begin(), inputs.<a class="code" href="../../d4/dae/structInput.html#a23f5145614880c39c4993a7c2be87a75">xData</a>.end());</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">auto</span> uniformXiInterval = std::vector&lt;long double&gt;(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>, 0);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="../../db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12">fill_linspace</a>(uniformXiInterval, *xMinMax.first, *xMinMax.second, inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;x(i)&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(uniformXiInterval));</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">// Lagrange interpolated samples L[x(i)]</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keyword">auto</span> lagrangePolynomials = std::vector&lt;long double&gt;(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>, 0);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="../../d9/d0a/labs_2inlab2_2Compute_8h.html#a827f648b7f3ed31127aa4a2b85d5d04c">fillLagrangePolys</a>(lagrangePolynomials, uniformXiInterval, inputs.<a class="code" href="../../d4/dae/structInput.html#a23f5145614880c39c4993a7c2be87a75">xData</a>, inputs.<a class="code" href="../../d4/dae/structInput.html#a224b2949fec707c29b33269fcc755398">fxData</a>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;L(x)&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(lagrangePolynomials));</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">// Interpolation error samples E[L(x)-f(x)]</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">if</span>(values.count(<span class="stringliteral">&quot;use-fx-function&quot;</span>)) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keyword">auto</span> functionAtX = std::vector&lt;long double&gt;(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>, 0);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <a class="code" href="../../d9/d0a/labs_2inlab2_2Compute_8h.html#a2a98239096d5e9c9afe7ef0741d9d8e3">fillInterpolationError</a>(functionAtX, lagrangePolynomials, inputs.<a class="code" href="../../d4/dae/structInput.html#a224b2949fec707c29b33269fcc755398">fxData</a>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;f(x)&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(lagrangePolynomials));</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keyword">auto</span> interpolationErrors = std::vector&lt;long double&gt;(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>, 0);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <a class="code" href="../../d9/d0a/labs_2inlab2_2Compute_8h.html#a2a98239096d5e9c9afe7ef0741d9d8e3">fillInterpolationError</a>(interpolationErrors, lagrangePolynomials, inputs.<a class="code" href="../../d4/dae/structInput.html#a224b2949fec707c29b33269fcc755398">fxData</a>);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;E(x)&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(lagrangePolynomials));</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keyword">auto</span> interpolationErrors = std::vector&lt;long double&gt;(inputs.<a class="code" href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">m</a>, 0);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <a class="code" href="../../d9/d0a/labs_2inlab2_2Compute_8h.html#a2a98239096d5e9c9afe7ef0741d9d8e3">fillInterpolationError</a>(interpolationErrors, lagrangePolynomials,</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                                   inputs.<a class="code" href="../../d4/dae/structInput.html#a224b2949fec707c29b33269fcc755398">fxData</a>);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>.emplace(<span class="stringliteral">&quot;E(x)&quot;</span>, <a class="code" href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a>(lagrangePolynomials));</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="../../d7/de4/FileParser_8h.html#ae87885d224a53e1eee2aee7ee11eb396">writeCSV</a>(values[<span class="stringliteral">&quot;output-csv&quot;</span>].as&lt;std::string&gt;(), <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>,</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                 {<span class="stringliteral">&quot;i&quot;</span>, <span class="stringliteral">&quot;x(i)&quot;</span>, <span class="stringliteral">&quot;L(x)&quot;</span>, <span class="stringliteral">&quot;f(x)&quot;</span>, <span class="stringliteral">&quot;E(x)&quot;</span>});</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
-<div class="ttc" id="aFileParser_8h_html_a6457f7cc9664f31a6c0c361d10db2dbe"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a></div><div class="ttdeci">static std::vector&lt; std::string &gt; asStringVector(const std::vector&lt; T &gt; &amp;inputVector, const int precision=19)</div><div class="ttdoc">Converts a vector of any type to a vector of strings.</div><div class="ttdef"><b>Definition:</b> FileParser.h:197</div></div>
-<div class="ttc" id="aFileParser_8h_html_ae87885d224a53e1eee2aee7ee11eb396"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#ae87885d224a53e1eee2aee7ee11eb396">writeCSV</a></div><div class="ttdeci">static void writeCSV(const std::string &amp;filepath, std::map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;data, const std::vector&lt; std::string &gt; &amp;columns)</div><div class="ttdoc">Writes data to a CSV file.</div><div class="ttdef"><b>Definition:</b> FileParser.h:216</div></div>
-<div class="ttc" id="aHelpers_8h_html_adbb387f590a9aee9c19ca2752ec93a12"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12">fill_linspace</a></div><div class="ttdeci">void fill_linspace(std::vector&lt; T &gt; &amp;result, T start, T end, size_t count)</div><div class="ttdoc">This function fills a vector with evenly spaced values between a start and end value.</div><div class="ttdef"><b>Definition:</b> Helpers.h:80</div></div>
-<div class="ttc" id="alabs_2inlab2_2Compute_8h_html_a2a98239096d5e9c9afe7ef0741d9d8e3"><div class="ttname"><a href="../../d9/d0a/labs_2inlab2_2Compute_8h.html#a2a98239096d5e9c9afe7ef0741d9d8e3">fillInterpolationError</a></div><div class="ttdeci">void fillInterpolationError(std::vector&lt; T &gt; &amp;IEx, const std::vector&lt; T &gt; &amp;Lxi, const std::vector&lt; T &gt; &amp;fx)</div><div class="ttdoc">Fills the interpolation error for given Lagrange polynomials and function values.</div><div class="ttdef"><b>Definition:</b> Compute.h:45</div></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <a class="code" href="../../d7/de4/FileParser_8h.html#ae87885d224a53e1eee2aee7ee11eb396">writeCSV</a>(values[<span class="stringliteral">&quot;output-csv&quot;</span>].as&lt;std::string&gt;(), <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, {<span class="stringliteral">&quot;i&quot;</span>, <span class="stringliteral">&quot;x(i)&quot;</span>, <span class="stringliteral">&quot;L(x)&quot;</span>, <span class="stringliteral">&quot;f(x)&quot;</span>, <span class="stringliteral">&quot;E(x)&quot;</span>});</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="ttc" id="aFileParser_8h_html_a6457f7cc9664f31a6c0c361d10db2dbe"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#a6457f7cc9664f31a6c0c361d10db2dbe">asStringVector</a></div><div class="ttdeci">static std::vector&lt; std::string &gt; asStringVector(const std::vector&lt; T &gt; &amp;inputVector, const int precision=19)</div><div class="ttdoc">Converts a vector of any type to a vector of strings.</div><div class="ttdef"><b>Definition:</b> FileParser.h:183</div></div>
+<div class="ttc" id="aFileParser_8h_html_ae87885d224a53e1eee2aee7ee11eb396"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#ae87885d224a53e1eee2aee7ee11eb396">writeCSV</a></div><div class="ttdeci">static void writeCSV(const std::string &amp;filepath, std::map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;data, const std::vector&lt; std::string &gt; &amp;columns)</div><div class="ttdoc">Writes data to a CSV file.</div><div class="ttdef"><b>Definition:</b> FileParser.h:202</div></div>
+<div class="ttc" id="aHelpers_8h_html_adbb387f590a9aee9c19ca2752ec93a12"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12">fill_linspace</a></div><div class="ttdeci">void fill_linspace(std::vector&lt; T &gt; &amp;result, T start, T end, size_t count)</div><div class="ttdoc">This function fills a vector with evenly spaced values between a start and end value.</div><div class="ttdef"><b>Definition:</b> Helpers.h:72</div></div>
+<div class="ttc" id="alabs_2inlab2_2Compute_8h_html_a2a98239096d5e9c9afe7ef0741d9d8e3"><div class="ttname"><a href="../../d9/d0a/labs_2inlab2_2Compute_8h.html#a2a98239096d5e9c9afe7ef0741d9d8e3">fillInterpolationError</a></div><div class="ttdeci">void fillInterpolationError(std::vector&lt; T &gt; &amp;IEx, const std::vector&lt; T &gt; &amp;Lxi, const std::vector&lt; T &gt; &amp;fx)</div><div class="ttdoc">Fills the interpolation error for given Lagrange polynomials and function values.</div><div class="ttdef"><b>Definition:</b> Compute.h:42</div></div>
 <div class="ttc" id="alabs_2inlab2_2Compute_8h_html_a827f648b7f3ed31127aa4a2b85d5d04c"><div class="ttname"><a href="../../d9/d0a/labs_2inlab2_2Compute_8h.html#a827f648b7f3ed31127aa4a2b85d5d04c">fillLagrangePolys</a></div><div class="ttdeci">void fillLagrangePolys(std::vector&lt; T &gt; &amp;Lxi, const std::vector&lt; T &gt; &amp;xi, const std::vector&lt; T &gt; &amp;x, const std::vector&lt; T &gt; &amp;fx)</div><div class="ttdoc">Fills the Lagrange polynomials for given interpolation points.</div><div class="ttdef"><b>Definition:</b> Compute.h:27</div></div>
 <div class="ttc" id="astructInput_html_a224b2949fec707c29b33269fcc755398"><div class="ttname"><a href="../../d4/dae/structInput.html#a224b2949fec707c29b33269fcc755398">Input::fxData</a></div><div class="ttdeci">std::vector&lt; long double &gt; fxData</div><div class="ttdef"><b>Definition:</b> Parser.h:8</div></div>
 <div class="ttc" id="astructInput_html_a23f5145614880c39c4993a7c2be87a75"><div class="ttname"><a href="../../d4/dae/structInput.html#a23f5145614880c39c4993a7c2be87a75">Input::xData</a></div><div class="ttdeci">std::vector&lt; long double &gt; xData</div><div class="ttdef"><b>Definition:</b> Parser.h:7</div></div>
-<div class="ttc" id="astructInput_html_ac4147dd1b0b8cce7b580e86e492cc83d"><div class="ttname"><a href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">Input::m</a></div><div class="ttdeci">size_t m</div><div class="ttdef"><b>Definition:</b> Parser.h:6</div></div>
+<div class="ttc" id="astructInput_html_ac4147dd1b0b8cce7b580e86e492cc83d"><div class="ttname"><a href="../../d4/dae/structInput.html#ac4147dd1b0b8cce7b580e86e492cc83d">Input::m</a></div><div class="ttdeci">size_t m</div><div class="ttdoc">The number of sub-intervals to divide the integration interval into.</div><div class="ttdef"><b>Definition:</b> Parser.h:6</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00197">asStringVector()</a>, <a class="el" href="../../#l00080">fill_linspace()</a>, <a class="el" href="../../#l00045">fillInterpolationError()</a>, <a class="el" href="../../#l00027">fillLagrangePolys()</a>, <a class="el" href="../../#l00008">Input::fxData</a>, <a class="el" href="../../#l00006">Input::m</a>, <a class="el" href="../../#l00065">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::outputs</a>, <a class="el" href="../../#l00216">writeCSV()</a>, and <a class="el" href="../../#l00007">Input::xData</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00183">asStringVector()</a>, <a class="el" href="../../#l00072">fill_linspace()</a>, <a class="el" href="../../#l00042">fillInterpolationError()</a>, <a class="el" href="../../#l00027">fillLagrangePolys()</a>, <a class="el" href="../../#l00008">Input::fxData</a>, <a class="el" href="../../#l00006">Input::m</a>, <a class="el" href="../../#l00064">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::outputs</a>, <a class="el" href="../../#l00202">writeCSV()</a>, and <a class="el" href="../../#l00007">Input::xData</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -619,10 +615,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Executes the project and measures the execution time. </p>
-<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a02f8b0f24035e49482aaf78a020a7b8c">run</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="ttc" id="aclassCommandLine_html_a5058573f1179becf721f7ff0372584c2"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">CommandLine::getArguments</a></div><div class="ttdeci">boost::program_options::variables_map &amp; getArguments()</div><div class="ttdoc">Method to get the parsed command line arguments.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:107</div></div>
+<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a02f8b0f24035e49482aaf78a020a7b8c">run</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="ttc" id="aclassCommandLine_html_a5058573f1179becf721f7ff0372584c2"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">CommandLine::getArguments</a></div><div class="ttdeci">boost::program_options::variables_map &amp; getArguments()</div><div class="ttdoc">Method to get the parsed command line arguments.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:96</div></div>
 <div class="ttc" id="aclassProject_html_a02f8b0f24035e49482aaf78a020a7b8c"><div class="ttname"><a href="../../db/d91/classProject.html#a02f8b0f24035e49482aaf78a020a7b8c">Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;::run</a></div><div class="ttdeci">virtual void run(Dictionary &amp;output, LagrangePolynomialInputs &amp;input, boost::program_options::variables_map &amp;values)=0</div><div class="ttdoc">Executes the project.</div></div>
 </div><!-- fragment -->
 </div>

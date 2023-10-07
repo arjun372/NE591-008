@@ -208,7 +208,6 @@ max_iterations</td>
 <td class="fieldname">
 n</td>
 <td class="fielddoc">
-<p>Size of the matrix/vector </p>
 </td></tr>
 <tr><td class="fieldtype">
 <a id="abd5eff7531880756f015d80e28585fe5"></a>T</td>
@@ -268,23 +267,21 @@ threshold</td>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The key of the type of the given value. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                       {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> std::visit(</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        [](<span class="keyword">auto</span> &amp;&amp;arg) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keyword">using</span> T = std::decay_t&lt;decltype(arg)&gt;;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;T, MyFactorizationMethod::Type&gt;)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d1/d18/namespaceMyFactorizationMethod.html#a30add92d8b3f98e6a0c72289515ec91e">MyFactorizationMethod::TypeKey</a>(arg);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;T, MyRelaxationMethod::Type&gt;)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3">MyRelaxationMethod::TypeKey</a>(arg);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                static_assert(always_false_v&lt;T&gt;, <span class="stringliteral">&quot;non-exhaustive visitor!&quot;</span>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        },</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        value);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="ttc" id="anamespaceMyFactorizationMethod_html_a30add92d8b3f98e6a0c72289515ec91e"><div class="ttname"><a href="../../d1/d18/namespaceMyFactorizationMethod.html#a30add92d8b3f98e6a0c72289515ec91e">MyFactorizationMethod::TypeKey</a></div><div class="ttdeci">const char * TypeKey(MyFactorizationMethod::Type value)</div><div class="ttdoc">Function to get the string representation of the factorization method type.</div><div class="ttdef"><b>Definition:</b> Factorize.h:75</div></div>
-<div class="ttc" id="anamespaceMyRelaxationMethod_html_a0af60a901ffd01d1bb403ecee40ba6c3"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3">MyRelaxationMethod::TypeKey</a></div><div class="ttdeci">const char * TypeKey(MyRelaxationMethod::Type value)</div><div class="ttdoc">Function to get the key of a relaxation method type.</div><div class="ttdef"><b>Definition:</b> RelaxationMethods.h:41</div></div>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                           {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> std::visit([](<span class="keyword">auto</span>&amp;&amp; arg) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keyword">using</span> T = std::decay_t&lt;decltype(arg)&gt;;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;T, MyFactorizationMethod::Type&gt;)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d1/d18/namespaceMyFactorizationMethod.html#a30add92d8b3f98e6a0c72289515ec91e">MyFactorizationMethod::TypeKey</a>(arg);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;T, MyRelaxationMethod::Type&gt;)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3">MyRelaxationMethod::TypeKey</a>(arg);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                static_assert(always_false_v&lt;T&gt;, <span class="stringliteral">&quot;non-exhaustive visitor!&quot;</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }, value);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="ttc" id="anamespaceMyFactorizationMethod_html_a30add92d8b3f98e6a0c72289515ec91e"><div class="ttname"><a href="../../d1/d18/namespaceMyFactorizationMethod.html#a30add92d8b3f98e6a0c72289515ec91e">MyFactorizationMethod::TypeKey</a></div><div class="ttdeci">const char * TypeKey(MyFactorizationMethod::Type value)</div><div class="ttdoc">Function to get the string representation of the factorization method type.</div><div class="ttdef"><b>Definition:</b> Factorize.h:63</div></div>
+<div class="ttc" id="anamespaceMyRelaxationMethod_html_a0af60a901ffd01d1bb403ecee40ba6c3"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3">MyRelaxationMethod::TypeKey</a></div><div class="ttdeci">const char * TypeKey(MyRelaxationMethod::Type value)</div><div class="ttdoc">Function to get the key of a relaxation method type.</div><div class="ttdef"><b>Definition:</b> RelaxationMethods.h:36</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00075">MyFactorizationMethod::TypeKey()</a>, and <a class="el" href="../../#l00041">MyRelaxationMethod::TypeKey()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00063">MyFactorizationMethod::TypeKey()</a>, and <a class="el" href="../../#l00036">MyRelaxationMethod::TypeKey()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">

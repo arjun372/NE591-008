@@ -119,8 +119,8 @@ $(document).ready(function(){initNavTree('d1/dcf/labs_2outlab2_2Compute_8h.html'
 
 <p>This file contains the declaration of two template functions, fillLagrangePolys and fillInterpolationError, which are used for computing Lagrange polynomials and interpolation errors respectively.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../">CommandLine.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">Stopwatch.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('d1/dcf/labs_2outlab2_2Compute_8h.html'
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/d2a/labs_2outlab2_2Compute_8h__incl.svg" width="656" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/d2a/labs_2outlab2_2Compute_8h__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -218,25 +218,27 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The function will print an error message and return if the sizes of Lxi and fxi are not equal. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                                            {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// Check if the input vectors have the same size</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span> (Lxi.size() != fxi.size()) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: L(xi), f(xi) must have the same size.&quot;</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                  &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    IEx.clear();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    IEx.resize(Lxi.size());</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// Use std::transform with a lambda function to calculate absolute errors</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    std::transform(Lxi.begin(), Lxi.end(), fxi.begin(), IEx.begin(),</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                   [](T <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, T <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>) { return std::abs(x - y); });</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="ttc" id="aplot__points_8m_html_a9336ebf25087d91c818ee6e9ec29f8c1"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a></div><div class="ttdeci">Define the x values x</div><div class="ttdef"><b>Definition:</b> plot_points.m:19</div></div>
-<div class="ttc" id="aplot__points_8m_html_aa50a6be4a15b9249a6bc48981be8fb3d"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a></div><div class="ttdeci">Calculate the function values y</div><div class="ttdef"><b>Definition:</b> plot_points.m:21</div></div>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                                                                                        {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Check if the input vectors have the same size</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> (Lxi.size() != fxi.size()) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: L(xi), f(xi) must have the same size.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    IEx.clear();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    IEx.resize(Lxi.size());</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">// Use std::transform with a lambda function to calculate absolute errors</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    std::transform(Lxi.begin(), Lxi.end(), fxi.begin(), IEx.begin(),</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                   [](T <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, T <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                       return std::abs(x - y);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                   }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    );</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="ttc" id="aplot__points_8m_html_a9336ebf25087d91c818ee6e9ec29f8c1"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a></div><div class="ttdeci">Define the x values x</div><div class="ttdef"><b>Definition:</b> plot_points.m:24</div></div>
+<div class="ttc" id="aplot__points_8m_html_aa50a6be4a15b9249a6bc48981be8fb3d"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a></div><div class="ttdeci">Calculate the function values y</div><div class="ttdef"><b>Definition:</b> plot_points.m:27</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00019">x</a>, and <a class="el" href="../../#l00021">y</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00024">x</a>, and <a class="el" href="../../#l00027">y</a>.</p>
 
 </div>
 </div>
@@ -305,57 +307,55 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The function also prints the time taken to compute the Lagrange polynomials. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                                      {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::min</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>.size(), fx.size());</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::min</a>(xi.size(), Lxi.size());</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    Lxi.reserve(<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="../../de/def/classStopwatch.html">Stopwatch&lt;Nanoseconds&gt;</a> timer;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    timer.<a class="code" href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">restart</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; xi.size(); <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        T Px = 0.0f;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; j++) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            T Pjx = fx[j];</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment">// go from k -&gt; j-1</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            T Pjx_product1 = 1.0f;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a> &lt; j; <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>++) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                T Pjxk = (xi[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] - <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>]) / (<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[j] - <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>]);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                Pjx_product1 *= Pjxk;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="comment">// skip k == j;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="comment">// then, from from k+1 -&gt; n</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            T Pjx_product2 = 1.0f;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a> = j + 1; <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a> &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>++) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                T Pjxk = (xi[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] - <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>]) / (<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[j] - <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>]);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                Pjx_product2 *= Pjxk;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            Px += (Pjx * Pjx_product1 * Pjx_product2);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        Lxi[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] = Px;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    timer.<a class="code" href="../../de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d">click</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Computing m=(&quot;</span> &lt;&lt; <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> &lt;&lt; <span class="stringliteral">&quot;) Lagrange polynomials for n=(&quot;</span> &lt;&lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;              &lt;&lt; <span class="stringliteral">&quot;) took &quot;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;              &lt;&lt; (<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">double</span><span class="keyword">&gt;</span>(timer.<a class="code" href="../../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785">duration</a>().count())) &lt;&lt; <span class="stringliteral">&quot; ns&quot;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;              &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="ttc" id="aanalysis_8m_html_ab3cd915d758008bd19d0f2428fbb354a"><div class="ttname"><a href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a></div><div class="ttdeci">m</div><div class="ttdef"><b>Definition:</b> analysis.m:10</div></div>
-<div class="ttc" id="aclassStopwatch_html"><div class="ttname"><a href="../../de/def/classStopwatch.html">Stopwatch</a></div><div class="ttdoc">Stopwatch class template for measuring time durations.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:51</div></div>
-<div class="ttc" id="aclassStopwatch_html_a2cc3c2b39972ca34f3ff9622471b1bbb"><div class="ttname"><a href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">Stopwatch::restart</a></div><div class="ttdeci">Stopwatch &amp; restart()</div><div class="ttdoc">Restart the stopwatch by setting the initial and clicked time points to the current time.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:88</div></div>
-<div class="ttc" id="aclassStopwatch_html_a3c8a6cb60a31a8cafd1d2dad1b6c851d"><div class="ttname"><a href="../../de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d">Stopwatch::click</a></div><div class="ttdeci">Stopwatch &amp; click()</div><div class="ttdoc">Save the current time as the clicked time point.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:99</div></div>
-<div class="ttc" id="aclassStopwatch_html_ad9367e879debc8822feb6dedae52a785"><div class="ttname"><a href="../../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785">Stopwatch::duration</a></div><div class="ttdeci">D duration() const</div><div class="ttdoc">Get the duration in the given type.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:67</div></div>
-<div class="ttc" id="ainlab2_2tests_2sanity__check_8m_html_aaf3e08bd5df22a84e842a1ee58631684"><div class="ttname"><a href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a></div><div class="ttdeci">Number of points to sample n</div><div class="ttdef"><b>Definition:</b> sanity_check.m:17</div></div>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                                                                                                                        {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::min</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>.size(), fx.size());</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::min</a>(xi.size(), Lxi.size());</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    Lxi.reserve(<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../de/def/classStopwatch.html">Stopwatch&lt;Nanoseconds&gt;</a> timer;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    timer.<a class="code" href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">restart</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; xi.size(); <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        T Px = 0.0f;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; j++) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            T Pjx = fx[j];</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="comment">// go from k -&gt; j-1</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            T Pjx_product1 = 1.0f;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a> &lt; j; <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>++) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                T Pjxk = (xi[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] - <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>]) / (<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[j] - <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>]);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                Pjx_product1 *= Pjxk;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="comment">// skip k == j;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="comment">// then, from from k+1 -&gt; n</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            T Pjx_product2 = 1.0f;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a> = j+1; <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a> &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; <a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>++) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                T Pjxk = (xi[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] - <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>]) / (<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[j] - <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a>]);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                Pjx_product2 *= Pjxk;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            Px += (Pjx * Pjx_product1 * Pjx_product2);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        Lxi[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] = Px;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    timer.<a class="code" href="../../de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d">click</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Computing m=(&quot;</span>&lt;&lt;<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>&lt;&lt;<span class="stringliteral">&quot;) Lagrange polynomials for n=(&quot;</span>&lt;&lt;<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>&lt;&lt;<span class="stringliteral">&quot;) took &quot;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;              &lt;&lt; (<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">double</span><span class="keyword">&gt;</span>(timer.<a class="code" href="../../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785">duration</a>().count())) &lt;&lt; <span class="stringliteral">&quot; ns&quot;</span>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="ttc" id="aanalysis_8m_html_ab3cd915d758008bd19d0f2428fbb354a"><div class="ttname"><a href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a></div><div class="ttdeci">m</div><div class="ttdef"><b>Definition:</b> analysis.m:11</div></div>
+<div class="ttc" id="aclassStopwatch_html"><div class="ttname"><a href="../../de/def/classStopwatch.html">Stopwatch</a></div><div class="ttdoc">Stopwatch class template for measuring time durations.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:53</div></div>
+<div class="ttc" id="aclassStopwatch_html_a2cc3c2b39972ca34f3ff9622471b1bbb"><div class="ttname"><a href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">Stopwatch::restart</a></div><div class="ttdeci">Stopwatch &amp; restart()</div><div class="ttdoc">Restart the stopwatch by setting the initial and clicked time points to the current time.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:82</div></div>
+<div class="ttc" id="aclassStopwatch_html_a3c8a6cb60a31a8cafd1d2dad1b6c851d"><div class="ttname"><a href="../../de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d">Stopwatch::click</a></div><div class="ttdeci">Stopwatch &amp; click()</div><div class="ttdoc">Save the current time as the clicked time point.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:88</div></div>
+<div class="ttc" id="aclassStopwatch_html_ad9367e879debc8822feb6dedae52a785"><div class="ttname"><a href="../../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785">Stopwatch::duration</a></div><div class="ttdeci">D duration() const</div><div class="ttdoc">Get the duration in the given type.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:69</div></div>
+<div class="ttc" id="ainlab2_2tests_2sanity__check_8m_html_aaf3e08bd5df22a84e842a1ee58631684"><div class="ttname"><a href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a></div><div class="ttdeci">Number of points to sample n</div><div class="ttdef"><b>Definition:</b> sanity_check.m:18</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_a50834683eb1a4cb5adbe71091be113c7"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">MyBLAS::min</a></div><div class="ttdeci">static T min(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Calculates the minimum value of the vector.</div><div class="ttdef"><b>Definition:</b> Vector.h:223</div></div>
-<div class="ttc" id="aplot__points_8m_html_a1d29dc479da36afac98ac968a4e0e5a6"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a></div><div class="ttdeci">grid on grid minor box on Plot Plot k</div><div class="ttdef"><b>Definition:</b> plot_points.m:14</div></div>
-<div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:24</div></div>
+<div class="ttc" id="aplot__points_8m_html_a1d29dc479da36afac98ac968a4e0e5a6"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a></div><div class="ttdeci">grid on grid minor box on Plot Plot k</div><div class="ttdef"><b>Definition:</b> plot_points.m:16</div></div>
+<div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:31</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00099">Stopwatch&lt; D &gt;::click()</a>, <a class="el" href="../../#l00067">Stopwatch&lt; D &gt;::duration()</a>, <a class="el" href="../../#l00024">i</a>, <a class="el" href="../../#l00014">k</a>, <a class="el" href="../../#l00010">m</a>, <a class="el" href="../../#l00223">MyBLAS::min()</a>, <a class="el" href="../../#l00017">n</a>, <a class="el" href="../../#l00088">Stopwatch&lt; D &gt;::restart()</a>, and <a class="el" href="../../#l00019">x</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00088">Stopwatch&lt; D &gt;::click()</a>, <a class="el" href="../../#l00069">Stopwatch&lt; D &gt;::duration()</a>, <a class="el" href="../../#l00031">i</a>, <a class="el" href="../../#l00016">k</a>, <a class="el" href="../../#l00011">m</a>, <a class="el" href="../../#l00223">MyBLAS::min()</a>, <a class="el" href="../../#l00018">n</a>, <a class="el" href="../../#l00082">Stopwatch&lt; D &gt;::restart()</a>, and <a class="el" href="../../#l00024">x</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
