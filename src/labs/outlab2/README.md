@@ -1,3 +1,7 @@
+<div style="display: none">
+\page outlab2 OutLab 02: Lagrange Interpolation Polynomials II
+</div>
+
 # OutLab 02: Lagrange Interpolation Polynomials
 
 This program performs Lagrange interpolation. It takes in a set of points and returns the interpolated values at
@@ -5,19 +9,19 @@ specified evaluation points.
 
 File based I/O is supported using CSV (comma separated values) files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
 
-- [InLab 02: I/O Setup for Lagrange Interpolation Polynomials](#inlab-02-io-setup-for-lagrange-interpolation-polynomials)
-    - [Analysis](#analysis)
-    - [Building & Usage](#building--usage)
-        - [Options](#options)
-        - [General options](#general-options)
-    - [Implementing your own `f(x)`](#implementing-your-own-fx)
-    - [File I/O](#file-io)
-    - [Input Format](#input-format)
-    - [Output Format](#output-format)
-        - [Sample Outputs File](#sample-outputs-file)
-    - [Example](#example)
+## Overview
+- [Analysis](#analysis)
+- [Building & Usage](#building--usage)
+    - [Options](#options)
+    - [General options](#general-options)
+- [Implementing your own `f(x)`](#implementing-your-own-fx)
+- [File I/O](#file-io)
+- [Input Format](#input-format)
+- [Output Format](#output-format)
+    - [Sample Outputs File](#sample-outputs-file)
+- [Example](#example)
 
 ## Analysis
 

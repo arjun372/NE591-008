@@ -1,10 +1,15 @@
-# OutLab 06: Iterative Linear Equations Solver: Point-Jacobi
+<div style="display: none">
+\page outlab6 OutLab 06: SOR - Linear Equations Solver
+</div>
+
+# OutLab 06: SOR - Iterative Linear Equations Solver
 
 Solves a system of linear equations using the point-Jacobi method.
 File based I/O is supported using JSON files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
 
+## Overview
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)

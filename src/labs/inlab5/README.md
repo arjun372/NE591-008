@@ -1,10 +1,15 @@
+<div style="display: none">
+\page inlab5 InLab 05: LUP - Linear Equations Solver I
+</div>
+
 # InLab 05: LU Factorization with Pivoting
 
 LU factorization with pivoting. Factorization using forward and backward substitution. File based I/O is supported using
 JSON files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
 
+## Overview
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)

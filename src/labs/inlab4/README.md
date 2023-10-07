@@ -1,9 +1,14 @@
+<div style="display: none">
+\page inlab4 InLab 04: LU - Linear Equations Solver I
+</div>
+
 # InLab 04: System of Linear Equations Solver
 
 File based I/O is supported using JSON files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
 
+## Overview
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)

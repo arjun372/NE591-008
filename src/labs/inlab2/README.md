@@ -1,3 +1,7 @@
+<div style="display: none">
+\page inlab2 InLab 02: Lagrange Interpolation Polynomials I
+</div>
+
 # InLab 02: I/O Setup for Lagrange Interpolation Polynomials
 
 This program is designed to setup the I/O requirements for performing Lagrange interpolation. It takes in a set of
@@ -5,18 +9,18 @@ points and returns the interpolated values at specified evaluation points.
 
 File based I/O is supported using CSV (comma separated values) files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
 
-- [InLab 02: I/O Setup for Lagrange Interpolation Polynomials](#inlab-02-io-setup-for-lagrange-interpolation-polynomials)
-    - [Building & Usage](#building--usage)
-        - [Options](#options)
-        - [General options](#general-options)
-    - [Implementing your own `f(x)`](#implementing-your-own-fx)
-    - [File I/O](#file-io)
-    - [Input Format](#input-format)
-    - [Output Format](#output-format)
-        - [Sample Outputs File](#sample-outputs-file)
-    - [Example](#example)
+## Overview
+- [Building & Usage](#building--usage)
+    - [Options](#options)
+    - [General options](#general-options)
+- [Implementing your own `f(x)`](#implementing-your-own-fx)
+- [File I/O](#file-io)
+- [Input Format](#input-format)
+- [Output Format](#output-format)
+    - [Sample Outputs File](#sample-outputs-file)
+- [Example](#example)
 
 ## Building & Usage
 
@@ -70,7 +74,7 @@ When using the `--use-fx-function` flag, the code uses outputs from the `fill_fx
 
 Here is a brief description of the `fx_fill` method:
 
-```c++
+```
 /**
  * @brief Fill the `fx` vector, optionally using the values in the `x` vector.
  * @param x The input vector containing `x` values.
@@ -83,6 +87,8 @@ Here is a brief description of the `fx_fill` method:
  * @note The `fx` vector will be modified by this function.
  * @note The `x` vector will not be modified by this function.
  */
+```
+```cpp
 template <typename T> [[maybe_unused]] void fill_fx(const std::vector<T> &x, std::vector<T> &fx);
 ```
 

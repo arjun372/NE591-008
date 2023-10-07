@@ -1,18 +1,22 @@
+<div style="display: none">
+\page inlab3 InLab 03: Newton-Cotes Numerical Integration
+</div>
+
 # InLab 03: Numerical Integration using Composite Newton-Cotes Formula
 
 Supports numerical integration using the composite trapezoidal and simpson's rules.
 File based I/O is supported using JSON files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
 
-1. [InLab 03: Numerical Integration using Composite Newton-Cotes Formula](#inlab-03-numerical-integration-using-composite-newton-cotes-formula)
-2. [Building & Usage](#building--usage)
+## Overview
+1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
-3. [Implementing your own `f(x)`](#implementing-your-own-fx)
-4. [Output Format](#output-format)
+2. [Implementing your own `f(x)`](#implementing-your-own-fx)
+3. [Output Format](#output-format)
     - [Sample Outputs File](#sample-outputs-file)
-5. [Example](#example)
+4. [Example](#example)
 
 ## Building & Usage
 
@@ -65,13 +69,15 @@ steps need to be taken. For example, the current implementation returns `sin(x)`
 
 Here is a brief description of the `fx_fill` method:
 
-```c++
+```
 /**
  * @brief A user-defined function that calculates the value of the function f(x) = sin(x)
  * @tparam T The type of the input and output. This should be a numeric type (e.g., int, float, double).
  * @param x The input to the function.
  * @return The value of the function at the input x.
  */
+```
+```c++
 template <typename T>
 [[maybe_unused]] static inline T user_defined_fx(const T x) {
     const T fx = std::sin(x);

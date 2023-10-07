@@ -1,10 +1,15 @@
+<div style="display: none">
+\page inlab6 InLab 06: Point-Jacobi - Linear Equations Solver
+</div>
+
 # InLab 06: Iterative Linear Equations Solver: Point-Jacobi
 
 Solves a system of linear equations using the point-Jacobi method.
 File based I/O is supported using JSON files.
 
-## Table of Contents
+<div style="display: none">[TOC]</div>
 
+## Overview
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
