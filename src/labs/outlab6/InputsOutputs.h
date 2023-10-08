@@ -42,6 +42,7 @@ typedef struct Input {
         jsonMap["coefficients"] = input.coefficients.getData();
         jsonMap["constants"] = input.constants.getData();
         jsonMap["known-solution"] = known_solution.getData();
+        jsonMap["relaxation-factor"] = input.relaxation_factor;
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
             std::transform(methods.begin(), methods.end(), std::back_inserter(result),
