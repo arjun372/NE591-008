@@ -12,6 +12,7 @@
 #define NE591_008_COMMANDLINE_H
 
 #include "Helpers.h"
+#include "Profiler.h"
 #include "project-config.h"
 #include <boost/program_options.hpp>
 #include <iostream>
@@ -148,6 +149,9 @@ template <typename InputType> class CommandLine {
     CommandLineArgs cmdArgs;
     InputType inputs = InputType();
 
+    // TODO:: DOCUMENT
+    Profiler profiler;
+
     /**
      * @brief Method to build a set of generic command line options.
      * @return An options description containing the generic command line options.
@@ -155,11 +159,15 @@ template <typename InputType> class CommandLine {
      * and returns them as an options description.
      */
     static boost::program_options::options_description buildGenerics() {
+        auto benchmarkOptions = Profiler::buildCommandlineOptions();
+        benchmarkOptions.add_options()("bench,B", "= Run performance benchmarks");
+
         boost::program_options::options_description generics("General options");
-        generics.add_options()("help,h", "= Show this help message")("quiet,q", "= Reduce verbosity")(
-            "precision,p", boost::program_options::value<int>()->default_value(15),
-            "= Number of digits to represent long double")("profile,P", "= Turn on performance profiling");
-        return generics;
+        generics.add_options()
+            ("help,h", "= Show this help message")("quiet,q", "= Reduce verbosity")
+            ("precision,p", boost::program_options::value<int>()->default_value(15), "= Number of digits to represent long double");
+        benchmarkOptions.add(generics);
+        return benchmarkOptions;
     }
 
     /**
@@ -236,6 +244,12 @@ template <typename InputType> class CommandLine {
 
         // consume and correct the input arguments
         performInputArgumentsCheck(variablesMap);
+
+        if (variablesMap.count("bench")) {
+            // build the profiler now
+            profiler = Profiler::Init(variablesMap);
+        }
+
         // print the input arguments
         printInputArguments(variablesMap);
         // finally, build and save the inputs objet

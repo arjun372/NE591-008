@@ -10,6 +10,7 @@
 #define NE591_008_PROJECT_H
 
 #include "CommandLine.h"
+#include "Profiler.h"
 #include <boost/program_options.hpp>
 #include <utility>
 
