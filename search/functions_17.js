@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ylabel_879',['ylabel',['../d8/d13/inlab2_2tests_2sanity__check_8m.html#ac3d5a58b936206de5d08ae0c38a324d3',1,'ylabel(&apos;f(x)&apos;):&#160;sanity_check.m'],['../dd/dd7/plot__points_8m.html#a0fd3dee2b87408e7dd647b4800a3f009',1,'ylabel(&apos; $f(x_i)$, $L(x_i)$&apos;, &apos;Interpreter&apos;, &apos;latex&apos;):&#160;plot_points.m'],['../d2/d12/outlab2_2examples_2sanity__check_8m.html#ac3d5a58b936206de5d08ae0c38a324d3',1,'ylabel(&apos;f(x)&apos;):&#160;sanity_check.m'],['../db/dde/readfile_8m.html#a7d2cf3c1ca9c04d2a03d3e375bc17b8e',1,'ylabel(&apos;Absolute Error&apos;, &apos;Interpreter&apos;, &apos;latex&apos;):&#160;readfile.m']]]
+  ['_7ecommandline_873',['~CommandLine',['../dd/d02/classCommandLine.html#a55bedd21a896f2f5a8b3c94844076a46',1,'CommandLine']]],
+  ['_7eproject_874',['~Project',['../db/d91/classProject.html#af1e3242250574dd18323d1ebfbc9ca91',1,'Project']]]
 ];

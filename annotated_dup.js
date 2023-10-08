@@ -39,9 +39,9 @@ var annotated_dup =
     [ "Outputs", "db/d86/structOutputs.html", "db/d86/structOutputs" ],
     [ "Parser", "d0/d40/classParser.html", "d0/d40/classParser" ],
     [ "Profiler", "dd/d0e/classProfiler.html", "dd/d0e/classProfiler" ],
+    [ "ProfilerOptions", "df/d69/Profiler_8h.html#da/d6a/structProfilerOptions", "df/d69/Profiler_8h_da/d6a/structProfilerOptions" ],
     [ "Project", "db/d91/classProject.html", "db/d91/classProject" ],
     [ "Project1", "d8/ddb/classProject1.html", "d8/ddb/classProject1" ],
-    [ "Randomiser", "d8/d3a/structRandomiser.html", "d8/d3a/structRandomiser" ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
     [ "Stopwatch", "de/def/classStopwatch.html", "de/def/classStopwatch" ],
     [ "ToneMap", "db/df1/Helpers_8h.html#d1/db0/structToneMap", "db/df1/Helpers_8h_d1/db0/structToneMap" ]

@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['calculate_5fmesh_5fspacings_682',['calculate_mesh_spacings',['../d7/da1/project_2project1_2Compute_8h.html#a1aef6b13703d4160d7e73b0715cc62d9',1,'Compute.h']]],
-  ['cast_683',['cast',['../d2/d6e/namespaceMyBLAS.html#a14eb86abe3a826572fe3c1a2bd8e8221',1,'MyBLAS::cast(const MyBLAS::Matrix&lt; T2 &gt; &amp;input)'],['../d2/d6e/namespaceMyBLAS.html#a00e91621ee4e8f14e4ebb0c03e02198f',1,'MyBLAS::cast(const MyBLAS::Vector&lt; T2 &gt; &amp;input)']]],
-  ['circuit_684',['Circuit',['../d5/d7a/namespaceMyBLAS_1_1System.html#a5b9991a25190905c20d452052c663124',1,'MyBLAS::System']]],
-  ['click_685',['click',['../de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d',1,'Stopwatch']]],
-  ['commandline_686',['CommandLine',['../dd/d02/classCommandLine.html#a52ce8dd8c3a87fa12a842fd9d87374c8',1,'CommandLine::CommandLine(HeaderInfo headerInfo, CommandLineArgs args)'],['../dd/d02/classCommandLine.html#a35575776182f9f1d44879fc11831159e',1,'CommandLine::CommandLine()']]]
+  ['disp_681',['disp',['../dd/dd7/plot__points_8m.html#a62f543a4865b6fc4a4b10fbd3f8c2ff2',1,'plot_points.m']]],
+  ['dobackwardsubstitution_682',['doBackwardSubstitution',['../d0/d6c/namespaceInLab04.html#a185cfc62d7beffeb384caa2d23c4b3a6',1,'InLab04']]],
+  ['doesfileexist_683',['doesFileExist',['../d7/de4/FileParser_8h.html#aba0309a007a885782789bfa456ca1bef',1,'FileParser.h']]],
+  ['doforwardsubstitution_684',['doForwardSubstitution',['../d0/d6c/namespaceInLab04.html#ab3a3cbc5744e288d945d91f6febfca15',1,'InLab04']]],
+  ['doolittlefactorize_685',['doolittleFactorize',['../db/d2e/namespaceMyBLAS_1_1LU.html#a53e15f639ac089ddc18e9e9340489efc',1,'MyBLAS::LU']]],
+  ['doolittlefactorizelu_686',['doolittleFactorizeLU',['../d2/d6e/namespaceMyBLAS.html#a278b70718fc6b42c7d239434849c2837',1,'MyBLAS']]],
+  ['doolittlefactorizelup_687',['dooLittleFactorizeLUP',['../d6/d82/labs_2outlab5_2Compute_8h.html#a42561c10d9c1157e9f1dcd9e940061a2',1,'dooLittleFactorizeLUP():&#160;Compute.h'],['../d5/db6/namespaceMyBLAS_1_1LUP.html#ab15d6938948c050657f9870aeec47097',1,'MyBLAS::LUP::dooLittleFactorizeLUP()']]],
+  ['duration_688',['duration',['../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785',1,'Stopwatch']]]
 ];

@@ -114,27 +114,27 @@ $(document).ready(function(){initNavTree('df/d69/Profiler_8h.html','../../'); in
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Data Structures</a>  </div>
   <div class="headertitle">
 <div class="title">Profiler.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains helper classes and functions for profiling and random number generation.  
+<p>This file contains helper classes and functions for profiling.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;functional&gt;</code><br />
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;iomanip&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;random&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../">Stopwatch.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Profiler.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/d15/Profiler_8h__incl.svg" width="524" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d1/d15/Profiler_8h__incl.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('df/d69/Profiler_8h.html','../../'); in
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/dcc/Profiler_8h__dep__incl.svg" width="191" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/dcc/Profiler_8h__dep__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div>
@@ -150,87 +150,53 @@ $(document).ready(function(){initNavTree('df/d69/Profiler_8h.html','../../'); in
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d3a/structRandomiser.html">Randomiser</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct that provides a static method for generating random double numbers within a given range.  <a href="../../d8/d3a/structRandomiser.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:da/d6a/structProfilerOptions"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d69/Profiler_8h.html#da/d6a/structProfilerOptions">ProfilerOptions</a></td></tr>
+<tr class="separator:da/d6a/structProfilerOptions"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that provides methods for profiling the execution time of functions.  <a href="../../dd/d0e/classProfiler.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a2ff395ac08d54cb6a9b35e68bc046be2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d69/Profiler_8h.html#a2ff395ac08d54cb6a9b35e68bc046be2">_init_randomiser</a> ()</td></tr>
-<tr class="memdesc:a2ff395ac08d54cb6a9b35e68bc046be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the random number generator with the current time as the seed.  <a href="../../df/d69/Profiler_8h.html#a2ff395ac08d54cb6a9b35e68bc046be2">More...</a><br /></td></tr>
-<tr class="separator:a2ff395ac08d54cb6a9b35e68bc046be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a8026bb41aa6aded4e68bfd7c53fc6a77"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d69/Profiler_8h.html#a8026bb41aa6aded4e68bfd7c53fc6a77">init_randomiser</a> = <a class="el" href="../../df/d69/Profiler_8h.html#a2ff395ac08d54cb6a9b35e68bc046be2">_init_randomiser</a>()</td></tr>
-<tr class="memdesc:a8026bb41aa6aded4e68bfd7c53fc6a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">A global constant that ensures the random number generator is initialized when the program starts.  <a href="../../df/d69/Profiler_8h.html#a8026bb41aa6aded4e68bfd7c53fc6a77">More...</a><br /></td></tr>
-<tr class="separator:a8026bb41aa6aded4e68bfd7c53fc6a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains helper classes and functions for profiling and random number generation. </p>
+<div class="textblock"><p>This file contains helper classes and functions for profiling. </p>
 <dl class="section author"><dt>Author</dt><dd>Arjun Earthperson </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>08/30/2023 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../">Profiler.h</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a2ff395ac08d54cb6a9b35e68bc046be2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ff395ac08d54cb6a9b35e68bc046be2">&#9670;&nbsp;</a></span>_init_randomiser()</h2>
+</div><hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="da/d6a/structProfilerOptions" id="da/d6a/structProfilerOptions"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#da/d6a/structProfilerOptions">&#9670;&nbsp;</a></span>ProfilerOptions</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool _init_randomiser </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">struct ProfilerOptions</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-<p>Initializes the random number generator with the current time as the seed. </p>
-<dl class="section return"><dt>Returns</dt><dd>Always returns true. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                               {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    srand(time(<span class="keyword">nullptr</span>));</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-</div><!-- fragment -->
+<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for ProfilerOptions:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d4a/structProfilerOptions__coll__graph.svg" width="130" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a8026bb41aa6aded4e68bfd7c53fc6a77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8026bb41aa6aded4e68bfd7c53fc6a77">&#9670;&nbsp;</a></span>init_randomiser</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const bool init_randomiser = <a class="el" href="../../df/d69/Profiler_8h.html#a2ff395ac08d54cb6a9b35e68bc046be2">_init_randomiser</a>()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
+<table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a1cbc800b9d9134db9b32d24272b5ac4e"></a>size_t</td>
+<td class="fieldname">
+runs</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a644f6c738b792dea867d4f28660f2c3c"></a>size_t</td>
+<td class="fieldname">
+timeout</td>
+<td class="fielddoc">
+</td></tr>
 </table>
-</div><div class="memdoc">
-
-<p>A global constant that ensures the random number generator is initialized when the program starts. </p>
 
 </div>
 </div>
