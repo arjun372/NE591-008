@@ -120,18 +120,18 @@ $(document).ready(function(){initNavTree('d5/d7a/namespaceMyBLAS_1_1System.html'
 </div><!--header-->
 <div class="contents">
 
-<p>Namespace for system-related functions in <a class="el" href="../../d2/d6e/namespaceMyBLAS.html" title="Namespace containing linear algebra functions and classes.">MyBLAS</a> library.  
+<p>This namespace contains system-related functions in the <a class="el" href="../../d2/d6e/namespaceMyBLAS.html" title="Namespace containing linear algebra functions and classes.">MyBLAS</a> library.  
 <a href="../../d5/d7a/namespaceMyBLAS_1_1System.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a5b9991a25190905c20d452052c663124"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a5b9991a25190905c20d452052c663124"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a5b9991a25190905c20d452052c663124">Circuit</a> (const size_t <a class="el" href="../../d2/d12/outlab2_2examples_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; T &gt; &amp;A, <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; &amp;b, <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; &amp;<a class="el" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, const size_t seed=372)</td></tr>
-<tr class="memdesc:a5b9991a25190905c20d452052c663124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a circuit with random resistances and currents, and computes the corresponding voltages. The circuit is represented by a system of linear equations Ax = b, where A is the resistance matrix, x is the current vector, and b is the voltage vector.  <a href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a5b9991a25190905c20d452052c663124">More...</a><br /></td></tr>
+<tr class="memdesc:a5b9991a25190905c20d452052c663124"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function generates a circuit with random resistances and currents, and computes the corresponding voltages. The circuit is represented by a system of linear equations Ax = b, where A is the resistance matrix, x is the current vector, and b is the voltage vector.  <a href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a5b9991a25190905c20d452052c663124">More...</a><br /></td></tr>
 <tr class="separator:a5b9991a25190905c20d452052c663124"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Namespace for system-related functions in <a class="el" href="../../d2/d6e/namespaceMyBLAS.html" title="Namespace containing linear algebra functions and classes.">MyBLAS</a> library. </p>
+<div class="textblock"><p>This namespace contains system-related functions in the <a class="el" href="../../d2/d6e/namespaceMyBLAS.html" title="Namespace containing linear algebra functions and classes.">MyBLAS</a> library. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a5b9991a25190905c20d452052c663124"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b9991a25190905c20d452052c663124">&#9670;&nbsp;</a></span>Circuit()</h2>
@@ -179,7 +179,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a circuit with random resistances and currents, and computes the corresponding voltages. The circuit is represented by a system of linear equations Ax = b, where A is the resistance matrix, x is the current vector, and b is the voltage vector. </p>
+<p>This function generates a circuit with random resistances and currents, and computes the corresponding voltages. The circuit is represented by a system of linear equations Ax = b, where A is the resistance matrix, x is the current vector, and b is the voltage vector. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The data type of the elements in the circuit (e.g., double for real-valued resistances, currents, and voltages). </td></tr>
@@ -197,39 +197,52 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The resistances are randomly generated in the range [1, 10e3] Ω. The currents are randomly generated in the range [-5, 5] Amperes. The function will print a warning message to the standard error stream if it cannot make the resistance matrix diagonally dominant. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                      {</div>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// 1Ω to 10 kΩ</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> T min_resistance = 1;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">const</span> T max_resistance = 10e3;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;   <span class="comment">// Define the range of resistance values from 1Ω to 10 kΩ</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;   <span class="keyword">const</span> T min_resistance = 1;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;   <span class="keyword">const</span> T max_resistance = 10e3;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// 5 Amps in either direction</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">const</span> T min_current = -5;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">const</span> T max_current = 5;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;   <span class="comment">// Define the range of current values from -5 Amps to 5 Amps</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;   <span class="keyword">const</span> T min_current = -5;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;   <span class="keyword">const</span> T max_current = 5;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Create the coefficient matrix A, and vectors x and b</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> currents = <a class="code" href="../../d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845">Random::generate</a>(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(min_current), <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(max_current), seed);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   <span class="comment">// Generate a vector of random currents within the defined range</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> currents = <a class="code" href="../../d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845">Random::generate</a>(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, min_current, max_current, seed);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// random field of resistors, each with a resistance sampled from U(1, 10k) Ω</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;T&gt;</a> resistors = Random::binary&lt;T&gt;(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, seed);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;T&gt;</a> resistances =</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="../../d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845">Random::generate</a>(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(min_resistance), <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(max_resistance), seed);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    resistances = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ad7773b2c0d8c2fea46841a6522f483f5">MyBLAS::innerProduct</a>(resistances, resistors);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// make (barely) diagonally dominant</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">const</span> T dominance = 1;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a95a31a537601936a645cd405411f3732">MyBLAS::makeDiagonallyDominant</a>(resistances, dominance);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a4c6e919f9667070f40bd837a5f6bcab6">isDiagonallyDominant</a>(resistances)) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: Could not make resistance matrix diagonally dominant\n&quot;</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> voltages = resistances * currents;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    A = resistances;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    b = voltages;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> = currents;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   <span class="comment">// Generate a matrix of random resistors, each with a resistance sampled from U(1, 10k) Ω</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;   <span class="comment">// Start with a 2D bitmap of resistors</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;   <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;T&gt;</a> resistors = Random::binary&lt;T&gt;(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, seed);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;   <span class="comment">// Then, sample resistances from the distribution</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;   <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;T&gt;</a> resistances = <a class="code" href="../../d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845">Random::generate</a>(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, min_resistance, max_resistance, seed);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;   <span class="comment">// Finally, element-wise multiply these with the bitmap, assigning the resistors their magnitudes</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;   <span class="comment">// @note: negative resistances are OK here as long as the currents in the previous step are also randomly sampled</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   <span class="comment">// In general, when applying Kirchoff&#39;s rules, direction of current flow is not know apriori.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;   resistances = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ad7773b2c0d8c2fea46841a6522f483f5">MyBLAS::innerProduct</a>(resistances, resistors);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;   <span class="comment">// Make the resistance matrix (barely) diagonally dominant</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;   <span class="comment">// We just increase the dominance by +1 integer value. It doesn&#39;t matter what the magnitude is, as long as it is</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;   <span class="comment">// applied as a scalar offset. If it was applied as a multiplier or some other function, then diagonal dominance will</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;   <span class="comment">// become a function of the matrix size, sampling distribution, and sampling range. This is not good for our</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;   <span class="comment">// benchmarks since we need the extent of dominance to be invariant. Otherwise, matrix size will affect convergence.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;   <span class="keyword">const</span> T dominance = 1;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;   <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a95a31a537601936a645cd405411f3732">MyBLAS::makeDiagonallyDominant</a>(resistances, dominance);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;   <span class="comment">// If the resistance matrix is not diagonally dominant, print a warning message</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;   <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a4c6e919f9667070f40bd837a5f6bcab6">isDiagonallyDominant</a>(resistances)) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;       std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: Could not make resistance matrix diagonally dominant\n&quot;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;   }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;   <span class="comment">// Compute the voltage vector as the product of the resistance matrix and the current vector</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;   <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> voltages = resistances * currents;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;   <span class="comment">// Assign the computed values to the output parameters</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;   A = resistances;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;   b = voltages;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;   <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> = currents;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
 <div class="ttc" id="aclassMyBLAS_1_1Matrix_html"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a></div><div class="ttdoc">Class representing a matrix of T type values.</div><div class="ttdef"><b>Definition:</b> Matrix.h:20</div></div>
 <div class="ttc" id="aclassMyBLAS_1_1Vector_html"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a></div><div class="ttdoc">Class representing a vector of T values.</div><div class="ttdef"><b>Definition:</b> Vector.h:20</div></div>
 <div class="ttc" id="ainlab2_2tests_2sanity__check_8m_html_aaf3e08bd5df22a84e842a1ee58631684"><div class="ttname"><a href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a></div><div class="ttdeci">Number of points to sample n</div><div class="ttdef"><b>Definition:</b> sanity_check.m:15</div></div>
