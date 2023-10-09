@@ -7,7 +7,7 @@
     <meta content="IE=11" http-equiv="X-UA-Compatible"/>
     <meta content="Doxygen 1.9.1" name="generator"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>NE591-008 C++17 Codebase: OutLab 06: SOR - Linear Equations Solver</title>
+    <title>NE591-008 C++17 Codebase: OutLab 06: Iterative Linear Equation Solvers</title>
     <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
     <script src="../../jquery.js" type="text/javascript"></script>
     <script src="../../dynsections.js" type="text/javascript"></script>
@@ -114,11 +114,11 @@ $(document).ready(function(){initNavTree('dd/dfb/outlab6.html','../../'); initRe
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">OutLab 06: SOR - Linear Equations Solver </div>  </div>
+<div class="title">OutLab 06: Iterative Linear Equation Solvers </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md128">OutLab 06: SOR - Iterative Linear Equations Solver</a><ul><li class="level2"><a href="#autotoc_md129">Overview</a></li>
+<ul><li class="level1"><a href="#autotoc_md128">OutLab 06: Iterative Linear Equation Solvers</a><ul><li class="level2"><a href="#autotoc_md129">Overview</a></li>
 <li class="level2"><a href="#autotoc_md130">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md131">Parameters</a></li>
 <li class="level3"><a href="#autotoc_md132">Solver Methods</a></li>
 <li class="level3"><a href="#autotoc_md133">General options</a></li>
@@ -136,8 +136,8 @@ $(document).ready(function(){initNavTree('dd/dfb/outlab6.html','../../'); initRe
 </ul>
 </div>
 <div class="textblock"><h1><a class="anchor" id="autotoc_md128"></a>
-OutLab 06: SOR - Iterative Linear Equations Solver</h1>
-<p>Solves a system of linear equations using the point-Jacobi method. File based I/O is supported using JSON files.</p>
+OutLab 06: Iterative Linear Equation Solvers</h1>
+<p>File based I/O is supported using JSON files.</p>
 <div style="display: none"></div><h2><a class="anchor" id="autotoc_md129"></a>
 Overview</h2>
 <ol type="1">
@@ -182,14 +182,18 @@ Parameters</h3>
 <li><code>-n [ --order ] arg</code>: order of the square matrix [n ∈ ℕ]</li>
 <li><code>-i [ --input-json ] arg</code>: input JSON containing A, and b</li>
 <li><code>-o [ --output-json ] arg</code>: path for the output JSON</li>
+<li><code>-w [ --relaxation-factor ] arg</code>: SOR weight, typical ω ∈ [0,2]</li>
+<li><code>-g [ --generate ]</code>: Generate A,b ignoring input-json</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md132"></a>
 Solver Methods</h3>
 <ul>
-<li><code>--use-LUP</code>: Use the LUP method</li>
-<li><code>--use-point-jacobi</code>: [DISABLED] Use the Point-Jacobi method</li>
-<li><code>--use-gauss-seidel</code>: [DISABLED] Use the Gauss-Seidel method</li>
-<li><code>--use-SOR</code>: [DISABLED] Use the SOR method</li>
+<li><code>--use-LUP</code>: Use LUP factorization</li>
+<li><code>--use-point-jacobi</code>: Use the Point-Jacobi method</li>
+<li><code>--use-gauss-seidel</code>: Use the Gauss-Seidel method</li>
+<li><code>--use-SOR</code>: Use the SOR method</li>
+<li><code>--use-SORJ</code>: Use the SOR Jacobi method</li>
+<li><code>--use-SSOR</code>: [DISABLED] Use the symmetric SOR method</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md133"></a>
 General options</h3>
@@ -197,7 +201,7 @@ General options</h3>
 <li><code>-h [ --help ]</code>: Show this help message</li>
 <li><code>-q [ --quiet ]</code>: Reduce verbosity</li>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
-<li><code>-P [ --profile ]</code>: Turn on profiling for performance comparison</li>
+<li><code>-P [ --profile ]</code>: Turn on performance profiling</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md134"></a>
 Input Format</h2>
@@ -219,140 +223,201 @@ Output Format</h2>
 <h3><a class="anchor" id="autotoc_md137"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
-<div class="line">  &quot;inputs&quot;: {</div>
-<div class="line">    &quot;coefficients&quot;: [</div>
-<div class="line">      [</div>
-<div class="line">        36.1,</div>
-<div class="line">        -9.00,</div>
-<div class="line">        -9.00,</div>
-<div class="line">        0.00</div>
+<div class="line">   &quot;inputs&quot;: {</div>
+<div class="line">      &quot;coefficients&quot;: [</div>
+<div class="line">         [</div>
+<div class="line">            36.1,</div>
+<div class="line">            -9.0,</div>
+<div class="line">            -9.0,</div>
+<div class="line">            0.0</div>
+<div class="line">         ],</div>
+<div class="line">         [</div>
+<div class="line">            -9.0,</div>
+<div class="line">            36.1,</div>
+<div class="line">            0.0,</div>
+<div class="line">            -9.0</div>
+<div class="line">         ],</div>
+<div class="line">         [</div>
+<div class="line">            -9.0,</div>
+<div class="line">            0.0,</div>
+<div class="line">            36.1,</div>
+<div class="line">            -9.0</div>
+<div class="line">         ],</div>
+<div class="line">         [</div>
+<div class="line">            0.0,</div>
+<div class="line">            -9.0,</div>
+<div class="line">            -9.0,</div>
+<div class="line">            36.1</div>
+<div class="line">         ]</div>
 <div class="line">      ],</div>
-<div class="line">      [</div>
-<div class="line">        -9.00,</div>
-<div class="line">        36.1,</div>
-<div class="line">        0.00,</div>
-<div class="line">        -9.00</div>
+<div class="line">      &quot;constants&quot;: [</div>
+<div class="line">         1.0,</div>
+<div class="line">         1.0,</div>
+<div class="line">         1.0,</div>
+<div class="line">         1.0</div>
 <div class="line">      ],</div>
-<div class="line">      [</div>
-<div class="line">        -9.00,</div>
-<div class="line">        0.00,</div>
-<div class="line">        36.1,</div>
-<div class="line">        -9.00</div>
+<div class="line">      &quot;known-solution&quot;: [],</div>
+<div class="line">      &quot;max-iterations&quot;: 5000,</div>
+<div class="line">      &quot;methods&quot;: [</div>
+<div class="line">         &quot;gauss-seidel&quot;</div>
 <div class="line">      ],</div>
-<div class="line">      [</div>
-<div class="line">        0.00,</div>
-<div class="line">        -9.00,</div>
-<div class="line">        -9.00,</div>
-<div class="line">        36.1</div>
-<div class="line">      ]</div>
-<div class="line">    ],</div>
-<div class="line">    &quot;constants&quot;: [</div>
-<div class="line">      1.00,</div>
-<div class="line">      1.00,</div>
-<div class="line">      1.00,</div>
-<div class="line">      1.00</div>
-<div class="line">    ],</div>
-<div class="line">    &quot;max-iterations&quot;: 5000,</div>
-<div class="line">    &quot;methods&quot;: [</div>
-<div class="line">      &quot;point-jacobi&quot;</div>
-<div class="line">    ],</div>
-<div class="line">    &quot;order&quot;: 4,</div>
-<div class="line">    &quot;threshold&quot;: 0.0001</div>
-<div class="line">  },</div>
-<div class="line">  &quot;outputs&quot;: {</div>
-<div class="line">    &quot;point-jacobi&quot;: {</div>
-<div class="line">      &quot;converged&quot;: true,</div>
-<div class="line">      &quot;execution-time-ns&quot;: 2352.0,</div>
-<div class="line">      &quot;iterations&quot;: {</div>
-<div class="line">        &quot;actual&quot;: 10,</div>
-<div class="line">        &quot;maximum&quot;: 5000</div>
+<div class="line">      &quot;order&quot;: 4,</div>
+<div class="line">      &quot;relaxation-factor&quot;: 1.08,</div>
+<div class="line">      &quot;threshold&quot;: 0.0001</div>
+<div class="line">   },</div>
+<div class="line">   &quot;outputs&quot;: {</div>
+<div class="line">      &quot;gauss-seidel&quot;: {</div>
+<div class="line">         &quot;converged&quot;: true,</div>
+<div class="line">         &quot;iterations&quot;: {</div>
+<div class="line">            &quot;actual&quot;: 6,</div>
+<div class="line">            &quot;maximum&quot;: 5000</div>
+<div class="line">         },</div>
+<div class="line">         &quot;iterative-error&quot;: {</div>
+<div class="line">            &quot;actual&quot;: 3.6891402111559554e-05,</div>
+<div class="line">            &quot;maximum&quot;: 0.0001</div>
+<div class="line">         },</div>
+<div class="line">         &quot;l2-error&quot;: 0.0,</div>
+<div class="line">         &quot;max-residual&quot;: 0.00026517572756905696,</div>
+<div class="line">         &quot;solution&quot;: [</div>
+<div class="line">            0.05523884269588214,</div>
+<div class="line">            0.05524374428049525,</div>
+<div class="line">            0.05524374428049525,</div>
+<div class="line">            0.055246188283903444</div>
+<div class="line">         ],</div>
+<div class="line">         &quot;wall-time-ns&quot;: {</div>
+<div class="line">            &quot;mean&quot;: 488.4,</div>
+<div class="line">            &quot;samples&quot;: 52.437009830843714,</div>
+<div class="line">            &quot;std&quot;: 52.437009830843714</div>
+<div class="line">         }</div>
 <div class="line">      },</div>
-<div class="line">      &quot;iterative-error&quot;: {</div>
-<div class="line">        &quot;actual&quot;: 5.2623026955029647e-05,</div>
-<div class="line">        &quot;maximum&quot;: 0.0001</div>
-<div class="line">      },</div>
-<div class="line">      &quot;max-residual&quot;: 0.0009498456365382851,</div>
-<div class="line">      &quot;solution&quot;: [</div>
-<div class="line">        0.05519614112505313,</div>
-<div class="line">        0.05519614112505313,</div>
-<div class="line">        0.05519614112505313,</div>
-<div class="line">        0.05519614112505313</div>
-<div class="line">      ]</div>
-<div class="line">    }</div>
-<div class="line">  }</div>
+<div class="line">   }</div>
+<div class="line">}</div>
 <div class="line">}</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md138"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
-<div class="fragment"><div class="line">NE591: OutLab 06: Solving a system of linear equations using the Point Jacobi method</div>
+<div class="fragment"><div class="line">NE591: OutLab 06: Solving a system of linear equations using iterative methods</div>
 <div class="line">Arjun Earthperson</div>
-<div class="line">09/29/2023</div>
+<div class="line">10/06/2023</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">Parameters:</div>
-<div class="line">  -t [ --threshold ] arg        = iterative convergence threshold [𝜀 &gt; 0]</div>
-<div class="line">  -k [ --max-iterations ] arg   = maximum number of iterations [n ∈ ℕ]</div>
-<div class="line">  -n [ --order ] arg            = order of the square matrix [n ∈ ℕ]</div>
-<div class="line">  -i [ --input-json ] arg       = input JSON containing A, and b</div>
-<div class="line">  -o [ --output-json ] arg      = path for the output JSON</div>
+<div class="line">  -t [ --threshold ] arg         = convergence threshold [𝜀 &gt; 0]</div>
+<div class="line">  -k [ --max-iterations ] arg    = maximum iterations [n ∈ ℕ]</div>
+<div class="line">  -w [ --relaxation-factor ] arg = SOR weight, typical ω ∈ [0,2]</div>
+<div class="line">  -n [ --order ] arg             = order of the square matrix [n ∈ ℕ]</div>
+<div class="line">  -i [ --input-json ] arg        = input JSON containing A, and b</div>
+<div class="line">  -g [ --generate ]              = Generate A,b ignoring input-json</div>
+<div class="line">  -o [ --output-json ] arg       = path for the output JSON</div>
 <div class="line"> </div>
 <div class="line">Solver Methods:</div>
-<div class="line">  --use-point-jacobi            = Use the Point-Jacobi method</div>
-<div class="line">  --use-gauss-seidel            = [DISABLED] Use the Gauss-Seidel method</div>
-<div class="line">  --use-SOR                     = [DISABLED] Use the SOR method</div>
-<div class="line">  --use-SSOR                    = [DISABLED] Use the symmetric SOR method</div>
+<div class="line">  --use-LUP                      = Use LUP factorization</div>
+<div class="line">  --use-point-jacobi             = Use the Point-Jacobi method</div>
+<div class="line">  --use-gauss-seidel             = Use the Gauss-Seidel method</div>
+<div class="line">  --use-SOR                      = Use the SOR method</div>
+<div class="line">  --use-SORJ                     = Use the SOR Jacobi method</div>
+<div class="line">  --use-SSOR                     = [DISABLED] Use the symmetric SOR method</div>
 <div class="line"> </div>
 <div class="line">General options:</div>
-<div class="line">  -h [ --help ]                 = Show this help message</div>
-<div class="line">  -q [ --quiet ]                = Reduce verbosity</div>
-<div class="line">  -p [ --precision ] arg (=15)  = Number of digits to represent long double</div>
-<div class="line">  -P [ --profile ]              = Turn on performance profiling</div>
+<div class="line">  -h [ --help ]                  = Show this help message</div>
+<div class="line">  -q [ --quiet ]                 = Reduce verbosity</div>
+<div class="line">  -p [ --precision ] arg (=15)   = Number of digits to represent long double</div>
+<div class="line">  -P [ --profile ]               = Turn on performance profiling</div>
 <div class="line"> </div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">            Precision in digits:  default: 6, maximum: 19, current: 6</div>
+<div class="line">            Precision in digits:  default: 6, maximum: 19, current: 2</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">Warning: File already exists at path, will be overwritten </div>
-<div class="line">Would you like to use the Gauss-Seidel method? [YES/no]: n</div>
-<div class="line">Would you like to use the SOR method? [YES/no]: n</div>
-<div class="line">Would you like to use the symmetric SOR method? [YES/no]: y</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">                                     Inputs</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    Input JSON (for A, b),  i: ../outlab6_input_1.json</div>
-<div class="line">    Output JSON (for x),    o: ../outlab6_output_1.json</div>
-<div class="line">    Convergence Threshold,  𝜀: 0.0001</div>
-<div class="line">    Max iterations,         k: 5000</div>
-<div class="line">    Matrix order,           n: None provided, will be inferred from input JSON</div>
-<div class="line">    Use Gauss-Siedel         : No</div>
-<div class="line">    Use Point-Jacobi         : Yes</div>
-<div class="line">    Use SOR                  : No</div>
-<div class="line">    Use SSOR                 : Yes</div>
+<div class="line">    Generate A,b,            g: No</div>
+<div class="line">    Input JSON (for A, b),   i:  ../outlab6_input_1.json</div>
+<div class="line">    Output JSON (for x),     o: ../outlab6_output_1.json</div>
+<div class="line">    Convergence Threshold,   𝜀: 0.0001</div>
+<div class="line">    Max iterations,          k: 5000</div>
+<div class="line">    Matrix order,            n: None provided, will be inferred from input JSON</div>
+<div class="line">    SOR weight,              ω: 1.080000</div>
+<div class="line">    Use LUP factorization     : Yes</div>
+<div class="line">    Use Gauss-Seidel          : Yes</div>
+<div class="line">    Use Point-Jacobi          : Yes</div>
+<div class="line">    Use SOR                   : Yes</div>
+<div class="line">    Use Point-Jacobi with SOR : Yes</div>
+<div class="line">    Use symmetric SOR         : Yes</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">Reading matrix order (n) from input matrix dimensions: 4</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">Coefficient Matrix (A):</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    3.610000e+01   -9.000000e+00   -9.000000e+00    0.000000e+00</div>
-<div class="line">   -9.000000e+00    3.610000e+01    0.000000e+00   -9.000000e+00</div>
-<div class="line">   -9.000000e+00    0.000000e+00    3.610000e+01   -9.000000e+00</div>
-<div class="line">    0.000000e+00   -9.000000e+00   -9.000000e+00    3.610000e+01</div>
+<div class="line">    3.61e+01   -9.00e+00   -9.00e+00    0.00e+00</div>
+<div class="line">   -9.00e+00    3.61e+01    0.00e+00   -9.00e+00</div>
+<div class="line">   -9.00e+00    0.00e+00    3.61e+01   -9.00e+00</div>
+<div class="line">    0.00e+00   -9.00e+00   -9.00e+00    3.61e+01</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">Constants Vector (b):</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    1.000000e+00    1.000000e+00    1.000000e+00    1.000000e+00</div>
+<div class="line">    1.00e+00    1.00e+00    1.00e+00    1.00e+00</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">Point Seidel Method Results</div>
+<div class="line">LUP Factorization Results</div>
 <div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">    order                     : 4</div>
+<div class="line">    total iterations          : 0</div>
+<div class="line">    converged                 : Yes</div>
+<div class="line">    iterative error           : nan</div>
+<div class="line">    relative error            : 0.00e+00</div>
+<div class="line">    absolute maximum residual : 2.17e-19</div>
+<div class="line">    execution time [ns]       : 1185.600000 ± 716.407593</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Point Jacobi Method Results</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">    order                     : 4</div>
 <div class="line">    total iterations          : 10</div>
 <div class="line">    converged                 : Yes</div>
-<div class="line">    iterative error           : 5.262303e-05</div>
-<div class="line">    absolute maximum residual : 9.498456e-04</div>
-<div class="line">    execution time (ns)       : 7.620000e+03</div>
-<div class="line">    execution time (ms)       : 7.620000e-03</div>
-<div class="line">    execution time (s)        : 7.620000e-06</div>
+<div class="line">    iterative error           : 5.26e-05</div>
+<div class="line">    relative error            : 0.00e+00</div>
+<div class="line">    absolute maximum residual : 9.50e-04</div>
+<div class="line">    execution time [ns]       : 511.400000 ± 97.897089</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">Symmetric Successive over-relaxation (SOR) not implemented yet.</div>
+<div class="line">SOR Point Jacobi Method Results</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">    order                     : 4</div>
+<div class="line">    total iterations          : 9</div>
+<div class="line">    converged                 : Yes</div>
+<div class="line">    iterative error           : 5.36e-05</div>
+<div class="line">    relative error            : 0.00e+00</div>
+<div class="line">    absolute maximum residual : 8.96e-04</div>
+<div class="line">    execution time [ns]       : 413.900000 ± 14.159449</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Gauss-Seidel Method Results</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">    order                     : 4</div>
+<div class="line">    total iterations          : 6</div>
+<div class="line">    converged                 : Yes</div>
+<div class="line">    iterative error           : 3.69e-05</div>
+<div class="line">    relative error            : 0.00e+00</div>
+<div class="line">    absolute maximum residual : 2.65e-04</div>
+<div class="line">    execution time [ns]       : 481.000000 ± 56.723893</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">SOR Method Results</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">    order                     : 4</div>
+<div class="line">    total iterations          : 4</div>
+<div class="line">    converged                 : Yes</div>
+<div class="line">    iterative error           : 3.89e-05</div>
+<div class="line">    relative error            : 0.00e+00</div>
+<div class="line">    absolute maximum residual : 3.52e-06</div>
+<div class="line">    execution time [ns]       : 350.100000 ± 14.645477</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Symmetric SOR Method Results</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">    order                     : 4</div>
+<div class="line">    total iterations          : 3</div>
+<div class="line">    converged                 : Yes</div>
+<div class="line">    iterative error           : 5.62e-05</div>
+<div class="line">    relative error            : 0.00e+00</div>
+<div class="line">    absolute maximum residual : 8.02e-05</div>
+<div class="line">    execution time [ns]       : 465.400000 ± 60.016998</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">JSON data has been written to ../outlab6_output_1.json</div>
 <div class="line"> </div>

@@ -16,7 +16,7 @@ var searchData=
   ['outlab_2003_3a_20gauss_2dlegendre_20numerical_20integration_345',['OutLab 03: Gauss-Legendre Numerical Integration',['../dc/d1d/outlab3.html',1,'']]],
   ['outlab_2004_3a_20lu_20_2d_20linear_20equations_20solver_20ii_346',['OutLab 04: LU - Linear Equations Solver II',['../d5/d26/outlab4.html',1,'']]],
   ['outlab_2005_3a_20lup_20_2d_20linear_20equations_20solver_20ii_347',['OutLab 05: LUP - Linear Equations Solver II',['../de/de4/outlab5.html',1,'']]],
-  ['outlab_2006_3a_20sor_20_2d_20linear_20equations_20solver_348',['OutLab 06: SOR - Linear Equations Solver',['../dd/dfb/outlab6.html',1,'']]],
+  ['outlab_2006_3a_20iterative_20linear_20equation_20solvers_348',['OutLab 06: Iterative Linear Equation Solvers',['../dd/dfb/outlab6.html',1,'']]],
   ['outlab1_349',['OutLab1',['../dd/df3/classOutLab1.html',1,'OutLab1'],['../dd/df3/classOutLab1.html#a45f1a95bd729fa58f8976f0b93a4dfb5',1,'OutLab1::OutLab1()']]],
   ['outlab1_2eh_350',['outlab1.h',['../d3/deb/outlab1_8h.html',1,'']]],
   ['outlab2_2eh_351',['outlab2.h',['../d9/d34/outlab2_8h.html',1,'']]],

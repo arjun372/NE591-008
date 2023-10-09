@@ -218,8 +218,8 @@ var NAVTREE =
         [ "Example:", "de/de4/outlab5.html#autotoc_md127", null ]
       ] ]
     ] ],
-    [ "OutLab 06: SOR - Linear Equations Solver", "dd/dfb/outlab6.html", [
-      [ "OutLab 06: SOR - Iterative Linear Equations Solver", "dd/dfb/outlab6.html#autotoc_md128", [
+    [ "OutLab 06: Iterative Linear Equation Solvers", "dd/dfb/outlab6.html", [
+      [ "OutLab 06: Iterative Linear Equation Solvers", "dd/dfb/outlab6.html#autotoc_md128", [
         [ "Overview", "dd/dfb/outlab6.html#autotoc_md129", null ],
         [ "Building & Usage", "dd/dfb/outlab6.html#autotoc_md130", [
           [ "Parameters", "dd/dfb/outlab6.html#autotoc_md131", null ],
