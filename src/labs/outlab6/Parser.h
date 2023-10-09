@@ -33,7 +33,7 @@ class Parser : public CommandLine<OutLab6Inputs> {
         values.add_options()("threshold,t", boost::program_options::value<long double>(),
                              "= convergence threshold [𝜀 > 0]")(
             "max-iterations,k", boost::program_options::value<long double>(), "= maximum iterations [n ∈ ℕ]")(
-            "relaxation-factor,w", boost::program_options::value<long double>(), "= SOR weight, typical w ∈ [0,2]")(
+            "relaxation-factor,w", boost::program_options::value<long double>(), "= SOR weight, typical ω ∈ [0,2]")(
             "order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]")(
             "input-json,i", boost::program_options::value<std::string>(),
             "= input JSON containing A, and b")("generate,g", "= Generate A,b ignoring input-json")(
