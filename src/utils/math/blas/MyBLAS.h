@@ -285,37 +285,6 @@ template <typename T> bool isDiagonallyDominant(const MyBLAS::Matrix<T> &A) {
 }
 
 /**
- * @brief Makes the given matrix diagonally dominant.
- *
- * This function modifies the input matrix such that the absolute value of each diagonal element
- * is greater than the sum of the absolute values of the other elements in the same row.
- *
- * @param A The input matrix to be modified.
- * @param dominance_offset The offset to be added to the diagonal elements to make the matrix diagonally dominant.
- */
-template <typename T> void makeDiagonallyDominant(MyBLAS::Matrix<T> &A, const T dominance_offset = 1) {
-
-    const size_t n = A.getRows(); // or A.getCols(), since A is a square matrix
-
-    // Iterate over the rows of the input matrix A
-    for (size_t row = 0; row < n; row++) {
-        T nonDiagonalSum = 0;
-        // Iterate over the columns of the input matrix A
-        for (size_t col = 0; col < n; col++) {
-            nonDiagonalSum += std::abs(A[row][col]);
-        }
-        // get the diagonal value
-        const T leadingDiagonalMagnitude = std::abs(A[row][row]);
-        nonDiagonalSum -= leadingDiagonalMagnitude; // Subtract the diagonal element
-
-        if (leadingDiagonalMagnitude <= nonDiagonalSum) {
-            const T sign = (leadingDiagonalMagnitude == A[row][row]) ? 1 : -1; // retain the sign
-            A[row][row] = sign * (nonDiagonalSum + dominance_offset);
-        }
-    }
-}
-
-/**
  * @brief Checks if two matrices have the same rank.
  *
  * This function compares the number of rows in matrix A with the size of vector b to determine if they have the

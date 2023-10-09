@@ -73,17 +73,18 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
      * @param results The results of the computation.
      */
     static void printResults(OutLab6Outputs &results) {
+        std::cout << "\torder                     : " << (results.inputs.input.n) << std::endl;
         std::cout << "\ttotal iterations          : " << (results.solution.iterations) << std::endl;
         std::cout << "\tconverged                 : " << (results.solution.converged ? "Yes" : "No") << std::endl;
         std::cout << "\titerative error           : " << (results.solution.iterative_error) << std::endl;
-        std::cout << "\tL2 error                  : " << (results.getSolutionError()) << std::endl;
+        std::cout << "\trelative error            : " << (results.getSolutionError()) << std::endl;
         std::cout << "\tabsolute maximum residual : "
                   << (results.solution.getMaxResidual(results.inputs.input.coefficients,
                                                       results.inputs.input.constants))
                   << std::endl;
-        std::cout << "\texecution time (ns)       : " << (results.execution_time) << std::endl;
-        std::cout << "\texecution time (ms)       : " << (results.execution_time / 1.0e6) << std::endl;
-        std::cout << "\texecution time (s)        : " << (results.execution_time / 1.0e9) << std::endl;
+//        std::cout << "\texecution time [ns]       : " << formatMeanStd(results.mean_execution_time, results.stddev_execution_time) << std::endl;
+        std::cout << "\texecution time [ms]       : " << formatMeanStd(results.mean_execution_time/1.0e6, results.stddev_execution_time/1.0e6) << std::endl;
+//        std::cout << "\texecution time [s]        : " << formatMeanStd(results.mean_execution_time/1.0e9, results.stddev_execution_time/1.0e9) << std::endl;
     }
 
     /**
@@ -105,8 +106,7 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
         if (inputs.methods.count(MyFactorizationMethod::Type::METHOD_LUP)) {
             OutLab6Outputs runResults(inputs);
             Compute::usingLUP(runResults, inputs);
-            runResults.toJSON(
-                results["outputs"][MyFactorizationMethod::TypeKey(MyFactorizationMethod::Type::METHOD_LUP)]);
+            runResults.toJSON(results["outputs"][MyFactorizationMethod::TypeKey(MyFactorizationMethod::Type::METHOD_LUP)]);
             Parser::printLine();
             std::cout << "LUP Factorization Results" << std::endl;
             Parser::printLine();
@@ -116,10 +116,19 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
             OutLab6Outputs runResults(inputs);
             Compute::usingPointJacobi(runResults, inputs);
-            runResults.toJSON(
-                results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
             Parser::printLine();
             std::cout << "Point Jacobi Method Results" << std::endl;
+            Parser::printLine();
+            printResults(runResults);
+        }
+
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORJ)) {
+            OutLab6Outputs runResults(inputs);
+            Compute::usingJacobiSOR(runResults, inputs);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORJ)]);
+            Parser::printLine();
+            std::cout << "SOR Point Jacobi Method Results" << std::endl;
             Parser::printLine();
             printResults(runResults);
         }
@@ -141,16 +150,6 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
             runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SOR)]);
             Parser::printLine();
             std::cout << "SOR Method Results" << std::endl;
-            Parser::printLine();
-            printResults(runResults);
-        }
-
-        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORJ)) {
-            OutLab6Outputs runResults(inputs);
-            Compute::usingJacobiSOR(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORJ)]);
-            Parser::printLine();
-            std::cout << "SOR Point Jacobi Method Results" << std::endl;
             Parser::printLine();
             printResults(runResults);
         }

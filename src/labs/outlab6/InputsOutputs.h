@@ -64,7 +64,9 @@ typedef struct Output {
     OutLab6Inputs inputs;
     MyLinearSolvingMethod::Solution<long double> solution;
 
-    long double execution_time = std::numeric_limits<long double>::quiet_NaN();
+    long double mean_execution_time = std::numeric_limits<long double>::quiet_NaN();
+    long double stddev_execution_time = std::numeric_limits<long double>::quiet_NaN();
+    size_t runs = 0;
 
     /**
      * @brief Calculates and returns the error of the solution.
@@ -95,7 +97,9 @@ typedef struct Output {
         jsonMap["solution"] = solution.x.getData();
         jsonMap["max-residual"] = solution.getMaxResidual(inputs.input.coefficients, inputs.input.constants);
         jsonMap["l2-error"] = getSolutionError();
-        jsonMap["execution-time-ns"] = execution_time;
+        jsonMap["wall-time-ns"]["mean"] = mean_execution_time;
+        jsonMap["wall-time-ns"]["std"] = stddev_execution_time;
+        jsonMap["wall-time-ns"]["samples"] = 10;
     }
 } OutLab6Outputs;
 
