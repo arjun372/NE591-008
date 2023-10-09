@@ -129,12 +129,14 @@ $(document).ready(function(){initNavTree('db/df1/Helpers_8h.html','../../'); ini
 <code>#include &lt;limits&gt;</code><br />
 <code>#include &quot;json.hpp&quot;</code><br />
 <code>#include &lt;boost/program_options.hpp&gt;</code><br />
+<code>#include &lt;boost/accumulators/accumulators.hpp&gt;</code><br />
+<code>#include &lt;boost/accumulators/statistics.hpp&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Helpers.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d85/Helpers_8h__incl.svg" width="598" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d85/Helpers_8h__incl.svg" width="100%" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -161,6 +163,10 @@ Data Structures</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a0377a5c8655df94f1eb51072a36fd8e5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../db/df1/Helpers_8h.html#de/d8a/structCanvasType">CanvasType</a>&lt; __float128 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df1/Helpers_8h.html#a0377a5c8655df94f1eb51072a36fd8e5">Canvas</a></td></tr>
 <tr class="separator:a0377a5c8655df94f1eb51072a36fd8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7cd4e0d38c337e5b625527646f00f9"><td class="memItemLeft" align="right" valign="top">typedef boost::accumulators::tag::mean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9">mean</a></td></tr>
+<tr class="separator:abe7cd4e0d38c337e5b625527646f00f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a010d918706cfc56207dee5c39bd0e9f4"><td class="memItemLeft" align="right" valign="top">typedef boost::accumulators::tag::variance&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df1/Helpers_8h.html#a010d918706cfc56207dee5c39bd0e9f4">variance</a></td></tr>
+<tr class="separator:a010d918706cfc56207dee5c39bd0e9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -194,6 +200,13 @@ Functions</h2></td></tr>
 <tr class="memitem:ae8d5abc9a487df9eaa8058819e252d0f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/df1/Helpers_8h.html#ae8d5abc9a487df9eaa8058819e252d0f">printJuliaSet</a> (const <a class="el" href="../../db/df1/Helpers_8h.html#a0377a5c8655df94f1eb51072a36fd8e5">Canvas</a> &amp;canvas, const T x0, const T y0, const size_t max_iterations=120)</td></tr>
 <tr class="memdesc:ae8d5abc9a487df9eaa8058819e252d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the Julia set to the console using the specified canvas properties.  <a href="../../db/df1/Helpers_8h.html#ae8d5abc9a487df9eaa8058819e252d0f">More...</a><br /></td></tr>
 <tr class="separator:ae8d5abc9a487df9eaa8058819e252d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47bde9d4fb76f7eee1cfe4a98be0f8db"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a47bde9d4fb76f7eee1cfe4a98be0f8db"><td class="memTemplItemLeft" align="right" valign="top">boost::accumulators::accumulator_set&lt; T, boost::accumulators::features&lt; <a class="el" href="../../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9">mean</a>, <a class="el" href="../../db/df1/Helpers_8h.html#a010d918706cfc56207dee5c39bd0e9f4">variance</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/df1/Helpers_8h.html#a47bde9d4fb76f7eee1cfe4a98be0f8db">computeMeanStd</a> (const std::vector&lt; T &gt; &amp;numbers)</td></tr>
+<tr class="memdesc:a47bde9d4fb76f7eee1cfe4a98be0f8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the mean and variance of a numeric vector using Boost Accumulators.  <a href="../../db/df1/Helpers_8h.html#a47bde9d4fb76f7eee1cfe4a98be0f8db">More...</a><br /></td></tr>
+<tr class="separator:a47bde9d4fb76f7eee1cfe4a98be0f8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97f5ae737c1d7ece540e2b07c8e8b3d4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a97f5ae737c1d7ece540e2b07c8e8b3d4"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/df1/Helpers_8h.html#a97f5ae737c1d7ece540e2b07c8e8b3d4">formatMeanStd</a> (T <a class="el" href="../../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9">mean</a>, T std)</td></tr>
+<tr class="separator:a97f5ae737c1d7ece540e2b07c8e8b3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains helper functions and structures used throughout the program. </p>
@@ -223,6 +236,8 @@ struct ToneMap&lt; T &gt;</h3>
     <tr><td class="paramname">T</td><td>This is the type of the scaling factor and the growth rate. It can be any type that supports assignment and arithmetic operations. </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#_a8">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
 </dl>
 </div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for ToneMap&lt; T &gt;:</div>
@@ -272,6 +287,8 @@ struct CanvasType&lt; T &gt;</h3>
     <tr><td class="paramname">T</td><td>The type of the numbers used for the canvas dimensions and properties. </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#_a11">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
 </dl>
 </div><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for CanvasType&lt; T &gt;:</div>
@@ -353,10 +370,107 @@ y_stop</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a21">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="abe7cd4e0d38c337e5b625527646f00f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe7cd4e0d38c337e5b625527646f00f9">&#9670;&nbsp;</a></span>mean</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef boost::accumulators::tag::mean <a class="el" href="../../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9">mean</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a30">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a010d918706cfc56207dee5c39bd0e9f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a010d918706cfc56207dee5c39bd0e9f4">&#9670;&nbsp;</a></span>variance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef boost::accumulators::tag::variance <a class="el" href="../../db/df1/Helpers_8h.html#a010d918706cfc56207dee5c39bd0e9f4">variance</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a31">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a47bde9d4fb76f7eee1cfe4a98be0f8db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47bde9d4fb76f7eee1cfe4a98be0f8db">&#9670;&nbsp;</a></span>computeMeanStd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::accumulators::accumulator_set&lt;T, boost::accumulators::features&lt;<a class="el" href="../../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9">mean</a>, <a class="el" href="../../db/df1/Helpers_8h.html#a010d918706cfc56207dee5c39bd0e9f4">variance</a>&gt; &gt; computeMeanStd </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>numbers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the mean and variance of a numeric vector using Boost Accumulators. </p>
+<p>This function calculates the mean and variance of a given numeric vector using Boost Accumulators library. It returns an accumulator set pre-configured with mean and variance tags.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The data type of the numeric vector elements. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numbers</td><td>The input numeric vector for which to compute the mean and variance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An accumulator set containing computed mean and variance.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>To obtain the actual mean and variance values, you can use the <code>boost::accumulators::mean</code> and <code>boost::accumulators::variance</code> functions on the returned accumulator set, respectively. For example: <div class="fragment"><div class="line">boost::accumulators::accumulator_set&lt;T, boost::accumulators::features&lt;mean, variance&gt;&gt; acc = <a class="code" href="../../db/df1/Helpers_8h.html#a47bde9d4fb76f7eee1cfe4a98be0f8db">computeMeanStd</a>(numbers);</div>
+<div class="line"><span class="keywordtype">double</span> <a class="code" href="../../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9">mean</a> = <a class="code" href="../../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9">boost::accumulators::mean</a>(acc);</div>
+<div class="line"><span class="keywordtype">double</span> <a class="code" href="../../db/df1/Helpers_8h.html#a010d918706cfc56207dee5c39bd0e9f4">variance</a> = <a class="code" href="../../db/df1/Helpers_8h.html#a010d918706cfc56207dee5c39bd0e9f4">boost::accumulators::variance</a>(acc);</div>
+<div class="ttc" id="aHelpers_8h_html_a010d918706cfc56207dee5c39bd0e9f4"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a010d918706cfc56207dee5c39bd0e9f4">variance</a></div><div class="ttdeci">boost::accumulators::tag::variance variance</div><div class="ttdef"><b>Definition:</b> Helpers.h:298</div></div>
+<div class="ttc" id="aHelpers_8h_html_a47bde9d4fb76f7eee1cfe4a98be0f8db"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a47bde9d4fb76f7eee1cfe4a98be0f8db">computeMeanStd</a></div><div class="ttdeci">boost::accumulators::accumulator_set&lt; T, boost::accumulators::features&lt; mean, variance &gt; &gt; computeMeanStd(const std::vector&lt; T &gt; &amp;numbers)</div><div class="ttdoc">Computes the mean and variance of a numeric vector using Boost Accumulators.</div><div class="ttdef"><b>Definition:</b> Helpers.h:319</div></div>
+<div class="ttc" id="aHelpers_8h_html_abe7cd4e0d38c337e5b625527646f00f9"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9">mean</a></div><div class="ttdeci">boost::accumulators::tag::mean mean</div><div class="ttdef"><b>Definition:</b> Helpers.h:297</div></div>
+</div><!-- fragment --> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a32">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                                                                                                                           {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    boost::accumulators::accumulator_set&lt;T, boost::accumulators::features&lt;mean, variance&gt;&gt; accumulator;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="comment">// Iterate through the elements of the input vector and add them to the accumulator.</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">for</span> (T number : numbers) {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        accumulator(number);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">return</span> accumulator;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00035">Compute::usingLUP()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_a47bde9d4fb76f7eee1cfe4a98be0f8db_icgraph.svg" width="571" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="adbb387f590a9aee9c19ca2752ec93a12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adbb387f590a9aee9c19ca2752ec93a12">&#9670;&nbsp;</a></span>fill_linspace()</h2>
 
@@ -414,42 +528,97 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>This function uses the std::generate function to generate the values. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                                                                             {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    result.reserve(count);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span> (count &lt;= 1) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        result.clear();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        result[0] = start;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    T step = (end - start) / <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(count - 1);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="../../d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845">std::generate</a>(result.begin(), result.end(), [&amp;start, step]() <span class="keyword">mutable</span> {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        T value = start;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        start += step;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        return value;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    });</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a2">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                                                                             {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    result.reserve(count);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span> (count &lt;= 1) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        result.clear();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        result[0] = start;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    T step = (end - start) / <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(count - 1);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="../../d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845">std::generate</a>(result.begin(), result.end(), [&amp;start, step]() <span class="keyword">mutable</span> {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        T value = start;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        start += step;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        return value;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    });</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
 <div class="ttc" id="anamespaceRandom_html_a26c3caf157a29ac9d9227ec40248c845"><div class="ttname"><a href="../../d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845">Random::generate</a></div><div class="ttdeci">MyBLAS::Vector&lt; T &gt; generate(const size_t n, T min=0, T max=1, const long long seed=372)</div><div class="ttdoc">Generates a vector of random numbers.</div><div class="ttdef"><b>Definition:</b> Random.h:33</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00033">Random::generate()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">getGrays256bitANSI()</a>, and <a class="el" href="../../#l00084">InLab2::run()</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_adbb387f590a9aee9c19ca2752ec93a12_cgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
+<p class="reference">Referenced by <a class="el" href="../../#l00173">getGrays256bitANSI()</a>, and <a class="el" href="../../#l00084">InLab2::run()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_adbb387f590a9aee9c19ca2752ec93a12_cgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_adbb387f590a9aee9c19ca2752ec93a12_icgraph.svg" width="460" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a97f5ae737c1d7ece540e2b07c8e8b3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f5ae737c1d7ece540e2b07c8e8b3d4">&#9670;&nbsp;</a></span>formatMeanStd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string formatMeanStd </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>mean</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>std</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a0">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                                              {</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordflow">return</span> std::to_string(<a class="code" href="../../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9">mean</a>) + <span class="stringliteral">&quot; ± &quot;</span> + std::to_string(std);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="../../#l00075">OutLab6::printResults()</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_a97f5ae737c1d7ece540e2b07c8e8b3d4_icgraph.svg" width="498" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -491,66 +660,68 @@ template&lt;typename T &gt; </div>
 
 <p>Generates a vector of 256-bit ANSI gray shades. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of ANSI escape codes representing gray shades. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                                                                                                       {</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> x_min = 232;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> x_max = 255;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">auto</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> = std::vector&lt;long double&gt;(26);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <a class="code" href="../../db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12">fill_linspace</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, x_min, x_max, 26);</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">auto</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> = std::vector&lt;long double&gt;(26);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">auto</span> y_min = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;long double&gt;::max</a>();</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">auto</span> y_max = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::numeric_limits&lt;long double&gt;::min</a>();</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>.size(); <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] = scaling_factor * std::exp(growth_rate * <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>]);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] &gt; y_max) {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            y_max = <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>];</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        }</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] &lt; y_min) {</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            y_min = <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>];</div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a22">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                                                                                                       {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> x_min = 232;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> x_max = 255;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">auto</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> = std::vector&lt;long double&gt;(26);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="../../db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12">fill_linspace</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, x_min, x_max, 26);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">auto</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> = std::vector&lt;long double&gt;(26);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">auto</span> y_min = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;long double&gt;::max</a>();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">auto</span> y_max = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::numeric_limits&lt;long double&gt;::min</a>();</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>.size(); <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] = scaling_factor * std::exp(growth_rate * <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>]);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] &gt; y_max) {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            y_max = <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>];</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        }</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment">// 26 shades of gray</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    std::vector&lt;std::string&gt; grayShades;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    grayShades.emplace_back(<span class="stringliteral">&quot;\033[38;5;016m&quot;</span>); <span class="comment">// black</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; 24; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordtype">int</span> colorCode = 232 + <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        grayShades.push_back(<span class="stringliteral">&quot;\033[38;5;&quot;</span> + std::to_string(colorCode) + <span class="stringliteral">&quot;m&quot;</span>);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    grayShades.emplace_back(<span class="stringliteral">&quot;\033[38;5;231m&quot;</span>); <span class="comment">// white</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    std::vector&lt;std::string&gt; toneMap;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt;= 25; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keyword">auto</span> yi = 0 + (<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] - y_min) * (25 - 0) / (y_max - y_min);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keyword">auto</span> idx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(yi));</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        toneMap.push_back(grayShades[idx]);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">return</span> toneMap;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;}</div>
-<div class="ttc" id="aHelpers_8h_html_adbb387f590a9aee9c19ca2752ec93a12"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12">fill_linspace</a></div><div class="ttdeci">void fill_linspace(std::vector&lt; T &gt; &amp;result, T start, T end, size_t count)</div><div class="ttdoc">This function fills a vector with evenly spaced values between a start and end value.</div><div class="ttdef"><b>Definition:</b> Helpers.h:70</div></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] &lt; y_min) {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            y_min = <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>];</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment">// 26 shades of gray</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    std::vector&lt;std::string&gt; grayShades;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    grayShades.emplace_back(<span class="stringliteral">&quot;\033[38;5;016m&quot;</span>); <span class="comment">// black</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; 24; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordtype">int</span> colorCode = 232 + <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        grayShades.push_back(<span class="stringliteral">&quot;\033[38;5;&quot;</span> + std::to_string(colorCode) + <span class="stringliteral">&quot;m&quot;</span>);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    grayShades.emplace_back(<span class="stringliteral">&quot;\033[38;5;231m&quot;</span>); <span class="comment">// white</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    std::vector&lt;std::string&gt; toneMap;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt;= 25; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keyword">auto</span> yi = 0 + (<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] - y_min) * (25 - 0) / (y_max - y_min);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keyword">auto</span> idx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(yi));</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        toneMap.push_back(grayShades[idx]);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">return</span> toneMap;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}</div>
+<div class="ttc" id="aHelpers_8h_html_adbb387f590a9aee9c19ca2752ec93a12"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12">fill_linspace</a></div><div class="ttdeci">void fill_linspace(std::vector&lt; T &gt; &amp;result, T start, T end, size_t count)</div><div class="ttdoc">This function fills a vector with evenly spaced values between a start and end value.</div><div class="ttdef"><b>Definition:</b> Helpers.h:73</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_a50834683eb1a4cb5adbe71091be113c7"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">MyBLAS::min</a></div><div class="ttdeci">static T min(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Calculates the minimum value of the vector.</div><div class="ttdef"><b>Definition:</b> Vector.h:213</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_a990467e8430064e652754897d099b7bf"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">MyBLAS::max</a></div><div class="ttdeci">static T max(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Calculates the maximum value of the vector.</div><div class="ttdef"><b>Definition:</b> Vector.h:228</div></div>
 <div class="ttc" id="aplot__points_8m_html_a9336ebf25087d91c818ee6e9ec29f8c1"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a></div><div class="ttdeci">Define the x values x</div><div class="ttdef"><b>Definition:</b> plot_points.m:18</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 <div class="ttc" id="aplot__points_8m_html_aa50a6be4a15b9249a6bc48981be8fb3d"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a></div><div class="ttdeci">Calculate the function values y</div><div class="ttdef"><b>Definition:</b> plot_points.m:20</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00070">fill_linspace()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00213">MyBLAS::min()</a>, <a class="el" href="../../#l00018">x</a>, and <a class="el" href="../../#l00020">y</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00073">fill_linspace()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00213">MyBLAS::min()</a>, <a class="el" href="../../#l00018">x</a>, and <a class="el" href="../../#l00020">y</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00250">printJuliaSet()</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00253">printJuliaSet()</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_a1e95f5da95a0e7c0b5d568c5400f4f30_cgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_a1e95f5da95a0e7c0b5d568c5400f4f30_icgraph.svg" width="314" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -582,34 +753,36 @@ template&lt;typename T &gt; </div>
 
 <p>Generates a vector of 256-bit ANSI HSV colors. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of ANSI escape codes representing HSV colors. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                                               {</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    std::vector&lt;std::string&gt; colors;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">// 1</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    colors.emplace_back(<span class="stringliteral">&quot;\033[38;5;016m&quot;</span>); <span class="comment">// black</span></div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a28">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                                               {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    std::vector&lt;std::string&gt; colors;</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">// 1 + 24</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 232; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; 256; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        colors.push_back(<span class="stringliteral">&quot;\033[38;5;&quot;</span> + std::to_string(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) + <span class="stringliteral">&quot;m&quot;</span>);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">// 1 + 24 + 1</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    colors.emplace_back(<span class="stringliteral">&quot;\033[38;5;231m&quot;</span>); <span class="comment">// white</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">// 1</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    colors.emplace_back(<span class="stringliteral">&quot;\033[38;5;016m&quot;</span>); <span class="comment">// black</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">// 1 + 24</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 232; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; 256; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        colors.push_back(<span class="stringliteral">&quot;\033[38;5;&quot;</span> + std::to_string(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) + <span class="stringliteral">&quot;m&quot;</span>);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    }</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    std::vector&lt;std::string&gt; hues = {</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="stringliteral">&quot;225&quot;</span>, <span class="stringliteral">&quot;219&quot;</span>, <span class="stringliteral">&quot;218&quot;</span>, <span class="stringliteral">&quot;211&quot;</span>, <span class="stringliteral">&quot;212&quot;</span>, <span class="stringliteral">&quot;213&quot;</span>, <span class="stringliteral">&quot;207&quot;</span>, <span class="stringliteral">&quot;206&quot;</span>, <span class="stringliteral">&quot;200&quot;</span>, <span class="stringliteral">&quot;201&quot;</span>, <span class="stringliteral">&quot;165&quot;</span>, <span class="stringliteral">&quot;129&quot;</span>, <span class="stringliteral">&quot;093&quot;</span>,</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="stringliteral">&quot;057&quot;</span>, <span class="stringliteral">&quot;021&quot;</span>, <span class="stringliteral">&quot;027&quot;</span>, <span class="stringliteral">&quot;033&quot;</span>, <span class="stringliteral">&quot;039&quot;</span>, <span class="stringliteral">&quot;045&quot;</span>, <span class="stringliteral">&quot;051&quot;</span>, <span class="stringliteral">&quot;087&quot;</span>, <span class="stringliteral">&quot;050&quot;</span>, <span class="stringliteral">&quot;049&quot;</span>, <span class="stringliteral">&quot;086&quot;</span>, <span class="stringliteral">&quot;085&quot;</span>, <span class="stringliteral">&quot;048&quot;</span>,</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="stringliteral">&quot;047&quot;</span>, <span class="stringliteral">&quot;084&quot;</span>, <span class="stringliteral">&quot;083&quot;</span>, <span class="stringliteral">&quot;046&quot;</span>, <span class="stringliteral">&quot;082&quot;</span>, <span class="stringliteral">&quot;119&quot;</span>, <span class="stringliteral">&quot;155&quot;</span>, <span class="stringliteral">&quot;118&quot;</span>, <span class="stringliteral">&quot;154&quot;</span>, <span class="stringliteral">&quot;191&quot;</span>, <span class="stringliteral">&quot;190&quot;</span>, <span class="stringliteral">&quot;226&quot;</span>, <span class="stringliteral">&quot;227&quot;</span>,</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="stringliteral">&quot;221&quot;</span>, <span class="stringliteral">&quot;220&quot;</span>, <span class="stringliteral">&quot;214&quot;</span>, <span class="stringliteral">&quot;208&quot;</span>, <span class="stringliteral">&quot;202&quot;</span>, <span class="stringliteral">&quot;160&quot;</span>, <span class="stringliteral">&quot;196&quot;</span>, <span class="stringliteral">&quot;197&quot;</span>, <span class="stringliteral">&quot;198&quot;</span>, <span class="stringliteral">&quot;197&quot;</span>,</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    };</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hue : hues) {</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        colors.push_back(<span class="stringliteral">&quot;\033[38;5;&quot;</span> + hue + <span class="stringliteral">&quot;m&quot;</span>);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    }</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordflow">return</span> colors;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">// 1 + 24 + 1</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    colors.emplace_back(<span class="stringliteral">&quot;\033[38;5;231m&quot;</span>); <span class="comment">// white</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    std::vector&lt;std::string&gt; hues = {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="stringliteral">&quot;225&quot;</span>, <span class="stringliteral">&quot;219&quot;</span>, <span class="stringliteral">&quot;218&quot;</span>, <span class="stringliteral">&quot;211&quot;</span>, <span class="stringliteral">&quot;212&quot;</span>, <span class="stringliteral">&quot;213&quot;</span>, <span class="stringliteral">&quot;207&quot;</span>, <span class="stringliteral">&quot;206&quot;</span>, <span class="stringliteral">&quot;200&quot;</span>, <span class="stringliteral">&quot;201&quot;</span>, <span class="stringliteral">&quot;165&quot;</span>, <span class="stringliteral">&quot;129&quot;</span>, <span class="stringliteral">&quot;093&quot;</span>,</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="stringliteral">&quot;057&quot;</span>, <span class="stringliteral">&quot;021&quot;</span>, <span class="stringliteral">&quot;027&quot;</span>, <span class="stringliteral">&quot;033&quot;</span>, <span class="stringliteral">&quot;039&quot;</span>, <span class="stringliteral">&quot;045&quot;</span>, <span class="stringliteral">&quot;051&quot;</span>, <span class="stringliteral">&quot;087&quot;</span>, <span class="stringliteral">&quot;050&quot;</span>, <span class="stringliteral">&quot;049&quot;</span>, <span class="stringliteral">&quot;086&quot;</span>, <span class="stringliteral">&quot;085&quot;</span>, <span class="stringliteral">&quot;048&quot;</span>,</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <span class="stringliteral">&quot;047&quot;</span>, <span class="stringliteral">&quot;084&quot;</span>, <span class="stringliteral">&quot;083&quot;</span>, <span class="stringliteral">&quot;046&quot;</span>, <span class="stringliteral">&quot;082&quot;</span>, <span class="stringliteral">&quot;119&quot;</span>, <span class="stringliteral">&quot;155&quot;</span>, <span class="stringliteral">&quot;118&quot;</span>, <span class="stringliteral">&quot;154&quot;</span>, <span class="stringliteral">&quot;191&quot;</span>, <span class="stringliteral">&quot;190&quot;</span>, <span class="stringliteral">&quot;226&quot;</span>, <span class="stringliteral">&quot;227&quot;</span>,</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="stringliteral">&quot;221&quot;</span>, <span class="stringliteral">&quot;220&quot;</span>, <span class="stringliteral">&quot;214&quot;</span>, <span class="stringliteral">&quot;208&quot;</span>, <span class="stringliteral">&quot;202&quot;</span>, <span class="stringliteral">&quot;160&quot;</span>, <span class="stringliteral">&quot;196&quot;</span>, <span class="stringliteral">&quot;197&quot;</span>, <span class="stringliteral">&quot;198&quot;</span>, <span class="stringliteral">&quot;197&quot;</span>,</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    };</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hue : hues) {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        colors.push_back(<span class="stringliteral">&quot;\033[38;5;&quot;</span> + hue + <span class="stringliteral">&quot;m&quot;</span>);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    }</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">return</span> colors;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00023">i</a>.</p>
 
@@ -665,26 +838,37 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of iterations before the point escapes the Julia set. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                                                                                                  {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    std::complex&lt;T&gt; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> = z0;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">size_t</span> iter = 0;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">for</span> (; iter &lt; max_iterations; iter++) {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> = <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> * <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> + c;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">if</span> (std::norm(<a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a>) &gt; 4.0)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">return</span> iter;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a5">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                                                                                  {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    std::complex&lt;T&gt; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> = z0;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">size_t</span> iter = 0;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">for</span> (; iter &lt; max_iterations; iter++) {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> = <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> * <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> + c;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ac12a3b113ae6b7edd2fcb21280c0f804">std::norm</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a>) &gt; 4.0)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">return</span> iter;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="ttc" id="anamespaceMyBLAS_html_ac12a3b113ae6b7edd2fcb21280c0f804"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ac12a3b113ae6b7edd2fcb21280c0f804">MyBLAS::norm</a></div><div class="ttdeci">T norm(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdef"><b>Definition:</b> Ops.h:86</div></div>
 <div class="ttc" id="aplot__points_8m_html_aa2db2e9f2595428cfee4d81a6d0cd076"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a></div><div class="ttdeci">change this to your actual nodes Compute the maximum of the fourth derivative in the interval[-1, 1] z</div><div class="ttdef"><b>Definition:</b> plot_points.m:34</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00034">z</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00086">MyBLAS::norm()</a>, and <a class="el" href="../../#l00034">z</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00250">printJuliaSet()</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00253">printJuliaSet()</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_a059322c7104ae7ad1ee091c6e7ca17c1_cgraph.svg" width="518" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_a059322c7104ae7ad1ee091c6e7ca17c1_icgraph.svg" width="294" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -747,68 +931,70 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                                                                                                    {</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keyword">const</span> T x_range = fabsl(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a9452d6cd24c6720c89dca7a6ef79c951">x_stop</a> - canvas.<a class="code" href="../../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef">x_start</a>);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keyword">const</span> T y_range = fabsl(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a40d3b68adffe86c1929573506b7890a4">y_stop</a> - canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a8315e255285d79d96eab534f99667b90">y_start</a>);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    T x_step = x_range / <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">width</a>);</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    T y_step = y_range / <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">height</a>);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keyword">const</span> std::complex&lt;T&gt; c(x0, y0);</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    T <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;T&gt;::max</a>();</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    T <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::numeric_limits&lt;T&gt;::min</a>();</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    T avg = 0.0;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> &lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">height</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>) {</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> &lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">width</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>) {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            std::complex&lt;T&gt; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> = std::complex&lt;T&gt;(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef">x_start</a> + <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> * x_step, canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a8315e255285d79d96eab534f99667b90">y_start</a> + <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> * y_step);</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <span class="keywordtype">size_t</span> iter = <a class="code" href="../../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1">juliaSetIterations</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a>, c, max_iterations);</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <span class="keyword">const</span> T log_iter = std::log2(iter);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordflow">if</span> (log_iter == NAN || std::isinf(<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">double</span><span class="keyword">&gt;</span>(log_iter))) {</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            }</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::min</a>(<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a>, log_iter);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::max</a>(<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a>, log_iter);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            avg += log_iter;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        }</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    }</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    avg = avg / (canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">width</a> * canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">height</a>);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    std::vector&lt;std::string&gt; colors = <a class="code" href="../../db/df1/Helpers_8h.html#a1e95f5da95a0e7c0b5d568c5400f4f30">getGrays256bitANSI</a>(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aa0f947244ab147889e71377d50ee1f0a">tone_map</a>.scaling_factor, canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aa0f947244ab147889e71377d50ee1f0a">tone_map</a>.growth_rate);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> &lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">height</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>) {</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> &lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">width</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>) {</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            std::complex&lt;T&gt; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> = std::complex&lt;T&gt;(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef">x_start</a> + <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> * x_step, canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a8315e255285d79d96eab534f99667b90">y_start</a> + <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> * y_step);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <span class="keywordtype">size_t</span> iter = <a class="code" href="../../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1">juliaSetIterations</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a>, c, max_iterations);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            T log_iter = std::log2(iter);</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            T enhanced_value = (log_iter - avg) * canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a0824b60e2d1b9aec0964ac4a9a1cdfdc">contrast</a> + avg;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            T color_index = scale&lt;T&gt;(enhanced_value, <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a>, <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a>, 0, colors.size());</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <span class="keywordtype">size_t</span> clamped_index = std::clamp&lt;size_t&gt;(<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(color_index), 0, colors.size() - 1);</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            std::cout &lt;&lt; colors[clamped_index] &lt;&lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#ac08ff906813fe06ee1a8309c90bd1896">character</a>;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        }</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        std::cout &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\033[0m&quot;</span>;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;}</div>
-<div class="ttc" id="aHelpers_8h_html_a059322c7104ae7ad1ee091c6e7ca17c1"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1">juliaSetIterations</a></div><div class="ttdeci">size_t juliaSetIterations(const std::complex&lt; T &gt; &amp;z0, const std::complex&lt; T &gt; &amp;c, size_t max_iterations)</div><div class="ttdoc">Calculates the number of iterations for a given point in the Julia set.</div><div class="ttdef"><b>Definition:</b> Helpers.h:111</div></div>
-<div class="ttc" id="aHelpers_8h_html_a0824b60e2d1b9aec0964ac4a9a1cdfdc"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a0824b60e2d1b9aec0964ac4a9a1cdfdc">CanvasType::contrast</a></div><div class="ttdeci">T contrast</div><div class="ttdef"><b>Definition:</b> Helpers.h:161</div></div>
-<div class="ttc" id="aHelpers_8h_html_a1e95f5da95a0e7c0b5d568c5400f4f30"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a1e95f5da95a0e7c0b5d568c5400f4f30">getGrays256bitANSI</a></div><div class="ttdeci">static std::vector&lt; std::string &gt; getGrays256bitANSI(double scaling_factor=1e-7, double growth_rate=0.3)</div><div class="ttdoc">Generates a vector of 256-bit ANSI gray shades.</div><div class="ttdef"><b>Definition:</b> Helpers.h:170</div></div>
-<div class="ttc" id="aHelpers_8h_html_a40d3b68adffe86c1929573506b7890a4"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a40d3b68adffe86c1929573506b7890a4">CanvasType::y_stop</a></div><div class="ttdeci">T y_stop</div><div class="ttdef"><b>Definition:</b> Helpers.h:159</div></div>
-<div class="ttc" id="aHelpers_8h_html_a8315e255285d79d96eab534f99667b90"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a8315e255285d79d96eab534f99667b90">CanvasType::y_start</a></div><div class="ttdeci">T y_start</div><div class="ttdef"><b>Definition:</b> Helpers.h:157</div></div>
-<div class="ttc" id="aHelpers_8h_html_a89825bd61e85c79d60488294e66814f0"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">CanvasType::height</a></div><div class="ttdeci">size_t height</div><div class="ttdef"><b>Definition:</b> Helpers.h:155</div></div>
-<div class="ttc" id="aHelpers_8h_html_a9452d6cd24c6720c89dca7a6ef79c951"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a9452d6cd24c6720c89dca7a6ef79c951">CanvasType::x_stop</a></div><div class="ttdeci">T x_stop</div><div class="ttdef"><b>Definition:</b> Helpers.h:158</div></div>
-<div class="ttc" id="aHelpers_8h_html_aa0f947244ab147889e71377d50ee1f0a"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#aa0f947244ab147889e71377d50ee1f0a">CanvasType::tone_map</a></div><div class="ttdeci">ToneMap&lt; T &gt; tone_map</div><div class="ttdef"><b>Definition:</b> Helpers.h:162</div></div>
-<div class="ttc" id="aHelpers_8h_html_ac08ff906813fe06ee1a8309c90bd1896"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#ac08ff906813fe06ee1a8309c90bd1896">CanvasType::character</a></div><div class="ttdeci">std::string character</div><div class="ttdef"><b>Definition:</b> Helpers.h:160</div></div>
-<div class="ttc" id="aHelpers_8h_html_acc09cd65412ac3acbe3a3b875068f9ef"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef">CanvasType::x_start</a></div><div class="ttdeci">T x_start</div><div class="ttdef"><b>Definition:</b> Helpers.h:156</div></div>
-<div class="ttc" id="aHelpers_8h_html_aec1ec16db39c0ca2ad78151ad8db7c80"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">CanvasType::width</a></div><div class="ttdeci">size_t width</div><div class="ttdef"><b>Definition:</b> Helpers.h:154</div></div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a29">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                                                                                                    {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keyword">const</span> T x_range = fabsl(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a9452d6cd24c6720c89dca7a6ef79c951">x_stop</a> - canvas.<a class="code" href="../../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef">x_start</a>);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keyword">const</span> T y_range = fabsl(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a40d3b68adffe86c1929573506b7890a4">y_stop</a> - canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a8315e255285d79d96eab534f99667b90">y_start</a>);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    T x_step = x_range / <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">width</a>);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    T y_step = y_range / <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">height</a>);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keyword">const</span> std::complex&lt;T&gt; c(x0, y0);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    T <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;T&gt;::max</a>();</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    T <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::numeric_limits&lt;T&gt;::min</a>();</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    T avg = 0.0;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> &lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">height</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>) {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> &lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">width</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>) {</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            std::complex&lt;T&gt; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> = std::complex&lt;T&gt;(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef">x_start</a> + <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> * x_step, canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a8315e255285d79d96eab534f99667b90">y_start</a> + <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> * y_step);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="keywordtype">size_t</span> iter = <a class="code" href="../../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1">juliaSetIterations</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a>, c, max_iterations);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="keyword">const</span> T log_iter = std::log2(iter);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="keywordflow">if</span> (log_iter == NAN || std::isinf(<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">double</span><span class="keyword">&gt;</span>(log_iter))) {</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">std::min</a>(<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a>, log_iter);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a> = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::max</a>(<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a>, log_iter);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            avg += log_iter;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    avg = avg / (canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">width</a> * canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">height</a>);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    std::vector&lt;std::string&gt; colors = <a class="code" href="../../db/df1/Helpers_8h.html#a1e95f5da95a0e7c0b5d568c5400f4f30">getGrays256bitANSI</a>(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aa0f947244ab147889e71377d50ee1f0a">tone_map</a>.scaling_factor, canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aa0f947244ab147889e71377d50ee1f0a">tone_map</a>.growth_rate);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> &lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">height</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>) {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> &lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">width</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>) {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            std::complex&lt;T&gt; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a> = std::complex&lt;T&gt;(canvas.<a class="code" href="../../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef">x_start</a> + <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> * x_step, canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a8315e255285d79d96eab534f99667b90">y_start</a> + <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> * y_step);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <span class="keywordtype">size_t</span> iter = <a class="code" href="../../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1">juliaSetIterations</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#aa2db2e9f2595428cfee4d81a6d0cd076">z</a>, c, max_iterations);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            T log_iter = std::log2(iter);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            T enhanced_value = (log_iter - avg) * canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a0824b60e2d1b9aec0964ac4a9a1cdfdc">contrast</a> + avg;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            T color_index = scale&lt;T&gt;(enhanced_value, <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a>, <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a>, 0, colors.size());</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            <span class="keywordtype">size_t</span> clamped_index = std::clamp&lt;size_t&gt;(<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(color_index), 0, colors.size() - 1);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            std::cout &lt;&lt; colors[clamped_index] &lt;&lt; canvas.<a class="code" href="../../db/df1/Helpers_8h.html#ac08ff906813fe06ee1a8309c90bd1896">character</a>;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        }</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        std::cout &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    }</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\033[0m&quot;</span>;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;}</div>
+<div class="ttc" id="aHelpers_8h_html_a059322c7104ae7ad1ee091c6e7ca17c1"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1">juliaSetIterations</a></div><div class="ttdeci">size_t juliaSetIterations(const std::complex&lt; T &gt; &amp;z0, const std::complex&lt; T &gt; &amp;c, size_t max_iterations)</div><div class="ttdoc">Calculates the number of iterations for a given point in the Julia set.</div><div class="ttdef"><b>Definition:</b> Helpers.h:114</div></div>
+<div class="ttc" id="aHelpers_8h_html_a0824b60e2d1b9aec0964ac4a9a1cdfdc"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a0824b60e2d1b9aec0964ac4a9a1cdfdc">CanvasType::contrast</a></div><div class="ttdeci">T contrast</div><div class="ttdef"><b>Definition:</b> Helpers.h:164</div></div>
+<div class="ttc" id="aHelpers_8h_html_a1e95f5da95a0e7c0b5d568c5400f4f30"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a1e95f5da95a0e7c0b5d568c5400f4f30">getGrays256bitANSI</a></div><div class="ttdeci">static std::vector&lt; std::string &gt; getGrays256bitANSI(double scaling_factor=1e-7, double growth_rate=0.3)</div><div class="ttdoc">Generates a vector of 256-bit ANSI gray shades.</div><div class="ttdef"><b>Definition:</b> Helpers.h:173</div></div>
+<div class="ttc" id="aHelpers_8h_html_a40d3b68adffe86c1929573506b7890a4"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a40d3b68adffe86c1929573506b7890a4">CanvasType::y_stop</a></div><div class="ttdeci">T y_stop</div><div class="ttdef"><b>Definition:</b> Helpers.h:162</div></div>
+<div class="ttc" id="aHelpers_8h_html_a8315e255285d79d96eab534f99667b90"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a8315e255285d79d96eab534f99667b90">CanvasType::y_start</a></div><div class="ttdeci">T y_start</div><div class="ttdef"><b>Definition:</b> Helpers.h:160</div></div>
+<div class="ttc" id="aHelpers_8h_html_a89825bd61e85c79d60488294e66814f0"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0">CanvasType::height</a></div><div class="ttdeci">size_t height</div><div class="ttdef"><b>Definition:</b> Helpers.h:158</div></div>
+<div class="ttc" id="aHelpers_8h_html_a9452d6cd24c6720c89dca7a6ef79c951"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a9452d6cd24c6720c89dca7a6ef79c951">CanvasType::x_stop</a></div><div class="ttdeci">T x_stop</div><div class="ttdef"><b>Definition:</b> Helpers.h:161</div></div>
+<div class="ttc" id="aHelpers_8h_html_aa0f947244ab147889e71377d50ee1f0a"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#aa0f947244ab147889e71377d50ee1f0a">CanvasType::tone_map</a></div><div class="ttdeci">ToneMap&lt; T &gt; tone_map</div><div class="ttdef"><b>Definition:</b> Helpers.h:165</div></div>
+<div class="ttc" id="aHelpers_8h_html_ac08ff906813fe06ee1a8309c90bd1896"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#ac08ff906813fe06ee1a8309c90bd1896">CanvasType::character</a></div><div class="ttdeci">std::string character</div><div class="ttdef"><b>Definition:</b> Helpers.h:163</div></div>
+<div class="ttc" id="aHelpers_8h_html_acc09cd65412ac3acbe3a3b875068f9ef"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef">CanvasType::x_start</a></div><div class="ttdeci">T x_start</div><div class="ttdef"><b>Definition:</b> Helpers.h:159</div></div>
+<div class="ttc" id="aHelpers_8h_html_aec1ec16db39c0ca2ad78151ad8db7c80"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80">CanvasType::width</a></div><div class="ttdeci">size_t width</div><div class="ttdef"><b>Definition:</b> Helpers.h:157</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00160">CanvasType&lt; T &gt;::character</a>, <a class="el" href="../../#l00161">CanvasType&lt; T &gt;::contrast</a>, <a class="el" href="../../#l00170">getGrays256bitANSI()</a>, <a class="el" href="../../#l00155">CanvasType&lt; T &gt;::height</a>, <a class="el" href="../../#l00111">juliaSetIterations()</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00213">MyBLAS::min()</a>, <a class="el" href="../../#l00162">CanvasType&lt; T &gt;::tone_map</a>, <a class="el" href="../../#l00154">CanvasType&lt; T &gt;::width</a>, <a class="el" href="../../#l00018">x</a>, <a class="el" href="../../#l00156">CanvasType&lt; T &gt;::x_start</a>, <a class="el" href="../../#l00158">CanvasType&lt; T &gt;::x_stop</a>, <a class="el" href="../../#l00020">y</a>, <a class="el" href="../../#l00157">CanvasType&lt; T &gt;::y_start</a>, <a class="el" href="../../#l00159">CanvasType&lt; T &gt;::y_stop</a>, and <a class="el" href="../../#l00034">z</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00163">CanvasType&lt; T &gt;::character</a>, <a class="el" href="../../#l00164">CanvasType&lt; T &gt;::contrast</a>, <a class="el" href="../../#l00173">getGrays256bitANSI()</a>, <a class="el" href="../../#l00158">CanvasType&lt; T &gt;::height</a>, <a class="el" href="../../#l00114">juliaSetIterations()</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00213">MyBLAS::min()</a>, <a class="el" href="../../#l00165">CanvasType&lt; T &gt;::tone_map</a>, <a class="el" href="../../#l00157">CanvasType&lt; T &gt;::width</a>, <a class="el" href="../../#l00018">x</a>, <a class="el" href="../../#l00159">CanvasType&lt; T &gt;::x_start</a>, <a class="el" href="../../#l00161">CanvasType&lt; T &gt;::x_stop</a>, <a class="el" href="../../#l00020">y</a>, <a class="el" href="../../#l00160">CanvasType&lt; T &gt;::y_start</a>, <a class="el" href="../../#l00162">CanvasType&lt; T &gt;::y_stop</a>, and <a class="el" href="../../#l00034">z</a>.</p>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_ae8d5abc9a487df9eaa8058819e252d0f_cgraph.svg" width="100%" height="477"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_ae8d5abc9a487df9eaa8058819e252d0f_cgraph.svg" width="100%" height="483"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -864,16 +1050,18 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>This function uses the boost library's any class to allow for type erasure, meaning the function can accept any type for the new value. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                                                                                            {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    vm[opt].value() = boost::any(val);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a0">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                                                                                            {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    vm[opt].value() = boost::any(val);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00317">performChecksAndUpdateInput()</a>, <a class="el" href="../../#l00044">Parser::performInputArgumentsCheck()</a>, <a class="el" href="../../#l00358">promptAndSetFlags()</a>, <a class="el" href="../../#l00112">CommandLine&lt; InputType &gt;::setPrecision()</a>, and <a class="el" href="../../#l00047">syncMapKeys()</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00317">performChecksAndUpdateInput()</a>, <a class="el" href="../../#l00044">Parser::performInputArgumentsCheck()</a>, <a class="el" href="../../#l00358">promptAndSetFlags()</a>, <a class="el" href="../../#l00111">CommandLine&lt; InputType &gt;::setPrecision()</a>, and <a class="el" href="../../#l00050">syncMapKeys()</a>.</p>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_a06fb04e23a8f81efa8cd535a7abf1045_icgraph.svg" width="631" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -952,9 +1140,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The scaled value in the new range </dd></dl>
-<div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                                                                          {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> (value - old_min) * (new_max - new_min) / (old_max - old_min) + new_min;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a4">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                                                                          {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> (value - old_min) * (new_max - new_min) / (old_max - old_min) + new_min;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1008,25 +1198,27 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                                                                                 {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// first, check if key is in the variables_map</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span> (map.count(key)) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// if yes, update it in the JSON map.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        inputMap[key] = map[key].as&lt;T&gt;();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// then, if key is in the JSON map, read value from the JSON map into the variables_map.</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span> (inputMap.contains(key)) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a>(map, key, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(inputMap[key]));</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="ttc" id="aHelpers_8h_html_a06fb04e23a8f81efa8cd535a7abf1045"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a></div><div class="ttdeci">void replace(std::map&lt; std::string, boost::program_options::variable_value &gt; &amp;vm, const std::string &amp;opt, const T &amp;val)</div><div class="ttdoc">This function replaces the value of a specified option in a map with a new value.</div><div class="ttdef"><b>Definition:</b> Helpers.h:30</div></div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a1">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                                                                                 {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// first, check if key is in the variables_map</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span> (map.count(key)) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">// if yes, update it in the JSON map.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        inputMap[key] = map[key].as&lt;T&gt;();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// then, if key is in the JSON map, read value from the JSON map into the variables_map.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span> (inputMap.contains(key)) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a>(map, key, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(inputMap[key]));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="ttc" id="aHelpers_8h_html_a06fb04e23a8f81efa8cd535a7abf1045"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a></div><div class="ttdeci">void replace(std::map&lt; std::string, boost::program_options::variable_value &gt; &amp;vm, const std::string &amp;opt, const T &amp;val)</div><div class="ttdoc">This function replaces the value of a specified option in a map with a new value.</div><div class="ttdef"><b>Definition:</b> Helpers.h:33</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00030">replace()</a>.</p>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00033">replace()</a>.</p>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../db/df1/Helpers_8h_a5cca50f9107a85d3e83408fa073a9caf_cgraph.svg" width="240" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>

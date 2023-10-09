@@ -267,19 +267,20 @@ var NAVTREE =
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/d59/labs_2outlab4_2Compute_8h.html#a278b70718fc6b42c7d239434849c2837",
-"d4/dae/structInput.html#a212fe61f708c212e8dac91d145146050",
-"d8/d13/inlab2_2tests_2sanity__check_8m.html#ac23d1ec3c9cdee0560922ea087e9ee95",
-"db/dde/readfile_8m.html#a3878e0748e815350f284f8084e5a47c1",
-"dd/dfb/outlab6.html#autotoc_md138",
-"index.html#autotoc_md21"
+"d1/d18/namespaceMyFactorizationMethod.html#ab56ef0cc2766cd82b4d99b3f435b81e8a955b50bedc9cd0142e46720f012c613d",
+"d4/d63/classInLab2.html#ad65b2a3d174b2df1a32e3b6622137e60",
+"d7/df7/labs_2outlab3_2InputsOutputs_8h.html#abea9aeff876052022e7c4c6beb629bb6a592187f3a6746679fc32286eefb524dc",
+"da/df0/classOutLab3.html#a6a745ed8b9a383f5c1fe341a530301ed",
+"dd/dd7/plot__points_8m.html#a6fdbb88b06c04398b86a3ccc89d9b278",
+"functions_t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

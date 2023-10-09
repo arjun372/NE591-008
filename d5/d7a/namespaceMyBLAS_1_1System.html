@@ -125,16 +125,16 @@ $(document).ready(function(){initNavTree('d5/d7a/namespaceMyBLAS_1_1System.html'
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5b9991a25190905c20d452052c663124"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5b9991a25190905c20d452052c663124"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a5b9991a25190905c20d452052c663124">Circuit</a> (const size_t <a class="el" href="../../d2/d12/outlab2_2examples_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; T &gt; &amp;A, <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; &amp;b, <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; &amp;<a class="el" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, const size_t seed=372)</td></tr>
-<tr class="memdesc:a5b9991a25190905c20d452052c663124"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function generates a circuit with random resistances and currents, and computes the corresponding voltages. The circuit is represented by a system of linear equations Ax = b, where A is the resistance matrix, x is the current vector, and b is the voltage vector.  <a href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a5b9991a25190905c20d452052c663124">More...</a><br /></td></tr>
-<tr class="separator:a5b9991a25190905c20d452052c663124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a487070ac751d33afa7f9fceaef312ea0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a487070ac751d33afa7f9fceaef312ea0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a487070ac751d33afa7f9fceaef312ea0">Circuit</a> (const size_t <a class="el" href="../../d2/d12/outlab2_2examples_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; T &gt; &amp;A, <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; &amp;b, <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; &amp;<a class="el" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, const size_t seed=180)</td></tr>
+<tr class="memdesc:a487070ac751d33afa7f9fceaef312ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function generates a circuit with random resistances and currents, and computes the corresponding voltages. The circuit is represented by a system of linear equations Ax = b, where A is the resistance matrix, x is the current vector, and b is the voltage vector.  <a href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a487070ac751d33afa7f9fceaef312ea0">More...</a><br /></td></tr>
+<tr class="separator:a487070ac751d33afa7f9fceaef312ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This namespace contains system-related functions in the <a class="el" href="../../d2/d6e/namespaceMyBLAS.html" title="Namespace containing linear algebra functions and classes.">MyBLAS</a> library. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a5b9991a25190905c20d452052c663124"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b9991a25190905c20d452052c663124">&#9670;&nbsp;</a></span>Circuit()</h2>
+<a id="a487070ac751d33afa7f9fceaef312ea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a487070ac751d33afa7f9fceaef312ea0">&#9670;&nbsp;</a></span>Circuit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +169,7 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const size_t&#160;</td>
-          <td class="paramname"><em>seed</em> = <code>372</code>&#160;</td>
+          <td class="paramname"><em>seed</em> = <code>180</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -210,7 +210,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   <span class="comment">// Generate a vector of random currents within the defined range</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> currents = <a class="code" href="../../d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845">Random::generate</a>(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, min_current, max_current, seed);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   <span class="comment">// Generate a matrix of random resistors, each with a resistance sampled from U(1, 10k) Ω</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   <span class="comment">// Generate a matrix with randomly placed resistors, each with a resistance sampled from U(1, 10k) Ω</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;   <span class="comment">// Start with a 2D bitmap of resistors</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;   <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;T&gt;</a> resistors = Random::binary&lt;T&gt;(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, seed);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
@@ -227,7 +227,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;   <span class="comment">// applied as a scalar offset. If it was applied as a multiplier or some other function, then diagonal dominance will</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;   <span class="comment">// become a function of the matrix size, sampling distribution, and sampling range. This is not good for our</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;   <span class="comment">// benchmarks since we need the extent of dominance to be invariant. Otherwise, matrix size will affect convergence.</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;   <span class="keyword">const</span> T dominance = 1;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;   <span class="keyword">const</span> T dominance = max_resistance / min_resistance;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;   <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a95a31a537601936a645cd405411f3732">MyBLAS::makeDiagonallyDominant</a>(resistances, dominance);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;   <span class="comment">// If the resistance matrix is not diagonally dominant, print a warning message</span></div>
@@ -247,12 +247,12 @@ template&lt;typename T &gt; </div>
 <div class="ttc" id="aclassMyBLAS_1_1Vector_html"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a></div><div class="ttdoc">Class representing a vector of T values.</div><div class="ttdef"><b>Definition:</b> Vector.h:20</div></div>
 <div class="ttc" id="ainlab2_2tests_2sanity__check_8m_html_aaf3e08bd5df22a84e842a1ee58631684"><div class="ttname"><a href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a></div><div class="ttdeci">Number of points to sample n</div><div class="ttdef"><b>Definition:</b> sanity_check.m:15</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_a4c6e919f9667070f40bd837a5f6bcab6"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a4c6e919f9667070f40bd837a5f6bcab6">MyBLAS::isDiagonallyDominant</a></div><div class="ttdeci">bool isDiagonallyDominant(const MyBLAS::Matrix&lt; T &gt; &amp;A)</div><div class="ttdoc">Checks if the given matrix is diagonally dominant.</div><div class="ttdef"><b>Definition:</b> MyBLAS.h:261</div></div>
-<div class="ttc" id="anamespaceMyBLAS_html_a95a31a537601936a645cd405411f3732"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a95a31a537601936a645cd405411f3732">MyBLAS::makeDiagonallyDominant</a></div><div class="ttdeci">void makeDiagonallyDominant(MyBLAS::Matrix&lt; T &gt; &amp;A, const T dominance_offset=1)</div><div class="ttdoc">Makes the given matrix diagonally dominant.</div><div class="ttdef"><b>Definition:</b> MyBLAS.h:296</div></div>
-<div class="ttc" id="anamespaceMyBLAS_html_ad7773b2c0d8c2fea46841a6522f483f5"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ad7773b2c0d8c2fea46841a6522f483f5">MyBLAS::innerProduct</a></div><div class="ttdeci">MyBLAS::Matrix&lt; T &gt; innerProduct(const MyBLAS::Matrix&lt; T &gt; &amp;A, const MyBLAS::Matrix&lt; T &gt; &amp;B)</div><div class="ttdoc">Computes the inner product of two matrices.</div><div class="ttdef"><b>Definition:</b> MyBLAS.h:378</div></div>
+<div class="ttc" id="anamespaceMyBLAS_html_a95a31a537601936a645cd405411f3732"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a95a31a537601936a645cd405411f3732">MyBLAS::makeDiagonallyDominant</a></div><div class="ttdeci">void makeDiagonallyDominant(MyBLAS::Matrix&lt; T &gt; &amp;A, const T dominance_offset=1)</div><div class="ttdoc">Makes the given matrix diagonally dominant.</div><div class="ttdef"><b>Definition:</b> Ops.h:149</div></div>
+<div class="ttc" id="anamespaceMyBLAS_html_ad7773b2c0d8c2fea46841a6522f483f5"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ad7773b2c0d8c2fea46841a6522f483f5">MyBLAS::innerProduct</a></div><div class="ttdeci">MyBLAS::Matrix&lt; T &gt; innerProduct(const MyBLAS::Matrix&lt; T &gt; &amp;A, const MyBLAS::Matrix&lt; T &gt; &amp;B)</div><div class="ttdoc">Computes the inner product of two matrices.</div><div class="ttdef"><b>Definition:</b> MyBLAS.h:347</div></div>
 <div class="ttc" id="anamespaceRandom_html_a26c3caf157a29ac9d9227ec40248c845"><div class="ttname"><a href="../../d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845">Random::generate</a></div><div class="ttdeci">MyBLAS::Vector&lt; T &gt; generate(const size_t n, T min=0, T max=1, const long long seed=372)</div><div class="ttdoc">Generates a vector of random numbers.</div><div class="ttdef"><b>Definition:</b> Random.h:33</div></div>
 <div class="ttc" id="aplot__points_8m_html_a9336ebf25087d91c818ee6e9ec29f8c1"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a></div><div class="ttdeci">Define the x values x</div><div class="ttdef"><b>Definition:</b> plot_points.m:18</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00033">Random::generate()</a>, <a class="el" href="../../#l00378">MyBLAS::innerProduct()</a>, <a class="el" href="../../#l00261">MyBLAS::isDiagonallyDominant()</a>, <a class="el" href="../../#l00296">MyBLAS::makeDiagonallyDominant()</a>, <a class="el" href="../../#l00015">n</a>, and <a class="el" href="../../#l00018">x</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00033">Random::generate()</a>, <a class="el" href="../../#l00347">MyBLAS::innerProduct()</a>, <a class="el" href="../../#l00261">MyBLAS::isDiagonallyDominant()</a>, <a class="el" href="../../#l00149">MyBLAS::makeDiagonallyDominant()</a>, <a class="el" href="../../#l00015">n</a>, and <a class="el" href="../../#l00018">x</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00185">Parser::buildInputs()</a>.</p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -260,7 +260,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d5/d7a/namespaceMyBLAS_1_1System_a5b9991a25190905c20d452052c663124_cgraph.svg" width="100%" height="537"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d5/d7a/namespaceMyBLAS_1_1System_a487070ac751d33afa7f9fceaef312ea0_cgraph.svg" width="100%" height="594"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -268,7 +268,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d7a/namespaceMyBLAS_1_1System_a5b9991a25190905c20d452052c663124_icgraph.svg" width="384" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d7a/namespaceMyBLAS_1_1System_a487070ac751d33afa7f9fceaef312ea0_icgraph.svg" width="384" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

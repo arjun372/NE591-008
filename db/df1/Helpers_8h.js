@@ -16,7 +16,11 @@ var Helpers_8h =
       [ "y_stop", "db/df1/Helpers_8h.html#a40d3b68adffe86c1929573506b7890a4", null ]
     ] ],
     [ "Canvas", "db/df1/Helpers_8h.html#a0377a5c8655df94f1eb51072a36fd8e5", null ],
+    [ "mean", "db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9", null ],
+    [ "variance", "db/df1/Helpers_8h.html#a010d918706cfc56207dee5c39bd0e9f4", null ],
+    [ "computeMeanStd", "db/df1/Helpers_8h.html#a47bde9d4fb76f7eee1cfe4a98be0f8db", null ],
     [ "fill_linspace", "db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12", null ],
+    [ "formatMeanStd", "db/df1/Helpers_8h.html#a97f5ae737c1d7ece540e2b07c8e8b3d4", null ],
     [ "getGrays256bitANSI", "db/df1/Helpers_8h.html#a1e95f5da95a0e7c0b5d568c5400f4f30", null ],
     [ "getHSV256bitANSI", "db/df1/Helpers_8h.html#ac788bc861fa4b3099e6b8fb61ac3cb1c", null ],
     [ "juliaSetIterations", "db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1", null ],

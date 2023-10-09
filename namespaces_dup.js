@@ -78,6 +78,24 @@ var namespaces_dup =
       [ "origin", "d8/d21/namespaceplot__heatmap.html#ae2a35df4575bad615296012c8c530190", null ],
       [ "q_matrix", "d8/d21/namespaceplot__heatmap.html#aa36befd72222df3a98ea9d4f9077c206", null ]
     ] ],
+    [ "process", "d8/d25/namespaceprocess.html", [
+      [ "read_json_files", "d8/d25/namespaceprocess.html#adba79abf8e82706ddf1b64fca14b5b6b", null ],
+      [ "data", "d8/d25/namespaceprocess.html#aa366096056d341f5955af73013ea8084", null ],
+      [ "dataframe", "d8/d25/namespaceprocess.html#a1e83182d6c23075177216aaf8f5e9014", null ],
+      [ "grouped", "d8/d25/namespaceprocess.html#a5fc07c431309a540aa4d66429d2892b2", null ],
+      [ "GS", "d8/d25/namespaceprocess.html#a0dff0618287136adeaa6ba62309ebcd9", null ],
+      [ "inputs", "d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1", null ],
+      [ "line", "d8/d25/namespaceprocess.html#aa78c8a32fee04f1af259d3dbe78f6a4e", null ],
+      [ "LUP", "d8/d25/namespaceprocess.html#a0e410273b2738e5694043784b5f3c7f5", null ],
+      [ "lup_error", "d8/d25/namespaceprocess.html#a1f4611f8dc34dd7519335d3c61d2bb75", null ],
+      [ "lup_residual", "d8/d25/namespaceprocess.html#a66b1dc3599e4bde6ccdeb274fbf2a1f8", null ],
+      [ "order", "d8/d25/namespaceprocess.html#a799d9caae67348a27507afc50b676b30", null ],
+      [ "PJ", "d8/d25/namespaceprocess.html#a2aa0b24a43c52846132d29f162ec5f4a", null ],
+      [ "row", "d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3", null ],
+      [ "SOR", "d8/d25/namespaceprocess.html#a31d8fce8cc3b03928892d4c629403550", null ],
+      [ "SORJ", "d8/d25/namespaceprocess.html#ad079b5e116de83371494232c3f439cf6", null ],
+      [ "SSOR", "d8/d25/namespaceprocess.html#a85caaece19ab0111a0cdefc71cfece4f", null ]
+    ] ],
     [ "Random", "d6/d03/namespaceRandom.html", [
       [ "binary", "d6/d03/namespaceRandom.html#a647fb4c4923c1ad6b7867e1ad5fd96b9", null ],
       [ "generate", "d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845", null ],

@@ -131,6 +131,5 @@ var classParser =
     [ "cmdArgs", "d0/d40/classParser.html#a22bc35edec68e8562f17f23df9cdf7a6", null ],
     [ "initialized", "d0/d40/classParser.html#ac36d882de9f1fa8da5c26f5dd822bc09", null ],
     [ "inputs", "d0/d40/classParser.html#ac832ae62f1a9173c3493c95a0e3acecc", null ],
-    [ "profiler", "d0/d40/classParser.html#af0c2382539829d383c1015cd1a7fb9d3", null ],
     [ "variablesMap", "d0/d40/classParser.html#ab9134e3b1d5c3324da1aef5f1c9b6354", null ]
 ];

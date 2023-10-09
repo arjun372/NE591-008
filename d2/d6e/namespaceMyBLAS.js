@@ -14,7 +14,7 @@ var namespaceMyBLAS =
       [ "recursiveFactorizeLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#a3aae3c4e098a271220214ee7b0f9a695", null ]
     ] ],
     [ "System", "d5/d7a/namespaceMyBLAS_1_1System.html", [
-      [ "Circuit", "d5/d7a/namespaceMyBLAS_1_1System.html#a5b9991a25190905c20d452052c663124", null ]
+      [ "Circuit", "d5/d7a/namespaceMyBLAS_1_1System.html#a487070ac751d33afa7f9fceaef312ea0", null ]
     ] ],
     [ "Input", "d7/dd6/structMyBLAS_1_1Input.html", "d7/dd6/structMyBLAS_1_1Input" ],
     [ "Output", "d9/d29/structMyBLAS_1_1Output.html", "d9/d29/structMyBLAS_1_1Output" ],
@@ -24,6 +24,8 @@ var namespaceMyBLAS =
     [ "OutputVector", "d2/d6e/namespaceMyBLAS.html#aa38232f345bc059ec641f60235dc0f50", null ],
     [ "abs", "d2/d6e/namespaceMyBLAS.html#a6f970b1188ed02d14bee3698f1b9d40a", null ],
     [ "abs", "d2/d6e/namespaceMyBLAS.html#a9db3b5457815887bf65b24bb4fe2937b", null ],
+    [ "AbsoluteMaxResidual", "d2/d6e/namespaceMyBLAS.html#ad38fb7c86134c4334e6bf29c2c734afd", null ],
+    [ "AbsoluteMaxResidual", "d2/d6e/namespaceMyBLAS.html#a5c6ac08b56fee69d079c63eda5482464", null ],
     [ "allDiagonalElementsBelowThreshold", "d2/d6e/namespaceMyBLAS.html#ac1553ed7aac22092b5a958ea0ff002ef", null ],
     [ "backwardSubstitution", "d2/d6e/namespaceMyBLAS.html#a86528af2903c4bfeb00683d2541ac094", null ],
     [ "cast", "d2/d6e/namespaceMyBLAS.html#a14eb86abe3a826572fe3c1a2bd8e8221", null ],
@@ -41,11 +43,14 @@ var namespaceMyBLAS =
     [ "isUpperTriangularMatrix", "d2/d6e/namespaceMyBLAS.html#ae3eb37c6222d37519ec4944ed7793c41", null ],
     [ "isValidUnitLowerTriangularMatrix", "d2/d6e/namespaceMyBLAS.html#a6f237b360d7d65a2b897fb259b9232c5", null ],
     [ "isValidUpperTriangularMatrix", "d2/d6e/namespaceMyBLAS.html#a5291106c1cd2b16faa80fad3630a7803", null ],
+    [ "L2", "d2/d6e/namespaceMyBLAS.html#abbd164d1df22dc6fcbf184c006d564aa", null ],
+    [ "L2", "d2/d6e/namespaceMyBLAS.html#a4a13a3c077ee693c0297e4c68cbcc521", null ],
     [ "L2Norm", "d2/d6e/namespaceMyBLAS.html#a265c371bae2192b15bddfba1ed55a007", null ],
     [ "L2Norm", "d2/d6e/namespaceMyBLAS.html#a919dcf7bd5292e4ded12f438f9cd2cd0", null ],
     [ "makeDiagonallyDominant", "d2/d6e/namespaceMyBLAS.html#a95a31a537601936a645cd405411f3732", null ],
     [ "max", "d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf", null ],
     [ "min", "d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7", null ],
+    [ "norm", "d2/d6e/namespaceMyBLAS.html#ac12a3b113ae6b7edd2fcb21280c0f804", null ],
     [ "noZerosInDiagonal", "d2/d6e/namespaceMyBLAS.html#a8a58dad3aacc3b2d45d0501bf97dc6e1", null ],
     [ "operator*", "d2/d6e/namespaceMyBLAS.html#aa37c00740fffc48c82fa1c7262e5df2d", null ],
     [ "operator*", "d2/d6e/namespaceMyBLAS.html#a0e0611bf2ca130cc573d632f490f2375", null ],

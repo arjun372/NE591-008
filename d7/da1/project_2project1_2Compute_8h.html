@@ -188,12 +188,15 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                                   {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Compute the mesh spacing in the x-direction using the formula: delta = a / (m + 1)</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    inputs.delta = inputs.a / (inputs.m + 1);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.delta = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.a / (<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.m + 1);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Compute the mesh spacing in the y-direction using the formula: gamma = b / (n + 1)</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    inputs.gamma = inputs.b / (inputs.n + 1);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.gamma = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.b / (<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.n + 1);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="ttc" id="anamespaceprocess_html_a28a68c9ef07157605b034da333fdcfc1"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">process.inputs</a></div><div class="ttdeci">inputs</div><div class="ttdef"><b>Definition:</b> process.py:19</div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00019">process::inputs</a>.</p>
+
 <p class="reference">Referenced by <a class="el" href="../../#l00238">Parser::buildInputs()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -257,8 +260,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                                                                                                     {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> = inputs.m;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = inputs.n;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.m;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.n;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    outputs.<a class="code" href="../../df/df1/structOutput.html#a46b20513ccb8423da25be47e52e7932e">fluxes</a> = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;long double&gt;</a>(<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> + 2, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> + 2, 0);</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
@@ -275,7 +278,7 @@ Functions</h2></td></tr>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 <div class="ttc" id="astructOutput_html_a46b20513ccb8423da25be47e52e7932e"><div class="ttname"><a href="../../df/df1/structOutput.html#a46b20513ccb8423da25be47e52e7932e">Output::fluxes</a></div><div class="ttdeci">MyBLAS::Matrix&lt; long double &gt; fluxes</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:103</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00103">Output::fluxes</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00009">m</a>, and <a class="el" href="../../#l00015">n</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00103">Output::fluxes</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">m</a>, and <a class="el" href="../../#l00015">n</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00078">Project1::run()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -407,15 +410,15 @@ template&lt;typename T &gt; </div>
 </dl>
 <div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                                                                                             {</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> = inputs.m;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = inputs.n;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.m;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.n;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> D = inputs.diffusion_coefficient;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> D_over_delta_squared = D / (inputs.delta * inputs.delta);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> D = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.diffusion_coefficient;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> D_over_delta_squared = D / (<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.delta * <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.delta);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> minus_D_over_delta_squared = -D_over_delta_squared;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> D_over_gamma_squared = D / (inputs.gamma * inputs.gamma);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> D_over_gamma_squared = D / (<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.gamma * <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.gamma);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> minus_D_over_gamma_squared = -D_over_gamma_squared;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> cross_section = inputs.macroscopic_removal_cross_section;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> cross_section = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.macroscopic_removal_cross_section;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> diagonal = 2.0 * (D_over_delta_squared + D_over_gamma_squared) + cross_section;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// Loop through all the nodes i = 1, ..., m and j = 1, ..., n</span></div>
@@ -442,12 +445,12 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            }</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="comment">// Fill the right-hand-side vector B using the fixed source q(i, j)</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            intermediates.<a class="code" href="../../da/ddc/structMap.html#aaff2a55576dccf8868e3987cd0429784">right_hand_side_vector_B</a>[idx] = inputs.sources[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> - 1][j - 1];</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            intermediates.<a class="code" href="../../da/ddc/structMap.html#aaff2a55576dccf8868e3987cd0429784">right_hand_side_vector_B</a>[idx] = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.sources[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> - 1][j - 1];</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00080">Map::diffusion_matrix_A</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00009">m</a>, <a class="el" href="../../#l00015">n</a>, and <a class="el" href="../../#l00081">Map::right_hand_side_vector_B</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00080">Map::diffusion_matrix_A</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">m</a>, <a class="el" href="../../#l00015">n</a>, and <a class="el" href="../../#l00081">Map::right_hand_side_vector_B</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00078">Project1::run()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">

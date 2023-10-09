@@ -196,16 +196,19 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    std::mt19937 stream(seed);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    std::uniform_real_distribution&lt;T&gt; uniform(<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0), <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1));</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;T&gt;</a> samples(rows, cols);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> row = 0; row &lt; rows; row++) {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = 0; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> &lt; rows; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>++) {</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; cols; col++) {</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> sample = uniform(stream);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            samples[row][col] = (1 - sample) &lt; (sample - 0) ? 1 : 0;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            samples[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] = (1 - sample) &lt; (sample - 0) ? 1 : 0;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> samples;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
 <div class="ttc" id="aclassMyBLAS_1_1Matrix_html"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a></div><div class="ttdoc">Class representing a matrix of T type values.</div><div class="ttdef"><b>Definition:</b> Matrix.h:20</div></div>
+<div class="ttc" id="anamespaceprocess_html_a642508a3f698c3dc98a03f79a3b625d3"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">process.row</a></div><div class="ttdeci">row</div><div class="ttdef"><b>Definition:</b> process.py:24</div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00024">process::row</a>.</p>
+
 </div>
 </div>
 <a id="a26c3caf157a29ac9d9227ec40248c845"></a>
@@ -265,6 +268,8 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of random numbers. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a3">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
 <div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                                                                                                 {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a> &lt; <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a>) {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">auto</span> temp = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a>;</div>
@@ -287,7 +292,7 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00213">MyBLAS::min()</a>, and <a class="el" href="../../#l00015">n</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00185">Parser::buildInputs()</a>, <a class="el" href="../../#l00045">MyBLAS::System::Circuit()</a>, and <a class="el" href="../../#l00070">fill_linspace()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00185">Parser::buildInputs()</a>, <a class="el" href="../../#l00045">MyBLAS::System::Circuit()</a>, and <a class="el" href="../../#l00073">fill_linspace()</a>.</p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -381,16 +386,16 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::mt19937 stream(seed);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::uniform_real_distribution&lt;T&gt; uniform(<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7">min</a>, <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">max</a>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;T&gt;</a> samples(rows, cols);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> row = 0; row &lt; rows; row++) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = 0; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> &lt; rows; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>++) {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; cols; col++) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            samples[row][col] = uniform(stream);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            samples[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] = uniform(stream);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> samples;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00228">MyBLAS::max()</a>, and <a class="el" href="../../#l00213">MyBLAS::min()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00213">MyBLAS::min()</a>, and <a class="el" href="../../#l00024">process::row</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">

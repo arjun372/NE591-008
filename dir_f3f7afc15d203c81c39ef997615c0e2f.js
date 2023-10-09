@@ -1,5 +1,6 @@
 var dir_f3f7afc15d203c81c39ef997615c0e2f =
 [
+    [ "analysis", "dir_d5cdb52366e34db49316fe5b186ecb54.html", "dir_d5cdb52366e34db49316fe5b186ecb54" ],
     [ "tests", "dir_a9769cc3198782cd7f5c40634b8e60e3.html", "dir_a9769cc3198782cd7f5c40634b8e60e3" ],
     [ "Compute.h", "dc/d21/labs_2outlab6_2Compute_8h.html", "dc/d21/labs_2outlab6_2Compute_8h" ],
     [ "InputsOutputs.h", "d5/d67/labs_2outlab6_2InputsOutputs_8h.html", "d5/d67/labs_2outlab6_2InputsOutputs_8h" ],

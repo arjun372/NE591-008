@@ -52,7 +52,6 @@ var hierarchy =
     [ "Output", "df/df1/structOutput.html", null ],
     [ "Outputs", "db/d86/structOutputs.html", null ],
     [ "Profiler", "dd/d0e/classProfiler.html", null ],
-    [ "ProfilerOptions", "df/d69/Profiler_8h.html#da/d6a/structProfilerOptions", null ],
     [ "Project< InputType, CommandLineParserType, OutputType >", "db/d91/classProject.html", null ],
     [ "Project< InLab6Inputs, Parser, InLab6Outputs >", "db/d91/classProject.html", [
       [ "InLab6", "d1/d8c/classInLab6.html", null ]
@@ -86,9 +85,12 @@ var hierarchy =
     [ "Project< TaylorSeriesInputs, Parser, TaylorSeriesVariables >", "db/d91/classProject.html", [
       [ "InLab1", "dd/d40/classInLab1.html", null ]
     ] ],
+    [ "Randomiser", "d8/d3a/structRandomiser.html", null ],
     [ "MyLinearSolvingMethod::Solution< long double >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
     [ "Stopwatch< D >", "de/def/classStopwatch.html", null ],
+    [ "Stopwatch< Microseconds >", "de/def/classStopwatch.html", null ],
+    [ "Stopwatch< Milliseconds >", "de/def/classStopwatch.html", null ],
     [ "testing::TestWithParam", null, [
       [ "FactorizeInvalidLUMatrixTest", "d7/df1/classFactorizeInvalidLUMatrixTest.html", null ],
       [ "FactorizeInvalidLUMatrixTest", "d7/df1/classFactorizeInvalidLUMatrixTest.html", null ],

@@ -360,54 +360,54 @@ The function uses the L2 norm to check for convergence. If the system does not c
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = A.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>();                  <span class="comment">// Get the number of rows in the matrix A</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution&lt;T&gt;</a> results(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>); <span class="comment">// Initialize the results object with the size of the matrix</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> T tolerance_squared = std::pow(tolerance, 2); <span class="comment">// Calculate the square of the tolerance</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    T iterative_error_squared =</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;T&gt;::max</a>(); <span class="comment">// Initialize the squared error as the maximum possible value</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> new_x(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, 0); <span class="comment">// Initialize a new vector for the updated solution</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// Start the Point-Jacobi iteration</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">for</span> (results.iterations = 0; results.iterations &lt; max_iterations; (results.iterations)++) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">// For each row in the matrix</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> row = 0; row &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; row++) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            T sum = 0;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="comment">// For each column in the matrix</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="comment">// If it&#39;s not the diagonal element</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">if</span> (row != col) {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="comment">// Add the product of the matrix element and the corresponding element in the solution vector to the</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    <span class="comment">// sum</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    sum += A[row][col] * results.x[col];</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="comment">// Update the solution vector with the new value</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            new_x[row] = (1 - relaxation_factor) * results.x[row] + (relaxation_factor / A[row][row]) * (b[row] - sum);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">// Calculate the L2 norm of the difference between the new and old solution vectors</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        iterative_error_squared = MyBLAS::L2Norm&lt;MyBLAS::Vector&lt;T&gt;, T&gt;(new_x, results.x, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> T tolerance_squared = std::pow(tolerance, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(2)); <span class="comment">// Calculate the square of the tolerance</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    T iterative_error_squared = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;T&gt;::max</a>(); <span class="comment">// Initialize the squared error as the maximum</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> new_x(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, 0); <span class="comment">// Initialize a new vector for the updated solution</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// Start the Point-Jacobi iteration</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">for</span> (results.iterations = 0; results.iterations &lt; max_iterations; (results.iterations)++) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">// Update the solution vector with the new values for this iteration step</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        results.x = new_x;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">// For each row in the matrix</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = 0; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>++) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="comment">// subtract the contribution from the diagonal term, since it should not be counted.</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            T sum = -(A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="comment">// For each column in the matrix, add the product of the matrix element and corresponding element in the</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="comment">// solution vector to the sum</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                sum += A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] * results.x[col];</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="comment">// Update the solution vector with the new value</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            new_x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] = (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) - relaxation_factor) * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] + (relaxation_factor / A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]) * (b[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] - sum);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">// If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> (iterative_error_squared &lt; tolerance_squared) {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            results.converged = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">// Update the solution vector with the new values for this iteration step</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        results.x = new_x;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">// Calculate the final error as the square root of the squared error</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    results.iterative_error = std::sqrt(iterative_error_squared);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> results;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        iterative_error_squared = MyBLAS::L2&lt;MyBLAS::Vector&lt;T&gt;, T&gt;(new_x, results.x, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="comment">// If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span> (iterative_error_squared &lt; tolerance_squared) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            results.converged = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">// Calculate the final error as the square root of the squared error</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    results.iterative_error = std::sqrt(iterative_error_squared);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> results;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
 <div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a0772df3e76eadc9035e847316de0d249"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">MyBLAS::Matrix::getRows</a></div><div class="ttdeci">size_t getRows() const</div><div class="ttdoc">Getter for the number of rows in the matrix.</div><div class="ttdef"><b>Definition:</b> Matrix.h:117</div></div>
 <div class="ttc" id="aclassMyBLAS_1_1Vector_html"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a></div><div class="ttdoc">Class representing a vector of T values.</div><div class="ttdef"><b>Definition:</b> Vector.h:20</div></div>
 <div class="ttc" id="ainlab2_2tests_2sanity__check_8m_html_aaf3e08bd5df22a84e842a1ee58631684"><div class="ttname"><a href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a></div><div class="ttdeci">Number of points to sample n</div><div class="ttdef"><b>Definition:</b> sanity_check.m:15</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_a990467e8430064e652754897d099b7bf"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">MyBLAS::max</a></div><div class="ttdeci">static T max(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Calculates the maximum value of the vector.</div><div class="ttdef"><b>Definition:</b> Vector.h:228</div></div>
+<div class="ttc" id="anamespaceprocess_html_a642508a3f698c3dc98a03f79a3b625d3"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">process.row</a></div><div class="ttdeci">row</div><div class="ttdef"><b>Definition:</b> process.py:24</div></div>
 <div class="ttc" id="astructMyLinearSolvingMethod_1_1Solution_html"><div class="ttname"><a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a></div><div class="ttdoc">Structure that represents the solution of the linear solver.</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:69</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00077">MyLinearSolvingMethod::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00117">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00078">MyLinearSolvingMethod::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00079">MyLinearSolvingMethod::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00015">n</a>, and <a class="el" href="../../#l00081">MyLinearSolvingMethod::Solution&lt; T &gt;::x</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00077">MyLinearSolvingMethod::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00117">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00078">MyLinearSolvingMethod::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00079">MyLinearSolvingMethod::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00015">n</a>, <a class="el" href="../../#l00024">process::row</a>, and <a class="el" href="../../#l00081">MyLinearSolvingMethod::Solution&lt; T &gt;::x</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -488,47 +488,46 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = A.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>();                  <span class="comment">// Get the number of rows in the matrix A</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution&lt;T&gt;</a> results(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>); <span class="comment">// Initialize the results object with the size of the matrix</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> T tolerance_squared = std::pow(tolerance, 2); <span class="comment">// Calculate the square of the tolerance</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    T iterative_error_squared =</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;T&gt;::max</a>(); <span class="comment">// Initialize the squared error as the maximum possible value</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// Start the iteration</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">for</span> (results.iterations = 0; results.iterations &lt; max_iterations; (results.iterations)++) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> T tolerance_squared = std::pow(tolerance, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(2)); <span class="comment">// Calculate the square of the tolerance</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    T iterative_error_squared = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;T&gt;::max</a>(); <span class="comment">// Initialize the squared error as the maximum</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Start the iteration</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span> (results.iterations = 0; results.iterations &lt; max_iterations; (results.iterations)++) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> old_x = results.x; <span class="comment">// Save the old solution vector</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// For each row in the matrix</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> row = 0; row &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; row++) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            T sum = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="comment">// For each column in the matrix</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="comment">// If it&#39;s not the diagonal element</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">if</span> (row != col) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    <span class="comment">// Add the product of the matrix element and the corresponding element in the solution vector to the</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="comment">// sum</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    sum += A[row][col] * results.x[col];</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="comment">// Update the solution vector with the new value, including the relaxation factor</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            results.x[row] = (1 - relaxation_factor) * old_x[row] + (relaxation_factor / A[row][row]) * (b[row] - sum);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">// Calculate the L2 norm of the difference between the new and old solution vectors</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        iterative_error_squared = MyBLAS::L2Norm&lt;MyBLAS::Vector&lt;T&gt;, T&gt;(results.x, old_x, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="comment">// If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span> (iterative_error_squared &lt; tolerance_squared) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            results.converged = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// Calculate the final error as the square root of the squared error</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    results.iterative_error = std::sqrt(iterative_error_squared);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> results;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = 0; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>++) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="comment">// subtract the contribution from the diagonal term, since it should not be counted.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            T sum = -(A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="comment">// For each column in the matrix, add the product of the matrix element and corresponding element in the</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="comment">// solution vector to the sum</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                sum += A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] * results.x[col];</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="comment">// Update the solution vector with the new value, including the relaxation factor</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] = (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) - relaxation_factor) * old_x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] + (relaxation_factor / A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]) * (b[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] - sum);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// Calculate the L2 norm of the difference between the new and old solution vectors</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        iterative_error_squared = MyBLAS::L2&lt;MyBLAS::Vector&lt;T&gt;, T&gt;(results.x, old_x, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span> (iterative_error_squared &lt; tolerance_squared) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            results.converged = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Calculate the final error as the square root of the squared error</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    results.iterative_error = std::sqrt(iterative_error_squared);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> results;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00077">MyLinearSolvingMethod::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00117">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00078">MyLinearSolvingMethod::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00079">MyLinearSolvingMethod::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00015">n</a>, and <a class="el" href="../../#l00081">MyLinearSolvingMethod::Solution&lt; T &gt;::x</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00077">MyLinearSolvingMethod::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00117">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00078">MyLinearSolvingMethod::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00079">MyLinearSolvingMethod::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00015">n</a>, <a class="el" href="../../#l00024">process::row</a>, and <a class="el" href="../../#l00081">MyLinearSolvingMethod::Solution&lt; T &gt;::x</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00035">applyGaussSeidel()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -619,53 +618,54 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = A.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>();                  <span class="comment">// Get the number of rows in the matrix A</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution&lt;T&gt;</a> results(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>); <span class="comment">// Initialize the results object with the size of the matrix</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">const</span> T tolerance_squared = std::pow(tolerance, 2); <span class="comment">// Calculate the square of the tolerance</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    T iterative_error_squared =</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;T&gt;::max</a>(); <span class="comment">// Initialize the squared error as the maximum possible value</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Start the iteration</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (results.iterations = 0; results.iterations &lt; max_iterations; (results.iterations)++) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> old_x = results.x; <span class="comment">// Save the old solution vector</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// Forward sweep (like weighted Gauss-Seidel)</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> row = 0; row &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; row++) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            T sum = 0;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">if</span> (row != col) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    sum += A[row][col] * results.x[col];</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">const</span> T tolerance_squared = std::pow(tolerance, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(2)); <span class="comment">// Calculate the square of the tolerance</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    T iterative_error_squared = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf">std::numeric_limits&lt;T&gt;::max</a>(); <span class="comment">// Initialize the squared error as the maximum possible value</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Start the iteration</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">for</span> (results.iterations = 0; results.iterations &lt; max_iterations; ++(results.iterations)) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a> old_x = results.x; <span class="comment">// Save the old solution vector</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">// Forward sweep (like weighted Gauss-Seidel)</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = 0; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>++) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="comment">// subtract the contribution from the diagonal term, since it should not be counted.</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            T sum = -(A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="comment">// For each column in the matrix, add the product of the matrix element and corresponding element in the</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="comment">// solution vector to the sum</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                sum += A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] * results.x[col];</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            results.x[row] = (1 - relaxation_factor) * old_x[row] + (relaxation_factor / A[row][row]) * (b[row] - sum);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] = (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) - relaxation_factor) * old_x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] + (relaxation_factor / A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]) * (b[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] - sum);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">// Backward sweep (like Gauss-Seidel, but in reverse order)</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">// Backward sweep (like weighted Gauss-Seidel, but in reverse order)</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> rowPlusOne = <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; rowPlusOne &gt; 0; rowPlusOne--) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            T sum = 0;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">size_t</span> row = rowPlusOne - 1;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">if</span> (row != col) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    sum += A[row][col] * results.x[col];</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            results.x[row] = (1 - relaxation_factor) * old_x[row] + (relaxation_factor / A[row][row]) * (b[row] - sum);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">// Calculate the L2 norm of the difference between the new and old solution vectors</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        iterative_error_squared = MyBLAS::L2Norm&lt;MyBLAS::Vector&lt;T&gt;, T&gt;(results.x, old_x, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> (iterative_error_squared &lt; tolerance_squared) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            results.converged = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// Calculate the final error as the square root of the squared error</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    results.iterative_error = std::sqrt(iterative_error_squared);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">return</span> results;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = rowPlusOne - 1;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="comment">// subtract the contribution from the diagonal term, since it should not be counted.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            T sum = -(A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="comment">// For each column in the matrix, add the product of the matrix element and corresponding element in the</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="comment">// solution vector to the sum</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                sum += A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] * results.x[col];</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] = (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) - relaxation_factor) * old_x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] + (relaxation_factor / A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]) * (b[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] - sum);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">// Calculate the L2 norm of the difference between the new and old solution vectors</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        iterative_error_squared = MyBLAS::L2&lt;MyBLAS::Vector&lt;T&gt;, T&gt;(results.x, old_x, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">// If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span> (iterative_error_squared &lt; tolerance_squared) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            results.converged = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// Calculate the final error as the square root of the squared error</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    results.iterative_error = std::sqrt(iterative_error_squared);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> results;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00077">MyLinearSolvingMethod::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00117">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00078">MyLinearSolvingMethod::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00079">MyLinearSolvingMethod::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00015">n</a>, and <a class="el" href="../../#l00081">MyLinearSolvingMethod::Solution&lt; T &gt;::x</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00077">MyLinearSolvingMethod::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00117">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00078">MyLinearSolvingMethod::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00079">MyLinearSolvingMethod::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00228">MyBLAS::max()</a>, <a class="el" href="../../#l00015">n</a>, <a class="el" href="../../#l00024">process::row</a>, and <a class="el" href="../../#l00081">MyLinearSolvingMethod::Solution&lt; T &gt;::x</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -854,7 +854,7 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00261">MyBLAS::isDiagonallyDominant()</a>, <a class="el" href="../../#l00053">MyBLAS::isSquareMatrix()</a>, and <a class="el" href="../../#l00247">MyBLAS::noZerosInDiagonal()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00084">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00135">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00109">Compute::usingSOR()</a>, and <a class="el" href="../../#l00161">Compute::usingSymmetricSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -904,7 +904,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> relaxationMethodTypeKeys[<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(value)];</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00092">InLab6::run()</a>, <a class="el" href="../../#l00095">OutLab6::run()</a>, and <a class="el" href="../../#l00036">MyLinearSolvingMethod::TypeKey()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00092">InLab6::run()</a>, <a class="el" href="../../#l00096">OutLab6::run()</a>, and <a class="el" href="../../#l00036">MyLinearSolvingMethod::TypeKey()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">

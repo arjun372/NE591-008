@@ -5,13 +5,7 @@ var dir_313caf1132e152dd9b58bea13a4052ca =
     [ "CommandLine.h", "d9/d41/CommandLine_8h.html", "d9/d41/CommandLine_8h" ],
     [ "FileParser.h", "d7/de4/FileParser_8h.html", "d7/de4/FileParser_8h" ],
     [ "Helpers.h", "db/df1/Helpers_8h.html", "db/df1/Helpers_8h" ],
-    [ "Profiler.h", "df/d69/Profiler_8h.html", [
-      [ "ProfilerOptions", "df/d69/Profiler_8h.html#da/d6a/structProfilerOptions", [
-        [ "runs", "df/d69/Profiler_8h.html#a1cbc800b9d9134db9b32d24272b5ac4e", null ],
-        [ "timeout", "df/d69/Profiler_8h.html#a644f6c738b792dea867d4f28660f2c3c", null ]
-      ] ],
-      [ "Profiler", "dd/d0e/classProfiler.html", "dd/d0e/classProfiler" ]
-    ] ],
+    [ "Profiler.h", "df/d69/Profiler_8h.html", "df/d69/Profiler_8h" ],
     [ "Project.h", "d2/dff/Project_8h.html", [
       [ "Project", "db/d91/classProject.html", "db/d91/classProject" ]
     ] ],

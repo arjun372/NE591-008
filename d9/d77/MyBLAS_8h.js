@@ -11,7 +11,6 @@ var MyBLAS_8h =
     [ "isSquareMatrix", "d9/d77/MyBLAS_8h.html#adb9840781dcd1f2ff4a8c378b30434e0", null ],
     [ "isUnitLowerTriangularMatrix", "d9/d77/MyBLAS_8h.html#ac22f1a81b16e48bb499b61faf9d5f710", null ],
     [ "isUpperTriangularMatrix", "d9/d77/MyBLAS_8h.html#ae3eb37c6222d37519ec4944ed7793c41", null ],
-    [ "makeDiagonallyDominant", "d9/d77/MyBLAS_8h.html#a95a31a537601936a645cd405411f3732", null ],
     [ "noZerosInDiagonal", "d9/d77/MyBLAS_8h.html#a8a58dad3aacc3b2d45d0501bf97dc6e1", null ],
     [ "operator*", "d9/d77/MyBLAS_8h.html#aa37c00740fffc48c82fa1c7262e5df2d", null ],
     [ "operator*", "d9/d77/MyBLAS_8h.html#a0e0611bf2ca130cc573d632f490f2375", null ],

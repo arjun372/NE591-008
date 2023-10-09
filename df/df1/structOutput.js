@@ -25,13 +25,16 @@ var structOutput =
     [ "inputs", "df/df1/structOutput.html#acdddea93e985cb672af232fa3753b8df", null ],
     [ "integral", "df/df1/structOutput.html#a2dae0f9ced77fb44fba44119a8de5f97", null ],
     [ "max_residual", "df/df1/structOutput.html#a6217468a262f7c25201add41b2709b75", null ],
+    [ "mean_execution_time", "df/df1/structOutput.html#a3591a50ace0734195bc4007b98f98116", null ],
     [ "n", "df/df1/structOutput.html#a3541126c8ceb372848970f8b4473deda", null ],
     [ "N", "df/df1/structOutput.html#abe5b6543a9bc3a9cc1ec1e0f41b99ea7", null ],
     [ "previous_factorial", "df/df1/structOutput.html#aafc1ce6cd37ed56028c51a116ca2acf3", null ],
     [ "residual", "df/df1/structOutput.html#afd0fa0f15738e2871e0abbc554b7a630", null ],
     [ "running_sum", "df/df1/structOutput.html#a6b23829ac7588e83be1b4b639e298604", null ],
+    [ "runs", "df/df1/structOutput.html#a861fd24e29462ff47347546f6ba98019", null ],
     [ "solution", "df/df1/structOutput.html#ac0fbf4e15509bd1a6ed3e957603d8340", null ],
     [ "solution", "df/df1/structOutput.html#ab9cdf013ea40c1ddf8d0c4b63c8e870e", null ],
+    [ "stddev_execution_time", "df/df1/structOutput.html#af4755a931f5004e02f0da0d58fe67783", null ],
     [ "target_threshold", "df/df1/structOutput.html#acfe7f7a331c50da196e88103e46cb642", null ],
     [ "x", "df/df1/structOutput.html#a4a50058f779064c91defebd579c8f7c2", null ]
 ];
