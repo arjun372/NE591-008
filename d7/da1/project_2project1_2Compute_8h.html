@@ -263,12 +263,12 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.m;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.n;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    outputs.<a class="code" href="../../df/df1/structOutput.html#a46b20513ccb8423da25be47e52e7932e">fluxes</a> = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;long double&gt;</a>(<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> + 2, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> + 2, 0);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    outputs.<a class="code" href="../../df/df1/structOutput.html#aaa6073bf5ebb203e59a1cfd9914d0fed">fluxes</a> = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;long double&gt;</a>(<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> + 2, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> + 2, 0);</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 1; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt;= <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 1; j &lt;= <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; j++) {</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">size_t</span> idx = (<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> - 1) * <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> + (j - 1);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            outputs.<a class="code" href="../../df/df1/structOutput.html#a46b20513ccb8423da25be47e52e7932e">fluxes</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] = phi[idx];</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            outputs.<a class="code" href="../../df/df1/structOutput.html#aaa6073bf5ebb203e59a1cfd9914d0fed">fluxes</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] = phi[idx];</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        }</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
@@ -276,17 +276,17 @@ Functions</h2></td></tr>
 <div class="ttc" id="aclassMyBLAS_1_1Matrix_html"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt; long double &gt;</a></div></div>
 <div class="ttc" id="ainlab2_2tests_2sanity__check_8m_html_aaf3e08bd5df22a84e842a1ee58631684"><div class="ttname"><a href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a></div><div class="ttdeci">Number of points to sample n</div><div class="ttdef"><b>Definition:</b> sanity_check.m:15</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
-<div class="ttc" id="astructOutput_html_a46b20513ccb8423da25be47e52e7932e"><div class="ttname"><a href="../../df/df1/structOutput.html#a46b20513ccb8423da25be47e52e7932e">Output::fluxes</a></div><div class="ttdeci">MyBLAS::Matrix&lt; long double &gt; fluxes</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:103</div></div>
+<div class="ttc" id="astructOutput_html_aaa6073bf5ebb203e59a1cfd9914d0fed"><div class="ttname"><a href="../../df/df1/structOutput.html#aaa6073bf5ebb203e59a1cfd9914d0fed">Output::fluxes</a></div><div class="ttdeci">MyBLAS::Matrix&lt; long double &gt; fluxes</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:103</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00103">Output::fluxes</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">m</a>, and <a class="el" href="../../#l00015">n</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00078">Project1::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00078">Project1::run()</a>, and <a class="el" href="../../#l00078">Project2::run()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/da1/project_2project1_2Compute_8h_a5c27829d7bc2f4441c23f858e41cf9f7_icgraph.svg" width="246" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/da1/project_2project1_2Compute_8h_a5c27829d7bc2f4441c23f858e41cf9f7_icgraph.svg" width="246" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -452,13 +452,13 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00080">Map::diffusion_matrix_A</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">m</a>, <a class="el" href="../../#l00015">n</a>, and <a class="el" href="../../#l00081">Map::right_hand_side_vector_B</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00078">Project1::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00078">Project1::run()</a>, and <a class="el" href="../../#l00078">Project2::run()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/da1/project_2project1_2Compute_8h_a9c1752b04a8f0ec48acd75f06f1bfc68_icgraph.svg" width="314" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/da1/project_2project1_2Compute_8h_a9c1752b04a8f0ec48acd75f06f1bfc68_icgraph.svg" width="314" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -529,7 +529,7 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00080">Map::diffusion_matrix_A</a>, <a class="el" href="../../#l00240">MyBLAS::LUP::factorize()</a>, <a class="el" href="../../#l00128">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00117">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00162">MyBLAS::isPermutationMatrix()</a>, <a class="el" href="../../#l00123">MyBLAS::isUnitLowerTriangularMatrix()</a>, <a class="el" href="../../#l00087">MyBLAS::isUpperTriangularMatrix()</a>, <a class="el" href="../../#l00043">Map::L</a>, <a class="el" href="../../#l00045">Map::P</a>, and <a class="el" href="../../#l00044">Map::U</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00078">Project1::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00078">Project1::run()</a>, and <a class="el" href="../../#l00078">Project2::run()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -543,7 +543,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/da1/project_2project1_2Compute_8h_acddcb7395a0d22a81020f268fd96918a_icgraph.svg" width="307" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/da1/project_2project1_2Compute_8h_acddcb7395a0d22a81020f268fd96918a_icgraph.svg" width="307" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
