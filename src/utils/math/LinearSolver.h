@@ -77,7 +77,7 @@ template <typename T> struct Solution {
     bool converged = false;
     size_t iterations = std::numeric_limits<size_t>::quiet_NaN();
     T iterative_error = std::numeric_limits<T>::quiet_NaN();
-    ;
+
     MyBLAS::Vector<T> x{};
 
     [[nodiscard]] MyBLAS::Vector<T> getResidual(MyBLAS::Matrix<T> a) const { return a * x; }
