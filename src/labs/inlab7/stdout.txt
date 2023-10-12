@@ -1,0 +1,88 @@
+[aarjun@login04 inlab]$ cat stdout.332272 
+
+███╗   ██╗███████╗      ███████╗ █████╗  ██╗
+████╗  ██║██╔════╝      ██╔════╝██╔══██╗███║
+██╔██╗ ██║█████╗  █████╗███████╗╚██████║╚██║
+██║╚██╗██║██╔══╝  ╚════╝╚════██║ ╚═══██║ ██║
+██║ ╚████║███████╗      ███████║ █████╔╝ ██║
+╚═╝  ╚═══╝╚══════╝      ╚══════╝ ╚════╝  ╚═╝
+================================================================================
+InLab 07: MPI Parallel Hello World
+Arjun Earthperson
+10/06/2023
+================================================================================
+            Hello parallel worlds!
+--------------------------------------------------------------------------------
+Hello arjun from MPI Task 1 on host c043n02
+Hello arjun from MPI Task 0 on host c047n04
+[c047n04][0]: Execution time (sec) = 1.93e-07
+--------------------------------------------------------------------------------
+Hello arjun from MPI Task 3 on host c052n04
+Hello arjun from MPI Task 2 on host c047n03
+[c043n02][1]: Execution time (sec) = 1.54e-07
+--------------------------------------------------------------------------------
+[c052n04][3]: Execution time (sec) = 1.73e-07
+--------------------------------------------------------------------------------
+[c047n03][2]: Execution time (sec) = 1.42e-07
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@c047n04>
+Subject: Job 332272: <hello_world> in cluster <Hazel> Done
+
+Job <hello_world> was submitted from host <login04> by user <aarjun> in cluster <Hazel> at Mon Oct  9 03:00:51 2023
+Job was executed on host(s) <1*c047n04>, in queue <debug>, as user <aarjun> in cluster <Hazel> at Mon Oct  9 03:00:51 2023
+           <1*c043n02>
+           <1*c047n03>
+           <1*c052n04>
+</home/aarjun> was used as the home directory.
+</share/ne591f23/aarjun/Lab7/inlab> was used as the working directory.
+Started at Mon Oct  9 03:00:51 2023
+Terminated at Mon Oct  9 03:00:54 2023
+Results reported at Mon Oct  9 03:00:54 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+WD="/share/$GROUP/$USER/Lab7/inlab/"
+
+#BSUB -J hello_world
+#BSUB -o stdout.%J
+#BSUB -e stderr.%J
+#BSUB -W 00:1
+#BSUB -n 4
+
+# Load the necessary modules
+module load openmpi-gcc/openmpi4.1.0-gcc10.2.0
+
+# Run the program
+mpirun $WD/hello_world
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+CPU time :                                   1.16 sec.
+Max Memory :                                 -
+Average Memory :                             -
+Total Requested Memory :                     -
+Delta Memory :                               -
+Max Swap :                                   -
+Max Processes :                              -
+Max Threads :                                -
+Run time :                                   31 sec.
+Turnaround time :                            3 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <stderr.332272> for stderr output of this job.

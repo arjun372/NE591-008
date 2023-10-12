@@ -42,7 +42,7 @@ namespace MyBLAS::System {
 * diagonally dominant.
 */
 template <typename T>
-void Circuit(const size_t n, MyBLAS::Matrix<T> &A, MyBLAS::Vector<T> &b, MyBLAS::Vector<T> &x, const size_t seed = 372)
+void Circuit(const size_t n, MyBLAS::Matrix<T> &A, MyBLAS::Vector<T> &b, MyBLAS::Vector<T> &x, const size_t seed = 180)
 {
 
    // Define the range of resistance values from 1Ω to 10 kΩ
@@ -56,7 +56,7 @@ void Circuit(const size_t n, MyBLAS::Matrix<T> &A, MyBLAS::Vector<T> &b, MyBLAS:
    // Generate a vector of random currents within the defined range
    MyBLAS::Vector<T> currents = Random::generate(n, min_current, max_current, seed);
 
-   // Generate a matrix of random resistors, each with a resistance sampled from U(1, 10k) Ω
+   // Generate a matrix with randomly placed resistors, each with a resistance sampled from U(1, 10k) Ω
    // Start with a 2D bitmap of resistors
    MyBLAS::Matrix<T> resistors = Random::binary<T>(n, n, seed);
 
@@ -73,7 +73,7 @@ void Circuit(const size_t n, MyBLAS::Matrix<T> &A, MyBLAS::Vector<T> &b, MyBLAS:
    // applied as a scalar offset. If it was applied as a multiplier or some other function, then diagonal dominance will
    // become a function of the matrix size, sampling distribution, and sampling range. This is not good for our
    // benchmarks since we need the extent of dominance to be invariant. Otherwise, matrix size will affect convergence.
-   const T dominance = 1;
+   const T dominance = max_resistance / min_resistance;
    MyBLAS::makeDiagonallyDominant(resistances, dominance);
 
    // If the resistance matrix is not diagonally dominant, print a warning message

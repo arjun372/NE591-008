@@ -41,13 +41,23 @@ void usingLUP(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         return;
     }
 
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
-    { outputs.solution = MyBLAS::LUP::applyLUP(A, b); }
-    timer.click();
-
-    const auto time = static_cast<long double>(timer.duration().count());
-    outputs.execution_time = time;
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+                outputs.solution = MyBLAS::LUP::applyLUP(A, b);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
     outputs.solution.converged = true;
 }
 
@@ -67,13 +77,23 @@ void usingPointJacobi(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         return;
     }
 
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
-    { outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold); }
-    timer.click();
-
-    const auto time = static_cast<long double>(timer.duration().count());
-    outputs.execution_time = time;
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+               outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
 }
 
 /**
@@ -92,13 +112,23 @@ void usingGaussSeidel(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         return;
     }
 
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
-    { outputs.solution = MyRelaxationMethod::applyGaussSeidel<long double>(A, b, max_iterations, threshold); }
-    timer.click();
-
-    const auto time = static_cast<long double>(timer.duration().count());
-    outputs.execution_time = time;
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+               outputs.solution = MyRelaxationMethod::applyGaussSeidel<long double>(A, b, max_iterations, threshold);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
 }
 
 /**
@@ -118,13 +148,23 @@ void usingSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         return;
     }
 
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
-    { outputs.solution = MyRelaxationMethod::applySOR<long double>(A, b, max_iterations, threshold, omega); }
-    timer.click();
-
-    const auto time = static_cast<long double>(timer.duration().count());
-    outputs.execution_time = time;
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+               outputs.solution = MyRelaxationMethod::applySOR<long double>(A, b, max_iterations, threshold, omega);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
 }
 
 /**
@@ -144,13 +184,23 @@ void usingJacobiSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         return;
     }
 
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
-    { outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold, omega); }
-    timer.click();
-
-    const auto time = static_cast<long double>(timer.duration().count());
-    outputs.execution_time = time;
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+                outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold, omega);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
 }
 
 /**
@@ -170,13 +220,23 @@ void usingSymmetricSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         return;
     }
 
-    Stopwatch<Nanoseconds> timer;
-    timer.restart();
-    { outputs.solution = MyRelaxationMethod::applySSOR<long double>(A, b, max_iterations, threshold, omega); }
-    timer.click();
-
-    const auto time = static_cast<long double>(timer.duration().count());
-    outputs.execution_time = time;
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+                outputs.solution = MyRelaxationMethod::applySSOR<long double>(A, b, max_iterations, threshold, omega);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
 }
 } // namespace Compute
 

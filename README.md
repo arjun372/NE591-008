@@ -195,7 +195,7 @@ Currently supported inlab, outlab build targets include:
   </tr>
   <tr>
     <td>7</td>
-    <td></td>
+    <td><code>✅ inlab7</code></td>
     <td></td>
   </tr>
   <tr>

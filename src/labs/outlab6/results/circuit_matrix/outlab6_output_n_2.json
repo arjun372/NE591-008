@@ -1,0 +1,168 @@
+{
+    "inputs": {
+        "coefficients": [
+            [
+                9615.065858260885,
+                0.0
+            ],
+            [
+                6114.143344240852,
+                7844.099632271007
+            ]
+        ],
+        "constants": [
+            44373.79201366193,
+            -8139.005497149369
+        ],
+        "known-solution": [
+            4.615027360996984,
+            -4.634814194647449
+        ],
+        "max-iterations": 5000,
+        "methods": [
+            "LUP",
+            "point-jacobi",
+            "gauss-seidel",
+            "SOR",
+            "SSOR",
+            "SORJ"
+        ],
+        "order": 2,
+        "relaxation-factor": 0.99,
+        "threshold": 0.0001
+    },
+    "outputs": {
+        "LUP": {
+            "converged": true,
+            "iterations": {
+                "actual": 0,
+                "maximum": 5000
+            },
+            "iterative-error": {
+                "actual": null,
+                "maximum": 0.0001
+            },
+            "l2-error": 0.0,
+            "max-residual": 0.0,
+            "solution": [
+                4.615027360996984,
+                -4.634814194647449
+            ],
+            "wall-time-ns": {
+                "mean": 1999.7,
+                "samples": 10,
+                "std": 2914.6976189649586
+            }
+        },
+        "SOR": {
+            "converged": true,
+            "iterations": {
+                "actual": 3,
+                "maximum": 5000
+            },
+            "iterative-error": {
+                "actual": 1.5804559840225536e-05,
+                "maximum": 0.0001
+            },
+            "l2-error": 0.0004408590501716536,
+            "max-residual": 0.0011987808323556948,
+            "solution": [
+                4.61502731484671,
+                -4.634814005849462
+            ],
+            "wall-time-ns": {
+                "mean": 396.4,
+                "samples": 10,
+                "std": 47.07483404113072
+            }
+        },
+        "SORJ": {
+            "converged": true,
+            "iterations": {
+                "actual": 4,
+                "maximum": 5000
+            },
+            "iterative-error": {
+                "actual": 1.4112880817982001e-05,
+                "maximum": 0.0001
+            },
+            "l2-error": 0.003780397752187944,
+            "max-residual": 0.11182046779297572,
+            "solution": [
+                4.61502731484671,
+                -4.6347999033148
+            ],
+            "wall-time-ns": {
+                "mean": 352.6,
+                "samples": 10,
+                "std": 57.6857001344354
+            }
+        },
+        "SSOR": {
+            "converged": true,
+            "iterations": {
+                "actual": 3,
+                "maximum": 5000
+            },
+            "iterative-error": {
+                "actual": 1.5804559840224705e-05,
+                "maximum": 0.0001
+            },
+            "l2-error": 0.0004408590501716536,
+            "max-residual": 0.0011987808323556948,
+            "solution": [
+                4.61502731484671,
+                -4.634814005849462
+            ],
+            "wall-time-ns": {
+                "mean": 542.7,
+                "samples": 10,
+                "std": 113.94827774038535
+            }
+        },
+        "gauss-seidel": {
+            "converged": true,
+            "iterations": {
+                "actual": 1,
+                "maximum": 5000
+            },
+            "iterative-error": {
+                "actual": 0.0,
+                "maximum": 0.0001
+            },
+            "l2-error": 0.0,
+            "max-residual": 0.0,
+            "solution": [
+                4.615027360996984,
+                -4.634814194647449
+            ],
+            "wall-time-ns": {
+                "mean": 279.7,
+                "samples": 10,
+                "std": 84.86701361542069
+            }
+        },
+        "point-jacobi": {
+            "converged": true,
+            "iterations": {
+                "actual": 2,
+                "maximum": 5000
+            },
+            "iterative-error": {
+                "actual": 0.0,
+                "maximum": 0.0001
+            },
+            "l2-error": 0.0,
+            "max-residual": 0.0,
+            "solution": [
+                4.615027360996984,
+                -4.634814194647449
+            ],
+            "wall-time-ns": {
+                "mean": 304.8,
+                "samples": 10,
+                "std": 142.47933183448046
+            }
+        }
+    }
+}

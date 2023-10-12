@@ -13,7 +13,10 @@
 #include <limits>
 
 #include "json.hpp"
+
 #include <boost/program_options.hpp>
+#include <boost/accumulators/accumulators.hpp>
+#include <boost/accumulators/statistics.hpp>
 
 /**
  * @brief This function replaces the value of a specified option in a map with a new value.
@@ -289,6 +292,64 @@ void printJuliaSet(const Canvas &canvas, const T x0, const T y0, const size_t ma
         std::cout << '\n';
     }
     std::cout << "\033[0m";
+}
+
+typedef boost::accumulators::tag::mean mean;
+typedef boost::accumulators::tag::variance variance;
+/**
+ * @brief Computes the mean and variance of a numeric vector using Boost Accumulators.
+ *
+ * This function calculates the mean and variance of a given numeric vector using Boost
+ * Accumulators library. It returns an accumulator set pre-configured with mean and variance tags.
+ *
+ * @tparam T The data type of the numeric vector elements.
+ * @param numbers The input numeric vector for which to compute the mean and variance.
+ * @return An accumulator set containing computed mean and variance.
+ *
+ * @note To obtain the actual mean and variance values, you can use the `boost::accumulators::mean`
+ * and `boost::accumulators::variance` functions on the returned accumulator set, respectively.
+ * For example:
+ * ```
+ * boost::accumulators::accumulator_set<T, boost::accumulators::features<mean, variance>> acc = computeMeanStd(numbers);
+ * double mean = boost::accumulators::mean(acc);
+ * double variance = boost::accumulators::variance(acc);
+ * ```
+ */
+template<typename T>
+boost::accumulators::accumulator_set<T, boost::accumulators::features<mean, variance>> computeMeanStd(const std::vector<T> &numbers) {
+    boost::accumulators::accumulator_set<T, boost::accumulators::features<mean, variance>> accumulator;
+    // Iterate through the elements of the input vector and add them to the accumulator.
+    for (T number : numbers) {
+        accumulator(number);
+    }
+    return accumulator;
+}
+
+/**
+ * @brief Formats the mean and standard deviation as a string.
+ *
+ * This function takes the calculated mean and standard deviation values and formats them
+ * as a string in the following format: "mean ± std".
+ *
+ * @tparam T The data type of the mean and standard deviation values.
+ * @param mean The calculated mean value.
+ * @param std The calculated standard deviation value.
+ * @return A string containing the formatted mean and standard deviation.
+ *
+ * @note This function is useful for converting mean and standard deviation values into a
+ * human-readable format for display or logging.
+ *
+ * @example
+ * ```cpp
+ * double calculatedMean = 5.0;
+ * double calculatedStdDev = 1.0;
+ * std::string formattedResult = formatMeanStd(calculatedMean, calculatedStdDev);
+ * // Result: "5.000000 ± 1.000000"
+ * ```
+ */
+template<typename T>
+inline std::string formatMeanStd(T mean, T std) {
+    return std::to_string(mean) + " ± " + std::to_string(std);
 }
 
 #endif // NE591_008_HELPERS_H
