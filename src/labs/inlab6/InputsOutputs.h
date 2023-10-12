@@ -12,8 +12,8 @@
 
 #include "json.hpp"
 #include "math/LinearSolver.h"
+#include "math/blas/BLAS.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/MyBLAS.h"
 #include "math/blas/Vector.h"
 #include "math/relaxation/RelaxationMethods.h"
 
@@ -74,7 +74,7 @@ typedef struct Output {
      */
     [[nodiscard]] long double getMaxResidual() const {
         const auto b_prime = inputs.coefficients * solution.x;
-        return MyBLAS::max<long double>(MyBLAS::abs(inputs.constants - b_prime));
+        return MyBLAS::Stats::max<long double>(MyBLAS::Stats::abs(inputs.constants - b_prime));
     }
 
     /**

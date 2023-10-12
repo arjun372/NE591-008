@@ -21,8 +21,8 @@
 #include "CommandLine.h"
 #include "Project.h"
 
+#include "math/blas/BLAS.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/MyBLAS.h"
 #include "math/factorization/LU.h"
 
 #include "Compute.h"

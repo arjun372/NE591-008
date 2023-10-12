@@ -24,8 +24,9 @@
 #include "Parser.h"
 #include "json.hpp"
 
+#include "math/blas/BLAS.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/MyBLAS.h"
+#include "math/blas/Stats.h"
 #include "math/blas/Vector.h"
 #include "math/factorization/LU.h"
 
@@ -101,7 +102,7 @@ class OutLab4 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVect
         nlohmann::json results;
         outputs.solution = x;
         const auto b_prime = A * x;
-        const auto r = MyBLAS::abs(b - b_prime);
+        const auto r = MyBLAS::Stats::abs(b - b_prime);
         outputs.residual = r;
         outputs.toJSON(results["outputs"]);
 

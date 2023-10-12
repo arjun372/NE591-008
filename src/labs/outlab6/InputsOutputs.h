@@ -12,8 +12,8 @@
 
 #include "json.hpp"
 #include "math/LinearSolver.h"
+#include "math/blas/BLAS.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/MyBLAS.h"
 #include "math/blas/Ops.h"
 #include "math/blas/Vector.h"
 

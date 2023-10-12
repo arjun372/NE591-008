@@ -10,6 +10,7 @@
 
 #include "math/factorization/Factorize.h"
 #include "math/relaxation/RelaxationMethods.h"
+#include "blas/Stats.h"
 
 #include <variant>
 
@@ -83,7 +84,7 @@ template <typename T> struct Solution {
     [[nodiscard]] MyBLAS::Vector<T> getResidual(MyBLAS::Matrix<T> a) const { return a * x; }
 
     [[nodiscard]] T getMaxResidual(MyBLAS::Matrix<T> a, MyBLAS::Vector<T> b) const {
-        return MyBLAS::max<T>(MyBLAS::abs(b - getResidual(a)));
+        return MyBLAS::Stats::max<T>(MyBLAS::Stats::abs(b - getResidual(a)));
     }
 };
 

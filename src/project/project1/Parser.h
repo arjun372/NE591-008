@@ -56,11 +56,6 @@ class Parser : public CommandLine<SolverInputs> {
      *
      */
     void printInputArguments(boost::program_options::variables_map &vm) override {
-
-        if (vm.count("quiet")) {
-            return;
-        }
-
         std::cout << std::setprecision(default_precision);
         // list the parameters
         CommandLine::printLine();

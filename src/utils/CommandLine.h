@@ -11,6 +11,7 @@
 #ifndef NE591_008_COMMANDLINE_H
 #define NE591_008_COMMANDLINE_H
 
+#include "CommandlineHelpers.h"
 #include "Helpers.h"
 #include "Profiler.h"
 #include "project-config.h"
@@ -149,9 +150,6 @@ template <typename InputType> class CommandLine {
     CommandLineArgs cmdArgs;
     InputType inputs = InputType();
 
-    // TODO:: DOCUMENT
-    Profiler profiler;
-
     /**
      * @brief Method to build a set of generic command line options.
      * @return An options description containing the generic command line options.
@@ -159,7 +157,7 @@ template <typename InputType> class CommandLine {
      * and returns them as an options description.
      */
     static boost::program_options::options_description buildGenerics() {
-        auto benchmarkOptions = Profiler::buildCommandlineOptions();
+        auto benchmarkOptions = ProfilerHelper::buildCommandlineOptions();
         benchmarkOptions.add_options()("bench,B", "= Run performance benchmarks");
 
         boost::program_options::options_description generics("General options");
@@ -247,12 +245,15 @@ template <typename InputType> class CommandLine {
 
         if (variablesMap.count("bench")) {
             // build the profiler now
-            profiler = Profiler::Init(variablesMap);
+            ProfilerHelper::validateOptions(variablesMap);
         }
 
-        // print the input arguments
-        printInputArguments(variablesMap);
-        // finally, build and save the inputs objet
+        if (!variablesMap.count("quiet")) {
+            // print the input arguments
+            printInputArguments(variablesMap);
+        }
+
+        // finally, build and save the inputs object
         buildInputs(inputs, variablesMap);
     }
 

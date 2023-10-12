@@ -21,8 +21,9 @@
 #include "CommandLine.h"
 #include "Project.h"
 
+#include "math/blas/BLAS.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/MyBLAS.h"
+#include "math/blas/Stats.h"
 #include "math/factorization/LU.h"
 
 #include "Compute.h"
@@ -101,6 +102,16 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
             6. Output the results: Write the scalar fluxes 𝜙(𝑖,𝑗) for 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛 to an output file.
         **/
 
+        auto profiler1 = getProfiler([&]() {
+            // Your arbitrary block of code here
+            int sum = 0;
+            for (int i = 0; i < 1000000; ++i) {
+                sum += i;
+            }
+        }, 100, 0, "profiler1"); // Run the block 100 times
+
+        profiler1.run();
+
         const bool quietMode = values.count("quiet");
 
         std::vector<Stopwatch<Nanoseconds>> clocks = std::vector<Stopwatch<Nanoseconds>>(5);
@@ -108,18 +119,21 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
         nlohmann::json profiler;
         IntermediateResults intermediates;
 
-        // Step 1. Initialize matrices
+
+        auto profiler2 = getProfiler([&]() {
+            intermediates = initialize_diffusion_matrix_and_vector<long double>(inputs.m, inputs.n);
+            naive_fill_diffusion_matrix_and_vector(inputs, intermediates);
+        }, 100, 0, "profiler1"); // Run the block 100 times
+
         clocks[0].restart();
-        {
-            for (size_t i = 0; i < 10; i++) {
-                intermediates = initialize_diffusion_matrix_and_vector<long double>(inputs.m, inputs.n);
-                naive_fill_diffusion_matrix_and_vector(inputs, intermediates);
-            }
-        }
+        profiler2.run();
         clocks[0].click();
-        durations[0] = static_cast<long double>(clocks[0].duration().count()) / 10.0;
+        // Step 1. Initialize matrices
+
+        durations[0] = static_cast<long double>(clocks[0].duration().count()) / 100.0;
         profiler["exclusive"]["initialize_and_fill"] = durations[0];
         profiler["cumulative"]["initialize_and_fill"] = durations[0];
+        std::cout<<profiler2;
 
         if (!quietMode) {
             Parser::printLine();
@@ -167,7 +181,7 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
             outputs.residual = r;
             outputs.solution = phi;
 
-            maxResidual = MyBLAS::max<long double>(MyBLAS::abs(r));
+            maxResidual = MyBLAS::Stats::max<long double>(MyBLAS::Stats::abs(r));
         }
         clocks[3].click();
         durations[3] = static_cast<long double>(clocks[3].duration().count());

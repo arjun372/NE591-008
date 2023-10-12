@@ -69,10 +69,18 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
         outputs = OutputType();
     }
 
+
     /**
-     * @brief Executes the project and measures the execution time.
+     * @brief Executes the project in a timed manner.
+     * This method calls preRun, run, and postRun methods in sequence.
      */
-    void timedRun() { run(outputs, terminal.getInputs(), terminal.getArguments()); }
+    void timedRun() {
+        preRun(outputs, terminal.getInputs(), terminal.getArguments());
+
+        run(outputs, terminal.getInputs(), terminal.getArguments());
+
+        postRun(outputs, terminal.getInputs(), terminal.getArguments());
+    }
 
   protected:
     /**
@@ -104,6 +112,45 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
      * @param values The variable map.
      */
     virtual void postRun(OutputType &output, InputType &input, boost::program_options::variables_map &values) {}
+
+    /**
+     * @brief Creates a Profiler object with the given function, number of samples, timeout, and description.
+     * @tparam Func The type of the function to be profiled.
+     * @param func The function to be profiled.
+     * @param samples The number of samples to be taken.
+     * @param timeout The maximum time for the profiling.
+     * @param description The description of the profiling.
+     * @return A Profiler object.
+     */
+    template <typename Func>
+    auto getProfiler(Func func, size_t samples, long double timeout = 0, std::string description = "") {
+        return Profiler(func, samples, timeout, description);
+    }
+
+    /**
+     * @brief Creates a Profiler object with the given function, number of samples, and description.
+     * @tparam Func The type of the function to be profiled.
+     * @param func The function to be profiled.
+     * @param samples The number of samples to be taken.
+     * @param description The description of the profiling.
+     * @return A Profiler object.
+     */
+    template <typename Func>
+    auto getProfiler(Func func, size_t samples, std::string description = "") {
+        return Profiler(func, samples, 0, description);
+    }
+
+    /**
+     * @brief Creates a Profiler object with the given function and description.
+     * @tparam Func The type of the function to be profiled.
+     * @param func The function to be profiled.
+     * @param description The description of the profiling.
+     * @return A Profiler object.
+     */
+    template <typename Func>
+    auto getProfiler(Func func, std::string description = "") {
+        return ProfilerHelper::InitProfiler(func, getTerminal().getArguments(), description);
+    }
 };
 
 #endif // NE591_008_PROJECT_H

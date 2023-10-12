@@ -62,4 +62,5 @@ template <typename T> T L2Norm(const MyBLAS::Vector<T> &a, const MyBLAS::Vector<
     return MyBLAS::L2Norm<MyBLAS::Vector<T>, T>(a, b, n);
 }
 } // namespace MyBLAS
+
 #endif // NE591_008_OPS_H
