@@ -11,8 +11,8 @@
 #include "InputsOutputs.h"
 #include "json.hpp"
 
+#include "math/blas/BLAS.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/MyBLAS.h"
 #include "math/blas/Vector.h"
 
 class Parser : public CommandLine<MyBLAS::InputMatrices> {

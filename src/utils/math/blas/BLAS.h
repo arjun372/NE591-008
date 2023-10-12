@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef NE591_008_MYBLAS_H
-#define NE591_008_MYBLAS_H
+#ifndef NE591_008_BLAS_H
+#define NE591_008_BLAS_H
 
 #include <cmath>
 
@@ -15,32 +15,6 @@
 #include "math/blas/Vector.h"
 
 namespace MyBLAS {
-
-/**
- * @brief Calculates the absolute value of the vector.
- * @return Vector with the absolute value of each element.
- */
-template <typename T> Vector<T> abs(const Vector<T> &a) {
-    Vector<T> result(a.size(), 0);
-    for (size_t i = 0; i < a.size(); ++i) {
-        result[i] = fabsl(a[i]);
-    }
-    return result;
-}
-
-/**
- * @brief Calculates the absolute value of the matrix.
- * @return Matrix with the absolute value of each element.
- */
-template <typename T> Matrix<T> abs(const Matrix<T> &a) {
-    Matrix<T> result(a.getRows(), a.getCols(), 0);
-    for (size_t i = 0; i < a.getRows(); ++i) {
-        for (size_t j = 0; j < a.getCols(); ++j) {
-            result[i][j] = fabsl(a[i][j]);
-        }
-    }
-    return result;
-}
 
 /**
  * @brief Checks if the given matrix is a square matrix.
@@ -358,4 +332,4 @@ template <typename T> MyBLAS::Matrix<T> innerProduct(const MyBLAS::Matrix<T> &A,
 }
 } // namespace MyBLAS
 
-#endif // NE591_008_MYBLAS_H
+#endif // NE591_008_BLAS_H

@@ -10,8 +10,12 @@
 
 #include <boost/program_options.hpp>
 #include <iostream>
+#include <iomanip>
+#include <limits>
 
 #include "CommandLine.h"
+#include "Helpers.h"
+#include "json.hpp"
 
 /**
  * @brief Checks if the vector stored in the boost::program_options::variables_map under the given key is unfilled.
@@ -133,20 +137,14 @@ template <typename T> static bool failsWholeNumberCheck(T value) {
     const long double min = 0;
     auto error = false;
 
-    if (value <= min) {
+    if (value < min) {
         std::cerr << "Error: "
-                  << "Input should be a positive number\n";
+                  << "Input should be a non-negative number\n";
         error = true;
     }
     if (ceil(value) != floor(value)) {
         std::cerr << "Error: "
                   << "Input should be a natural number\n";
-        error = true;
-    }
-
-    if (value == 0) {
-        std::cerr << "Error: "
-                  << "Input should be a whole number, i.e. it cannot be zero\n";
         error = true;
     }
 

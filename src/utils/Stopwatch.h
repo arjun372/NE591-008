@@ -59,19 +59,33 @@ template <class D> class Stopwatch {
     Stopwatch() { restart(); }
 
     /**
+     * @brief Static method to calculate the duration between two time points.
+     * @param stop The end time point.
+     * @param start The start time point.
+     * @return The duration between the start and stop time points, cast to the template duration type.
+     */
+    static D duration(const TimePointType &stop, const TimePointType &start) { return std::chrono::duration_cast<D>(stop - start); }
+
+    /**
      * @brief Get the duration in the given type.
      * @return The duration from the initial time point to the last clicked time point, cast to the template duration
      * type.
      */
-    D duration() const { return std::chrono::duration_cast<D>(_clicked - _initial); }
+    D duration() const { return Stopwatch::duration(_clicked, _initial); }
+
+    /**
+     * @brief Get the elapsed time from the initial time point to the current time, without affecting the clicked time point.
+     * @return The elapsed time from the initial time point to the current time, cast to the template duration type.
+     */
+    D peek_elapsed_time() const { return Stopwatch::duration(ResolutionType::now(), _initial); }
 
     /**
      * @brief Get the duration in seconds, in double precision.
      * @return The duration from the initial time point to the last clicked time point, cast to double precision
      * seconds.
      */
-    [[nodiscard]] double elapsed_seconds() const {
-        return std::chrono::duration_cast<std::chrono::duration<double>>(duration()).count();
+    [[nodiscard]] long double elapsed_seconds() const {
+        return std::chrono::duration_cast<std::chrono::duration<long double>>(duration()).count();
     }
 
     /**

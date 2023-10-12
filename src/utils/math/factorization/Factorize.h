@@ -41,7 +41,7 @@
 #ifndef NE591_008_FACTORIZE_H
 #define NE591_008_FACTORIZE_H
 
-#include "math/blas/MyBLAS.h"
+#include "math/blas/BLAS.h"
 #include "math/blas/Matrix.h"
 #include "math/blas/Vector.h"
 
@@ -124,7 +124,7 @@ template <typename T> bool passesPreChecks(const MyBLAS::Matrix<T> &A, const MyB
  * @return True if the matrices pass the post-checks, false otherwise.
  */
 template <typename T>
-bool passesPostChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Matrix<T> &L, const MyBLAS::Matrix<T> &U,
+bool passesPostChecks(const MyBLAS::Matrix<T> &L, const MyBLAS::Matrix<T> &U,
                       const MyBLAS::Matrix<T> &P) {
 
     bool passes = true;

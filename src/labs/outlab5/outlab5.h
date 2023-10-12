@@ -21,8 +21,9 @@
 #include "CommandLine.h"
 #include "Project.h"
 
+#include "math/blas/BLAS.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/MyBLAS.h"
+#include "math/blas/Stats.h"
 #include "math/factorization/LU.h"
 
 #include "Compute.h"
@@ -144,7 +145,7 @@ class OutLab5 : public Project<InputMatrices, Parser, Results> {
         const auto r = b - b_prime;
         outputs.residual = r;
 
-        const auto maxResidual = MyBLAS::max<long double>(MyBLAS::abs(r));
+        const auto maxResidual = MyBLAS::Stats::max<long double>(MyBLAS::Stats::abs(r));
         outputs.max_residual = maxResidual;
 
         outputs.toJSON(results["outputs"]);

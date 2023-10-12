@@ -1,149 +1,162 @@
 /**
- * @file Profiler.h
- * @author Arjun Earthperson
- * @date 08/30/2023
- * @brief This file contains helper classes and functions for profiling and random number generation.
- */
-
-/*
- * MIT License
- *
- * Copyright (c) 2023 Luigi Capogrosso, Luca Geretti,
- *                    Marco cristani, Franco Fummi, and Tiziano Villa.
- *
- * Copyright (c) 2023 Arjun Earthperson
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+* @file Profiler.h
+* @author Arjun Earthperson
+* @date 10/11/2023
+* @brief This file contains the Profiler class which is used to profile the execution time of a function.
+*/
 
 #ifndef NE591_008_PROFILER_H
 #define NE591_008_PROFILER_H
 
+#include <fstream>
 #include <functional>
 #include <iomanip>
 #include <iostream>
 #include <random>
+#include <utility>
 
+#include "CheckBounds.h"
 #include "Stopwatch.h"
+#include "json.hpp"
+#include "math/blas/Stats.h"
 
 /**
- * @brief A struct that provides a static method for generating random double numbers within a given range.
- */
-struct Randomiser {
-    static double get(double min, double max) {
-        // Create a random device
-        std::random_device rd;
-
-        // Initialize a random number generator engine
-        std::mt19937 engine(rd());
-
-        // Initialize a uniform real distribution with min and max
-        std::uniform_real_distribution<> dist(min, max);
-
-        // Generate and return a random number within the range
-        return dist(engine);
-    }
-};
-
-/**
- * @brief Initializes the random number generator with the current time as the seed.
- * @return Always returns true.
- */
-inline bool _init_randomiser() {
-    srand(time(nullptr));
-
-    return true;
-}
-
-/**
- * @brief A global constant that ensures the random number generator is initialized when the program starts.
- */
-static const bool init_randomiser = _init_randomiser();
-
-/**
- * @brief A class that provides methods for profiling the execution time of functions.
- */
+* @brief A template class to profile the execution time of a function.
+* @tparam FunctionType The type of the function to be profiled.
+*/
+template <typename FunctionType>
 class Profiler {
-  public:
-    /**
-     * @brief Constructs a new Profiler object.
-     * @param num_tries The number of times to execute the function for profiling.
-     */
-    explicit Profiler(int num_tries) : _num_tries(num_tries) {}
+ public:
 
-    /**
-     * @brief Returns the number of times the function will be executed for profiling.
-     * @return The number of tries.
-     */
-    [[nodiscard]] int num_tries() const { return _num_tries; }
+   /**
+    * @brief Constructor for the Profiler class.
+    * @param function The function to be profiled.
+    * @param runs The number of times the function should be run for profiling.
+    * @param timeout The maximum time allowed for the function to run.
+    * @param description A description of the function being profiled.
+    */
+   explicit Profiler(FunctionType function, size_t runs = 1, long double timeout = 0, std::string description = ""): _function(function) {
+       _timedOut = false;
+       _totalRuns = runs > 0 ? runs : 1;
+       _timeout = timeout > 0 ? timeout : 0;
+       _stopwatches = std::vector<Stopwatch<Nanoseconds>>(0);
+       _description = description;
+       _summary = MyBLAS::Stats::Summary<long double>();
+   }
 
-    /**
-     * @brief Returns a reference to the Randomiser object.
-     * @return A const reference to the Randomiser object.
-     */
-    [[nodiscard]] Randomiser const &rnd() const { return _rnd; }
+   /**
+    * @brief Runs the function for profiling and summarizes the results.
+    * @return A reference to this Profiler object.
+    */
+   Profiler &run() {
+       resetRuns();
+       if (_timeout > 0) {
+           _timedOut = runWithTimeout();
+       } else {
+           runNoTimeout();
+           _timedOut = false;
+       }
+       summarize(_summary, _stopwatches);
+       return *this;
+   }
 
-    /**
-     * @brief Profiles the execution time of a function on average.
-     * @param msg The message to print before the profiling result.
-     * @param function The function to profile.
-     * @param num_tries The number of times to execute the function for profiling.
-     */
-    void profile_on_average(const std::string &msg, const std::function<void(int)> &function, int num_tries) {
-        _ussw.restart();
-        for (int i = 0; i < num_tries; ++i)
-            function(i);
-        _ussw.click();
-        std::cout << msg << " completed in " << (static_cast<double>(_ussw.duration().count())) << " us on average"
-                  << std::endl;
-    }
+   /**
+    * @brief Overloads the << operator to print the summary of the profiling.
+    * @param os The output stream to print to.
+    * @param m The Profiler object to print.
+    * @return The output stream.
+    */
+   friend std::ostream &operator<<(std::ostream &os, const Profiler &m) {
+       os << R"(::::::::::::::::::::::::::::::: PROFILE SUMMARY ::::::::::::::::::::::::::::::::)"<<std::endl;
+       os << "["<<m._stopwatches.size()<<"/"<<m._totalRuns<<"] : "<<m._description<<std::endl;
+       os << R"(::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::)"<<std::endl;
+       os << m._summary << std::endl;
+       os << R"(::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::)"<<std::endl;
+       return os;
+   }
 
-    /**
-     * @brief Profiles the total execution time of a function.
-     * @param msg The message to print before the profiling result.
-     * @param function The function to profile.
-     * @param num_tries The number of times to execute the function for profiling.
-     */
-    void profile_on_total(const std::string &msg, const std::function<void(int)> &function, int num_tries) {
-        _mssw.restart();
-        for (int i = 0; i < num_tries; ++i)
-            function(i);
-        _mssw.click();
-        std::cout << msg << " completed in " << (static_cast<double>(_mssw.duration().count())) << " ms on total"
-                  << std::endl;
-    }
+   /**
+    * @brief Gets the summary of the profiling.
+    * @return The summary of the profiling.
+    */
+   const MyBLAS::Stats::Summary<long double> &getSummary() const { return _summary; }
 
-    /**
-     * @brief Profiles the execution time of a function on average using the number of tries specified in the
-     * constructor.
-     * @param msg The message to print before the profiling result.
-     * @param function The function to profile.
-     */
-    void profile(const std::string &msg, const std::function<void(int)> &function) {
-        profile_on_average(msg, function, _num_tries);
-    }
+ private:
+   FunctionType _function; ///< The function to be profiled.
+   size_t _totalRuns; ///< The number of times the function should be run for profiling.
+   long double _timeout; ///< The maximum time allowed for the function to run.
+   bool _timedOut; ///< Whether the function timed out during profiling.
+   std::string _description; ///< A description of the function being profiled.
+   std::vector<Stopwatch<Nanoseconds>> _stopwatches; ///< A vector of stopwatches to time each run of the function.
+   MyBLAS::Stats::Summary<long double> _summary; ///< The summary of the profiling.
 
-  private:
-    Stopwatch<Microseconds> _ussw; ///< A Stopwatch object for measuring time in microseconds.
-    Stopwatch<Milliseconds> _mssw; ///< A Stopwatch object for measuring time in milliseconds.
-    Randomiser _rnd;               ///< A Randomiser object for generating random numbers.
-    const int _num_tries;          ///< The number of times to execute the function for profiling.
+   /**
+    * @brief Runs the function for profiling without a timeout.
+    */
+   void runNoTimeout() {
+       for(size_t i = 0; i < _totalRuns; i++) {
+           auto stopwatch = Stopwatch<Nanoseconds>().restart();
+           _function();
+           stopwatch.click();
+           _stopwatches.emplace_back(stopwatch);
+       }
+   }
+
+   /**
+    * @brief Runs the function for profiling with a timeout.
+    * @return Whether the function timed out during profiling.
+    */
+   bool runWithTimeout() {
+       auto timeoutWatch = Stopwatch<Nanoseconds>();
+       timeoutWatch.restart();
+
+       for(size_t i = 0; i < _totalRuns; i++) {
+           // timed out
+           if(timeoutWatch.peek_elapsed_time().count() > _timeout) {
+               _timedOut = true;
+               break;
+           }
+           // run the calculation
+           auto stopwatch = Stopwatch<Nanoseconds>().restart();
+           _function();
+           stopwatch.click();
+           _stopwatches.emplace_back(stopwatch);
+       }
+
+       return _timedOut;
+   }
+
+   /**
+    * @brief Resets the runs for profiling.
+    */
+   void resetRuns() {
+       _timedOut = false;
+       _stopwatches.clear();
+       _stopwatches.resize(0);
+       _summary = MyBLAS::Stats::Summary<long double>();
+   }
+
+   /**
+    * @brief Summarizes the results of the profiling.
+    * @param summary The summary to store the results in.
+    * @param stopwatches The stopwatches used to time each run of the function.
+    */
+   static void summarize(MyBLAS::Stats::Summary<long double> &summary, const std::vector<Stopwatch<Nanoseconds>> &stopwatches) {
+       // Create an array of durations
+       MyBLAS::Vector<long double> durations(stopwatches.size());
+       std::transform(stopwatches.begin(), stopwatches.end(), durations.getData().begin(), [](const Stopwatch<Nanoseconds>& stopwatch) { return stopwatch.duration().count(); });
+
+       // Calculate statistics
+       summary.min = MyBLAS::Stats::min(durations);
+       summary.max = MyBLAS::Stats::max(durations);
+       summary.sum = MyBLAS::Stats::sum(durations);
+       summary.mean = MyBLAS::Stats::mean(durations);
+       summary.variance = MyBLAS::Stats::variance(durations);
+       summary.stddev = MyBLAS::Stats::std(durations);
+       summary.median = MyBLAS::Stats::median(durations);
+       summary.p5th = MyBLAS::Stats::percentile(durations, 5);
+       summary.P95th = MyBLAS::Stats::percentile(durations, 95);
+   }
 };
 
 #endif // NE591_008_PROFILER_H

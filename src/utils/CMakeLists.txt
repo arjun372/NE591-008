@@ -8,7 +8,7 @@ set(UTILS_LIB_HEADERS
         Project.h
         Stopwatch.h
         math/RootFinder.h
-        math/blas/MyBLAS.h
+        math/blas/BLAS.h
         math/blas/Vector.h
         math/blas/Matrix.h
         math/blas/Ops.h
@@ -23,6 +23,8 @@ set(UTILS_LIB_HEADERS
         math/LinearSolver.h
         math/blas/system/Circuit.h
         math/Random.h
+        CommandlineHelpers.h
+        math/blas/Stats.h
 )
 
 set(UTILS_LIB_SOURCES

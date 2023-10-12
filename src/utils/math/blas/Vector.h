@@ -71,6 +71,12 @@ template <typename T> class Vector {
     [[nodiscard]] const std::vector<T> &getData() const { return data; }
 
     /**
+     * @brief Getter for the vector data.
+     * @return reference to the vector data.
+     */
+    [[nodiscard]] std::vector<T>& getData() { return data; }
+
+    /**
      * @brief Getter for the size of the vector.
      * @return Size of the vector.
      */
@@ -205,36 +211,6 @@ template <typename T> class Vector {
         return os;
     }
 };
-
-/**
- * @brief Calculates the minimum value of the vector.
- * @return Minimum value of the vector elements.
- */
-template <typename T> static T min(const Vector<T> &a) {
-    if (a.getData().empty()) {
-        return NAN;
-    }
-    T minValue = a[0];
-    for (size_t i = 1; i < a.size(); ++i) {
-        minValue = std::min(minValue, a[i]);
-    }
-    return minValue;
-}
-
-/**
- * @brief Calculates the maximum value of the vector.
- * @return Minimum value of the vector elements.
- */
-template <typename T> static T max(const Vector<T> &a) {
-    if (a.getData().empty()) {
-        return NAN;
-    }
-    T maxValue = a[0];
-    for (size_t i = 1; i < a.size(); ++i) {
-        maxValue = std::max(maxValue, a[i]);
-    }
-    return maxValue;
-}
 } // namespace MyBLAS
 
 #endif // NE591_008_VECTOR_H

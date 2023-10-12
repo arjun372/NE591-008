@@ -168,4 +168,5 @@ template <typename T> void makeDiagonallyDominant(MyBLAS::Matrix<T> &A, const T 
     }
 }
 } // namespace MyBLAS
+
 #endif // NE591_008_OPS_H

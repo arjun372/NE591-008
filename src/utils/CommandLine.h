@@ -11,7 +11,9 @@
 #ifndef NE591_008_COMMANDLINE_H
 #define NE591_008_COMMANDLINE_H
 
+#include "CommandlineHelpers.h"
 #include "Helpers.h"
+#include "Profiler.h"
 #include "project-config.h"
 #include <boost/program_options.hpp>
 #include <iostream>
@@ -155,11 +157,15 @@ template <typename InputType> class CommandLine {
      * and returns them as an options description.
      */
     static boost::program_options::options_description buildGenerics() {
+        auto benchmarkOptions = ProfilerHelper::buildCommandlineOptions();
+        benchmarkOptions.add_options()("bench,B", "= Run performance benchmarks");
+
         boost::program_options::options_description generics("General options");
-        generics.add_options()("help,h", "= Show this help message")("quiet,q", "= Reduce verbosity")(
-            "precision,p", boost::program_options::value<int>()->default_value(15),
-            "= Number of digits to represent long double")("profile,P", "= Turn on performance profiling");
-        return generics;
+        generics.add_options()
+            ("help,h", "= Show this help message")("quiet,q", "= Reduce verbosity")
+            ("precision,p", boost::program_options::value<int>()->default_value(15), "= Number of digits to represent long double");
+        benchmarkOptions.add(generics);
+        return benchmarkOptions;
     }
 
     /**
@@ -236,9 +242,18 @@ template <typename InputType> class CommandLine {
 
         // consume and correct the input arguments
         performInputArgumentsCheck(variablesMap);
-        // print the input arguments
-        printInputArguments(variablesMap);
-        // finally, build and save the inputs objet
+
+        if (variablesMap.count("bench")) {
+            // build the profiler now
+            ProfilerHelper::validateOptions(variablesMap);
+        }
+
+        if (!variablesMap.count("quiet")) {
+            // print the input arguments
+            printInputArguments(variablesMap);
+        }
+
+        // finally, build and save the inputs object
         buildInputs(inputs, variablesMap);
     }
 

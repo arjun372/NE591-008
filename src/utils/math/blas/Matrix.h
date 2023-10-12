@@ -97,6 +97,12 @@ template <typename T> class Matrix {
     [[nodiscard]] const std::vector<std::vector<T>> &getData() const { return data; }
 
     /**
+     * @brief Getter for the vector data.
+     * @return reference to the vector data.
+     */
+    [[nodiscard]] std::vector<std::vector<T>> &getData() { return data; }
+
+    /**
      * @brief Adds a new row to the end of the matrix.
      * @param row Vector representing the new row to be added.
      */
