@@ -1,13 +1,18 @@
 var classProfiler =
 [
-    [ "Profiler", "dd/d0e/classProfiler.html#a94b78716959637812da3027c9985466a", null ],
-    [ "num_tries", "dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709", null ],
-    [ "profile", "dd/d0e/classProfiler.html#a7baf4d254638c318d2ec718a865fdbdf", null ],
-    [ "profile_on_average", "dd/d0e/classProfiler.html#ada5a266b2fd27a43075e863974106ddf", null ],
-    [ "profile_on_total", "dd/d0e/classProfiler.html#a1cb6c0192cebf0e4e370c0565169ba74", null ],
-    [ "rnd", "dd/d0e/classProfiler.html#afbf0cc141b8817f151191de244232576", null ],
-    [ "_mssw", "dd/d0e/classProfiler.html#affd62eb3e6d291c8bb9c25692d9e4643", null ],
-    [ "_num_tries", "dd/d0e/classProfiler.html#a39150832c37b8d3b549d96c582754016", null ],
-    [ "_rnd", "dd/d0e/classProfiler.html#a26c1e0e3ec7f11394df80cc9e81273df", null ],
-    [ "_ussw", "dd/d0e/classProfiler.html#a95f552245072460ae4b4ab2a72db9335", null ]
+    [ "Profiler", "dd/d0e/classProfiler.html#a30147b619f54b34368105b72c3a9882c", null ],
+    [ "getSummary", "dd/d0e/classProfiler.html#a0886bcf142b8a88ca8ef416033508ee6", null ],
+    [ "resetRuns", "dd/d0e/classProfiler.html#a64306917107f0c655a74b908add86a4d", null ],
+    [ "run", "dd/d0e/classProfiler.html#a3079911f79afc765205a92c66c971b65", null ],
+    [ "runNoTimeout", "dd/d0e/classProfiler.html#ae0e3d2665f540a740a52e200d0ad4f55", null ],
+    [ "runWithTimeout", "dd/d0e/classProfiler.html#ae09ec3b3f15ee1c9ae09630d8ca6dfd4", null ],
+    [ "summarize", "dd/d0e/classProfiler.html#a95b1ecdcfc06dedbd33127208aaceec6", null ],
+    [ "operator<<", "dd/d0e/classProfiler.html#a001446dbaa5a87b61f8595d5c7184388", null ],
+    [ "_description", "dd/d0e/classProfiler.html#aa0642f4d2ec68ed7f17e6d0b7cf64494", null ],
+    [ "_function", "dd/d0e/classProfiler.html#a1212ce82a989f3a7eafb28a27873866d", null ],
+    [ "_stopwatches", "dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330", null ],
+    [ "_summary", "dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a", null ],
+    [ "_timedOut", "dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b", null ],
+    [ "_timeout", "dd/d0e/classProfiler.html#a208c75b7df8f654bb9ddb7a994c0adb7", null ],
+    [ "_totalRuns", "dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9", null ]
 ];

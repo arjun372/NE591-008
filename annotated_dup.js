@@ -1,6 +1,9 @@
 var annotated_dup =
 [
     [ "MyBLAS", "d2/d6e/namespaceMyBLAS.html", [
+      [ "Stats", "dd/df5/namespaceMyBLAS_1_1Stats.html", [
+        [ "Summary", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", "dc/da4/structMyBLAS_1_1Stats_1_1Summary" ]
+      ] ],
       [ "Input", "d7/dd6/structMyBLAS_1_1Input.html", "d7/dd6/structMyBLAS_1_1Input" ],
       [ "Output", "d9/d29/structMyBLAS_1_1Output.html", "d9/d29/structMyBLAS_1_1Output" ],
       [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html", "d0/d27/classMyBLAS_1_1Matrix" ],
@@ -41,8 +44,6 @@ var annotated_dup =
     [ "Profiler", "dd/d0e/classProfiler.html", "dd/d0e/classProfiler" ],
     [ "Project", "db/d91/classProject.html", "db/d91/classProject" ],
     [ "Project1", "d8/ddb/classProject1.html", "d8/ddb/classProject1" ],
-    [ "Project2", "dd/db5/classProject2.html", "dd/db5/classProject2" ],
-    [ "Randomiser", "d8/d3a/structRandomiser.html", "d8/d3a/structRandomiser" ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
     [ "Stopwatch", "de/def/classStopwatch.html", "de/def/classStopwatch" ],
     [ "ToneMap", "db/df1/Helpers_8h.html#d1/db0/structToneMap", "db/df1/Helpers_8h_d1/db0/structToneMap" ]

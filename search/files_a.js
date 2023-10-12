@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['random_2eh_683',['Random.h',['../dd/d6d/Random_8h.html',1,'']]],
-  ['readfile_2em_684',['readfile.m',['../db/dde/readfile_8m.html',1,'']]],
-  ['readme_2emd_685',['README.md',['../da/dd4/src_2labs_2inlab1_2README_8md.html',1,'(Global Namespace)'],['../dc/db5/src_2README_8md.html',1,'(Global Namespace)'],['../dc/d15/src_2project_2project2_2README_8md.html',1,'(Global Namespace)'],['../d5/df7/src_2project_2project1_2README_8md.html',1,'(Global Namespace)'],['../d0/d67/src_2labs_2outlab6_2README_8md.html',1,'(Global Namespace)'],['../d1/dd6/src_2labs_2outlab5_2README_8md.html',1,'(Global Namespace)'],['../d2/dbd/src_2labs_2outlab4_2README_8md.html',1,'(Global Namespace)'],['../dd/de6/src_2labs_2outlab3_2README_8md.html',1,'(Global Namespace)'],['../db/d3b/src_2labs_2outlab2_2README_8md.html',1,'(Global Namespace)'],['../d2/d8a/src_2labs_2outlab1_2README_8md.html',1,'(Global Namespace)'],['../d4/df6/src_2labs_2inlab7_2README_8md.html',1,'(Global Namespace)'],['../d7/da2/src_2labs_2inlab6_2README_8md.html',1,'(Global Namespace)'],['../d2/de8/src_2labs_2inlab5_2README_8md.html',1,'(Global Namespace)'],['../d8/d00/src_2labs_2inlab4_2README_8md.html',1,'(Global Namespace)'],['../d1/d77/src_2labs_2inlab3_2README_8md.html',1,'(Global Namespace)'],['../d3/dd9/src_2labs_2inlab2_2README_8md.html',1,'(Global Namespace)'],['../da/ddd/README_8md.html',1,'(Global Namespace)']]],
-  ['relaxationmethods_2eh_686',['RelaxationMethods.h',['../d0/d24/RelaxationMethods_8h.html',1,'']]],
-  ['rootfinder_2eh_687',['RootFinder.h',['../dc/d5d/RootFinder_8h.html',1,'']]]
+  ['parser_2eh_685',['Parser.h',['../d5/dcb/labs_2inlab2_2Parser_8h.html',1,'(Global Namespace)'],['../d0/df9/project_2project1_2Parser_8h.html',1,'(Global Namespace)'],['../d9/d9b/labs_2outlab6_2Parser_8h.html',1,'(Global Namespace)'],['../d7/d4d/labs_2outlab5_2Parser_8h.html',1,'(Global Namespace)'],['../d0/d12/labs_2outlab4_2Parser_8h.html',1,'(Global Namespace)'],['../d4/d6e/labs_2outlab3_2Parser_8h.html',1,'(Global Namespace)'],['../d1/de1/labs_2outlab2_2Parser_8h.html',1,'(Global Namespace)'],['../d1/d62/labs_2outlab1_2Parser_8h.html',1,'(Global Namespace)'],['../d1/dad/labs_2inlab6_2Parser_8h.html',1,'(Global Namespace)'],['../d1/de2/labs_2inlab5_2Parser_8h.html',1,'(Global Namespace)'],['../df/dde/labs_2inlab4_2Parser_8h.html',1,'(Global Namespace)'],['../d4/d7e/labs_2inlab3_2Parser_8h.html',1,'(Global Namespace)'],['../dc/d59/labs_2inlab1_2Parser_8h.html',1,'(Global Namespace)']]],
+  ['plot_5fheatmap_2epy_686',['plot_heatmap.py',['../de/d39/plot__heatmap_8py.html',1,'']]],
+  ['plot_5fpoints_2em_687',['plot_points.m',['../dd/dd7/plot__points_8m.html',1,'']]],
+  ['pointjacobi_2eh_688',['PointJacobi.h',['../dd/d7b/PointJacobi_8h.html',1,'']]],
+  ['process_2epy_689',['process.py',['../d0/de8/process_8py.html',1,'']]],
+  ['profiler_2eh_690',['Profiler.h',['../df/d69/Profiler_8h.html',1,'']]],
+  ['project_2eh_691',['Project.h',['../d2/dff/Project_8h.html',1,'']]],
+  ['project1_2eh_692',['project1.h',['../d3/df7/project1_8h.html',1,'']]]
 ];

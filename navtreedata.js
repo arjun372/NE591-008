@@ -261,7 +261,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
         [ "All", "globals.html", "globals_dup" ],
-        [ "Functions", "globals_func.html", "globals_func" ],
+        [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
@@ -275,12 +275,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/de8/process_8py.html#ad079b5e116de83371494232c3f439cf6",
-"d4/d4d/classMyBLAS_1_1Vector.html#afbb02df342fc0ae1566d90aa3c256089",
-"d7/de4/FileParser_8h.html#a05aeb46aa7f312dd74467464305b1a5b",
-"da/ddc/structMap.html#a1197ab65e40dd20b891ba165471e3163",
-"dd/d6d/Random_8h.html",
-"dir_bba0a22db3bde2dd0107ccce2327cf4c.html",
+"d0/df9/project_2project1_2Parser_8h.html",
+"d4/d4d/classMyBLAS_1_1Vector.html#a4b2499de60d4a91d48a680126be96e72",
+"d7/dd6/structMyBLAS_1_1Input.html",
+"da/ddc/structMap.html",
+"dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a",
+"dir_23229132414701a43abba68028dbeba0.html",
 ""
 ];
 

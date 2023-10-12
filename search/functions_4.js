@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['disp_722',['disp',['../dd/dd7/plot__points_8m.html#a62f543a4865b6fc4a4b10fbd3f8c2ff2',1,'plot_points.m']]],
-  ['dobackwardsubstitution_723',['doBackwardSubstitution',['../d0/d6c/namespaceInLab04.html#a185cfc62d7beffeb384caa2d23c4b3a6',1,'InLab04']]],
-  ['doesfileexist_724',['doesFileExist',['../d7/de4/FileParser_8h.html#aba0309a007a885782789bfa456ca1bef',1,'FileParser.h']]],
-  ['doforwardsubstitution_725',['doForwardSubstitution',['../d0/d6c/namespaceInLab04.html#ab3a3cbc5744e288d945d91f6febfca15',1,'InLab04']]],
-  ['doolittlefactorize_726',['doolittleFactorize',['../db/d2e/namespaceMyBLAS_1_1LU.html#a53e15f639ac089ddc18e9e9340489efc',1,'MyBLAS::LU']]],
-  ['doolittlefactorizelu_727',['doolittleFactorizeLU',['../d2/d6e/namespaceMyBLAS.html#a278b70718fc6b42c7d239434849c2837',1,'MyBLAS']]],
-  ['doolittlefactorizelup_728',['dooLittleFactorizeLUP',['../d6/d82/labs_2outlab5_2Compute_8h.html#a42561c10d9c1157e9f1dcd9e940061a2',1,'dooLittleFactorizeLUP():&#160;Compute.h'],['../d5/db6/namespaceMyBLAS_1_1LUP.html#ab15d6938948c050657f9870aeec47097',1,'MyBLAS::LUP::dooLittleFactorizeLUP()']]],
-  ['duration_729',['duration',['../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785',1,'Stopwatch']]]
+  ['elapsed_5fseconds_740',['elapsed_seconds',['../de/def/classStopwatch.html#ae49f3c03fb639d7ea37530419c350216',1,'Stopwatch']]],
+  ['elementfroma_741',['elementFromA',['../d5/d65/labs_2outlab1_2Compute_8h.html#ab0665d1160f5941c2c99563d4499701b',1,'Compute.h']]],
+  ['elementfromb_742',['elementFromB',['../d5/d65/labs_2outlab1_2Compute_8h.html#a3df66fd7a28eca27039429c7c58136aa',1,'Compute.h']]],
+  ['elementfromc_743',['elementFromC',['../d5/d65/labs_2outlab1_2Compute_8h.html#a44278365efe26db246f915a6e23f5421',1,'Compute.h']]],
+  ['elementfromd_744',['elementFromD',['../d5/d65/labs_2outlab1_2Compute_8h.html#ae3ff689e573f915d93b9f30137287c48',1,'Compute.h']]],
+  ['elementfrome_745',['elementFromE',['../d5/d65/labs_2outlab1_2Compute_8h.html#a0f63c551d89f9cf8d10242d5af9a8299',1,'Compute.h']]],
+  ['elementfromf_746',['elementFromF',['../d5/d65/labs_2outlab1_2Compute_8h.html#a3bdb983590aa8405c4185bdf3c450c00',1,'Compute.h']]],
+  ['execute_747',['execute',['../db/d91/classProject.html#a2aef67be6b681b019c9079cf332e50a5',1,'Project']]],
+  ['eye_748',['eye',['../d0/d27/classMyBLAS_1_1Matrix.html#af038a1ce616639b7e9f9e3955bb6bd02',1,'MyBLAS::Matrix']]]
 ];

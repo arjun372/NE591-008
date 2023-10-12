@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('d7/d64/labs_2inlab1_2Compute_8h.html',
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/de9/labs_2inlab1_2Compute_8h__incl.svg" width="100%" height="507"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/de9/labs_2inlab1_2Compute_8h__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -312,11 +312,11 @@ value</td>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">// terminate since we are over the iteration limit</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> &gt; N) {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> sum;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a>;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">// terminate since we have converged</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span> (prev_threshold &lt;= target_threshold) {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">return</span> sum;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a>;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    }</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">// n&lt;=N &amp;&amp; (ce &gt; e)</span></div>
@@ -325,21 +325,22 @@ value</td>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> x_power_two_n_plus_1 = pow(<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, two_n_plus_1); <span class="comment">// x^(2n+1)</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> current_factorial = <a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a5dca881e1ae89aa924c747386d963f95">naive_factorial</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(two_n_plus_1)); <span class="comment">// (2n+1) * prev_factorial</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> current_threshold = x_power_two_n_plus_1 / current_factorial;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> accumulated = sum + direction * current_threshold;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> accumulated = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a> + direction * current_threshold;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a751e7780cd69969cb7218b13676bec6a">my_naive_sin</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, current_threshold, target_threshold, accumulated, ++<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, N);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
 <div class="ttc" id="ainlab2_2tests_2sanity__check_8m_html_aaf3e08bd5df22a84e842a1ee58631684"><div class="ttname"><a href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a></div><div class="ttdeci">Number of points to sample n</div><div class="ttdef"><b>Definition:</b> sanity_check.m:15</div></div>
 <div class="ttc" id="alabs_2inlab1_2Compute_8h_html_a5dca881e1ae89aa924c747386d963f95"><div class="ttname"><a href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a5dca881e1ae89aa924c747386d963f95">naive_factorial</a></div><div class="ttdeci">long double naive_factorial(const size_t N)</div><div class="ttdoc">Function to compute factorial in a naive way.</div><div class="ttdef"><b>Definition:</b> Compute.h:44</div></div>
 <div class="ttc" id="alabs_2inlab1_2Compute_8h_html_a751e7780cd69969cb7218b13676bec6a"><div class="ttname"><a href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a751e7780cd69969cb7218b13676bec6a">my_naive_sin</a></div><div class="ttdeci">long double my_naive_sin(const long double x, long double prev_threshold, long double target_threshold, long double sum, size_t n, size_t N)</div><div class="ttdoc">Function to compute sine in a naive way.</div><div class="ttdef"><b>Definition:</b> Compute.h:91</div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_aaa0d2e3d22af2b7894169b7c90ba6146"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">MyBLAS::Stats::sum</a></div><div class="ttdeci">T sum(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the sum of all elements in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:131</div></div>
 <div class="ttc" id="aplot__points_8m_html_a9336ebf25087d91c818ee6e9ec29f8c1"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a></div><div class="ttdeci">Define the x values x</div><div class="ttdef"><b>Definition:</b> plot_points.m:18</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00015">n</a>, <a class="el" href="../../#l00044">naive_factorial()</a>, and <a class="el" href="../../#l00018">x</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00015">n</a>, <a class="el" href="../../#l00044">naive_factorial()</a>, <a class="el" href="../../#l00131">MyBLAS::Stats::sum()</a>, and <a class="el" href="../../#l00018">x</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d64/labs_2inlab1_2Compute_8h_a751e7780cd69969cb7218b13676bec6a_cgraph.svg" width="290" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d64/labs_2inlab1_2Compute_8h_a751e7780cd69969cb7218b13676bec6a_cgraph.svg" width="558" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -417,7 +418,7 @@ value</td>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d64/labs_2inlab1_2Compute_8h_a7c627810ec1100f6ba69af278a1c5460_cgraph.svg" width="604" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d64/labs_2inlab1_2Compute_8h_a7c627810ec1100f6ba69af278a1c5460_cgraph.svg" width="634" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -461,7 +462,7 @@ value</td>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> vars.<a class="code" href="../../df/df1/structOutput.html#a6b23829ac7588e83be1b4b639e298604">running_sum</a>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">// terminate since we have converged</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a9db3b5457815887bf65b24bb4fe2937b">abs</a>(vars.<a class="code" href="../../df/df1/structOutput.html#ab498f7b76ca4504e996685d7fcbb5387">current_threshold</a>) &lt;= vars.<a class="code" href="../../df/df1/structOutput.html#acfe7f7a331c50da196e88103e46cb642">target_threshold</a>) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">abs</a>(vars.<a class="code" href="../../df/df1/structOutput.html#ab498f7b76ca4504e996685d7fcbb5387">current_threshold</a>) &lt;= vars.<a class="code" href="../../df/df1/structOutput.html#acfe7f7a331c50da196e88103e46cb642">target_threshold</a>) {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> vars.<a class="code" href="../../df/df1/structOutput.html#a6b23829ac7588e83be1b4b639e298604">running_sum</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
@@ -478,9 +479,9 @@ value</td>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    (vars.<a class="code" href="../../df/df1/structOutput.html#a3541126c8ceb372848970f8b4473deda">n</a>)++;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a36cda562827f6a51f45b57740f8ea850">my_sisd_sin</a>(vars);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="ttc" id="anamespaceMyBLAS_html_a9db3b5457815887bf65b24bb4fe2937b"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a9db3b5457815887bf65b24bb4fe2937b">MyBLAS::abs</a></div><div class="ttdeci">Vector&lt; T &gt; abs(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Calculates the absolute value of the vector.</div><div class="ttdef"><b>Definition:</b> MyBLAS.h:23</div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_afeaf3b7bba0ff1b952b35d0effc0bca9"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">MyBLAS::Stats::abs</a></div><div class="ttdeci">Vector&lt; T &gt; abs(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Function to find the absolute value of each element in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:100</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00023">MyBLAS::abs()</a>, <a class="el" href="../../#l00030">Output::current_threshold</a>, <a class="el" href="../../#l00033">Output::n</a>, <a class="el" href="../../#l00034">Output::N</a>, <a class="el" href="../../#l00044">naive_factorial()</a>, <a class="el" href="../../#l00027">Output::running_sum</a>, <a class="el" href="../../#l00031">Output::target_threshold</a>, and <a class="el" href="../../#l00032">Output::x</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00100">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00030">Output::current_threshold</a>, <a class="el" href="../../#l00033">Output::n</a>, <a class="el" href="../../#l00034">Output::N</a>, <a class="el" href="../../#l00044">naive_factorial()</a>, <a class="el" href="../../#l00027">Output::running_sum</a>, <a class="el" href="../../#l00031">Output::target_threshold</a>, and <a class="el" href="../../#l00032">Output::x</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00120">my_sin()</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -488,7 +489,7 @@ value</td>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d64/labs_2inlab1_2Compute_8h_a36cda562827f6a51f45b57740f8ea850_cgraph.svg" width="487" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d64/labs_2inlab1_2Compute_8h_a36cda562827f6a51f45b57740f8ea850_cgraph.svg" width="516" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">

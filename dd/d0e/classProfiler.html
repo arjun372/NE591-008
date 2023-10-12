@@ -7,7 +7,7 @@
     <meta content="IE=11" http-equiv="X-UA-Compatible"/>
     <meta content="Doxygen 1.9.1" name="generator"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>NE591-008 C++17 Codebase: Profiler Class Reference</title>
+    <title>NE591-008 C++17 Codebase: Profiler&lt; FunctionType &gt; Class Template Reference</title>
     <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
     <script src="../../jquery.js" type="text/javascript"></script>
     <script src="../../dynsections.js" type="text/javascript"></script>
@@ -115,79 +115,139 @@ $(document).ready(function(){initNavTree('dd/d0e/classProfiler.html','../../'); 
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">Profiler Class Reference</div>  </div>
+<div class="title">Profiler&lt; FunctionType &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A class that provides methods for profiling the execution time of functions.  
+<p>A template class to profile the execution time of a function.  
  <a href="../../dd/d0e/classProfiler.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../">Profiler.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for Profiler:</div>
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for Profiler&lt; FunctionType &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/d4f/classProfiler__coll__graph.svg" width="570" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/d4f/classProfiler__coll__graph.svg" width="556" height="515"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a94b78716959637812da3027c9985466a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a94b78716959637812da3027c9985466a">Profiler</a> (int <a class="el" href="../../dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709">num_tries</a>)</td></tr>
-<tr class="memdesc:a94b78716959637812da3027c9985466a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="../../dd/d0e/classProfiler.html" title="A class that provides methods for profiling the execution time of functions.">Profiler</a> object.  <a href="../../dd/d0e/classProfiler.html#a94b78716959637812da3027c9985466a">More...</a><br /></td></tr>
-<tr class="separator:a94b78716959637812da3027c9985466a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a511cfdb88e3a19702410c1ed0ad48709"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709">num_tries</a> () const</td></tr>
-<tr class="memdesc:a511cfdb88e3a19702410c1ed0ad48709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of times the function will be executed for profiling.  <a href="../../dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709">More...</a><br /></td></tr>
-<tr class="separator:a511cfdb88e3a19702410c1ed0ad48709"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbf0cc141b8817f151191de244232576"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d3a/structRandomiser.html">Randomiser</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#afbf0cc141b8817f151191de244232576">rnd</a> () const</td></tr>
-<tr class="memdesc:afbf0cc141b8817f151191de244232576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the <a class="el" href="../../d8/d3a/structRandomiser.html" title="A struct that provides a static method for generating random double numbers within a given range.">Randomiser</a> object.  <a href="../../dd/d0e/classProfiler.html#afbf0cc141b8817f151191de244232576">More...</a><br /></td></tr>
-<tr class="separator:afbf0cc141b8817f151191de244232576"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada5a266b2fd27a43075e863974106ddf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#ada5a266b2fd27a43075e863974106ddf">profile_on_average</a> (const std::string &amp;msg, const <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">std::function</a>&lt; void(int)&gt; &amp;<a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">function</a>, int <a class="el" href="../../dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709">num_tries</a>)</td></tr>
-<tr class="memdesc:ada5a266b2fd27a43075e863974106ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Profiles the execution time of a function on average.  <a href="../../dd/d0e/classProfiler.html#ada5a266b2fd27a43075e863974106ddf">More...</a><br /></td></tr>
-<tr class="separator:ada5a266b2fd27a43075e863974106ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cb6c0192cebf0e4e370c0565169ba74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a1cb6c0192cebf0e4e370c0565169ba74">profile_on_total</a> (const std::string &amp;msg, const <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">std::function</a>&lt; void(int)&gt; &amp;<a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">function</a>, int <a class="el" href="../../dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709">num_tries</a>)</td></tr>
-<tr class="memdesc:a1cb6c0192cebf0e4e370c0565169ba74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Profiles the total execution time of a function.  <a href="../../dd/d0e/classProfiler.html#a1cb6c0192cebf0e4e370c0565169ba74">More...</a><br /></td></tr>
-<tr class="separator:a1cb6c0192cebf0e4e370c0565169ba74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7baf4d254638c318d2ec718a865fdbdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a7baf4d254638c318d2ec718a865fdbdf">profile</a> (const std::string &amp;msg, const <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">std::function</a>&lt; void(int)&gt; &amp;<a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">function</a>)</td></tr>
-<tr class="memdesc:a7baf4d254638c318d2ec718a865fdbdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Profiles the execution time of a function on average using the number of tries specified in the constructor.  <a href="../../dd/d0e/classProfiler.html#a7baf4d254638c318d2ec718a865fdbdf">More...</a><br /></td></tr>
-<tr class="separator:a7baf4d254638c318d2ec718a865fdbdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30147b619f54b34368105b72c3a9882c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a30147b619f54b34368105b72c3a9882c">Profiler</a> (FunctionType <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">function</a>, size_t runs=1, long double timeout=0, std::string description=&quot;&quot;)</td></tr>
+<tr class="memdesc:a30147b619f54b34368105b72c3a9882c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="../../dd/d0e/classProfiler.html" title="A template class to profile the execution time of a function.">Profiler</a> class.  <a href="../../dd/d0e/classProfiler.html#a30147b619f54b34368105b72c3a9882c">More...</a><br /></td></tr>
+<tr class="separator:a30147b619f54b34368105b72c3a9882c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3079911f79afc765205a92c66c971b65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a3079911f79afc765205a92c66c971b65">run</a> ()</td></tr>
+<tr class="memdesc:a3079911f79afc765205a92c66c971b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the function for profiling and summarizes the results.  <a href="../../dd/d0e/classProfiler.html#a3079911f79afc765205a92c66c971b65">More...</a><br /></td></tr>
+<tr class="separator:a3079911f79afc765205a92c66c971b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0886bcf142b8a88ca8ef416033508ee6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; long double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a0886bcf142b8a88ca8ef416033508ee6">getSummary</a> () const</td></tr>
+<tr class="memdesc:a0886bcf142b8a88ca8ef416033508ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the summary of the profiling.  <a href="../../dd/d0e/classProfiler.html#a0886bcf142b8a88ca8ef416033508ee6">More...</a><br /></td></tr>
+<tr class="separator:a0886bcf142b8a88ca8ef416033508ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae0e3d2665f540a740a52e200d0ad4f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#ae0e3d2665f540a740a52e200d0ad4f55">runNoTimeout</a> ()</td></tr>
+<tr class="memdesc:ae0e3d2665f540a740a52e200d0ad4f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the function for profiling without a timeout.  <a href="../../dd/d0e/classProfiler.html#ae0e3d2665f540a740a52e200d0ad4f55">More...</a><br /></td></tr>
+<tr class="separator:ae0e3d2665f540a740a52e200d0ad4f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09ec3b3f15ee1c9ae09630d8ca6dfd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#ae09ec3b3f15ee1c9ae09630d8ca6dfd4">runWithTimeout</a> ()</td></tr>
+<tr class="memdesc:ae09ec3b3f15ee1c9ae09630d8ca6dfd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the function for profiling with a timeout.  <a href="../../dd/d0e/classProfiler.html#ae09ec3b3f15ee1c9ae09630d8ca6dfd4">More...</a><br /></td></tr>
+<tr class="separator:ae09ec3b3f15ee1c9ae09630d8ca6dfd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64306917107f0c655a74b908add86a4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a64306917107f0c655a74b908add86a4d">resetRuns</a> ()</td></tr>
+<tr class="memdesc:a64306917107f0c655a74b908add86a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the runs for profiling.  <a href="../../dd/d0e/classProfiler.html#a64306917107f0c655a74b908add86a4d">More...</a><br /></td></tr>
+<tr class="separator:a64306917107f0c655a74b908add86a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a95b1ecdcfc06dedbd33127208aaceec6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a95b1ecdcfc06dedbd33127208aaceec6">summarize</a> (<a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; long double &gt; &amp;summary, const std::vector&lt; <a class="el" href="../../de/def/classStopwatch.html">Stopwatch</a>&lt; <a class="el" href="../../d4/d2e/Stopwatch_8h.html#aa909686beb2d8acbedf5bd6587cb3fba">Nanoseconds</a> &gt;&gt; &amp;stopwatches)</td></tr>
+<tr class="memdesc:a95b1ecdcfc06dedbd33127208aaceec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Summarizes the results of the profiling.  <a href="../../dd/d0e/classProfiler.html#a95b1ecdcfc06dedbd33127208aaceec6">More...</a><br /></td></tr>
+<tr class="separator:a95b1ecdcfc06dedbd33127208aaceec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a95f552245072460ae4b4ab2a72db9335"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/def/classStopwatch.html">Stopwatch</a>&lt; <a class="el" href="../../d4/d2e/Stopwatch_8h.html#a201a83ed0d59d2baf946daf42dac834f">Microseconds</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a95f552245072460ae4b4ab2a72db9335">_ussw</a></td></tr>
-<tr class="memdesc:a95f552245072460ae4b4ab2a72db9335"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="../../de/def/classStopwatch.html" title="Stopwatch class template for measuring time durations.">Stopwatch</a> object for measuring time in microseconds.  <a href="../../dd/d0e/classProfiler.html#a95f552245072460ae4b4ab2a72db9335">More...</a><br /></td></tr>
-<tr class="separator:a95f552245072460ae4b4ab2a72db9335"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affd62eb3e6d291c8bb9c25692d9e4643"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/def/classStopwatch.html">Stopwatch</a>&lt; <a class="el" href="../../d4/d2e/Stopwatch_8h.html#a1c3834b9e3853535027d58bf21bec81f">Milliseconds</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#affd62eb3e6d291c8bb9c25692d9e4643">_mssw</a></td></tr>
-<tr class="memdesc:affd62eb3e6d291c8bb9c25692d9e4643"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="../../de/def/classStopwatch.html" title="Stopwatch class template for measuring time durations.">Stopwatch</a> object for measuring time in milliseconds.  <a href="../../dd/d0e/classProfiler.html#affd62eb3e6d291c8bb9c25692d9e4643">More...</a><br /></td></tr>
-<tr class="separator:affd62eb3e6d291c8bb9c25692d9e4643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26c1e0e3ec7f11394df80cc9e81273df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d3a/structRandomiser.html">Randomiser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a26c1e0e3ec7f11394df80cc9e81273df">_rnd</a></td></tr>
-<tr class="memdesc:a26c1e0e3ec7f11394df80cc9e81273df"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="../../d8/d3a/structRandomiser.html" title="A struct that provides a static method for generating random double numbers within a given range.">Randomiser</a> object for generating random numbers.  <a href="../../dd/d0e/classProfiler.html#a26c1e0e3ec7f11394df80cc9e81273df">More...</a><br /></td></tr>
-<tr class="separator:a26c1e0e3ec7f11394df80cc9e81273df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39150832c37b8d3b549d96c582754016"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a39150832c37b8d3b549d96c582754016">_num_tries</a></td></tr>
-<tr class="memdesc:a39150832c37b8d3b549d96c582754016"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of times to execute the function for profiling.  <a href="../../dd/d0e/classProfiler.html#a39150832c37b8d3b549d96c582754016">More...</a><br /></td></tr>
-<tr class="separator:a39150832c37b8d3b549d96c582754016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1212ce82a989f3a7eafb28a27873866d"><td class="memItemLeft" align="right" valign="top">FunctionType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a1212ce82a989f3a7eafb28a27873866d">_function</a></td></tr>
+<tr class="memdesc:a1212ce82a989f3a7eafb28a27873866d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function to be profiled.  <a href="../../dd/d0e/classProfiler.html#a1212ce82a989f3a7eafb28a27873866d">More...</a><br /></td></tr>
+<tr class="separator:a1212ce82a989f3a7eafb28a27873866d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10312016d6c53981c53a204750a3adc9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9">_totalRuns</a></td></tr>
+<tr class="memdesc:a10312016d6c53981c53a204750a3adc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of times the function should be run for profiling.  <a href="../../dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9">More...</a><br /></td></tr>
+<tr class="separator:a10312016d6c53981c53a204750a3adc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a208c75b7df8f654bb9ddb7a994c0adb7"><td class="memItemLeft" align="right" valign="top">long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a208c75b7df8f654bb9ddb7a994c0adb7">_timeout</a></td></tr>
+<tr class="memdesc:a208c75b7df8f654bb9ddb7a994c0adb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum time allowed for the function to run.  <a href="../../dd/d0e/classProfiler.html#a208c75b7df8f654bb9ddb7a994c0adb7">More...</a><br /></td></tr>
+<tr class="separator:a208c75b7df8f654bb9ddb7a994c0adb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4f85b3d18b80013d7a3e99cce2f597b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b">_timedOut</a></td></tr>
+<tr class="memdesc:af4f85b3d18b80013d7a3e99cce2f597b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the function timed out during profiling.  <a href="../../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b">More...</a><br /></td></tr>
+<tr class="separator:af4f85b3d18b80013d7a3e99cce2f597b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0642f4d2ec68ed7f17e6d0b7cf64494"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#aa0642f4d2ec68ed7f17e6d0b7cf64494">_description</a></td></tr>
+<tr class="memdesc:aa0642f4d2ec68ed7f17e6d0b7cf64494"><td class="mdescLeft">&#160;</td><td class="mdescRight">A description of the function being profiled.  <a href="../../dd/d0e/classProfiler.html#aa0642f4d2ec68ed7f17e6d0b7cf64494">More...</a><br /></td></tr>
+<tr class="separator:aa0642f4d2ec68ed7f17e6d0b7cf64494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803d99c3f902b246decb040c6172b330"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../de/def/classStopwatch.html">Stopwatch</a>&lt; <a class="el" href="../../d4/d2e/Stopwatch_8h.html#aa909686beb2d8acbedf5bd6587cb3fba">Nanoseconds</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330">_stopwatches</a></td></tr>
+<tr class="memdesc:a803d99c3f902b246decb040c6172b330"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector of stopwatches to time each run of the function.  <a href="../../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330">More...</a><br /></td></tr>
+<tr class="separator:a803d99c3f902b246decb040c6172b330"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a624219a2a8424b27a8c370325c5ba50a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; long double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a">_summary</a></td></tr>
+<tr class="memdesc:a624219a2a8424b27a8c370325c5ba50a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The summary of the profiling.  <a href="../../dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a">More...</a><br /></td></tr>
+<tr class="separator:a624219a2a8424b27a8c370325c5ba50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a001446dbaa5a87b61f8595d5c7184388"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0e/classProfiler.html#a001446dbaa5a87b61f8595d5c7184388">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a> &amp;<a class="el" href="../../db/dde/readfile_8m.html#a1352f112f57d3fce1732e0e08f35efe2">m</a>)</td></tr>
+<tr class="memdesc:a001446dbaa5a87b61f8595d5c7184388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads the &lt;&lt; operator to print the summary of the profiling.  <a href="../../dd/d0e/classProfiler.html#a001446dbaa5a87b61f8595d5c7184388">More...</a><br /></td></tr>
+<tr class="separator:a001446dbaa5a87b61f8595d5c7184388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A class that provides methods for profiling the execution time of functions. </p>
+<div class="textblock"><h3>template&lt;typename FunctionType&gt;<br />
+class Profiler&lt; FunctionType &gt;</h3>
+
+<p>A template class to profile the execution time of a function. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">FunctionType</td><td>The type of the function to be profiled. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a94b78716959637812da3027c9985466a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94b78716959637812da3027c9985466a">&#9670;&nbsp;</a></span>Profiler()</h2>
+<a id="a30147b619f54b34368105b72c3a9882c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30147b619f54b34368105b72c3a9882c">&#9670;&nbsp;</a></span>Profiler()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Profiler::Profiler </td>
+          <td class="memname"><a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::<a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a> </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_tries</em></td><td>)</td>
+          <td class="paramtype">FunctionType&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>runs</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long double&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>description</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -197,31 +257,51 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a new <a class="el" href="../../dd/d0e/classProfiler.html" title="A class that provides methods for profiling the execution time of functions.">Profiler</a> object. </p>
+<p>Constructor for the <a class="el" href="../../dd/d0e/classProfiler.html" title="A template class to profile the execution time of a function.">Profiler</a> class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">num_tries</td><td>The number of times to execute the function for profiling. </td></tr>
+    <tr><td class="paramname">function</td><td>The function to be profiled. </td></tr>
+    <tr><td class="paramname">runs</td><td>The number of times the function should be run for profiling. </td></tr>
+    <tr><td class="paramname">timeout</td><td>The maximum time allowed for the function to run. </td></tr>
+    <tr><td class="paramname">description</td><td>A description of the function being profiled. </td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;: <a class="code" href="../../dd/d0e/classProfiler.html#a39150832c37b8d3b549d96c582754016">_num_tries</a>(<a class="code" href="../../dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709">num_tries</a>) {}</div>
-<div class="ttc" id="aclassProfiler_html_a39150832c37b8d3b549d96c582754016"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a39150832c37b8d3b549d96c582754016">Profiler::_num_tries</a></div><div class="ttdeci">const int _num_tries</div><div class="ttdoc">The number of times to execute the function for profiling.</div><div class="ttdef"><b>Definition:</b> Profiler.h:146</div></div>
-<div class="ttc" id="aclassProfiler_html_a511cfdb88e3a19702410c1ed0ad48709"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709">Profiler::num_tries</a></div><div class="ttdeci">int num_tries() const</div><div class="ttdoc">Returns the number of times the function will be executed for profiling.</div><div class="ttdef"><b>Definition:</b> Profiler.h:94</div></div>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                                                                                                 : <a class="code" href="../../dd/d0e/classProfiler.html#a1212ce82a989f3a7eafb28a27873866d">_function</a>(<span class="keyword">function</span>) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b">_timedOut</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9">_totalRuns</a> = runs &gt; 0 ? runs : 1;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#a208c75b7df8f654bb9ddb7a994c0adb7">_timeout</a> = timeout &gt; 0 ? timeout : 0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330">_stopwatches</a> = std::vector&lt;Stopwatch&lt;Nanoseconds&gt;&gt;(0);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#aa0642f4d2ec68ed7f17e6d0b7cf64494">_description</a> = description;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a">_summary</a> = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary&lt;long double&gt;</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;   }</div>
+<div class="ttc" id="aclassProfiler_html_a10312016d6c53981c53a204750a3adc9"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9">Profiler::_totalRuns</a></div><div class="ttdeci">size_t _totalRuns</div><div class="ttdoc">The number of times the function should be run for profiling.</div><div class="ttdef"><b>Definition:</b> Profiler.h:86</div></div>
+<div class="ttc" id="aclassProfiler_html_a1212ce82a989f3a7eafb28a27873866d"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a1212ce82a989f3a7eafb28a27873866d">Profiler::_function</a></div><div class="ttdeci">FunctionType _function</div><div class="ttdoc">The function to be profiled.</div><div class="ttdef"><b>Definition:</b> Profiler.h:85</div></div>
+<div class="ttc" id="aclassProfiler_html_a208c75b7df8f654bb9ddb7a994c0adb7"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a208c75b7df8f654bb9ddb7a994c0adb7">Profiler::_timeout</a></div><div class="ttdeci">long double _timeout</div><div class="ttdoc">The maximum time allowed for the function to run.</div><div class="ttdef"><b>Definition:</b> Profiler.h:87</div></div>
+<div class="ttc" id="aclassProfiler_html_a624219a2a8424b27a8c370325c5ba50a"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a">Profiler::_summary</a></div><div class="ttdeci">MyBLAS::Stats::Summary&lt; long double &gt; _summary</div><div class="ttdoc">The summary of the profiling.</div><div class="ttdef"><b>Definition:</b> Profiler.h:91</div></div>
+<div class="ttc" id="aclassProfiler_html_a803d99c3f902b246decb040c6172b330"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330">Profiler::_stopwatches</a></div><div class="ttdeci">std::vector&lt; Stopwatch&lt; Nanoseconds &gt; &gt; _stopwatches</div><div class="ttdoc">A vector of stopwatches to time each run of the function.</div><div class="ttdef"><b>Definition:</b> Profiler.h:90</div></div>
+<div class="ttc" id="aclassProfiler_html_aa0642f4d2ec68ed7f17e6d0b7cf64494"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#aa0642f4d2ec68ed7f17e6d0b7cf64494">Profiler::_description</a></div><div class="ttdeci">std::string _description</div><div class="ttdoc">A description of the function being profiled.</div><div class="ttdef"><b>Definition:</b> Profiler.h:89</div></div>
+<div class="ttc" id="aclassProfiler_html_af4f85b3d18b80013d7a3e99cce2f597b"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b">Profiler::_timedOut</a></div><div class="ttdeci">bool _timedOut</div><div class="ttdoc">Whether the function timed out during profiling.</div><div class="ttdef"><b>Definition:</b> Profiler.h:88</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary&lt; long double &gt;</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00089">Profiler&lt; FunctionType &gt;::_description</a>, <a class="el" href="../../#l00090">Profiler&lt; FunctionType &gt;::_stopwatches</a>, <a class="el" href="../../#l00091">Profiler&lt; FunctionType &gt;::_summary</a>, <a class="el" href="../../#l00088">Profiler&lt; FunctionType &gt;::_timedOut</a>, <a class="el" href="../../#l00087">Profiler&lt; FunctionType &gt;::_timeout</a>, and <a class="el" href="../../#l00086">Profiler&lt; FunctionType &gt;::_totalRuns</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a511cfdb88e3a19702410c1ed0ad48709"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a511cfdb88e3a19702410c1ed0ad48709">&#9670;&nbsp;</a></span>num_tries()</h2>
+<a id="a0886bcf142b8a88ca8ef416033508ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0886bcf142b8a88ca8ef416033508ee6">&#9670;&nbsp;</a></span>getSummary()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Profiler::num_tries </td>
+          <td class="memname">const <a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt;long double&gt;&amp; <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::getSummary </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -234,49 +314,77 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of times the function will be executed for profiling. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of tries. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html#a39150832c37b8d3b549d96c582754016">_num_tries</a>; }</div>
+<p>Gets the summary of the profiling. </p>
+<dl class="section return"><dt>Returns</dt><dd>The summary of the profiling. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a">_summary</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00146">_num_tries</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00091">Profiler&lt; FunctionType &gt;::_summary</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00108">profile_on_average()</a>, and <a class="el" href="../../#l00123">profile_on_total()</a>.</p>
+</div>
+</div>
+<a id="a64306917107f0c655a74b908add86a4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64306917107f0c655a74b908add86a4d">&#9670;&nbsp;</a></span>resetRuns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::resetRuns </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the runs for profiling. </p>
+<div class="fragment"><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b">_timedOut</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330">_stopwatches</a>.clear();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330">_stopwatches</a>.resize(0);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a">_summary</a> = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary&lt;long double&gt;</a>();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;   }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00090">Profiler&lt; FunctionType &gt;::_stopwatches</a>, <a class="el" href="../../#l00091">Profiler&lt; FunctionType &gt;::_summary</a>, and <a class="el" href="../../#l00088">Profiler&lt; FunctionType &gt;::_timedOut</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00051">Profiler&lt; FunctionType &gt;::run()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_a511cfdb88e3a19702410c1ed0ad48709_icgraph.svg" width="506" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_a64306917107f0c655a74b908add86a4d_icgraph.svg" width="298" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a7baf4d254638c318d2ec718a865fdbdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7baf4d254638c318d2ec718a865fdbdf">&#9670;&nbsp;</a></span>profile()</h2>
+<a id="a3079911f79afc765205a92c66c971b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3079911f79afc765205a92c66c971b65">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Profiler::profile </td>
+          <td class="memname"><a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&amp; <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::run </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">std::function</a>&lt; void(int)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>function</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -286,103 +394,83 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Profiles the execution time of a function on average using the number of tries specified in the constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">msg</td><td>The message to print before the profiling result. </td></tr>
-    <tr><td class="paramname">function</td><td>The function to profile. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="fragment"><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                                                                               {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <a class="code" href="../../dd/d0e/classProfiler.html#ada5a266b2fd27a43075e863974106ddf">profile_on_average</a>(msg, <span class="keyword">function</span>, <a class="code" href="../../dd/d0e/classProfiler.html#a39150832c37b8d3b549d96c582754016">_num_tries</a>);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
-<div class="ttc" id="aclassProfiler_html_ada5a266b2fd27a43075e863974106ddf"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#ada5a266b2fd27a43075e863974106ddf">Profiler::profile_on_average</a></div><div class="ttdeci">void profile_on_average(const std::string &amp;msg, const std::function&lt; void(int)&gt; &amp;function, int num_tries)</div><div class="ttdoc">Profiles the execution time of a function on average.</div><div class="ttdef"><b>Definition:</b> Profiler.h:108</div></div>
+<p>Runs the function for profiling and summarizes the results. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to this <a class="el" href="../../dd/d0e/classProfiler.html" title="A template class to profile the execution time of a function.">Profiler</a> object. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                   {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#a64306917107f0c655a74b908add86a4d">resetRuns</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;       <span class="keywordflow">if</span> (<a class="code" href="../../dd/d0e/classProfiler.html#a208c75b7df8f654bb9ddb7a994c0adb7">_timeout</a> &gt; 0) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;           <a class="code" href="../../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b">_timedOut</a> = <a class="code" href="../../dd/d0e/classProfiler.html#ae09ec3b3f15ee1c9ae09630d8ca6dfd4">runWithTimeout</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;       } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;           <a class="code" href="../../dd/d0e/classProfiler.html#ae0e3d2665f540a740a52e200d0ad4f55">runNoTimeout</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;           <a class="code" href="../../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b">_timedOut</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;       }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       <a class="code" href="../../dd/d0e/classProfiler.html#a95b1ecdcfc06dedbd33127208aaceec6">summarize</a>(<a class="code" href="../../dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a">_summary</a>, <a class="code" href="../../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330">_stopwatches</a>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;       <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;   }</div>
+<div class="ttc" id="aclassProfiler_html_a64306917107f0c655a74b908add86a4d"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a64306917107f0c655a74b908add86a4d">Profiler::resetRuns</a></div><div class="ttdeci">void resetRuns()</div><div class="ttdoc">Resets the runs for profiling.</div><div class="ttdef"><b>Definition:</b> Profiler.h:132</div></div>
+<div class="ttc" id="aclassProfiler_html_a95b1ecdcfc06dedbd33127208aaceec6"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a95b1ecdcfc06dedbd33127208aaceec6">Profiler::summarize</a></div><div class="ttdeci">static void summarize(MyBLAS::Stats::Summary&lt; long double &gt; &amp;summary, const std::vector&lt; Stopwatch&lt; Nanoseconds &gt;&gt; &amp;stopwatches)</div><div class="ttdoc">Summarizes the results of the profiling.</div><div class="ttdef"><b>Definition:</b> Profiler.h:144</div></div>
+<div class="ttc" id="aclassProfiler_html_ae09ec3b3f15ee1c9ae09630d8ca6dfd4"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#ae09ec3b3f15ee1c9ae09630d8ca6dfd4">Profiler::runWithTimeout</a></div><div class="ttdeci">bool runWithTimeout()</div><div class="ttdoc">Runs the function for profiling with a timeout.</div><div class="ttdef"><b>Definition:</b> Profiler.h:109</div></div>
+<div class="ttc" id="aclassProfiler_html_ae0e3d2665f540a740a52e200d0ad4f55"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#ae0e3d2665f540a740a52e200d0ad4f55">Profiler::runNoTimeout</a></div><div class="ttdeci">void runNoTimeout()</div><div class="ttdoc">Runs the function for profiling without a timeout.</div><div class="ttdef"><b>Definition:</b> Profiler.h:96</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00146">_num_tries</a>, and <a class="el" href="../../#l00108">profile_on_average()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00090">Profiler&lt; FunctionType &gt;::_stopwatches</a>, <a class="el" href="../../#l00091">Profiler&lt; FunctionType &gt;::_summary</a>, <a class="el" href="../../#l00088">Profiler&lt; FunctionType &gt;::_timedOut</a>, <a class="el" href="../../#l00087">Profiler&lt; FunctionType &gt;::_timeout</a>, <a class="el" href="../../#l00132">Profiler&lt; FunctionType &gt;::resetRuns()</a>, <a class="el" href="../../#l00096">Profiler&lt; FunctionType &gt;::runNoTimeout()</a>, <a class="el" href="../../#l00109">Profiler&lt; FunctionType &gt;::runWithTimeout()</a>, and <a class="el" href="../../#l00144">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_a7baf4d254638c318d2ec718a865fdbdf_cgraph.svg" width="516" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_a3079911f79afc765205a92c66c971b65_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
 </div>
 </div>
-<a id="ada5a266b2fd27a43075e863974106ddf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada5a266b2fd27a43075e863974106ddf">&#9670;&nbsp;</a></span>profile_on_average()</h2>
+<a id="ae0e3d2665f540a740a52e200d0ad4f55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0e3d2665f540a740a52e200d0ad4f55">&#9670;&nbsp;</a></span>runNoTimeout()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Profiler::profile_on_average </td>
+          <td class="memname">void <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::runNoTimeout </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">std::function</a>&lt; void(int)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>function</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_tries</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Profiles the execution time of a function on average. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">msg</td><td>The message to print before the profiling result. </td></tr>
-    <tr><td class="paramname">function</td><td>The function to profile. </td></tr>
-    <tr><td class="paramname">num_tries</td><td>The number of times to execute the function for profiling. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                                                                                         {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="../../dd/d0e/classProfiler.html#a95f552245072460ae4b4ab2a72db9335">_ussw</a>.<a class="code" href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">restart</a>();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; <a class="code" href="../../dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709">num_tries</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keyword">function</span>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="../../dd/d0e/classProfiler.html#a95f552245072460ae4b4ab2a72db9335">_ussw</a>.<a class="code" href="../../de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d">click</a>();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        std::cout &lt;&lt; msg &lt;&lt; <span class="stringliteral">&quot; completed in &quot;</span> &lt;&lt; (<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(<a class="code" href="../../dd/d0e/classProfiler.html#a95f552245072460ae4b4ab2a72db9335">_ussw</a>.<a class="code" href="../../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785">duration</a>().count())) &lt;&lt; <span class="stringliteral">&quot; us on average&quot;</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                  &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
-<div class="ttc" id="aclassProfiler_html_a95f552245072460ae4b4ab2a72db9335"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a95f552245072460ae4b4ab2a72db9335">Profiler::_ussw</a></div><div class="ttdeci">Stopwatch&lt; Microseconds &gt; _ussw</div><div class="ttdoc">A Stopwatch object for measuring time in microseconds.</div><div class="ttdef"><b>Definition:</b> Profiler.h:143</div></div>
-<div class="ttc" id="aclassStopwatch_html_a2cc3c2b39972ca34f3ff9622471b1bbb"><div class="ttname"><a href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">Stopwatch::restart</a></div><div class="ttdeci">Stopwatch &amp; restart()</div><div class="ttdoc">Restart the stopwatch by setting the initial and clicked time points to the current time.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:81</div></div>
-<div class="ttc" id="aclassStopwatch_html_a3c8a6cb60a31a8cafd1d2dad1b6c851d"><div class="ttname"><a href="../../de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d">Stopwatch::click</a></div><div class="ttdeci">Stopwatch &amp; click()</div><div class="ttdoc">Save the current time as the clicked time point.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:91</div></div>
-<div class="ttc" id="aclassStopwatch_html_ad9367e879debc8822feb6dedae52a785"><div class="ttname"><a href="../../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785">Stopwatch::duration</a></div><div class="ttdeci">D duration() const</div><div class="ttdoc">Get the duration in the given type.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:66</div></div>
+<p>Runs the function for profiling without a timeout. </p>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                       {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;       <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; <a class="code" href="../../dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9">_totalRuns</a>; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;           <span class="keyword">auto</span> stopwatch = <a class="code" href="../../de/def/classStopwatch.html">Stopwatch&lt;Nanoseconds&gt;</a>().<a class="code" href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">restart</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;           <a class="code" href="../../dd/d0e/classProfiler.html#a1212ce82a989f3a7eafb28a27873866d">_function</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;           stopwatch.click();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;           <a class="code" href="../../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330">_stopwatches</a>.emplace_back(stopwatch);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;       }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;   }</div>
+<div class="ttc" id="aclassStopwatch_html"><div class="ttname"><a href="../../de/def/classStopwatch.html">Stopwatch&lt; Nanoseconds &gt;</a></div></div>
+<div class="ttc" id="aclassStopwatch_html_a2cc3c2b39972ca34f3ff9622471b1bbb"><div class="ttname"><a href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">Stopwatch::restart</a></div><div class="ttdeci">Stopwatch &amp; restart()</div><div class="ttdoc">Restart the stopwatch by setting the initial and clicked time points to the current time.</div><div class="ttdef"><b>Definition:</b> Stopwatch.h:95</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00143">_ussw</a>, <a class="el" href="../../#l00091">Stopwatch&lt; D &gt;::click()</a>, <a class="el" href="../../#l00066">Stopwatch&lt; D &gt;::duration()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00094">num_tries()</a>, and <a class="el" href="../../#l00081">Stopwatch&lt; D &gt;::restart()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00085">Profiler&lt; FunctionType &gt;::_function</a>, <a class="el" href="../../#l00090">Profiler&lt; FunctionType &gt;::_stopwatches</a>, <a class="el" href="../../#l00086">Profiler&lt; FunctionType &gt;::_totalRuns</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00095">Stopwatch&lt; D &gt;::restart()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00138">profile()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00051">Profiler&lt; FunctionType &gt;::run()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_ada5a266b2fd27a43075e863974106ddf_cgraph.svg" width="351" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_ae0e3d2665f540a740a52e200d0ad4f55_cgraph.svg" width="370" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -390,38 +478,103 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_ada5a266b2fd27a43075e863974106ddf_icgraph.svg" width="316" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_ae0e3d2665f540a740a52e200d0ad4f55_icgraph.svg" width="326" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a1cb6c0192cebf0e4e370c0565169ba74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cb6c0192cebf0e4e370c0565169ba74">&#9670;&nbsp;</a></span>profile_on_total()</h2>
+<a id="ae09ec3b3f15ee1c9ae09630d8ca6dfd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae09ec3b3f15ee1c9ae09630d8ca6dfd4">&#9670;&nbsp;</a></span>runWithTimeout()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Profiler::profile_on_total </td>
+          <td class="memname">bool <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::runWithTimeout </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runs the function for profiling with a timeout. </p>
+<dl class="section return"><dt>Returns</dt><dd>Whether the function timed out during profiling. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                         {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;       <span class="keyword">auto</span> timeoutWatch = <a class="code" href="../../de/def/classStopwatch.html">Stopwatch&lt;Nanoseconds&gt;</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;       timeoutWatch.restart();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;       <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; <a class="code" href="../../dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9">_totalRuns</a>; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;           <span class="comment">// timed out</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;           <span class="keywordflow">if</span>(timeoutWatch.peek_elapsed_time().count() &gt; <a class="code" href="../../dd/d0e/classProfiler.html#a208c75b7df8f654bb9ddb7a994c0adb7">_timeout</a>) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;               <a class="code" href="../../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b">_timedOut</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;               <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;           }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;           <span class="comment">// run the calculation</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;           <span class="keyword">auto</span> stopwatch = <a class="code" href="../../de/def/classStopwatch.html">Stopwatch&lt;Nanoseconds&gt;</a>().<a class="code" href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">restart</a>();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;           <a class="code" href="../../dd/d0e/classProfiler.html#a1212ce82a989f3a7eafb28a27873866d">_function</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;           stopwatch.click();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;           <a class="code" href="../../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330">_stopwatches</a>.emplace_back(stopwatch);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;       }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;       <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b">_timedOut</a>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;   }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00085">Profiler&lt; FunctionType &gt;::_function</a>, <a class="el" href="../../#l00090">Profiler&lt; FunctionType &gt;::_stopwatches</a>, <a class="el" href="../../#l00088">Profiler&lt; FunctionType &gt;::_timedOut</a>, <a class="el" href="../../#l00087">Profiler&lt; FunctionType &gt;::_timeout</a>, <a class="el" href="../../#l00086">Profiler&lt; FunctionType &gt;::_totalRuns</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00095">Stopwatch&lt; D &gt;::restart()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00051">Profiler&lt; FunctionType &gt;::run()</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_ae09ec3b3f15ee1c9ae09630d8ca6dfd4_cgraph.svg" width="382" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_ae09ec3b3f15ee1c9ae09630d8ca6dfd4_icgraph.svg" width="338" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a95b1ecdcfc06dedbd33127208aaceec6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95b1ecdcfc06dedbd33127208aaceec6">&#9670;&nbsp;</a></span>summarize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::summarize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; long double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>summary</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">std::function</a>&lt; void(int)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>function</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_tries</em>&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="../../de/def/classStopwatch.html">Stopwatch</a>&lt; <a class="el" href="../../d4/d2e/Stopwatch_8h.html#aa909686beb2d8acbedf5bd6587cb3fba">Nanoseconds</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>stopwatches</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -431,86 +584,148 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Profiles the total execution time of a function. </p>
+<p>Summarizes the results of the profiling. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">msg</td><td>The message to print before the profiling result. </td></tr>
-    <tr><td class="paramname">function</td><td>The function to profile. </td></tr>
-    <tr><td class="paramname">num_tries</td><td>The number of times to execute the function for profiling. </td></tr>
+    <tr><td class="paramname">summary</td><td>The summary to store the results in. </td></tr>
+    <tr><td class="paramname">stopwatches</td><td>The stopwatches used to time each run of the function. </td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                                                                                                       {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <a class="code" href="../../dd/d0e/classProfiler.html#affd62eb3e6d291c8bb9c25692d9e4643">_mssw</a>.<a class="code" href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb">restart</a>();</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; <a class="code" href="../../dd/d0e/classProfiler.html#a511cfdb88e3a19702410c1ed0ad48709">num_tries</a>; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keyword">function</span>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <a class="code" href="../../dd/d0e/classProfiler.html#affd62eb3e6d291c8bb9c25692d9e4643">_mssw</a>.<a class="code" href="../../de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d">click</a>();</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        std::cout &lt;&lt; msg &lt;&lt; <span class="stringliteral">&quot; completed in &quot;</span> &lt;&lt; (<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(<a class="code" href="../../dd/d0e/classProfiler.html#affd62eb3e6d291c8bb9c25692d9e4643">_mssw</a>.<a class="code" href="../../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785">duration</a>().count())) &lt;&lt; <span class="stringliteral">&quot; ms on total&quot;</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                  &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
-<div class="ttc" id="aclassProfiler_html_affd62eb3e6d291c8bb9c25692d9e4643"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#affd62eb3e6d291c8bb9c25692d9e4643">Profiler::_mssw</a></div><div class="ttdeci">Stopwatch&lt; Milliseconds &gt; _mssw</div><div class="ttdoc">A Stopwatch object for measuring time in milliseconds.</div><div class="ttdef"><b>Definition:</b> Profiler.h:144</div></div>
+<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                                                                                                                         {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;       <span class="comment">// Create an array of durations</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;       <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;long double&gt;</a> durations(stopwatches.size());</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;       std::transform(stopwatches.begin(), stopwatches.end(), durations.getData().begin(), [](<span class="keyword">const</span> <a class="code" href="../../de/def/classStopwatch.html">Stopwatch&lt;Nanoseconds&gt;</a>&amp; stopwatch) { return stopwatch.duration().count(); });</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;       <span class="comment">// Calculate statistics</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;       summary.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aa41dcac3470d01f9e3f9cd352d92caf3">min</a> = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#ac06efe71c44675ea021ddeb404d730dc">MyBLAS::Stats::min</a>(durations);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;       summary.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a1ba8eed98cdbcafe5f20ea23cc6893d1">max</a> = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a403bf760cf802cddf8dd73e5d3e46a05">MyBLAS::Stats::max</a>(durations);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;       summary.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a434963de3fd9ce7eb5d7663fe426f0df">sum</a> = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">MyBLAS::Stats::sum</a>(durations);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;       summary.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a3c292e59a4f2e9ed837c237e555b0f57">mean</a> = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a2d013f32ad1d6111d5d3e155758efa20">MyBLAS::Stats::mean</a>(durations);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;       summary.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a24b861cb93d7b14e8e7d7bfc86cb95e2">variance</a> = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a92ae9af47614e45733834f28aeb48cce">MyBLAS::Stats::variance</a>(durations);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;       summary.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#abef558a26a60bb3f19a1d3b1fe7deb2c">stddev</a> = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a40e2fbe322f90c6e21d2a7727ab36076">MyBLAS::Stats::std</a>(durations);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;       summary.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a175005aee26665c18f337b42b7c8fa47">median</a> = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a512692b79052b1a09c77917c9fb1e99c">MyBLAS::Stats::median</a>(durations);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;       summary.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#adb5daae316a47beab01dbf8eead160ae">p5th</a> = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a0d09c8d47fe666f1492b6a654c1281a0">MyBLAS::Stats::percentile</a>(durations, 5);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;       summary.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aebc8dbb163343a4e0790c2647ef9355b">P95th</a> = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a0d09c8d47fe666f1492b6a654c1281a0">MyBLAS::Stats::percentile</a>(durations, 95);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;   }</div>
+<div class="ttc" id="aclassMyBLAS_1_1Vector_html"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt; long double &gt;</a></div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_a0d09c8d47fe666f1492b6a654c1281a0"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a0d09c8d47fe666f1492b6a654c1281a0">MyBLAS::Stats::percentile</a></div><div class="ttdeci">T percentile(Vector&lt; T &gt; v, long double p)</div><div class="ttdoc">Function to find the p-th percentile of a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:181</div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_a2d013f32ad1d6111d5d3e155758efa20"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a2d013f32ad1d6111d5d3e155758efa20">MyBLAS::Stats::mean</a></div><div class="ttdeci">T mean(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the mean value of a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:143</div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_a403bf760cf802cddf8dd73e5d3e46a05"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a403bf760cf802cddf8dd73e5d3e46a05">MyBLAS::Stats::max</a></div><div class="ttdeci">T max(const Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the maximum value in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:86</div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_a40e2fbe322f90c6e21d2a7727ab36076"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a40e2fbe322f90c6e21d2a7727ab36076">MyBLAS::Stats::std</a></div><div class="ttdeci">T std(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the standard deviation of a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:169</div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_a512692b79052b1a09c77917c9fb1e99c"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a512692b79052b1a09c77917c9fb1e99c">MyBLAS::Stats::median</a></div><div class="ttdeci">T median(Vector&lt; T &gt; v)</div><div class="ttdoc">Function to find the median of a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:208</div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_a92ae9af47614e45733834f28aeb48cce"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a92ae9af47614e45733834f28aeb48cce">MyBLAS::Stats::variance</a></div><div class="ttdeci">T variance(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the variance of a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:154</div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_aaa0d2e3d22af2b7894169b7c90ba6146"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">MyBLAS::Stats::sum</a></div><div class="ttdeci">T sum(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the sum of all elements in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:131</div></div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_ac06efe71c44675ea021ddeb404d730dc"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#ac06efe71c44675ea021ddeb404d730dc">MyBLAS::Stats::min</a></div><div class="ttdeci">T min(const Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the minimum value in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:71</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a175005aee26665c18f337b42b7c8fa47"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a175005aee26665c18f337b42b7c8fa47">MyBLAS::Stats::Summary::median</a></div><div class="ttdeci">T median</div><div class="ttdoc">The median value.</div><div class="ttdef"><b>Definition:</b> Stats.h:40</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a1ba8eed98cdbcafe5f20ea23cc6893d1"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a1ba8eed98cdbcafe5f20ea23cc6893d1">MyBLAS::Stats::Summary::max</a></div><div class="ttdeci">T max</div><div class="ttdoc">The maximum value.</div><div class="ttdef"><b>Definition:</b> Stats.h:35</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a24b861cb93d7b14e8e7d7bfc86cb95e2"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a24b861cb93d7b14e8e7d7bfc86cb95e2">MyBLAS::Stats::Summary::variance</a></div><div class="ttdeci">T variance</div><div class="ttdoc">The variance.</div><div class="ttdef"><b>Definition:</b> Stats.h:38</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a3c292e59a4f2e9ed837c237e555b0f57"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a3c292e59a4f2e9ed837c237e555b0f57">MyBLAS::Stats::Summary::mean</a></div><div class="ttdeci">T mean</div><div class="ttdoc">The mean value.</div><div class="ttdef"><b>Definition:</b> Stats.h:37</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a434963de3fd9ce7eb5d7663fe426f0df"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a434963de3fd9ce7eb5d7663fe426f0df">MyBLAS::Stats::Summary::sum</a></div><div class="ttdeci">T sum</div><div class="ttdoc">The sum of all values.</div><div class="ttdef"><b>Definition:</b> Stats.h:36</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_aa41dcac3470d01f9e3f9cd352d92caf3"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aa41dcac3470d01f9e3f9cd352d92caf3">MyBLAS::Stats::Summary::min</a></div><div class="ttdeci">T min</div><div class="ttdoc">The minimum value.</div><div class="ttdef"><b>Definition:</b> Stats.h:34</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_abef558a26a60bb3f19a1d3b1fe7deb2c"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#abef558a26a60bb3f19a1d3b1fe7deb2c">MyBLAS::Stats::Summary::stddev</a></div><div class="ttdeci">T stddev</div><div class="ttdoc">The standard deviation.</div><div class="ttdef"><b>Definition:</b> Stats.h:39</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_adb5daae316a47beab01dbf8eead160ae"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#adb5daae316a47beab01dbf8eead160ae">MyBLAS::Stats::Summary::p5th</a></div><div class="ttdeci">T p5th</div><div class="ttdoc">The 5th percentile.</div><div class="ttdef"><b>Definition:</b> Stats.h:41</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_aebc8dbb163343a4e0790c2647ef9355b"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aebc8dbb163343a4e0790c2647ef9355b">MyBLAS::Stats::Summary::P95th</a></div><div class="ttdeci">T P95th</div><div class="ttdoc">The 95th percentile.</div><div class="ttdef"><b>Definition:</b> Stats.h:42</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00144">_mssw</a>, <a class="el" href="../../#l00091">Stopwatch&lt; D &gt;::click()</a>, <a class="el" href="../../#l00066">Stopwatch&lt; D &gt;::duration()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00094">num_tries()</a>, and <a class="el" href="../../#l00081">Stopwatch&lt; D &gt;::restart()</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00071">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00035">MyBLAS::Stats::Summary&lt; T &gt;::max</a>, <a class="el" href="../../#l00086">MyBLAS::Stats::max()</a>, <a class="el" href="../../#l00037">MyBLAS::Stats::Summary&lt; T &gt;::mean</a>, <a class="el" href="../../#l00143">MyBLAS::Stats::mean()</a>, <a class="el" href="../../#l00040">MyBLAS::Stats::Summary&lt; T &gt;::median</a>, <a class="el" href="../../#l00208">MyBLAS::Stats::median()</a>, <a class="el" href="../../#l00034">MyBLAS::Stats::Summary&lt; T &gt;::min</a>, <a class="el" href="../../#l00071">MyBLAS::Stats::min()</a>, <a class="el" href="../../#l00041">MyBLAS::Stats::Summary&lt; T &gt;::p5th</a>, <a class="el" href="../../#l00042">MyBLAS::Stats::Summary&lt; T &gt;::P95th</a>, <a class="el" href="../../#l00181">MyBLAS::Stats::percentile()</a>, <a class="el" href="../../#l00169">MyBLAS::Stats::std()</a>, <a class="el" href="../../#l00039">MyBLAS::Stats::Summary&lt; T &gt;::stddev</a>, <a class="el" href="../../#l00036">MyBLAS::Stats::Summary&lt; T &gt;::sum</a>, <a class="el" href="../../#l00131">MyBLAS::Stats::sum()</a>, <a class="el" href="../../#l00038">MyBLAS::Stats::Summary&lt; T &gt;::variance</a>, and <a class="el" href="../../#l00154">MyBLAS::Stats::variance()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00051">Profiler&lt; FunctionType &gt;::run()</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_a1cb6c0192cebf0e4e370c0565169ba74_cgraph.svg" width="351" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_a95b1ecdcfc06dedbd33127208aaceec6_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d0e/classProfiler_a95b1ecdcfc06dedbd33127208aaceec6_icgraph.svg" width="306" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="afbf0cc141b8817f151191de244232576"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbf0cc141b8817f151191de244232576">&#9670;&nbsp;</a></span>rnd()</h2>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a001446dbaa5a87b61f8595d5c7184388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a001446dbaa5a87b61f8595d5c7184388">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d3a/structRandomiser.html">Randomiser</a> const&amp; Profiler::rnd </td>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a reference to the <a class="el" href="../../d8/d3a/structRandomiser.html" title="A struct that provides a static method for generating random double numbers within a given range.">Randomiser</a> object. </p>
-<dl class="section return"><dt>Returns</dt><dd>A const reference to the <a class="el" href="../../d8/d3a/structRandomiser.html" title="A struct that provides a static method for generating random double numbers within a given range.">Randomiser</a> object. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html#a26c1e0e3ec7f11394df80cc9e81273df">_rnd</a>; }</div>
-<div class="ttc" id="aclassProfiler_html_a26c1e0e3ec7f11394df80cc9e81273df"><div class="ttname"><a href="../../dd/d0e/classProfiler.html#a26c1e0e3ec7f11394df80cc9e81273df">Profiler::_rnd</a></div><div class="ttdeci">Randomiser _rnd</div><div class="ttdoc">A Randomiser object for generating random numbers.</div><div class="ttdef"><b>Definition:</b> Profiler.h:145</div></div>
+<p>Overloads the &lt;&lt; operator to print the summary of the profiling. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>The output stream to print to. </td></tr>
+    <tr><td class="paramname">m</td><td>The <a class="el" href="../../dd/d0e/classProfiler.html" title="A template class to profile the execution time of a function.">Profiler</a> object to print. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The output stream. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                                                    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;       os &lt;&lt; R<span class="stringliteral">&quot;(::::::::::::::::::::::::::::::: PROFILE SUMMARY ::::::::::::::::::::::::::::::::)&quot;&lt;&lt;std::endl;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral">       os &lt;&lt; </span><span class="stringliteral">&quot;[&quot;</span>&lt;&lt;<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>._stopwatches.size()&lt;&lt;<span class="stringliteral">&quot;/&quot;</span>&lt;&lt;<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>._totalRuns&lt;&lt;<span class="stringliteral">&quot;] : &quot;</span>&lt;&lt;<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>._description&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;       os &lt;&lt; R<span class="stringliteral">&quot;(::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::)&quot;&lt;&lt;std::endl;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="stringliteral">       os &lt;&lt; <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>._summary &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">       os &lt;&lt; R</span><span class="stringliteral">&quot;(::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::)&quot;&lt;&lt;std::endl;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="stringliteral">       </span><span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;   }</div>
+<div class="ttc" id="aanalysis_8m_html_ab3cd915d758008bd19d0f2428fbb354a"><div class="ttname"><a href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a></div><div class="ttdeci">m</div><div class="ttdef"><b>Definition:</b> analysis.m:9</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00145">_rnd</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
-<a id="affd62eb3e6d291c8bb9c25692d9e4643"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affd62eb3e6d291c8bb9c25692d9e4643">&#9670;&nbsp;</a></span>_mssw</h2>
+<a id="aa0642f4d2ec68ed7f17e6d0b7cf64494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0642f4d2ec68ed7f17e6d0b7cf64494">&#9670;&nbsp;</a></span>_description</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/def/classStopwatch.html">Stopwatch</a>&lt;<a class="el" href="../../d4/d2e/Stopwatch_8h.html#a1c3834b9e3853535027d58bf21bec81f">Milliseconds</a>&gt; Profiler::_mssw</td>
+          <td class="memname">std::string <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::_description</td>
         </tr>
       </table>
   </td>
@@ -520,23 +735,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>A <a class="el" href="../../de/def/classStopwatch.html" title="Stopwatch class template for measuring time durations.">Stopwatch</a> object for measuring time in milliseconds. </p>
+<p>A description of the function being profiled. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00123">profile_on_total()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00038">Profiler&lt; FunctionType &gt;::Profiler()</a>.</p>
 
 </div>
 </div>
-<a id="a39150832c37b8d3b549d96c582754016"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39150832c37b8d3b549d96c582754016">&#9670;&nbsp;</a></span>_num_tries</h2>
+<a id="a1212ce82a989f3a7eafb28a27873866d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1212ce82a989f3a7eafb28a27873866d">&#9670;&nbsp;</a></span>_function</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int Profiler::_num_tries</td>
+          <td class="memname">FunctionType <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::_function</td>
         </tr>
       </table>
   </td>
@@ -546,23 +763,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The number of times to execute the function for profiling. </p>
+<p>The function to be profiled. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00094">num_tries()</a>, and <a class="el" href="../../#l00138">profile()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00096">Profiler&lt; FunctionType &gt;::runNoTimeout()</a>, and <a class="el" href="../../#l00109">Profiler&lt; FunctionType &gt;::runWithTimeout()</a>.</p>
 
 </div>
 </div>
-<a id="a26c1e0e3ec7f11394df80cc9e81273df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26c1e0e3ec7f11394df80cc9e81273df">&#9670;&nbsp;</a></span>_rnd</h2>
+<a id="a803d99c3f902b246decb040c6172b330"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803d99c3f902b246decb040c6172b330">&#9670;&nbsp;</a></span>_stopwatches</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d3a/structRandomiser.html">Randomiser</a> Profiler::_rnd</td>
+          <td class="memname">std::vector&lt;<a class="el" href="../../de/def/classStopwatch.html">Stopwatch</a>&lt;<a class="el" href="../../d4/d2e/Stopwatch_8h.html#aa909686beb2d8acbedf5bd6587cb3fba">Nanoseconds</a>&gt; &gt; <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::_stopwatches</td>
         </tr>
       </table>
   </td>
@@ -572,23 +791,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>A <a class="el" href="../../d8/d3a/structRandomiser.html" title="A struct that provides a static method for generating random double numbers within a given range.">Randomiser</a> object for generating random numbers. </p>
+<p>A vector of stopwatches to time each run of the function. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00100">rnd()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00038">Profiler&lt; FunctionType &gt;::Profiler()</a>, <a class="el" href="../../#l00132">Profiler&lt; FunctionType &gt;::resetRuns()</a>, <a class="el" href="../../#l00051">Profiler&lt; FunctionType &gt;::run()</a>, <a class="el" href="../../#l00096">Profiler&lt; FunctionType &gt;::runNoTimeout()</a>, and <a class="el" href="../../#l00109">Profiler&lt; FunctionType &gt;::runWithTimeout()</a>.</p>
 
 </div>
 </div>
-<a id="a95f552245072460ae4b4ab2a72db9335"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95f552245072460ae4b4ab2a72db9335">&#9670;&nbsp;</a></span>_ussw</h2>
+<a id="a624219a2a8424b27a8c370325c5ba50a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a624219a2a8424b27a8c370325c5ba50a">&#9670;&nbsp;</a></span>_summary</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/def/classStopwatch.html">Stopwatch</a>&lt;<a class="el" href="../../d4/d2e/Stopwatch_8h.html#a201a83ed0d59d2baf946daf42dac834f">Microseconds</a>&gt; Profiler::_ussw</td>
+          <td class="memname"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt;long double&gt; <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::_summary</td>
         </tr>
       </table>
   </td>
@@ -598,9 +819,93 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>A <a class="el" href="../../de/def/classStopwatch.html" title="Stopwatch class template for measuring time durations.">Stopwatch</a> object for measuring time in microseconds. </p>
+<p>The summary of the profiling. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00108">profile_on_average()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00082">Profiler&lt; FunctionType &gt;::getSummary()</a>, <a class="el" href="../../#l00038">Profiler&lt; FunctionType &gt;::Profiler()</a>, <a class="el" href="../../#l00132">Profiler&lt; FunctionType &gt;::resetRuns()</a>, and <a class="el" href="../../#l00051">Profiler&lt; FunctionType &gt;::run()</a>.</p>
+
+</div>
+</div>
+<a id="af4f85b3d18b80013d7a3e99cce2f597b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4f85b3d18b80013d7a3e99cce2f597b">&#9670;&nbsp;</a></span>_timedOut</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::_timedOut</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether the function timed out during profiling. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00038">Profiler&lt; FunctionType &gt;::Profiler()</a>, <a class="el" href="../../#l00132">Profiler&lt; FunctionType &gt;::resetRuns()</a>, <a class="el" href="../../#l00051">Profiler&lt; FunctionType &gt;::run()</a>, and <a class="el" href="../../#l00109">Profiler&lt; FunctionType &gt;::runWithTimeout()</a>.</p>
+
+</div>
+</div>
+<a id="a208c75b7df8f654bb9ddb7a994c0adb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a208c75b7df8f654bb9ddb7a994c0adb7">&#9670;&nbsp;</a></span>_timeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long double <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::_timeout</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The maximum time allowed for the function to run. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00038">Profiler&lt; FunctionType &gt;::Profiler()</a>, <a class="el" href="../../#l00051">Profiler&lt; FunctionType &gt;::run()</a>, and <a class="el" href="../../#l00109">Profiler&lt; FunctionType &gt;::runWithTimeout()</a>.</p>
+
+</div>
+</div>
+<a id="a10312016d6c53981c53a204750a3adc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10312016d6c53981c53a204750a3adc9">&#9670;&nbsp;</a></span>_totalRuns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../dd/d0e/classProfiler.html">Profiler</a>&lt; FunctionType &gt;::_totalRuns</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number of times the function should be run for profiling. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00038">Profiler&lt; FunctionType &gt;::Profiler()</a>, <a class="el" href="../../#l00096">Profiler&lt; FunctionType &gt;::runNoTimeout()</a>, and <a class="el" href="../../#l00109">Profiler&lt; FunctionType &gt;::runWithTimeout()</a>.</p>
 
 </div>
 </div>

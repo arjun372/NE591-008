@@ -6,6 +6,7 @@ var classMyBLAS_1_1Vector =
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#aefda1bef8067d699a5ae21e6ae89abbc", null ],
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a38d9b3abd0f73ccb99bf90a4dfe05353", null ],
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a8e7d9b86d0a33274a6fc0ebb838b0626", null ],
+    [ "getData", "d4/d4d/classMyBLAS_1_1Vector.html#a4815b8707e1545ce5ed6242c5f4e3b1b", null ],
     [ "getData", "d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab", null ],
     [ "operator*", "d4/d4d/classMyBLAS_1_1Vector.html#a8366c5dc9f36fc57e4782143af440277", null ],
     [ "operator*", "d4/d4d/classMyBLAS_1_1Vector.html#af712cfabc712009de01c6b02ce637516", null ],

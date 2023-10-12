@@ -48,64 +48,64 @@
 <path fill="none" stroke="midnightblue" d="M653.65,-123.05C642.97,-124.18 632.03,-125.34 621.28,-126.48"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="654.22,-126.51 663.79,-121.97 653.48,-119.55 654.22,-126.51"/>
 </g>
-<!-- Node12 -->
-<g id="node12" class="node">
-<title>Node12</title>
-<g id="a_node12"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a06469338a0b66fbb6224d51ec170b8ad" target="_top" xlink:title="Performs LU factorization with partial pivoting on a given matrix.">
+<!-- Node11 -->
+<g id="node11" class="node">
+<title>Node11</title>
+<g id="a_node11"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a06469338a0b66fbb6224d51ec170b8ad" target="_top" xlink:title="Performs LU factorization with partial pivoting on a given matrix.">
 <polygon fill="white" stroke="black" points="448.5,-164.5 448.5,-183.5 612.5,-183.5 612.5,-164.5 448.5,-164.5"/>
 <text text-anchor="middle" x="530.5" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">factorizeLUwithPartialPivoting</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node12 -->
-<g id="edge11" class="edge">
-<title>Node1&#45;&gt;Node12</title>
+<!-- Node1&#45;&gt;Node11 -->
+<g id="edge10" class="edge">
+<title>Node1&#45;&gt;Node11</title>
 <path fill="none" stroke="midnightblue" d="M706.91,-127.4C684.99,-136.17 655.1,-147.38 628,-155 615.1,-158.63 601.03,-161.82 587.73,-164.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="708.44,-130.56 716.39,-123.56 705.81,-124.07 708.44,-130.56"/>
 </g>
-<!-- Node13 -->
-<g id="node13" class="node">
-<title>Node13</title>
-<g id="a_node13"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#a9cf8ce4912ef5a8436e173e249b64286" target="_top" xlink:title="Performs LU factorization with partial pivoting on a given matrix.">
+<!-- Node12 -->
+<g id="node12" class="node">
+<title>Node12</title>
+<g id="a_node12"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#a9cf8ce4912ef5a8436e173e249b64286" target="_top" xlink:title="Performs LU factorization with partial pivoting on a given matrix.">
 <polygon fill="white" stroke="black" points="448.5,-77 448.5,-107 612.5,-107 612.5,-77 448.5,-77"/>
 <text text-anchor="start" x="456.5" y="-95" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::factorizeLUwith</text>
 <text text-anchor="middle" x="530.5" y="-84" font-family="Helvetica,sans-Serif" font-size="10.00">PartialPivoting</text>
 </a>
 </g>
 </g>
+<!-- Node1&#45;&gt;Node12 -->
+<g id="edge12" class="edge">
+<title>Node1&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M653.57,-104.94C640.08,-103.51 626.15,-102.04 612.76,-100.62"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="653.48,-108.45 663.79,-106.03 654.22,-101.49 653.48,-108.45"/>
+</g>
+<!-- Node13 -->
+<g id="node13" class="node">
+<title>Node13</title>
+<g id="a_node13"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a4af95e0f3db41e42885c47e81a6aecd8" target="_top" xlink:title="Performs recursive LU factorization with partial pivoting on a given matrix.">
+<polygon fill="white" stroke="black" points="468.5,-38.5 468.5,-57.5 592.5,-57.5 592.5,-38.5 468.5,-38.5"/>
+<text text-anchor="middle" x="530.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">recursiveFactorizeLUP</text>
+</a>
+</g>
+</g>
 <!-- Node1&#45;&gt;Node13 -->
 <g id="edge13" class="edge">
 <title>Node1&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M653.57,-104.94C640.08,-103.51 626.15,-102.04 612.76,-100.62"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="653.48,-108.45 663.79,-106.03 654.22,-101.49 653.48,-108.45"/>
+<path fill="none" stroke="midnightblue" d="M710.67,-100.08C688.59,-89.71 656.93,-75.87 628,-67 615.92,-63.3 602.76,-60.15 590.15,-57.54"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="709.27,-103.29 719.8,-104.43 712.28,-96.97 709.27,-103.29"/>
 </g>
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a4af95e0f3db41e42885c47e81a6aecd8" target="_top" xlink:title="Performs recursive LU factorization with partial pivoting on a given matrix.">
-<polygon fill="white" stroke="black" points="468.5,-38.5 468.5,-57.5 592.5,-57.5 592.5,-38.5 468.5,-38.5"/>
-<text text-anchor="middle" x="530.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">recursiveFactorizeLUP</text>
+<g id="a_node14"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#a3aae3c4e098a271220214ee7b0f9a695" target="_top" xlink:title="Performs recursive LU factorization with partial pivoting on a given matrix.">
+<polygon fill="white" stroke="black" points="433,-0.5 433,-19.5 628,-19.5 628,-0.5 433,-0.5"/>
+<text text-anchor="middle" x="530.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::recursiveFactorizeLUP</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node14 -->
 <g id="edge14" class="edge">
 <title>Node1&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M710.67,-100.08C688.59,-89.71 656.93,-75.87 628,-67 615.92,-63.3 602.76,-60.15 590.15,-57.54"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="709.27,-103.29 719.8,-104.43 712.28,-96.97 709.27,-103.29"/>
-</g>
-<!-- Node15 -->
-<g id="node15" class="node">
-<title>Node15</title>
-<g id="a_node15"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#a3aae3c4e098a271220214ee7b0f9a695" target="_top" xlink:title="Performs recursive LU factorization with partial pivoting on a given matrix.">
-<polygon fill="white" stroke="black" points="433,-0.5 433,-19.5 628,-19.5 628,-0.5 433,-0.5"/>
-<text text-anchor="middle" x="530.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::recursiveFactorizeLUP</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node15 -->
-<g id="edge15" class="edge">
-<title>Node1&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M722.39,-97.24C702,-77.7 665.5,-45.92 628,-29 619.36,-25.1 609.93,-22 600.46,-19.53"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="720.02,-99.82 729.62,-104.31 724.92,-94.82 720.02,-99.82"/>
 </g>
@@ -204,35 +204,20 @@
 <g id="node10" class="node">
 <title>Node10</title>
 <g id="a_node10"><a xlink:href="../../d8/ddb/classProject1.html#ac7f0febb9852a9871ac5209b58506fb1" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="0.5,-96.5 0.5,-115.5 78.5,-115.5 78.5,-96.5 0.5,-96.5"/>
-<text text-anchor="middle" x="39.5" y="-103.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project1::run</text>
+<polygon fill="white" stroke="black" points="0.5,-93.5 0.5,-112.5 78.5,-112.5 78.5,-93.5 0.5,-93.5"/>
+<text text-anchor="middle" x="39.5" y="-100.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project1::run</text>
 </a>
 </g>
 </g>
 <!-- Node9&#45;&gt;Node10 -->
 <g id="edge9" class="edge">
 <title>Node9&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M106.92,-104.46C97.24,-104.69 87.52,-104.91 78.6,-105.12"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="107.04,-107.96 116.95,-104.23 106.88,-100.96 107.04,-107.96"/>
+<path fill="none" stroke="midnightblue" d="M106.92,-103C97.24,-103 87.52,-103 78.6,-103"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="106.95,-106.5 116.95,-103 106.95,-99.5 106.95,-106.5"/>
 </g>
-<!-- Node11 -->
-<g id="node11" class="node">
-<title>Node11</title>
-<g id="a_node11"><a xlink:href="../../dd/db5/classProject2.html#ae3fb99498f7859230efae48b2915a8cb" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="0.5,-58.5 0.5,-77.5 78.5,-77.5 78.5,-58.5 0.5,-58.5"/>
-<text text-anchor="middle" x="39.5" y="-65.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project2::run</text>
-</a>
-</g>
-</g>
-<!-- Node9&#45;&gt;Node11 -->
-<g id="edge10" class="edge">
-<title>Node9&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M107.14,-86.01C96.4,-83.11 85.59,-80.19 75.89,-77.56"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="106.39,-89.43 116.95,-88.66 108.21,-82.68 106.39,-89.43"/>
-</g>
-<!-- Node12&#45;&gt;Node3 -->
-<g id="edge12" class="edge">
-<title>Node12&#45;&gt;Node3</title>
+<!-- Node11&#45;&gt;Node3 -->
+<g id="edge11" class="edge">
+<title>Node11&#45;&gt;Node3</title>
 <path fill="none" stroke="midnightblue" d="M451.77,-184.96C423.6,-188.94 393,-193.25 369.65,-196.55"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="452.61,-188.38 462.02,-183.52 451.63,-181.45 452.61,-188.38"/>
 </g>

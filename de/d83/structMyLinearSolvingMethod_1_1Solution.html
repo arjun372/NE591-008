@@ -197,8 +197,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{ <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">x</a> = initial; }</div>
-<div class="ttc" id="astructMyLinearSolvingMethod_1_1Solution_html_a8a96b815e353db4bc8a8d9c295f39694"><div class="ttname"><a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">MyLinearSolvingMethod::Solution::x</a></div><div class="ttdeci">MyBLAS::Vector&lt; T &gt; x</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:81</div></div>
+<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{ <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">x</a> = initial; }</div>
+<div class="ttc" id="astructMyLinearSolvingMethod_1_1Solution_html_a8a96b815e353db4bc8a8d9c295f39694"><div class="ttname"><a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">MyLinearSolvingMethod::Solution::x</a></div><div class="ttdeci">MyBLAS::Vector&lt; T &gt; x</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:82</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -227,7 +227,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{ <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">x</a> = <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a>(size, 0); }</div>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{ <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">x</a> = <a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt;T&gt;</a>(size, 0); }</div>
 <div class="ttc" id="aclassMyBLAS_1_1Vector_html"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a></div><div class="ttdoc">Class representing a vector of T values.</div><div class="ttdef"><b>Definition:</b> Vector.h:20</div></div>
 </div><!-- fragment -->
 </div>
@@ -295,19 +295,19 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                                                               {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> MyBLAS::max&lt;T&gt;(<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a9db3b5457815887bf65b24bb4fe2937b">MyBLAS::abs</a>(b - <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a023bea4aba1167ced20d3170250003c1">getResidual</a>(a)));</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="ttc" id="anamespaceMyBLAS_html_a9db3b5457815887bf65b24bb4fe2937b"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a9db3b5457815887bf65b24bb4fe2937b">MyBLAS::abs</a></div><div class="ttdeci">Vector&lt; T &gt; abs(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Calculates the absolute value of the vector.</div><div class="ttdef"><b>Definition:</b> MyBLAS.h:23</div></div>
-<div class="ttc" id="astructMyLinearSolvingMethod_1_1Solution_html_a023bea4aba1167ced20d3170250003c1"><div class="ttname"><a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a023bea4aba1167ced20d3170250003c1">MyLinearSolvingMethod::Solution::getResidual</a></div><div class="ttdeci">MyBLAS::Vector&lt; T &gt; getResidual(MyBLAS::Matrix&lt; T &gt; a) const</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:83</div></div>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                                                               {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> MyBLAS::Stats::max&lt;T&gt;(<a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">MyBLAS::Stats::abs</a>(b - <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a023bea4aba1167ced20d3170250003c1">getResidual</a>(a)));</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_afeaf3b7bba0ff1b952b35d0effc0bca9"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">MyBLAS::Stats::abs</a></div><div class="ttdeci">Vector&lt; T &gt; abs(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Function to find the absolute value of each element in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:100</div></div>
+<div class="ttc" id="astructMyLinearSolvingMethod_1_1Solution_html_a023bea4aba1167ced20d3170250003c1"><div class="ttname"><a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a023bea4aba1167ced20d3170250003c1">MyLinearSolvingMethod::Solution::getResidual</a></div><div class="ttdeci">MyBLAS::Vector&lt; T &gt; getResidual(MyBLAS::Matrix&lt; T &gt; a) const</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:84</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00023">MyBLAS::abs()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00100">MyBLAS::Stats::abs()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d83/structMyLinearSolvingMethod_1_1Solution_a935d299aeab719ef51430e7959e2e826_cgraph.svg" width="568" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d83/structMyLinearSolvingMethod_1_1Solution_a935d299aeab719ef51430e7959e2e826_cgraph.svg" width="610" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -338,7 +338,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{ <span class="keywordflow">return</span> a * <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">x</a>; }</div>
+<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{ <span class="keywordflow">return</span> a * <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">x</a>; }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00018">x</a>.</p>
 

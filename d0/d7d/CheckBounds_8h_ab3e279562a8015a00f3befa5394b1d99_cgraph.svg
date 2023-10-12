@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 602;
+var viewWidth = 633;
 var viewHeight = 66;
 var sectionId = 'dynsection-14';
 </script>
@@ -54,7 +54,7 @@ var sectionId = 'dynsection-14';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>failsProbabilityCheck</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-62 598,-62 598,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-62 629,-62 629,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
@@ -82,74 +82,53 @@ var sectionId = 'dynsection-14';
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a990467e8430064e652754897d099b7bf" target="_top" xlink:title="Calculates the maximum value of the vector.">
-<polygon fill="white" stroke="black" points="334,-38.5 334,-57.5 419,-57.5 419,-38.5 334,-38.5"/>
-<text text-anchor="middle" x="376.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::max</text>
+<g id="a_node3"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a403bf760cf802cddf8dd73e5d3e46a05" target="_top" xlink:title="Function to find the maximum value in a vector.">
+<polygon fill="white" stroke="black" points="334,-38.5 334,-57.5 450,-57.5 450,-38.5 334,-38.5"/>
+<text text-anchor="middle" x="392" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::max</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M298.29,-38.05C306.85,-39.16 315.47,-40.27 323.69,-41.33"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="323.48,-44.83 333.85,-42.63 324.38,-37.89 323.48,-44.83"/>
+<path fill="none" stroke="midnightblue" d="M298.07,-37.17C306.69,-38.17 315.49,-39.2 324.06,-40.2"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="323.66,-43.67 334,-41.36 324.47,-36.72 323.66,-43.67"/>
 </g>
-<!-- Node6 -->
-<g id="node6" class="node">
-<title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7" target="_top" xlink:title="Calculates the minimum value of the vector.">
-<polygon fill="white" stroke="black" points="335.5,-0.5 335.5,-19.5 417.5,-19.5 417.5,-0.5 335.5,-0.5"/>
-<text text-anchor="middle" x="376.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::min</text>
+<!-- Node5 -->
+<g id="node5" class="node">
+<title>Node5</title>
+<g id="a_node5"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#ac06efe71c44675ea021ddeb404d730dc" target="_top" xlink:title="Function to find the minimum value in a vector.">
+<polygon fill="white" stroke="black" points="335.5,-0.5 335.5,-19.5 448.5,-19.5 448.5,-0.5 335.5,-0.5"/>
+<text text-anchor="middle" x="392" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::min</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node6 -->
-<g id="edge5" class="edge">
-<title>Node2&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M298.29,-19.95C307.47,-18.76 316.71,-17.57 325.46,-16.45"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="325.99,-19.91 335.46,-15.16 325.1,-12.96 325.99,-19.91"/>
+<!-- Node2&#45;&gt;Node5 -->
+<g id="edge4" class="edge">
+<title>Node2&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M298.07,-20.83C307.1,-19.78 316.32,-18.71 325.27,-17.66"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="325.72,-21.13 335.25,-16.5 324.91,-14.18 325.72,-21.13"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab" target="_top" xlink:title="Getter for the vector data.">
-<polygon fill="white" stroke="black" points="455,-38.5 455,-57.5 594,-57.5 594,-38.5 455,-38.5"/>
-<text text-anchor="middle" x="524.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::getData</text>
+<polygon fill="white" stroke="black" points="486,-19.5 486,-38.5 625,-38.5 625,-19.5 486,-19.5"/>
+<text text-anchor="middle" x="555.5" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::getData</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M419.34,-48C427.33,-48 435.94,-48 444.66,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="444.92,-51.5 454.92,-48 444.92,-44.5 444.92,-51.5"/>
+<path fill="none" stroke="midnightblue" d="M450.39,-41.25C458.67,-40.27 467.3,-39.26 475.9,-38.25"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="476.44,-41.71 485.96,-37.06 475.62,-34.76 476.44,-41.71"/>
 </g>
-<!-- Node5 -->
-<g id="node5" class="node">
-<title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#aae30f8178e4a34d332317c61e77c147a" target="_top" xlink:title="Getter for the size of the vector.">
-<polygon fill="white" stroke="black" points="465,-0.5 465,-19.5 584,-19.5 584,-0.5 465,-0.5"/>
-<text text-anchor="middle" x="524.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node5 -->
-<g id="edge4" class="edge">
-<title>Node3&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M414.34,-38.41C433.35,-33.46 456.73,-27.38 476.97,-22.11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="478.13,-25.43 486.92,-19.52 476.36,-18.65 478.13,-25.43"/>
-</g>
-<!-- Node6&#45;&gt;Node4 -->
-<g id="edge6" class="edge">
-<title>Node6&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M414.34,-19.59C433.35,-24.54 456.73,-30.62 476.97,-35.89"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="476.36,-39.35 486.92,-38.48 478.13,-32.57 476.36,-39.35"/>
-</g>
-<!-- Node6&#45;&gt;Node5 -->
-<g id="edge7" class="edge">
-<title>Node6&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M417.78,-10C429.24,-10 442.05,-10 454.69,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="454.76,-13.5 464.76,-10 454.76,-6.5 454.76,-13.5"/>
+<!-- Node5&#45;&gt;Node4 -->
+<g id="edge5" class="edge">
+<title>Node5&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M448.58,-16.54C457.42,-17.58 466.72,-18.67 475.97,-19.76"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="475.63,-23.25 485.97,-20.94 476.45,-16.29 475.63,-23.25"/>
 </g>
 </g>
 </svg>

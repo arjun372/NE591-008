@@ -36,7 +36,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="../../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785" target="_top" xlink:title="Get the duration in the given type.">
+<g id="a_node3"><a xlink:href="../../de/def/classStopwatch.html#ac5fd84825ff7ae966d1963a20e9cf47b" target="_top" xlink:title="Static method to calculate the duration between two time points.">
 <polygon fill="white" stroke="black" points="136,-76.5 136,-95.5 250,-95.5 250,-76.5 136,-76.5"/>
 <text text-anchor="middle" x="193" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">Stopwatch::duration</text>
 </a>
@@ -51,30 +51,30 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a50834683eb1a4cb5adbe71091be113c7" target="_top" xlink:title="Calculates the minimum value of the vector.">
-<polygon fill="white" stroke="black" points="152,-38.5 152,-57.5 234,-57.5 234,-38.5 152,-38.5"/>
-<text text-anchor="middle" x="193" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::min</text>
+<g id="a_node4"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#ac06efe71c44675ea021ddeb404d730dc" target="_top" xlink:title="Function to find the minimum value in a vector.">
+<polygon fill="white" stroke="black" points="136.5,-38.5 136.5,-57.5 249.5,-57.5 249.5,-38.5 136.5,-38.5"/>
+<text text-anchor="middle" x="193" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::min</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M100.31,-60.35C113.73,-58.55 128.28,-56.59 141.74,-54.77"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="142.35,-58.22 151.8,-53.42 141.42,-51.28 142.35,-58.22"/>
+<path fill="none" stroke="midnightblue" d="M100.31,-60.35C108.65,-59.23 117.42,-58.05 126.09,-56.88"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="126.76,-60.32 136.2,-55.52 125.83,-53.39 126.76,-60.32"/>
 </g>
-<!-- Node7 -->
-<g id="node7" class="node">
-<title>Node7</title>
-<g id="a_node7"><a xlink:href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb" target="_top" xlink:title="Restart the stopwatch by setting the initial and clicked time points to the current time.">
+<!-- Node6 -->
+<g id="node6" class="node">
+<title>Node6</title>
+<g id="a_node6"><a xlink:href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb" target="_top" xlink:title="Restart the stopwatch by setting the initial and clicked time points to the current time.">
 <polygon fill="white" stroke="black" points="140,-0.5 140,-19.5 246,-19.5 246,-0.5 140,-0.5"/>
 <text text-anchor="middle" x="193" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Stopwatch::restart</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node7 -->
-<g id="edge6" class="edge">
-<title>Node1&#45;&gt;Node7</title>
+<!-- Node1&#45;&gt;Node6 -->
+<g id="edge5" class="edge">
+<title>Node1&#45;&gt;Node6</title>
 <path fill="none" stroke="midnightblue" d="M71.04,-57.4C88.12,-49.38 113.43,-37.85 136,-29 141.26,-26.94 146.84,-24.89 152.37,-22.93"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="153.86,-26.12 162.17,-19.55 151.57,-19.5 153.86,-26.12"/>
 </g>
@@ -82,31 +82,16 @@
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab" target="_top" xlink:title="Getter for the vector data.">
-<polygon fill="white" stroke="black" points="286,-57.5 286,-76.5 425,-76.5 425,-57.5 286,-57.5"/>
-<text text-anchor="middle" x="355.5" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::getData</text>
+<polygon fill="white" stroke="black" points="286,-38.5 286,-57.5 425,-57.5 425,-38.5 286,-38.5"/>
+<text text-anchor="middle" x="355.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::getData</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M234.09,-52.75C246.84,-54.25 261.41,-55.98 275.91,-57.7"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="275.57,-61.18 285.91,-58.88 276.39,-54.23 275.57,-61.18"/>
-</g>
-<!-- Node6 -->
-<g id="node6" class="node">
-<title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#aae30f8178e4a34d332317c61e77c147a" target="_top" xlink:title="Getter for the size of the vector.">
-<polygon fill="white" stroke="black" points="296,-19.5 296,-38.5 415,-38.5 415,-19.5 296,-19.5"/>
-<text text-anchor="middle" x="355.5" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
-</a>
-</g>
-</g>
-<!-- Node4&#45;&gt;Node6 -->
-<g id="edge5" class="edge">
-<title>Node4&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M234.09,-43.25C249.69,-41.41 268.02,-39.24 285.6,-37.16"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="286.33,-40.59 295.85,-35.94 285.5,-33.64 286.33,-40.59"/>
+<path fill="none" stroke="midnightblue" d="M249.68,-48C258.08,-48 266.87,-48 275.64,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="275.9,-51.5 285.9,-48 275.9,-44.5 275.9,-51.5"/>
 </g>
 </g>
 </svg>

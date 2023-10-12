@@ -29,7 +29,6 @@ var hierarchy =
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
     [ "CommandLine< SolverInputs >", "dd/d02/classCommandLine.html", [
-      [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
     [ "CommandLine< TaylorSeriesInputs >", "dd/d02/classCommandLine.html", [
@@ -46,13 +45,14 @@ var hierarchy =
     [ "MyBLAS::Input", "d7/dd6/structMyBLAS_1_1Input.html", null ],
     [ "MyBLAS::Matrix< T >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MyBLAS::Output", "d9/d29/structMyBLAS_1_1Output.html", null ],
+    [ "MyBLAS::Stats::Summary< T >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
     [ "MyBLAS::Vector< T >", "d4/d4d/classMyBLAS_1_1Vector.html", null ],
     [ "MyFactorizationMethod::Parameters< T >", "de/dbb/structMyFactorizationMethod_1_1Parameters.html", null ],
     [ "MyLinearSolvingMethod::Input< T >", "de/d18/namespaceMyLinearSolvingMethod.html#d5/d72/structMyLinearSolvingMethod_1_1Input", null ],
     [ "MyLinearSolvingMethod::Solution< T >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
     [ "Output", "df/df1/structOutput.html", null ],
     [ "Outputs", "db/d86/structOutputs.html", null ],
-    [ "Profiler", "dd/d0e/classProfiler.html", null ],
+    [ "Profiler< FunctionType >", "dd/d0e/classProfiler.html", null ],
     [ "Project< InputType, CommandLineParserType, OutputType >", "db/d91/classProject.html", null ],
     [ "Project< InLab6Inputs, Parser, InLab6Outputs >", "db/d91/classProject.html", [
       [ "InLab6", "d1/d8c/classInLab6.html", null ]
@@ -81,26 +81,22 @@ var hierarchy =
       [ "OutLab6", "d0/d4c/classOutLab6.html", null ]
     ] ],
     [ "Project< SolverInputs, Parser, SolverOutputs >", "db/d91/classProject.html", [
-      [ "Project1", "d8/ddb/classProject1.html", null ],
-      [ "Project2", "dd/db5/classProject2.html", null ]
+      [ "Project1", "d8/ddb/classProject1.html", null ]
     ] ],
     [ "Project< TaylorSeriesInputs, Parser, TaylorSeriesVariables >", "db/d91/classProject.html", [
       [ "InLab1", "dd/d40/classInLab1.html", null ]
     ] ],
-    [ "Randomiser", "d8/d3a/structRandomiser.html", null ],
     [ "MyLinearSolvingMethod::Solution< long double >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
     [ "Stopwatch< D >", "de/def/classStopwatch.html", null ],
-    [ "Stopwatch< Microseconds >", "de/def/classStopwatch.html", null ],
-    [ "Stopwatch< Milliseconds >", "de/def/classStopwatch.html", null ],
+    [ "Stopwatch< Nanoseconds >", "de/def/classStopwatch.html", null ],
+    [ "MyBLAS::Stats::Summary< long double >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
     [ "testing::TestWithParam", null, [
       [ "FactorizeInvalidLUMatrixTest", "d7/df1/classFactorizeInvalidLUMatrixTest.html", null ],
       [ "FactorizeInvalidLUMatrixTest", "d7/df1/classFactorizeInvalidLUMatrixTest.html", null ],
       [ "FactorizeInvalidLUMatrixTest", "d7/df1/classFactorizeInvalidLUMatrixTest.html", null ],
       [ "FactorizeInvalidLUMatrixTest", "d7/df1/classFactorizeInvalidLUMatrixTest.html", null ],
       [ "FactorizeInvalidLUMatrixTest", "d7/df1/classFactorizeInvalidLUMatrixTest.html", null ],
-      [ "FactorizeInvalidLUMatrixTest", "d7/df1/classFactorizeInvalidLUMatrixTest.html", null ],
-      [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ],
       [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ],
       [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ],
       [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ],

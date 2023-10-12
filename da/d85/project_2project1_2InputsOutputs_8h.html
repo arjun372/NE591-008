@@ -127,15 +127,16 @@ $(document).ready(function(){initNavTree('da/d85/project_2project1_2InputsOutput
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;utility&gt;</code><br />
 <code>#include &quot;json.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">math/blas/BLAS.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/Matrix.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">math/blas/MyBLAS.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">math/blas/Stats.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/Vector.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for InputsOutputs.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/dff/project_2project1_2InputsOutputs_8h__incl.svg" width="463" height="351"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/dff/project_2project1_2InputsOutputs_8h__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -254,11 +255,11 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe"></a>METHOD_GAUSS_SEIDEL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3"></a>METHOD_SOR&#160;</td><td class="fielddoc"></td></tr>
 </table>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{ <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5ae14effda56d292d6ccad8f364bd04e52">METHOD_LUP</a>, <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f">METHOD_POINT_JACOBI</a>, <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">METHOD_GAUSS_SEIDEL</a>, <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3">METHOD_SOR</a> };</div>
-<div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f">METHOD_POINT_JACOBI</a></div><div class="ttdeci">@ METHOD_POINT_JACOBI</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:21</div></div>
-<div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3">METHOD_SOR</a></div><div class="ttdeci">@ METHOD_SOR</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:21</div></div>
-<div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">METHOD_GAUSS_SEIDEL</a></div><div class="ttdeci">@ METHOD_GAUSS_SEIDEL</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:21</div></div>
-<div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5ae14effda56d292d6ccad8f364bd04e52"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5ae14effda56d292d6ccad8f364bd04e52">METHOD_LUP</a></div><div class="ttdeci">@ METHOD_LUP</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:21</div></div>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{ <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5ae14effda56d292d6ccad8f364bd04e52">METHOD_LUP</a>, <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f">METHOD_POINT_JACOBI</a>, <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">METHOD_GAUSS_SEIDEL</a>, <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3">METHOD_SOR</a> };</div>
+<div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f">METHOD_POINT_JACOBI</a></div><div class="ttdeci">@ METHOD_POINT_JACOBI</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:22</div></div>
+<div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3">METHOD_SOR</a></div><div class="ttdeci">@ METHOD_SOR</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:22</div></div>
+<div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">METHOD_GAUSS_SEIDEL</a></div><div class="ttdeci">@ METHOD_GAUSS_SEIDEL</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:22</div></div>
+<div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5ae14effda56d292d6ccad8f364bd04e52"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5ae14effda56d292d6ccad8f364bd04e52">METHOD_LUP</a></div><div class="ttdeci">@ METHOD_LUP</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:22</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -287,10 +288,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The string representation of the IntegrationRule. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                          {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *SolverMethodKeys[] = {<span class="stringliteral">&quot;LUP&quot;</span>, <span class="stringliteral">&quot;point-jacobi&quot;</span>, <span class="stringliteral">&quot;gauss-seidel&quot;</span>, <span class="stringliteral">&quot;SOR&quot;</span>};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> SolverMethodKeys[<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(value)];</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                                          {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *SolverMethodKeys[] = {<span class="stringliteral">&quot;LUP&quot;</span>, <span class="stringliteral">&quot;point-jacobi&quot;</span>, <span class="stringliteral">&quot;gauss-seidel&quot;</span>, <span class="stringliteral">&quot;SOR&quot;</span>};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> SolverMethodKeys[<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(value)];</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -7,6 +7,7 @@ var classMyBLAS_1_1Matrix =
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#aafc80b062755b01c46f5608067b8ae5a", null ],
     [ "eye", "d0/d27/classMyBLAS_1_1Matrix.html#af038a1ce616639b7e9f9e3955bb6bd02", null ],
     [ "getCols", "d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864", null ],
+    [ "getData", "d0/d27/classMyBLAS_1_1Matrix.html#a38e35fa655be23a033337c5322c942c3", null ],
     [ "getData", "d0/d27/classMyBLAS_1_1Matrix.html#a23654643cd581a49d01f7575d4eabbbd", null ],
     [ "getRows", "d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249", null ],
     [ "operator*", "d0/d27/classMyBLAS_1_1Matrix.html#a0bf69964f51bcc8d749e17567103919d", null ],
