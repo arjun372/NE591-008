@@ -12,8 +12,9 @@
 
 #include "json.hpp"
 #include "math/LinearSolver.h"
+#include "math/blas/BLAS.h"
+#include "math/blas/Stats.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/MyBLAS.h"
 #include "math/blas/Vector.h"
 
 /**
@@ -95,7 +96,7 @@ typedef struct Output {
 
         jsonMap["solution"] = solution.x.getData();
         jsonMap["residual"] = residual.getData();
-        jsonMap["max-residual"] = MyBLAS::max<long double>(MyBLAS::abs(residual));
+        jsonMap["max-residual"] = MyBLAS::Stats::max<long double>(MyBLAS::Stats::abs(residual));
 
         // if LUP is used
         // jsonMap["l2-error"] = getSolutionError();

@@ -21,8 +21,9 @@
 #include "CommandLine.h"
 #include "Project.h"
 
+#include "math/blas/BLAS.h"
+#include "math/blas/Stats.h"
 #include "math/blas/Matrix.h"
-#include "math/blas/MyBLAS.h"
 #include "math/factorization/LU.h"
 
 #include "Compute.h"
@@ -167,7 +168,7 @@ class Project2 : public Project<SolverInputs, Parser, SolverOutputs> {
             outputs.residual = r;
             outputs.solution = phi;
 
-            maxResidual = MyBLAS::max<long double>(MyBLAS::abs(r));
+            maxResidual = MyBLAS::Stats::max<long double>(MyBLAS::Stats::abs(r));
         }
         clocks[3].click();
         durations[3] = static_cast<long double>(clocks[3].duration().count());

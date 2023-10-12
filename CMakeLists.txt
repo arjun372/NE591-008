@@ -9,7 +9,7 @@ set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
 ####################### Options ################### {{{
 option(BUILD_TESTS "Build the tests" ON)  # Influences CTest.
-option(PORTABLE "Build without -march=native" OFF)
+option(PORTABLE "Build without CPU specific optimizations" OFF)
 option(BUILD_PERFORMANCE_BENCHMARKS "Build performance benchmarks" OFF)
 ####################### Options ##################### }}}
 
@@ -29,6 +29,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# Enable Link-Time Optimization (LTO)
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
 
 function(CHECK_COMPILER_VERSION MIN_VERSION)
     if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS MIN_VERSION)
@@ -38,21 +40,60 @@ endfunction()
 
 add_definitions(-DPROJECT_SOURCE_DIR="${PROJECT_SOURCE_DIR}")  # Needed to print file paths.
 
+function(CHECK_COMPILER_FLAG_SUPPORT FLAG SUPPORT_VAR)
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG(${FLAG} ${SUPPORT_VAR})
+    if (${SUPPORT_VAR})
+        message(STATUS "Compiler supports ${FLAG}")
+    else ()
+        message(STATUS "Compiler does not support ${FLAG}")
+    endif ()
+endfunction()
+
 
 ####################### Project Level CXX flags ################### {{{
 ## Floating point options https://gcc.gnu.org/wiki/FloatingPointMath
 #set(PROJECT_CXX_FLAGS -frounding-math -fsignaling-nans)
 set(PROJECT_CXX_FLAGS_DEBUG -Wall -Wextra -Werror -Wsign-compare -Wmissing-field-initializers -Wnon-virtual-dtor -Wno-old-style-cast -Wno-cast-function-type -Wno-unused-parameter -Wno-unused-function)
 list(APPEND PROJECT_CXX_FLAGS ${PROJECT_CXX_FLAGS_DEBUG})
+
+CHECK_COMPILER_FLAG_SUPPORT("-march=native" COMPILER_SUPPORTS_MARCH_NATIVE)
+CHECK_COMPILER_FLAG_SUPPORT("-mavx" COMPILER_SUPPORTS_MAVX)
+CHECK_COMPILER_FLAG_SUPPORT("-mavx2" COMPILER_SUPPORTS_MAVX2)
+CHECK_COMPILER_FLAG_SUPPORT("-mavx512" COMPILER_SUPPORTS_SSE4_2)
+CHECK_COMPILER_FLAG_SUPPORT("-funroll-loops" COMPILER_SUPPORTS_LOOP_UNROLLING)
+CHECK_COMPILER_FLAG_SUPPORT("-msse4.2" COMPILER_SUPPORTS_SSE4_2)
+CHECK_COMPILER_FLAG_SUPPORT("-mfma" COMPILER_SUPPORTS_FMA)
+
 if (NOT PORTABLE)
-    include(CheckCXXCompilerFlag)
-    CHECK_CXX_COMPILER_FLAG("-march=native" COMPILER_SUPPORTS_MARCH_NATIVE)
+
+    if (COMPILER_SUPPORTS_SSE4_2)
+        list(APPEND PROJECT_CXX_FLAGS -msse4.2)
+    endif ()
+
+    if (COMPILER_SUPPORTS_MAVX)
+        list(APPEND PROJECT_CXX_FLAGS -mavx)
+    endif ()
+
+    if (COMPILER_SUPPORTS_MAVX2)
+        list(APPEND PROJECT_CXX_FLAGS -mavx2)
+    endif ()
+
+    if (COMPILER_SUPPORTS_LOOP_UNROLLING)
+        list(APPEND PROJECT_CXX_FLAGS -funroll-loops)
+    endif ()
+
+    if (COMPILER_SUPPORTS_FMA)
+        list(APPEND PROJECT_CXX_FLAGS -mfma)
+    endif ()
+
     if (COMPILER_SUPPORTS_MARCH_NATIVE)
         list(APPEND PROJECT_CXX_FLAGS -march=native)
     endif ()
 endif ()
 
 add_compile_options(${PROJECT_CXX_FLAGS})
+message(${PROJECT_CXX_FLAGS})
 ####################### Project Level CXX flags ################### }}}
 
 if (BUILD_TESTS)
