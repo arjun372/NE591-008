@@ -261,7 +261,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
         [ "All", "globals.html", "globals_dup" ],
-        [ "Functions", "globals_func.html", null ],
+        [ "Functions", "globals_func.html", "globals_func" ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
@@ -276,12 +276,12 @@ var NAVTREEINDEX =
 [
 "",
 "d0/d40/classParser.html#a6de52aa3594a5cdf117d9b96185c2b27",
-"d2/d6e/namespaceMyBLAS.html#a265c371bae2192b15bddfba1ed55a007",
-"d5/d65/labs_2outlab1_2Compute_8h.html#a8a8eeac2b068a38392c12cba7e91ca54",
-"d8/deb/classInLab5.html#a2873dd0aa78848433775442dda988e79",
-"db/df1/Helpers_8h.html#ae8d5abc9a487df9eaa8058819e252d0f",
-"de/d2e/labs_2inlab2_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627",
-"namespacemembers.html"
+"d2/d12/outlab2_2examples_2sanity__check_8m.html#a804b0188faeaeccdaa42d04fec09583a",
+"d5/d15/inlab3.html#autotoc_md44",
+"d8/db4/project_2project1_2tests_2LUMatrixTests_8cpp.html#a9dcf49e71f7432852d34187430e47d58",
+"db/def/labs_2inlab3_2InputsOutputs_8h.html#abea9aeff876052022e7c4c6beb629bb6a775261b422ad3bbdadf67389a525bb82",
+"dd/df3/classOutLab1.html#a06149764196c5bb48dfb591ab1c9bf34",
+"functions_v.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
