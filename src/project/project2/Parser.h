@@ -29,24 +29,34 @@ class Parser : public CommandLine<SolverInputs> {
      * @return A boost::program_options::options_description object containing the description of the input options.
      */
     void buildInputArguments(boost::program_options::options_description &values) override {
-        values.add_options()(",a", boost::program_options::value<long double>(),
-                             "= Length of 1st dimension (+ve real)")(",b", boost::program_options::value<long double>(),
-                                                                     "= Length of 2nd dimension (+ve real)")(
+        values.add_options()(
+            ",a", boost::program_options::value<long double>(),"= Length of 1st dimension (+ve real)")(
+            ",b", boost::program_options::value<long double>(),"= Length of 2nd dimension (+ve real)")(
             ",m", boost::program_options::value<long double>(), "= Number of mesh-points in 1st dimension")(
             ",n", boost::program_options::value<long double>(), "= Number of mesh-points in 2nd dimension")(
             ",D", boost::program_options::value<long double>(), "= Diffusion coefficient D (+ve real)")(
-            "cross-section", boost::program_options::value<long double>(), "= Removal cross-section Σₐ (+ve real)")(
+            "cross-section", boost::program_options::value<long double>(), "= Removal cross-section Σₐ (+ve real)");
+
+        boost::program_options::options_description files("Inputs/Outputs");
+        files.add_options()(
             "input-parameter-json,i", boost::program_options::value<std::string>(), "= Path to input parameter JSON")(
             "source-terms-csv,s", boost::program_options::value<std::string>(), "= Path to source-terms 𝑞(𝑖,𝑗) CSV")(
             "output-results-json,o", boost::program_options::value<std::string>(), "= Path to output results JSON")(
             "output-flux-csv,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗) CSV");
 
-        boost::program_options::options_description methods("Solver Methods");
-        methods.add_options()("use-LUP", "= Use the LUP method")("use-point-jacobi",
-                                                                 "= [DISABLED] Use the Point-Jacobi method")(
-            "use-gauss-seidel", "= [DISABLED] Use the Gauss-Seidel method")("use-SOR",
-                                                                            "= [DISABLED] Use the SOR method");
+        boost::program_options::options_description methods("Solver Options");
+        methods.add_options()
+            ("use-LUP", "= Use LUP factorization")
+            ("use-point-jacobi","= Use the Point-Jacobi method")
+            ("use-SORJ", "= Use the SOR Jacobi method")
+            ("use-gauss-seidel", "= Use the Gauss-Seidel method")
+            ("use-SOR", "= Use the SOR method")
+            ("use-SSOR", "= Use the symmetric SOR method")(
+            "threshold,t", boost::program_options::value<long double>(),"= convergence threshold [𝜀 > 0]")(
+            "max-iterations,k", boost::program_options::value<long double>(), "= maximum iterations [n ∈ ℕ]")(
+            "relaxation-factor,w", boost::program_options::value<long double>(), "= SOR weight, typical ω ∈ [0,2]");
         values.add(methods);
+        values.add(files);
     }
 
     /**
@@ -66,24 +76,23 @@ class Parser : public CommandLine<SolverInputs> {
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        std::cout << "\tInput JSON                              i: "
-                  << (vm.count("input-parameter-json") ? vm["input-parameter-json"].as<std::string>() : "None") << "\n";
-        std::cout << "\tOutput JSON                             o: "
-                  << (vm.count("output-results-json") ? vm["output-results-json"].as<std::string>() : "None") << "\n";
+        std::cout << "\tInput JSON,     i: " << (vm.count("input-parameter-json") ? vm["input-parameter-json"].as<std::string>() : "None") << "\n";
+        std::cout << "\tOutput JSON,    o: " << (vm.count("output-results-json") ? vm["output-results-json"].as<std::string>() : "None") << "\n";
         std::cout << "\t----\n";
-        std::cout << "\tUse LUP method                           : " << (vm.count("use-LUP") ? "Yes" : "Yes") << "\n";
-        std::cout << "\tUse Point-Jacobi method                  : " << (vm.count("use-point-jacobi") ? "Yes" : "No")
-                  << "\n";
-        std::cout << "\tUse Gauss-Seidel method                  : " << (vm.count("use-gauss-seidel") ? "Yes" : "No")
-                  << "\n";
-        std::cout << "\tUse SOR method                           : " << (vm.count("use-SOR") ? "Yes" : "No") << "\n";
+        std::cout << "\tConvergence Threshold,                  𝜀: " << vm["threshold"].as<long double>() << "\n";
+        std::cout << "\tMax iterations,                         k: " << static_cast<size_t>(vm["max-iterations"].as<long double>())<< "\n";
+        std::cout << "\tSOR weight,                             ω: "<< (vm.count("relaxation-factor") ? std::to_string(vm["relaxation-factor"].as<long double>()) : "N/A") << "\n";
+        std::cout << "\tUse LUP factorization                    : " << (vm["use-LUP"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse Gauss-Seidel                         : " << (vm["use-gauss-seidel"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse Point-Jacobi                         : " << (vm["use-point-jacobi"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse SOR                                  : " << (vm["use-SOR"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse Point-Jacobi with SOR                : " << (vm["use-SORJ"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse symmetric SOR                        : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\t----\n";
         std::cout << "\t1st dimension length,                   a: " << vm["a"].as<long double>() << "\n";
         std::cout << "\t2nd dimension length,                   b: " << vm["b"].as<long double>() << "\n";
-        std::cout << "\t1st dimension mesh-points,              m: " << static_cast<size_t>(vm["m"].as<long double>())
-                  << "\n";
-        std::cout << "\t2nd dimension mesh-points,              n: " << static_cast<size_t>(vm["n"].as<long double>())
-                  << "\n";
+        std::cout << "\t1st dimension mesh-points,              m: " << static_cast<size_t>(vm["m"].as<long double>()) << "\n";
+        std::cout << "\t2nd dimension mesh-points,              n: " << static_cast<size_t>(vm["n"].as<long double>()) << "\n";
         std::cout << "\tDiffusion coefficient,                  D: " << (vm["D"].as<long double>()) << "\n";
         std::cout << "\tMacroscopic removal cross-section,     Σₐ: " << (vm["cross-section"].as<long double>()) << "\n";
         CommandLine::printLine();
@@ -200,8 +209,9 @@ class Parser : public CommandLine<SolverInputs> {
             readJSON(map["input-parameter-json"].as<std::string>(), inputMap);
         } catch (...) {
             // initialize input map if no file was read
-            inputMap["dimensions"] = {};
-            inputMap["mesh"] = {};
+            inputMap["dimensions"] = nlohmann::json::object();
+            inputMap["mesh"] = nlohmann::json::object();
+            inputMap["methods"] = nlohmann::json::array();
         }
 
         std::vector<std::function<bool(long double)>> checks;
@@ -223,6 +233,55 @@ class Parser : public CommandLine<SolverInputs> {
         checks.emplace_back([](long double value) { return failsNonNegativeNumberCheck(value); });
         performChecksAndUpdateInput<long double>("D", inputMap, map, checks);
         performChecksAndUpdateInput<long double>("cross-section", inputMap, map, checks);
+
+        // add checks for parameters 𝜀 and k
+        checks.clear();
+        checks.emplace_back([](long double value) { return failsPositiveNumberCheck(value); });
+        performChecksAndUpdateInput<long double>("threshold", inputMap, map, checks);
+        checks.emplace_back([](long double value) { return failsWholeNumberCheck(value); });
+        performChecksAndUpdateInput<long double>("max-iterations", inputMap, map, checks);
+
+        auto methods = std::vector<std::string>(inputMap["methods"]);
+        if(contains(methods, "LUP")) {
+            replace(map, "use-LUP", asYesOrNo("yes"));
+        } else {
+            promptAndSetFlags("use-LUP", "LUP factorization method", map);
+        }
+
+        if(contains(methods, "point-jacobi")) {
+            replace(map, "use-point-jacobi", asYesOrNo("yes"));
+        } else {
+            promptAndSetFlags("use-point-jacobi", "Point Jacobi method", map);
+        }
+
+        if(contains(methods, "SORJ")) {
+            replace(map, "use-SORJ", asYesOrNo("yes"));
+        } else {
+            promptAndSetFlags("use-SORJ", "SOR Jacobi method", map);
+        }
+
+        if(contains(methods, "gauss-seidel")) {
+            replace(map, "use-gauss-seidel", asYesOrNo("yes"));
+        } else {
+            promptAndSetFlags("use-gauss-seidel", "Gauss-Seidel method", map);
+        }
+
+        if(contains(methods, "SOR")) {
+            replace(map, "use-SOR", asYesOrNo("yes"));
+        } else {
+            promptAndSetFlags("use-SOR", "SOR method", map);
+        }
+
+        if(contains(methods, "SSOR")) {
+            replace(map, "use-SSOR", asYesOrNo("yes"));
+        } else {
+            promptAndSetFlags("use-SSOR", "symmetric SOR method", map);
+        }
+
+        if (map["use-SOR"].as<bool>() || map["use-SORJ"].as<bool>() || map["use-SSOR"].as<bool>()) {
+            checks.clear();
+            performChecksAndUpdateInput<long double>("relaxation-factor", inputMap, map, checks);
+        }
     }
 
     /**
@@ -237,13 +296,13 @@ class Parser : public CommandLine<SolverInputs> {
      */
     void buildInputs(SolverInputs &inputs, boost::program_options::variables_map &map) override {
 
-        inputs.a = map["a"].as<long double>();
-        inputs.b = map["b"].as<long double>();
-        inputs.m = static_cast<size_t>(map["m"].as<long double>());
-        inputs.n = static_cast<size_t>(map["n"].as<long double>());
-        inputs.diffusion_coefficient = map["D"].as<long double>();
-        inputs.macroscopic_removal_cross_section = map["cross-section"].as<long double>();
-        calculate_mesh_spacings(inputs); // calculate delta and gamma
+        inputs.diffusionParams
+            .setA(map["a"].as<long double>())
+            .setB(map["b"].as<long double>())
+            .setM(static_cast<size_t>(map["m"].as<long double>()))
+            .setN(static_cast<size_t>(map["n"].as<long double>()))
+            .setDiffusionCoefficient(map["D"].as<long double>())
+            .setMacroscopicRemovalCrossSection(map["cross-section"].as<long double>());
 
         const auto sourceTermsFilepath = map["source-terms-csv"].as<std::string>();
         readCSVRowWiseNoHeaders<long double>(sourceTermsFilepath, inputs.sources);
@@ -256,15 +315,15 @@ class Parser : public CommandLine<SolverInputs> {
         }
 
         // 1st dimension internal nodes
-        if (inputs.m != inputs.sources.getRows()) {
-            inputs.m = inputs.sources.getRows();
-            std::cerr << "WARNING: Source terms matrix rows != m, overriding m to " << inputs.m << std::endl;
+        if (inputs.diffusionParams.getM() != inputs.sources.getRows()) {
+            inputs.diffusionParams.setM(inputs.sources.getRows());
+            std::cerr << "WARNING: Source terms matrix rows != m, overriding m to " << inputs.diffusionParams.getM() << std::endl;
         }
 
         // 2nd dimension internal nodes
-        if (inputs.n != inputs.sources.getCols()) {
-            inputs.n = inputs.sources.getCols();
-            std::cerr << "WARNING: Source terms matrix columns != n, overriding n to " << inputs.n << std::endl;
+        if (inputs.diffusionParams.getN() != inputs.sources.getCols()) {
+            inputs.diffusionParams.setN(inputs.sources.getCols());
+            std::cerr << "WARNING: Source terms matrix columns != n, overriding n to " << inputs.diffusionParams.getN() << std::endl;
         }
 
         if (!map.count("quiet")) {
@@ -272,8 +331,8 @@ class Parser : public CommandLine<SolverInputs> {
             CommandLine::printLine();
             std::cout << std::setw(44) << "Intermediates\n";
             CommandLine::printLine();
-            std::cout << "\tMesh spacing in the 1st dimension,     𝛿: " << inputs.delta << "\n";
-            std::cout << "\tMesh spacing in the 2nd dimension,     𝛾: " << inputs.gamma << "\n";
+            std::cout << "\tMesh spacing in the 1st dimension,     𝛿: " << inputs.diffusionParams.getDelta() << "\n";
+            std::cout << "\tMesh spacing in the 2nd dimension,     𝛾: " << inputs.diffusionParams.getGamma() << "\n";
             CommandLine::printLine();
             std::cout << "Source terms 𝑞(𝑖,𝑗):\n";
             CommandLine::printLine();

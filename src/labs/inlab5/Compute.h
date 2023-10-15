@@ -11,8 +11,8 @@
 #include <cmath>
 #include <iostream>
 
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
 
 #include "CommandLine.h"
 #include "InputsOutputs.h"

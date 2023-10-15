@@ -7,24 +7,41 @@ set(UTILS_LIB_HEADERS
         Profiler.h
         Project.h
         Stopwatch.h
-        math/RootFinder.h
+        CommandlineHelpers.h
+
         math/blas/BLAS.h
-        math/blas/Vector.h
-        math/blas/Matrix.h
         math/blas/Ops.h
+        math/blas/Stats.h
+
+        math/blas/system/Circuit.h
+
+        math/blas/matrix/AbstractMatrix.h
+        math/blas/matrix/Matrix.h
+        math/blas/matrix/LazyMatrix.h
+        math/blas/matrix/MatrixExpression.h
+
+        math/blas/vector/LazyVector.h
+        math/blas/vector/Vector.h
+        math/blas/vector/VectorExpression.h
+
         math/factorization/LU.h
         math/factorization/LUP.h
         math/factorization/Factorize.h
+
+        math/LinearSolver.h
+        math/Random.h
+        math/RootFinder.h
+
         math/relaxation/PointJacobi.h
         math/relaxation/GaussSeidel.h
         math/relaxation/SOR.h
         math/relaxation/SSOR.h
         math/relaxation/RelaxationMethods.h
-        math/LinearSolver.h
-        math/blas/system/Circuit.h
-        math/Random.h
-        CommandlineHelpers.h
-        math/blas/Stats.h
+
+        physics/diffusion/DiffusionParams.h
+        physics/diffusion/DiffusionMatrix.h
+        physics/diffusion/DiffusionConstants.h
+        physics/diffusion/SourceVector.h
 )
 
 set(UTILS_LIB_SOURCES
@@ -36,3 +53,6 @@ if (NOT TARGET utils)
     add_library(utils STATIC ${UTILS_LIB_SOURCES} ${UTILS_LIB_HEADERS})
     target_include_directories(utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 endif ()
+
+add_subdirectory(physics)
+add_subdirectory(math)

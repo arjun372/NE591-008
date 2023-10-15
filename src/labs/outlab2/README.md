@@ -19,7 +19,7 @@ File based I/O is supported using CSV (comma separated values) files.
     - [General options](#general-options)
 - [Implementing your own `f(x)`](#implementing-your-own-fx)
 - [File I/O](#file-io)
-- [Input Format](#input-format)
+- [Parameters Format](#input-format)
 - [Output Format](#output-format)
     - [Sample Outputs File](#sample-outputs-file)
 - [Example](#example)
@@ -102,7 +102,7 @@ Although data for `x` and `f(x)` can be entered sequentially in interactive mode
 option to read an input CSV file. The code looks for the headers `x`and `f(x)`, so please use them precisely. There is a
 sample input CSV file under [inputs/sample_input.csv](inputs/sample_input.csv).
 
-## Input Format
+## Parameters Format
 
 The input points can be provided in three ways:
 

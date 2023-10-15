@@ -13,9 +13,9 @@
 #include "json.hpp"
 #include "math/LinearSolver.h"
 #include "math/blas/BLAS.h"
-#include "math/blas/Matrix.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/blas/Ops.h"
-#include "math/blas/Vector.h"
+#include "math/blas/vector/Vector.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.
@@ -27,7 +27,7 @@ typedef struct Input {
     Input() = default;
 
     std::set<MyLinearSolvingMethod::Type> methods = {};
-    MyLinearSolvingMethod::Input<long double> input;
+    MyLinearSolvingMethod::Parameters<long double> input;
     MyBLAS::Vector<long double> known_solution;
 
     /**

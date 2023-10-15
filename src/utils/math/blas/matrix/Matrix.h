@@ -12,7 +12,7 @@
 #include <iostream>
 #include <vector>
 
-#include "math/blas/Vector.h"
+#include "math/blas/vector/Vector.h"
 
 namespace MyBLAS {
 
@@ -34,6 +34,11 @@ template <typename T> class Matrix {
      * @brief Default constructor. Initializes an empty matrix.
      */
     Matrix() : rows(0), cols(0) {}
+
+    /**
+     * @brief Default virtual destructor.
+     */
+    virtual ~Matrix() = default;
 
     /**
      * @brief Constructor that initializes the matrix with a given 2D vector.
@@ -76,14 +81,14 @@ template <typename T> class Matrix {
         }
     }
 
-    /**
+    virtual /**
      * @brief Overloaded operator[] to access individual rows of the matrix.
      * @param rowNum Index of the row to access.
      * @return Reference to the row at the given index.
      */
     std::vector<T> &operator[](const size_t rowNum) { return data[rowNum]; }
 
-    /**
+    virtual /**
      * @brief Overloaded operator[] to access individual rows of the matrix (const version).
      * @param rowNum Index of the row to access.
      * @return Const reference to the row at the given index.
@@ -116,22 +121,22 @@ template <typename T> class Matrix {
         ++rows;
     }
 
-    /**
+    [[nodiscard]] virtual /**
      * @brief Getter for the number of rows in the matrix.
      * @return Number of rows in the matrix.
      */
-    [[nodiscard]] size_t getRows() const {
+    size_t getRows() const {
         if (rows != data.size()) {
             throw std::invalid_argument("Error: Matrix row size does not match the allocated matrix rows.");
         }
         return rows;
     }
 
-    /**
+    [[nodiscard]] virtual /**
      * @brief Getter for the number of columns in the matrix.
      * @return Number of columns in the matrix.
      */
-    [[nodiscard]] size_t getCols() const {
+    size_t getCols() const {
         size_t colSize;
         try {
             colSize = data[0].size();
@@ -273,6 +278,32 @@ template <typename T> class Matrix {
         }
 
         return subMatrix;
+    }
+
+    /**
+     * @brief Overloaded operator== to check for equality between two matrices.
+     * @param rhs Matrix to compare with the current matrix.
+     * @return True if the matrices are equal, false otherwise.
+     *
+     * @note This operator checks for exact equality of each element in the matrices.
+     *       However, when dealing with floating-point numbers, due to the way they are
+     *       represented in computers, two numbers that are theoretically equal may not
+     *       be exactly equal when represented in a computer. Therefore, when dealing with
+     *       floating-point numbers, it might be more appropriate to check if the difference
+     *       between the matrices is below a certain tolerance, rather than checking for exact equality.
+     */
+    bool operator==(const Matrix &rhs) const {
+        if (rows != rhs.rows || cols != rhs.cols) {
+            return false;
+        }
+        for (size_t i = 0; i < rows; ++i) {
+            for (size_t j = 0; j < cols; ++j) {
+                if (this->data[i][j] != rhs.data[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**

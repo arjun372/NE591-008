@@ -8,8 +8,8 @@
 #ifndef NE591_008_POINTJACOBI_H
 #define NE591_008_POINTJACOBI_H
 
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
 #include <cstddef>
 
 #include "math/blas/Ops.h"

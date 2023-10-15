@@ -14,7 +14,7 @@ File based I/O is supported using JSON files.
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
-2. [Input Format](#input-format)
+2. [Parameters Format](#input-format)
 3. [Output Format](#output-format)
     - [Sample Outputs File](#sample-outputs-file)
 4. [Example](#example)
@@ -68,11 +68,11 @@ export OUTPUT_FILE=./src/labs/inlab6/examples/inlab6_output_1.json
 - `-p [ --precision ] arg (=15)`: Number of digits to represent long double
 - `-P [ --profile ]`: Turn on profiling for performance comparison
 
-## Input Format
+## Parameters Format
 
 The expected input json file requires the following fields:
 
-### Sample Input File
+### Sample Parameters File
 
 ```json
 {
@@ -198,7 +198,7 @@ Would you like to use the symmetric SOR method? [YES/no]: y
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
-	Input JSON (for A, b),  i: ../inlab6_input_1.json
+	Parameters JSON (for A, b),  i: ../inlab6_input_1.json
 	Output JSON (for x),    o: ../inlab6_output_1.json
 	Convergence Threshold,  𝜀: 0.0001
 	Max iterations,         k: 5000

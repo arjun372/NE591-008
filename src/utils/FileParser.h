@@ -20,7 +20,7 @@
 #include <mutex>
 #include <thread>
 
-#include "math/blas/Matrix.h"
+#include "math/blas/matrix/Matrix.h"
 
 #include "json.hpp"
 

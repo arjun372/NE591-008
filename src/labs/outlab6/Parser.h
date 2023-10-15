@@ -43,7 +43,7 @@ class Parser : public CommandLine<OutLab6Inputs> {
         methods.add_options()("use-LUP", "= Use LUP factorization")("use-point-jacobi",
                                                                     "= Use the Point-Jacobi method")(
             "use-gauss-seidel", "= Use the Gauss-Seidel method")("use-SOR", "= Use the SOR method")(
-            "use-SORJ", "= Use the SOR Jacobi method")("use-SSOR", "= [DISABLED] Use the symmetric SOR method");
+            "use-SORJ", "= Use the SOR Jacobi method")("use-SSOR", "= Use the symmetric SOR method");
         values.add(methods);
     }
 

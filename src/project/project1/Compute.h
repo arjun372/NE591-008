@@ -11,7 +11,8 @@
 #include <cmath>
 #include <iostream>
 
-#include "math/blas/Matrix.h"
+#include "InputsOutputs.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/factorization/LU.h"
 #include "math/factorization/LUP.h"
 

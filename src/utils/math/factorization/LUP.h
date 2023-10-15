@@ -30,8 +30,8 @@
 #include <iostream>
 
 #include "LU.h"
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
 
 #include "../../CommandLine.h"
 #include "../../Stopwatch.h"

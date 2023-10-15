@@ -9,8 +9,8 @@
 #define NE591_008_CIRCUIT_H
 
 #include "math/Random.h"
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
 #include <algorithm>
 #include <iostream>
 #include <random>

@@ -97,6 +97,27 @@ template <typename T> class Vector {
     const T &operator[](const size_t idx) const { return data[idx]; }
 
     /**
+     * @brief Overloaded operator== to check for equality between two vectors.
+     * @param rhs Vector to compare with the current vector.
+     * @return Boolean indicating whether the two vectors are equal.
+     *
+     * @note When dealing with floating-point numbers, due to precision issues, two vectors that are theoretically equal
+     * may not be exactly equal. In such cases, it might be more appropriate to check if the difference between the
+     * vectors is below a certain tolerance, rather than checking for exact equality.
+     */
+    bool operator==(const Vector &rhs) const {
+        if (data.size() != rhs.size()) {
+            return false;
+        }
+        for (size_t i = 0; i < size(); ++i) {
+            if (this->data[i] != rhs.data[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * @brief Overloaded operator+ to add two vectors.
      * @param rhs Vector to add to the current vector.
      * @return Resultant vector after addition.

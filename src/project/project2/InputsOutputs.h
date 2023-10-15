@@ -13,9 +13,11 @@
 #include "json.hpp"
 #include "math/LinearSolver.h"
 #include "math/blas/BLAS.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/blas/Stats.h"
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
+#include "math/blas/vector/Vector.h"
+#include "physics/diffusion/DiffusionMatrix.h"
+#include "physics/diffusion/DiffusionParams.h"
 
 /**
  * @struct Input
@@ -25,34 +27,27 @@ typedef struct Input {
     Input() = default;
     std::set<MyLinearSolvingMethod::Type> methods = {};
 
-    // NOTE: in input, store the constants and coefficient matrices only if the LUP method is used
-    MyLinearSolvingMethod::Input<long double> input;
-//    MyBLAS::Matrix<long double> diffusion_matrix_A;       ///< Diffusion Matrix A
-//    MyBLAS::Vector<long double> right_hand_side_vector_B; ///< Right Hand Side Vector B*/
+    MyLinearSolvingMethod::Parameters<long double> solverParams;
 
-    long double a = 1;
-    long double b = 1;
-    size_t m = 1;
-    size_t n = 1;
-    long double delta = 1;
-    long double gamma = 1;
-    long double diffusion_coefficient = 0.0f;
-    long double macroscopic_removal_cross_section = 0.0f;
     MyBLAS::Matrix<long double> sources = MyBLAS::Matrix<long double>();
+
+    MyPhysics::Diffusion::Params<long double> diffusionParams;
+    MyPhysics::Diffusion::Matrix<long double> diffusionCoefficients;
+    MyBLAS::Vector<long double> diffusionConstants;
 
     /**
      * @brief Converts the input parameters to a JSON object.
      * @param jsonMap A reference to the JSON object to store the input parameters.
      */
     void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["D"] = diffusion_coefficient;
-        jsonMap["cross-section"] = macroscopic_removal_cross_section;
-        jsonMap["dimensions"]["a"] = a;
-        jsonMap["dimensions"]["b"] = b;
-        jsonMap["mesh"]["m"] = m;
-        jsonMap["mesh"]["n"] = n;
-        jsonMap["mesh"]["𝛿"] = delta;
-        jsonMap["mesh"]["𝛾"] = gamma;
+        jsonMap["D"] = diffusionParams.getDiffusionCoefficient();
+        jsonMap["cross-section"] = diffusionParams.getMacroscopicRemovalCrossSection();
+        jsonMap["dimensions"]["a"] = diffusionParams.getA();
+        jsonMap["dimensions"]["b"] = diffusionParams.getB();
+        jsonMap["mesh"]["m"] = diffusionParams.getM();
+        jsonMap["mesh"]["n"] = diffusionParams.getN();
+        jsonMap["mesh"]["𝛿"] = diffusionParams.getDelta();
+        jsonMap["mesh"]["𝛾"] = diffusionParams.getGamma();
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
             std::transform(methods.begin(), methods.end(), std::back_inserter(result),
@@ -69,7 +64,7 @@ typedef struct Input {
 typedef struct Output {
 
     Output() = default;
-    explicit Output(SolverInputs inputMatrices) { inputs = inputMatrices; };
+    explicit Output(SolverInputs inputMatrices) { inputs = std::move(inputMatrices); };
     SolverInputs inputs;
     MyLinearSolvingMethod::Solution<long double> solution;
 
@@ -88,10 +83,10 @@ typedef struct Output {
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["converged"] = solution.converged;
 
-        jsonMap["iterations"]["maximum"] = inputs.input.max_iterations;
+        jsonMap["iterations"]["maximum"] = inputs.solverParams.max_iterations;
         jsonMap["iterations"]["actual"] = solution.iterations;
 
-        jsonMap["iterative-error"]["maximum"] = inputs.input.threshold;
+        jsonMap["iterative-error"]["maximum"] = inputs.solverParams.threshold;
         jsonMap["iterative-error"]["actual"] = solution.iterative_error;
 
         jsonMap["solution"] = solution.x.getData();

@@ -12,9 +12,9 @@
 
 #include "json.hpp"
 #include "math/blas/BLAS.h"
-#include "math/blas/Matrix.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/blas/Stats.h"
-#include "math/blas/Vector.h"
+#include "math/blas/vector/Vector.h"
 
 /**
  * @brief Enumeration representing the different integration rules.

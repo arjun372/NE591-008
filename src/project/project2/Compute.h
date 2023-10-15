@@ -11,163 +11,229 @@
 #include <cmath>
 #include <iostream>
 
-#include "math/blas/Matrix.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/factorization/LU.h"
 #include "math/factorization/LUP.h"
+#include "math/relaxation/PointJacobi.h"
 
 /**
- * @brief Calculates the mesh spacings in the x and y directions.
- *
- * This function computes the mesh spacings delta and gamma using the given
- * formulas: delta = a / (m + 1) and gamma = b / (n + 1). These spacings are
- * used to discretize the diffusion operator in the given equation.
- *
- * @struct SolverInputs inputs
- * @param inputs.a The length of the rectangular region in the x-direction.
- * @param inputs.b The length of the rectangular region in the y-direction.
- * @param inputs.m The number of mesh points in the x-direction, excluding the boundary points.
- * @param inputs.n The number of mesh points in the y-direction, excluding the boundary points.
- * @param[out] inputs.delta The mesh spacing in the x-direction.
- * @param[out] inputs.gamma The mesh spacing in the y-direction.
+ * @namespace Compute
+ * @brief Namespace containing methods for solving linear systems using various methods.
  */
-void calculate_mesh_spacings(SolverInputs &inputs) {
-    // Compute the mesh spacing in the x-direction using the formula: delta = a / (m + 1)
-    inputs.delta = inputs.a / (inputs.m + 1);
-
-    // Compute the mesh spacing in the y-direction using the formula: gamma = b / (n + 1)
-    inputs.gamma = inputs.b / (inputs.n + 1);
-}
+namespace Compute {
 
 /**
- * @brief Initializes the diffusion matrix and vector.
- *
- * This function initializes the diffusion matrix A and the right-hand-side vector B.
- * The matrix and vector are resized to m x n and all elements are initialized to zero.
- *
- * @tparam T The type of the elements in the matrix and vector.
- * @param m The number of rows in the matrix and vector.
- * @param n The number of columns in the matrix and vector.
- * @return IntermediateResults The initialized diffusion matrix A and right-hand-side vector B.
+ * @brief Solves a linear system using LUP decomposition.
+ * @param outputs The output data structure to store the solution and execution time.
+ * @param inputs The input data structure containing the system to solve.
  */
-template <typename T> static IntermediateResults initialize_diffusion_matrix_and_vector(size_t m, size_t n) {
+void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
 
-    IntermediateResults intermediates;
+    // auto A = inputs.solverParams.
+    // MyBLAS::Vector<long double> &b = inputs.input.constants;
 
-    // Resize the matrix A to m x n and initialize all elements to zero
-    intermediates.diffusion_matrix_A = MyBLAS::Matrix<T>(std::vector<std::vector<T>>(m * n, std::vector<T>(m * n, 0)));
+//    if (!MyFactorizationMethod::passesPreChecks(A, b)) {
+//        std::cerr << "Aborting LUP calculation\n";
+//        return;
+//    }
 
-    // Resize the right-hand-side vector B to m x n and initialize all elements to zero
-    intermediates.right_hand_side_vector_B = MyBLAS::Vector<T>(std::vector<T>(m * n, 0));
-
-    return intermediates;
-}
-
-/**
- * @brief Fills the diffusion matrix and vector.
- *
- * This function fills the diffusion matrix A and the right-hand-side vector B based on the given inputs.
- * The diagonal and off-diagonal elements of the matrix A are calculated using the given equations.
- * The right-hand-side vector B is filled using the fixed source q(i, j).
- *
- * @param inputs The inputs for the solver.
- * @param intermediates The intermediate results including the diffusion matrix A and right-hand-side vector B.
- */
-static void naive_fill_diffusion_matrix_and_vector(SolverInputs &inputs, IntermediateResults &intermediates) {
-
-    const size_t m = inputs.m;
-    const size_t n = inputs.n;
-
-    const long double D = inputs.diffusion_coefficient;
-    const long double D_over_delta_squared = D / (inputs.delta * inputs.delta);
-    const long double minus_D_over_delta_squared = -D_over_delta_squared;
-    const long double D_over_gamma_squared = D / (inputs.gamma * inputs.gamma);
-    const long double minus_D_over_gamma_squared = -D_over_gamma_squared;
-    const long double cross_section = inputs.macroscopic_removal_cross_section;
-    const long double diagonal = 2.0 * (D_over_delta_squared + D_over_gamma_squared) + cross_section;
-
-    // Loop through all the nodes i = 1, ..., m and j = 1, ..., n
-    for (size_t i = 1; i <= m; ++i) {
-        for (size_t j = 1; j <= n; ++j) {
-            // Calculate the index of the current node in the matrix A and vector B
-            int idx = (i - 1) * n + (j - 1);
-
-            // Fill the diagonal element of the matrix A using the given equation
-            intermediates.diffusion_matrix_A[idx][idx] = diagonal;
-
-            // Fill the off-diagonal elements of the matrix A using the given equation
-            if (i > 1) {
-                intermediates.diffusion_matrix_A[idx][idx - n] = minus_D_over_delta_squared;
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+                //outputs.solution = MyBLAS::LUP::applyLUP(A, b);
             }
-            if (i < m) {
-                intermediates.diffusion_matrix_A[idx][idx + n] = minus_D_over_delta_squared;
-            }
-            if (j > 1) {
-                intermediates.diffusion_matrix_A[idx][idx - 1] = minus_D_over_gamma_squared;
-            }
-            if (j < n) {
-                intermediates.diffusion_matrix_A[idx][idx + 1] = minus_D_over_gamma_squared;
-            }
-
-            // Fill the right-hand-side vector B using the fixed source q(i, j)
-            intermediates.right_hand_side_vector_B[idx] = inputs.sources[i - 1][j - 1];
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
         }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
     }
+    outputs.solution.converged = true;
 }
 
 /**
- * @brief Solves the linear system.
- *
- * This function solves the linear system by factorizing the diffusion matrix A into L, U, and P matrices.
- * It also checks if the factorized matrices L and U are unit lower triangular and upper triangular respectively,
- * and if the generated matrix P is a permutation matrix.
- *
- * @param intermediates The intermediate results including the diffusion matrix A and the factorized matrices L, U, and
- * P.
+ * @brief Solves a linear system using the Point Jacobi method.
+ * @param outputs The output data structure to store the solution and execution time.
+ * @param inputs The input data structure containing the system to solve.
  */
-static void naive_solve_linear_system(IntermediateResults &intermediates) {
+void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
+//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
+//    MyBLAS::Vector<long double> &b = inputs.input.constants;
+//    const size_t max_iterations = inputs.solverParams.max_iterations;
+//    const long double threshold = inputs.solverParams.threshold;
 
-    const auto rows = intermediates.diffusion_matrix_A.getRows();
-    const auto cols = intermediates.diffusion_matrix_A.getCols();
+//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+//        std::cerr << "Aborting Point jacobi calculation\n";
+//        return;
+//    }
 
-    intermediates.L = MyBLAS::Matrix(rows, cols, static_cast<long double>(0));
-    intermediates.U = MyBLAS::Matrix(rows, cols, static_cast<long double>(0));
-    intermediates.P = MyBLAS::LUP::factorize(intermediates.L, intermediates.U, intermediates.diffusion_matrix_A);
-
-    if (!MyBLAS::isUnitLowerTriangularMatrix(intermediates.L)) {
-        std::cerr << "Warning: Factorized matrix L is not unit lower triangular, expect undefined behavior.\n";
-    }
-
-    if (!MyBLAS::isUpperTriangularMatrix(intermediates.U)) {
-        std::cerr << "Warning: Factorized matrix U is not upper triangular, expect undefined behavior.\n";
-    }
-
-    if (!MyBLAS::isPermutationMatrix(intermediates.P)) {
-        std::cerr << "Warning: Generated matrix P is not a permutation matrix, expect undefined behavior.\n";
-    }
-}
-
-/**
- * @brief Fills the fluxes.
- *
- * This function fills the fluxes based on the given phi vector.
- * The fluxes are stored in a matrix with m+2 rows and n+2 columns.
- *
- * @param phi The phi vector.
- * @param inputs The inputs for the solver.
- * @param outputs The outputs of the solver including the fluxes.
- */
-static void fill_fluxes(MyBLAS::Vector<long double> phi, SolverInputs &inputs, SolverOutputs &outputs) {
-    const size_t m = inputs.m;
-    const size_t n = inputs.n;
-
-    outputs.fluxes = MyBLAS::Matrix<long double>(m + 2, n + 2, 0);
-
-    for (size_t i = 1; i <= m; i++) {
-        for (size_t j = 1; j <= n; j++) {
-            const size_t idx = (i - 1) * n + (j - 1);
-            outputs.fluxes[i][j] = phi[idx];
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+                //outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
         }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
     }
 }
+
+/**
+ * @brief Solves a linear system using the Gauss-Seidel method.
+ * @param outputs The output data structure to store the solution and execution time.
+ * @param inputs The input data structure containing the system to solve.
+ */
+void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
+//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
+//    MyBLAS::Vector<long double> &b = inputs.input.constants;
+//    const size_t max_iterations = inputs.solverParams.max_iterations;
+//    const long double threshold = inputs.solverParams.threshold;
+
+//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+//        std::cerr << "Aborting Gauss Seidel calculation\n";
+//        return;
+//    }
+
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+               // outputs.solution = MyRelaxationMethod::applyGaussSeidel<long double>(A, b, max_iterations, threshold);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
+}
+
+/**
+ * @brief Solves a linear system using the Successive Over-Relaxation (SOR) method.
+ * @param outputs The output data structure to store the solution and execution time.
+ * @param inputs The input data structure containing the system to solve.
+ */
+void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
+//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
+//    MyBLAS::Vector<long double> &b = inputs.input.constants;
+//    const size_t max_iterations = inputs.input.max_iterations;
+//    const long double threshold = inputs.input.threshold;
+//    const long double omega = inputs.input.relaxation_factor;
+
+//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+//        std::cerr << "Aborting SOR calculation\n";
+//        return;
+//    }
+
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+//                outputs.solution = MyRelaxationMethod::applySOR<long double>(A, b, max_iterations, threshold, omega);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
+}
+
+/**
+ * @brief Solves a linear system using the Jacobi SOR method.
+ * @param outputs The output data structure to store the solution and execution time.
+ * @param inputs The input data structure containing the system to solve.
+ */
+void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
+//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
+//    MyBLAS::Vector<long double> &b = inputs.input.constants;
+//    const size_t max_iterations = inputs.input.max_iterations;
+//    const long double threshold = inputs.input.threshold;
+//    const long double omega = inputs.input.relaxation_factor;
+
+//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+//        std::cerr << "Aborting SOR point jacobi calculation\n";
+//        return;
+//    }
+
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+//                outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold, omega);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
+}
+
+/**
+ * @brief Solves a linear system using the Symmetric SOR method.
+ * @param outputs The output data structure to store the solution and execution time.
+ * @param inputs The input data structure containing the system to solve.
+ */
+void usingSymmetricSOR(SolverOutputs &outputs, SolverInputs &inputs) {
+//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
+//    MyBLAS::Vector<long double> &b = inputs.input.constants;
+//    const size_t max_iterations = inputs.input.max_iterations;
+//    const long double threshold = inputs.input.threshold;
+//    const long double omega = inputs.input.relaxation_factor;
+
+//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+//        std::cerr << "Aborting symmetric SOR calculation\n";
+//        return;
+//    }
+
+    {
+        const size_t maxRuns = 10;
+        auto runTimes = std::vector<long double>(maxRuns);
+        Stopwatch<Nanoseconds> timer;
+        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
+            timer.restart();
+            {
+//                outputs.solution = MyRelaxationMethod::applySSOR<long double>(A, b, max_iterations, threshold, omega);
+            }
+            timer.click();
+            runTimes[outputs.runs] = (timer.duration().count());
+        }
+        auto stats = computeMeanStd(runTimes);
+        outputs.mean_execution_time = boost::accumulators::mean(stats);
+        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
+        outputs.runs = maxRuns;
+    }
+}
+} // namespace Compute
 
 #endif // NE591_008_PROJECT2_COMPUTE_H

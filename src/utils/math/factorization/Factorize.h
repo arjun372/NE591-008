@@ -42,8 +42,8 @@
 #define NE591_008_FACTORIZE_H
 
 #include "math/blas/BLAS.h"
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
 
 /**
  * @namespace MyFactorizationMethod

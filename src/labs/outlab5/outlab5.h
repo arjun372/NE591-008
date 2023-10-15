@@ -22,7 +22,7 @@
 #include "Project.h"
 
 #include "math/blas/BLAS.h"
-#include "math/blas/Matrix.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/blas/Stats.h"
 #include "math/factorization/LU.h"
 

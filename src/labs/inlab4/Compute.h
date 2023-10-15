@@ -11,8 +11,8 @@
 #include <iostream>
 
 #include "math/blas/BLAS.h"
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
 namespace InLab04 {
 /**
  * @brief Perform forward substitution

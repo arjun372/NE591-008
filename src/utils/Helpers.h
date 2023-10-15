@@ -352,4 +352,13 @@ inline std::string formatMeanStd(T mean, T std) {
     return std::to_string(mean) + " ± " + std::to_string(std);
 }
 
+//TODO:: DOCUMENT
+// USES TYPE DEDUCTION, APPLY THIS TO L2 NORM
+template <typename Container>
+bool contains(const Container& container, const typename Container::value_type& value) {
+    return std::find(container.begin(), container.end(), value) != container.end();
+}
+
+
+
 #endif // NE591_008_HELPERS_H

@@ -52,13 +52,11 @@ const char *TypeKey(const Type &value) {
  * @brief Structure that represents the input to the linear solver.
  * @tparam T The type of the elements in the matrix/vector.
  */
-template <typename T> struct Input {
+template <typename T> struct Parameters {
     size_t n = std::numeric_limits<size_t>::quiet_NaN(); ////< Size of the matrix/vector
     T threshold = std::numeric_limits<T>::quiet_NaN();   ////< The convergence threshold
-    T relaxation_factor = std::numeric_limits<T>::quiet_NaN();
-    ; ////< The relaxation factor, also known as the optimal weight or omega, ω
-    size_t max_iterations = std::numeric_limits<size_t>::quiet_NaN();
-    ;                                 ////< Maximum number of iterations to perform
+    T relaxation_factor = std::numeric_limits<T>::quiet_NaN(); ////< The relaxation factor, also known as the optimal weight or omega, ω
+    size_t max_iterations = std::numeric_limits<size_t>::quiet_NaN(); ////< Maximum number of iterations to perform
     MyBLAS::Matrix<T> coefficients{}; ///< Coefficient matrix A
     MyBLAS::Vector<T> constants{};    ///< Vector of constants b.
 };

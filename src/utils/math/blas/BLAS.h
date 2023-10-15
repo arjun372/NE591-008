@@ -11,8 +11,8 @@
 
 #include <cmath>
 
-#include "math/blas/Matrix.h"
-#include "math/blas/Vector.h"
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
 
 namespace MyBLAS {
 

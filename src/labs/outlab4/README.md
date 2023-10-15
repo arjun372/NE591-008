@@ -14,7 +14,7 @@ substitution. File based I/O is supported using JSON files.
 1. [Building & Usage](#building--usage)
     - [Parameters](#parameters)
     - [General options](#general-options)
-2. [Input Format](#input-format)
+2. [Parameters Format](#input-format)
 3. [Output Format](#output-format)
     - [Sample Outputs File](#sample-outputs-file)
 4. [Example](#example)
@@ -59,11 +59,11 @@ export OUTPUT_FILE=./src/labs/outlab4/examples/sample_output_1.json
 - `-p [ --precision ] arg (=15)`: Number of digits to represent long double
 - `-P [ --profile ]`: Turn on profiling for performance comparison
 
-## Input Format
+## Parameters Format
 
 The expected input json file requires the following fields:
 
-### Sample Input File
+### Sample Parameters File
 
 ```json
 {
@@ -132,7 +132,7 @@ General options:
                                      Inputs
 --------------------------------------------------------------------------------
 	Matrix order,  n: 0
-	Input JSON,    i: ../sample_input_1.json
+	Parameters JSON,    i: ../sample_input_1.json
 	Output JSON,   o: sample_output_1.json
 --------------------------------------------------------------------------------
 Reading matrix order (n) from input matrix dimensions: 3

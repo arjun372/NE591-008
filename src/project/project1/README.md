@@ -1,7 +1,7 @@
 # Project Milestone 1: LUP Factorization based Serial Diffusion Equation Solver
 
 Serial 2D, one speed, time-independent, neutron diffusion equation solver. Matrix equation solved using LU factorization
-with pivotin. File I/O is performed using a combination of `CSV` and `JSON` files.
+with pivoting. File I/O is performed using a combination of `CSV` and `JSON` files.
 
 ## Table of Contents
 
@@ -10,8 +10,8 @@ with pivotin. File I/O is performed using a combination of `CSV` and `JSON` file
     - [Parameters](#parameters)
     - [Solver Methods](#solver-methods)
     - [General options](#general-options)
-3. [Input Format](#input-format)
-    - [Sample Input Files](#sample-input-files)
+3. [Parameters Format](#input-format)
+    - [Sample Parameters Files](#sample-input-files)
         - [[REQUIRED] Source Term q(i,j) CSV](#source-term-qij-csv-required)
         - [Parameters JSON](#parameters-json)
 4. [Output Format](#output-format)
@@ -78,11 +78,11 @@ export OUTPUT_COMPUTED_FLUX=./src/project/project1/examples/example_computed_flu
 - `-P [ --profile ]`: Turn on performance profiling
 -
 
-## Input Format
+## Parameters Format
 
 <p style="background: black"><span style="font-weight: 900; color: red">CAUTION:</span> There are <span style="font-weight: 900; color: red">TWO</span> input files!</p> 
 
-### Sample Input Files
+### Sample Parameters Files
 
 #### Source Term q(i,j) CSV [REQUIRED]:
 
@@ -96,11 +96,11 @@ One `.csv` file, containing a 2D array (m x n), with the source terms in the fol
 
 #### Parameters JSON:
 
-One `.json` file, containing quantifcation parameters. If not supplied, parameters will be read interactively over the
+One `.json` file, containing quantification parameters. If not supplied, parameters will be read interactively over the
 terminal.
 
    ```json
-   {
+{
       "D": 0.07,
       "cross-section": 0.0033,
       "dimensions": {
@@ -225,7 +225,7 @@ Warning: File already exists at path, will be overwritten
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
-	Input JSON                              i: ../example_input_parameters.json
+	Parameters JSON                              i: ../example_input_parameters.json
 	Output JSON                             o: ../example_output_results.json
 	----
 	Use LUP method                           : Yes

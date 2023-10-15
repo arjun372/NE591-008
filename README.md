@@ -137,7 +137,7 @@ Currently supported project build targets include:
   </tr>
    <tr>
     <td>2</td>
-    <td></td>
+    <td><code>🚧 project2</code>  <code>🚧 project2_tests</code> <code>🚧 physics_diffusion_tests</code></td>
   </tr>
    <tr>
     <td>3</td>
@@ -234,11 +234,11 @@ Currently supported inlab, outlab build targets include:
 
 Available options are:
 
-| CMake Option                 | Description                                                       | Default |
-|------------------------------|-------------------------------------------------------------------|---------|
-| BUILD_TESTS                  | Build a separate test target (for e.g. `inlab1_tests`)            | ON      |
-| PORTABLE                     | Build without flag `-march=native`, trading speed for portability | OFF     |
-| BUILD_PERFORMANCE_BENCHMARKS | Build a separate benchmarks target (for e.g. `inlab1_bench`)      | OFF     |
+| CMake Option                 | Description                                                                                                                   | Default |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|
+| BUILD_TESTS                  | Build a separate test target (for e.g. `inlab1_tests`)                                                                        | ON      |
+| PORTABLE                     | Build without explicitly setting flags `-march=native`, `-mfma`, `-mavx`, `-mavx2`, `-msse4.2`, trading speed for portability | OFF     |
+| BUILD_PERFORMANCE_BENCHMARKS | Build a separate benchmarks target (for e.g. `inlab1_bench`)                                                                  | OFF     |
 
 To use these options, you can add them to the `cmake` command in the build script. For example, to build with tests, you
 would modify the `cmake` command as follows:
@@ -358,7 +358,7 @@ background with port 22 exposed:
 
 ```bash
 docker build --target=ssh-debugger -t ne591:ssh-debugger .
-docker run -d -p 2222:22 -it ssh-debugger
+docker run --name=eos-ssh-debugger -d -p 2222:22 -it ne591:ssh-debugger
 ```
 
 Then, you can connect to the running container using SSH. Clion provides native support for debugging remotely. Follow

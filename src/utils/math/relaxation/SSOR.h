@@ -11,9 +11,9 @@
 
 #include "math/LinearSolver.h"
 #include "math/blas/BLAS.h"
-#include "math/blas/Matrix.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/blas/Ops.h"
-#include "math/blas/Vector.h"
+#include "math/blas/vector/Vector.h"
 
 /**
  * @namespace MyRelaxationMethod

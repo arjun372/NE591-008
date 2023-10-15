@@ -15,8 +15,8 @@
 #include <vector>
 
 #include "BLAS.h"
-#include "Matrix.h"
-#include "Vector.h"
+#include "matrix/Matrix.h"
+#include "vector/Vector.h"
 
 /**
  * @namespace MyBLAS::Stats

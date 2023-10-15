@@ -12,7 +12,7 @@
 #include <cmath>
 #include <iostream>
 
-#include "math/blas/Matrix.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/factorization/Factorize.h"
 #include "math/factorization/LU.h"
 

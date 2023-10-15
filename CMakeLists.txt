@@ -9,6 +9,7 @@ set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
 ####################### Options ################### {{{
 option(BUILD_TESTS "Build the tests" ON)  # Influences CTest.
+option(CODE_COVERAGE "Perform code coverage analysis" ON)
 option(PORTABLE "Build without CPU specific optimizations" OFF)
 option(BUILD_PERFORMANCE_BENCHMARKS "Build performance benchmarks" OFF)
 ####################### Options ##################### }}}
@@ -40,60 +41,41 @@ endfunction()
 
 add_definitions(-DPROJECT_SOURCE_DIR="${PROJECT_SOURCE_DIR}")  # Needed to print file paths.
 
-function(CHECK_COMPILER_FLAG_SUPPORT FLAG SUPPORT_VAR)
-    include(CheckCXXCompilerFlag)
-    CHECK_CXX_COMPILER_FLAG(${FLAG} ${SUPPORT_VAR})
-    if (${SUPPORT_VAR})
-        message(STATUS "Compiler supports ${FLAG}")
-    else ()
-        message(STATUS "Compiler does not support ${FLAG}")
-    endif ()
-endfunction()
-
-
 ####################### Project Level CXX flags ################### {{{
 ## Floating point options https://gcc.gnu.org/wiki/FloatingPointMath
 #set(PROJECT_CXX_FLAGS -frounding-math -fsignaling-nans)
 set(PROJECT_CXX_FLAGS_DEBUG -Wall -Wextra -Werror -Wsign-compare -Wmissing-field-initializers -Wnon-virtual-dtor -Wno-old-style-cast -Wno-cast-function-type -Wno-unused-parameter -Wno-unused-function)
 list(APPEND PROJECT_CXX_FLAGS ${PROJECT_CXX_FLAGS_DEBUG})
+set(PROJECT_CXX_LINK_FLAGS)
+mark_as_advanced(PROJECT_CXX_LINK_FLAGS)
 
-CHECK_COMPILER_FLAG_SUPPORT("-march=native" COMPILER_SUPPORTS_MARCH_NATIVE)
-CHECK_COMPILER_FLAG_SUPPORT("-mavx" COMPILER_SUPPORTS_MAVX)
-CHECK_COMPILER_FLAG_SUPPORT("-mavx2" COMPILER_SUPPORTS_MAVX2)
-CHECK_COMPILER_FLAG_SUPPORT("-mavx512" COMPILER_SUPPORTS_SSE4_2)
-CHECK_COMPILER_FLAG_SUPPORT("-funroll-loops" COMPILER_SUPPORTS_LOOP_UNROLLING)
-CHECK_COMPILER_FLAG_SUPPORT("-msse4.2" COMPILER_SUPPORTS_SSE4_2)
-CHECK_COMPILER_FLAG_SUPPORT("-mfma" COMPILER_SUPPORTS_FMA)
+####################### CXX Optimization Flags ################### {{{
+# Define a global variable
+set(PROJECT_CXX_NON_PORTABLE_FLAGS)
+mark_as_advanced(PROJECT_CXX_NON_PORTABLE_FLAGS)
+function(CHECK_COMPILER_FLAG_SUPPORT FLAG SUPPORT_VAR FLAGS_VAR)
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG(${FLAG} ${SUPPORT_VAR})
+    if (${SUPPORT_VAR})
+        set(${FLAGS_VAR} "${${FLAGS_VAR}};${FLAG}" PARENT_SCOPE)
+    endif ()
+endfunction()
 
+CHECK_COMPILER_FLAG_SUPPORT("-msse4.2" COMPILER_SUPPORTS_SSE4_2 PROJECT_CXX_NON_PORTABLE_FLAGS)
+CHECK_COMPILER_FLAG_SUPPORT("-mavx" COMPILER_SUPPORTS_MAVX PROJECT_CXX_NON_PORTABLE_FLAGS)
+CHECK_COMPILER_FLAG_SUPPORT("-mavx2" COMPILER_SUPPORTS_MAVX2 PROJECT_CXX_NON_PORTABLE_FLAGS)
+#CHECK_COMPILER_FLAG_SUPPORT("-funroll-loops" COMPILER_SUPPORTS_LOOP_UNROLLING PROJECT_CXX_NON_PORTABLE_FLAGS)
+#CHECK_COMPILER_FLAG_SUPPORT("-funroll-all-loops" COMPILER_SUPPORTS_LOOP_UNROLLING_ALL PROJECT_CXX_NON_PORTABLE_FLAGS)
+CHECK_COMPILER_FLAG_SUPPORT("-mfma" COMPILER_SUPPORTS_FMA PROJECT_CXX_NON_PORTABLE_FLAGS)
+#CHECK_COMPILER_FLAG_SUPPORT("-mavx512f" COMPILER_SUPPORTS_MAVX512F PROJECT_CXX_NON_PORTABLE_FLAGS)
+#CHECK_COMPILER_FLAG_SUPPORT("-mavx512cd" COMPILER_SUPPORTS_MAVX512CD PROJECT_CXX_NON_PORTABLE_FLAGS)
+#CHECK_COMPILER_FLAG_SUPPORT("-mavx512er" COMPILER_SUPPORTS_MAVX512ER PROJECT_CXX_NON_PORTABLE_FLAGS)
+#CHECK_COMPILER_FLAG_SUPPORT("-mavx512pf" COMPILER_SUPPORTS_MAVX512PF PROJECT_CXX_NON_PORTABLE_FLAGS)
+CHECK_COMPILER_FLAG_SUPPORT("-march=native" COMPILER_SUPPORTS_MARCH_NATIVE PROJECT_CXX_NON_PORTABLE_FLAGS)
 if (NOT PORTABLE)
-
-    if (COMPILER_SUPPORTS_SSE4_2)
-        list(APPEND PROJECT_CXX_FLAGS -msse4.2)
-    endif ()
-
-    if (COMPILER_SUPPORTS_MAVX)
-        list(APPEND PROJECT_CXX_FLAGS -mavx)
-    endif ()
-
-    if (COMPILER_SUPPORTS_MAVX2)
-        list(APPEND PROJECT_CXX_FLAGS -mavx2)
-    endif ()
-
-    if (COMPILER_SUPPORTS_LOOP_UNROLLING)
-        list(APPEND PROJECT_CXX_FLAGS -funroll-loops)
-    endif ()
-
-    if (COMPILER_SUPPORTS_FMA)
-        list(APPEND PROJECT_CXX_FLAGS -mfma)
-    endif ()
-
-    if (COMPILER_SUPPORTS_MARCH_NATIVE)
-        list(APPEND PROJECT_CXX_FLAGS -march=native)
-    endif ()
+    list(APPEND PROJECT_CXX_FLAGS ${PROJECT_CXX_NON_PORTABLE_FLAGS})
 endif ()
-
-add_compile_options(${PROJECT_CXX_FLAGS})
-message(${PROJECT_CXX_FLAGS})
+####################### CXX Optimization Flags ################### }}}
 ####################### Project Level CXX flags ################### }}}
 
 if (BUILD_TESTS)
@@ -103,6 +85,22 @@ if (BUILD_TESTS)
     # Add Google Test as a subdirectory
     add_subdirectory(external/googletest)
 endif ()
+
+if (CODE_COVERAGE)
+    if(CMAKE_COMPILER_IS_GNUCXX)
+        message(STATUS "Enabling coverage for GCC")
+        list(APPEND PROJECT_CXX_FLAGS --coverage)
+        list(APPEND PROJECT_CXX_LINK_FLAGS --coverage)
+        add_subdirectory(coverage)
+    else ()
+        message(WARNING "Coverage only available for GCC ")
+    endif ()
+endif ()
+
+add_compile_options(${PROJECT_CXX_FLAGS})
+add_link_options(${PROJECT_CXX_LINK_FLAGS})
+message(STATUS "Extra compile flags: ${PROJECT_CXX_FLAGS}")
+message(STATUS "Extra link flags: ${PROJECT_CXX_LINK_FLAGS}")
 
 ######################## End compiler configurations #################### }}}
 

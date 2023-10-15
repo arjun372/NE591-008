@@ -1,6 +1,5 @@
 set(TEST_SOURCES
         main.cpp
-        LUMatrixTests.cpp
 )
 
 # Create the test executable

@@ -5,16 +5,17 @@
 * @brief This file contains helper functions for handling command line options and initializing the profiler.
  */
 
-#include "CheckBounds.h"
-#include "json.hpp"
-#include <boost/program_options.hpp>
 
 #ifndef NE591_008_COMMANDLINEHELPERS_H
 #define NE591_008_COMMANDLINEHELPERS_H
 
+#include "CheckBounds.h"
+#include "json.hpp"
+#include <boost/program_options.hpp>
+
 /**
-* @namespace ProfilerHelper
-* @brief This namespace contains helper functions for handling command line options and initializing the profiler.
+ * @namespace ProfilerHelper
+ * @brief This namespace contains helper functions for handling command line options and initializing the profiler.
  */
 namespace ProfilerHelper {
 

@@ -20,4 +20,4 @@ for i in range(m):
 q = (q - np.min(q)) / (np.max(q) - np.min(q))
 
 # Save the matrix to a CSV file
-np.savetxt("../examples/project1_source-terms_2.csv", q, delimiter=",", fmt="%.6f")
+np.savetxt("../examples/project2_source-terms_2.csv", q, delimiter=",", fmt="%.6f")
