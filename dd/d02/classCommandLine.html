@@ -374,7 +374,7 @@ template&lt;typename InputType &gt; </div>
 <p>Method to build a set of generic command line options. </p>
 <dl class="section return"><dt>Returns</dt><dd>An options description containing the generic command line options. This method builds a set of generic command line options, such as "help", "quiet", and "precision", and returns them as an options description. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                                                                   {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keyword">auto</span> benchmarkOptions = ProfilerHelper::buildCommandlineOptions();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keyword">auto</span> benchmarkOptions = <a class="code" href="../../d1/d09/namespaceProfilerHelper.html#a68432bf5c2b6da502649dab1df5236fa">ProfilerHelper::buildCommandlineOptions</a>();</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        benchmarkOptions.add_options()(<span class="stringliteral">&quot;bench,B&quot;</span>, <span class="stringliteral">&quot;= Run performance benchmarks&quot;</span>);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        boost::program_options::options_description generics(<span class="stringliteral">&quot;General options&quot;</span>);</div>
@@ -384,7 +384,18 @@ template&lt;typename InputType &gt; </div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        benchmarkOptions.add(generics);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> benchmarkOptions;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
+<div class="ttc" id="anamespaceProfilerHelper_html_a68432bf5c2b6da502649dab1df5236fa"><div class="ttname"><a href="../../d1/d09/namespaceProfilerHelper.html#a68432bf5c2b6da502649dab1df5236fa">ProfilerHelper::buildCommandlineOptions</a></div><div class="ttdeci">static boost::program_options::options_description buildCommandlineOptions()</div><div class="ttdoc">This function builds the command line options for the profiler.</div><div class="ttdef"><b>Definition:</b> CommandlineHelpers.h:26</div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00026">ProfilerHelper::buildCommandlineOptions()</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d02/classCommandLine_a05df68174204b95e453215995ab045ee_cgraph.svg" width="515" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
 </div>
 </div>
 <a id="aa8841eee4285da132c9d6b14cdd3202a"></a>
@@ -493,11 +504,11 @@ template&lt;typename InputType &gt; </div>
 <div class="ttc" id="aclassCommandLine_html_a7668335fa414940a2fad3ebd5fcfd699"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#a7668335fa414940a2fad3ebd5fcfd699">CommandLine::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Method to initialize the CommandLine object. This method initializes the CommandLine object by printi...</div><div class="ttdef"><b>Definition:</b> CommandLine.h:207</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00207">CommandLine&lt; InputType &gt;::initialize()</a>, <a class="el" href="../../#l00149">CommandLine&lt; InputType &gt;::initialized</a>, and <a class="el" href="../../#l00148">CommandLine&lt; InputType &gt;::variablesMap</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d02/classCommandLine_a5058573f1179becf721f7ff0372584c2_cgraph.svg" width="455" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -536,11 +547,11 @@ template&lt;typename InputType &gt; </div>
 <p class="reference">References <a class="el" href="../../#l00148">CommandLine&lt; InputType &gt;::variablesMap</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00071">InLab5::run()</a>, <a class="el" href="../../#l00073">OutLab4::run()</a>, <a class="el" href="../../#l00090">InLab4::run()</a>, and <a class="el" href="../../#l00081">OutLab5::run()</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d02/classCommandLine_a6a94f5e16b2081e769567d3790b6d8ec_icgraph.svg" width="416" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -583,11 +594,11 @@ template&lt;typename InputType &gt; </div>
 <div class="ttc" id="aclassCommandLine_html_ac832ae62f1a9173c3493c95a0e3acecc"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#ac832ae62f1a9173c3493c95a0e3acecc">CommandLine::inputs</a></div><div class="ttdeci">InputType inputs</div><div class="ttdef"><b>Definition:</b> CommandLine.h:151</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00207">CommandLine&lt; InputType &gt;::initialize()</a>, <a class="el" href="../../#l00149">CommandLine&lt; InputType &gt;::initialized</a>, and <a class="el" href="../../#l00151">CommandLine&lt; InputType &gt;::inputs</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d02/classCommandLine_ad9d8cf54a3f65df6a00700fd2282c667_cgraph.svg" width="424" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -654,7 +665,7 @@ template&lt;typename InputType &gt; </div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../dd/d02/classCommandLine.html#ab9134e3b1d5c3324da1aef5f1c9b6354">variablesMap</a>.count(<span class="stringliteral">&quot;bench&quot;</span>)) {</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            <span class="comment">// build the profiler now</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            ProfilerHelper::validateOptions(<a class="code" href="../../dd/d02/classCommandLine.html#ab9134e3b1d5c3324da1aef5f1c9b6354">variablesMap</a>);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            <a class="code" href="../../d1/d09/namespaceProfilerHelper.html#acae987e616fd0d3c10d3aa8a1c13da8a">ProfilerHelper::validateOptions</a>(<a class="code" href="../../dd/d02/classCommandLine.html#ab9134e3b1d5c3324da1aef5f1c9b6354">variablesMap</a>);</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        }</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="../../dd/d02/classCommandLine.html#ab9134e3b1d5c3324da1aef5f1c9b6354">variablesMap</a>.count(<span class="stringliteral">&quot;quiet&quot;</span>)) {</div>
@@ -666,13 +677,14 @@ template&lt;typename InputType &gt; </div>
 <div class="ttc" id="aclassCommandLine_html_aa8841eee4285da132c9d6b14cdd3202a"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#aa8841eee4285da132c9d6b14cdd3202a">CommandLine::buildInputArguments</a></div><div class="ttdeci">virtual void buildInputArguments(boost::program_options::options_description &amp;inputArguments)=0</div></div>
 <div class="ttc" id="aclassCommandLine_html_ac1c4bff1db7e9e477c491938ab000e95"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#ac1c4bff1db7e9e477c491938ab000e95">CommandLine::printCompileConfigs</a></div><div class="ttdeci">static void printCompileConfigs()</div><div class="ttdoc">Method to print the compile configurations to the console. This method prints the compiler ID,...</div><div class="ttdef"><b>Definition:</b> CommandLine.h:258</div></div>
 <div class="ttc" id="aclassCommandLine_html_af6988d808145820c39fd1f0649a97e82"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#af6988d808145820c39fd1f0649a97e82">CommandLine::performInputArgumentsCheck</a></div><div class="ttdeci">virtual void performInputArgumentsCheck(boost::program_options::variables_map &amp;values)=0</div></div>
+<div class="ttc" id="anamespaceProfilerHelper_html_acae987e616fd0d3c10d3aa8a1c13da8a"><div class="ttname"><a href="../../d1/d09/namespaceProfilerHelper.html#acae987e616fd0d3c10d3aa8a1c13da8a">ProfilerHelper::validateOptions</a></div><div class="ttdeci">static void validateOptions(boost::program_options::variables_map &amp;map)</div><div class="ttdoc">This function validates the input options, prompting the user if they need to be fixed.</div><div class="ttdef"><b>Definition:</b> CommandlineHelpers.h:38</div></div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="../../#l00093">CommandLine&lt; InputType &gt;::getArguments()</a>, and <a class="el" href="../../#l00123">CommandLine&lt; InputType &gt;::getInputs()</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d02/classCommandLine_a7668335fa414940a2fad3ebd5fcfd699_icgraph.svg" width="455" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -788,11 +800,11 @@ template&lt;typename InputType &gt; </div>
 <p class="reference">References <a class="el" href="../../#l00035">HeaderInfo::HeaderArt</a>, <a class="el" href="../../#l00032">HeaderInfo::ProjectDescription</a>, <a class="el" href="../../#l00031">HeaderInfo::ProjectName</a>, <a class="el" href="../../#l00034">HeaderInfo::StudentName</a>, and <a class="el" href="../../#l00033">HeaderInfo::SubmissionDate</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00069">CommandLine&lt; InputType &gt;::CommandLine()</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d02/classCommandLine_af8c6e0d1d7cfecff990df6ad3a554b51_icgraph.svg" width="479" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -861,11 +873,11 @@ template&lt;typename InputType &gt; </div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="../../#l00233">Parser::buildInputs()</a>, and <a class="el" href="../../#l00086">Parser::printInputArguments()</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d02/classCommandLine_a7001590923e6bfdf380448136b8e65bd_icgraph.svg" width="444" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -942,11 +954,11 @@ template&lt;typename InputType &gt; </div>
 <div class="ttc" id="aHelpers_8h_html_a06fb04e23a8f81efa8cd535a7abf1045"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a></div><div class="ttdeci">void replace(std::map&lt; std::string, boost::program_options::variable_value &gt; &amp;vm, const std::string &amp;opt, const T &amp;val)</div><div class="ttdoc">This function replaces the value of a specified option in a map with a new value.</div><div class="ttdef"><b>Definition:</b> Helpers.h:33</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00033">replace()</a>, and <a class="el" href="../../#l00148">CommandLine&lt; InputType &gt;::variablesMap</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d02/classCommandLine_a6b2c9bf028534ad87c3d63f1dd902e1f_cgraph.svg" width="332" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>

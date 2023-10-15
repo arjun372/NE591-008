@@ -68,7 +68,7 @@ var NAVTREE =
         ] ],
         [ "Implementing your own <tt>f(x)</tt>", "d1/def/inlab2.html#autotoc_md30", null ],
         [ "File I/O", "d1/def/inlab2.html#autotoc_md31", null ],
-        [ "Input Format", "d1/def/inlab2.html#autotoc_md32", [
+        [ "Parameters Format", "d1/def/inlab2.html#autotoc_md32", [
           [ "Sample Inputs File", "d1/def/inlab2.html#autotoc_md33", null ]
         ] ],
         [ "0.67", "d1/def/inlab2.html#autotoc_md34", null ],
@@ -100,8 +100,8 @@ var NAVTREE =
           [ "Parameters", "d3/d5a/inlab4.html#autotoc_md51", null ],
           [ "General options", "d3/d5a/inlab4.html#autotoc_md52", null ]
         ] ],
-        [ "Input Format", "d3/d5a/inlab4.html#autotoc_md53", [
-          [ "Sample Input File", "d3/d5a/inlab4.html#autotoc_md54", null ]
+        [ "Parameters Format", "d3/d5a/inlab4.html#autotoc_md53", [
+          [ "Sample Parameters File", "d3/d5a/inlab4.html#autotoc_md54", null ]
         ] ],
         [ "Output Format", "d3/d5a/inlab4.html#autotoc_md55", [
           [ "Sample Outputs File", "d3/d5a/inlab4.html#autotoc_md56", null ]
@@ -116,8 +116,8 @@ var NAVTREE =
           [ "Parameters", "d8/df4/inlab5.html#autotoc_md61", null ],
           [ "General options", "d8/df4/inlab5.html#autotoc_md62", null ]
         ] ],
-        [ "Input Format", "d8/df4/inlab5.html#autotoc_md63", [
-          [ "Sample Input File", "d8/df4/inlab5.html#autotoc_md64", null ]
+        [ "Parameters Format", "d8/df4/inlab5.html#autotoc_md63", [
+          [ "Sample Parameters File", "d8/df4/inlab5.html#autotoc_md64", null ]
         ] ],
         [ "Output Format", "d8/df4/inlab5.html#autotoc_md65", [
           [ "Sample Outputs File", "d8/df4/inlab5.html#autotoc_md66", null ]
@@ -133,8 +133,8 @@ var NAVTREE =
           [ "Solver Methods", "d4/da6/inlab6.html#autotoc_md72", null ],
           [ "General options", "d4/da6/inlab6.html#autotoc_md73", null ]
         ] ],
-        [ "Input Format", "d4/da6/inlab6.html#autotoc_md74", [
-          [ "Sample Input File", "d4/da6/inlab6.html#autotoc_md75", null ]
+        [ "Parameters Format", "d4/da6/inlab6.html#autotoc_md74", [
+          [ "Sample Parameters File", "d4/da6/inlab6.html#autotoc_md75", null ]
         ] ],
         [ "Output Format", "d4/da6/inlab6.html#autotoc_md76", [
           [ "Sample Outputs File", "d4/da6/inlab6.html#autotoc_md77", null ]
@@ -161,7 +161,7 @@ var NAVTREE =
         ] ],
         [ "Implementing your own <tt>f(x)</tt>", "d9/d83/outlab2.html#autotoc_md97", null ],
         [ "File I/O", "d9/d83/outlab2.html#autotoc_md98", null ],
-        [ "Input Format", "d9/d83/outlab2.html#autotoc_md99", [
+        [ "Parameters Format", "d9/d83/outlab2.html#autotoc_md99", [
           [ "Sample Inputs File", "d9/d83/outlab2.html#autotoc_md100", null ]
         ] ],
         [ "0.67", "d9/d83/outlab2.html#autotoc_md101", null ],
@@ -193,8 +193,8 @@ var NAVTREE =
           [ "Parameters", "d5/d26/outlab4.html#autotoc_md118", null ],
           [ "General options", "d5/d26/outlab4.html#autotoc_md119", null ]
         ] ],
-        [ "Input Format", "d5/d26/outlab4.html#autotoc_md120", [
-          [ "Sample Input File", "d5/d26/outlab4.html#autotoc_md121", null ]
+        [ "Parameters Format", "d5/d26/outlab4.html#autotoc_md120", [
+          [ "Sample Parameters File", "d5/d26/outlab4.html#autotoc_md121", null ]
         ] ],
         [ "Output Format", "d5/d26/outlab4.html#autotoc_md122", [
           [ "Sample Outputs File", "d5/d26/outlab4.html#autotoc_md123", null ]
@@ -209,8 +209,8 @@ var NAVTREE =
           [ "Parameters", "de/de4/outlab5.html#autotoc_md128", null ],
           [ "General options", "de/de4/outlab5.html#autotoc_md129", null ]
         ] ],
-        [ "Input Format", "de/de4/outlab5.html#autotoc_md130", [
-          [ "Sample Input File", "de/de4/outlab5.html#autotoc_md131", null ]
+        [ "Parameters Format", "de/de4/outlab5.html#autotoc_md130", [
+          [ "Sample Parameters File", "de/de4/outlab5.html#autotoc_md131", null ]
         ] ],
         [ "Output Format", "de/de4/outlab5.html#autotoc_md132", [
           [ "Sample Outputs File", "de/de4/outlab5.html#autotoc_md133", null ]
@@ -226,8 +226,8 @@ var NAVTREE =
           [ "Solver Methods", "dd/dfb/outlab6.html#autotoc_md139", null ],
           [ "General options", "dd/dfb/outlab6.html#autotoc_md140", null ]
         ] ],
-        [ "Input Format", "dd/dfb/outlab6.html#autotoc_md141", [
-          [ "Sample Input File", "dd/dfb/outlab6.html#autotoc_md142", null ]
+        [ "Parameters Format", "dd/dfb/outlab6.html#autotoc_md141", [
+          [ "Sample Parameters File", "dd/dfb/outlab6.html#autotoc_md142", null ]
         ] ],
         [ "Output Format", "dd/dfb/outlab6.html#autotoc_md143", [
           [ "Sample Outputs File", "dd/dfb/outlab6.html#autotoc_md144", null ]
@@ -238,7 +238,7 @@ var NAVTREE =
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
@@ -265,7 +265,8 @@ var NAVTREE =
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ]
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ],
     [ "Examples", "examples.html", "examples" ]
@@ -275,13 +276,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "",
-"d0/d40/classParser.html#a6de52aa3594a5cdf117d9b96185c2b27",
-"d2/d12/outlab2_2examples_2sanity__check_8m.html#a804b0188faeaeccdaa42d04fec09583a",
-"d5/d15/inlab3.html#autotoc_md44",
-"d8/db4/project_2project1_2tests_2LUMatrixTests_8cpp.html#a9dcf49e71f7432852d34187430e47d58",
-"db/def/labs_2inlab3_2InputsOutputs_8h.html#abea9aeff876052022e7c4c6beb629bb6a775261b422ad3bbdadf67389a525bb82",
-"dd/df3/classOutLab1.html#a06149764196c5bb48dfb591ab1c9bf34",
-"functions_v.html"
+"d0/d40/classParser.html#a3369e669d9e28c85a3397e7bc95d2518",
+"d1/d18/namespaceMyFactorizationMethod.html#a30add92d8b3f98e6a0c72289515ec91e",
+"d3/d1d/classOutLab5.html#a06149764196c5bb48dfb591ab1c9bf34",
+"d6/d07/classMyBLAS_1_1LazyVector.html#a4fe91866753fcbfa046ca72933841059",
+"d8/d21/namespaceplot__heatmap.html#a810328e7c39bd4a3a18031d0b33d284f",
+"da/df0/classOutLab3.html#a06149764196c5bb48dfb591ab1c9bf34",
+"dc/da0/LazyVectorTests_8cpp.html#ad4994e178f5ad22fa3334bd4873054de",
+"de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html#a1eabd5defef6958c586b6be1809629d7",
+"functions_rela.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -6,20 +6,41 @@ var annotated_dup =
       ] ],
       [ "Input", "d7/dd6/structMyBLAS_1_1Input.html", "d7/dd6/structMyBLAS_1_1Input" ],
       [ "Output", "d9/d29/structMyBLAS_1_1Output.html", "d9/d29/structMyBLAS_1_1Output" ],
+      [ "AbstractMatrix", "de/d6b/classMyBLAS_1_1AbstractMatrix.html", "de/d6b/classMyBLAS_1_1AbstractMatrix" ],
+      [ "LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html", "d0/d28/classMyBLAS_1_1LazyMatrix" ],
       [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html", "d0/d27/classMyBLAS_1_1Matrix" ],
-      [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html", "d4/d4d/classMyBLAS_1_1Vector" ]
+      [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html", "d4/d4d/classMyBLAS_1_1Vector" ],
+      [ "MatrixExpression", "d7/da9/classMyBLAS_1_1MatrixExpression.html", "d7/da9/classMyBLAS_1_1MatrixExpression" ],
+      [ "MatrixExpressionTests", "de/d99/classMyBLAS_1_1MatrixExpressionTests.html", null ],
+      [ "VectorExpressionTests", "de/d3a/classMyBLAS_1_1VectorExpressionTests.html", null ],
+      [ "LazyMatrixTests", "d6/d09/classMyBLAS_1_1LazyMatrixTests.html", "d6/d09/classMyBLAS_1_1LazyMatrixTests" ],
+      [ "LazyVectorTests", "dd/d30/classMyBLAS_1_1LazyVectorTests.html", "dd/d30/classMyBLAS_1_1LazyVectorTests" ],
+      [ "LazyVector", "d6/d07/classMyBLAS_1_1LazyVector.html", "d6/d07/classMyBLAS_1_1LazyVector" ],
+      [ "VectorExpression", "dd/dc2/classMyBLAS_1_1VectorExpression.html", "dd/dc2/classMyBLAS_1_1VectorExpression" ]
     ] ],
     [ "MyFactorizationMethod", "d1/d18/namespaceMyFactorizationMethod.html", [
       [ "Parameters", "de/dbb/structMyFactorizationMethod_1_1Parameters.html", "de/dbb/structMyFactorizationMethod_1_1Parameters" ]
     ] ],
     [ "MyLinearSolvingMethod", "de/d18/namespaceMyLinearSolvingMethod.html", [
-      [ "Input", "de/d18/namespaceMyLinearSolvingMethod.html#d5/d72/structMyLinearSolvingMethod_1_1Input", "de/d18/namespaceMyLinearSolvingMethod_d5/d72/structMyLinearSolvingMethod_1_1Input_dup" ],
+      [ "Parameters", "de/d18/namespaceMyLinearSolvingMethod.html#d8/d53/structMyLinearSolvingMethod_1_1Parameters", "de/d18/namespaceMyLinearSolvingMethod_d8/d53/structMyLinearSolvingMethod_1_1Parameters_dup" ],
       [ "Solution", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", "de/d83/structMyLinearSolvingMethod_1_1Solution" ]
+    ] ],
+    [ "MyPhysics", "d8/da1/namespaceMyPhysics.html", [
+      [ "Diffusion", "d2/d71/namespaceMyPhysics_1_1Diffusion.html", [
+        [ "Constants", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants" ],
+        [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix" ],
+        [ "Matrix< MyBLAS::Matrix< T > >", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4" ],
+        [ "Params", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params" ],
+        [ "Vector", "d8/d35/classMyPhysics_1_1Diffusion_1_1Vector.html", "d8/d35/classMyPhysics_1_1Diffusion_1_1Vector" ]
+      ] ]
     ] ],
     [ "ArgsPrintMatrix", "d7/d12/structArgsPrintMatrix.html", "d7/d12/structArgsPrintMatrix" ],
     [ "CanvasType", "db/df1/Helpers_8h.html#de/d8a/structCanvasType", "db/df1/Helpers_8h_de/d8a/structCanvasType" ],
     [ "CommandLine", "dd/d02/classCommandLine.html", "dd/d02/classCommandLine" ],
     [ "CommandLineArgs", "d9/d41/CommandLine_8h.html#de/d26/structCommandLineArgs", "d9/d41/CommandLine_8h_de/d26/structCommandLineArgs" ],
+    [ "DiffusionConstantsValidTest", "dd/d10/classDiffusionConstantsValidTest.html", "dd/d10/classDiffusionConstantsValidTest" ],
+    [ "DiffusionParamsTest", "d5/d15/classDiffusionParamsTest.html", "d5/d15/classDiffusionParamsTest" ],
+    [ "DiffusionParamsValidTest", "d1/d6a/classDiffusionParamsValidTest.html", "d1/d6a/classDiffusionParamsValidTest" ],
     [ "Factorial", "d7/d64/labs_2inlab1_2Compute_8h.html#de/de5/structFactorial", "d7/d64/labs_2inlab1_2Compute_8h_de/de5/structFactorial" ],
     [ "FactorizeInvalidLUMatrixTest", "d7/df1/classFactorizeInvalidLUMatrixTest.html", "d7/df1/classFactorizeInvalidLUMatrixTest" ],
     [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", "d1/dd7/classFactorizeValidLUMatrixTest" ],
@@ -46,6 +67,7 @@ var annotated_dup =
     [ "Project1", "d8/ddb/classProject1.html", "d8/ddb/classProject1" ],
     [ "Project2", "dd/db5/classProject2.html", "dd/db5/classProject2" ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
+    [ "SourceVectorValidTest", "df/d4f/classSourceVectorValidTest.html", "df/d4f/classSourceVectorValidTest" ],
     [ "Stopwatch", "de/def/classStopwatch.html", "de/def/classStopwatch" ],
     [ "ToneMap", "db/df1/Helpers_8h.html#d1/db0/structToneMap", "db/df1/Helpers_8h_d1/db0/structToneMap" ]
 ];

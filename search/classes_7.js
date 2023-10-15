@@ -1,19 +1,11 @@
 var searchData=
 [
-  ['parameters_606',['Parameters',['../de/dbb/structMyFactorizationMethod_1_1Parameters.html',1,'MyFactorizationMethod']]],
-  ['parser_607',['Parser',['../d0/d40/classParser.html',1,'']]],
-  ['profiler_608',['Profiler',['../dd/d0e/classProfiler.html',1,'']]],
-  ['project_609',['Project',['../db/d91/classProject.html',1,'']]],
-  ['project1_610',['Project1',['../d8/ddb/classProject1.html',1,'']]],
-  ['project2_611',['Project2',['../dd/db5/classProject2.html',1,'']]],
-  ['project_3c_20inlab6inputs_2c_20parser_2c_20inlab6outputs_20_3e_612',['Project&lt; InLab6Inputs, Parser, InLab6Outputs &gt;',['../db/d91/classProject.html',1,'']]],
-  ['project_3c_20inputmatrices_2c_20parser_2c_20outputvector_20_3e_613',['Project&lt; InputMatrices, Parser, OutputVector &gt;',['../db/d91/classProject.html',1,'']]],
-  ['project_3c_20inputmatrices_2c_20parser_2c_20results_20_3e_614',['Project&lt; InputMatrices, Parser, Results &gt;',['../db/d91/classProject.html',1,'']]],
-  ['project_3c_20lagrangepolynomialinputs_2c_20parser_2c_20dictionary_20_3e_615',['Project&lt; LagrangePolynomialInputs, Parser, Dictionary &gt;',['../db/d91/classProject.html',1,'']]],
-  ['project_3c_20matrixconstructparams_2c_20parser_2c_20nooutput_20_3e_616',['Project&lt; MatrixConstructParams, Parser, NoOutput &gt;',['../db/d91/classProject.html',1,'']]],
-  ['project_3c_20myblas_3a_3ainputmatrices_2c_20parser_2c_20myblas_3a_3aoutputvector_20_3e_617',['Project&lt; MyBLAS::InputMatrices, Parser, MyBLAS::OutputVector &gt;',['../db/d91/classProject.html',1,'']]],
-  ['project_3c_20newtoncotesinputs_2c_20parser_2c_20dictionary_20_3e_618',['Project&lt; NewtonCotesInputs, Parser, Dictionary &gt;',['../db/d91/classProject.html',1,'']]],
-  ['project_3c_20outlab6inputs_2c_20parser_2c_20outlab6outputs_20_3e_619',['Project&lt; OutLab6Inputs, Parser, OutLab6Outputs &gt;',['../db/d91/classProject.html',1,'']]],
-  ['project_3c_20solverinputs_2c_20parser_2c_20solveroutputs_20_3e_620',['Project&lt; SolverInputs, Parser, SolverOutputs &gt;',['../db/d91/classProject.html',1,'']]],
-  ['project_3c_20taylorseriesinputs_2c_20parser_2c_20taylorseriesvariables_20_3e_621',['Project&lt; TaylorSeriesInputs, Parser, TaylorSeriesVariables &gt;',['../db/d91/classProject.html',1,'']]]
+  ['map_734',['Map',['../da/ddc/structMap.html',1,'']]],
+  ['matrix_735',['Matrix',['../d0/d27/classMyBLAS_1_1Matrix.html',1,'MyBLAS::Matrix&lt; T &gt;'],['../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html',1,'MyPhysics::Diffusion::Matrix&lt; T &gt;']]],
+  ['matrix_3c_20floattype_20_3e_736',['Matrix&lt; FloatType &gt;',['../d0/d27/classMyBLAS_1_1Matrix.html',1,'MyBLAS']]],
+  ['matrix_3c_20long_20double_20_3e_737',['Matrix&lt; long double &gt;',['../d0/d27/classMyBLAS_1_1Matrix.html',1,'MyBLAS']]],
+  ['matrix_3c_20myblas_3a_3amatrix_3c_20t_20_3e_20_3e_738',['Matrix&lt; MyBLAS::Matrix&lt; T &gt; &gt;',['../de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html',1,'MyPhysics::Diffusion']]],
+  ['matrixbuildargs_739',['MatrixBuildArgs',['../d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs',1,'']]],
+  ['matrixexpression_740',['MatrixExpression',['../d7/da9/classMyBLAS_1_1MatrixExpression.html',1,'MyBLAS']]],
+  ['matrixexpressiontests_741',['MatrixExpressionTests',['../de/d99/classMyBLAS_1_1MatrixExpressionTests.html',1,'MyBLAS']]]
 ];

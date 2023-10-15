@@ -497,9 +497,10 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../dd/d0e/classProfiler.html" title="A template class to profile the execution time of a function.">Profiler</a> object. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                                                            {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">return</span> ProfilerHelper::InitProfiler(func, <a class="code" href="../../db/d91/classProject.html#ad65b2a3d174b2df1a32e3b6622137e60">getTerminal</a>().getArguments(), description);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d1/d09/namespaceProfilerHelper.html#abe11cd437b44ab44edb928fd207cd1ed">ProfilerHelper::InitProfiler</a>(func, <a class="code" href="../../db/d91/classProject.html#ad65b2a3d174b2df1a32e3b6622137e60">getTerminal</a>().getArguments(), description);</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    }</div>
 <div class="ttc" id="aclassProject_html_ad65b2a3d174b2df1a32e3b6622137e60"><div class="ttname"><a href="../../db/d91/classProject.html#ad65b2a3d174b2df1a32e3b6622137e60">Project&lt; MyBLAS::InputMatrices, Parser, MyBLAS::OutputVector &gt;::getTerminal</a></div><div class="ttdeci">Parser getTerminal() const</div><div class="ttdoc">Returns the terminal.</div><div class="ttdef"><b>Definition:</b> Project.h:56</div></div>
+<div class="ttc" id="anamespaceProfilerHelper_html_abe11cd437b44ab44edb928fd207cd1ed"><div class="ttname"><a href="../../d1/d09/namespaceProfilerHelper.html#abe11cd437b44ab44edb928fd207cd1ed">ProfilerHelper::InitProfiler</a></div><div class="ttdeci">auto InitProfiler(Func func, boost::program_options::variables_map &amp;map, std::string description)</div><div class="ttdoc">This function initializes the profiler with the given function, command line options,...</div><div class="ttdef"><b>Definition:</b> CommandlineHelpers.h:59</div></div>
 </div><!-- fragment -->
 </div>
 </div>

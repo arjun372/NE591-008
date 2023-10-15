@@ -48,7 +48,7 @@ if (edges && edges.length) {
 <script type="text/javascript">
 var viewWidth = 824;
 var viewHeight = 230;
-var sectionId = 'dynsection-9';
+var sectionId = 'dynsection-10';
 </script>
 <script xlink:href="../../svgpan.js"/>
 <svg id="graph" class="graph">
@@ -185,18 +185,18 @@ var sectionId = 'dynsection-9';
 <path fill="none" stroke="midnightblue" d="M423.57,-140.8C414.58,-141.21 405.66,-141.61 397.12,-142"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="423.91,-144.29 433.74,-140.34 423.59,-137.3 423.91,-144.29"/>
 </g>
-<!-- Node8 -->
-<g id="node8" class="node">
-<title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#aadc5106a411767f67e83cd6b62cabbce" target="_top" xlink:title="This function performs LU factorization on a given matrix A and stores the results in matrices L and ...">
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#aadc5106a411767f67e83cd6b62cabbce" target="_top" xlink:title="This function performs LU factorization on a given matrix A and stores the results in matrices L and ...">
 <polygon fill="white" stroke="black" points="264.5,-96.5 264.5,-115.5 395.5,-115.5 395.5,-96.5 264.5,-96.5"/>
 <text text-anchor="middle" x="330" y="-103.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::factorize</text>
 </a>
 </g>
 </g>
-<!-- Node4&#45;&gt;Node8 -->
-<g id="edge7" class="edge">
-<title>Node4&#45;&gt;Node8</title>
+<!-- Node4&#45;&gt;Node9 -->
+<g id="edge8" class="edge">
+<title>Node4&#45;&gt;Node9</title>
 <path fill="none" stroke="midnightblue" d="M456.49,-124.97C435.95,-121.86 413.8,-118.51 393.92,-115.51"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="456.01,-128.43 466.42,-126.47 457.06,-121.51 456.01,-128.43"/>
 </g>
@@ -219,62 +219,62 @@ var sectionId = 'dynsection-9';
 <g id="node7" class="node">
 <title>Node7</title>
 <g id="a_node7"><a xlink:href="../../d0/d4c/classOutLab6.html#a7f817fd9bedd2b88e683e2514d386c8c" target="_top" xlink:title="This function runs the computation.">
-<polygon fill="white" stroke="black" points="0,-137.5 0,-156.5 79,-156.5 79,-137.5 0,-137.5"/>
-<text text-anchor="middle" x="39.5" y="-144.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab6::run</text>
+<polygon fill="white" stroke="black" points="0,-172.5 0,-191.5 79,-191.5 79,-172.5 0,-172.5"/>
+<text text-anchor="middle" x="39.5" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab6::run</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M104.54,-147C95.87,-147 87.2,-147 79.18,-147"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="104.7,-150.5 114.7,-147 104.7,-143.5 104.7,-150.5"/>
+<path fill="none" stroke="midnightblue" d="M124.88,-159.19C108.82,-163.54 90.97,-168.36 75.84,-172.45"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="125.87,-162.55 134.61,-156.56 124.05,-155.79 125.87,-162.55"/>
 </g>
-<!-- Node9 -->
-<g id="node9" class="node">
-<title>Node9</title>
-<g id="a_node9"><a xlink:href="../../d7/da1/project_2project1_2Compute_8h.html#acddcb7395a0d22a81020f268fd96918a" target="_top" xlink:title="Solves the linear system.">
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="../../dd/db5/classProject2.html#ae3fb99498f7859230efae48b2915a8cb" target="_top" xlink:title="This function runs the project.">
+<polygon fill="white" stroke="black" points="0.5,-134.5 0.5,-153.5 78.5,-153.5 78.5,-134.5 0.5,-134.5"/>
+<text text-anchor="middle" x="39.5" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project2::run</text>
+</a>
+</g>
+</g>
+<!-- Node6&#45;&gt;Node8 -->
+<g id="edge7" class="edge">
+<title>Node6&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M104.43,-145.48C95.65,-145.28 86.89,-145.07 78.8,-144.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="104.63,-148.99 114.7,-145.72 104.79,-141.99 104.63,-148.99"/>
+</g>
+<!-- Node10 -->
+<g id="node10" class="node">
+<title>Node10</title>
+<g id="a_node10"><a xlink:href="../../d7/da1/project_2project1_2Compute_8h.html#acddcb7395a0d22a81020f268fd96918a" target="_top" xlink:title="Solves the linear system.">
 <polygon fill="white" stroke="black" points="117,-88 117,-118 225,-118 225,-88 117,-88"/>
 <text text-anchor="start" x="125" y="-106" font-family="Helvetica,sans-Serif" font-size="10.00">naive_solve_linear</text>
 <text text-anchor="middle" x="171" y="-95" font-family="Helvetica,sans-Serif" font-size="10.00">_system</text>
 </a>
 </g>
 </g>
-<!-- Node8&#45;&gt;Node9 -->
-<g id="edge8" class="edge">
-<title>Node8&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M254.1,-104.57C244.32,-104.38 234.46,-104.19 225.14,-104.02"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="254.17,-108.07 264.24,-104.76 254.3,-101.07 254.17,-108.07"/>
-</g>
-<!-- Node10 -->
-<g id="node10" class="node">
-<title>Node10</title>
-<g id="a_node10"><a xlink:href="../../d8/ddb/classProject1.html#ac7f0febb9852a9871ac5209b58506fb1" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="0.5,-96.5 0.5,-115.5 78.5,-115.5 78.5,-96.5 0.5,-96.5"/>
-<text text-anchor="middle" x="39.5" y="-103.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project1::run</text>
-</a>
-</g>
-</g>
 <!-- Node9&#45;&gt;Node10 -->
 <g id="edge9" class="edge">
 <title>Node9&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M106.92,-104.46C97.24,-104.69 87.52,-104.91 78.6,-105.12"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="107.04,-107.96 116.95,-104.23 106.88,-100.96 107.04,-107.96"/>
+<path fill="none" stroke="midnightblue" d="M254.1,-104.57C244.32,-104.38 234.46,-104.19 225.14,-104.02"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="254.17,-108.07 264.24,-104.76 254.3,-101.07 254.17,-108.07"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="../../dd/db5/classProject2.html#ae3fb99498f7859230efae48b2915a8cb" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="0.5,-58.5 0.5,-77.5 78.5,-77.5 78.5,-58.5 0.5,-58.5"/>
-<text text-anchor="middle" x="39.5" y="-65.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project2::run</text>
+<g id="a_node11"><a xlink:href="../../d8/ddb/classProject1.html#ac7f0febb9852a9871ac5209b58506fb1" target="_top" xlink:title="This function runs the project.">
+<polygon fill="white" stroke="black" points="0.5,-93.5 0.5,-112.5 78.5,-112.5 78.5,-93.5 0.5,-93.5"/>
+<text text-anchor="middle" x="39.5" y="-100.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project1::run</text>
 </a>
 </g>
 </g>
-<!-- Node9&#45;&gt;Node11 -->
+<!-- Node10&#45;&gt;Node11 -->
 <g id="edge10" class="edge">
-<title>Node9&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M107.14,-86.01C96.4,-83.11 85.59,-80.19 75.89,-77.56"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="106.39,-89.43 116.95,-88.66 108.21,-82.68 106.39,-89.43"/>
+<title>Node10&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M106.92,-103C97.24,-103 87.52,-103 78.6,-103"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="106.95,-106.5 116.95,-103 106.95,-99.5 106.95,-106.5"/>
 </g>
 <!-- Node12&#45;&gt;Node3 -->
 <g id="edge12" class="edge">

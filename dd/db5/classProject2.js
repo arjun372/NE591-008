@@ -10,6 +10,7 @@ var classProject2 =
     [ "initialize", "dd/db5/classProject2.html#acbe73feefb53a07d8e760324b104acc9", null ],
     [ "postRun", "dd/db5/classProject2.html#a2873dd0aa78848433775442dda988e79", null ],
     [ "preRun", "dd/db5/classProject2.html#ab323cfcafd876a24b9321d58355b7662", null ],
+    [ "printResults", "dd/db5/classProject2.html#a10d2ed4784bbc4bda12fe6acc38b2acb", null ],
     [ "run", "dd/db5/classProject2.html#ae3fb99498f7859230efae48b2915a8cb", null ],
     [ "timedRun", "dd/db5/classProject2.html#a524174b93fd777a689b64e49cc6ff1db", null ],
     [ "cmdArgs", "dd/db5/classProject2.html#a44d2055fa63fb0d7684efd9a7db32272", null ],

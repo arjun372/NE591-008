@@ -3,13 +3,19 @@ var namespaces_dup =
     [ "Compute", "de/db3/namespaceCompute.html", [
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a242d211ce9bbd59a9619238689816210", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a017b511b9ab24d2388a864d6cb14c1cc", null ],
+      [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a0b405b6556f147fd5af6a277cccb5e65", null ],
       [ "usingJacobiSOR", "de/db3/namespaceCompute.html#a3b30a49d004f8370d19cd13f6492ddba", null ],
+      [ "usingJacobiSOR", "de/db3/namespaceCompute.html#a7349dde18d551b9ad66d05e6f32fc196", null ],
       [ "usingLUP", "de/db3/namespaceCompute.html#a9aaa2e3c1db51432d5a62c1d4541fd90", null ],
-      [ "usingPointJacobi", "de/db3/namespaceCompute.html#ac10a688bfa5051a2953833f25f1a2ed8", null ],
+      [ "usingLUP", "de/db3/namespaceCompute.html#ab494ff4a6113d5d6ab7b0783b9245942", null ],
+      [ "usingPointJacobi", "de/db3/namespaceCompute.html#a0aa73a107ee5ea0767e15b7caddeecc7", null ],
+      [ "usingPointJacobi", "de/db3/namespaceCompute.html#a0741aa46b479eae78cfad76bdf7cb091", null ],
       [ "usingSOR", "de/db3/namespaceCompute.html#a9536e66c070e83d32645dc9e34f4169b", null ],
       [ "usingSOR", "de/db3/namespaceCompute.html#acfa0341940d2764e69d254afdc2cbb23", null ],
+      [ "usingSOR", "de/db3/namespaceCompute.html#a26fcd23146e3ca00ed9eefc59c89c07a", null ],
       [ "usingSymmetricSOR", "de/db3/namespaceCompute.html#a8e44d7f0aba871333c4358567a913117", null ],
-      [ "usingSymmetricSOR", "de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560", null ]
+      [ "usingSymmetricSOR", "de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560", null ],
+      [ "usingSymmetricSOR", "de/db3/namespaceCompute.html#a5a35addbdcdba218c82923bdc3ef7d93", null ]
     ] ],
     [ "generate_point_source", "dc/d22/namespacegenerate__point__source.html", [
       [ "apply_gaussian", "dc/d22/namespacegenerate__point__source.html#a18ad09127e85bfecf0f1e2296da950b6", null ],
@@ -52,6 +58,7 @@ var namespaces_dup =
     [ "MyBLAS", "d2/d6e/namespaceMyBLAS.html", "d2/d6e/namespaceMyBLAS" ],
     [ "MyFactorizationMethod", "d1/d18/namespaceMyFactorizationMethod.html", "d1/d18/namespaceMyFactorizationMethod" ],
     [ "MyLinearSolvingMethod", "de/d18/namespaceMyLinearSolvingMethod.html", "de/d18/namespaceMyLinearSolvingMethod" ],
+    [ "MyPhysics", "d8/da1/namespaceMyPhysics.html", "d8/da1/namespaceMyPhysics" ],
     [ "MyRelaxationMethod", "d7/d9a/namespaceMyRelaxationMethod.html", [
       [ "Type", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824", [
         [ "METHOD_POINT_JACOBI", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a6b2d48132c7667a1997527e4c522ac94", null ],
@@ -95,6 +102,11 @@ var namespaces_dup =
       [ "SOR", "d8/d25/namespaceprocess.html#a31d8fce8cc3b03928892d4c629403550", null ],
       [ "SORJ", "d8/d25/namespaceprocess.html#ad079b5e116de83371494232c3f439cf6", null ],
       [ "SSOR", "d8/d25/namespaceprocess.html#a85caaece19ab0111a0cdefc71cfece4f", null ]
+    ] ],
+    [ "ProfilerHelper", "d1/d09/namespaceProfilerHelper.html", [
+      [ "buildCommandlineOptions", "d1/d09/namespaceProfilerHelper.html#a68432bf5c2b6da502649dab1df5236fa", null ],
+      [ "InitProfiler", "d1/d09/namespaceProfilerHelper.html#abe11cd437b44ab44edb928fd207cd1ed", null ],
+      [ "validateOptions", "d1/d09/namespaceProfilerHelper.html#acae987e616fd0d3c10d3aa8a1c13da8a", null ]
     ] ],
     [ "Random", "d6/d03/namespaceRandom.html", [
       [ "binary", "d6/d03/namespaceRandom.html#a647fb4c4923c1ad6b7867e1ad5fd96b9", null ],

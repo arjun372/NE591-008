@@ -265,7 +265,7 @@ Class Project</h2>
 <tr>
 <td>1 </td><td><code>✅ project1</code> <code>✅ project1_tests</code>  </td></tr>
 <tr>
-<td>2 </td><td></td></tr>
+<td>2 </td><td><code>🚧 project2</code> <code>🚧 project2_tests</code> <code>🚧 physics_diffusion_tests</code>  </td></tr>
 <tr>
 <td>3 </td><td></td></tr>
 <tr>
@@ -315,7 +315,7 @@ Optional CMake Arguments</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">BUILD_TESTS   </td><td class="markdownTableBodyNone">Build a separate test target (for e.g. <code>inlab1_tests</code>)   </td><td class="markdownTableBodyNone">ON    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">PORTABLE   </td><td class="markdownTableBodyNone">Build without flag <code>-march=native</code>, trading speed for portability   </td><td class="markdownTableBodyNone">OFF    </td></tr>
+<td class="markdownTableBodyNone">PORTABLE   </td><td class="markdownTableBodyNone">Build without explicitly setting flags <code>-march=native</code>, <code>-mfma</code>, <code>-mavx</code>, <code>-mavx2</code>, <code>-msse4.2</code>, trading speed for portability   </td><td class="markdownTableBodyNone">OFF    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">BUILD_PERFORMANCE_BENCHMARKS   </td><td class="markdownTableBodyNone">Build a separate benchmarks target (for e.g. <code>inlab1_bench</code>)   </td><td class="markdownTableBodyNone">OFF   </td></tr>
 </table>
@@ -402,7 +402,7 @@ Troubleshooting</h2>
 Clion Remote Debugging via SSH</h2>
 <p>The Dockerfile sets up SSH for root access in the <code>ssh-debugger</code> stage. This allows you to connect to the running container using SSH and debug the code. To do this, you need to build the SSH target and run the container in the background with port 22 exposed:</p>
 <div class="fragment"><div class="line">docker build --target=ssh-debugger -t ne591:ssh-debugger .</div>
-<div class="line">docker run -d -p 2222:22 -it ssh-debugger</div>
+<div class="line">docker run --name=eos-ssh-debugger -d -p 2222:22 -it ne591:ssh-debugger</div>
 </div><!-- fragment --><p>Then, you can connect to the running container using SSH. Clion provides native support for debugging remotely. Follow <a href="https://www.jetbrains.com/help/clion/remote-projects-support.html">these instructions</a> to set it up.</p>
 <div class="fragment"><div class="line">ssh root@localhost</div>
 </div><!-- fragment --><p>The password for the root user is "debugger".</p>

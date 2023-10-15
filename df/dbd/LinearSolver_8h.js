@@ -1,12 +1,12 @@
 var LinearSolver_8h =
 [
-    [ "Input", "de/d18/namespaceMyLinearSolvingMethod.html#d5/d72/structMyLinearSolvingMethod_1_1Input", [
-      [ "coefficients", "de/d18/namespaceMyLinearSolvingMethod.html#aa2ccfc41c89cc71544641a633d2119bb", null ],
-      [ "constants", "de/d18/namespaceMyLinearSolvingMethod.html#a038a7b3b632319fb2a5b12f14a3044c4", null ],
-      [ "max_iterations", "de/d18/namespaceMyLinearSolvingMethod.html#a3b5cc67de27436c0fedacbce08526cdb", null ],
-      [ "n", "de/d18/namespaceMyLinearSolvingMethod.html#a7ca0db2e8e6eb438d75037bfc6ea7435", null ],
-      [ "relaxation_factor", "de/d18/namespaceMyLinearSolvingMethod.html#abd5eff7531880756f015d80e28585fe5", null ],
-      [ "threshold", "de/d18/namespaceMyLinearSolvingMethod.html#a6a86ecd91d0c47b0aac2edc424ec68e5", null ]
+    [ "Parameters", "de/d18/namespaceMyLinearSolvingMethod.html#d8/d53/structMyLinearSolvingMethod_1_1Parameters", [
+      [ "coefficients", "de/d18/namespaceMyLinearSolvingMethod.html#ae2a6ae51ec691f802ef06477203bd1f4", null ],
+      [ "constants", "de/d18/namespaceMyLinearSolvingMethod.html#a23c62596770e3c936e6a169337acd5da", null ],
+      [ "max_iterations", "de/d18/namespaceMyLinearSolvingMethod.html#a1b6c016a30d33be71db11f641b994cd4", null ],
+      [ "n", "de/d18/namespaceMyLinearSolvingMethod.html#a6e17681d60d4c698ccff82a9c5526e0f", null ],
+      [ "relaxation_factor", "de/d18/namespaceMyLinearSolvingMethod.html#a3bd577507bfce280d6069fbbcbff5fa8", null ],
+      [ "threshold", "de/d18/namespaceMyLinearSolvingMethod.html#ae10118813fc26dd06fd740bbdd062a0a", null ]
     ] ],
     [ "Solution", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", "de/d83/structMyLinearSolvingMethod_1_1Solution" ],
     [ "Type", "df/dbd/LinearSolver_8h.html#ac35910d9463c76b99918d10b7ebad560", null ],

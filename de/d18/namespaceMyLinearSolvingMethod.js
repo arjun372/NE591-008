@@ -1,6 +1,6 @@
 var namespaceMyLinearSolvingMethod =
 [
-    [ "Input", "de/d18/namespaceMyLinearSolvingMethod.html#d5/d72/structMyLinearSolvingMethod_1_1Input", "de/d18/namespaceMyLinearSolvingMethod_d5/d72/structMyLinearSolvingMethod_1_1Input_dup" ],
+    [ "Parameters", "de/d18/namespaceMyLinearSolvingMethod.html#d8/d53/structMyLinearSolvingMethod_1_1Parameters", "de/d18/namespaceMyLinearSolvingMethod_d8/d53/structMyLinearSolvingMethod_1_1Parameters_dup" ],
     [ "Solution", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", "de/d83/structMyLinearSolvingMethod_1_1Solution" ],
     [ "Type", "de/d18/namespaceMyLinearSolvingMethod.html#ac35910d9463c76b99918d10b7ebad560", null ],
     [ "TypeKey", "de/d18/namespaceMyLinearSolvingMethod.html#a25f7aaeb3d2609d97ed31986b369e03e", null ],

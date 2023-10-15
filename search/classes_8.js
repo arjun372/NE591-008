@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['solution_622',['Solution',['../de/d83/structMyLinearSolvingMethod_1_1Solution.html',1,'MyLinearSolvingMethod']]],
-  ['solution_3c_20long_20double_20_3e_623',['Solution&lt; long double &gt;',['../de/d83/structMyLinearSolvingMethod_1_1Solution.html',1,'MyLinearSolvingMethod']]],
-  ['solverinputs_624',['SolverInputs',['../d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs',1,'']]],
-  ['stopwatch_625',['Stopwatch',['../de/def/classStopwatch.html',1,'']]],
-  ['stopwatch_3c_20nanoseconds_20_3e_626',['Stopwatch&lt; Nanoseconds &gt;',['../de/def/classStopwatch.html',1,'']]],
-  ['summary_627',['Summary',['../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html',1,'MyBLAS::Stats']]],
-  ['summary_3c_20long_20double_20_3e_628',['Summary&lt; long double &gt;',['../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html',1,'MyBLAS::Stats']]]
+  ['outlab1_742',['OutLab1',['../dd/df3/classOutLab1.html',1,'']]],
+  ['outlab3_743',['OutLab3',['../da/df0/classOutLab3.html',1,'']]],
+  ['outlab4_744',['OutLab4',['../d8/d5b/classOutLab4.html',1,'']]],
+  ['outlab5_745',['OutLab5',['../d3/d1d/classOutLab5.html',1,'']]],
+  ['outlab6_746',['OutLab6',['../d0/d4c/classOutLab6.html',1,'']]],
+  ['output_747',['Output',['../d9/d29/structMyBLAS_1_1Output.html',1,'MyBLAS::Output'],['../df/df1/structOutput.html',1,'Output']]],
+  ['outputs_748',['Outputs',['../db/d86/structOutputs.html',1,'']]]
 ];
