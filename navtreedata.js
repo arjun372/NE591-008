@@ -275,16 +275,16 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d0/d40/classParser.html#a3369e669d9e28c85a3397e7bc95d2518",
-"d1/d18/namespaceMyFactorizationMethod.html#a30add92d8b3f98e6a0c72289515ec91e",
-"d3/d1d/classOutLab5.html#a06149764196c5bb48dfb591ab1c9bf34",
-"d6/d07/classMyBLAS_1_1LazyVector.html#a4fe91866753fcbfa046ca72933841059",
-"d8/d21/namespaceplot__heatmap.html#a810328e7c39bd4a3a18031d0b33d284f",
-"da/df0/classOutLab3.html#a06149764196c5bb48dfb591ab1c9bf34",
-"dc/da0/LazyVectorTests_8cpp.html#ad4994e178f5ad22fa3334bd4873054de",
-"de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html#a1eabd5defef6958c586b6be1809629d7",
-"functions_rela.html"
+"annotated.html",
+"d0/d49/generate__source__multi__lobe_8py.html#ac4de0c865aabff1c5421914e4039e990",
+"d2/d6e/namespaceMyBLAS.html#a233a11623357cb3cb9ba8f618557a9ad",
+"d4/dae/structInput.html#a5f3c3645fcb4f39f72811de16de7b950",
+"d7/d64/labs_2inlab1_2Compute_8h.html#de/de5/structFactorial",
+"d9/d29/structMyBLAS_1_1Output.html#ac0fbf4e15509bd1a6ed3e957603d8340",
+"db/df1/Helpers_8h.html#ac08ff906813fe06ee1a8309c90bd1896",
+"dd/dd7/plot__points_8m.html#a6cd359da8257dba88c7b4b8c13783b7d",
+"df/df1/structOutput.html#a861fd24e29462ff47347546f6ba98019",
+""
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
