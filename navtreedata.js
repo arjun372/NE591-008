@@ -275,16 +275,16 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d0/d40/classParser.html#a123dc1be35999de898396ade606098f6",
-"d1/d18/namespaceMyFactorizationMethod.html",
-"d2/d6e/namespaceMyBLAS.html#afcfc582cfa678d5dfc6ba8bed8a8859a",
-"d5/d51/BaseMatrixTests_8cpp.html#add3f02f0908bbb2f212b61f156b9481e",
-"d7/de4/FileParser_8h.html#a05aeb46aa7f312dd74467464305b1a5b",
-"da/d30/labs_2outlab4_2tests_2LUMatrixTests_8cpp.html#af2449afdc1f5af023ce615518d6e28a9",
-"dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html",
-"dd/df5/namespaceMyBLAS_1_1Stats.html#a512692b79052b1a09c77917c9fb1e99c",
-"dir_5e5857cec52617c6091befccc2124a1e.html"
+"annotated.html",
+"d0/d4c/classOutLab6.html#a06149764196c5bb48dfb591ab1c9bf34",
+"d2/d6e/namespaceMyBLAS.html#a14eb86abe3a826572fe3c1a2bd8e8221",
+"d4/da6/inlab6.html#autotoc_md74",
+"d6/db9/GaussSeidel_8h.html#ab2e921a983e9cceba4973ab7f2e1a347",
+"d8/ddb/classProject1.html#a524174b93fd777a689b64e49cc6ff1db",
+"db/dde/readfile_8m.html#a6cd359da8257dba88c7b4b8c13783b7d",
+"dd/d66/labs_2inlab6_2Compute_8h.html#a242d211ce9bbd59a9619238689816210",
+"de/dbb/structMyFactorizationMethod_1_1Parameters.html#a19e8abbc05d38ad45942b57edeeeeccc",
+"index.html#autotoc_md3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
