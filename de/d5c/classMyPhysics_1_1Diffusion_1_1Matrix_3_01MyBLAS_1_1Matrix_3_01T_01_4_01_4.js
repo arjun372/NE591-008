@@ -32,7 +32,5 @@ var classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4 =
     [ "_constants", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html#a67a6fc98b0d377592272cef3cd2060b6", null ],
     [ "_params", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html#aad325825b4e34d962ce46c3534fb25d1", null ],
     [ "_size", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html#ad4b70471a31b1ab0668896a7b90fdaa7", null ],
-    [ "cols", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html#ac30837f60aa43763da602fb90dbce267", null ],
-    [ "data", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html#a9a08d60c7299e4140b605300fbe99d08", null ],
-    [ "rows", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html#a80b169489a3eb82e2ed5a4a1571fc114", null ]
+    [ "data", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html#a9a08d60c7299e4140b605300fbe99d08", null ]
 ];

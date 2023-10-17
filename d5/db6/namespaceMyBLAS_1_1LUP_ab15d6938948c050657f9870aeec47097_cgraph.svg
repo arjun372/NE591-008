@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 544;
+var viewWidth = 568;
 var viewHeight = 180;
 var sectionId = 'dynsection-2';
 </script>
@@ -54,7 +54,7 @@ var sectionId = 'dynsection-2';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>MyBLAS::LUP::dooLittleFactorizeLUP</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-176 540,-176 540,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-176 564,-176 564,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
@@ -143,16 +143,31 @@ var sectionId = 'dynsection-2';
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#aae30f8178e4a34d332317c61e77c147a" target="_top" xlink:title="Getter for the size of the vector.">
-<polygon fill="white" stroke="black" points="417,-152.5 417,-171.5 536,-171.5 536,-152.5 417,-152.5"/>
-<text text-anchor="middle" x="476.5" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
+<polygon fill="white" stroke="black" points="429,-152.5 429,-171.5 548,-171.5 548,-152.5 429,-152.5"/>
+<text text-anchor="middle" x="488.5" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M360.56,-162C375.33,-162 391.5,-162 406.93,-162"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="406.94,-165.5 416.94,-162 406.94,-158.5 406.94,-165.5"/>
+<path fill="none" stroke="midnightblue" d="M360.95,-162C379.17,-162 399.68,-162 418.8,-162"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="418.95,-165.5 428.95,-162 418.95,-158.5 418.95,-165.5"/>
+</g>
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#a4c948c86a16af3375ab7384394be02e2" target="_top" xlink:title="Getter for the number of rows in the matrix.">
+<polygon fill="white" stroke="black" points="417,-0.5 417,-19.5 560,-19.5 560,-0.5 417,-0.5"/>
+<text text-anchor="middle" x="488.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Matrix::getRows</text>
+</a>
+</g>
+</g>
+<!-- Node7&#45;&gt;Node8 -->
+<g id="edge7" class="edge">
+<title>Node7&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M381.13,-10C389.52,-10 398.1,-10 406.55,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="406.79,-13.5 416.79,-10 406.79,-6.5 406.79,-13.5"/>
 </g>
 </g>
 </svg>

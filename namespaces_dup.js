@@ -58,6 +58,12 @@ var namespaces_dup =
     [ "MyBLAS", "d2/d6e/namespaceMyBLAS.html", "d2/d6e/namespaceMyBLAS" ],
     [ "MyFactorizationMethod", "d1/d18/namespaceMyFactorizationMethod.html", "d1/d18/namespaceMyFactorizationMethod" ],
     [ "MyLinearSolvingMethod", "de/d18/namespaceMyLinearSolvingMethod.html", "de/d18/namespaceMyLinearSolvingMethod" ],
+    [ "MyMath", "de/d4d/namespaceMyMath.html", [
+      [ "isfinite", "de/d4d/namespaceMyMath.html#a52ed3b9bbd57490ed3dac1c78fe4832b", null ],
+      [ "isfinite", "de/d4d/namespaceMyMath.html#a308f33828e533b4824ad79e67faee59b", null ],
+      [ "pow", "de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919", null ],
+      [ "pow", "de/d4d/namespaceMyMath.html#af3e9a9de7b922fdfb6e3d2988b1212ff", null ]
+    ] ],
     [ "MyPhysics", "d8/da1/namespaceMyPhysics.html", "d8/da1/namespaceMyPhysics" ],
     [ "MyRelaxationMethod", "d7/d9a/namespaceMyRelaxationMethod.html", [
       [ "Type", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824", [

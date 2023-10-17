@@ -237,42 +237,42 @@ template&lt;typename T &gt; </div>
 <div class="fragment"><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                                                {</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">bool</span> passes = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ac1553ed7aac22092b5a958ea0ff002ef">MyBLAS::allDiagonalElementsBelowThreshold</a>(U, 1e-20)) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ace1be59008b2fce5f30ed7dbdd186fd2">MyBLAS::allDiagonalElementsBelowThreshold</a>(U, 1e-20)) {</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: upper triangular matrix leading diagonal contains values very close to 0, matrix maybe &quot;</span></div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                     <span class="stringliteral">&quot;non-singular.\n&quot;</span>;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        passes = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ae3eb37c6222d37519ec4944ed7793c41">MyBLAS::isUpperTriangularMatrix</a>(U)) {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ada02d6a37edcab7294168e9b005871a1">MyBLAS::isUpperTriangularMatrix</a>(U)) {</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed post-check: upper triangular matrix not really upper triangular.\n&quot;</span>;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        passes = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ac22f1a81b16e48bb499b61faf9d5f710">MyBLAS::isUnitLowerTriangularMatrix</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L</a>)) {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ae371a7b6812d897b1395ef461745cea1">MyBLAS::isUnitLowerTriangularMatrix</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L</a>)) {</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed post-check: lower triangular matrix not really unit lower triangular.\n&quot;</span>;</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        passes = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a579ca8cb4cfd34a56fa2da13ea6d9907">MyBLAS::isPermutationMatrix</a>(P)) {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a670e376572710e06706a94b3e8c75d02">MyBLAS::isPermutationMatrix</a>(P)) {</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed post-check: assumed permutation matrix not really a permuted.\n&quot;</span>;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        passes = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">return</span> passes;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}</div>
-<div class="ttc" id="anamespaceMyBLAS_html_a579ca8cb4cfd34a56fa2da13ea6d9907"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a579ca8cb4cfd34a56fa2da13ea6d9907">MyBLAS::isPermutationMatrix</a></div><div class="ttdeci">bool isPermutationMatrix(const MyBLAS::Matrix&lt; T &gt; &amp;P)</div><div class="ttdoc">Checks if the given matrix is a valid permutation matrix.</div><div class="ttdef"><b>Definition:</b> BLAS.h:136</div></div>
-<div class="ttc" id="anamespaceMyBLAS_html_ac1553ed7aac22092b5a958ea0ff002ef"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ac1553ed7aac22092b5a958ea0ff002ef">MyBLAS::allDiagonalElementsBelowThreshold</a></div><div class="ttdeci">bool allDiagonalElementsBelowThreshold(const MyBLAS::Matrix&lt; T &gt; &amp;A, T threshold=0)</div><div class="ttdoc">Checks if all diagonal elements of a matrix are below a certain threshold.</div><div class="ttdef"><b>Definition:</b> BLAS.h:191</div></div>
-<div class="ttc" id="anamespaceMyBLAS_html_ac22f1a81b16e48bb499b61faf9d5f710"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ac22f1a81b16e48bb499b61faf9d5f710">MyBLAS::isUnitLowerTriangularMatrix</a></div><div class="ttdeci">bool isUnitLowerTriangularMatrix(const MyBLAS::Matrix&lt; T &gt; &amp;L)</div><div class="ttdoc">Checks if the given matrix is a valid unit lower triangular matrix.</div><div class="ttdef"><b>Definition:</b> BLAS.h:97</div></div>
-<div class="ttc" id="anamespaceMyBLAS_html_ae3eb37c6222d37519ec4944ed7793c41"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ae3eb37c6222d37519ec4944ed7793c41">MyBLAS::isUpperTriangularMatrix</a></div><div class="ttdeci">bool isUpperTriangularMatrix(const MyBLAS::Matrix&lt; T &gt; &amp;U)</div><div class="ttdoc">Checks if the given matrix is a valid upper triangular matrix.</div><div class="ttdef"><b>Definition:</b> BLAS.h:61</div></div>
+<div class="ttc" id="anamespaceMyBLAS_html_a670e376572710e06706a94b3e8c75d02"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a670e376572710e06706a94b3e8c75d02">MyBLAS::isPermutationMatrix</a></div><div class="ttdeci">bool isPermutationMatrix(const U&lt; T &gt; &amp;P)</div><div class="ttdoc">Checks if the given matrix is a valid permutation matrix.</div><div class="ttdef"><b>Definition:</b> BLAS.h:140</div></div>
+<div class="ttc" id="anamespaceMyBLAS_html_ace1be59008b2fce5f30ed7dbdd186fd2"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ace1be59008b2fce5f30ed7dbdd186fd2">MyBLAS::allDiagonalElementsBelowThreshold</a></div><div class="ttdeci">bool allDiagonalElementsBelowThreshold(const T &amp;A, const decltype(*A.getData().begin() -&gt;begin()) &amp;threshold=0)</div><div class="ttdoc">Checks if all diagonal elements of a matrix are below a certain threshold.</div><div class="ttdef"><b>Definition:</b> BLAS.h:197</div></div>
+<div class="ttc" id="anamespaceMyBLAS_html_ada02d6a37edcab7294168e9b005871a1"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ada02d6a37edcab7294168e9b005871a1">MyBLAS::isUpperTriangularMatrix</a></div><div class="ttdeci">bool isUpperTriangularMatrix(const U&lt; T &gt; &amp;M)</div><div class="ttdoc">Checks if the given matrix is a valid upper triangular matrix.</div><div class="ttdef"><b>Definition:</b> BLAS.h:64</div></div>
+<div class="ttc" id="anamespaceMyBLAS_html_ae371a7b6812d897b1395ef461745cea1"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ae371a7b6812d897b1395ef461745cea1">MyBLAS::isUnitLowerTriangularMatrix</a></div><div class="ttdeci">bool isUnitLowerTriangularMatrix(const U&lt; T &gt; &amp;L)</div><div class="ttdoc">Checks if the given matrix is a valid unit lower triangular matrix.</div><div class="ttdef"><b>Definition:</b> BLAS.h:101</div></div>
 <div class="ttc" id="aplot__points_8m_html_a07ca9f04874775e798496347c3e80b84"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L</a></div><div class="ttdeci">grid on grid minor box on Plot Plot L(x) as points with E(x) as the error bars errorbar(xi</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00191">MyBLAS::allDiagonalElementsBelowThreshold()</a>, <a class="el" href="../../#l00136">MyBLAS::isPermutationMatrix()</a>, <a class="el" href="../../#l00097">MyBLAS::isUnitLowerTriangularMatrix()</a>, <a class="el" href="../../#l00061">MyBLAS::isUpperTriangularMatrix()</a>, and <a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00197">MyBLAS::allDiagonalElementsBelowThreshold()</a>, <a class="el" href="../../#l00140">MyBLAS::isPermutationMatrix()</a>, <a class="el" href="../../#l00101">MyBLAS::isUnitLowerTriangularMatrix()</a>, <a class="el" href="../../#l00064">MyBLAS::isUpperTriangularMatrix()</a>, and <a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L()</a>.</p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d1/d18/namespaceMyFactorizationMethod_af023ef80907979472242ab3db7dcd9ff_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d1/d18/namespaceMyFactorizationMethod_af023ef80907979472242ab3db7dcd9ff_cgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -325,22 +325,22 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">bool</span> passes = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#adb9840781dcd1f2ff4a8c378b30434e0">MyBLAS::isSquareMatrix</a>(A)) {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#acb722fb92340b5ec3354411f34a051f0">MyBLAS::isSquareMatrix</a>(A)) {</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed pre-check: coefficient matrix is non-square.\n&quot;</span>;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        passes = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a9c8fd0f6a03bab0f77a1fb68facfcf42">MyBLAS::haveEqualRank</a>(A, b)) {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a35e2ae0e5c1e945b6bd5ef9e12081132">MyBLAS::haveEqualRank</a>(A, b)) {</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed pre-check: coefficient and constant matrix not equal rank.\n&quot;</span>;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        passes = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> passes;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
-<div class="ttc" id="anamespaceMyBLAS_html_a9c8fd0f6a03bab0f77a1fb68facfcf42"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a9c8fd0f6a03bab0f77a1fb68facfcf42">MyBLAS::haveEqualRank</a></div><div class="ttdeci">bool haveEqualRank(const MyBLAS::Matrix&lt; T &gt; &amp;A, const MyBLAS::Vector&lt; T &gt; &amp;b)</div><div class="ttdoc">Checks if two matrices have the same rank.</div><div class="ttdef"><b>Definition:</b> BLAS.h:272</div></div>
-<div class="ttc" id="anamespaceMyBLAS_html_adb9840781dcd1f2ff4a8c378b30434e0"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#adb9840781dcd1f2ff4a8c378b30434e0">MyBLAS::isSquareMatrix</a></div><div class="ttdeci">bool isSquareMatrix(const MyBLAS::Matrix&lt; T &gt; &amp;M)</div><div class="ttdoc">Checks if the given matrix is a square matrix.</div><div class="ttdef"><b>Definition:</b> BLAS.h:27</div></div>
+<div class="ttc" id="anamespaceMyBLAS_html_a35e2ae0e5c1e945b6bd5ef9e12081132"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a35e2ae0e5c1e945b6bd5ef9e12081132">MyBLAS::haveEqualRank</a></div><div class="ttdeci">bool haveEqualRank(const M&lt; T &gt; &amp;A, const V&lt; T &gt; &amp;b)</div><div class="ttdoc">Checks if two matrices have the same rank.</div><div class="ttdef"><b>Definition:</b> BLAS.h:282</div></div>
+<div class="ttc" id="anamespaceMyBLAS_html_acb722fb92340b5ec3354411f34a051f0"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#acb722fb92340b5ec3354411f34a051f0">MyBLAS::isSquareMatrix</a></div><div class="ttdeci">bool isSquareMatrix(const U&lt; T &gt; &amp;M)</div><div class="ttdoc">Checks if the given matrix is a square matrix.</div><div class="ttdef"><b>Definition:</b> BLAS.h:27</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00272">MyBLAS::haveEqualRank()</a>, and <a class="el" href="../../#l00027">MyBLAS::isSquareMatrix()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00282">MyBLAS::haveEqualRank()</a>, and <a class="el" href="../../#l00027">MyBLAS::isSquareMatrix()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00035">Compute::usingLUP()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -348,7 +348,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/d18/namespaceMyFactorizationMethod_a008870884c4fdedb666a2811c6401d2a_cgraph.svg" width="658" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/d18/namespaceMyFactorizationMethod_a008870884c4fdedb666a2811c6401d2a_cgraph.svg" width="419" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">

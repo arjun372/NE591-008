@@ -1,6 +1,6 @@
 var classMyBLAS_1_1Matrix =
 [
-    [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a4f8740c7d19350098e612a009fb268d2", null ],
+    [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a27dded7e57ac10b3fc8eed92d3ac01e6", null ],
     [ "~Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a072cdb4f27a0062538c88f0074c0849d", null ],
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a0f1eb4147d12f87d08e86e4796d28706", null ],
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a883b252d42659e1905ca190494b81ba1", null ],
@@ -27,7 +27,5 @@ var classMyBLAS_1_1Matrix =
     [ "subMatrix", "d0/d27/classMyBLAS_1_1Matrix.html#ad19043186fc1ff51ca83d91ffec9e2e5", null ],
     [ "swapRows", "d0/d27/classMyBLAS_1_1Matrix.html#a95f15a700d1ac3c9639ee831da4c903c", null ],
     [ "operator<<", "d0/d27/classMyBLAS_1_1Matrix.html#a060711074cb5bcaf4e75498bc040c4b7", null ],
-    [ "cols", "d0/d27/classMyBLAS_1_1Matrix.html#ac30837f60aa43763da602fb90dbce267", null ],
-    [ "data", "d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08", null ],
-    [ "rows", "d0/d27/classMyBLAS_1_1Matrix.html#a80b169489a3eb82e2ed5a4a1571fc114", null ]
+    [ "data", "d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08", null ]
 ];

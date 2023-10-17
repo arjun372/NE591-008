@@ -48,6 +48,9 @@ var hierarchy =
     [ "Map", "da/ddc/structMap.html", null ],
     [ "MyBLAS::Matrix< FloatType >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MyBLAS::Matrix< long double >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
+    [ "MyBLAS::Matrix< T >", "d0/d27/classMyBLAS_1_1Matrix.html", [
+      [ "MyPhysics::Diffusion::Matrix< MyBLAS::Matrix< T > >", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html", null ]
+    ] ],
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", null ],
     [ "MyBLAS::AbstractMatrix< DataType >", "de/d6b/classMyBLAS_1_1AbstractMatrix.html", null ],
     [ "MyBLAS::Input", "d7/dd6/structMyBLAS_1_1Input.html", null ],
@@ -55,9 +58,7 @@ var hierarchy =
     [ "MyBLAS::LazyMatrix< DataType >::ConstProxy", "dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html", null ],
     [ "MyBLAS::LazyMatrix< DataType >::Proxy", "d2/dac/classMyBLAS_1_1LazyMatrix_1_1Proxy.html", null ],
     [ "MyBLAS::LazyVector< DataType >", "d6/d07/classMyBLAS_1_1LazyVector.html", null ],
-    [ "MyBLAS::Matrix< T >", "d0/d27/classMyBLAS_1_1Matrix.html", [
-      [ "MyPhysics::Diffusion::Matrix< MyBLAS::Matrix< T > >", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html", null ]
-    ] ],
+    [ "MyBLAS::Matrix< T >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MyBLAS::MatrixExpression< DataType, Op1, Op2, BinaryOp >", "d7/da9/classMyBLAS_1_1MatrixExpression.html", null ],
     [ "MyBLAS::Output", "d9/d29/structMyBLAS_1_1Output.html", null ],
     [ "MyBLAS::Stats::Summary< T >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
@@ -116,9 +117,11 @@ var hierarchy =
     [ "MyBLAS::Stats::Summary< long double >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
     [ "testing::Test", null, [
       [ "DiffusionParamsTest", "d5/d15/classDiffusionParamsTest.html", null ],
+      [ "MyBLAS::BaseMatrixTests< T >", "d5/d8a/classMyBLAS_1_1BaseMatrixTests.html", null ],
       [ "MyBLAS::LazyMatrixTests", "d6/d09/classMyBLAS_1_1LazyMatrixTests.html", null ],
       [ "MyBLAS::LazyVectorTests", "dd/d30/classMyBLAS_1_1LazyVectorTests.html", null ],
       [ "MyBLAS::MatrixExpressionTests", "de/d99/classMyBLAS_1_1MatrixExpressionTests.html", null ],
+      [ "MyBLAS::PerformanceMatrixTests< T >", "db/d15/classMyBLAS_1_1PerformanceMatrixTests.html", null ],
       [ "MyBLAS::VectorExpressionTests", "de/d3a/classMyBLAS_1_1VectorExpressionTests.html", null ]
     ] ],
     [ "testing::TestWithParam", null, [

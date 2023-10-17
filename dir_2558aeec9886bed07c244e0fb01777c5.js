@@ -5,6 +5,7 @@ var dir_2558aeec9886bed07c244e0fb01777c5 =
     [ "tests", "dir_eeb2278aa19789b64f9844cc77ce7daa.html", "dir_eeb2278aa19789b64f9844cc77ce7daa" ],
     [ "vector", "dir_607cbc66c57a0f67766ebe1d0e664fdc.html", "dir_607cbc66c57a0f67766ebe1d0e664fdc" ],
     [ "BLAS.h", "d1/d80/BLAS_8h.html", "d1/d80/BLAS_8h" ],
+    [ "Constants.h", "d1/d45/Constants_8h.html", "d1/d45/Constants_8h" ],
     [ "Ops.h", "d4/d8a/Ops_8h.html", "d4/d8a/Ops_8h" ],
     [ "Stats.h", "dc/d09/Stats_8h.html", "dc/d09/Stats_8h" ]
 ];

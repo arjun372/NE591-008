@@ -275,16 +275,16 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d0/d49/generate__source__multi__lobe_8py.html#ac4de0c865aabff1c5421914e4039e990",
-"d2/d6e/namespaceMyBLAS.html#a233a11623357cb3cb9ba8f618557a9ad",
-"d4/dae/structInput.html#a5f3c3645fcb4f39f72811de16de7b950",
-"d7/d64/labs_2inlab1_2Compute_8h.html#de/de5/structFactorial",
-"d9/d29/structMyBLAS_1_1Output.html#ac0fbf4e15509bd1a6ed3e957603d8340",
-"db/df1/Helpers_8h.html#ac08ff906813fe06ee1a8309c90bd1896",
-"dd/dd7/plot__points_8m.html#a6cd359da8257dba88c7b4b8c13783b7d",
-"df/df1/structOutput.html#a861fd24e29462ff47347546f6ba98019",
-""
+"",
+"d0/d40/classParser.html#a123dc1be35999de898396ade606098f6",
+"d1/d18/namespaceMyFactorizationMethod.html",
+"d2/d6e/namespaceMyBLAS.html#afcfc582cfa678d5dfc6ba8bed8a8859a",
+"d5/d51/BaseMatrixTests_8cpp.html#add3f02f0908bbb2f212b61f156b9481e",
+"d7/de4/FileParser_8h.html#a05aeb46aa7f312dd74467464305b1a5b",
+"da/d30/labs_2outlab4_2tests_2LUMatrixTests_8cpp.html#af2449afdc1f5af023ce615518d6e28a9",
+"dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html",
+"dd/df5/namespaceMyBLAS_1_1Stats.html#a512692b79052b1a09c77917c9fb1e99c",
+"dir_5e5857cec52617c6091befccc2124a1e.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

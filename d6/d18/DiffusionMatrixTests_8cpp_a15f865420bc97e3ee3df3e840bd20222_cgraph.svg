@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 445;
+var viewWidth = 576;
 var viewHeight = 492;
 var sectionId = 'dynsection-12';
 </script>
@@ -54,13 +54,13 @@ var sectionId = 'dynsection-12';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>TEST</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-488 441,-488 441,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-487.5 572,-487.5 572,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="0,-238 0,-257 41,-257 41,-238 0,-238"/>
-<text text-anchor="middle" x="20.5" y="-245" font-family="Helvetica,sans-Serif" font-size="10.00">TEST</text>
+<polygon fill="#bfbfbf" stroke="black" points="0,-237.5 0,-256.5 41,-256.5 41,-237.5 0,-237.5"/>
+<text text-anchor="middle" x="20.5" y="-244.5" font-family="Helvetica,sans-Serif" font-size="10.00">TEST</text>
 </a>
 </g>
 </g>
@@ -68,197 +68,245 @@ var sectionId = 'dynsection-12';
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a381d3fcf07fad9ad13ee145b083b93a7" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="110,-453.5 110,-483.5 228,-483.5 228,-453.5 110,-453.5"/>
-<text text-anchor="start" x="118" y="-471.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="middle" x="169" y="-460.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Matrix::getCols</text>
+<polygon fill="white" stroke="black" points="110,-453 110,-483 228,-483 228,-453 110,-453"/>
+<text text-anchor="start" x="118" y="-471" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="middle" x="169" y="-460" font-family="Helvetica,sans-Serif" font-size="10.00">::Matrix::getCols</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M21.11,-257.36C20.43,-289.34 22.78,-391.18 77,-444.5 83.59,-450.98 91.7,-455.77 100.35,-459.29"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="99.31,-462.63 109.9,-462.65 101.63,-456.03 99.31,-462.63"/>
+<path fill="none" stroke="midnightblue" d="M21.11,-256.86C20.43,-288.84 22.78,-390.68 77,-444 83.59,-450.48 91.7,-455.27 100.35,-458.79"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="99.31,-462.13 109.9,-462.15 101.63,-455.53 99.31,-462.13"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a4baf3f31fe7d8290e9b83a5d50832293" target="_top" xlink:title="Get the number of mesh points in the x&#45;direction.">
-<polygon fill="white" stroke="black" points="110,-404.5 110,-434.5 228,-434.5 228,-404.5 110,-404.5"/>
-<text text-anchor="start" x="118" y="-422.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="middle" x="169" y="-411.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::getM</text>
+<polygon fill="white" stroke="black" points="110,-404 110,-434 228,-434 228,-404 110,-404"/>
+<text text-anchor="start" x="118" y="-422" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="middle" x="169" y="-411" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::getM</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M22.16,-257.12C24.48,-283.44 34.66,-357.23 77,-395.5 83.77,-401.61 91.91,-406.2 100.5,-409.64"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="99.37,-412.95 109.96,-412.94 101.67,-406.34 99.37,-412.95"/>
+<path fill="none" stroke="midnightblue" d="M22.16,-256.62C24.48,-282.94 34.66,-356.73 77,-395 83.77,-401.11 91.91,-405.7 100.5,-409.14"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="99.37,-412.45 109.96,-412.44 101.67,-405.84 99.37,-412.45"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#af03d96d9d471d6953b819b548bb633d9" target="_top" xlink:title="Get the number of mesh points in the y&#45;direction.">
-<polygon fill="white" stroke="black" points="110,-355.5 110,-385.5 228,-385.5 228,-355.5 110,-355.5"/>
-<text text-anchor="start" x="118" y="-373.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="middle" x="169" y="-362.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::getN</text>
+<polygon fill="white" stroke="black" points="110,-355 110,-385 228,-385 228,-355 110,-355"/>
+<text text-anchor="start" x="118" y="-373" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="middle" x="169" y="-362" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::getN</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M24.09,-257.06C29.99,-276.92 46.31,-322.74 77,-346.5 83.95,-351.88 91.99,-356.06 100.36,-359.3"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="99.32,-362.64 109.91,-362.58 101.59,-356.02 99.32,-362.64"/>
+<path fill="none" stroke="midnightblue" d="M24.09,-256.56C29.99,-276.42 46.31,-322.24 77,-346 83.95,-351.38 91.99,-355.56 100.36,-358.8"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="99.32,-362.14 109.91,-362.08 101.59,-355.52 99.32,-362.14"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a8b96736a2af9a33b25d0c0395658abb4" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="110,-306.5 110,-336.5 228,-336.5 228,-306.5 110,-306.5"/>
-<text text-anchor="start" x="118" y="-324.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="middle" x="169" y="-313.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Matrix::getRows</text>
+<polygon fill="white" stroke="black" points="110,-306 110,-336 228,-336 228,-306 110,-306"/>
+<text text-anchor="start" x="118" y="-324" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="middle" x="169" y="-313" font-family="Helvetica,sans-Serif" font-size="10.00">::Matrix::getRows</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M29.52,-257.09C39.49,-268.41 57.61,-287.02 77,-297.5 84.15,-301.37 91.96,-304.64 99.91,-307.4"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="99.03,-310.79 109.62,-310.52 101.17,-304.13 99.03,-310.79"/>
+<path fill="none" stroke="midnightblue" d="M29.52,-256.59C39.49,-267.91 57.61,-286.52 77,-297 84.15,-300.87 91.96,-304.14 99.91,-306.9"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="99.03,-310.29 109.62,-310.02 101.17,-303.63 99.03,-310.29"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
 <g id="a_node6"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a30309309eca48155dfd1542c8bbfd28d" target="_top" xlink:title="Set the length of the rectangular region in the x&#45;direction.">
-<polygon fill="white" stroke="black" points="110,-257.5 110,-287.5 228,-287.5 228,-257.5 110,-257.5"/>
-<text text-anchor="start" x="118" y="-275.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="middle" x="169" y="-264.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setA</text>
+<polygon fill="white" stroke="black" points="110,-159 110,-189 228,-189 228,-159 110,-159"/>
+<text text-anchor="start" x="118" y="-177" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="middle" x="169" y="-166" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setA</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node1&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M41.26,-250.87C56.43,-253.46 78.33,-257.2 99.67,-260.84"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="99.29,-264.33 109.74,-262.56 100.47,-257.43 99.29,-264.33"/>
-</g>
-<!-- Node8 -->
-<g id="node8" class="node">
-<title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a428a7ef7a3983226d32e4510331f2a3e" target="_top" xlink:title="Set the length of the rectangular region in the y&#45;direction.">
-<polygon fill="white" stroke="black" points="110,-208.5 110,-238.5 228,-238.5 228,-208.5 110,-208.5"/>
-<text text-anchor="start" x="118" y="-226.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="middle" x="169" y="-215.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setB</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node8 -->
-<g id="edge7" class="edge">
-<title>Node1&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M41.26,-244.26C56.43,-241.78 78.33,-238.19 99.67,-234.69"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="100.44,-238.12 109.74,-233.04 99.3,-231.21 100.44,-238.12"/>
-</g>
-<!-- Node9 -->
-<g id="node9" class="node">
-<title>Node9</title>
-<g id="a_node9"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a20ac492c484cf2eab9cb4a274efdf581" target="_top" xlink:title="Set the diffusion coefficient for the diffusion equation.">
-<polygon fill="white" stroke="black" points="81,-159.5 81,-189.5 257,-189.5 257,-159.5 81,-159.5"/>
-<text text-anchor="start" x="89" y="-177.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="middle" x="169" y="-166.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setDiffusionCoefficient</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node9 -->
-<g id="edge9" class="edge">
-<title>Node1&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M29.97,-237.96C40.12,-227.1 58.12,-209.58 77,-199.5 81.29,-197.21 85.81,-195.11 90.45,-193.2"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="92,-196.35 100.09,-189.51 89.5,-189.81 92,-196.35"/>
+<path fill="none" stroke="midnightblue" d="M29.97,-237.46C40.12,-226.6 58.12,-209.08 77,-199 84.19,-195.16 92.03,-191.87 99.98,-189.05"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="101.3,-192.3 109.71,-185.86 99.12,-185.65 101.3,-192.3"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a7a49cd13f86fab98f174cc93b1ecf346" target="_top" xlink:title="Set the number of mesh points in the x&#45;direction.">
-<polygon fill="white" stroke="black" points="110,-110.5 110,-140.5 228,-140.5 228,-110.5 110,-110.5"/>
-<text text-anchor="start" x="118" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="middle" x="169" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setM</text>
+<g id="a_node10"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a428a7ef7a3983226d32e4510331f2a3e" target="_top" xlink:title="Set the length of the rectangular region in the y&#45;direction.">
+<polygon fill="white" stroke="black" points="110,-110 110,-140 228,-140 228,-110 110,-110"/>
+<text text-anchor="start" x="118" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="middle" x="169" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setB</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node10 -->
-<g id="edge10" class="edge">
+<g id="edge9" class="edge">
 <title>Node1&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M24.26,-237.85C30.38,-218.28 46.95,-173.8 77,-150.5 83.96,-145.1 92.01,-140.87 100.39,-137.55"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="101.68,-140.8 109.94,-134.18 99.35,-134.2 101.68,-140.8"/>
+<path fill="none" stroke="midnightblue" d="M24.22,-237.23C30.24,-217.41 46.65,-172.4 77,-149 83.96,-143.64 92.01,-139.47 100.38,-136.23"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="101.61,-139.51 109.94,-132.95 99.34,-132.89 101.61,-139.51"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#abf0ee17b6369ab3c005ffe2e5c065bb6" target="_top" xlink:title="Set the macroscopic removal cross&#45;section.">
-<polygon fill="white" stroke="black" points="77,-50 77,-91 261,-91 261,-50 77,-50"/>
-<text text-anchor="start" x="85" y="-79" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="start" x="85" y="-68" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setMacroscopicRemoval</text>
-<text text-anchor="middle" x="169" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">CrossSection</text>
+<g id="a_node11"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a20ac492c484cf2eab9cb4a274efdf581" target="_top" xlink:title="Set the diffusion coefficient for the diffusion equation.">
+<polygon fill="white" stroke="black" points="81,-61 81,-91 257,-91 257,-61 81,-61"/>
+<text text-anchor="start" x="89" y="-79" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="middle" x="169" y="-68" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setDiffusionCoefficient</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node11 -->
 <g id="edge12" class="edge">
 <title>Node1&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M22.38,-237.79C25.26,-211.88 36.62,-140.49 77,-101.5 78.66,-99.9 80.4,-98.38 82.22,-96.94"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="84.39,-99.69 90.6,-91.11 80.39,-93.95 84.39,-99.69"/>
+<path fill="none" stroke="midnightblue" d="M22.18,-237.44C24.56,-211.29 34.86,-138 77,-100 78.29,-98.83 79.64,-97.72 81.02,-96.67"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="82.96,-99.58 89.4,-91.17 79.12,-93.73 82.96,-99.58"/>
 </g>
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#adf8c9555cf2ef3de20302fda532ea5dd" target="_top" xlink:title="Set the number of mesh points in the y&#45;direction.">
-<polygon fill="white" stroke="black" points="110,-0.5 110,-30.5 228,-30.5 228,-0.5 110,-0.5"/>
-<text text-anchor="start" x="118" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="middle" x="169" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setN</text>
+<g id="a_node12"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a7a49cd13f86fab98f174cc93b1ecf346" target="_top" xlink:title="Set the number of mesh points in the x&#45;direction.">
+<polygon fill="white" stroke="black" points="110,-257 110,-287 228,-287 228,-257 110,-257"/>
+<text text-anchor="start" x="118" y="-275" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="middle" x="169" y="-264" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setM</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node12 -->
-<g id="edge13" class="edge">
+<g id="edge14" class="edge">
 <title>Node1&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M20.98,-237.64C19.79,-204.68 20.61,-97.24 77,-40.5 83.53,-33.93 91.62,-29.04 100.25,-25.41"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="101.58,-28.65 109.79,-21.95 99.2,-22.07 101.58,-28.65"/>
+<path fill="none" stroke="midnightblue" d="M41.26,-250.37C56.43,-252.96 78.33,-256.7 99.67,-260.34"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="99.29,-263.83 109.74,-262.06 100.47,-256.93 99.29,-263.83"/>
+</g>
+<!-- Node13 -->
+<g id="node13" class="node">
+<title>Node13</title>
+<g id="a_node13"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#abf0ee17b6369ab3c005ffe2e5c065bb6" target="_top" xlink:title="Set the macroscopic removal cross&#45;section.">
+<polygon fill="white" stroke="black" points="77,-0.5 77,-41.5 261,-41.5 261,-0.5 77,-0.5"/>
+<text text-anchor="start" x="85" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="start" x="85" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setMacroscopicRemoval</text>
+<text text-anchor="middle" x="169" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CrossSection</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node13 -->
+<g id="edge16" class="edge">
+<title>Node1&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M21.26,-237.32C21.03,-205.89 24.63,-105.64 77,-51 77.94,-50.02 78.91,-49.07 79.91,-48.16"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="82.41,-50.65 88.11,-41.72 78.09,-45.14 82.41,-50.65"/>
+</g>
+<!-- Node14 -->
+<g id="node14" class="node">
+<title>Node14</title>
+<g id="a_node14"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#adf8c9555cf2ef3de20302fda532ea5dd" target="_top" xlink:title="Set the number of mesh points in the y&#45;direction.">
+<polygon fill="white" stroke="black" points="110,-208 110,-238 228,-238 228,-208 110,-208"/>
+<text text-anchor="start" x="118" y="-226" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="middle" x="169" y="-215" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::setN</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node14 -->
+<g id="edge18" class="edge">
+<title>Node1&#45;&gt;Node14</title>
+<path fill="none" stroke="midnightblue" d="M41.26,-243.76C56.43,-241.28 78.33,-237.69 99.67,-234.19"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="100.44,-237.62 109.74,-232.54 99.3,-230.71 100.44,-237.62"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
 <g id="a_node7"><a xlink:href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#ada030f689d2f12e9f23a1a186d830070" target="_top" xlink:title="Calculates the mesh spacings in the given direction.">
-<polygon fill="white" stroke="black" points="297,-154 297,-195 437,-195 437,-154 297,-154"/>
-<text text-anchor="start" x="305" y="-183" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
-<text text-anchor="start" x="305" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::compute_mesh</text>
-<text text-anchor="middle" x="367" y="-161" font-family="Helvetica,sans-Serif" font-size="10.00">_spacing</text>
+<polygon fill="white" stroke="black" points="297,-177.5 297,-218.5 437,-218.5 437,-177.5 297,-177.5"/>
+<text text-anchor="start" x="305" y="-206.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyPhysics::Diffusion</text>
+<text text-anchor="start" x="305" y="-195.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Params::compute_mesh</text>
+<text text-anchor="middle" x="367" y="-184.5" font-family="Helvetica,sans-Serif" font-size="10.00">_spacing</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M228.37,-260.41C239.46,-257.2 250.78,-253.26 261,-248.5 287.47,-236.17 314.34,-217.09 334.27,-201.39"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="336.48,-204.11 342.09,-195.12 332.1,-198.65 336.48,-204.11"/>
+<path fill="none" stroke="midnightblue" d="M228.01,-181.1C246.37,-183.35 266.99,-185.88 286.58,-188.28"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="286.37,-191.77 296.72,-189.52 287.22,-184.83 286.37,-191.77"/>
 </g>
-<!-- Node8&#45;&gt;Node7 -->
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="../../de/d4d/namespaceMyMath.html#a308f33828e533b4824ad79e67faee59b" target="_top" xlink:title="Check if a numeric value is finite.">
+<polygon fill="white" stroke="black" points="319.5,-91.5 319.5,-110.5 414.5,-110.5 414.5,-91.5 319.5,-91.5"/>
+<text text-anchor="middle" x="367" y="-98.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyMath::isfinite</text>
+</a>
+</g>
+</g>
+<!-- Node6&#45;&gt;Node8 -->
+<g id="edge7" class="edge">
+<title>Node6&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M228.21,-159.51C239.2,-156.35 250.53,-152.8 261,-149 287.83,-139.25 317.31,-125.49 338.19,-115.2"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="340.02,-118.2 347.41,-110.6 336.9,-111.93 340.02,-118.2"/>
+</g>
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="../../de/d4d/namespaceMyMath.html#a52ed3b9bbd57490ed3dac1c78fe4832b" target="_top" xlink:title="Specialization for the __float128 type.">
+<polygon fill="white" stroke="black" points="473,-91.5 473,-110.5 568,-110.5 568,-91.5 473,-91.5"/>
+<text text-anchor="middle" x="520.5" y="-98.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyMath::isfinite</text>
+</a>
+</g>
+</g>
+<!-- Node8&#45;&gt;Node9 -->
 <g id="edge8" class="edge">
-<title>Node8&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M228.01,-209C246.46,-204.39 267.18,-199.2 286.85,-194.29"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="287.86,-197.64 296.72,-191.82 286.17,-190.85 287.86,-197.64"/>
+<title>Node8&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M414.69,-101C429.88,-101 446.91,-101 462.75,-101"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="462.96,-104.5 472.96,-101 462.96,-97.5 462.96,-104.5"/>
 </g>
 <!-- Node10&#45;&gt;Node7 -->
-<g id="edge11" class="edge">
+<g id="edge10" class="edge">
 <title>Node10&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M228.01,-140C246.46,-144.61 267.18,-149.8 286.85,-154.71"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="286.17,-158.15 296.72,-157.18 287.86,-151.36 286.17,-158.15"/>
+<path fill="none" stroke="midnightblue" d="M228.25,-138.7C239.23,-141.75 250.55,-145.22 261,-149 279.67,-155.76 299.56,-164.59 316.94,-172.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="315.8,-176.23 326.32,-177.43 318.85,-169.93 315.8,-176.23"/>
+</g>
+<!-- Node10&#45;&gt;Node8 -->
+<g id="edge11" class="edge">
+<title>Node10&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M228.01,-117.9C253.61,-114.76 283.6,-111.09 309.07,-107.97"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="309.82,-111.41 319.32,-106.72 308.97,-104.46 309.82,-111.41"/>
+</g>
+<!-- Node11&#45;&gt;Node8 -->
+<g id="edge13" class="edge">
+<title>Node11&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M257.11,-87.11C274.89,-89.38 293.15,-91.71 309.52,-93.8"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="309.09,-97.27 319.45,-95.06 309.97,-90.33 309.09,-97.27"/>
 </g>
 <!-- Node12&#45;&gt;Node7 -->
-<g id="edge14" class="edge">
+<g id="edge15" class="edge">
 <title>Node12&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M228.23,-25.55C239.68,-29.13 251.18,-33.97 261,-40.5 301.14,-67.21 332.76,-114.29 350.42,-144.93"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="347.49,-146.87 355.44,-153.87 353.59,-143.44 347.49,-146.87"/>
+<path fill="none" stroke="midnightblue" d="M228.27,-258.36C239.26,-255.31 250.57,-251.82 261,-248 280.21,-240.96 300.67,-231.66 318.37,-222.99"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="319.95,-226.11 327.36,-218.53 316.84,-219.84 319.95,-226.11"/>
+</g>
+<!-- Node13&#45;&gt;Node8 -->
+<g id="edge17" class="edge">
+<title>Node13&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M235.97,-41.66C244.45,-44.63 252.97,-47.78 261,-51 287.98,-61.82 317.81,-76.28 338.77,-86.87"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="337.23,-90.01 347.73,-91.43 340.4,-83.77 337.23,-90.01"/>
+</g>
+<!-- Node14&#45;&gt;Node7 -->
+<g id="edge19" class="edge">
+<title>Node14&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M228.01,-215.6C246.37,-213.26 266.99,-210.63 286.58,-208.13"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="287.24,-211.57 296.72,-206.84 286.35,-204.63 287.24,-211.57"/>
 </g>
 </g>
 </svg>

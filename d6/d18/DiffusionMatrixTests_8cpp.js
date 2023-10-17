@@ -18,7 +18,9 @@ var DiffusionMatrixTests_8cpp =
     [ "TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#af421efcc6a3a7ea7dd120cdf293302de", null ],
     [ "TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#ab5fcc30f40e0be09682ca9e09faf3934", null ],
     [ "TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#a6778b6adc3ec923abc13e5e6b7e9f19c", null ],
-    [ "TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#a907f493f085f94759920fe257570668a", null ],
     [ "TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#a150c45812e647a576fdd94e8125831a1", null ],
+    [ "TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#ab31c96317b436a2fa07d5c7ff06c8dfa", null ],
+    [ "TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#add3102e5b06853485d50e7934d6083fc", null ],
+    [ "TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#a69e32fbb88e558ff19f161f63295dd2b", null ],
     [ "TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#adc9b0b5cf4b477dea77a28963a45bedf", null ]
 ];

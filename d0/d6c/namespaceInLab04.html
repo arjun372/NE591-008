@@ -177,11 +177,20 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The solution vector after performing backward substitution. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                                                                                                 {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> MyBLAS::backwardSubstitution&lt;T&gt;(U, <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#af710039e87de86c8b4ac8a9e139efbcb">MyBLAS::backwardSubstitution</a>(U, <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="ttc" id="anamespaceMyBLAS_html_af710039e87de86c8b4ac8a9e139efbcb"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#af710039e87de86c8b4ac8a9e139efbcb">MyBLAS::backwardSubstitution</a></div><div class="ttdeci">V&lt; T &gt; backwardSubstitution(const M&lt; T &gt; &amp;U, const V&lt; T &gt; &amp;y)</div><div class="ttdoc">Perform backward substitution.</div><div class="ttdef"><b>Definition:</b> Matrix.h:430</div></div>
 <div class="ttc" id="aplot__points_8m_html_aa50a6be4a15b9249a6bc48981be8fb3d"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a></div><div class="ttdeci">Calculate the function values y</div><div class="ttdef"><b>Definition:</b> plot_points.m:20</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00020">y</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00430">MyBLAS::backwardSubstitution()</a>, and <a class="el" href="../../#l00020">y</a>.</p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d6c/namespaceInLab04_a185cfc62d7beffeb384caa2d23c4b3a6_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
 
 </div>
 </div>
@@ -230,17 +239,18 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The result vector after performing forward substitution. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                                                                                                {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> MyBLAS::forwardSubstitution&lt;T&gt;(<a class="code" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L</a>, b);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#aa3501265c4bb7f37e8e949d37244473a">MyBLAS::forwardSubstitution</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L</a>, b);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="ttc" id="anamespaceMyBLAS_html_aa3501265c4bb7f37e8e949d37244473a"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#aa3501265c4bb7f37e8e949d37244473a">MyBLAS::forwardSubstitution</a></div><div class="ttdeci">V&lt; T &gt; forwardSubstitution(const M&lt; T &gt; &amp;L, const V&lt; T &gt; &amp;b)</div><div class="ttdoc">Perform forward substitution.</div><div class="ttdef"><b>Definition:</b> Matrix.h:399</div></div>
 <div class="ttc" id="aplot__points_8m_html_a07ca9f04874775e798496347c3e80b84"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L</a></div><div class="ttdeci">grid on grid minor box on Plot Plot L(x) as points with E(x) as the error bars errorbar(xi</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L()</a>.</p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00399">MyBLAS::forwardSubstitution()</a>, and <a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L()</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d6c/namespaceInLab04_ab3a3cbc5744e288d945d91f6febfca15_cgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d6c/namespaceInLab04_ab3a3cbc5744e288d945d91f6febfca15_cgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
