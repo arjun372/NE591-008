@@ -25,7 +25,7 @@ namespace MyBLAS {
  * @return true if the input matrix is a square matrix, false otherwise.
  */
 template <template<typename> class U, typename T> inline bool isSquareMatrix(const U<T> &M) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
     return M.getCols() == M.getRows();
 }
 
@@ -38,7 +38,7 @@ template <template<typename> class U, typename T> inline bool isSquareMatrix(con
  * @return true if the input matrix is a binary matrix, false otherwise.
  */
 template <template<typename> class U, typename T> bool isBinaryMatrix(const U<T> &M) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
     const size_t rows = M.getRows();
     const size_t cols = M.getCols();
     for (size_t i = 0; i < rows; i++) {
@@ -62,7 +62,7 @@ template <template<typename> class U, typename T> bool isBinaryMatrix(const U<T>
  * @return true if the input matrix is a valid upper triangular matrix, false otherwise.
  */
 template <template<typename> class U, typename T> bool isUpperTriangularMatrix(const U<T> &M) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
     if (!MyBLAS::isSquareMatrix(M)) {
         return false;
     }
@@ -99,7 +99,7 @@ template <template<typename> class U, typename T> bool isUpperTriangularMatrix(c
  * @return true if the input matrix is a valid unit lower triangular matrix, false otherwise.
  */
 template <template<typename> class U, typename T> bool isUnitLowerTriangularMatrix(const U<T> &L) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
     if (!MyBLAS::isSquareMatrix(L)) {
         return false;
     }
@@ -138,7 +138,7 @@ template <template<typename> class U, typename T> bool isUnitLowerTriangularMatr
  * @return true if the input matrix is a valid permutation matrix, false otherwise.
  */
 template <template<typename> class U, typename T> bool isPermutationMatrix(const U<T> &P) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
 
     if (!MyBLAS::isSquareMatrix(P)) {
         return false;
@@ -193,9 +193,9 @@ template <template<typename> class U, typename T> bool isPermutationMatrix(const
  * @param threshold The threshold value to compare against. Default is 0.
  * @return true if all diagonal elements are below the threshold, false otherwise.
  */
-template <typename T>
-bool allDiagonalElementsBelowThreshold(const T &A, const decltype(*A.getData().begin()->begin()) &threshold = 0) {
-    static_assert(std::is_same<T, MyBLAS::Matrix<decltype(*A.getData().begin()->begin())>>::value, "T must be a MyBLAS::Matrix type");
+template <template<typename> class U, typename T>
+bool allDiagonalElementsBelowThreshold(const U<T> &A, const T &threshold = 0) {
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
 
     const size_t n = A.getRows(); // or A.getCols(), since A is a square matrix
     const T absolute_threshold = std::abs(threshold);
@@ -226,7 +226,7 @@ bool allDiagonalElementsBelowThreshold(const T &A, const decltype(*A.getData().b
  * @return true if there are no zeros in the diagonal, false otherwise.
  */
 template <template<typename> class U, typename T> bool noZerosInDiagonal(const U<T> &A) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
     return !MyBLAS::allDiagonalElementsBelowThreshold(A, static_cast<T>(0));
 }
 
@@ -241,7 +241,7 @@ template <template<typename> class U, typename T> bool noZerosInDiagonal(const U
  * @return true if the matrix is diagonally dominant, false otherwise.
  */
 template <template<typename> class U, typename T> bool isDiagonallyDominant(const U<T> &A) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
 
     if (!MyBLAS::isSquareMatrix(A)) {
         return false;
@@ -280,8 +280,8 @@ template <template<typename> class U, typename T> bool isDiagonallyDominant(cons
  */
 template <template<typename> class M, template<typename> class V, typename T>
 bool haveEqualRank(const M<T> &A, const V<T> &b) {
-    static_assert(std::is_same<M<T>, MyBLAS::Matrix<decltype(*A.getData().begin()->begin())>>::value, "MatrixType must be a MyBLAS::Matrix");
-    static_assert(std::is_same<V<T>, MyBLAS::Vector<decltype(*b.getData().begin())>>::value, "VectorType must be a MyBLAS::Vector");
+    static_assert(std::is_same<M<T>, MyBLAS::Matrix<T>>::value, "MatrixType must be a MyBLAS::Matrix");
+    static_assert(std::is_same<V<T>, MyBLAS::Vector<T>>::value, "VectorType must be a MyBLAS::Vector");
     return A.getRows() == b.size();
 }
 
