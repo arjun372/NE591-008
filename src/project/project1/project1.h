@@ -166,8 +166,8 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
         {
             b = intermediates.right_hand_side_vector_B;
             Pb = intermediates.P * intermediates.right_hand_side_vector_B;
-            y = MyBLAS::forwardSubstitution<long double>(intermediates.L, Pb);
-            phi = MyBLAS::backwardSubstitution<long double>(intermediates.U, y);
+            y = MyBLAS::forwardSubstitution(intermediates.L, Pb);
+            phi = MyBLAS::backwardSubstitution(intermediates.U, y);
         }
         clocks[2].click();
         durations[2] = static_cast<long double>(clocks[2].duration().count());

@@ -24,7 +24,10 @@ namespace MyBLAS {
  * @param M The input matrix to be checked.
  * @return true if the input matrix is a square matrix, false otherwise.
  */
-template <typename T> inline bool isSquareMatrix(const MyBLAS::Matrix<T> &M) { return M.getCols() == M.getRows(); }
+template <template<typename> class U, typename T> inline bool isSquareMatrix(const U<T> &M) {
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    return M.getCols() == M.getRows();
+}
 
 /**
  * @brief Checks if the given matrix is a binary matrix.
@@ -34,10 +37,10 @@ template <typename T> inline bool isSquareMatrix(const MyBLAS::Matrix<T> &M) { r
  * @param M The input matrix to be checked.
  * @return true if the input matrix is a binary matrix, false otherwise.
  */
-template <typename T> bool isBinaryMatrix(const MyBLAS::Matrix<T> &M) {
+template <template<typename> class U, typename T> bool isBinaryMatrix(const U<T> &M) {
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
     const size_t rows = M.getRows();
     const size_t cols = M.getCols();
-
     for (size_t i = 0; i < rows; i++) {
         for (size_t j = 0; j < cols; j++) {
             if (M[i][j] != 0 && M[i][j] != 1) {
@@ -58,24 +61,25 @@ template <typename T> bool isBinaryMatrix(const MyBLAS::Matrix<T> &M) {
  * @param U The input matrix to be checked.
  * @return true if the input matrix is a valid upper triangular matrix, false otherwise.
  */
-template <typename T> bool isUpperTriangularMatrix(const MyBLAS::Matrix<T> &U) {
-    if (!MyBLAS::isSquareMatrix(U)) {
+template <template<typename> class U, typename T> bool isUpperTriangularMatrix(const U<T> &M) {
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    if (!MyBLAS::isSquareMatrix(M)) {
         return false;
     }
 
-    const size_t cols = U.getCols();
-    const size_t rows = U.getRows();
+    const size_t cols = M.getCols();
+    const size_t rows = M.getRows();
 
     // Iterate over the rows of the input matrix U
     for (size_t i = 0; i < rows; i++) {
         // Iterate over the cols of the input matrix U
         for (size_t j = 0; j < cols; j++) {
             // NANs and +inf, -inf make the matrix invalid
-            if (std::isinf(U[i][j]) || std::isnan(U[i][j])) {
+            if (std::isinf(M[i][j]) || std::isnan(M[i][j])) {
                 return false;
             }
             // Lower triangular is always 0
-            if (i > j && U[i][j] != 0) {
+            if (i > j && M[i][j] != 0) {
                 return false;
             }
         }
@@ -94,8 +98,8 @@ template <typename T> bool isUpperTriangularMatrix(const MyBLAS::Matrix<T> &U) {
  * @param L The input matrix to be checked.
  * @return true if the input matrix is a valid unit lower triangular matrix, false otherwise.
  */
-template <typename T> bool isUnitLowerTriangularMatrix(const MyBLAS::Matrix<T> &L) {
-
+template <template<typename> class U, typename T> bool isUnitLowerTriangularMatrix(const U<T> &L) {
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
     if (!MyBLAS::isSquareMatrix(L)) {
         return false;
     }
@@ -133,7 +137,8 @@ template <typename T> bool isUnitLowerTriangularMatrix(const MyBLAS::Matrix<T> &
  * @param P The input matrix to be checked.
  * @return true if the input matrix is a valid permutation matrix, false otherwise.
  */
-template <typename T> bool isPermutationMatrix(const MyBLAS::Matrix<T> &P) {
+template <template<typename> class U, typename T> bool isPermutationMatrix(const U<T> &P) {
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
 
     if (!MyBLAS::isSquareMatrix(P)) {
         return false;
@@ -188,7 +193,9 @@ template <typename T> bool isPermutationMatrix(const MyBLAS::Matrix<T> &P) {
  * @param threshold The threshold value to compare against. Default is 0.
  * @return true if all diagonal elements are below the threshold, false otherwise.
  */
-template <typename T> bool allDiagonalElementsBelowThreshold(const MyBLAS::Matrix<T> &A, T threshold = 0) {
+template <typename T>
+bool allDiagonalElementsBelowThreshold(const T &A, const decltype(*A.getData().begin()->begin()) &threshold = 0) {
+    static_assert(std::is_same<T, MyBLAS::Matrix<decltype(*A.getData().begin()->begin())>>::value, "T must be a MyBLAS::Matrix type");
 
     const size_t n = A.getRows(); // or A.getCols(), since A is a square matrix
     const T absolute_threshold = std::abs(threshold);
@@ -218,7 +225,8 @@ template <typename T> bool allDiagonalElementsBelowThreshold(const MyBLAS::Matri
  * @param A The input matrix to be checked.
  * @return true if there are no zeros in the diagonal, false otherwise.
  */
-template <typename T> bool noZerosInDiagonal(const MyBLAS::Matrix<T> &A) {
+template <template<typename> class U, typename T> bool noZerosInDiagonal(const U<T> &A) {
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
     return !MyBLAS::allDiagonalElementsBelowThreshold(A, static_cast<T>(0));
 }
 
@@ -232,7 +240,8 @@ template <typename T> bool noZerosInDiagonal(const MyBLAS::Matrix<T> &A) {
  * @param A The input matrix to be checked.
  * @return true if the matrix is diagonally dominant, false otherwise.
  */
-template <typename T> bool isDiagonallyDominant(const MyBLAS::Matrix<T> &A) {
+template <template<typename> class U, typename T> bool isDiagonallyDominant(const U<T> &A) {
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
 
     if (!MyBLAS::isSquareMatrix(A)) {
         return false;
@@ -269,15 +278,18 @@ template <typename T> bool isDiagonallyDominant(const MyBLAS::Matrix<T> &A) {
  * @param b The input vector to be checked.
  * @return true if the matrix and vector have the same rank, false otherwise.
  */
-template <typename T> bool haveEqualRank(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
+template <template<typename> class M, template<typename> class V, typename T>
+bool haveEqualRank(const M<T> &A, const V<T> &b) {
+    static_assert(std::is_same<M<T>, MyBLAS::Matrix<decltype(*A.getData().begin()->begin())>>::value, "MatrixType must be a MyBLAS::Matrix");
+    static_assert(std::is_same<V<T>, MyBLAS::Vector<decltype(*b.getData().begin())>>::value, "VectorType must be a MyBLAS::Vector");
     return A.getRows() == b.size();
 }
 
 /**
- * @brief Global function to multiply a scalar with a matrix.
- * @param scalar Scalar to multiply the matrix with.
- * @param matrix Matrix to be multiplied.
- * @return Resultant matrix after multiplication.
+ * @brief Global function to multiply a scalar with a matrix or vector.
+ * @param scalar Scalar to multiply the matrix or vector with.
+ * @param matrix Matrix or vetor to be multiplied.
+ * @return Resultant matrix or vector after multiplication.
  */
 template <typename T> MyBLAS::Matrix<T> operator*(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
     return matrix * scalar;
@@ -318,13 +330,14 @@ template <typename T> MyBLAS::Vector<T> operator+(const T &scalar, const MyBLAS:
  * @param rhs Matrix to compute the inner product with.
  * @return The inner product of the two matrices.
  */
-template <typename T> MyBLAS::Matrix<T> innerProduct(const MyBLAS::Matrix<T> &A, const MyBLAS::Matrix<T> &B) {
-    if (A.getRows() != B.getRows() || A.getCols() != B.getCols()) {
-        throw std::invalid_argument("Error: Matrices must have the same dimensions for inner product.");
-    }
-    MyBLAS::Matrix<T> result(A.getRows(), B.getCols());
-    for (size_t row = 0; row < A.getRows(); row++) {
-        for (size_t col = 0; col < B.getCols(); col++) {
+template <template<typename> class U, typename T> U<T> innerProduct(const U<T> &A, const U<T> &B) {
+    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
+    assert(A.getRows() == B.getRows());
+    assert(A.getCols() == B.getCols());
+    const size_t a_rows = A.getRows(), b_cols = B.getCols();
+    MyBLAS::Matrix<T> result(a_rows, b_cols);
+    for (size_t row = 0; row < a_rows; row++) {
+        for (size_t col = 0; col < b_cols; col++) {
             result[row][col] = A[row][col] * B[row][col];
         }
     }

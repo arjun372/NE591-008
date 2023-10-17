@@ -285,8 +285,8 @@ MyLinearSolvingMethod::Solution<T> applyLUP(const MyBLAS::Matrix<T> &A, const My
 
     const auto Pb = parameters.P * b;
 
-    const MyBLAS::Vector<T> y = MyBLAS::forwardSubstitution<T>(parameters.L, Pb);
-    const MyBLAS::Vector<T> x = MyBLAS::backwardSubstitution<T>(parameters.U, y);
+    const MyBLAS::Vector<T> y = MyBLAS::forwardSubstitution(parameters.L, Pb);
+    const MyBLAS::Vector<T> x = MyBLAS::backwardSubstitution(parameters.U, y);
 
     results.x = x;
 

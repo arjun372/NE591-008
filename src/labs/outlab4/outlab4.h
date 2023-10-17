@@ -84,7 +84,7 @@ class OutLab4 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVect
         auto L = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
         auto U = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
 
-        MyBLAS::LU::factorize<long double>(L, U, A);
+        MyBLAS::LU::factorize(L, U, A);
 
         if (!MyBLAS::isUnitLowerTriangularMatrix(L)) {
             std::cerr << "Warning: Factorized matrix L is not unit lower triangular, expect undefined behavior.\n";
@@ -96,8 +96,8 @@ class OutLab4 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVect
 
         const auto b = inputs.constants;
 
-        const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(L, b);
-        const MyBLAS::Vector x = MyBLAS::backwardSubstitution<long double>(U, y);
+        const MyBLAS::Vector y = MyBLAS::forwardSubstitution(L, b);
+        const MyBLAS::Vector x = MyBLAS::backwardSubstitution(U, y);
 
         nlohmann::json results;
         outputs.solution = x;

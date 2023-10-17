@@ -9,10 +9,12 @@
 #define NE591_008_MATRIX_H
 
 #include <algorithm>
+#include <cassert>
 #include <iostream>
 #include <vector>
 
 #include "math/blas/vector/Vector.h"
+#include "math/blas/Constants.h"
 
 namespace MyBLAS {
 
@@ -23,17 +25,16 @@ template <typename T> class Vector;
  * @class Matrix
  * @brief Class representing a matrix of T type values.
  */
-template <typename T> class Matrix {
+template <typename T = MyBLAS::NumericType> class Matrix {
 
   protected:
     std::vector<std::vector<T>> data; ///< 2D vector representing the matrix data.
-    size_t rows, cols;                ///< Number of rows and columns in the matrix.
 
   public:
     /**
      * @brief Default constructor. Initializes an empty matrix.
      */
-    Matrix() : rows(0), cols(0) {}
+    Matrix() = default;
 
     /**
      * @brief Default virtual destructor.
@@ -44,13 +45,13 @@ template <typename T> class Matrix {
      * @brief Constructor that initializes the matrix with a given 2D vector.
      * @param _data 2D vector to initialize the matrix with.
      */
-    explicit Matrix(std::vector<std::vector<T>> &_data) : data(_data), rows(_data.size()), cols(_data.size()) {}
+    explicit Matrix(std::vector<std::vector<T>> &_data) : data(_data) {}
 
     /**
      * @brief Constructor that initializes the matrix with a given 2D vector.
      * @param _data 2D vector to initialize the matrix with.
      */
-    explicit Matrix(std::vector<std::vector<T>> _data) : data(_data), rows(_data.size()), cols(_data.size()) {}
+    explicit Matrix(std::vector<std::vector<T>> _data) : data(_data) {}
 
     /**
      * @brief Parameterized constructor that initializes the matrix with a given size and initial value.
@@ -59,19 +60,17 @@ template <typename T> class Matrix {
      * @param _initial Initial value for all elements in the matrix.
      */
     Matrix(size_t _rows, size_t _cols, const T _initial = 0)
-        : data(_rows, std::vector<T>(_cols, _initial)), rows(_rows), cols(_cols) {}
+        : data(_rows, std::vector<T>(_cols, _initial)) {}
 
     /**
      * @brief Constructor that initializes the matrix with a given initializer list.
      * @param initList Initializer list to initialize the matrix with.
      */
     Matrix(std::initializer_list<std::initializer_list<T>> initList) {
-        rows = initList.size();
-        cols = initList.begin()->size();
-        data.resize(rows);
+        data.resize(initList.size());
         size_t i = 0;
         for (const auto &row : initList) {
-            data[i].resize(cols);
+            data[i].resize(initList.begin()->size());
             size_t j = 0;
             for (const auto &elem : row) {
                 data[i][j] = elem;
@@ -86,14 +85,20 @@ template <typename T> class Matrix {
      * @param rowNum Index of the row to access.
      * @return Reference to the row at the given index.
      */
-    std::vector<T> &operator[](const size_t rowNum) { return data[rowNum]; }
+    std::vector<T> &operator[](const size_t rowNum) {
+        assert(rowNum < getRows());
+        return data[rowNum];
+    }
 
     virtual /**
      * @brief Overloaded operator[] to access individual rows of the matrix (const version).
      * @param rowNum Index of the row to access.
      * @return Const reference to the row at the given index.
      */
-    const std::vector<T> &operator[](const size_t rowNum) const { return data[rowNum]; }
+    const std::vector<T> &operator[](const size_t rowNum) const {
+        assert(rowNum < getRows());
+        return data[rowNum];
+    }
 
     /**
      * @brief Getter for the matrix data.
@@ -112,41 +117,23 @@ template <typename T> class Matrix {
      * @param row Vector representing the new row to be added.
      */
     void push_back(const std::vector<T> &row) {
-        if (data.empty()) {
-            cols = row.size();
-        } else if (cols != row.size()) {
-            throw std::invalid_argument("Error: Row size does not match the matrix column size.");
-        }
         data.push_back(row);
-        ++rows;
     }
 
     [[nodiscard]] virtual /**
      * @brief Getter for the number of rows in the matrix.
      * @return Number of rows in the matrix.
      */
-    size_t getRows() const {
-        if (rows != data.size()) {
-            throw std::invalid_argument("Error: Matrix row size does not match the allocated matrix rows.");
-        }
-        return rows;
+    inline size_t getRows() const {
+        return data.size();
     }
 
     [[nodiscard]] virtual /**
      * @brief Getter for the number of columns in the matrix.
      * @return Number of columns in the matrix.
      */
-    size_t getCols() const {
-        size_t colSize;
-        try {
-            colSize = data[0].size();
-        } catch (...) {
-            colSize = 0;
-        }
-        if (cols != colSize) {
-            throw std::invalid_argument("Error: Matrix column size does not match the allocated matrix columns.");
-        }
-        return cols;
+    inline size_t getCols() const {
+        return data.empty() ? 0 : data[0].size();
     }
 
     /**
@@ -168,9 +155,9 @@ template <typename T> class Matrix {
      * @return Resultant matrix after addition.
      */
     Matrix operator+(const Matrix &rhs) const {
-        if (rows != rhs.rows || cols != rhs.cols) {
-            throw std::exception();
-        }
+        assert(getRows() == rhs.getRows());
+        assert(getCols() == rhs.getCols());
+        const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
         for (size_t i = 0; i < rows; ++i) {
             for (size_t j = 0; j < cols; ++j) {
@@ -186,9 +173,9 @@ template <typename T> class Matrix {
      * @return Resultant matrix after subtraction.
      */
     Matrix operator-(const Matrix &rhs) const {
-        if (rows != rhs.rows || cols != rhs.cols) {
-            throw std::exception();
-        }
+        assert(getRows() == rhs.getRows());
+        assert(getCols() == rhs.getCols());
+        const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
         for (size_t i = 0; i < rows; ++i) {
             for (size_t j = 0; j < cols; ++j) {
@@ -204,13 +191,13 @@ template <typename T> class Matrix {
      * @return Resultant matrix after multiplication.
      */
     Matrix operator*(const Matrix &rhs) const {
-        if (cols != rhs.rows) {
-            throw std::exception();
-        }
-        Matrix result(rows, rhs.cols, 0);
-        for (size_t i = 0; i < rows; ++i) {
-            for (size_t j = 0; j < rhs.cols; ++j) {
-                for (size_t k = 0; k < cols; ++k) {
+        assert(getCols() == rhs.getRows());
+        const size_t my_rows = getRows(), my_cols = getCols();
+        const size_t rhs_cols = rhs.getCols();
+        Matrix result(my_rows, rhs_cols, 0);
+        for (size_t i = 0; i < my_rows; ++i) {
+            for (size_t j = 0; j < rhs_cols; ++j) {
+                for (size_t k = 0; k < my_cols; ++k) {
                     result[i][j] += this->data[i][k] * rhs.data[k][j];
                 }
             }
@@ -224,12 +211,11 @@ template <typename T> class Matrix {
      * @return Resultant vector after multiplication.
      */
     Vector<T> operator*(const Vector<T> &rhs) const {
-        if (cols != rhs.size()) {
-            throw std::exception();
-        }
-        Vector<T> result(rows, 0);
-        for (size_t i = 0; i < rows; ++i) {
-            for (size_t j = 0; j < cols; ++j) {
+        assert(getCols() == rhs.size());
+        const size_t my_rows = getRows(), my_cols = getCols();
+        Vector<T> result(my_rows, 0);
+        for (size_t i = 0; i < my_rows; ++i) {
+            for (size_t j = 0; j < my_cols; ++j) {
                 result[i] += this->data[i][j] * rhs[j];
             }
         }
@@ -243,13 +229,9 @@ template <typename T> class Matrix {
      * @param subMatrix The submatrix to set.
      */
     void setSubMatrix(size_t rowStart, size_t colStart, const Matrix<T> &subMatrix) {
-        size_t subRows = subMatrix.getRows();
-        size_t subCols = subMatrix.getCols();
-
-        if (rowStart + subRows > rows || colStart + subCols > cols) {
-            throw std::exception();
-        }
-
+        const size_t subRows = subMatrix.getRows(), subCols = subMatrix.getCols();
+        assert(rowStart + subRows <= getRows());
+        assert(colStart + subCols <= getCols());
         for (size_t i = 0; i < subRows; ++i) {
             for (size_t j = 0; j < subCols; ++j) {
                 data[rowStart + i][colStart + j] = subMatrix[i][j];
@@ -266,10 +248,8 @@ template <typename T> class Matrix {
      * @return The extracted submatrix.
      */
     Matrix<T> subMatrix(size_t rowStart, size_t colStart, size_t subRows, size_t subCols) const {
-        if (rowStart + subRows > rows || colStart + subCols > cols) {
-            throw std::exception();
-        }
-
+        assert(rowStart + subRows <= getRows());
+        assert(colStart + subCols <= getCols());
         Matrix<T> subMatrix(subRows, subCols, 0);
         for (size_t i = 0; i < subRows; ++i) {
             for (size_t j = 0; j < subCols; ++j) {
@@ -293,11 +273,12 @@ template <typename T> class Matrix {
      *       between the matrices is below a certain tolerance, rather than checking for exact equality.
      */
     bool operator==(const Matrix &rhs) const {
-        if (rows != rhs.rows || cols != rhs.cols) {
+        const size_t my_rows = getRows(), my_cols = getCols(), rhs_rows = rhs.getRows(), rhs_cols = rhs.getCols();
+        if (my_rows != rhs_rows || my_cols != rhs_cols) {
             return false;
         }
-        for (size_t i = 0; i < rows; ++i) {
-            for (size_t j = 0; j < cols; ++j) {
+        for (size_t i = 0; i < my_rows; ++i) {
+            for (size_t j = 0; j < my_cols; ++j) {
                 if (this->data[i][j] != rhs.data[i][j]) {
                     return false;
                 }
@@ -312,6 +293,7 @@ template <typename T> class Matrix {
      * @return Resultant matrix after multiplication.
      */
     Matrix operator*(const T &scalar) const {
+        const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
         for (size_t i = 0; i < rows; ++i) {
             for (size_t j = 0; j < cols; ++j) {
@@ -327,11 +309,12 @@ template <typename T> class Matrix {
      * @return Resultant matrix after division.
      */
     Matrix operator/(const T &scalar) const {
-        const T divisor = scalar == 0 ? NAN : scalar;
+        assert(scalar != 0);
+        const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
         for (size_t i = 0; i < rows; ++i) {
             for (size_t j = 0; j < cols; ++j) {
-                result[i][j] = this->data[i][j] / divisor;
+                result[i][j] = this->data[i][j] / scalar;
             }
         }
         return result;
@@ -343,6 +326,7 @@ template <typename T> class Matrix {
      * @return Resultant matrix after addition.
      */
     Matrix operator+(const T &scalar) const {
+        const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
         for (size_t i = 0; i < rows; ++i) {
             for (size_t j = 0; j < cols; ++j) {
@@ -358,6 +342,7 @@ template <typename T> class Matrix {
      * @return Resultant matrix after subtraction.
      */
     Matrix operator-(const T &scalar) const {
+        const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
         for (size_t i = 0; i < rows; ++i) {
             for (size_t j = 0; j < cols; ++j) {
@@ -373,9 +358,7 @@ template <typename T> class Matrix {
      * @param row2 Index of the second row to swap.
      */
     void swapRows(size_t row1, size_t row2) {
-        if (row1 >= rows || row2 >= rows) {
-            return;
-        }
+        assert(row1 < getRows() && row2 < getRows());
         std::swap(data[row1], data[row2]);
     }
 
@@ -387,8 +370,9 @@ template <typename T> class Matrix {
      */
     friend std::ostream &operator<<(std::ostream &os, const Matrix &m) {
         const auto width = static_cast<int>(std::cout.precision() + static_cast<std::streamsize>(10));
-        for (size_t i = 0; i < m.getRows(); ++i) {
-            for (size_t j = 0; j < m.getCols(); ++j) {
+        const size_t rows = m.getRows(), cols = m.getCols();
+        for (size_t i = 0; i < rows; ++i) {
+            for (size_t j = 0; j < cols; ++j) {
                 os << std::setw(width) << std::setfill(' ') << std::scientific << static_cast<long double>(m[i][j]);
             }
             os << '\n';
@@ -412,10 +396,11 @@ template <typename T> class Matrix {
  * @param b A vector in the system of linear equations Ax = b.
  * @return The result vector after performing forward substitution.
  */
-template <typename T>
-static MyBLAS::Vector<T> forwardSubstitution(const MyBLAS::Matrix<T> &L, const MyBLAS::Vector<T> &b) {
+template <template<typename> class M, template<typename> class V, typename T> V<T> forwardSubstitution(const M<T> &L, const V<T> &b) {
+    static_assert(std::is_same<M<T>, MyBLAS::Matrix<T>>::value, "M must be a MyBLAS::Matrix type");
+    static_assert(std::is_same<V<T>, MyBLAS::Vector<T>>::value, "M must be a MyBLAS::Matrix type");
     const auto n = b.size();
-    auto y = MyBLAS::Vector<T>(n);
+    auto y = V<T>(n);
     for (size_t row = 0; row < n; row++) {
         T sum = 0;
         for (size_t col = 0; col < row; col++) {
@@ -442,10 +427,11 @@ static MyBLAS::Vector<T> forwardSubstitution(const MyBLAS::Matrix<T> &L, const M
  * @param y The result vector after performing forward substitution.
  * @return The solution vector after performing backward substitution.
  */
-template <typename T>
-static MyBLAS::Vector<T> backwardSubstitution(const MyBLAS::Matrix<T> &U, const MyBLAS::Vector<T> &y) {
+template <template<typename> class M, template<typename> class V, typename T> V<T> backwardSubstitution(const M<T> &U, const V<T> &y) {
+    static_assert(std::is_same<M<T>, MyBLAS::Matrix<T>>::value, "M must be a MyBLAS::Matrix type");
+    static_assert(std::is_same<V<T>, MyBLAS::Vector<T>>::value, "M must be a MyBLAS::Matrix type");
     const auto n = y.size();
-    auto x = MyBLAS::Vector<T>(n, static_cast<T>(0));
+    auto x = V<T>(n, static_cast<T>(0));
     for (int64_t i = n - 1; i >= 0; i--) {
         T sum = 0;
         for (size_t j = i + 1; j < n; j++) {

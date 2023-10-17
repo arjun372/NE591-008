@@ -4,6 +4,8 @@ set(TEST_SOURCES
         lazy/LazyVectorTests.cpp
         expression/MatrixExpressionTests.cpp
         expression/VectorExpressionTests.cpp
+        matrix/BaseMatrixTests.cpp
+        matrix/MatrixPerformanceTests.cpp
 )
 
 if (NOT TARGET blas_tests)

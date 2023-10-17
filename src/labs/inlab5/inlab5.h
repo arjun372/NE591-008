@@ -79,8 +79,8 @@ class InLab5 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVecto
 
         const auto Pb = P * b;
 
-        const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(LU, Pb);
-        const MyBLAS::Vector x = MyBLAS::backwardSubstitution<long double>(LU, y);
+        const MyBLAS::Vector y = MyBLAS::forwardSubstitution(LU, Pb);
+        const MyBLAS::Vector x = MyBLAS::backwardSubstitution(LU, y);
 
         nlohmann::json results;
         outputs.solution = x;

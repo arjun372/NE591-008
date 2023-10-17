@@ -42,6 +42,8 @@ set(UTILS_LIB_HEADERS
         physics/diffusion/DiffusionMatrix.h
         physics/diffusion/DiffusionConstants.h
         physics/diffusion/SourceVector.h
+        math/Math.h
+        math/blas/Constants.h
 )
 
 set(UTILS_LIB_SOURCES

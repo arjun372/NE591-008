@@ -20,7 +20,6 @@ TEST(DiffusionMatrixTest, ConstructorTest) {
     Params<FLOAT_TYPE> params;
     params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
     Matrix<FLOAT_TYPE> matrix(params);
-
     EXPECT_EQ(matrix.getParams().getA(), 1.0);
     EXPECT_EQ(matrix.getParams().getB(), 1.0);
     EXPECT_EQ(matrix.getParams().getM(), 10);
@@ -34,7 +33,6 @@ TEST(DiffusionMatrixTest, CopyConstructorTest) {
     params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
     Matrix<FLOAT_TYPE> matrix1(params);
     Matrix<FLOAT_TYPE> matrix2(matrix1);
-
     EXPECT_EQ(matrix2.getParams().getA(), 1.0);
     EXPECT_EQ(matrix2.getParams().getB(), 1.0);
     EXPECT_EQ(matrix2.getParams().getM(), 10);
@@ -48,7 +46,6 @@ TEST(DiffusionMatrixTest, AssignmentOperatorTest) {
     params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
     Matrix<FLOAT_TYPE> matrix1(params);
     Matrix<FLOAT_TYPE> matrix2 = matrix1;
-
     EXPECT_EQ(matrix2.getParams().getA(), 1.0);
     EXPECT_EQ(matrix2.getParams().getB(), 1.0);
     EXPECT_EQ(matrix2.getParams().getM(), 10);
@@ -63,19 +60,15 @@ TEST(DiffusionMatrixTest, MatrixDimensionsMatchMeshDimensionsTest) {
     const size_t n = 1029;
     params.setA(1.0).setB(1.0).setM(m).setN(n).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
     Matrix<FLOAT_TYPE> matrix(params);
-
     EXPECT_EQ(matrix.getRows(), params.getM() * params.getN());
     EXPECT_EQ(matrix.getCols(), params.getM() * params.getN());
 }
 
 static MyBLAS::Matrix<FLOAT_TYPE> naive_fill_diffusion_matrix_and_vector(const MyPhysics::Diffusion::Constants<FLOAT_TYPE> &c) {
-
     const size_t m = c.m;
     const size_t n = c.n;
-
     //auto diffusion_matrix_A = MyBLAS::Matrix<FLOAT_TYPE>(m * n, m * n, 0);
     auto diffusion_matrix_A = MyBLAS::Matrix<FLOAT_TYPE>(std::vector<std::vector<FLOAT_TYPE>>(m * n, std::vector<FLOAT_TYPE>(m * n, 0)));
-
     // Loop through all the nodes i = 1, ..., m and j = 1, ..., n
     for (size_t i = 1; i <= m; ++i) {
         for (size_t j = 1; j <= n; ++j) {
@@ -103,12 +96,10 @@ static MyBLAS::Matrix<FLOAT_TYPE> naive_fill_diffusion_matrix_and_vector(const M
            // intermediates.right_hand_side_vector_B[idx] = c.sources[i - 1][j - 1];
         }
     }
-
     return diffusion_matrix_A;
 }
 
 TEST(DiffusionMatrixTest, DiffusionEquationSquareFillTest) {
-
     auto p = MyPhysics::Diffusion::Params<FLOAT_TYPE>()
                       .setA(100)
                       .setB(100)
@@ -118,9 +109,7 @@ TEST(DiffusionMatrixTest, DiffusionEquationSquareFillTest) {
                       .setN(9);
 
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
-
     Matrix<FLOAT_TYPE> matrix(p);
-
     for(size_t row = 0; row < matrix.getRows(); row++) {
         for(size_t col = 0; col < matrix.getCols(); col++) {
             EXPECT_EQ(matrix[row][col], memoryBacked[row][col]);
@@ -129,7 +118,6 @@ TEST(DiffusionMatrixTest, DiffusionEquationSquareFillTest) {
 }
 
 TEST(DiffusionMatrixTest, DiffusionEquationWideFillTest) {
-
     auto p = MyPhysics::Diffusion::Params<FLOAT_TYPE>()
                  .setA(100)
                  .setB(100)
@@ -139,9 +127,7 @@ TEST(DiffusionMatrixTest, DiffusionEquationWideFillTest) {
                  .setN(10);
 
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
-
     Matrix<FLOAT_TYPE> matrix(p);
-
     for(size_t row = 0; row < matrix.getRows(); row++) {
         for(size_t col = 0; col < matrix.getCols(); col++) {
             EXPECT_EQ(matrix[row][col], memoryBacked[row][col]);
@@ -150,7 +136,6 @@ TEST(DiffusionMatrixTest, DiffusionEquationWideFillTest) {
 }
 
 TEST(DiffusionMatrixTest, DiffusionEquationTallFillTest) {
-
     auto p = MyPhysics::Diffusion::Params<FLOAT_TYPE>()
                  .setA(100)
                  .setB(100)
@@ -160,9 +145,7 @@ TEST(DiffusionMatrixTest, DiffusionEquationTallFillTest) {
                  .setN(7);
 
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
-
     Matrix<FLOAT_TYPE> matrix(p);
-
     for(size_t row = 0; row < matrix.getRows(); row++) {
         for(size_t col = 0; col < matrix.getCols(); col++) {
             EXPECT_EQ(matrix[row][col], memoryBacked[row][col]);
@@ -171,7 +154,6 @@ TEST(DiffusionMatrixTest, DiffusionEquationTallFillTest) {
 }
 
 TEST(DiffusionMatrixTest, DiffusionMatrix32Test) {
-
     auto p = MyPhysics::Diffusion::Params<FLOAT_TYPE>()
                  .setA(100)
                  .setB(100)
@@ -181,9 +163,7 @@ TEST(DiffusionMatrixTest, DiffusionMatrix32Test) {
                  .setN(32);
 
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
-
     Matrix<FLOAT_TYPE> matrix(p);
-
     for(size_t row = 0; row < matrix.getRows(); row++) {
         for(size_t col = 0; col < matrix.getCols(); col++) {
             EXPECT_EQ(matrix[row][col], memoryBacked[row][col]);
@@ -193,10 +173,14 @@ TEST(DiffusionMatrixTest, DiffusionMatrix32Test) {
 
 TEST(DiffusionMatrixTest, MatrixEqualityTest) {
     Params<FLOAT_TYPE> params;
-    params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
+    params.setA(1.0)
+        .setB(1.0)
+        .setM(9)
+        .setN(11)
+        .setDiffusionCoefficient(0.1)
+        .setMacroscopicRemovalCrossSection(0.2);
     Matrix<FLOAT_TYPE> matrix1(params);
     Matrix<FLOAT_TYPE> matrix2(params);
-
     // Check that the two matrices are equal
     for (size_t i = 0; i < matrix1.getRows(); ++i) {
         for (size_t j = 0; j < matrix1.getCols(); ++j) {
@@ -206,14 +190,22 @@ TEST(DiffusionMatrixTest, MatrixEqualityTest) {
 }
 
 TEST(DiffusionMatrixTest, MatrixInequalityTest) {
-    Params<FLOAT_TYPE> params1;
-    params1.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
-    Matrix<FLOAT_TYPE> matrix1(params1);
-
-    Params<FLOAT_TYPE> params2;
-    params2.setA(2.0).setB(2.0).setM(20).setN(20).setDiffusionCoefficient(0.2).setMacroscopicRemovalCrossSection(0.4);
-    Matrix<FLOAT_TYPE> matrix2(params2);
-
+    Params<FLOAT_TYPE> p1;
+    p1.setA(1.0)
+    .setB(1.0)
+    .setM(9)
+    .setN(11)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
+    Matrix<FLOAT_TYPE> matrix1(p1);
+    Params<FLOAT_TYPE> p2;
+    p2.setA(1.0)
+    .setB(1.0)
+    .setM(11)
+    .setN(9)
+    .setDiffusionCoefficient(0.002381)
+    .setMacroscopicRemovalCrossSection(1e-2);
+    Matrix<FLOAT_TYPE> matrix2(p2);
     // Check that the two matrices are not equal
     for (size_t i = 0; i < matrix1.getRows(); ++i) {
         for (size_t j = 0; j < matrix1.getCols(); ++j) {
@@ -226,19 +218,29 @@ TEST(DiffusionMatrixTest, MatrixInequalityTest) {
 
 TEST(DiffusionMatrixTest, MatrixSizeTest) {
     Params<FLOAT_TYPE> params;
-    params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
+    Params<FLOAT_TYPE> p;
+    p.setA(1.0)
+    .setB(1.0)
+    .setM(11)
+    .setN(11)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
     Matrix<FLOAT_TYPE> matrix(params);
-
     // Check that the size of the matrix is correct
     EXPECT_EQ(matrix.getRows(), params.getM() * params.getN());
     EXPECT_EQ(matrix.getCols(), params.getM() * params.getN());
 }
 
 TEST(DiffusionMatrixTest, DiffusionEquationBoundaryCheck) {
-    Params<FLOAT_TYPE> params;
-    params.setA(1.0).setB(1.0).setM(8).setN(3).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
-    Matrix<FLOAT_TYPE> matrix(params);
-    auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(params));
+    Params<FLOAT_TYPE> p;
+    p.setA(1.0)
+    .setB(1.0)
+    .setM(5)
+    .setN(7)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
+    Matrix<FLOAT_TYPE> matrix(p);
+    auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
 
     // Check the boundary elements of the matrix
     for (size_t i = 0; i < matrix.getRows(); ++i) {
@@ -259,8 +261,11 @@ TEST(DiffusionMatrixTest, DiffusionEquationBoundaryCheck) {
 
 TEST(DiffusionMatrixTest, DiffusionEquationGeneratorTest) {
     Params<FLOAT_TYPE> params;
-    params.setA(static_cast<FLOAT_TYPE>(1.0)).setB(static_cast<FLOAT_TYPE>(1.0)).setM(3).setN(3).setDiffusionCoefficient(static_cast<FLOAT_TYPE>(0.1)).setMacroscopicRemovalCrossSection(static_cast<FLOAT_TYPE>(0.2));
-
+    params
+    .setA(static_cast<FLOAT_TYPE>(1.0))
+    .setB(static_cast<FLOAT_TYPE>(1.0)).setM(3).setN(3)
+    .setDiffusionCoefficient(static_cast<FLOAT_TYPE>(0.1))
+    .setMacroscopicRemovalCrossSection(static_cast<FLOAT_TYPE>(0.2));
     auto generator = [](size_t i, size_t j) {
         if (i == j) {
             return static_cast<FLOAT_TYPE>(1.0);
@@ -268,9 +273,7 @@ TEST(DiffusionMatrixTest, DiffusionEquationGeneratorTest) {
             return static_cast<FLOAT_TYPE>(0.0);
         }
     };
-
     Matrix<FLOAT_TYPE> matrix(params, generator);
-
     // Check the elements of the matrix
     EXPECT_EQ(matrix[0][0], static_cast<FLOAT_TYPE>(1.0));
     EXPECT_EQ(matrix[0][1], static_cast<FLOAT_TYPE>(0.0));
@@ -284,16 +287,19 @@ TEST(DiffusionMatrixTest, DiffusionEquationGeneratorTest) {
 }
 
 TEST(DiffusionMatrixTest, DiagonalElementTest) {
-    Params<FLOAT_TYPE> params;
-    params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
-    Matrix<FLOAT_TYPE> matrix(params);
-    auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(params));
-    Constants<FLOAT_TYPE> constants = Constants<FLOAT_TYPE>::compute(params);
-
+    Params<FLOAT_TYPE> p;
+    p.setA(1.0)
+    .setB(1.0)
+    .setM(20)
+    .setN(20)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
+    Matrix<FLOAT_TYPE> matrix(p);
+    auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
+    Constants<FLOAT_TYPE> constants = Constants<FLOAT_TYPE>::compute(p);
     for (size_t i = 0; i < matrix.getRows(); ++i) {
         // Check that the filled matrix and the generated matrix are in agreement with each other
         EXPECT_EQ(matrix[i][i], memoryBacked[i][i]);
-
         // Check that they are in agreement with the expected value (from constants)
         EXPECT_EQ(matrix[i][i], constants.diagonal);
     }
@@ -301,17 +307,19 @@ TEST(DiffusionMatrixTest, DiagonalElementTest) {
 
 TEST(DiffusionMatrixTest, OffDiagonalElementTest) {
     Params<FLOAT_TYPE> params;
-    params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
+    params.setA(1.0)
+    .setB(1.0)
+    .setM(10)
+    .setN(10)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
     Matrix<FLOAT_TYPE> matrix(params);
-
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(params));
     Constants<FLOAT_TYPE> constants = Constants<FLOAT_TYPE>::compute(params);
-
     for (size_t i = 0; i < matrix.getRows(); ++i) {
         for (size_t j = 0; j < matrix.getCols(); ++j) {
             // Check if the elements of the two matrices are equal
             ASSERT_EQ(matrix[i][j], memoryBacked[i][j]);
-
             // Check if the off-diagonal elements are the expected value
             if (i != j) {
                 if ((i / constants.n) == (j / constants.n) && (i == j + 1 || i == j - 1)) {
@@ -333,10 +341,14 @@ TEST(DiffusionMatrixTest, OffDiagonalElementTest) {
  */
 TEST(DiffusionMatrixTest, ZeroElementTest) {
     Params<FLOAT_TYPE> params;
-    params.setA(1.0).setB(1.0).setM(7).setN(11).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
+    params.setA(1.0)
+    .setB(1.0)
+    .setM(7)
+    .setN(11)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
     Matrix<FLOAT_TYPE> matrix(params);
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(params));
-
     for (size_t i = 0; i < matrix.getRows(); ++i) {
         for (size_t j = 0; j < matrix.getCols(); ++j) {
             if (i != j) {
@@ -352,11 +364,15 @@ TEST(DiffusionMatrixTest, ZeroElementTest) {
 }
 
 TEST(DiffusionMatrixTest, MatrixSymmetryTest) {
-    Params<FLOAT_TYPE> params;
-    params.setA(1.0).setB(1.0).setM(8).setN(3).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
-    Matrix<FLOAT_TYPE> matrix(params);
-    auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(params));
-
+    Params<FLOAT_TYPE> p;
+    p.setA(1.0)
+    .setB(1.0)
+    .setM(8)
+    .setN(3)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
+    Matrix<FLOAT_TYPE> matrix(p);
+    auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
     for (size_t i = 0; i < matrix.getRows(); ++i) {
         for (size_t j = 0; j < matrix.getCols(); ++j) {
             EXPECT_EQ(matrix[i][j], memoryBacked[i][j]);
@@ -365,41 +381,98 @@ TEST(DiffusionMatrixTest, MatrixSymmetryTest) {
     }
 }
 
-TEST(DiffusionMatrixTest, MatrixSymmetryTimingTest) {
+TEST(DiffusionMatrixTest, SquareMatrixSymmetryTimingTest) {
     Params<FLOAT_TYPE> p;
-    p.setA(1.0).setB(1.0).setM(64).setN(64).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
-
-
+    p.setA(1.0)
+    .setB(1.0)
+    .setM(91)
+    .setN(91)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
     auto start = std::chrono::high_resolution_clock::now();
-
     Matrix<FLOAT_TYPE> matrix(p);
-
     for (size_t i = 0; i < matrix.getRows(); ++i) {
         for (size_t j = 0; j < matrix.getCols(); ++j) {
             EXPECT_EQ(matrix[i][j], matrix[j][i]);
         }
     }
-
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-
-    std::cout << "LazyMatrix symmetry test took " << duration << " milliseconds." << std::endl;
-
+    std::cout << "LazyMatrix: symmetry test for square (91, 91) matrix with ~2^13 elements took " << duration << " milliseconds." << std::endl;
 
     start = std::chrono::high_resolution_clock::now();
-
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
-
     for (size_t i = 0; i < matrix.getRows(); ++i) {
         for (size_t j = 0; j < matrix.getCols(); ++j) {
             EXPECT_EQ(matrix[i][j], matrix[j][i]);
         }
     }
-
     end = std::chrono::high_resolution_clock::now();
     duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    std::cout << "Matrix: symmetry test for square (91, 91) matrix with ~2^13 elements took " << duration << " milliseconds." << std::endl;
+    EXPECT_TRUE(duration < 8000);
+}
 
-    std::cout << "Matrix symmetry test took " << duration << " milliseconds." << std::endl;
+TEST(DiffusionMatrixTest, WideMatrixSymmetryTimingTest) {
+    Params<FLOAT_TYPE> p;
+    p.setA(1.0)
+    .setB(1.0)
+    .setM(8)
+    .setN(1024)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
+    auto start = std::chrono::high_resolution_clock::now();
+    Matrix<FLOAT_TYPE> matrix(p);
+    for (size_t i = 0; i < matrix.getRows(); ++i) {
+        for (size_t j = 0; j < matrix.getCols(); ++j) {
+            EXPECT_EQ(matrix[i][j], matrix[j][i]);
+        }
+    }
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    std::cout << "LazyMatrix: symmetry test for wide matrix (8 rows, 1024 columns) with 2^13 elements took " << duration << " milliseconds." << std::endl;
 
-    EXPECT_TRUE(duration < 5000);
+    start = std::chrono::high_resolution_clock::now();
+    auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
+    for (size_t i = 0; i < matrix.getRows(); ++i) {
+        for (size_t j = 0; j < matrix.getCols(); ++j) {
+            EXPECT_EQ(matrix[i][j], matrix[j][i]);
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    std::cout << "Matrix: symmetry test for wide matrix (8 rows, 1024 columns) with 2^13 elements took " << duration << " milliseconds." << std::endl;
+    EXPECT_TRUE(duration < 8000);
+}
+
+TEST(DiffusionMatrixTest, TallMatrixSymmetryTimingTest) {
+    Params<FLOAT_TYPE> p;
+    p.setA(1.0)
+    .setB(1.0)
+    .setM(1024)
+    .setN(8)
+    .setDiffusionCoefficient(0.1)
+    .setMacroscopicRemovalCrossSection(0.2);
+    auto start = std::chrono::high_resolution_clock::now();
+    Matrix<FLOAT_TYPE> matrix(p);
+    for (size_t i = 0; i < matrix.getRows(); ++i) {
+        for (size_t j = 0; j < matrix.getCols(); ++j) {
+            EXPECT_EQ(matrix[i][j], matrix[j][i]);
+        }
+    }
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    std::cout << "LazyMatrix: symmetry test for tall matrix (1024 rows, 8 columns) with 2^13 elements took " << duration << " milliseconds." << std::endl;
+
+    start = std::chrono::high_resolution_clock::now();
+    auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<FLOAT_TYPE>::compute(p));
+    for (size_t i = 0; i < matrix.getRows(); ++i) {
+        for (size_t j = 0; j < matrix.getCols(); ++j) {
+            EXPECT_EQ(matrix[i][j], matrix[j][i]);
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    std::cout << "Matrix: symmetry test for tall matrix (1024 rows, 8 columns) with 2^13 elements took " << duration << " milliseconds." << std::endl;
+    EXPECT_TRUE(duration < 8000);
 }

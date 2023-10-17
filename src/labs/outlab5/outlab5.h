@@ -136,8 +136,8 @@ class OutLab5 : public Project<InputMatrices, Parser, Results> {
         const auto b = inputs.constants;
         const auto Pb = pivot ? (P * b) : b;
 
-        const MyBLAS::Vector y = MyBLAS::forwardSubstitution<long double>(L, Pb);
-        const MyBLAS::Vector x = MyBLAS::backwardSubstitution<long double>(U, y);
+        const MyBLAS::Vector y = MyBLAS::forwardSubstitution(L, Pb);
+        const MyBLAS::Vector x = MyBLAS::backwardSubstitution(U, y);
 
         outputs.solution = x;
 

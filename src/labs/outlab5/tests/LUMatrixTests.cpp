@@ -12,7 +12,7 @@ TEST_P(FactorizeValidLUMatrixTest, FactorizesValidLowerMatrix) {
     A = GetParam();
     L = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
     U = MyBLAS::Matrix(A.getRows(), A.getCols(), static_cast<long double>(0));
-    MyBLAS::LU::factorize<long double>(L, U, A);
+    MyBLAS::LU::factorize(L, U, A);
     EXPECT_TRUE(MyBLAS::isUnitLowerTriangularMatrix(L)) << "L: " << std::endl << L << std::endl;
 }
 
