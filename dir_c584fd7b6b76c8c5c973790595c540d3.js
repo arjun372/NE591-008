@@ -10,8 +10,5 @@ var dir_c584fd7b6b76c8c5c973790595c540d3 =
     ] ],
     [ "DiffusionParams.h", "da/db6/DiffusionParams_8h.html", [
       [ "Params", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params" ]
-    ] ],
-    [ "SourceVector.h", "d9/d7b/SourceVector_8h.html", [
-      [ "Vector", "d8/d35/classMyPhysics_1_1Diffusion_1_1Vector.html", "d8/d35/classMyPhysics_1_1Diffusion_1_1Vector" ]
     ] ]
 ];

@@ -32,8 +32,7 @@ var annotated_dup =
         [ "Constants", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants" ],
         [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix" ],
         [ "Matrix< MyBLAS::Matrix< T > >", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4" ],
-        [ "Params", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params" ],
-        [ "Vector", "d8/d35/classMyPhysics_1_1Diffusion_1_1Vector.html", "d8/d35/classMyPhysics_1_1Diffusion_1_1Vector" ]
+        [ "Params", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params" ]
       ] ]
     ] ],
     [ "ArgsPrintMatrix", "d7/d12/structArgsPrintMatrix.html", "d7/d12/structArgsPrintMatrix" ],
@@ -56,6 +55,7 @@ var annotated_dup =
     [ "Input", "d4/dae/structInput.html", "d4/dae/structInput" ],
     [ "Map", "da/ddc/structMap.html", "da/ddc/structMap" ],
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h_d8/dd7/structMatrixBuildArgs" ],
+    [ "MatrixVectorExpression", "d4/d68/classMatrixVectorExpression.html", "d4/d68/classMatrixVectorExpression" ],
     [ "OutLab1", "dd/df3/classOutLab1.html", "dd/df3/classOutLab1" ],
     [ "OutLab3", "da/df0/classOutLab3.html", "da/df0/classOutLab3" ],
     [ "OutLab4", "d8/d5b/classOutLab4.html", "d8/d5b/classOutLab4" ],
@@ -69,7 +69,6 @@ var annotated_dup =
     [ "Project1", "d8/ddb/classProject1.html", "d8/ddb/classProject1" ],
     [ "Project2", "dd/db5/classProject2.html", "dd/db5/classProject2" ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
-    [ "SourceVectorValidTest", "df/d4f/classSourceVectorValidTest.html", "df/d4f/classSourceVectorValidTest" ],
     [ "Stopwatch", "de/def/classStopwatch.html", "de/def/classStopwatch" ],
     [ "ToneMap", "db/df1/Helpers_8h.html#d1/db0/structToneMap", "db/df1/Helpers_8h_d1/db0/structToneMap" ]
 ];

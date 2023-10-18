@@ -478,7 +478,7 @@ Data Fields</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{ <a class="code" href="../../df/df1/structOutput.html#a4682f46bb253ffc3b52da1102863a472">inputs</a> = std::move(inputMatrices); };</div>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{ <a class="code" href="../../df/df1/structOutput.html#a4682f46bb253ffc3b52da1102863a472">inputs</a> = std::move(inputMatrices); };</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00066">inputs</a>.</p>
 
@@ -977,26 +977,26 @@ Data Fields</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                             {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        jsonMap[<span class="stringliteral">&quot;converged&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a33f434614ac51a2abec6647d32e367cc">solution</a>.converged;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;maximum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a4682f46bb253ffc3b52da1102863a472">inputs</a>.<a class="code" href="../../d4/dae/structInput.html#aed96b450559447c04d3ac723d78a50e0">solverParams</a>.<a class="code" href="../../de/d18/namespaceMyLinearSolvingMethod.html#a1b6c016a30d33be71db11f641b994cd4">max_iterations</a>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a33f434614ac51a2abec6647d32e367cc">solution</a>.iterations;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;maximum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a4682f46bb253ffc3b52da1102863a472">inputs</a>.<a class="code" href="../../d4/dae/structInput.html#aed96b450559447c04d3ac723d78a50e0">solverParams</a>.<a class="code" href="../../de/d18/namespaceMyLinearSolvingMethod.html#ae10118813fc26dd06fd740bbdd062a0a">threshold</a>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a33f434614ac51a2abec6647d32e367cc">solution</a>.iterative_error;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        jsonMap[<span class="stringliteral">&quot;solution&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a33f434614ac51a2abec6647d32e367cc">solution</a>.x.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        jsonMap[<span class="stringliteral">&quot;residual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#afd0fa0f15738e2871e0abbc554b7a630">residual</a>.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-residual&quot;</span>] = MyBLAS::Stats::max&lt;long double&gt;(<a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">MyBLAS::Stats::abs</a>(<a class="code" href="../../df/df1/structOutput.html#afd0fa0f15738e2871e0abbc554b7a630">residual</a>));</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">// if LUP is used</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">// jsonMap[&quot;l2-error&quot;] = getSolutionError();</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>][<span class="stringliteral">&quot;mean&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a3591a50ace0734195bc4007b98f98116">mean_execution_time</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>][<span class="stringliteral">&quot;std&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#af4755a931f5004e02f0da0d58fe67783">stddev_execution_time</a>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>][<span class="stringliteral">&quot;samples&quot;</span>] = 10;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                             {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        jsonMap[<span class="stringliteral">&quot;converged&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a33f434614ac51a2abec6647d32e367cc">solution</a>.converged;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;maximum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a4682f46bb253ffc3b52da1102863a472">inputs</a>.<a class="code" href="../../d4/dae/structInput.html#aed96b450559447c04d3ac723d78a50e0">solverParams</a>.<a class="code" href="../../de/d18/namespaceMyLinearSolvingMethod.html#a1b6c016a30d33be71db11f641b994cd4">max_iterations</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a33f434614ac51a2abec6647d32e367cc">solution</a>.iterations;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;maximum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a4682f46bb253ffc3b52da1102863a472">inputs</a>.<a class="code" href="../../d4/dae/structInput.html#aed96b450559447c04d3ac723d78a50e0">solverParams</a>.<a class="code" href="../../de/d18/namespaceMyLinearSolvingMethod.html#ae10118813fc26dd06fd740bbdd062a0a">threshold</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a33f434614ac51a2abec6647d32e367cc">solution</a>.iterative_error;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        jsonMap[<span class="stringliteral">&quot;solution&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a33f434614ac51a2abec6647d32e367cc">solution</a>.x.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        jsonMap[<span class="stringliteral">&quot;residual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#afd0fa0f15738e2871e0abbc554b7a630">residual</a>.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-residual&quot;</span>] = MyBLAS::Stats::max&lt;long double&gt;(<a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">MyBLAS::Stats::abs</a>(<a class="code" href="../../df/df1/structOutput.html#afd0fa0f15738e2871e0abbc554b7a630">residual</a>));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">// if LUP is used</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">// jsonMap[&quot;l2-error&quot;] = getSolutionError();</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>][<span class="stringliteral">&quot;mean&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a3591a50ace0734195bc4007b98f98116">mean_execution_time</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>][<span class="stringliteral">&quot;std&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#af4755a931f5004e02f0da0d58fe67783">stddev_execution_time</a>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>][<span class="stringliteral">&quot;samples&quot;</span>] = 10;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
 <div class="ttc" id="astructInput_html_aed96b450559447c04d3ac723d78a50e0"><div class="ttname"><a href="../../d4/dae/structInput.html#aed96b450559447c04d3ac723d78a50e0">Input::solverParams</a></div><div class="ttdeci">MyLinearSolvingMethod::Parameters&lt; long double &gt; solverParams</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:30</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00100">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00071">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00059">MyLinearSolvingMethod::Parameters&lt; T &gt;::max_iterations</a>, <a class="el" href="../../#l00067">mean_execution_time</a>, <a class="el" href="../../#l00067">residual</a>, <a class="el" href="../../#l00044">solution</a>, <a class="el" href="../../#l00030">Input::solverParams</a>, <a class="el" href="../../#l00068">stddev_execution_time</a>, and <a class="el" href="../../#l00057">MyLinearSolvingMethod::Parameters&lt; T &gt;::threshold</a>.</p>
@@ -1074,7 +1074,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00160">fill_fluxes()</a>, and <a class="el" href="../../#l00079">Project1::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00160">fill_fluxes()</a>, <a class="el" href="../../#l00058">Compute::fill_fluxes()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00099">Project2::run()</a>, and <a class="el" href="../../#l00076">Compute::usingLUP()</a>.</p>
 
 </div>
 </div>
@@ -1106,7 +1106,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00075">getMaxResidual()</a>, <a class="el" href="../../#l00079">getSolutionError()</a>, <a class="el" href="../../#l00063">Output()</a>, <a class="el" href="../../#l00075">OutLab6::printResults()</a>, <a class="el" href="../../#l00076">Project2::printResults()</a>, and <a class="el" href="../../#l00085">toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00058">Compute::fill_fluxes()</a>, <a class="el" href="../../#l00075">getMaxResidual()</a>, <a class="el" href="../../#l00079">getSolutionError()</a>, <a class="el" href="../../#l00063">Output()</a>, <a class="el" href="../../#l00075">OutLab6::printResults()</a>, <a class="el" href="../../#l00076">Project2::printResults()</a>, and <a class="el" href="../../#l00085">toJSON()</a>.</p>
 
 </div>
 </div>
@@ -1182,7 +1182,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00075">OutLab6::printResults()</a>, <a class="el" href="../../#l00076">Project2::printResults()</a>, <a class="el" href="../../#l00088">toJSON()</a>, <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00035">Compute::usingLUP()</a>, <a class="el" href="../../#l00065">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00075">OutLab6::printResults()</a>, <a class="el" href="../../#l00076">Project2::printResults()</a>, <a class="el" href="../../#l00088">toJSON()</a>, <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00035">Compute::usingLUP()</a>, <a class="el" href="../../#l00123">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
 
 </div>
 </div>
@@ -1252,7 +1252,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, and <a class="el" href="../../#l00074">toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00074">toJSON()</a>, and <a class="el" href="../../#l00076">Compute::usingLUP()</a>.</p>
 
 </div>
 </div>
@@ -1286,7 +1286,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00035">Compute::usingLUP()</a>, <a class="el" href="../../#l00065">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00035">Compute::usingLUP()</a>, <a class="el" href="../../#l00123">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
 
 </div>
 </div>
@@ -1304,7 +1304,7 @@ Data Fields</h2></td></tr>
 
 <p><a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> vector. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00075">getMaxResidual()</a>, <a class="el" href="../../#l00079">getSolutionError()</a>, <a class="el" href="../../#l00075">InLab6::printResults()</a>, <a class="el" href="../../#l00075">OutLab6::printResults()</a>, <a class="el" href="../../#l00076">Project2::printResults()</a>, <a class="el" href="../../#l00090">InLab4::run()</a>, <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00050">toJSON()</a>, <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00035">Compute::usingLUP()</a>, <a class="el" href="../../#l00030">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00058">Compute::fill_fluxes()</a>, <a class="el" href="../../#l00075">getMaxResidual()</a>, <a class="el" href="../../#l00079">getSolutionError()</a>, <a class="el" href="../../#l00075">InLab6::printResults()</a>, <a class="el" href="../../#l00075">OutLab6::printResults()</a>, <a class="el" href="../../#l00076">Project2::printResults()</a>, <a class="el" href="../../#l00090">InLab4::run()</a>, <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00050">toJSON()</a>, <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00035">Compute::usingLUP()</a>, <a class="el" href="../../#l00030">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
 
 </div>
 </div>
@@ -1334,7 +1334,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00075">OutLab6::printResults()</a>, <a class="el" href="../../#l00076">Project2::printResults()</a>, <a class="el" href="../../#l00088">toJSON()</a>, <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00035">Compute::usingLUP()</a>, <a class="el" href="../../#l00065">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00075">OutLab6::printResults()</a>, <a class="el" href="../../#l00076">Project2::printResults()</a>, <a class="el" href="../../#l00088">toJSON()</a>, <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00035">Compute::usingLUP()</a>, <a class="el" href="../../#l00123">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
 
 </div>
 </div>

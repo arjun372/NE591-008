@@ -54,29 +54,29 @@ var NAVTREE =
       [ "FAQs", "index.html#autotoc_md21", null ]
     ] ],
     [ "InLab 01: Taylor series approximation of sin(x)", "d7/d5f/inlab1.html", [
-      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md36", [
-        [ "Usage", "d7/d5f/inlab1.html#autotoc_md37", null ],
-        [ "Example", "d7/d5f/inlab1.html#autotoc_md38", null ]
+      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md22", [
+        [ "Usage", "d7/d5f/inlab1.html#autotoc_md23", null ],
+        [ "Example", "d7/d5f/inlab1.html#autotoc_md24", null ]
       ] ]
     ] ],
     [ "InLab 02: Lagrange Interpolation Polynomials I", "d1/def/inlab2.html", [
-      [ "InLab 02: I/O Setup for Lagrange Interpolation Polynomials", "d1/def/inlab2.html#autotoc_md22", [
-        [ "Overview", "d1/def/inlab2.html#autotoc_md23", null ],
-        [ "Building & Usage", "d1/def/inlab2.html#autotoc_md24", [
-          [ "Options", "d1/def/inlab2.html#autotoc_md25", null ],
-          [ "General options:", "d1/def/inlab2.html#autotoc_md26", null ]
+      [ "InLab 02: I/O Setup for Lagrange Interpolation Polynomials", "d1/def/inlab2.html#autotoc_md25", [
+        [ "Overview", "d1/def/inlab2.html#autotoc_md26", null ],
+        [ "Building & Usage", "d1/def/inlab2.html#autotoc_md27", [
+          [ "Options", "d1/def/inlab2.html#autotoc_md28", null ],
+          [ "General options:", "d1/def/inlab2.html#autotoc_md29", null ]
         ] ],
-        [ "Implementing your own <tt>f(x)</tt>", "d1/def/inlab2.html#autotoc_md27", null ],
-        [ "File I/O", "d1/def/inlab2.html#autotoc_md28", null ],
-        [ "Parameters Format", "d1/def/inlab2.html#autotoc_md29", [
-          [ "Sample Inputs File", "d1/def/inlab2.html#autotoc_md30", null ]
+        [ "Implementing your own <tt>f(x)</tt>", "d1/def/inlab2.html#autotoc_md30", null ],
+        [ "File I/O", "d1/def/inlab2.html#autotoc_md31", null ],
+        [ "Parameters Format", "d1/def/inlab2.html#autotoc_md32", [
+          [ "Sample Inputs File", "d1/def/inlab2.html#autotoc_md33", null ]
         ] ],
-        [ "0.67", "d1/def/inlab2.html#autotoc_md31", null ],
-        [ "Inputs", "d1/def/inlab2.html#autotoc_md32", null ],
-        [ "Output Format", "d1/def/inlab2.html#autotoc_md33", [
-          [ "Sample Outputs File", "d1/def/inlab2.html#autotoc_md34", null ]
+        [ "0.67", "d1/def/inlab2.html#autotoc_md34", null ],
+        [ "Inputs", "d1/def/inlab2.html#autotoc_md35", null ],
+        [ "Output Format", "d1/def/inlab2.html#autotoc_md36", [
+          [ "Sample Outputs File", "d1/def/inlab2.html#autotoc_md37", null ]
         ] ],
-        [ "Example:", "d1/def/inlab2.html#autotoc_md35", null ]
+        [ "Example:", "d1/def/inlab2.html#autotoc_md38", null ]
       ] ]
     ] ],
     [ "InLab 03: Newton-Cotes Numerical Integration", "d5/d15/inlab3.html", [
@@ -276,15 +276,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "",
-"d0/d40/classParser.html#a123dc1be35999de898396ade606098f6",
-"d1/d18/namespaceMyFactorizationMethod.html",
-"d2/d6e/namespaceMyBLAS.html#afcfc582cfa678d5dfc6ba8bed8a8859a",
-"d5/d51/BaseMatrixTests_8cpp.html#add3f02f0908bbb2f212b61f156b9481e",
-"d7/de4/FileParser_8h.html#a05aeb46aa7f312dd74467464305b1a5b",
-"da/d30/labs_2outlab4_2tests_2LUMatrixTests_8cpp.html#af2449afdc1f5af023ce615518d6e28a9",
-"dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html",
-"dd/df5/namespaceMyBLAS_1_1Stats.html#a512692b79052b1a09c77917c9fb1e99c",
-"dir_5e5857cec52617c6091befccc2124a1e.html"
+"d0/d33/MatrixExpressionTests_8cpp.html#ac0738af9731a88b7651340f474c33eaf",
+"d0/de8/process_8py.html#aa78c8a32fee04f1af259d3dbe78f6a4e",
+"d2/d6e/namespaceMyBLAS.html#ae26efd709dd5e4842f589dfb0260baa3",
+"d5/d51/BaseMatrixTests_8cpp.html#a0ea4db14f9fc762b24e5fc18e6f02d7b",
+"d7/db1/labs_2inlab4_2InputsOutputs_8h.html#a062a2db380b217ea19cd9576a7bb6cac",
+"da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e",
+"dc/d5d/RootFinder_8h.html",
+"dd/dfb/outlab6.html",
+"dir_b1f5062150ac5c8e2eb61a9bb053c0b0.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -6,12 +6,12 @@ var namespaceMyBLAS =
       [ "recursiveLUFactorize", "db/d2e/namespaceMyBLAS_1_1LU.html#a56aef4d1166cb1303cd968090fed78f8", null ]
     ] ],
     [ "LUP", "d5/db6/namespaceMyBLAS_1_1LUP.html", [
-      [ "applyLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#a2f715f34052a24e79c500e89995fe5d3", null ],
-      [ "dooLittleFactorizeLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#ab15d6938948c050657f9870aeec47097", null ],
-      [ "factorize", "d5/db6/namespaceMyBLAS_1_1LUP.html#acd45ca542740fdee1d46b6566f6d6f30", null ],
-      [ "factorize", "d5/db6/namespaceMyBLAS_1_1LUP.html#aadc5106a411767f67e83cd6b62cabbce", null ],
-      [ "factorizeLUwithPartialPivoting", "d5/db6/namespaceMyBLAS_1_1LUP.html#a9cf8ce4912ef5a8436e173e249b64286", null ],
-      [ "recursiveFactorizeLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#a3aae3c4e098a271220214ee7b0f9a695", null ]
+      [ "applyLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#acbc3001786a9bc09a661660f1ccd2e0d", null ],
+      [ "dooLittleFactorizeLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#a8944cf7f291594494e1140ff6b0b0fc6", null ],
+      [ "factorize", "d5/db6/namespaceMyBLAS_1_1LUP.html#a38b6c971c41b735e5acbd728ab652ac8", null ],
+      [ "factorize", "d5/db6/namespaceMyBLAS_1_1LUP.html#adb672b0ddbe668b9469123427767624d", null ],
+      [ "factorizeLUwithPartialPivoting", "d5/db6/namespaceMyBLAS_1_1LUP.html#aa19e5cc823ea14b1a77e48797363376d", null ],
+      [ "recursiveFactorizeLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#a48eb37045c402e55ca4e086164f2911e", null ]
     ] ],
     [ "Stats", "dd/df5/namespaceMyBLAS_1_1Stats.html", "dd/df5/namespaceMyBLAS_1_1Stats" ],
     [ "System", "d5/d7a/namespaceMyBLAS_1_1System.html", [
@@ -45,12 +45,12 @@ var namespaceMyBLAS =
     [ "doolittleFactorizeLU", "d2/d6e/namespaceMyBLAS.html#a278b70718fc6b42c7d239434849c2837", null ],
     [ "factorizeLU", "d2/d6e/namespaceMyBLAS.html#a4540b3f97122a1b21bdf0d84d79ca249", null ],
     [ "forwardSubstitution", "d2/d6e/namespaceMyBLAS.html#aa3501265c4bb7f37e8e949d37244473a", null ],
-    [ "haveEqualRank", "d2/d6e/namespaceMyBLAS.html#a35e2ae0e5c1e945b6bd5ef9e12081132", null ],
+    [ "haveEqualRank", "d2/d6e/namespaceMyBLAS.html#aa9866b1cc2044ed6a85756f487bfbf73", null ],
     [ "innerProduct", "d2/d6e/namespaceMyBLAS.html#a092394bd4dee1886f97451d5918c0dce", null ],
     [ "isBinaryMatrix", "d2/d6e/namespaceMyBLAS.html#afbdd307de10f4c17b700b5dde0fadc77", null ],
     [ "isDiagonallyDominant", "d2/d6e/namespaceMyBLAS.html#a4ae8cb61e3457065790607979b939564", null ],
     [ "isPermutationMatrix", "d2/d6e/namespaceMyBLAS.html#a670e376572710e06706a94b3e8c75d02", null ],
-    [ "isSquareMatrix", "d2/d6e/namespaceMyBLAS.html#acb722fb92340b5ec3354411f34a051f0", null ],
+    [ "isSquareMatrix", "d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f", null ],
     [ "isUnitLowerTriangularMatrix", "d2/d6e/namespaceMyBLAS.html#ae371a7b6812d897b1395ef461745cea1", null ],
     [ "isUpperTriangularMatrix", "d2/d6e/namespaceMyBLAS.html#ada02d6a37edcab7294168e9b005871a1", null ],
     [ "isValidUnitLowerTriangularMatrix", "d2/d6e/namespaceMyBLAS.html#a6f237b360d7d65a2b897fb259b9232c5", null ],
@@ -64,6 +64,7 @@ var namespaceMyBLAS =
     [ "noZerosInDiagonal", "d2/d6e/namespaceMyBLAS.html#a56e77d4aef50489830f5ce0ef7bcf7a4", null ],
     [ "operator*", "d2/d6e/namespaceMyBLAS.html#aa37c00740fffc48c82fa1c7262e5df2d", null ],
     [ "operator*", "d2/d6e/namespaceMyBLAS.html#a0e0611bf2ca130cc573d632f490f2375", null ],
+    [ "operator*", "d2/d6e/namespaceMyBLAS.html#aa463c2aa246dd6c210a257ff904d2c91", null ],
     [ "operator+", "d2/d6e/namespaceMyBLAS.html#afa5133a8105804dee3622106f567cb43", null ],
     [ "operator+", "d2/d6e/namespaceMyBLAS.html#a5f2abaf963898ac46cad587ddfbc0520", null ],
     [ "TEST_F", "d2/d6e/namespaceMyBLAS.html#a9d54d03dfdbd436bd5771cef8113b771", null ],

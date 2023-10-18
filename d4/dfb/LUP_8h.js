@@ -1,9 +1,9 @@
 var LUP_8h =
 [
-    [ "applyLUP", "d4/dfb/LUP_8h.html#a2f715f34052a24e79c500e89995fe5d3", null ],
-    [ "dooLittleFactorizeLUP", "d4/dfb/LUP_8h.html#ab15d6938948c050657f9870aeec47097", null ],
-    [ "factorize", "d4/dfb/LUP_8h.html#acd45ca542740fdee1d46b6566f6d6f30", null ],
-    [ "factorize", "d4/dfb/LUP_8h.html#aadc5106a411767f67e83cd6b62cabbce", null ],
-    [ "factorizeLUwithPartialPivoting", "d4/dfb/LUP_8h.html#a9cf8ce4912ef5a8436e173e249b64286", null ],
-    [ "recursiveFactorizeLUP", "d4/dfb/LUP_8h.html#a3aae3c4e098a271220214ee7b0f9a695", null ]
+    [ "applyLUP", "d4/dfb/LUP_8h.html#acbc3001786a9bc09a661660f1ccd2e0d", null ],
+    [ "dooLittleFactorizeLUP", "d4/dfb/LUP_8h.html#a8944cf7f291594494e1140ff6b0b0fc6", null ],
+    [ "factorize", "d4/dfb/LUP_8h.html#a38b6c971c41b735e5acbd728ab652ac8", null ],
+    [ "factorize", "d4/dfb/LUP_8h.html#adb672b0ddbe668b9469123427767624d", null ],
+    [ "factorizeLUwithPartialPivoting", "d4/dfb/LUP_8h.html#aa19e5cc823ea14b1a77e48797363376d", null ],
+    [ "recursiveFactorizeLUP", "d4/dfb/LUP_8h.html#a48eb37045c402e55ca4e086164f2911e", null ]
 ];

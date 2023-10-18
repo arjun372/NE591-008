@@ -4,6 +4,7 @@ var classMyBLAS_1_1Matrix =
     [ "~Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a072cdb4f27a0062538c88f0074c0849d", null ],
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a0f1eb4147d12f87d08e86e4796d28706", null ],
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a883b252d42659e1905ca190494b81ba1", null ],
+    [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a727514e013177ce3bb50d8cd2ad532eb", null ],
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a5029a33f8e290f79960bfd0e75227f64", null ],
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#aafc80b062755b01c46f5608067b8ae5a", null ],
     [ "eye", "d0/d27/classMyBLAS_1_1Matrix.html#af038a1ce616639b7e9f9e3955bb6bd02", null ],

@@ -24,6 +24,7 @@ var structInput =
     [ "diffusionConstants", "d4/dae/structInput.html#a194b130eccb8e3138065897bbc10472d", null ],
     [ "diffusionParams", "d4/dae/structInput.html#ae72d0516d4821b50180fbef207d2ff25", null ],
     [ "flip_integral", "d4/dae/structInput.html#aca224051cebbae1264f5bd6890643394", null ],
+    [ "fluxOutputDirectory", "d4/dae/structInput.html#a49929421b321f58db1fad202c39bc02d", null ],
     [ "fxData", "d4/dae/structInput.html#a224b2949fec707c29b33269fcc755398", null ],
     [ "gamma", "d4/dae/structInput.html#aa153d8e24a4b88d6e4e099e01814fdf4", null ],
     [ "input", "d4/dae/structInput.html#a790a496609f8fcffdec350869c66bd55", null ],

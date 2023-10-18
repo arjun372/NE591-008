@@ -42,9 +42,6 @@ var hierarchy =
     [ "MyBLAS::LazyMatrix< T >", "d0/d28/classMyBLAS_1_1LazyMatrix.html", [
       [ "MyPhysics::Diffusion::Matrix< T >", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html", null ]
     ] ],
-    [ "MyBLAS::LazyVector< T >", "d6/d07/classMyBLAS_1_1LazyVector.html", [
-      [ "MyPhysics::Diffusion::Vector< T >", "d8/d35/classMyPhysics_1_1Diffusion_1_1Vector.html", null ]
-    ] ],
     [ "Map", "da/ddc/structMap.html", null ],
     [ "MyBLAS::Matrix< FloatType >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MyBLAS::Matrix< long double >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
@@ -52,6 +49,7 @@ var hierarchy =
       [ "MyPhysics::Diffusion::Matrix< MyBLAS::Matrix< T > >", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html", null ]
     ] ],
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", null ],
+    [ "MatrixVectorExpression< DataType, MatrixType, VectorType >", "d4/d68/classMatrixVectorExpression.html", null ],
     [ "MyBLAS::AbstractMatrix< DataType >", "de/d6b/classMyBLAS_1_1AbstractMatrix.html", null ],
     [ "MyBLAS::Input", "d7/dd6/structMyBLAS_1_1Input.html", null ],
     [ "MyBLAS::LazyMatrix< DataType >", "d0/d28/classMyBLAS_1_1LazyMatrix.html", null ],
@@ -136,8 +134,7 @@ var hierarchy =
       [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ],
       [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ],
       [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ],
-      [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ],
-      [ "SourceVectorValidTest", "df/d4f/classSourceVectorValidTest.html", null ]
+      [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ]
     ] ],
     [ "ToneMap< T >", "db/df1/Helpers_8h.html#d1/db0/structToneMap", null ],
     [ "MyBLAS::Vector< long double >", "d4/d4d/classMyBLAS_1_1Vector.html", null ]
