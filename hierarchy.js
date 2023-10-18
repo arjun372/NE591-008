@@ -45,9 +45,10 @@ var hierarchy =
     [ "Map", "da/ddc/structMap.html", null ],
     [ "MyBLAS::Matrix< FloatType >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MyBLAS::Matrix< long double >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
+    [ "MyBLAS::Matrix< MyBLAS::NumericType >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MyBLAS::Matrix< T >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", null ],
-    [ "MatrixVectorExpression< DataType, MatrixType, VectorType >", "d4/d68/classMatrixVectorExpression.html", null ],
+    [ "MatrixVectorExpression< MatrixType, VectorType, T >", "d4/d68/classMatrixVectorExpression.html", null ],
     [ "MyBLAS::AbstractMatrix< DataType >", "de/d6b/classMyBLAS_1_1AbstractMatrix.html", null ],
     [ "MyBLAS::Input", "d7/dd6/structMyBLAS_1_1Input.html", null ],
     [ "MyBLAS::LazyMatrix< DataType >", "d0/d28/classMyBLAS_1_1LazyMatrix.html", null ],
@@ -68,8 +69,9 @@ var hierarchy =
     [ "Output", "df/df1/structOutput.html", null ],
     [ "Outputs", "db/d86/structOutputs.html", null ],
     [ "MyLinearSolvingMethod::Parameters< long double >", "de/d18/namespaceMyLinearSolvingMethod.html#de/d18/namespaceMyLinearSolvingMethod", null ],
+    [ "MyLinearSolvingMethod::Parameters< MyBLAS::NumericType >", "de/d18/namespaceMyLinearSolvingMethod.html#de/d18/namespaceMyLinearSolvingMethod", null ],
     [ "MyPhysics::Diffusion::Params< FLOAT_TYPE >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
-    [ "MyPhysics::Diffusion::Params< long double >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
+    [ "MyPhysics::Diffusion::Params< MyBLAS::NumericType >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "MyPhysics::Diffusion::Params< T >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "Profiler< FunctionType >", "dd/d0e/classProfiler.html", null ],
     [ "Project< InputType, CommandLineParserType, OutputType >", "db/d91/classProject.html", null ],
@@ -107,16 +109,18 @@ var hierarchy =
       [ "InLab1", "dd/d40/classInLab1.html", null ]
     ] ],
     [ "MyLinearSolvingMethod::Solution< long double >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
+    [ "MyLinearSolvingMethod::Solution< MyBLAS::NumericType >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
     [ "Stopwatch< D >", "de/def/classStopwatch.html", null ],
     [ "Stopwatch< Nanoseconds >", "de/def/classStopwatch.html", null ],
     [ "MyBLAS::Stats::Summary< long double >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
+    [ "MyBLAS::Stats::Summary< MyBLAS::NumericType >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
     [ "testing::Test", null, [
       [ "DiffusionMatrixTests< T >", "dc/dff/classDiffusionMatrixTests.html", null ],
       [ "DiffusionParamsTest", "d5/d15/classDiffusionParamsTest.html", null ],
       [ "MatrixVectorTests< T >", "d3/dab/classMatrixVectorTests.html", null ],
       [ "MyBLAS::BaseMatrixTests< T >", "d5/d8a/classMyBLAS_1_1BaseMatrixTests.html", null ],
-      [ "MyBLAS::LazyMatrixTests", "d6/d09/classMyBLAS_1_1LazyMatrixTests.html", null ],
+      [ "MyBLAS::LazyMatrixTests< T >", "d6/d09/classMyBLAS_1_1LazyMatrixTests.html", null ],
       [ "MyBLAS::LazyVectorTests", "dd/d30/classMyBLAS_1_1LazyVectorTests.html", null ],
       [ "MyBLAS::MatrixExpressionTests", "de/d99/classMyBLAS_1_1MatrixExpressionTests.html", null ],
       [ "MyBLAS::PerformanceMatrixTests< T >", "db/d15/classMyBLAS_1_1PerformanceMatrixTests.html", null ],
@@ -138,5 +142,6 @@ var hierarchy =
       [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", null ]
     ] ],
     [ "ToneMap< T >", "db/df1/Helpers_8h.html#d1/db0/structToneMap", null ],
-    [ "MyBLAS::Vector< long double >", "d4/d4d/classMyBLAS_1_1Vector.html", null ]
+    [ "MyBLAS::Vector< long double >", "d4/d4d/classMyBLAS_1_1Vector.html", null ],
+    [ "MyBLAS::Vector< MyBLAS::NumericType >", "d4/d4d/classMyBLAS_1_1Vector.html", null ]
 ];

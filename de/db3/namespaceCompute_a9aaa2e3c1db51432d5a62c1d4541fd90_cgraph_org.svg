@@ -94,18 +94,18 @@
 <path fill="none" stroke="midnightblue" d="M79.35,-107.42C97.72,-99.61 124.46,-88.37 148,-79 153.12,-76.96 158.48,-74.87 163.84,-72.8"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="165.34,-75.97 173.43,-69.12 162.84,-69.43 165.34,-75.97"/>
 </g>
-<!-- Node17 -->
-<g id="node17" class="node">
-<title>Node17</title>
-<g id="a_node17"><a xlink:href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb" target="_top" xlink:title="Restart the stopwatch by setting the initial and clicked time points to the current time.">
+<!-- Node18 -->
+<g id="node18" class="node">
+<title>Node18</title>
+<g id="a_node18"><a xlink:href="../../de/def/classStopwatch.html#a2cc3c2b39972ca34f3ff9622471b1bbb" target="_top" xlink:title="Restart the stopwatch by setting the initial and clicked time points to the current time.">
 <polygon fill="white" stroke="black" points="162,-0.5 162,-19.5 268,-19.5 268,-0.5 162,-0.5"/>
 <text text-anchor="middle" x="215" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Stopwatch::restart</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node17 -->
-<g id="edge18" class="edge">
-<title>Node1&#45;&gt;Node17</title>
+<!-- Node1&#45;&gt;Node18 -->
+<g id="edge19" class="edge">
+<title>Node1&#45;&gt;Node18</title>
 <path fill="none" stroke="midnightblue" d="M64.15,-107.49C78.21,-89.47 111.28,-50.24 148,-29 151.72,-26.85 155.69,-24.93 159.78,-23.22"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="161.33,-26.37 169.46,-19.58 158.87,-19.82 161.33,-26.37"/>
 </g>
@@ -245,31 +245,46 @@
 <g id="node15" class="node">
 <title>Node15</title>
 <g id="a_node15"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#aa9866b1cc2044ed6a85756f487bfbf73" target="_top" xlink:title="Checks if two matrices have the same rank.">
-<polygon fill="white" stroke="black" points="345,-63.5 345,-82.5 484,-82.5 484,-63.5 345,-63.5"/>
-<text text-anchor="middle" x="414.5" y="-70.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::haveEqualRank</text>
+<polygon fill="white" stroke="black" points="345,-82.5 345,-101.5 484,-101.5 484,-82.5 345,-82.5"/>
+<text text-anchor="middle" x="414.5" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::haveEqualRank</text>
 </a>
 </g>
 </g>
 <!-- Node14&#45;&gt;Node15 -->
 <g id="edge16" class="edge">
 <title>Node14&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M280.67,-60.22C297.96,-61.88 316.84,-63.7 334.79,-65.43"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="334.66,-68.93 344.95,-66.41 335.33,-61.96 334.66,-68.93"/>
+<path fill="none" stroke="midnightblue" d="M280.67,-66.44C304.29,-70.99 330.87,-76.1 354.01,-80.55"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="353.56,-84.03 364.04,-82.48 354.88,-77.16 353.56,-84.03"/>
 </g>
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
-<g id="a_node16"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f" target="_top" xlink:title="Checks if the given matrix is a square matrix.">
-<polygon fill="white" stroke="black" points="346,-25.5 346,-44.5 483,-44.5 483,-25.5 346,-25.5"/>
-<text text-anchor="middle" x="414.5" y="-32.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isSquareMatrix</text>
+<g id="a_node16"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a1f0325293f4b4969ac4a450ba3db1f87" target="_top" xlink:title="Checks if the given matrix is empty.">
+<polygon fill="white" stroke="black" points="347.5,-44.5 347.5,-63.5 481.5,-63.5 481.5,-44.5 347.5,-44.5"/>
+<text text-anchor="middle" x="414.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isEmptyMatrix</text>
 </a>
 </g>
 </g>
 <!-- Node14&#45;&gt;Node16 -->
 <g id="edge17" class="edge">
 <title>Node14&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M280.67,-47.78C298.32,-46.08 317.64,-44.22 335.93,-42.46"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="336.35,-45.94 345.97,-41.5 335.68,-38.97 336.35,-45.94"/>
+<path fill="none" stroke="midnightblue" d="M280.67,-54C298.7,-54 318.47,-54 337.11,-54"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="337.33,-57.5 347.33,-54 337.33,-50.5 337.33,-57.5"/>
+</g>
+<!-- Node17 -->
+<g id="node17" class="node">
+<title>Node17</title>
+<g id="a_node17"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f" target="_top" xlink:title="Checks if the given matrix is a square matrix.">
+<polygon fill="white" stroke="black" points="346,-6.5 346,-25.5 483,-25.5 483,-6.5 346,-6.5"/>
+<text text-anchor="middle" x="414.5" y="-13.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isSquareMatrix</text>
+</a>
+</g>
+</g>
+<!-- Node14&#45;&gt;Node17 -->
+<g id="edge18" class="edge">
+<title>Node14&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M280.67,-41.56C304.29,-37.01 330.87,-31.9 354.01,-27.45"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="354.88,-30.84 364.04,-25.52 353.56,-23.97 354.88,-30.84"/>
 </g>
 </g>
 </svg>

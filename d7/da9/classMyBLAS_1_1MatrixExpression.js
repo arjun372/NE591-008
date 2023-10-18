@@ -1,7 +1,7 @@
 var classMyBLAS_1_1MatrixExpression =
 [
     [ "MatrixExpression", "d7/da9/classMyBLAS_1_1MatrixExpression.html#a17ba7bf40af358c7a5270ea67664b562", null ],
-    [ "cols", "d7/da9/classMyBLAS_1_1MatrixExpression.html#af4486f609a101d520ac1e26853eabb53", null ],
+    [ "getCols", "d7/da9/classMyBLAS_1_1MatrixExpression.html#a99bef7d3d03f49830f775185a95854a7", null ],
     [ "operator()", "d7/da9/classMyBLAS_1_1MatrixExpression.html#ad1329b68501b36a3cdf7f71db2bdac83", null ],
     [ "rows", "d7/da9/classMyBLAS_1_1MatrixExpression.html#af7e68af72a356a72d878474f7a110187", null ],
     [ "binary_op_", "d7/da9/classMyBLAS_1_1MatrixExpression.html#acecb1757265a0999c4cbc03eb5764628", null ],
