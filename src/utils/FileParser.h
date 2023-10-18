@@ -34,14 +34,39 @@ static bool isFileWritable(const std::string &filepath) {
     std::error_code ec; // For using the non-throwing overloads of functions below.
     if (exists(path, ec)) {
         if (std::filesystem::is_directory(path, ec)) {
-            std::cerr << "Error: Provided path is a directory. " << std::endl;
+            std::cerr << "Provided path is a directory: " << filepath << std::endl;
             return false;
         }
-        std::cerr << "Warning: File already exists at path, will be overwritten " << std::endl;
+        std::cerr << "Warning: File already exists at path "<<filepath<<", will be overwritten " << std::endl;
         return true;
     }
     return true;
 }
+
+/**
+ * @brief Checks if a directory exists. If it doesn't exist, it is created.
+ * @param filepath The path to the directory.
+ * @return True if the directory is writable, false otherwise.
+ */
+static bool isDirectoryWritable(const std::string &directoryPath) {
+    const std::filesystem::path path(directoryPath);
+    std::error_code ec; // For using the non-throwing overloads of functions below.
+    if (exists(path, ec)) {
+        if (!std::filesystem::is_directory(path, ec)) {
+            std::cerr << "Error: Provided path is a not directory: " << directoryPath << std::endl;
+            return false;
+        }
+        return true;
+    } else {
+        // Create the directory and all necessary parent directories, similar to "mkdir -p"
+        if (!std::filesystem::create_directories(path, ec)) {
+            std::cerr << "Error: Unable to create directory: " << directoryPath<<std::endl;
+            return false;
+        }
+    }
+    return true;
+}
+
 
 /**
  * @brief Checks if a file exists and is not a directory.
@@ -247,6 +272,7 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
     csvFile.close();
 }
 
+// TODO:: DOCUMENT
 template <typename T> static void writeCSVMatrixNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &data) {
 
     if (!isFileWritable(filepath)) {
@@ -271,6 +297,13 @@ template <typename T> static void writeCSVMatrixNoHeaders(const std::string &fil
 
     // Close the CSV file
     csvFile.close();
+}
+
+template <typename T> static void writeCSVMatrixNoHeaders(const std::string &directory, const std::string &file, MyBLAS::Matrix<T> &data) {
+    if (!isDirectoryWritable(directory)) {
+        return;
+    }
+    writeCSVMatrixNoHeaders(directory+"/"+file, data);
 }
 
 /**

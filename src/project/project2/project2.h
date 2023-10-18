@@ -192,7 +192,16 @@ class Project2 : public Project<SolverInputs, Parser, SolverOutputs> {
         }
 
         Parser::printLine();
-//        writeJSON(values["output-json"].as<std::string>(), results);
+
+        // write output data
+        if (values.count("output-results-json")) {
+            outputs.toJSON(results["outputs"]);
+            writeJSON(values["output-results-json"].as<std::string>(), results);
+        }
+
+        if (values.count("output-flux-csv")) {
+            writeCSVMatrixNoHeaders(values["output-flux-csv"].as<std::string>(), outputs.fluxes);
+        }
 
 //        const bool quietMode = values.count("quiet");
 //

@@ -177,7 +177,7 @@ class Parser : public CommandLine<SolverInputs> {
         // If the path is invalid, a new path will be accepted interactively
         else if (map["output-flux-csv"].empty() || !isFileWritable(map["output-flux-csv"].as<std::string>())) {
             while (!map.count("output-flux-csv") || map["output-flux-csv"].empty() ||
-                   !isFileWritable(map["ooutput-flux-csv"].as<std::string>())) {
+                   !isFileWritable(map["output-flux-csv"].as<std::string>())) {
                 std::cerr << "Error: No output CSV filepath provided.\n" << std::endl;
                 std::cout << "Enter calculated flux matrix file path (file extension is .csv): ";
                 std::cin >> input;

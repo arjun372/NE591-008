@@ -3,7 +3,6 @@ set(TEST_SOURCES
         DiffusionParamsTests.cpp
         DiffusionConstantsTests.cpp
         DiffusionMatrixTests.cpp
-        SourceVectorTests.h.cpp
 )
 
 if (NOT TARGET physics_diffusion_tests)

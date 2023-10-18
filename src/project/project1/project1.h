@@ -146,17 +146,6 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
             std::cout << intermediates.right_hand_side_vector_B;
         }
 
-        // Step 2.1 Perform LU factorization with pivoting
-        auto profiler2p1 = getProfiler([&]() {
-            naive_solve_linear_system(intermediates);
-        }, 1000000, 0, "profiler 2.1"); // Run the block 100 times
-
-        clocks[1].restart();
-        profiler2p1.run();
-        clocks[1].click();
-        std::cout<<profiler2p1;
-        exit(0);
-
         durations[1] = static_cast<long double>(clocks[1].duration().count());
         profiler["exclusive"]["lup_factorize"] = durations[1];
         profiler["cumulative"]["lup_factorize"] = durations[1] + durations[0];

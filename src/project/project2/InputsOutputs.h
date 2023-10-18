@@ -35,6 +35,8 @@ typedef struct Input {
     MyPhysics::Diffusion::Matrix<long double> diffusionCoefficients;
     MyBLAS::Vector<long double> diffusionConstants;
 
+    std::string fluxOutputDirectory;
+
     /**
      * @brief Converts the input parameters to a JSON object.
      * @param jsonMap A reference to the JSON object to store the input parameters.

@@ -90,14 +90,10 @@ template <typename T> struct Parameters {
     MyBLAS::Matrix<T> P;
 };
 
-/**
- * @brief Function to check if the input matrices pass the pre-checks for the factorization methods.
- * @tparam T The data type of the matrix elements.
- * @param A The coefficient matrix.
- * @param b The constant matrix.
- * @return True if the matrices pass the pre-checks, false otherwise.
- */
-template <typename T> bool passesPreChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
+
+// TODO:: DOCUMENT
+template <typename MatrixType, typename VectorType>
+bool passesPreChecks(const MatrixType &A, const VectorType &b) {
 
     bool passes = true;
 

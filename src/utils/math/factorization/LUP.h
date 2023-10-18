@@ -57,15 +57,15 @@ namespace MyBLAS::LUP {
  * @param A The input matrix to be factorized.
  * @return The permutation matrix.
  */
-template <typename T>
-MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+template <template<typename> class MatrixType, typename T>
+MatrixType<T> dooLittleFactorizeLUP(MatrixType<T> &L, MatrixType<T> &U, const MatrixType<T> &A) {
 
-    MyBLAS::Matrix pivotedA = A;
+    MatrixType pivotedA = A;
 
     const size_t n = pivotedA.getCols();
 
     // Initialize the permutation matrix P to the identity matrix
-    MyBLAS::Matrix P = MyBLAS::Matrix<T>::eye(n);
+    MatrixType P = MatrixType<T>::eye(n);
 
     // Perform LU factorization with partial pivoting
     for (size_t i = 0; i < n; i++) {
@@ -105,11 +105,11 @@ MyBLAS::Matrix<T> dooLittleFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> 
  * @param A The input matrix to be factorized.
  * @return The permutation matrix.
  */
-template <typename T>
-MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+template <template<typename> class MatrixType, typename T>
+MatrixType<T> recursiveFactorizeLUP(MatrixType<T> &L, MatrixType<T> &U, const MatrixType<T> &A) {
     const size_t n = A.getCols();
 
-    MyBLAS::Matrix<T> P = MyBLAS::Matrix<T>::eye(n);
+    MatrixType<T> P = MatrixType<T>::eye(n);
 
     if (n == 1) {
         U[0][0] = A[0][0];
@@ -127,14 +127,14 @@ MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> 
         }
 
         // Swap the first row of A with the row containing the maximum element
-        MyBLAS::Matrix<T> A_swapped = A;
+        MatrixType<T> A_swapped = A;
         A_swapped.swapRows(0, maxIndex);
 
         // Divide A into four submatrices
-        MyBLAS::Matrix<T> A11 = A_swapped.subMatrix(0, 0, 1, 1);
-        MyBLAS::Matrix<T> A12 = A_swapped.subMatrix(0, 1, 1, n - 1);
-        MyBLAS::Matrix<T> A21 = A_swapped.subMatrix(1, 0, n - 1, 1);
-        MyBLAS::Matrix<T> A22 = A_swapped.subMatrix(1, 1, n - 1, n - 1);
+        MatrixType<T> A11 = A_swapped.subMatrix(0, 0, 1, 1);
+        MatrixType<T> A12 = A_swapped.subMatrix(0, 1, 1, n - 1);
+        MatrixType<T> A21 = A_swapped.subMatrix(1, 0, n - 1, 1);
+        MatrixType<T> A22 = A_swapped.subMatrix(1, 1, n - 1, n - 1);
 
         // Compute the LU factorization of A11
         U[0][0] = A11[0][0];
@@ -148,19 +148,19 @@ MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> 
         A22 = A22 - (A21 * A12);
 
         // Recursively apply the same procedure to the updated A22
-        MyBLAS::Matrix<T> L22(n - 1, n - 1);
-        MyBLAS::Matrix<T> U22(n - 1, n - 1);
+        MatrixType<T> L22(n - 1, n - 1);
+        MatrixType<T> U22(n - 1, n - 1);
         P.setSubMatrix(1, 1, recursiveFactorizeLUP(L22, U22, A22));
 
         // Combine the results
-        L.setSubMatrix(0, 0, MyBLAS::Matrix<T>(1, 1, L[0][0]));
-        L.setSubMatrix(0, 1, MyBLAS::Matrix<T>(1, n - 1));
+        L.setSubMatrix(0, 0, MatrixType<T>(1, 1, L[0][0]));
+        L.setSubMatrix(0, 1, MatrixType<T>(1, n - 1));
         L.setSubMatrix(1, 0, A21);
         L.setSubMatrix(1, 1, L22);
 
-        U.setSubMatrix(0, 0, MyBLAS::Matrix<T>(1, 1, U[0][0]));
+        U.setSubMatrix(0, 0, MatrixType<T>(1, 1, U[0][0]));
         U.setSubMatrix(0, 1, A12);
-        U.setSubMatrix(1, 0, MyBLAS::Matrix<T>(n - 1, 1));
+        U.setSubMatrix(1, 0, MatrixType<T>(n - 1, 1));
         U.setSubMatrix(1, 1, U22);
     }
 
@@ -181,15 +181,15 @@ MyBLAS::Matrix<T> recursiveFactorizeLUP(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> 
  * @param A The input matrix to be factorized.
  * @return The permutation matrix.
  */
-template <typename T>
-MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U,
-                                                 const MyBLAS::Matrix<T> &A) {
+template <template<typename> class MatrixType, typename T>
+MatrixType<T> factorizeLUwithPartialPivoting(MatrixType<T> &L, MatrixType<T> &U,
+                                                 const MatrixType<T> &A) {
     const auto n = A.getRows();
 
     // Initialize L, U, and P
-    L = MyBLAS::Matrix<T>(n, n, 0);
+    L = MatrixType<T>(n, n, 0);
     U = A;
-    auto P = MyBLAS::Matrix<T>::eye(n);
+    auto P = MatrixType<T>::eye(n);
 
     for (size_t k = 0; k < n; k++) {
         // Find the pivot element
@@ -236,8 +236,8 @@ MyBLAS::Matrix<T> factorizeLUwithPartialPivoting(MyBLAS::Matrix<T> &L, MyBLAS::M
  * @note The function does not check if the input matrix A is square. It is the responsibility of the caller to
  * ensure this.
  */
-template <typename T>
-MyBLAS::Matrix<T> factorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const MyBLAS::Matrix<T> &A) {
+template <template<typename> class MatrixType, typename T>
+MatrixType<T> factorize(MatrixType<T> &L, MatrixType<T> &U, const MatrixType<T> &A) {
     return dooLittleFactorizeLUP(L, U, A);
 }
 
@@ -252,7 +252,8 @@ MyBLAS::Matrix<T> factorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const My
  * @note The function does not check if the input matrix A is square. It is the responsibility of the caller to
  * ensure this.
  */
-template <typename T> MyFactorizationMethod::Parameters<T> factorize(const MyBLAS::Matrix<T> &A) {
+template <template<typename> class MatrixType, typename T>
+MyFactorizationMethod::Parameters<T> factorize(const MatrixType<T> &A) {
     MyFactorizationMethod::Parameters<T> parameters(A.getRows());
     parameters.P = dooLittleFactorizeLUP(parameters.L, parameters.U, A);
     return parameters;
@@ -272,8 +273,8 @@ template <typename T> MyFactorizationMethod::Parameters<T> factorize(const MyBLA
  * @note The function does not check if the input matrix A is square or if the dimensions of A and b are compatible.
  * It is the responsibility of the caller to ensure this.
  */
-template <typename T>
-MyLinearSolvingMethod::Solution<T> applyLUP(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b,
+template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
+MyLinearSolvingMethod::Solution<T> applyLUP(const MatrixType<T> &A, const VectorType<T> &b,
                                             const T tolerance = 0) {
 
     const size_t n = A.getRows(); // Get the number of rows in the matrix A

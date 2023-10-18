@@ -24,8 +24,7 @@ namespace MyBLAS {
  * @param M The input matrix to be checked.
  * @return true if the input matrix is a square matrix, false otherwise.
  */
-template <template<typename> class U, typename T> inline bool isSquareMatrix(const U<T> &M) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
+template <typename MatrixType> inline bool isSquareMatrix(const MatrixType &M) {
     return M.getCols() == M.getRows();
 }
 
@@ -278,10 +277,8 @@ template <template<typename> class U, typename T> bool isDiagonallyDominant(cons
  * @param b The input vector to be checked.
  * @return true if the matrix and vector have the same rank, false otherwise.
  */
-template <template<typename> class M, template<typename> class V, typename T>
-bool haveEqualRank(const M<T> &A, const V<T> &b) {
-    static_assert(std::is_same<M<T>, MyBLAS::Matrix<T>>::value, "MatrixType must be a MyBLAS::Matrix");
-    static_assert(std::is_same<V<T>, MyBLAS::Vector<T>>::value, "VectorType must be a MyBLAS::Vector");
+template <typename MatrixType, typename VectorType>
+bool haveEqualRank(const MatrixType &A, const VectorType &b) {
     return A.getRows() == b.size();
 }
 

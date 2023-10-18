@@ -11,6 +11,7 @@
 #include <cmath>
 #include <iostream>
 
+#include "FileParser.h"
 #include "math/blas/matrix/Matrix.h"
 #include "math/factorization/LU.h"
 #include "math/factorization/LUP.h"
@@ -22,6 +23,51 @@
  */
 namespace Compute {
 
+// TODO:: DOCUMENT
+template <typename T>
+MyBLAS::Vector<T> &naive_fill_diffusion_vector(SolverInputs &inputs) {
+    const size_t m = inputs.diffusionParams.getM();
+    const size_t n = inputs.diffusionParams.getN();
+
+    inputs.diffusionConstants = MyBLAS::Vector<T>(std::vector<T>(m * n, 0));
+
+    // Loop through all the nodes i = 1, ..., m and j = 1, ..., n
+    for (size_t i = 1; i <= m; ++i) {
+        for (size_t j = 1; j <= n; ++j) {
+
+            // Calculate the index of the current node in the vector B
+            const size_t idx = (i - 1) * n + (j - 1);
+
+            // Fill the right-hand-side vector B using the fixed source q(i, j)
+            inputs.diffusionConstants[idx] = inputs.sources[i - 1][j - 1];
+        }
+    }
+    return inputs.diffusionConstants;
+}
+
+/**
+ * @brief Fills the fluxes.
+ *
+ * This function fills the fluxes based on the given phi vector.
+ * The fluxes are stored in a matrix with m+2 rows and n+2 columns.
+ *
+ * @param inputs The inputs for the solver.
+ * @param outputs The outputs of the solver including the fluxes.
+ */
+template <typename MatrixType>
+static MatrixType &fill_fluxes(SolverOutputs &outputs) {
+    const size_t m = outputs.inputs.diffusionParams.getM();
+    const size_t n = outputs.inputs.diffusionParams.getN();
+    outputs.fluxes = MyBLAS::Matrix<long double>(m + 2, n + 2, 0);
+    for (size_t i = 1; i <= m; i++) {
+        for (size_t j = 1; j <= n; j++) {
+            const size_t idx = (i - 1) * n + (j - 1);
+            outputs.fluxes[i][j] = outputs.solution.x[idx];
+        }
+    }
+    return outputs.fluxes;
+}
+
 /**
  * @brief Solves a linear system using LUP decomposition.
  * @param outputs The output data structure to store the solution and execution time.
@@ -29,13 +75,15 @@ namespace Compute {
  */
 void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
 
-    // auto A = inputs.solverParams.
-    // MyBLAS::Vector<long double> &b = inputs.input.constants;
+    inputs.diffusionCoefficients = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
+    MyBLAS::Vector b = naive_fill_diffusion_vector<long double>(inputs);
 
-//    if (!MyFactorizationMethod::passesPreChecks(A, b)) {
-//        std::cerr << "Aborting LUP calculation\n";
-//        return;
-//    }
+    auto inMemoryA = MyBLAS::Matrix<long double>(inputs.diffusionCoefficients);
+
+    if (!MyFactorizationMethod::passesPreChecks(inputs.diffusionCoefficients, b)) {
+        std::cerr << "Aborting LUP calculation\n";
+        return;
+    }
 
     {
         const size_t maxRuns = 10;
@@ -44,11 +92,21 @@ void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-                //outputs.solution = MyBLAS::LUP::applyLUP(A, b);
+                outputs.solution = MyBLAS::LUP::applyLUP(inMemoryA, b);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
         }
+        // post-process
+        {
+            outputs.fluxes = fill_fluxes<MyBLAS::Matrix<long double>>(outputs);
+            auto b_prime = inputs.diffusionCoefficients * outputs.solution.x;
+            outputs.residual = b - b_prime;
+            if (!inputs.fluxOutputDirectory.empty()) {
+                writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "LUP.csv", outputs.fluxes);
+            }
+        }
+
         auto stats = computeMeanStd(runTimes);
         outputs.mean_execution_time = boost::accumulators::mean(stats);
         outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));

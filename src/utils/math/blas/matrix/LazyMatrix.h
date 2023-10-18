@@ -13,7 +13,9 @@
 #include <cstddef>
 #include <functional>
 
+#include "Matrix.h"
 #include "MatrixExpression.h"
+#include "math/blas/vector/MatrixVectorExpression.h"
 
 namespace MyBLAS {
 
@@ -41,6 +43,9 @@ class LazyMatrix {
     [[nodiscard]] size_t rows() const { return rows_; }
     [[nodiscard]] size_t cols() const { return cols_; }
 
+    [[nodiscard]] virtual size_t getRows() const { return rows(); }
+    [[nodiscard]] virtual size_t getCols() const { return cols(); }
+
     virtual DataType operator()(size_t row, size_t col) const {
         return generator_(row, col);
     }
@@ -62,32 +67,76 @@ class LazyMatrix {
         return *this;
     }
 
+//    template <typename T>
+//    struct is_matrix : std::false_type {};
+//
+//    template <typename DataType>
+//    struct is_matrix<LazyMatrix<DataType>> : std::true_type {};
+//
+//    template <typename T>
+//    struct is_vector : std::false_type {};
+//
+//    template <typename DataType>
+//    struct is_vector<VectorType<DataType>> : std::true_type {};
+
+
     // Define the addition operation.
-    friend LazyMatrix operator+(LazyMatrix const& a, LazyMatrix const& b) {
+    template <typename MatrixType1, typename MatrixType2>
+    static LazyMatrix addMatrices(const MatrixType1& a, const MatrixType2& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x + y; };
-        MatrixExpression<DataType, LazyMatrix, LazyMatrix, decltype(binary_op)> expr(a, b, binary_op);
+        MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
         return LazyMatrix(a.rows(), a.cols(), [expr](size_t i, size_t j) { return expr(i, j); });
+    }
+
+    template <typename MatrixType>
+    friend LazyMatrix operator+(LazyMatrix const& a, MatrixType const& b) {
+        return addMatrices(a, b);
+    }
+
+    template <typename MatrixType>
+    friend LazyMatrix operator+(MatrixType const& a, LazyMatrix const& b) {
+        return addMatrices(a, b);
     }
 
     // Define the subtraction operation.
-    friend LazyMatrix operator-(LazyMatrix const& a, LazyMatrix const& b) {
+    template <typename MatrixType1, typename MatrixType2>
+    static LazyMatrix subtractMatrices(const MatrixType1& a, const MatrixType2& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x - y; };
-        MatrixExpression<DataType, LazyMatrix, LazyMatrix, decltype(binary_op)> expr(a, b, binary_op);
+        MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
         return LazyMatrix(a.rows(), a.cols(), [expr](size_t i, size_t j) { return expr(i, j); });
     }
 
-    // Define the multiplication operation.
-    friend LazyMatrix operator*(LazyMatrix const& a, LazyMatrix const& b) {
+    template <typename MatrixType>
+    friend LazyMatrix operator-(LazyMatrix const& a, MatrixType const& b) {
+        return subtractMatrices(a, b);
+    }
+
+    template <typename MatrixType>
+    friend LazyMatrix operator-(MatrixType const& a, LazyMatrix const& b) {
+        return subtractMatrices(a, b);
+    }
+
+    template <typename MatrixType1, typename MatrixType2>
+    static LazyMatrix multiplyMatrices(const MatrixType1& a, const MatrixType2& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x * y; };
-        MatrixExpression<DataType, LazyMatrix, LazyMatrix, decltype(binary_op)> expr(a, b, binary_op);
+        MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
         return LazyMatrix(a.rows(), a.cols(), [expr](size_t i, size_t j) { return expr(i, j); });
     }
 
-    // Define the division operation.
-    friend LazyMatrix operator/(LazyMatrix const& a, LazyMatrix const& b) {
-        auto binary_op = [](DataType const& x, DataType const& y) { return x / y; };
-        MatrixExpression<DataType, LazyMatrix, LazyMatrix, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyMatrix(a.rows(), a.cols(), [expr](size_t i, size_t j) { return expr(i, j); });
+
+    template <typename MatrixType>
+    friend LazyMatrix operator*(LazyMatrix const& a, MatrixType const& b) {
+        return multiplyMatrices(a, b);
+    }
+
+    template <typename MatrixType>
+    friend LazyMatrix operator*(MatrixType const& a, LazyMatrix const& b) {
+        return multiplyMatrices(a, b);
+    }
+
+    // matrix-vector multiplication for MyBLAS::Vector<DataType>
+    friend MyBLAS::Vector<DataType> operator*(LazyMatrix const& a, MyBLAS::Vector<DataType> const& b) {
+        return MatrixVectorExpression<DataType, LazyMatrix, MyBLAS::Vector<DataType>>::multiplyMatrixVector(a, b);
     }
 
     // Define the scalar addition operation.
@@ -243,6 +292,10 @@ class LazyMatrix {
     void setCols(size_t cols) { cols_ = cols; }
     void setGenerator(const Generator &generator) { generator_ = generator; }
 };
+
+// vector-matrix multiplication is not implemented for MyBLAS::Vector<DataType>
+template <typename DataType>
+MyBLAS::Vector<DataType> operator*(MyBLAS::Vector<DataType> const& a, LazyMatrix<DataType> const& b) = delete;
 }
 
 #endif // NE591_008_LAZYMATRIX_H

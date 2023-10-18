@@ -42,7 +42,7 @@ class Parser : public CommandLine<SolverInputs> {
             "input-parameter-json,i", boost::program_options::value<std::string>(), "= Path to input parameter JSON")(
             "source-terms-csv,s", boost::program_options::value<std::string>(), "= Path to source-terms 𝑞(𝑖,𝑗) CSV")(
             "output-results-json,o", boost::program_options::value<std::string>(), "= Path to output results JSON")(
-            "output-flux-csv,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗) CSV");
+            "flux-output-dir,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗) CSV");
 
         boost::program_options::options_description methods("Solver Options");
         methods.add_options()
@@ -183,20 +183,20 @@ class Parser : public CommandLine<SolverInputs> {
 
         // FILE OPTIONAL
         // if a filepath for output json is not provided, outputs will be written to the terminal only.
-        if (!map.count("output-flux-csv") && !quietMode) {
-            std::cout << "WARNING: Compute flux matrix CSV filepath not provided. Writing results to console only.\n";
+        if (!map.count("flux-output-dir") && !quietMode) {
+            std::cout << "WARNING: Flux matrix CSV folder path not provided. Writing results to console only.\n";
         }
         // else:
         // if filepath for output json is provided, it will be validated.
         // If the path is invalid, a new path will be accepted interactively
-        else if (map["output-flux-csv"].empty() || !isFileWritable(map["output-flux-csv"].as<std::string>())) {
-            while (!map.count("output-flux-csv") || map["output-flux-csv"].empty() ||
-                   !isFileWritable(map["ooutput-flux-csv"].as<std::string>())) {
-                std::cerr << "Error: No output CSV filepath provided.\n" << std::endl;
-                std::cout << "Enter calculated flux matrix file path (file extension is .csv): ";
+        else if (map["flux-output-dir"].empty() || !isFileWritable(map["flux-output-dir"].as<std::string>())) {
+            while (!map.count("flux-output-dir") || map["flux-output-dir"].empty() ||
+                   !isDirectoryWritable(map["flux-output-dir"].as<std::string>())) {
+                std::cerr << "Error: No output folder provided.\n" << std::endl;
+                std::cout << "Enter a folder name to store the computed fluxes: ";
                 std::cin >> input;
                 try {
-                    replace(map, "output-flux-csv", input);
+                    replace(map, "flux-output-dir", input);
                 } catch (const std::exception &) {
                     continue;
                 }
@@ -307,6 +307,8 @@ class Parser : public CommandLine<SolverInputs> {
         const auto sourceTermsFilepath = map["source-terms-csv"].as<std::string>();
         readCSVRowWiseNoHeaders<long double>(sourceTermsFilepath, inputs.sources);
 
+        inputs.fluxOutputDirectory = map["flux-output-dir"].as<std::string>();
+
         if (inputs.sources.getRows() < 1 || inputs.sources.getCols() < 1) {
             std::cerr << "ERROR: No Source terms matrix dimension (rows=" << inputs.sources.getRows()
                       << ", columns=" << inputs.sources.getCols() << ")  can be less than 1!\n";
@@ -324,6 +326,38 @@ class Parser : public CommandLine<SolverInputs> {
         if (inputs.diffusionParams.getN() != inputs.sources.getCols()) {
             inputs.diffusionParams.setN(inputs.sources.getCols());
             std::cerr << "WARNING: Source terms matrix columns != n, overriding n to " << inputs.diffusionParams.getN() << std::endl;
+        }
+
+        inputs.solverParams.threshold = map["threshold"].as<long double>();
+        inputs.solverParams.max_iterations = static_cast<size_t>(map["max-iterations"].as<long double>());
+        inputs.solverParams.n = inputs.diffusionParams.getM() * inputs.diffusionParams.getN();
+
+        if (map["use-LUP"].as<bool>()) {
+            inputs.methods.insert(MyFactorizationMethod::Type::METHOD_LUP);
+        }
+
+        if (map["use-point-jacobi"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_POINT_JACOBI);
+        }
+
+        if (map["use-gauss-seidel"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL);
+        }
+
+        if (map["use-SOR"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SOR);
+        }
+
+        if (map["use-SORJ"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SORJ);
+        }
+
+        if (map["use-SSOR"].as<bool>()) {
+            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SSOR);
+        }
+
+        if (map.count("relaxation-factor")) {
+            inputs.solverParams.relaxation_factor = map["relaxation-factor"].as<long double>();
         }
 
         if (!map.count("quiet")) {

@@ -41,9 +41,10 @@ set(UTILS_LIB_HEADERS
         physics/diffusion/DiffusionParams.h
         physics/diffusion/DiffusionMatrix.h
         physics/diffusion/DiffusionConstants.h
-        physics/diffusion/SourceVector.h
         math/Math.h
         math/blas/Constants.h
+        math/blas/expression/MatrixVectorExpression.h
+        math/blas/vector/MatrixVectorExpression.h
 )
 
 set(UTILS_LIB_SOURCES
