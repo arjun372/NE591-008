@@ -43,7 +43,6 @@ set(UTILS_LIB_HEADERS
         physics/diffusion/DiffusionConstants.h
         math/Math.h
         math/blas/Constants.h
-        math/blas/expression/MatrixVectorExpression.h
         math/blas/vector/MatrixVectorExpression.h
 )
 

@@ -77,6 +77,10 @@ typedef struct Output {
     MyBLAS::Vector<long double> residual;
     MyBLAS::Matrix<long double> fluxes;
 
+    [[nodiscard]] long double max_residual() const {
+        return MyBLAS::Stats::max<long double>(MyBLAS::Stats::abs(residual));
+    }
+
     /**
      * @brief Converts the output parameters to a JSON object.
      *
@@ -93,7 +97,7 @@ typedef struct Output {
 
         jsonMap["solution"] = solution.x.getData();
         jsonMap["residual"] = residual.getData();
-        jsonMap["max-residual"] = MyBLAS::Stats::max<long double>(MyBLAS::Stats::abs(residual));
+        jsonMap["max-residual"] = max_residual();
 
         // if LUP is used
         // jsonMap["l2-error"] = getSolutionError();

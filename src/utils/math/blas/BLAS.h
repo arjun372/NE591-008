@@ -194,7 +194,6 @@ template <template<typename> class U, typename T> bool isPermutationMatrix(const
  */
 template <template<typename> class U, typename T>
 bool allDiagonalElementsBelowThreshold(const U<T> &A, const T &threshold = 0) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
 
     const size_t n = A.getRows(); // or A.getCols(), since A is a square matrix
     const T absolute_threshold = std::abs(threshold);
@@ -225,7 +224,6 @@ bool allDiagonalElementsBelowThreshold(const U<T> &A, const T &threshold = 0) {
  * @return true if there are no zeros in the diagonal, false otherwise.
  */
 template <template<typename> class U, typename T> bool noZerosInDiagonal(const U<T> &A) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
     return !MyBLAS::allDiagonalElementsBelowThreshold(A, static_cast<T>(0));
 }
 
@@ -240,7 +238,6 @@ template <template<typename> class U, typename T> bool noZerosInDiagonal(const U
  * @return true if the matrix is diagonally dominant, false otherwise.
  */
 template <template<typename> class U, typename T> bool isDiagonallyDominant(const U<T> &A) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
 
     if (!MyBLAS::isSquareMatrix(A)) {
         return false;

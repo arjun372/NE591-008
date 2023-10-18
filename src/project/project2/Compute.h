@@ -15,7 +15,9 @@
 #include "math/blas/matrix/Matrix.h"
 #include "math/factorization/LU.h"
 #include "math/factorization/LUP.h"
+#include "math/relaxation/GaussSeidel.h"
 #include "math/relaxation/PointJacobi.h"
+#include "math/relaxation/SSOR.h"
 
 /**
  * @namespace Compute
@@ -97,22 +99,21 @@ void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
         }
-        // post-process
-        {
-            outputs.fluxes = fill_fluxes<MyBLAS::Matrix<long double>>(outputs);
-            auto b_prime = inputs.diffusionCoefficients * outputs.solution.x;
-            outputs.residual = b - b_prime;
-            if (!inputs.fluxOutputDirectory.empty()) {
-                writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "LUP.csv", outputs.fluxes);
-            }
-        }
-
         auto stats = computeMeanStd(runTimes);
         outputs.mean_execution_time = boost::accumulators::mean(stats);
         outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
         outputs.runs = maxRuns;
     }
-    outputs.solution.converged = true;
+    // post-process
+    {
+        outputs.solution.converged = true;
+        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<long double>>(outputs);
+        auto b_prime = inputs.diffusionCoefficients * outputs.solution.x;
+        outputs.residual = b - b_prime;
+        if (!inputs.fluxOutputDirectory.empty()) {
+            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "LUP.csv", outputs.fluxes);
+        }
+    }
 }
 
 /**
@@ -121,15 +122,16 @@ void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
  * @param inputs The input data structure containing the system to solve.
  */
 void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
-//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
-//    MyBLAS::Vector<long double> &b = inputs.input.constants;
-//    const size_t max_iterations = inputs.solverParams.max_iterations;
-//    const long double threshold = inputs.solverParams.threshold;
 
-//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
-//        std::cerr << "Aborting Point jacobi calculation\n";
-//        return;
-//    }
+    auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
+    auto b = naive_fill_diffusion_vector<long double>(inputs);
+    const size_t max_iterations = inputs.solverParams.max_iterations;
+    const long double threshold = inputs.solverParams.threshold;
+
+    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+        std::cerr << "Aborting Point jacobi calculation\n";
+        return;
+    }
 
     {
         const size_t maxRuns = 10;
@@ -138,7 +140,7 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-                //outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold);
+                outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
@@ -147,6 +149,16 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.mean_execution_time = boost::accumulators::mean(stats);
         outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
         outputs.runs = maxRuns;
+    }
+
+    // post-process
+    {
+        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<long double>>(outputs);
+        auto b_prime = inputs.diffusionCoefficients * outputs.solution.x;
+        outputs.residual = b - b_prime;
+        if (!inputs.fluxOutputDirectory.empty()) {
+            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "point-jacobi.csv", outputs.fluxes);
+        }
     }
 }
 
@@ -156,15 +168,15 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
  * @param inputs The input data structure containing the system to solve.
  */
 void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
-//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
-//    MyBLAS::Vector<long double> &b = inputs.input.constants;
-//    const size_t max_iterations = inputs.solverParams.max_iterations;
-//    const long double threshold = inputs.solverParams.threshold;
+    auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
+    auto b = naive_fill_diffusion_vector<long double>(inputs);
+    const size_t max_iterations = inputs.solverParams.max_iterations;
+    const long double threshold = inputs.solverParams.threshold;
 
-//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
-//        std::cerr << "Aborting Gauss Seidel calculation\n";
-//        return;
-//    }
+    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+        std::cerr << "Aborting Gauss Seidel calculation\n";
+        return;
+    }
 
     {
         const size_t maxRuns = 10;
@@ -173,7 +185,7 @@ void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-               // outputs.solution = MyRelaxationMethod::applyGaussSeidel<long double>(A, b, max_iterations, threshold);
+               outputs.solution = MyRelaxationMethod::applyGaussSeidel(A, b, max_iterations, threshold);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
@@ -182,6 +194,16 @@ void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.mean_execution_time = boost::accumulators::mean(stats);
         outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
         outputs.runs = maxRuns;
+    }
+
+    // post-process
+    {
+        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<long double>>(outputs);
+        auto b_prime = inputs.diffusionCoefficients * outputs.solution.x;
+        outputs.residual = b - b_prime;
+        if (!inputs.fluxOutputDirectory.empty()) {
+            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "gauss-seidel.csv", outputs.fluxes);
+        }
     }
 }
 
@@ -191,16 +213,16 @@ void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
  * @param inputs The input data structure containing the system to solve.
  */
 void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
-//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
-//    MyBLAS::Vector<long double> &b = inputs.input.constants;
-//    const size_t max_iterations = inputs.input.max_iterations;
-//    const long double threshold = inputs.input.threshold;
-//    const long double omega = inputs.input.relaxation_factor;
+    auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
+    auto b = naive_fill_diffusion_vector<long double>(inputs);
+    const size_t max_iterations = inputs.solverParams.max_iterations;
+    const long double threshold = inputs.solverParams.threshold;
+    const long double omega = inputs.solverParams.relaxation_factor;
 
-//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
-//        std::cerr << "Aborting SOR calculation\n";
-//        return;
-//    }
+    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+        std::cerr << "Aborting SOR calculation\n";
+        return;
+    }
 
     {
         const size_t maxRuns = 10;
@@ -209,7 +231,7 @@ void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-//                outputs.solution = MyRelaxationMethod::applySOR<long double>(A, b, max_iterations, threshold, omega);
+                outputs.solution = MyRelaxationMethod::applySOR(A, b, max_iterations, threshold, omega);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
@@ -218,6 +240,16 @@ void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.mean_execution_time = boost::accumulators::mean(stats);
         outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
         outputs.runs = maxRuns;
+    }
+
+    // post-process
+    {
+        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<long double>>(outputs);
+        auto b_prime = inputs.diffusionCoefficients * outputs.solution.x;
+        outputs.residual = b - b_prime;
+        if (!inputs.fluxOutputDirectory.empty()) {
+            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "SOR.csv", outputs.fluxes);
+        }
     }
 }
 
@@ -227,16 +259,16 @@ void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
  * @param inputs The input data structure containing the system to solve.
  */
 void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
-//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
-//    MyBLAS::Vector<long double> &b = inputs.input.constants;
-//    const size_t max_iterations = inputs.input.max_iterations;
-//    const long double threshold = inputs.input.threshold;
-//    const long double omega = inputs.input.relaxation_factor;
+    auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
+    auto b = naive_fill_diffusion_vector<long double>(inputs);
+    const size_t max_iterations = inputs.solverParams.max_iterations;
+    const long double threshold = inputs.solverParams.threshold;
+    const long double omega = inputs.solverParams.relaxation_factor;
 
-//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
-//        std::cerr << "Aborting SOR point jacobi calculation\n";
-//        return;
-//    }
+    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+        std::cerr << "Aborting SOR point jacobi calculation\n";
+        return;
+    }
 
     {
         const size_t maxRuns = 10;
@@ -245,7 +277,7 @@ void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-//                outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold, omega);
+                outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold, omega);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
@@ -255,6 +287,16 @@ void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
         outputs.runs = maxRuns;
     }
+
+    // post-process
+    {
+        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<long double>>(outputs);
+        auto b_prime = inputs.diffusionCoefficients * outputs.solution.x;
+        outputs.residual = b - b_prime;
+        if (!inputs.fluxOutputDirectory.empty()) {
+            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "SORJ.csv", outputs.fluxes);
+        }
+    }
 }
 
 /**
@@ -263,16 +305,16 @@ void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
  * @param inputs The input data structure containing the system to solve.
  */
 void usingSymmetricSOR(SolverOutputs &outputs, SolverInputs &inputs) {
-//    MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
-//    MyBLAS::Vector<long double> &b = inputs.input.constants;
-//    const size_t max_iterations = inputs.input.max_iterations;
-//    const long double threshold = inputs.input.threshold;
-//    const long double omega = inputs.input.relaxation_factor;
+    auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
+    auto b = naive_fill_diffusion_vector<long double>(inputs);
+    const size_t max_iterations = inputs.solverParams.max_iterations;
+    const long double threshold = inputs.solverParams.threshold;
+    const long double omega = inputs.solverParams.relaxation_factor;
 
-//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
-//        std::cerr << "Aborting symmetric SOR calculation\n";
-//        return;
-//    }
+    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+        std::cerr << "Aborting symmetric SOR calculation\n";
+        return;
+    }
 
     {
         const size_t maxRuns = 10;
@@ -281,7 +323,7 @@ void usingSymmetricSOR(SolverOutputs &outputs, SolverInputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-//                outputs.solution = MyRelaxationMethod::applySSOR<long double>(A, b, max_iterations, threshold, omega);
+                outputs.solution = MyRelaxationMethod::applySSOR(A, b, max_iterations, threshold, omega);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
@@ -290,6 +332,16 @@ void usingSymmetricSOR(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.mean_execution_time = boost::accumulators::mean(stats);
         outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
         outputs.runs = maxRuns;
+    }
+
+    // post-process
+    {
+        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<long double>>(outputs);
+        auto b_prime = inputs.diffusionCoefficients * outputs.solution.x;
+        outputs.residual = b - b_prime;
+        if (!inputs.fluxOutputDirectory.empty()) {
+            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "SSOR.csv", outputs.fluxes);
+        }
     }
 }
 } // namespace Compute

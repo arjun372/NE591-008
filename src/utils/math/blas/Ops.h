@@ -17,12 +17,13 @@
 namespace MyBLAS {
 
 // TODO:: DOCUMENT
-template <typename ContainerType, typename DataType>
-inline DataType L2(const ContainerType &a, const ContainerType &b, const size_t n) {
-    DataType norm = 0;
+template <template<typename> class VectorType, typename T>
+inline T L2(const VectorType<T> &a, const VectorType<T> &b, const size_t n) {
+    T norm = 0;
+    const T two = static_cast<T>(2);
     for (size_t i = 0; i < n; i++) {
         const auto difference = a[i] - b[i];
-        const auto squared = std::pow(difference, static_cast<DataType>(2));
+        const auto squared = std::pow(difference, two);
         norm += squared;
     }
     return norm;

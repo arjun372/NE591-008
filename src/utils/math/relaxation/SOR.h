@@ -32,8 +32,8 @@ namespace MyRelaxationMethod {
  * @return A Solution object containing the solution vector, the number of iterations performed, whether the method
  * converged, and the final error.
  */
-template <typename T>
-MyLinearSolvingMethod::Solution<T> applySOR(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b,
+template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
+MyLinearSolvingMethod::Solution<T> applySOR(const MatrixType<T> &A, const VectorType<T> &b,
                                             const size_t max_iterations, const T tolerance, const T relaxation_factor) {
 
     const size_t n = A.getRows();                  // Get the number of rows in the matrix A
@@ -45,7 +45,7 @@ MyLinearSolvingMethod::Solution<T> applySOR(const MyBLAS::Matrix<T> &A, const My
     // Start the iteration
     for (results.iterations = 0; results.iterations < max_iterations; (results.iterations)++) {
 
-        MyBLAS::Vector<T> old_x = results.x; // Save the old solution vector
+        VectorType<T> old_x = results.x; // Save the old solution vector
 
         // For each row in the matrix
         for (size_t row = 0; row < n; row++) {
@@ -64,7 +64,7 @@ MyLinearSolvingMethod::Solution<T> applySOR(const MyBLAS::Matrix<T> &A, const My
         }
 
         // Calculate the L2 norm of the difference between the new and old solution vectors
-        iterative_error_squared = MyBLAS::L2<MyBLAS::Vector<T>, T>(results.x, old_x, n);
+        iterative_error_squared = MyBLAS::L2(results.x, old_x, n);
 
         // If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop
         if (iterative_error_squared < tolerance_squared) {

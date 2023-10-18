@@ -49,8 +49,8 @@ namespace MyRelaxationMethod {
  * @note The function uses the L2 norm to check for convergence. If the system does not converge within the specified
  * number of iterations, the function will return the current solution and set the 'converged' flag to false.
  */
-template <typename T>
-MyLinearSolvingMethod::Solution<T> applyPointJacobi(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b,
+template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
+MyLinearSolvingMethod::Solution<T> applyPointJacobi(const MatrixType<T> &A, const VectorType<T> &b,
                                                     const size_t max_iterations, const T tolerance,
                                                     const T relaxation_factor = 1) {
 
@@ -60,7 +60,7 @@ MyLinearSolvingMethod::Solution<T> applyPointJacobi(const MyBLAS::Matrix<T> &A, 
     const T tolerance_squared = std::pow(tolerance, static_cast<T>(2)); // Calculate the square of the tolerance
     T iterative_error_squared = std::numeric_limits<T>::max(); // Initialize the squared error as the maximum
 
-    MyBLAS::Vector<T> new_x(n, 0); // Initialize a new vector for the updated solution
+    VectorType<T> new_x(n, 0); // Initialize a new vector for the updated solution
 
     // Start the Point-Jacobi iteration
     for (results.iterations = 0; results.iterations < max_iterations; (results.iterations)++) {
@@ -84,7 +84,7 @@ MyLinearSolvingMethod::Solution<T> applyPointJacobi(const MyBLAS::Matrix<T> &A, 
             new_x[row] = (static_cast<T>(1) - relaxation_factor) * results.x[row] + (relaxation_factor / A[row][row]) * (b[row] - sum);
         }
 
-        iterative_error_squared = MyBLAS::L2<MyBLAS::Vector<T>, T>(new_x, results.x, n);
+        iterative_error_squared = MyBLAS::L2(new_x, results.x, n);
 
         // If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop
         if (iterative_error_squared < tolerance_squared) {

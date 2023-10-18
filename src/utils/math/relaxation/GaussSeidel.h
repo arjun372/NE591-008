@@ -31,8 +31,8 @@ namespace MyRelaxationMethod {
  * @return A Solution object containing the solution vector, the number of iterations performed, whether the method
  * converged, and the final error.
  */
-template <typename T>
-MyLinearSolvingMethod::Solution<T> applyGaussSeidel(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b,
+ template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
+MyLinearSolvingMethod::Solution<T> applyGaussSeidel(const MatrixType<T> &A, const VectorType<T> &b,
                                                     const size_t max_iterations, const T tolerance) {
     const T relaxation_factor = 1;
     return applySOR(A, b, max_iterations, tolerance, relaxation_factor);

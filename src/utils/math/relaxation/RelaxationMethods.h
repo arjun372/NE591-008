@@ -85,7 +85,8 @@ template <typename T> T inline approximateOptimalRelaxationFactor(const size_t m
  * @param b The right-hand side vector.
  * @return True if all pre-checks pass, false otherwise.
  */
-template <typename T> bool passesPreChecks(const MyBLAS::Matrix<T> &A, const MyBLAS::Vector<T> &b) {
+template <typename MatrixType, typename VectorType>
+bool passesPreChecks(const MatrixType &A, const VectorType &b) {
 
     if (!MyBLAS::isSquareMatrix(A)) {
         std::cerr << "Error: Failed pre-check: coefficient matrix is non-square.\n";

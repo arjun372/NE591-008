@@ -78,14 +78,8 @@ class Project2 : public Project<SolverInputs, Parser, SolverOutputs> {
         std::cout << "\ttotal iterations          : " << (results.solution.iterations) << std::endl;
         std::cout << "\tconverged                 : " << (results.solution.converged ? "Yes" : "No") << std::endl;
         std::cout << "\titerative error           : " << (results.solution.iterative_error) << std::endl;
-        //std::cout << "\trelative error            : " << (results()) << std::endl;
-//        std::cout << "\tabsolute maximum residual : "
-//                  << (results.solution.getMaxResidual(results.inputs.input.coefficients,
-//                                                      results.inputs.input.constants))
-//                  << std::endl;
-        //        std::cout << "\texecution time [ns]       : " << formatMeanStd(results.mean_execution_time, results.stddev_execution_time) << std::endl;
+        std::cout << "\tabsolute maximum residual : " << (results.max_residual()) << std::endl;
         std::cout << "\texecution time [ms]       : " << formatMeanStd(results.mean_execution_time/1.0e6, results.stddev_execution_time/1.0e6) << std::endl;
-        //        std::cout << "\texecution time [s]        : " << formatMeanStd(results.mean_execution_time/1.0e9, results.stddev_execution_time/1.0e9) << std::endl;
     }
 
 
