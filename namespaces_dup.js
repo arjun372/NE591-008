@@ -75,13 +75,13 @@ var namespaces_dup =
         [ "METHOD_SSOR", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6", null ],
         [ "METHOD_SORJ", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a527205340d6358cb7b2e01fa88c6ac30", null ]
       ] ],
-      [ "applyGaussSeidel", "d7/d9a/namespaceMyRelaxationMethod.html#ab2e921a983e9cceba4973ab7f2e1a347", null ],
-      [ "applyPointJacobi", "d7/d9a/namespaceMyRelaxationMethod.html#a68a2675c1a2f147727e29afded4932c5", null ],
-      [ "applySOR", "d7/d9a/namespaceMyRelaxationMethod.html#aabe1fbadbbfade5ef25daefc29e1ccfd", null ],
-      [ "applySSOR", "d7/d9a/namespaceMyRelaxationMethod.html#a719691507f4add7b64d35a1dacdb69df", null ],
+      [ "applyGaussSeidel", "d7/d9a/namespaceMyRelaxationMethod.html#a1b6a833ea067f34c45415750d85b51fa", null ],
+      [ "applyPointJacobi", "d7/d9a/namespaceMyRelaxationMethod.html#a1ad90cacb42ba2b27223feb0d56320b9", null ],
+      [ "applySOR", "d7/d9a/namespaceMyRelaxationMethod.html#a52bbc804a62498444281f3b3ac5c2c74", null ],
+      [ "applySSOR", "d7/d9a/namespaceMyRelaxationMethod.html#a6ce139c8c66799c77605e84daa52c54c", null ],
       [ "approximateOptimalRelaxationFactor", "d7/d9a/namespaceMyRelaxationMethod.html#abde81298190b57f3cce6fe5ca0d18dce", null ],
       [ "approximateOptimalRelaxationFactor", "d7/d9a/namespaceMyRelaxationMethod.html#a43248690df292a11426f82c5d6e0df07", null ],
-      [ "passesPreChecks", "d7/d9a/namespaceMyRelaxationMethod.html#ab5820b2108969271e8bf7d61170c4288", null ],
+      [ "passesPreChecks", "d7/d9a/namespaceMyRelaxationMethod.html#a985bd80ba02c84e9d1ca2e434a32bd3f", null ],
       [ "TypeKey", "d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3", null ]
     ] ],
     [ "plot_heatmap", "d8/d21/namespaceplot__heatmap.html", [

@@ -162,7 +162,7 @@ var NAVTREEINDEX0 =
 "d0/d24/RelaxationMethods_8h.html#a07e854c35b6efce3f4b060202060a824acba5909cbce3a65b695ad21ac991fd9f":[15,0,0,2,0,2,2,0,2],
 "d0/d24/RelaxationMethods_8h.html#a0af60a901ffd01d1bb403ecee40ba6c3":[15,0,0,2,0,2,2,4],
 "d0/d24/RelaxationMethods_8h.html#a43248690df292a11426f82c5d6e0df07":[15,0,0,2,0,2,2,2],
-"d0/d24/RelaxationMethods_8h.html#ab5820b2108969271e8bf7d61170c4288":[15,0,0,2,0,2,2,3],
+"d0/d24/RelaxationMethods_8h.html#a985bd80ba02c84e9d1ca2e434a32bd3f":[15,0,0,2,0,2,2,3],
 "d0/d24/RelaxationMethods_8h.html#abde81298190b57f3cce6fe5ca0d18dce":[15,0,0,2,0,2,2,1],
 "d0/d27/classMyBLAS_1_1Matrix.html":[14,0,0,5],
 "d0/d27/classMyBLAS_1_1Matrix.html#a060711074cb5bcaf4e75498bc040c4b7":[14,0,0,5,27],

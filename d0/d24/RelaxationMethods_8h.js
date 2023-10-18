@@ -9,6 +9,6 @@ var RelaxationMethods_8h =
     ] ],
     [ "approximateOptimalRelaxationFactor", "d0/d24/RelaxationMethods_8h.html#abde81298190b57f3cce6fe5ca0d18dce", null ],
     [ "approximateOptimalRelaxationFactor", "d0/d24/RelaxationMethods_8h.html#a43248690df292a11426f82c5d6e0df07", null ],
-    [ "passesPreChecks", "d0/d24/RelaxationMethods_8h.html#ab5820b2108969271e8bf7d61170c4288", null ],
+    [ "passesPreChecks", "d0/d24/RelaxationMethods_8h.html#a985bd80ba02c84e9d1ca2e434a32bd3f", null ],
     [ "TypeKey", "d0/d24/RelaxationMethods_8h.html#a0af60a901ffd01d1bb403ecee40ba6c3", null ]
 ];

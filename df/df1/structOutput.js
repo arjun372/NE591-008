@@ -11,6 +11,7 @@ var structOutput =
     [ "Output", "df/df1/structOutput.html#aa9ff06a07a6a0bff3dff15a6f2367d03", null ],
     [ "getMaxResidual", "df/df1/structOutput.html#ae704800decdb8ea025e434e5d8ee2765", null ],
     [ "getSolutionError", "df/df1/structOutput.html#aa91aa39c068c79585b906df4c6fda232", null ],
+    [ "max_residual", "df/df1/structOutput.html#a8b4d2571cb4765a67d2bf5533f9f5ddd", null ],
     [ "toJSON", "df/df1/structOutput.html#a68a9005feebbeac90af517514767eda0", null ],
     [ "toJSON", "df/df1/structOutput.html#a68a9005feebbeac90af517514767eda0", null ],
     [ "toJSON", "df/df1/structOutput.html#a0412b8fd27d6e91551671da11cd8fe93", null ],

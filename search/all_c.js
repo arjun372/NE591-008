@@ -1,7 +1,7 @@
 var searchData=
 [
   ['l_314',['L',['../de/dbb/structMyFactorizationMethod_1_1Parameters.html#a4c98a6602b6d3a53643de982f639b4df',1,'MyFactorizationMethod::Parameters::L()'],['../da/ddc/structMap.html#a812cee11d876a48e69bb4ddbdab15869',1,'Map::L()'],['../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84',1,'L():&#160;plot_points.m'],['../d7/df1/classFactorizeInvalidLUMatrixTest.html#af399e70146e948916de162d43f6fb13f',1,'FactorizeInvalidLUMatrixTest::L()']]],
-  ['l2_315',['L2',['../d2/d6e/namespaceMyBLAS.html#a4a13a3c077ee693c0297e4c68cbcc521',1,'MyBLAS::L2(const MyBLAS::Vector&lt; T &gt; &amp;a, const MyBLAS::Vector&lt; T &gt; &amp;b)'],['../d2/d6e/namespaceMyBLAS.html#abbd164d1df22dc6fcbf184c006d564aa',1,'MyBLAS::L2(const ContainerType &amp;a, const ContainerType &amp;b, const size_t n)']]],
+  ['l2_315',['L2',['../d2/d6e/namespaceMyBLAS.html#a4a13a3c077ee693c0297e4c68cbcc521',1,'MyBLAS::L2(const MyBLAS::Vector&lt; T &gt; &amp;a, const MyBLAS::Vector&lt; T &gt; &amp;b)'],['../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446',1,'MyBLAS::L2(const VectorType&lt; T &gt; &amp;a, const VectorType&lt; T &gt; &amp;b, const size_t n)']]],
   ['l2norm_316',['L2Norm',['../d2/d6e/namespaceMyBLAS.html#a919dcf7bd5292e4ded12f438f9cd2cd0',1,'MyBLAS::L2Norm(const MyBLAS::Vector&lt; T &gt; &amp;a, const MyBLAS::Vector&lt; T &gt; &amp;b)'],['../d2/d6e/namespaceMyBLAS.html#a265c371bae2192b15bddfba1ed55a007',1,'MyBLAS::L2Norm(const ContainerType &amp;a, const ContainerType &amp;b, const size_t n)']]],
   ['l_5fxi_317',['L_xi',['../dd/dd7/plot__points_8m.html#a9c9ca63a7303f8b7fe4453fedcc572c1',1,'plot_points.m']]],
   ['label_318',['label',['../d8/d21/namespaceplot__heatmap.html#a103526a30a9a04cdf3709ba7276d1ed8',1,'plot_heatmap']]],
