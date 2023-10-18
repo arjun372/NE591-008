@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['resolutiontype_1437',['ResolutionType',['../de/def/classStopwatch.html#a84218eb6f809cb4b66df0cc90a2bc91f',1,'Stopwatch']]],
-  ['results_1438',['Results',['../da/d01/labs_2outlab5_2InputsOutputs_8h.html#a792ac1831813dea5b607cda6e19a7844',1,'InputsOutputs.h']]]
+  ['outlab6inputs_1440',['OutLab6Inputs',['../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a120c91aa89bf5c4ca05edbd47eda09e4',1,'InputsOutputs.h']]],
+  ['outlab6outputs_1441',['OutLab6Outputs',['../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a1fc92a4e6842c6fcb5f3febd0707fd13',1,'InputsOutputs.h']]],
+  ['outputvector_1442',['OutputVector',['../d7/db1/labs_2inlab4_2InputsOutputs_8h.html#a61edb4791862a5310bb16deaf9709227',1,'OutputVector():&#160;InputsOutputs.h'],['../d2/d6e/namespaceMyBLAS.html#aa38232f345bc059ec641f60235dc0f50',1,'MyBLAS::OutputVector()']]]
 ];

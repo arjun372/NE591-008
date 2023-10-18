@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['matrixbuildargs_1423',['MatrixBuildArgs',['../d5/d65/labs_2outlab1_2Compute_8h.html#a8a8eeac2b068a38392c12cba7e91ca54',1,'Compute.h']]],
-  ['matrixconstructparams_1424',['MatrixConstructParams',['../d1/d62/labs_2outlab1_2Parser_8h.html#ae8ecb3743a637d60bbe2d2e633cb3185',1,'Parser.h']]],
-  ['mean_1425',['mean',['../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9',1,'Helpers.h']]],
-  ['microseconds_1426',['Microseconds',['../d4/d2e/Stopwatch_8h.html#a201a83ed0d59d2baf946daf42dac834f',1,'Stopwatch.h']]],
-  ['milliseconds_1427',['Milliseconds',['../d4/d2e/Stopwatch_8h.html#a1c3834b9e3853535027d58bf21bec81f',1,'Stopwatch.h']]]
+  ['lagrangepolynomialinputs_1428',['LagrangePolynomialInputs',['../d5/dcb/labs_2inlab2_2Parser_8h.html#ae64db2da1f955306acd2687010115cc1',1,'LagrangePolynomialInputs():&#160;Parser.h'],['../d1/de1/labs_2outlab2_2Parser_8h.html#ae64db2da1f955306acd2687010115cc1',1,'LagrangePolynomialInputs():&#160;Parser.h']]]
 ];

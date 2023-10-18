@@ -45,9 +45,7 @@ var hierarchy =
     [ "Map", "da/ddc/structMap.html", null ],
     [ "MyBLAS::Matrix< FloatType >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MyBLAS::Matrix< long double >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
-    [ "MyBLAS::Matrix< T >", "d0/d27/classMyBLAS_1_1Matrix.html", [
-      [ "MyPhysics::Diffusion::Matrix< MyBLAS::Matrix< T > >", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html", null ]
-    ] ],
+    [ "MyBLAS::Matrix< T >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", null ],
     [ "MatrixVectorExpression< DataType, MatrixType, VectorType >", "d4/d68/classMatrixVectorExpression.html", null ],
     [ "MyBLAS::AbstractMatrix< DataType >", "de/d6b/classMyBLAS_1_1AbstractMatrix.html", null ],
@@ -114,13 +112,16 @@ var hierarchy =
     [ "Stopwatch< Nanoseconds >", "de/def/classStopwatch.html", null ],
     [ "MyBLAS::Stats::Summary< long double >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
     [ "testing::Test", null, [
+      [ "DiffusionMatrixTests< T >", "dc/dff/classDiffusionMatrixTests.html", null ],
       [ "DiffusionParamsTest", "d5/d15/classDiffusionParamsTest.html", null ],
+      [ "MatrixVectorTests< T >", "d3/dab/classMatrixVectorTests.html", null ],
       [ "MyBLAS::BaseMatrixTests< T >", "d5/d8a/classMyBLAS_1_1BaseMatrixTests.html", null ],
       [ "MyBLAS::LazyMatrixTests", "d6/d09/classMyBLAS_1_1LazyMatrixTests.html", null ],
       [ "MyBLAS::LazyVectorTests", "dd/d30/classMyBLAS_1_1LazyVectorTests.html", null ],
       [ "MyBLAS::MatrixExpressionTests", "de/d99/classMyBLAS_1_1MatrixExpressionTests.html", null ],
       [ "MyBLAS::PerformanceMatrixTests< T >", "db/d15/classMyBLAS_1_1PerformanceMatrixTests.html", null ],
-      [ "MyBLAS::VectorExpressionTests", "de/d3a/classMyBLAS_1_1VectorExpressionTests.html", null ]
+      [ "MyBLAS::VectorExpressionTests", "de/d3a/classMyBLAS_1_1VectorExpressionTests.html", null ],
+      [ "MyBLAS::VectorTests< T >", "d8/db9/classMyBLAS_1_1VectorTests.html", null ]
     ] ],
     [ "testing::TestWithParam", null, [
       [ "DiffusionConstantsValidTest", "dd/d10/classDiffusionConstantsValidTest.html", null ],

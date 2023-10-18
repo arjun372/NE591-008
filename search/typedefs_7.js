@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['nanoseconds_1428',['Nanoseconds',['../d4/d2e/Stopwatch_8h.html#aa909686beb2d8acbedf5bd6587cb3fba',1,'Stopwatch.h']]],
-  ['newtoncotesinputs_1429',['NewtonCotesInputs',['../db/def/labs_2inlab3_2InputsOutputs_8h.html#aa6de214a5c071b89852031a1866624a4',1,'NewtonCotesInputs():&#160;InputsOutputs.h'],['../d7/df7/labs_2outlab3_2InputsOutputs_8h.html#aa6de214a5c071b89852031a1866624a4',1,'NewtonCotesInputs():&#160;InputsOutputs.h']]],
-  ['newtoncotesoutputs_1430',['NewtonCotesOutputs',['../db/def/labs_2inlab3_2InputsOutputs_8h.html#a32108239c7c256ed8a081030570f3089',1,'NewtonCotesOutputs():&#160;InputsOutputs.h'],['../d7/df7/labs_2outlab3_2InputsOutputs_8h.html#a32108239c7c256ed8a081030570f3089',1,'NewtonCotesOutputs():&#160;InputsOutputs.h']]],
-  ['nooutput_1431',['NoOutput',['../d3/deb/outlab1_8h.html#a9b541e1020b9162cb4422223166d693f',1,'outlab1.h']]],
-  ['numerictype_1432',['NumericType',['../d2/d6e/namespaceMyBLAS.html#aeaba4d245610870af7f067c3c4a33f76',1,'MyBLAS']]],
-  ['numerictypes_1433',['NumericTypes',['../d2/d6e/namespaceMyBLAS.html#a30ba64a3a64a390acb54fbe71e37bd28',1,'MyBLAS']]]
+  ['matrixbuildargs_1429',['MatrixBuildArgs',['../d5/d65/labs_2outlab1_2Compute_8h.html#a8a8eeac2b068a38392c12cba7e91ca54',1,'Compute.h']]],
+  ['matrixconstructparams_1430',['MatrixConstructParams',['../d1/d62/labs_2outlab1_2Parser_8h.html#ae8ecb3743a637d60bbe2d2e633cb3185',1,'Parser.h']]],
+  ['mean_1431',['mean',['../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9',1,'Helpers.h']]],
+  ['microseconds_1432',['Microseconds',['../d4/d2e/Stopwatch_8h.html#a201a83ed0d59d2baf946daf42dac834f',1,'Stopwatch.h']]],
+  ['milliseconds_1433',['Milliseconds',['../d4/d2e/Stopwatch_8h.html#a1c3834b9e3853535027d58bf21bec81f',1,'Stopwatch.h']]]
 ];

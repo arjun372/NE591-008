@@ -5,8 +5,7 @@ var dir_c584fd7b6b76c8c5c973790595c540d3 =
       [ "Constants", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants" ]
     ] ],
     [ "DiffusionMatrix.h", "dd/dfb/DiffusionMatrix_8h.html", [
-      [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix" ],
-      [ "Matrix< MyBLAS::Matrix< T > >", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4" ]
+      [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix" ]
     ] ],
     [ "DiffusionParams.h", "da/db6/DiffusionParams_8h.html", [
       [ "Params", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params" ]

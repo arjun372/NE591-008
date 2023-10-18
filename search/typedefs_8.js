@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['outlab6inputs_1434',['OutLab6Inputs',['../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a120c91aa89bf5c4ca05edbd47eda09e4',1,'InputsOutputs.h']]],
-  ['outlab6outputs_1435',['OutLab6Outputs',['../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a1fc92a4e6842c6fcb5f3febd0707fd13',1,'InputsOutputs.h']]],
-  ['outputvector_1436',['OutputVector',['../d7/db1/labs_2inlab4_2InputsOutputs_8h.html#a61edb4791862a5310bb16deaf9709227',1,'OutputVector():&#160;InputsOutputs.h'],['../d2/d6e/namespaceMyBLAS.html#aa38232f345bc059ec641f60235dc0f50',1,'MyBLAS::OutputVector()']]]
+  ['nanoseconds_1434',['Nanoseconds',['../d4/d2e/Stopwatch_8h.html#aa909686beb2d8acbedf5bd6587cb3fba',1,'Stopwatch.h']]],
+  ['newtoncotesinputs_1435',['NewtonCotesInputs',['../db/def/labs_2inlab3_2InputsOutputs_8h.html#aa6de214a5c071b89852031a1866624a4',1,'NewtonCotesInputs():&#160;InputsOutputs.h'],['../d7/df7/labs_2outlab3_2InputsOutputs_8h.html#aa6de214a5c071b89852031a1866624a4',1,'NewtonCotesInputs():&#160;InputsOutputs.h']]],
+  ['newtoncotesoutputs_1436',['NewtonCotesOutputs',['../db/def/labs_2inlab3_2InputsOutputs_8h.html#a32108239c7c256ed8a081030570f3089',1,'NewtonCotesOutputs():&#160;InputsOutputs.h'],['../d7/df7/labs_2outlab3_2InputsOutputs_8h.html#a32108239c7c256ed8a081030570f3089',1,'NewtonCotesOutputs():&#160;InputsOutputs.h']]],
+  ['nooutput_1437',['NoOutput',['../d3/deb/outlab1_8h.html#a9b541e1020b9162cb4422223166d693f',1,'outlab1.h']]],
+  ['numerictype_1438',['NumericType',['../d2/d6e/namespaceMyBLAS.html#aeaba4d245610870af7f067c3c4a33f76',1,'MyBLAS']]],
+  ['numerictypes_1439',['NumericTypes',['../d2/d6e/namespaceMyBLAS.html#a855bed9f7762fb329d9780f363d2f5df',1,'MyBLAS::NumericTypes()'],['../d6/d18/DiffusionMatrixTests_8cpp.html#aa4875ba64216f6d8061225acf512ea63',1,'NumericTypes():&#160;DiffusionMatrixTests.cpp']]]
 ];

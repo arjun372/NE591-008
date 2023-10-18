@@ -17,6 +17,7 @@ var annotated_dup =
       [ "LazyVectorTests", "dd/d30/classMyBLAS_1_1LazyVectorTests.html", "dd/d30/classMyBLAS_1_1LazyVectorTests" ],
       [ "BaseMatrixTests", "d5/d8a/classMyBLAS_1_1BaseMatrixTests.html", null ],
       [ "PerformanceMatrixTests", "db/d15/classMyBLAS_1_1PerformanceMatrixTests.html", null ],
+      [ "VectorTests", "d8/db9/classMyBLAS_1_1VectorTests.html", null ],
       [ "LazyVector", "d6/d07/classMyBLAS_1_1LazyVector.html", "d6/d07/classMyBLAS_1_1LazyVector" ],
       [ "VectorExpression", "dd/dc2/classMyBLAS_1_1VectorExpression.html", "dd/dc2/classMyBLAS_1_1VectorExpression" ]
     ] ],
@@ -31,7 +32,6 @@ var annotated_dup =
       [ "Diffusion", "d2/d71/namespaceMyPhysics_1_1Diffusion.html", [
         [ "Constants", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants" ],
         [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix" ],
-        [ "Matrix< MyBLAS::Matrix< T > >", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4.html", "de/d5c/classMyPhysics_1_1Diffusion_1_1Matrix_3_01MyBLAS_1_1Matrix_3_01T_01_4_01_4" ],
         [ "Params", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params" ]
       ] ]
     ] ],
@@ -40,6 +40,7 @@ var annotated_dup =
     [ "CommandLine", "dd/d02/classCommandLine.html", "dd/d02/classCommandLine" ],
     [ "CommandLineArgs", "d9/d41/CommandLine_8h.html#de/d26/structCommandLineArgs", "d9/d41/CommandLine_8h_de/d26/structCommandLineArgs" ],
     [ "DiffusionConstantsValidTest", "dd/d10/classDiffusionConstantsValidTest.html", "dd/d10/classDiffusionConstantsValidTest" ],
+    [ "DiffusionMatrixTests", "dc/dff/classDiffusionMatrixTests.html", null ],
     [ "DiffusionParamsTest", "d5/d15/classDiffusionParamsTest.html", "d5/d15/classDiffusionParamsTest" ],
     [ "DiffusionParamsValidTest", "d1/d6a/classDiffusionParamsValidTest.html", "d1/d6a/classDiffusionParamsValidTest" ],
     [ "Factorial", "d7/d64/labs_2inlab1_2Compute_8h.html#de/de5/structFactorial", "d7/d64/labs_2inlab1_2Compute_8h_de/de5/structFactorial" ],
@@ -56,6 +57,7 @@ var annotated_dup =
     [ "Map", "da/ddc/structMap.html", "da/ddc/structMap" ],
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h_d8/dd7/structMatrixBuildArgs" ],
     [ "MatrixVectorExpression", "d4/d68/classMatrixVectorExpression.html", "d4/d68/classMatrixVectorExpression" ],
+    [ "MatrixVectorTests", "d3/dab/classMatrixVectorTests.html", null ],
     [ "OutLab1", "dd/df3/classOutLab1.html", "dd/df3/classOutLab1" ],
     [ "OutLab3", "da/df0/classOutLab3.html", "da/df0/classOutLab3" ],
     [ "OutLab4", "d8/d5b/classOutLab4.html", "d8/d5b/classOutLab4" ],

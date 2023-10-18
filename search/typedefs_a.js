@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['seconds_1439',['Seconds',['../d4/d2e/Stopwatch_8h.html#a3cd82f1c195a0b935b4d66b02a41acd8',1,'Stopwatch.h']]],
-  ['solverinputs_1440',['SolverInputs',['../da/d85/project_2project1_2InputsOutputs_8h.html#a2e1ada7ce0b6635310185e326349f22d',1,'SolverInputs():&#160;InputsOutputs.h'],['../dd/df8/project_2project2_2InputsOutputs_8h.html#a2e1ada7ce0b6635310185e326349f22d',1,'SolverInputs():&#160;InputsOutputs.h']]],
-  ['solveroutputs_1441',['SolverOutputs',['../da/d85/project_2project1_2InputsOutputs_8h.html#aa60e1b2883d30819d60f60dd680b9b38',1,'SolverOutputs():&#160;InputsOutputs.h'],['../dd/df8/project_2project2_2InputsOutputs_8h.html#aa60e1b2883d30819d60f60dd680b9b38',1,'SolverOutputs():&#160;InputsOutputs.h']]]
+  ['resolutiontype_1443',['ResolutionType',['../de/def/classStopwatch.html#a84218eb6f809cb4b66df0cc90a2bc91f',1,'Stopwatch']]],
+  ['results_1444',['Results',['../da/d01/labs_2outlab5_2InputsOutputs_8h.html#a792ac1831813dea5b607cda6e19a7844',1,'InputsOutputs.h']]]
 ];

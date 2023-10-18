@@ -239,7 +239,7 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", "namespacemembers_dup" ],
-        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ],
@@ -275,16 +275,16 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d0/d33/MatrixExpressionTests_8cpp.html#ac0738af9731a88b7651340f474c33eaf",
-"d0/de8/process_8py.html#aa78c8a32fee04f1af259d3dbe78f6a4e",
-"d2/d6e/namespaceMyBLAS.html#ae26efd709dd5e4842f589dfb0260baa3",
-"d5/d51/BaseMatrixTests_8cpp.html#a0ea4db14f9fc762b24e5fc18e6f02d7b",
-"d7/db1/labs_2inlab4_2InputsOutputs_8h.html#a062a2db380b217ea19cd9576a7bb6cac",
-"da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e",
-"dc/d5d/RootFinder_8h.html",
-"dd/dfb/outlab6.html",
-"dir_aea9bf36e890f66ea1a8176b1041c630.html"
+"annotated.html",
+"d0/d40/classParser.html#af7d2b4e392859fa4fca356d9642036b9",
+"d2/d63/inlab2_2tests_2TestRunner_8cpp.html",
+"d4/d4d/classMyBLAS_1_1Vector.html#afbb02df342fc0ae1566d90aa3c256089",
+"d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#adf8c9555cf2ef3de20302fda532ea5dd",
+"d8/d5b/classOutLab4.html#a524174b93fd777a689b64e49cc6ff1db",
+"db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd",
+"dd/d0e/classProfiler.html#a95b1ecdcfc06dedbd33127208aaceec6",
+"de/db3/namespaceCompute.html#a0741aa46b479eae78cfad76bdf7cb091",
+"globals_z.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
