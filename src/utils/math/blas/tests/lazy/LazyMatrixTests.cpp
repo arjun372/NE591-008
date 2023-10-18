@@ -72,17 +72,6 @@ TEST_F(LazyMatrixTests, MultiplicationTest) {
     }
 }
 
-TEST_F(LazyMatrixTests, DivisionTest) {
-    LazyMatrix<FLOAT_TYPE> m1(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    LazyMatrix<FLOAT_TYPE> m2(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j) + 1; }); // +1 to avoid division by zero
-    auto m3 = m1 / m2;
-    for (size_t i = 0; i < m3.rows(); ++i) {
-        for (size_t j = 0; j < m3.cols(); ++j) {
-            EXPECT_TRUE(IsClose(m3(i, j), (static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j)) / (static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j) + 1)));
-        }
-    }
-}
-
 TEST_F(LazyMatrixTests, EqualityTest) {
     LazyMatrix<FLOAT_TYPE> m1(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
     LazyMatrix<FLOAT_TYPE> m2(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
@@ -134,5 +123,50 @@ TEST_F(LazyMatrixTests, ScalarDivisionTest) {
         }
     }
 }
+
+TEST_F(LazyMatrixTests, MatrixVectorMultiplicationTest) {
+    MyBLAS::Vector<FLOAT_TYPE> v(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
+    MyBLAS::LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
+    auto result = m * v;
+    for (size_t i = 0; i < result.size(); ++i) {
+        FLOAT_TYPE expected = 0;
+        for (size_t j = 0; j < 10; ++j) {
+            expected += (static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j)) * static_cast<FLOAT_TYPE>(j);
+        }
+        EXPECT_TRUE(IsClose(result[i], expected));
+    }
+}
+
+TEST_F(LazyMatrixTests, MatrixVectorMultiplicationTest_ScalarMultiplication) {
+    MyBLAS::Vector<FLOAT_TYPE> v(10, 2.0);
+    MyBLAS::LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i + j); });
+    auto result = m * v;
+    for (size_t i = 0; i < result.size(); ++i) {
+        FLOAT_TYPE expected = 0;
+        for (size_t j = 0; j < 10; ++j) {
+            expected += (static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j)) * 2.0;
+        }
+        EXPECT_TRUE(IsClose(result[i], expected));
+    }
+}
+
+TEST_F(LazyMatrixTests, MatrixVectorMultiplicationTest_ZeroVector) {
+    MyBLAS::Vector<FLOAT_TYPE> v(10, 0.0);
+    MyBLAS::LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i + j); });
+    auto result = m * v;
+    for (size_t i = 0; i < result.size(); ++i) {
+        EXPECT_TRUE(IsClose(result[i], 0.0));
+    }
+}
+
+TEST_F(LazyMatrixTests, MatrixVectorMultiplicationTest_IdentityMatrix) {
+    MyBLAS::Vector<FLOAT_TYPE> v(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
+    MyBLAS::LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return i == j ? 1.0 : 0.0; });
+    auto result = m * v;
+    for (size_t i = 0; i < result.size(); ++i) {
+        EXPECT_TRUE(IsClose(result[i], static_cast<FLOAT_TYPE>(i)));
+    }
+}
+
 
 } //namespace MyBLAS

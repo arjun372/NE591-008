@@ -6,6 +6,7 @@ set(TEST_SOURCES
         expression/VectorExpressionTests.cpp
         matrix/BaseMatrixTests.cpp
         matrix/MatrixPerformanceTests.cpp
+        vector/BaseVectorTests.cpp
 )
 
 if (NOT TARGET blas_tests)

@@ -8,9 +8,11 @@
 #ifndef NE591_008_VECTOR_H
 #define NE591_008_VECTOR_H
 
+#include <functional>
 #include <iomanip>
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 namespace MyBLAS {
 /**
@@ -65,6 +67,17 @@ template <typename T> class Vector {
     explicit Vector(size_t size, const T initial = 0, bool _isRow = false) : data(size, initial), isRow(_isRow) {}
 
     /**
+     * @brief Constructor that initializes the vector with a given size and a lambda function.
+     * @param size Size of the vector.
+     * @param func Lambda function to generate the elements of the vector.
+     */
+    explicit Vector(size_t size, std::function<T(size_t)> func) : data(size), isRow(false) {
+        for (size_t i = 0; i < size; i++) {
+            data[i] = func(i);
+        }
+    }
+
+    /**
      * @brief Getter for the vector data.
      * @return Const reference to the vector data.
      */
@@ -117,15 +130,17 @@ template <typename T> class Vector {
         return true;
     }
 
+    bool operator!=(const Vector &rhs) const {
+        return !(*this==rhs);
+    }
+
     /**
      * @brief Overloaded operator+ to add two vectors.
      * @param rhs Vector to add to the current vector.
      * @return Resultant vector after addition.
      */
     Vector operator+(const Vector &rhs) const {
-        if (data.size() != rhs.size()) {
-            throw std::exception();
-        }
+        assert(data.size() == rhs.size());
         Vector result(size(), 0);
         for (size_t i = 0; i < size(); ++i) {
             result[i] = this->data[i] + rhs.data[i];
@@ -139,9 +154,7 @@ template <typename T> class Vector {
      * @return Resultant vector after subtraction.
      */
     Vector operator-(const Vector &rhs) const {
-        if (data.size() != rhs.size()) {
-            throw std::exception();
-        }
+        assert(data.size() == rhs.size());
         Vector result(size(), 0);
         for (size_t i = 0; i < size(); ++i) {
             result[i] = this->data[i] - rhs.data[i];
@@ -155,9 +168,7 @@ template <typename T> class Vector {
      * @return Resultant scalar after multiplication.
      */
     T operator*(const Vector &rhs) const {
-        if (data.size() != rhs.size()) {
-            throw std::exception();
-        }
+        assert(data.size() == rhs.size());
         T result = 0;
         for (size_t i = 0; i < size(); ++i) {
             result += this->data[i] * rhs.data[i];
@@ -184,6 +195,7 @@ template <typename T> class Vector {
      * @return Resultant vector after division.
      */
     Vector<T> operator/(const T &scalar) const {
+        assert(scalar != 0);
         Vector<T> result(size(), 0);
         for (size_t i = 0; i < size(); ++i) {
             result[i] = data[i] / scalar;

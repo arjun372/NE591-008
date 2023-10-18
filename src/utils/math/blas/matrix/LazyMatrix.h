@@ -67,19 +67,6 @@ class LazyMatrix {
         return *this;
     }
 
-//    template <typename T>
-//    struct is_matrix : std::false_type {};
-//
-//    template <typename DataType>
-//    struct is_matrix<LazyMatrix<DataType>> : std::true_type {};
-//
-//    template <typename T>
-//    struct is_vector : std::false_type {};
-//
-//    template <typename DataType>
-//    struct is_vector<VectorType<DataType>> : std::true_type {};
-
-
     // Define the addition operation.
     template <typename MatrixType1, typename MatrixType2>
     static LazyMatrix addMatrices(const MatrixType1& a, const MatrixType2& b) {
@@ -95,6 +82,10 @@ class LazyMatrix {
 
     template <typename MatrixType>
     friend LazyMatrix operator+(MatrixType const& a, LazyMatrix const& b) {
+        return addMatrices(a, b);
+    }
+
+    friend LazyMatrix operator+(LazyMatrix const& a, LazyMatrix const& b) {
         return addMatrices(a, b);
     }
 
@@ -116,13 +107,16 @@ class LazyMatrix {
         return subtractMatrices(a, b);
     }
 
+    friend LazyMatrix operator-(LazyMatrix const& a, LazyMatrix const& b) {
+        return subtractMatrices(a, b);
+    }
+
     template <typename MatrixType1, typename MatrixType2>
     static LazyMatrix multiplyMatrices(const MatrixType1& a, const MatrixType2& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x * y; };
         MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
         return LazyMatrix(a.rows(), a.cols(), [expr](size_t i, size_t j) { return expr(i, j); });
     }
-
 
     template <typename MatrixType>
     friend LazyMatrix operator*(LazyMatrix const& a, MatrixType const& b) {
@@ -131,6 +125,10 @@ class LazyMatrix {
 
     template <typename MatrixType>
     friend LazyMatrix operator*(MatrixType const& a, LazyMatrix const& b) {
+        return multiplyMatrices(a, b);
+    }
+
+    friend LazyMatrix operator*(LazyMatrix const& a, LazyMatrix const& b) {
         return multiplyMatrices(a, b);
     }
 
@@ -283,8 +281,8 @@ class LazyMatrix {
     }
 
   private:
-    size_t rows_;
-    size_t cols_;
+    size_t rows_{};
+    size_t cols_{};
     Generator generator_;
 
   protected:
