@@ -54,29 +54,29 @@ var NAVTREE =
       [ "FAQs", "index.html#autotoc_md21", null ]
     ] ],
     [ "InLab 01: Taylor series approximation of sin(x)", "d7/d5f/inlab1.html", [
-      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md22", [
-        [ "Usage", "d7/d5f/inlab1.html#autotoc_md23", null ],
-        [ "Example", "d7/d5f/inlab1.html#autotoc_md24", null ]
+      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md36", [
+        [ "Usage", "d7/d5f/inlab1.html#autotoc_md37", null ],
+        [ "Example", "d7/d5f/inlab1.html#autotoc_md38", null ]
       ] ]
     ] ],
     [ "InLab 02: Lagrange Interpolation Polynomials I", "d1/def/inlab2.html", [
-      [ "InLab 02: I/O Setup for Lagrange Interpolation Polynomials", "d1/def/inlab2.html#autotoc_md25", [
-        [ "Overview", "d1/def/inlab2.html#autotoc_md26", null ],
-        [ "Building & Usage", "d1/def/inlab2.html#autotoc_md27", [
-          [ "Options", "d1/def/inlab2.html#autotoc_md28", null ],
-          [ "General options:", "d1/def/inlab2.html#autotoc_md29", null ]
+      [ "InLab 02: I/O Setup for Lagrange Interpolation Polynomials", "d1/def/inlab2.html#autotoc_md22", [
+        [ "Overview", "d1/def/inlab2.html#autotoc_md23", null ],
+        [ "Building & Usage", "d1/def/inlab2.html#autotoc_md24", [
+          [ "Options", "d1/def/inlab2.html#autotoc_md25", null ],
+          [ "General options:", "d1/def/inlab2.html#autotoc_md26", null ]
         ] ],
-        [ "Implementing your own <tt>f(x)</tt>", "d1/def/inlab2.html#autotoc_md30", null ],
-        [ "File I/O", "d1/def/inlab2.html#autotoc_md31", null ],
-        [ "Parameters Format", "d1/def/inlab2.html#autotoc_md32", [
-          [ "Sample Inputs File", "d1/def/inlab2.html#autotoc_md33", null ]
+        [ "Implementing your own <tt>f(x)</tt>", "d1/def/inlab2.html#autotoc_md27", null ],
+        [ "File I/O", "d1/def/inlab2.html#autotoc_md28", null ],
+        [ "Parameters Format", "d1/def/inlab2.html#autotoc_md29", [
+          [ "Sample Inputs File", "d1/def/inlab2.html#autotoc_md30", null ]
         ] ],
-        [ "0.67", "d1/def/inlab2.html#autotoc_md34", null ],
-        [ "Inputs", "d1/def/inlab2.html#autotoc_md35", null ],
-        [ "Output Format", "d1/def/inlab2.html#autotoc_md36", [
-          [ "Sample Outputs File", "d1/def/inlab2.html#autotoc_md37", null ]
+        [ "0.67", "d1/def/inlab2.html#autotoc_md31", null ],
+        [ "Inputs", "d1/def/inlab2.html#autotoc_md32", null ],
+        [ "Output Format", "d1/def/inlab2.html#autotoc_md33", [
+          [ "Sample Outputs File", "d1/def/inlab2.html#autotoc_md34", null ]
         ] ],
-        [ "Example:", "d1/def/inlab2.html#autotoc_md38", null ]
+        [ "Example:", "d1/def/inlab2.html#autotoc_md35", null ]
       ] ]
     ] ],
     [ "InLab 03: Newton-Cotes Numerical Integration", "d5/d15/inlab3.html", [
