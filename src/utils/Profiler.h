@@ -44,6 +44,9 @@ class Profiler {
        _summary = MyBLAS::Stats::Summary<long double>();
    }
 
+   // TODO:: DOCUMENT
+   size_t getTotalRuns() const { return _totalRuns; }
+
    /**
     * @brief Runs the function for profiling and summarizes the results.
     * @return A reference to this Profiler object.
@@ -79,7 +82,10 @@ class Profiler {
     * @brief Gets the summary of the profiling.
     * @return The summary of the profiling.
     */
-   const MyBLAS::Stats::Summary<long double> &getSummary() const { return _summary; }
+   const MyBLAS::Stats::Summary<long double> &getSummary() {
+       _summary.runs = _stopwatches.size();
+       return _summary;
+   }
 
  private:
    FunctionType _function; ///< The function to be profiled.
@@ -155,7 +161,7 @@ class Profiler {
        summary.stddev = MyBLAS::Stats::std(durations);
        summary.median = MyBLAS::Stats::median(durations);
        summary.p5th = MyBLAS::Stats::percentile(durations, 5);
-       summary.P95th = MyBLAS::Stats::percentile(durations, 95);
+       summary.p95th = MyBLAS::Stats::percentile(durations, 95);
    }
 };
 

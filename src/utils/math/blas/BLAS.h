@@ -29,6 +29,18 @@ template <typename MatrixType> inline bool isSquareMatrix(const MatrixType &M) {
 }
 
 /**
+ * @brief Checks if the given matrix is empty.
+ *
+ * This function checks if the input matrix has empty rows or columns.
+ *
+ * @param M The input matrix to be checked.
+ * @return true if the input matrix is empty, false otherwise.
+ */
+template <typename MatrixType> inline bool isEmptyMatrix(const MatrixType &M) {
+    return M.getRows() == 0 || M.getCols() == 0;
+}
+
+/**
  * @brief Checks if the given matrix is a binary matrix.
  *
  * This function checks if all elements of the input matrix are either 0 or 1.

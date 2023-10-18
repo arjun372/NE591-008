@@ -37,7 +37,6 @@ static bool isFileWritable(const std::string &filepath) {
             std::cerr << "Provided path is a directory: " << filepath << std::endl;
             return false;
         }
-        std::cerr << "Warning: File already exists at path "<<filepath<<", will be overwritten " << std::endl;
         return true;
     }
     return true;

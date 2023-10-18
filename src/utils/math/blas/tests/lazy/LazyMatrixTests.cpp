@@ -16,157 +16,210 @@
 
 namespace MyBLAS {
 
+// Define a list of types to run the tests with
+typedef ::testing::Types<int, long, float, double, long double> FloatTypes;
+TYPED_TEST_SUITE(LazyMatrixTests, FloatTypes);
+
+template <typename T>
 class LazyMatrixTests : public ::testing::Test {
-  protected:
+  public:
     // Helper function to compare two floating point numbers with a tolerance.
-    static bool IsClose(FLOAT_TYPE a, FLOAT_TYPE b, FLOAT_TYPE tolerance = TOLERANCE) {
+    static bool IsClose(T a, T b, FLOAT_TYPE tolerance = TOLERANCE) {
         return std::abs(a - b) < tolerance;
     }
 };
 
-TEST_F(LazyMatrixTests, SizeTest) {
-    LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    EXPECT_EQ(m.rows(), 10);
-    EXPECT_EQ(m.cols(), 10);
+TYPED_TEST(LazyMatrixTests, SizeTest) {
+    LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    EXPECT_EQ(m.getRows(), 10);
+    EXPECT_EQ(m.getCols(), 10);
 }
 
-TEST_F(LazyMatrixTests, ElementAccessTest) {
-    LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j); });
-    for (size_t i = 0; i < m.rows(); ++i) {
-        for (size_t j = 0; j < m.cols(); ++j) {
-            EXPECT_TRUE(IsClose(m(i, j), static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j)));
+TYPED_TEST(LazyMatrixTests, ElementAccessTest) {
+    LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
+    for (size_t i = 0; i < m.getRows(); ++i) {
+        for (size_t j = 0; j < m.getCols(); ++j) {
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m(i, j), static_cast<TypeParam>(i) * static_cast<TypeParam>(j)));
         }
     }
 }
 
-TEST_F(LazyMatrixTests, AdditionTest) {
-    LazyMatrix<FLOAT_TYPE> m1(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    LazyMatrix<FLOAT_TYPE> m2(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j); });
+TYPED_TEST(LazyMatrixTests, AdditionTest) {
+    LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    LazyMatrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
     auto m3 = m1 + m2;
-    for (size_t i = 0; i < m3.rows(); ++i) {
-        for (size_t j = 0; j < m3.cols(); ++j) {
-            EXPECT_TRUE(IsClose(m3(i, j), static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j) + static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j)));
+    for (size_t i = 0; i < m3.getRows(); ++i) {
+        for (size_t j = 0; j < m3.getCols(); ++j) {
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m3(i, j), static_cast<TypeParam>(i) + static_cast<TypeParam>(j) + static_cast<TypeParam>(i) * static_cast<TypeParam>(j)));
         }
     }
 }
 
-TEST_F(LazyMatrixTests, SubtractionTest) {
-    LazyMatrix<FLOAT_TYPE> m1(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    LazyMatrix<FLOAT_TYPE> m2(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j); });
+TYPED_TEST(LazyMatrixTests, SubtractionTest) {
+    LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    LazyMatrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
     auto m3 = m1 - m2;
-    for (size_t i = 0; i < m3.rows(); ++i) {
-        for (size_t j = 0; j < m3.cols(); ++j) {
-            EXPECT_TRUE(IsClose(m3(i, j), static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j) - static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j)));
+    for (size_t i = 0; i < m3.getRows(); ++i) {
+        for (size_t j = 0; j < m3.getCols(); ++j) {
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m3(i, j), static_cast<TypeParam>(i) + static_cast<TypeParam>(j) - static_cast<TypeParam>(i) * static_cast<TypeParam>(j)));
         }
     }
 }
 
-TEST_F(LazyMatrixTests, MultiplicationTest) {
-    LazyMatrix<FLOAT_TYPE> m1(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    LazyMatrix<FLOAT_TYPE> m2(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j); });
+TYPED_TEST(LazyMatrixTests, MultiplicationTest) {
+    LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    LazyMatrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
     auto m3 = m1 * m2;
-    for (size_t i = 0; i < m3.rows(); ++i) {
-        for (size_t j = 0; j < m3.cols(); ++j) {
-            EXPECT_TRUE(IsClose(m3(i, j), (static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j)) * (static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j))));
+    for (size_t i = 0; i < m3.getRows(); ++i) {
+        for (size_t j = 0; j < m3.getCols(); ++j) {
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m3(i, j), (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) * (static_cast<TypeParam>(i) * static_cast<TypeParam>(j))));
         }
     }
 }
 
-TEST_F(LazyMatrixTests, EqualityTest) {
-    LazyMatrix<FLOAT_TYPE> m1(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    LazyMatrix<FLOAT_TYPE> m2(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
+TYPED_TEST(LazyMatrixTests, SquareBLASMatrixMultiplicationTest) {
+    LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    MyBLAS::Matrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
+    auto m12 = m1 * m2;
+    auto m21 = m2 * m1;
+    EXPECT_EQ(m12.getCols(), m21.getCols());
+    EXPECT_EQ(m12.getRows(), m21.getRows());
+
+    for (size_t i = 0; i < m12.getRows(); ++i) {
+        for (size_t j = 0; j < m12.getCols(); ++j) {
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m21(i, j), (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) * (static_cast<TypeParam>(i) * static_cast<TypeParam>(j))));
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m12(i, j), (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) * (static_cast<TypeParam>(i) * static_cast<TypeParam>(j))));
+        }
+    }
+}
+
+TYPED_TEST(LazyMatrixTests, BLASMatrixAdditionTest) {
+    LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    MyBLAS::Matrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
+    auto m12 = m1 + m2;
+    auto m21 = m2 + m1;
+    EXPECT_EQ(m12.getCols(), m21.getCols());
+    EXPECT_EQ(m12.getRows(), m21.getRows());
+    for (size_t i = 0; i < m12.getRows(); ++i) {
+        for (size_t j = 0; j < m12.getCols(); ++j) {
+            const auto actual = (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) + (static_cast<TypeParam>(i) * static_cast<TypeParam>(j));
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m12(i, j), actual));
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m21(i, j), actual));
+        }
+    }
+}
+
+TYPED_TEST(LazyMatrixTests, BLASMatrixSubtractionTest) {
+    LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    MyBLAS::Matrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
+    auto m12 = m1 - m2;
+    auto m21 = m2 - m1;
+    for (size_t i = 0; i < m12.getRows(); ++i) {
+        for (size_t j = 0; j < m12.getCols(); ++j) {
+            const auto actual = (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) - (static_cast<TypeParam>(i) * static_cast<TypeParam>(j));
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m12(i, j), actual));
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m21(i, j), -actual));
+            // Note the negative sign here, as m2 - m1 is not the same as m1 - m2
+        }
+    }
+}
+
+TYPED_TEST(LazyMatrixTests, EqualityTest) {
+    LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    LazyMatrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
     EXPECT_TRUE(m1 == m2);
 }
 
-TEST_F(LazyMatrixTests, InequalityTest) {
-    LazyMatrix<FLOAT_TYPE> m1(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    LazyMatrix<FLOAT_TYPE> m2(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(j); });
+TYPED_TEST(LazyMatrixTests, InequalityTest) {
+    LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    LazyMatrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
     EXPECT_TRUE(m1 != m2);
 }
 
-TEST_F(LazyMatrixTests, ScalarAdditionTest) {
-    LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    auto m2 = m + static_cast<FLOAT_TYPE>(10);
-    for (size_t i = 0; i < m2.rows(); ++i) {
-        for (size_t j = 0; j < m2.cols(); ++j) {
-            EXPECT_TRUE(IsClose(m2(i, j), static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j) + static_cast<FLOAT_TYPE>(10)));
+TYPED_TEST(LazyMatrixTests, ScalarAdditionTest) {
+    LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    auto m2 = m + static_cast<TypeParam>(10);
+    for (size_t i = 0; i < m2.getRows(); ++i) {
+        for (size_t j = 0; j < m2.getCols(); ++j) {
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m2(i, j), static_cast<TypeParam>(i) + static_cast<TypeParam>(j) + static_cast<TypeParam>(10)));
         }
     }
 }
 
-TEST_F(LazyMatrixTests, ScalarSubtractionTest) {
-    LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    auto m2 = m - static_cast<FLOAT_TYPE>(5);
-    for (size_t i = 0; i < m2.rows(); ++i) {
-        for (size_t j = 0; j < m2.cols(); ++j) {
-            EXPECT_TRUE(IsClose(m2(i, j), static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j) - static_cast<FLOAT_TYPE>(5)));
+TYPED_TEST(LazyMatrixTests, ScalarSubtractionTest) {
+    LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    auto m2 = m - static_cast<TypeParam>(5);
+    for (size_t i = 0; i < m2.getRows(); ++i) {
+        for (size_t j = 0; j < m2.getCols(); ++j) {
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m2(i, j), static_cast<TypeParam>(i) + static_cast<TypeParam>(j) - static_cast<TypeParam>(5)));
         }
     }
 }
 
-TEST_F(LazyMatrixTests, ScalarMultiplicationTest) {
-    LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    auto m2 = m * static_cast<FLOAT_TYPE>(2);
-    for (size_t i = 0; i < m2.rows(); ++i) {
-        for (size_t j = 0; j < m2.cols(); ++j) {
-            EXPECT_TRUE(IsClose(m2(i, j), (static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j)) * static_cast<FLOAT_TYPE>(2)));
+TYPED_TEST(LazyMatrixTests, ScalarMultiplicationTest) {
+    LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    auto m2 = m * static_cast<TypeParam>(2);
+    for (size_t i = 0; i < m2.getRows(); ++i) {
+        for (size_t j = 0; j < m2.getCols(); ++j) {
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m2(i, j), (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) * static_cast<TypeParam>(2)));
         }
     }
 }
 
-TEST_F(LazyMatrixTests, ScalarDivisionTest) {
-    LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
-    auto m2 = m / static_cast<FLOAT_TYPE>(2);
-    for (size_t i = 0; i < m2.rows(); ++i) {
-        for (size_t j = 0; j < m2.cols(); ++j) {
-            EXPECT_TRUE(IsClose(m2(i, j), (static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j)) / static_cast<FLOAT_TYPE>(2)));
+TYPED_TEST(LazyMatrixTests, ScalarDivisionTest) {
+    LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    auto m2 = m / static_cast<TypeParam>(2);
+    for (size_t i = 0; i < m2.getRows(); ++i) {
+        for (size_t j = 0; j < m2.getCols(); ++j) {
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m2(i, j), (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) / static_cast<TypeParam>(2)));
         }
     }
 }
 
-TEST_F(LazyMatrixTests, MatrixVectorMultiplicationTest) {
-    MyBLAS::Vector<FLOAT_TYPE> v(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
-    MyBLAS::LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j); });
+TYPED_TEST(LazyMatrixTests, MatrixVectorMultiplicationTest) {
+    MyBLAS::Vector<TypeParam> v(10, [](size_t i) { return static_cast<TypeParam>(i); });
+    MyBLAS::LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
     auto result = m * v;
     for (size_t i = 0; i < result.size(); ++i) {
-        FLOAT_TYPE expected = 0;
+        TypeParam expected = 0;
         for (size_t j = 0; j < 10; ++j) {
-            expected += (static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j)) * static_cast<FLOAT_TYPE>(j);
+            expected += (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) * static_cast<TypeParam>(j);
         }
-        EXPECT_TRUE(IsClose(result[i], expected));
+        EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(result[i], expected));
     }
 }
 
-TEST_F(LazyMatrixTests, MatrixVectorMultiplicationTest_ScalarMultiplication) {
-    MyBLAS::Vector<FLOAT_TYPE> v(10, 2.0);
-    MyBLAS::LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i + j); });
+TYPED_TEST(LazyMatrixTests, MatrixVectorMultiplicationTest_ScalarMultiplication) {
+    MyBLAS::Vector<TypeParam> v(10, 2.0);
+    MyBLAS::LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i + j); });
     auto result = m * v;
     for (size_t i = 0; i < result.size(); ++i) {
-        FLOAT_TYPE expected = 0;
+        TypeParam expected = 0;
         for (size_t j = 0; j < 10; ++j) {
-            expected += (static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(j)) * 2.0;
+            expected += (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) * 2.0;
         }
-        EXPECT_TRUE(IsClose(result[i], expected));
+        EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(result[i], expected));
     }
 }
 
-TEST_F(LazyMatrixTests, MatrixVectorMultiplicationTest_ZeroVector) {
-    MyBLAS::Vector<FLOAT_TYPE> v(10, 0.0);
-    MyBLAS::LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return static_cast<FLOAT_TYPE>(i + j); });
+TYPED_TEST(LazyMatrixTests, MatrixVectorMultiplicationTest_ZeroVector) {
+    MyBLAS::Vector<TypeParam> v(10, 0.0);
+    MyBLAS::LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i + j); });
     auto result = m * v;
     for (size_t i = 0; i < result.size(); ++i) {
-        EXPECT_TRUE(IsClose(result[i], 0.0));
+        EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(result[i], 0.0));
     }
 }
 
-TEST_F(LazyMatrixTests, MatrixVectorMultiplicationTest_IdentityMatrix) {
-    MyBLAS::Vector<FLOAT_TYPE> v(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
-    MyBLAS::LazyMatrix<FLOAT_TYPE> m(10, 10, [](size_t i, size_t j) { return i == j ? 1.0 : 0.0; });
+TYPED_TEST(LazyMatrixTests, MatrixVectorMultiplicationTest_IdentityMatrix) {
+    MyBLAS::Vector<TypeParam> v(10, [](size_t i) { return static_cast<TypeParam>(i); });
+    MyBLAS::LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return i == j ? 1.0 : 0.0; });
     auto result = m * v;
     for (size_t i = 0; i < result.size(); ++i) {
-        EXPECT_TRUE(IsClose(result[i], static_cast<FLOAT_TYPE>(i)));
+        EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(result[i], static_cast<TypeParam>(i)));
     }
 }
+
 
 
 } //namespace MyBLAS

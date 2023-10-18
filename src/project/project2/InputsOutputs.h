@@ -27,13 +27,13 @@ typedef struct Input {
     Input() = default;
     std::set<MyLinearSolvingMethod::Type> methods = {};
 
-    MyLinearSolvingMethod::Parameters<long double> solverParams;
+    MyLinearSolvingMethod::Parameters<MyBLAS::NumericType> solverParams;
 
-    MyBLAS::Matrix<long double> sources = MyBLAS::Matrix<long double>();
+    MyBLAS::Matrix<MyBLAS::NumericType> sources = MyBLAS::Matrix<MyBLAS::NumericType>();
 
-    MyPhysics::Diffusion::Params<long double> diffusionParams;
-    MyPhysics::Diffusion::Matrix<long double> diffusionCoefficients;
-    MyBLAS::Vector<long double> diffusionConstants;
+    MyPhysics::Diffusion::Params<MyBLAS::NumericType> diffusionParams;
+    MyPhysics::Diffusion::Matrix<MyBLAS::NumericType> diffusionCoefficients;
+    MyBLAS::Vector<MyBLAS::NumericType> diffusionConstants;
 
     std::string fluxOutputDirectory;
 
@@ -68,18 +68,20 @@ typedef struct Output {
     Output() = default;
     explicit Output(SolverInputs inputMatrices) { inputs = std::move(inputMatrices); };
     SolverInputs inputs;
-    MyLinearSolvingMethod::Solution<long double> solution;
+    MyLinearSolvingMethod::Solution<MyBLAS::NumericType> solution;
 
-    long double mean_execution_time = std::numeric_limits<long double>::quiet_NaN();
-    long double stddev_execution_time = std::numeric_limits<long double>::quiet_NaN();
+    MyBLAS::NumericType mean_execution_time = std::numeric_limits<MyBLAS::NumericType>::quiet_NaN();
+    MyBLAS::NumericType stddev_execution_time = std::numeric_limits<MyBLAS::NumericType>::quiet_NaN();
     size_t runs = 0;
 
-    MyBLAS::Vector<long double> residual;
-    MyBLAS::Matrix<long double> fluxes;
+    MyBLAS::Vector<MyBLAS::NumericType> residual;
+    MyBLAS::Matrix<MyBLAS::NumericType> fluxes;
 
-    [[nodiscard]] long double max_residual() const {
-        return MyBLAS::Stats::max<long double>(MyBLAS::Stats::abs(residual));
+    [[nodiscard]] MyBLAS::NumericType max_residual() const {
+        return MyBLAS::Stats::max<MyBLAS::NumericType>(MyBLAS::Stats::abs(residual));
     }
+
+    MyBLAS::Stats::Summary<MyBLAS::NumericType> summary;
 
     /**
      * @brief Converts the output parameters to a JSON object.
@@ -102,9 +104,8 @@ typedef struct Output {
         // if LUP is used
         // jsonMap["l2-error"] = getSolutionError();
 
-        jsonMap["wall-time-ns"]["mean"] = mean_execution_time;
-        jsonMap["wall-time-ns"]["std"] = stddev_execution_time;
-        jsonMap["wall-time-ns"]["samples"] = 10;
+        jsonMap["wall-time-ns"] = summary.toJSON();
+        jsonMap["wall-time-ns"]["samples"] = summary.runs;
     }
 } SolverOutputs;
 

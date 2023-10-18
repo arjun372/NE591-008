@@ -97,6 +97,11 @@ bool passesPreChecks(const MatrixType &A, const VectorType &b) {
 
     bool passes = true;
 
+    if (MyBLAS::isEmptyMatrix(A)) {
+        std::cerr << "Error: Failed pre-check: coefficient matrix is empty.\n";
+        return false;
+    }
+
     if (!MyBLAS::isSquareMatrix(A)) {
         std::cerr << "Error: Failed pre-check: coefficient matrix is non-square.\n";
         passes = false;

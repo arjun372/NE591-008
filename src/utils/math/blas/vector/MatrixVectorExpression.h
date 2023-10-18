@@ -11,32 +11,33 @@
 
 #include <cstddef>
 
-template <typename DataType, typename MatrixType, typename VectorType>
+template <template <typename> class MatrixType, template <typename> class VectorType, typename T>
+//template <typename DataType, typename MatrixType, typename VectorType>
 class MatrixVectorExpression {
   public:
-    MatrixVectorExpression(const MatrixType& matrix, const VectorType& vector)
+    MatrixVectorExpression(const MatrixType<T>& matrix, const VectorType<T>& vector)
         : matrix_(matrix), vector_(vector) {}
 
-    DataType operator()(size_t i) const {
-        DataType result = 0;
-        for (size_t j = 0; j < matrix_.cols(); ++j) {
+    T operator()(size_t i) const {
+        T result = 0;
+        for (size_t j = 0; j < matrix_.getCols(); ++j) {
             result += matrix_(i, j) * vector_[j];
         }
         return result;
     }
 
-    static VectorType multiplyMatrixVector(const MatrixType& a, const VectorType& b) {
-        MatrixVectorExpression<DataType, MatrixType, VectorType> expr(a, b);
-        VectorType result = VectorType(a.rows());
-        for (size_t i = 0; i < a.rows(); ++i) {
+    static VectorType<T> multiplyMatrixVector(const MatrixType<T>& a, const VectorType<T>& b) {
+        MatrixVectorExpression expr(a, b);
+        VectorType result = VectorType<T>(a.getRows());
+        for (size_t i = 0; i < a.getRows(); ++i) {
             result[i] = expr(i);
         }
         return result;
     }
 
   private:
-    const MatrixType& matrix_;
-    const VectorType& vector_;
+    const MatrixType<T>& matrix_;
+    const VectorType<T>& vector_;
 };
 
 

@@ -1,0 +1,2 @@
+file(GLOB FILES "raw/*.csv")
+file(COPY ${FILES} DESTINATION ${CMAKE_BINARY_DIR}/)

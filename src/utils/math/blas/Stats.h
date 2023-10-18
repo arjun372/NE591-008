@@ -39,7 +39,8 @@ struct Summary {
     T stddev = std::numeric_limits<T>::quiet_NaN(); ///< The standard deviation.
     T median = std::numeric_limits<T>::quiet_NaN(); ///< The median value.
     T p5th = std::numeric_limits<T>::quiet_NaN(); ///< The 5th percentile.
-    T P95th = std::numeric_limits<T>::quiet_NaN(); ///< The 95th percentile.
+    T p95th = std::numeric_limits<T>::quiet_NaN(); ///< The 95th percentile.
+    size_t runs;
 
     /**
      * @brief Overloaded stream insertion operator to print the summary statistics.
@@ -55,9 +56,23 @@ struct Summary {
         os << ":::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::\n";
         os << ":::::: {" << summary.min << ", " << summary.max << "} ";
         os << ": (" << summary.mean << " ± " << summary.stddev << ") : [";
-        os << summary.p5th << ", "<< summary.P95th << "] :::::";
+        os << summary.p5th << ", "<< summary.p95th << "] :::::";
         os << std::setprecision(precision);
         return os;
+    }
+
+    // TODO:: DOCUMENT
+    nlohmann::json toJSON() const {
+        nlohmann::json jsonMap;
+        jsonMap["min"] = min;
+        jsonMap["max"] = max;
+        jsonMap["sum"] = sum;
+        jsonMap["mean"] = mean;
+        jsonMap["variance"] = variance;
+        jsonMap["stddev"] = stddev;
+        jsonMap["p5th"] = p5th;
+        jsonMap["p95th"] = p95th;
+        return jsonMap;
     }
 };
 

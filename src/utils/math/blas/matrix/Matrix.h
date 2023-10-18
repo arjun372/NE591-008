@@ -55,6 +55,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      */
     explicit Matrix(std::vector<std::vector<T>> _data) : data(_data) {}
 
+    // TODO:: DOCUMENT
     template <class MatrixType>
     explicit Matrix(MatrixType matrix) {
         const size_t rows = matrix.getRows(), cols = matrix.getCols();
@@ -92,6 +93,45 @@ template <typename T = MyBLAS::NumericType> class Matrix {
             ++i;
         }
     }
+
+    /**
+     * @brief Constructor that initializes the matrix with a given size and a lambda function.
+     * @param rows Number of rows in the matrix.
+     * @param cols Number of columns in the matrix.
+     * @param func Lambda function to generate the elements of the matrix.
+     */
+    explicit Matrix(size_t rows, size_t cols, std::function<T(size_t, size_t)> func) : data(rows, std::vector<T>(cols)) {
+        for (size_t i = 0; i < rows; ++i) {
+            for (size_t j = 0; j < cols; ++j) {
+                data[i][j] = func(i, j);
+            }
+        }
+    }
+
+    virtual
+     /**
+     * @brief Overloaded operator() to access individual elements of the matrix.
+     * @param row Row index of the element to access.
+     * @param col Column index of the element to access.
+     * @return Reference to the element at the given row and column.
+     */
+    T &operator()(size_t row, size_t col) {
+        assert(row < getRows() && col < getCols());
+        return data[row][col];
+    }
+
+    virtual
+    /**
+     * @brief Overloaded operator() const to access individual elements of the matrix.
+     * @param row Row index of the element to access.
+     * @param col Column index of the element to access.
+     * @return Reference to the element at the given row and column.
+     */
+    const T &operator()(size_t row, size_t col) const {
+        assert(row < getRows() && col < getCols());
+        return data[row][col];
+    }
+
 
     virtual /**
      * @brief Overloaded operator[] to access individual rows of the matrix.
@@ -208,6 +248,48 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         const size_t my_rows = getRows(), my_cols = getCols();
         const size_t rhs_cols = rhs.getCols();
         Matrix result(my_rows, rhs_cols, 0);
+        for (size_t i = 0; i < my_rows; ++i) {
+            for (size_t j = 0; j < rhs_cols; ++j) {
+                for (size_t k = 0; k < my_cols; ++k) {
+                    result[i][j] += this->data[i][k] * rhs.data[k][j];
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * @brief Overloaded operator* to multiply two matrices, where one is of type MatrixType
+     * @param rhs Matrix to multiply with the current matrix.
+     * @return Resultant matrix after multiplication.
+     */
+    template <typename MatrixType1, typename MatrixType2>
+    MatrixType1 operator*(const MatrixType2 &rhs) const {
+        assert(getCols() == rhs.getRows());
+        const size_t my_rows = getRows(), my_cols = getCols();
+        const size_t rhs_cols = rhs.getCols();
+        MatrixType1 result(my_rows, rhs_cols, 0);
+        for (size_t i = 0; i < my_rows; ++i) {
+            for (size_t j = 0; j < rhs_cols; ++j) {
+                for (size_t k = 0; k < my_cols; ++k) {
+                    result[i][j] += this->data[i][k] * rhs.data[k][j];
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * @brief Overloaded operator* to multiply two matrices, where one is of type MatrixType
+     * @param rhs Matrix to multiply with the current matrix.
+     * @return Resultant matrix after multiplication.
+     */
+    template <typename MatrixType1, typename MatrixType2>
+    MatrixType1 operator*(const MatrixType1 &rhs) const {
+        assert(getCols() == rhs.getRows());
+        const size_t my_rows = getRows(), my_cols = getCols();
+        const size_t rhs_cols = rhs.getCols();
+        MatrixType1 result(my_rows, rhs_cols, 0);
         for (size_t i = 0; i < my_rows; ++i) {
             for (size_t j = 0; j < rhs_cols; ++j) {
                 for (size_t k = 0; k < my_cols; ++k) {

@@ -20,8 +20,8 @@ class MatrixExpression {
 
     DataType operator()(size_t i, size_t j) const { return binary_op_(op1_(i, j), op2_(i, j)); }
 
-    [[nodiscard]] size_t rows() const { return op1_.rows(); }  // Assume both operands have the same number of rows.
-    [[nodiscard]] size_t cols() const { return op1_.cols(); }  // Assume both operands have the same number of columns.
+    [[nodiscard]] size_t rows() const { return op1_.getRows(); }  // Assume both operands have the same number of rows.
+    [[nodiscard]] size_t getCols() const { return op1_.getCols(); }  // Assume both operands have the same number of columns.
 
   private:
     Op1 const& op1_;

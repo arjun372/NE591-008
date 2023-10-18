@@ -97,8 +97,6 @@ class Matrix : public MyBLAS::LazyMatrix<T> {
     [[nodiscard]] size_t getCols() const {
         return _size;
     }
-
-
 };
 }
 #endif // NE591_008_DIFFUSIONMATRIX_H

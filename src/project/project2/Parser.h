@@ -30,12 +30,12 @@ class Parser : public CommandLine<SolverInputs> {
      */
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()(
-            ",a", boost::program_options::value<long double>(),"= Length of 1st dimension (+ve real)")(
-            ",b", boost::program_options::value<long double>(),"= Length of 2nd dimension (+ve real)")(
-            ",m", boost::program_options::value<long double>(), "= Number of mesh-points in 1st dimension")(
-            ",n", boost::program_options::value<long double>(), "= Number of mesh-points in 2nd dimension")(
-            ",D", boost::program_options::value<long double>(), "= Diffusion coefficient D (+ve real)")(
-            "cross-section", boost::program_options::value<long double>(), "= Removal cross-section Σₐ (+ve real)");
+            ",a", boost::program_options::value<MyBLAS::NumericType>(),"= Length of 1st dimension (+ve real)")(
+            ",b", boost::program_options::value<MyBLAS::NumericType>(),"= Length of 2nd dimension (+ve real)")(
+            ",m", boost::program_options::value<MyBLAS::NumericType>(), "= Number of mesh-points in 1st dimension")(
+            ",n", boost::program_options::value<MyBLAS::NumericType>(), "= Number of mesh-points in 2nd dimension")(
+            ",D", boost::program_options::value<MyBLAS::NumericType>(), "= Diffusion coefficient D (+ve real)")(
+            "cross-section", boost::program_options::value<MyBLAS::NumericType>(), "= Removal cross-section Σₐ (+ve real)");
 
         boost::program_options::options_description files("Inputs/Outputs");
         files.add_options()(
@@ -52,9 +52,9 @@ class Parser : public CommandLine<SolverInputs> {
             ("use-gauss-seidel", "= Use the Gauss-Seidel method")
             ("use-SOR", "= Use the SOR method")
             ("use-SSOR", "= Use the symmetric SOR method")(
-            "threshold,t", boost::program_options::value<long double>(),"= convergence threshold [𝜀 > 0]")(
-            "max-iterations,k", boost::program_options::value<long double>(), "= maximum iterations [n ∈ ℕ]")(
-            "relaxation-factor,w", boost::program_options::value<long double>(), "= SOR weight, typical ω ∈ [0,2]");
+            "threshold,t", boost::program_options::value<MyBLAS::NumericType>(),"= convergence threshold [𝜀 > 0]")(
+            "max-iterations,k", boost::program_options::value<MyBLAS::NumericType>(), "= maximum iterations [n ∈ ℕ]")(
+            "relaxation-factor,w", boost::program_options::value<MyBLAS::NumericType>(), "= SOR weight, typical ω ∈ [0,2]");
         values.add(methods);
         values.add(files);
     }
@@ -79,9 +79,9 @@ class Parser : public CommandLine<SolverInputs> {
         std::cout << "\tInput JSON,     i: " << (vm.count("input-parameter-json") ? vm["input-parameter-json"].as<std::string>() : "None") << "\n";
         std::cout << "\tOutput JSON,    o: " << (vm.count("output-results-json") ? vm["output-results-json"].as<std::string>() : "None") << "\n";
         std::cout << "\t----\n";
-        std::cout << "\tConvergence Threshold,                  𝜀: " << vm["threshold"].as<long double>() << "\n";
-        std::cout << "\tMax iterations,                         k: " << static_cast<size_t>(vm["max-iterations"].as<long double>())<< "\n";
-        std::cout << "\tSOR weight,                             ω: "<< (vm.count("relaxation-factor") ? std::to_string(vm["relaxation-factor"].as<long double>()) : "N/A") << "\n";
+        std::cout << "\tConvergence Threshold,                  𝜀: " << vm["threshold"].as<MyBLAS::NumericType>() << "\n";
+        std::cout << "\tMax iterations,                         k: " << static_cast<size_t>(vm["max-iterations"].as<MyBLAS::NumericType>())<< "\n";
+        std::cout << "\tSOR weight,                             ω: "<< (vm.count("relaxation-factor") ? std::to_string(vm["relaxation-factor"].as<MyBLAS::NumericType>()) : "N/A") << "\n";
         std::cout << "\tUse LUP factorization                    : " << (vm["use-LUP"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\tUse Gauss-Seidel                         : " << (vm["use-gauss-seidel"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\tUse Point-Jacobi                         : " << (vm["use-point-jacobi"].as<bool>() ? "Yes" : "No") << "\n";
@@ -89,12 +89,12 @@ class Parser : public CommandLine<SolverInputs> {
         std::cout << "\tUse Point-Jacobi with SOR                : " << (vm["use-SORJ"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\tUse symmetric SOR                        : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\t----\n";
-        std::cout << "\t1st dimension length,                   a: " << vm["a"].as<long double>() << "\n";
-        std::cout << "\t2nd dimension length,                   b: " << vm["b"].as<long double>() << "\n";
-        std::cout << "\t1st dimension mesh-points,              m: " << static_cast<size_t>(vm["m"].as<long double>()) << "\n";
-        std::cout << "\t2nd dimension mesh-points,              n: " << static_cast<size_t>(vm["n"].as<long double>()) << "\n";
-        std::cout << "\tDiffusion coefficient,                  D: " << (vm["D"].as<long double>()) << "\n";
-        std::cout << "\tMacroscopic removal cross-section,     Σₐ: " << (vm["cross-section"].as<long double>()) << "\n";
+        std::cout << "\t1st dimension length,                   a: " << vm["a"].as<MyBLAS::NumericType>() << "\n";
+        std::cout << "\t2nd dimension length,                   b: " << vm["b"].as<MyBLAS::NumericType>() << "\n";
+        std::cout << "\t1st dimension mesh-points,              m: " << static_cast<size_t>(vm["m"].as<MyBLAS::NumericType>()) << "\n";
+        std::cout << "\t2nd dimension mesh-points,              n: " << static_cast<size_t>(vm["n"].as<MyBLAS::NumericType>()) << "\n";
+        std::cout << "\tDiffusion coefficient,                  D: " << (vm["D"].as<MyBLAS::NumericType>()) << "\n";
+        std::cout << "\tMacroscopic removal cross-section,     Σₐ: " << (vm["cross-section"].as<MyBLAS::NumericType>()) << "\n";
         CommandLine::printLine();
         std::cout << std::setprecision(vm["precision"].as<int>());
     }
@@ -214,32 +214,32 @@ class Parser : public CommandLine<SolverInputs> {
             inputMap["methods"] = nlohmann::json::array();
         }
 
-        std::vector<std::function<bool(long double)>> checks;
+        std::vector<std::function<bool(MyBLAS::NumericType)>> checks;
 
         // add checks for parameters a & b
         checks.clear();
-        checks.emplace_back([](long double value) { return failsPositiveNumberCheck(value); });
-        performChecksAndUpdateInput<long double>("a", inputMap["dimensions"], map, checks);
-        performChecksAndUpdateInput<long double>("b", inputMap["dimensions"], map, checks);
+        checks.emplace_back([](MyBLAS::NumericType value) { return failsPositiveNumberCheck(value); });
+        performChecksAndUpdateInput<MyBLAS::NumericType>("a", inputMap["dimensions"], map, checks);
+        performChecksAndUpdateInput<MyBLAS::NumericType>("b", inputMap["dimensions"], map, checks);
 
         // add checks for parameters m & n
         checks.clear();
-        checks.emplace_back([](long double value) { return failsNaturalNumberCheck(value); });
-        performChecksAndUpdateInput<long double>("m", inputMap["mesh"], map, checks);
-        performChecksAndUpdateInput<long double>("n", inputMap["mesh"], map, checks);
+        checks.emplace_back([](MyBLAS::NumericType value) { return failsNaturalNumberCheck(value); });
+        performChecksAndUpdateInput<MyBLAS::NumericType>("m", inputMap["mesh"], map, checks);
+        performChecksAndUpdateInput<MyBLAS::NumericType>("n", inputMap["mesh"], map, checks);
 
         // add checks for parameters D and Σₐ
         checks.clear();
-        checks.emplace_back([](long double value) { return failsNonNegativeNumberCheck(value); });
-        performChecksAndUpdateInput<long double>("D", inputMap, map, checks);
-        performChecksAndUpdateInput<long double>("cross-section", inputMap, map, checks);
+        checks.emplace_back([](MyBLAS::NumericType value) { return failsNonNegativeNumberCheck(value); });
+        performChecksAndUpdateInput<MyBLAS::NumericType>("D", inputMap, map, checks);
+        performChecksAndUpdateInput<MyBLAS::NumericType>("cross-section", inputMap, map, checks);
 
         // add checks for parameters 𝜀 and k
         checks.clear();
-        checks.emplace_back([](long double value) { return failsPositiveNumberCheck(value); });
-        performChecksAndUpdateInput<long double>("threshold", inputMap, map, checks);
-        checks.emplace_back([](long double value) { return failsWholeNumberCheck(value); });
-        performChecksAndUpdateInput<long double>("max-iterations", inputMap, map, checks);
+        checks.emplace_back([](MyBLAS::NumericType value) { return failsPositiveNumberCheck(value); });
+        performChecksAndUpdateInput<MyBLAS::NumericType>("threshold", inputMap, map, checks);
+        checks.emplace_back([](MyBLAS::NumericType value) { return failsWholeNumberCheck(value); });
+        performChecksAndUpdateInput<MyBLAS::NumericType>("max-iterations", inputMap, map, checks);
 
         auto methods = std::vector<std::string>(inputMap["methods"]);
         if(contains(methods, "LUP")) {
@@ -280,7 +280,7 @@ class Parser : public CommandLine<SolverInputs> {
 
         if (map["use-SOR"].as<bool>() || map["use-SORJ"].as<bool>() || map["use-SSOR"].as<bool>()) {
             checks.clear();
-            performChecksAndUpdateInput<long double>("relaxation-factor", inputMap, map, checks);
+            performChecksAndUpdateInput<MyBLAS::NumericType>("relaxation-factor", inputMap, map, checks);
         }
     }
 
@@ -297,15 +297,15 @@ class Parser : public CommandLine<SolverInputs> {
     void buildInputs(SolverInputs &inputs, boost::program_options::variables_map &map) override {
 
         inputs.diffusionParams
-            .setA(map["a"].as<long double>())
-            .setB(map["b"].as<long double>())
-            .setM(static_cast<size_t>(map["m"].as<long double>()))
-            .setN(static_cast<size_t>(map["n"].as<long double>()))
-            .setDiffusionCoefficient(map["D"].as<long double>())
-            .setMacroscopicRemovalCrossSection(map["cross-section"].as<long double>());
+            .setA(map["a"].as<MyBLAS::NumericType>())
+            .setB(map["b"].as<MyBLAS::NumericType>())
+            .setM(static_cast<size_t>(map["m"].as<MyBLAS::NumericType>()))
+            .setN(static_cast<size_t>(map["n"].as<MyBLAS::NumericType>()))
+            .setDiffusionCoefficient(map["D"].as<MyBLAS::NumericType>())
+            .setMacroscopicRemovalCrossSection(map["cross-section"].as<MyBLAS::NumericType>());
 
         const auto sourceTermsFilepath = map["source-terms-csv"].as<std::string>();
-        readCSVRowWiseNoHeaders<long double>(sourceTermsFilepath, inputs.sources);
+        readCSVRowWiseNoHeaders<MyBLAS::NumericType>(sourceTermsFilepath, inputs.sources);
 
         inputs.fluxOutputDirectory = map["flux-output-dir"].as<std::string>();
 
@@ -328,8 +328,8 @@ class Parser : public CommandLine<SolverInputs> {
             std::cerr << "WARNING: Source terms matrix columns != n, overriding n to " << inputs.diffusionParams.getN() << std::endl;
         }
 
-        inputs.solverParams.threshold = map["threshold"].as<long double>();
-        inputs.solverParams.max_iterations = static_cast<size_t>(map["max-iterations"].as<long double>());
+        inputs.solverParams.threshold = map["threshold"].as<MyBLAS::NumericType>();
+        inputs.solverParams.max_iterations = static_cast<size_t>(map["max-iterations"].as<MyBLAS::NumericType>());
         inputs.solverParams.n = inputs.diffusionParams.getM() * inputs.diffusionParams.getN();
 
         if (map["use-LUP"].as<bool>()) {
@@ -357,7 +357,7 @@ class Parser : public CommandLine<SolverInputs> {
         }
 
         if (map.count("relaxation-factor")) {
-            inputs.solverParams.relaxation_factor = map["relaxation-factor"].as<long double>();
+            inputs.solverParams.relaxation_factor = map["relaxation-factor"].as<MyBLAS::NumericType>();
         }
 
         if (!map.count("quiet")) {

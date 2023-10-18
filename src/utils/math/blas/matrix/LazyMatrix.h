@@ -40,11 +40,8 @@ class LazyMatrix {
     LazyMatrix(size_t rows, size_t cols, Generator generator)
         : rows_(rows), cols_(cols), generator_(std::move(generator)) {}
 
-    [[nodiscard]] size_t rows() const { return rows_; }
-    [[nodiscard]] size_t cols() const { return cols_; }
-
-    [[nodiscard]] virtual size_t getRows() const { return rows(); }
-    [[nodiscard]] virtual size_t getCols() const { return cols(); }
+    [[nodiscard]] virtual size_t getRows() const { return rows_; }
+    [[nodiscard]] virtual size_t getCols() const { return cols_; }
 
     virtual DataType operator()(size_t row, size_t col) const {
         return generator_(row, col);
@@ -72,7 +69,7 @@ class LazyMatrix {
     static LazyMatrix addMatrices(const MatrixType1& a, const MatrixType2& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x + y; };
         MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyMatrix(a.rows(), a.cols(), [expr](size_t i, size_t j) { return expr(i, j); });
+        return LazyMatrix(a.getRows(), a.getCols(), [expr](size_t i, size_t j) { return expr(i, j); });
     }
 
     template <typename MatrixType>
@@ -94,7 +91,7 @@ class LazyMatrix {
     static LazyMatrix subtractMatrices(const MatrixType1& a, const MatrixType2& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x - y; };
         MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyMatrix(a.rows(), a.cols(), [expr](size_t i, size_t j) { return expr(i, j); });
+        return LazyMatrix(a.getRows(), a.getCols(), [expr](size_t i, size_t j) { return expr(i, j); });
     }
 
     template <typename MatrixType>
@@ -115,7 +112,7 @@ class LazyMatrix {
     static LazyMatrix multiplyMatrices(const MatrixType1& a, const MatrixType2& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x * y; };
         MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyMatrix(a.rows(), a.cols(), [expr](size_t i, size_t j) { return expr(i, j); });
+        return LazyMatrix(a.getRows(), a.getCols(), [expr](size_t i, size_t j) { return expr(i, j); });
     }
 
     template <typename MatrixType>
@@ -130,11 +127,6 @@ class LazyMatrix {
 
     friend LazyMatrix operator*(LazyMatrix const& a, LazyMatrix const& b) {
         return multiplyMatrices(a, b);
-    }
-
-    // matrix-vector multiplication for MyBLAS::Vector<DataType>
-    friend MyBLAS::Vector<DataType> operator*(LazyMatrix const& a, MyBLAS::Vector<DataType> const& b) {
-        return MatrixVectorExpression<DataType, LazyMatrix, MyBLAS::Vector<DataType>>::multiplyMatrixVector(a, b);
     }
 
     // Define the scalar addition operation.
@@ -222,17 +214,17 @@ class LazyMatrix {
     friend LazyMatrix<bool> equal(LazyMatrix const& a, LazyMatrix const& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x == y; };
         MatrixExpression<bool, LazyMatrix, LazyMatrix, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyMatrix<bool>(a.rows(), a.cols(), [expr](size_t i, size_t j) { return expr(i, j); });
+        return LazyMatrix<bool>(a.getRows(), a.getCols(), [expr](size_t i, size_t j) { return expr(i, j); });
     }
 
     // Define the equality comparison operation.
     friend bool operator==(LazyMatrix const& a, LazyMatrix const& b) {
-        if (a.rows() != b.rows() || a.cols() != b.cols()) {
+        if (a.getRows() != b.getRows() || a.getCols() != b.getCols()) {
             return false;
         }
         auto eq = equal(a, b);
-        for (size_t i = 0; i < eq.rows(); ++i) {
-            for (size_t j = 0; j < eq.cols(); ++j) {
+        for (size_t i = 0; i < eq.getRows(); ++i) {
+            for (size_t j = 0; j < eq.getCols(); ++j) {
                 if (!eq(i, j)) {
                     return false;
                 }
@@ -281,8 +273,8 @@ class LazyMatrix {
     }
 
   private:
-    size_t rows_{};
-    size_t cols_{};
+    size_t rows_;
+    size_t cols_;
     Generator generator_;
 
   protected:
