@@ -273,9 +273,9 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00096">MyBLAS::Vector&lt; T &gt;::size()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00111">MyBLAS::Vector&lt; T &gt;::size()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00113">MyBLAS::AbsoluteMaxResidual()</a>, <a class="el" href="../../#l00087">absoluteValueFailsGreaterThan1Check()</a>, <a class="el" href="../../#l00208">MyBLAS::allDiagonalElementsBelowThreshold()</a>, <a class="el" href="../../#l00061">MyBLAS::LUP::dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00031">dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00185">MyBLAS::LUP::factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00155">factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00075">Output::getMaxResidual()</a>, <a class="el" href="../../#l00084">MyLinearSolvingMethod::Solution&lt; T &gt;::getMaxResidual()</a>, <a class="el" href="../../#l00022">MyBLAS::LazyVectorTests::IsClose()</a>, <a class="el" href="../../#l00027">MyBLAS::LazyMatrixTests&lt; T &gt;::IsClose()</a>, <a class="el" href="../../#l00252">MyBLAS::isDiagonallyDominant()</a>, <a class="el" href="../../#l00150">MyBLAS::makeDiagonallyDominant()</a>, <a class="el" href="../../#l00080">Output::max_residual()</a>, <a class="el" href="../../#l00057">my_sisd_sin()</a>, <a class="el" href="../../#l00109">MyBLAS::LUP::recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00073">OutLab4::run()</a>, <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00056">InLab1::run()</a>, <a class="el" href="../../#l00074">Output::toJSON()</a>, <a class="el" href="../../#l00350">TYPED_TEST()</a>, and <a class="el" href="../../#l00036">RootFinder::usingNewtonRaphson()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00113">MyBLAS::AbsoluteMaxResidual()</a>, <a class="el" href="../../#l00087">absoluteValueFailsGreaterThan1Check()</a>, <a class="el" href="../../#l00208">MyBLAS::allDiagonalElementsBelowThreshold()</a>, <a class="el" href="../../#l00061">MyBLAS::LUP::dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00031">dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00185">MyBLAS::LUP::factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00155">factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00075">Output::getMaxResidual()</a>, <a class="el" href="../../#l00084">MyLinearSolvingMethod::Solution&lt; T &gt;::getMaxResidual()</a>, <a class="el" href="../../#l00022">MyBLAS::LazyVectorTests::IsClose()</a>, <a class="el" href="../../#l00027">MyBLAS::LazyMatrixTests&lt; T &gt;::IsClose()</a>, <a class="el" href="../../#l00252">MyBLAS::isDiagonallyDominant()</a>, <a class="el" href="../../#l00150">MyBLAS::makeDiagonallyDominant()</a>, <a class="el" href="../../#l00085">Output::max_residual()</a>, <a class="el" href="../../#l00057">my_sisd_sin()</a>, <a class="el" href="../../#l00109">MyBLAS::LUP::recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00073">OutLab4::run()</a>, <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00056">InLab1::run()</a>, <a class="el" href="../../#l00074">Output::toJSON()</a>, <a class="el" href="../../#l00344">TYPED_TEST()</a>, and <a class="el" href="../../#l00036">RootFinder::usingNewtonRaphson()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -332,15 +332,15 @@ template&lt;typename T &gt; </div>
 <div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                          {</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">auto</span> <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a> = v.getData();</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.empty()) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> NAN;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> std::numeric_limits&lt;T&gt;::quiet_NaN();</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> *std::max_element(<a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.begin(), <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.end());</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
 <div class="ttc" id="areadfile_8m_html_a0d456e3b30ae0a83ca2f097a1a1669f5"><div class="ttname"><a href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a></div><div class="ttdeci">Read the table from the CSV file data</div><div class="ttdef"><b>Definition:</b> readfile.m:9</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00009">data</a>, and <a class="el" href="../../#l00084">MyBLAS::Vector&lt; T &gt;::getData()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00009">data</a>, and <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00113">MyBLAS::AbsoluteMaxResidual()</a>, <a class="el" href="../../#l00087">absoluteValueFailsGreaterThan1Check()</a>, <a class="el" href="../../#l00053">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00182">failsExclusiveRangeCheck()</a>, <a class="el" href="../../#l00164">failsInclusiveRangeCheck()</a>, <a class="el" href="../../#l00033">Random::generate()</a>, <a class="el" href="../../#l00173">getGrays256bitANSI()</a>, <a class="el" href="../../#l00253">printJuliaSet()</a>, <a class="el" href="../../#l00150">Profiler&lt; FunctionType &gt;::summarize()</a>, <a class="el" href="../../#l00098">MyBLAS::TEST_F()</a>, and <a class="el" href="../../#l00023">MyBLAS::TYPED_TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00113">MyBLAS::AbsoluteMaxResidual()</a>, <a class="el" href="../../#l00087">absoluteValueFailsGreaterThan1Check()</a>, <a class="el" href="../../#l00053">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00182">failsExclusiveRangeCheck()</a>, <a class="el" href="../../#l00164">failsInclusiveRangeCheck()</a>, <a class="el" href="../../#l00033">Random::generate()</a>, <a class="el" href="../../#l00173">getGrays256bitANSI()</a>, <a class="el" href="../../#l00253">printJuliaSet()</a>, <a class="el" href="../../#l00152">Profiler&lt; FunctionType &gt;::summarize()</a>, <a class="el" href="../../#l00098">MyBLAS::TEST_F()</a>, and <a class="el" href="../../#l00023">MyBLAS::TYPED_TEST()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -395,12 +395,12 @@ template&lt;typename T &gt; </div>
 <div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                                 {</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">MyBLAS::Stats::sum</a>(v) / <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(v.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>().size());</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;}</div>
-<div class="ttc" id="aclassMyBLAS_1_1Vector_html_a6188d71192e096e25ae1c1a46150a0ab"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">MyBLAS::Vector::getData</a></div><div class="ttdeci">const std::vector&lt; T &gt; &amp; getData() const</div><div class="ttdoc">Getter for the vector data.</div><div class="ttdef"><b>Definition:</b> Vector.h:84</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1Vector_html_a6188d71192e096e25ae1c1a46150a0ab"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">MyBLAS::Vector::getData</a></div><div class="ttdeci">const std::vector&lt; T &gt; &amp; getData() const</div><div class="ttdoc">Getter for the vector data.</div><div class="ttdef"><b>Definition:</b> Vector.h:99</div></div>
 <div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_aaa0d2e3d22af2b7894169b7c90ba6146"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">MyBLAS::Stats::sum</a></div><div class="ttdeci">T sum(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the sum of all elements in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:146</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Vector&lt; T &gt;::getData()</a>, and <a class="el" href="../../#l00146">sum()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>, and <a class="el" href="../../#l00146">sum()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00150">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00169">variance()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00152">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00169">variance()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -414,7 +414,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a2d013f32ad1d6111d5d3e155758efa20_icgraph.svg" width="100%" height="556"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a2d013f32ad1d6111d5d3e155758efa20_icgraph.svg" width="100%" height="594"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -459,7 +459,7 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00196">percentile()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00150">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00152">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -473,7 +473,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a512692b79052b1a09c77917c9fb1e99c_icgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a512692b79052b1a09c77917c9fb1e99c_icgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -521,9 +521,9 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> *std::min_element(<a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.begin(), <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.end());</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00009">data</a>, and <a class="el" href="../../#l00084">MyBLAS::Vector&lt; T &gt;::getData()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00009">data</a>, and <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00136">MyBLAS::AbsoluteMaxResidual()</a>, <a class="el" href="../../#l00182">failsExclusiveRangeCheck()</a>, <a class="el" href="../../#l00164">failsInclusiveRangeCheck()</a>, <a class="el" href="../../#l00104">failsNaturalNumberCheck()</a>, <a class="el" href="../../#l00135">failsWholeNumberCheck()</a>, <a class="el" href="../../#l00060">fillLagrangePolys()</a>, <a class="el" href="../../#l00033">Random::generate()</a>, <a class="el" href="../../#l00173">getGrays256bitANSI()</a>, <a class="el" href="../../#l00025">getLagrangePoly()</a>, <a class="el" href="../../#l00033">MyBLAS::L2()</a>, <a class="el" href="../../#l00074">MyBLAS::L2Norm()</a>, <a class="el" href="../../#l00253">printJuliaSet()</a>, <a class="el" href="../../#l00150">Profiler&lt; FunctionType &gt;::summarize()</a>, <a class="el" href="../../#l00109">MyBLAS::TEST_F()</a>, and <a class="el" href="../../#l00023">MyBLAS::TYPED_TEST()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00136">MyBLAS::AbsoluteMaxResidual()</a>, <a class="el" href="../../#l00182">failsExclusiveRangeCheck()</a>, <a class="el" href="../../#l00164">failsInclusiveRangeCheck()</a>, <a class="el" href="../../#l00104">failsNaturalNumberCheck()</a>, <a class="el" href="../../#l00135">failsWholeNumberCheck()</a>, <a class="el" href="../../#l00060">fillLagrangePolys()</a>, <a class="el" href="../../#l00033">Random::generate()</a>, <a class="el" href="../../#l00173">getGrays256bitANSI()</a>, <a class="el" href="../../#l00025">getLagrangePoly()</a>, <a class="el" href="../../#l00033">MyBLAS::L2()</a>, <a class="el" href="../../#l00074">MyBLAS::L2Norm()</a>, <a class="el" href="../../#l00253">printJuliaSet()</a>, <a class="el" href="../../#l00152">Profiler&lt; FunctionType &gt;::summarize()</a>, <a class="el" href="../../#l00109">MyBLAS::TEST_F()</a>, and <a class="el" href="../../#l00023">MyBLAS::TYPED_TEST()</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -606,9 +606,9 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">return</span> val + fractional * (<a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>[index + 1] - val);</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00009">data</a>, and <a class="el" href="../../#l00084">MyBLAS::Vector&lt; T &gt;::getData()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00009">data</a>, and <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00223">median()</a>, and <a class="el" href="../../#l00150">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00223">median()</a>, and <a class="el" href="../../#l00152">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
@@ -622,7 +622,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a0d09c8d47fe666f1492b6a654c1281a0_icgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a0d09c8d47fe666f1492b6a654c1281a0_icgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -669,7 +669,7 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00169">variance()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00351">formatMeanStd()</a>, and <a class="el" href="../../#l00150">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00351">formatMeanStd()</a>, and <a class="el" href="../../#l00152">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 <div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -683,7 +683,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-14-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a40e2fbe322f90c6e21d2a7727ab36076_icgraph.svg" width="100%" height="556"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a40e2fbe322f90c6e21d2a7727ab36076_icgraph.svg" width="100%" height="594"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -726,9 +726,9 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">return</span> std::accumulate(<a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.begin(), <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.end(), <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0));</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00009">data</a>, and <a class="el" href="../../#l00084">MyBLAS::Vector&lt; T &gt;::getData()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00009">data</a>, and <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00053">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00524">MyBLAS::backwardSubstitution()</a>, <a class="el" href="../../#l00058">MyBLAS::LU::doolittleFactorize()</a>, <a class="el" href="../../#l00058">MyBLAS::doolittleFactorizeLU()</a>, <a class="el" href="../../#l00142">fillUsingSimpsons()</a>, <a class="el" href="../../#l00494">MyBLAS::forwardSubstitution()</a>, <a class="el" href="../../#l00252">MyBLAS::isDiagonallyDominant()</a>, <a class="el" href="../../#l00158">mean()</a>, <a class="el" href="../../#l00091">my_naive_sin()</a>, <a class="el" href="../../#l00087">MyBLAS::norm()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00150">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00169">variance()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00053">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00524">MyBLAS::backwardSubstitution()</a>, <a class="el" href="../../#l00058">MyBLAS::LU::doolittleFactorize()</a>, <a class="el" href="../../#l00058">MyBLAS::doolittleFactorizeLU()</a>, <a class="el" href="../../#l00142">fillUsingSimpsons()</a>, <a class="el" href="../../#l00494">MyBLAS::forwardSubstitution()</a>, <a class="el" href="../../#l00252">MyBLAS::isDiagonallyDominant()</a>, <a class="el" href="../../#l00158">mean()</a>, <a class="el" href="../../#l00091">my_naive_sin()</a>, <a class="el" href="../../#l00087">MyBLAS::norm()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00152">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00169">variance()</a>.</p>
 <div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary" style="display:block;">
@@ -791,9 +791,9 @@ template&lt;typename T &gt; </div>
 <div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_a2d013f32ad1d6111d5d3e155758efa20"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a2d013f32ad1d6111d5d3e155758efa20">MyBLAS::Stats::mean</a></div><div class="ttdeci">T mean(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the mean value of a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:158</div></div>
 <div class="ttc" id="aplot__points_8m_html_a9336ebf25087d91c818ee6e9ec29f8c1"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a></div><div class="ttdeci">Define the x values x</div><div class="ttdef"><b>Definition:</b> plot_points.m:18</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00009">data</a>, <a class="el" href="../../#l00084">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00009">m</a>, <a class="el" href="../../#l00158">mean()</a>, <a class="el" href="../../#l00146">sum()</a>, and <a class="el" href="../../#l00018">x</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00009">data</a>, <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00009">m</a>, <a class="el" href="../../#l00158">mean()</a>, <a class="el" href="../../#l00146">sum()</a>, and <a class="el" href="../../#l00018">x</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00184">std()</a>, and <a class="el" href="../../#l00150">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00184">std()</a>, and <a class="el" href="../../#l00152">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 <div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary" style="display:block;">
@@ -807,7 +807,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-18-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a92ae9af47614e45733834f28aeb48cce_icgraph.svg" width="100%" height="556"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/df5/namespaceMyBLAS_1_1Stats_a92ae9af47614e45733834f28aeb48cce_icgraph.svg" width="100%" height="594"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 

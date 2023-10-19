@@ -41,12 +41,14 @@ var structInput =
     [ "methods", "d4/dae/structInput.html#a78e3b5d0bd2d235f6c1876c3d7e303a6", null ],
     [ "N", "d4/dae/structInput.html#aa163162a318f5cb262556e1617798371", null ],
     [ "n", "d4/dae/structInput.html#a5f3c3645fcb4f39f72811de16de7b950", null ],
+    [ "numRuns", "d4/dae/structInput.html#ac65cebfc2c2445c1000687bf5e3db814", null ],
     [ "solver_methods", "d4/dae/structInput.html#a38be57cfa24ccc4364427d7c6134496d", null ],
     [ "solverParams", "d4/dae/structInput.html#a65657f62a989412d42823d30b67506a2", null ],
     [ "sources", "d4/dae/structInput.html#ad2d4165d167265fabf538de8774e99f4", null ],
     [ "sources", "d4/dae/structInput.html#a60a7c2b689f46966b7cf2269e7fb3154", null ],
     [ "target_threshold", "d4/dae/structInput.html#a79748e36391de429b183ab871b0067fb", null ],
     [ "threshold", "d4/dae/structInput.html#ab481ab71cd2291da54b0662174b0d352", null ],
+    [ "timeout", "d4/dae/structInput.html#ac084574db6995b44c9a76e9e2d31a95f", null ],
     [ "x", "d4/dae/structInput.html#a5fde391bbac19a319ba3a77fb510fa2b", null ],
     [ "xData", "d4/dae/structInput.html#a23f5145614880c39c4993a7c2be87a75", null ]
 ];

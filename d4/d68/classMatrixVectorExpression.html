@@ -191,9 +191,9 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        : <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a4137cd38a6ab4d9284a9ef3c4a613736">matrix_</a>(matrix), <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a13a5a4fcc67c81d2a39a34c586aef19e">vector_</a>(vector) {}</div>
-<div class="ttc" id="aclassMatrixVectorExpression_html_a13a5a4fcc67c81d2a39a34c586aef19e"><div class="ttname"><a href="../../d4/d68/classMatrixVectorExpression.html#a13a5a4fcc67c81d2a39a34c586aef19e">MatrixVectorExpression::vector_</a></div><div class="ttdeci">const VectorType&lt; T &gt; &amp; vector_</div><div class="ttdef"><b>Definition:</b> MatrixVectorExpression.h:40</div></div>
-<div class="ttc" id="aclassMatrixVectorExpression_html_a4137cd38a6ab4d9284a9ef3c4a613736"><div class="ttname"><a href="../../d4/d68/classMatrixVectorExpression.html#a4137cd38a6ab4d9284a9ef3c4a613736">MatrixVectorExpression::matrix_</a></div><div class="ttdeci">const MatrixType&lt; T &gt; &amp; matrix_</div><div class="ttdef"><b>Definition:</b> MatrixVectorExpression.h:39</div></div>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        : <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a4137cd38a6ab4d9284a9ef3c4a613736">matrix_</a>(matrix), <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a13a5a4fcc67c81d2a39a34c586aef19e">vector_</a>(vector) {}</div>
+<div class="ttc" id="aclassMatrixVectorExpression_html_a13a5a4fcc67c81d2a39a34c586aef19e"><div class="ttname"><a href="../../d4/d68/classMatrixVectorExpression.html#a13a5a4fcc67c81d2a39a34c586aef19e">MatrixVectorExpression::vector_</a></div><div class="ttdeci">const VectorType&lt; T &gt; &amp; vector_</div><div class="ttdef"><b>Definition:</b> MatrixVectorExpression.h:39</div></div>
+<div class="ttc" id="aclassMatrixVectorExpression_html_a4137cd38a6ab4d9284a9ef3c4a613736"><div class="ttname"><a href="../../d4/d68/classMatrixVectorExpression.html#a4137cd38a6ab4d9284a9ef3c4a613736">MatrixVectorExpression::matrix_</a></div><div class="ttdeci">const MatrixType&lt; T &gt; &amp; matrix_</div><div class="ttdef"><b>Definition:</b> MatrixVectorExpression.h:38</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -233,26 +233,26 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                                                                                              {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="../../d4/d68/classMatrixVectorExpression.html">MatrixVectorExpression</a> expr(a, b);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        VectorType result = VectorType&lt;T&gt;(a.getRows());</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; a.getRows(); ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            result[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] = expr(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="ttc" id="aclassMatrixVectorExpression_html"><div class="ttname"><a href="../../d4/d68/classMatrixVectorExpression.html">MatrixVectorExpression</a></div><div class="ttdef"><b>Definition:</b> MatrixVectorExpression.h:16</div></div>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                                                                              {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="../../d4/d68/classMatrixVectorExpression.html">MatrixVectorExpression</a> expr(a, b);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        VectorType result = VectorType&lt;T&gt;(a.getRows());</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; a.getRows(); ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            result[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>] = expr(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
+<div class="ttc" id="aclassMatrixVectorExpression_html"><div class="ttname"><a href="../../d4/d68/classMatrixVectorExpression.html">MatrixVectorExpression</a></div><div class="ttdef"><b>Definition:</b> MatrixVectorExpression.h:15</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00023">i</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00163">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00238">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00079">Compute::usingLUP()</a>, <a class="el" href="../../#l00125">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00200">Compute::usingSOR()</a>, and <a class="el" href="../../#l00276">Compute::usingSymmetricSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00157">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00232">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00194">Compute::usingSOR()</a>, and <a class="el" href="../../#l00271">Compute::usingSymmetricSOR()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d68/classMatrixVectorExpression_a287e889ca5383ed237f12c1dc12a9f93_icgraph.svg" width="458" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d68/classMatrixVectorExpression_a287e889ca5383ed237f12c1dc12a9f93_icgraph.svg" width="458" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -283,15 +283,15 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                 {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        T result = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a4137cd38a6ab4d9284a9ef3c4a613736">matrix_</a>.getCols(); ++j) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            result += <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a4137cd38a6ab4d9284a9ef3c4a613736">matrix_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a13a5a4fcc67c81d2a39a34c586aef19e">vector_</a>[j];</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                 {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        T result = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a4137cd38a6ab4d9284a9ef3c4a613736">matrix_</a>.getCols(); ++j) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            result += <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a4137cd38a6ab4d9284a9ef3c4a613736">matrix_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * <a class="code" href="../../d4/d68/classMatrixVectorExpression.html#a13a5a4fcc67c81d2a39a34c586aef19e">vector_</a>[j];</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00039">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::matrix_</a>, and <a class="el" href="../../#l00040">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::vector_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00038">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::matrix_</a>, and <a class="el" href="../../#l00039">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::vector_</a>.</p>
 
 </div>
 </div>
@@ -318,7 +318,7 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00021">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::operator()()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00020">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::operator()()</a>.</p>
 
 </div>
 </div>
@@ -344,7 +344,7 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00021">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::operator()()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00020">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::operator()()</a>.</p>
 
 </div>
 </div>

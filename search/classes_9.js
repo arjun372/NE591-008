@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['outlab1_775',['OutLab1',['../dd/df3/classOutLab1.html',1,'']]],
-  ['outlab3_776',['OutLab3',['../da/df0/classOutLab3.html',1,'']]],
-  ['outlab4_777',['OutLab4',['../d8/d5b/classOutLab4.html',1,'']]],
-  ['outlab5_778',['OutLab5',['../d3/d1d/classOutLab5.html',1,'']]],
-  ['outlab6_779',['OutLab6',['../d0/d4c/classOutLab6.html',1,'']]],
-  ['output_780',['Output',['../d9/d29/structMyBLAS_1_1Output.html',1,'MyBLAS::Output'],['../df/df1/structOutput.html',1,'Output']]],
-  ['outputs_781',['Outputs',['../db/d86/structOutputs.html',1,'']]]
+  ['map_777',['Map',['../da/ddc/structMap.html',1,'']]],
+  ['matrix_778',['Matrix',['../d0/d27/classMyBLAS_1_1Matrix.html',1,'MyBLAS::Matrix&lt; T &gt;'],['../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html',1,'MyPhysics::Diffusion::Matrix&lt; T &gt;']]],
+  ['matrix_3c_20floattype_20_3e_779',['Matrix&lt; FloatType &gt;',['../d0/d27/classMyBLAS_1_1Matrix.html',1,'MyBLAS']]],
+  ['matrix_3c_20long_20double_20_3e_780',['Matrix&lt; long double &gt;',['../d0/d27/classMyBLAS_1_1Matrix.html',1,'MyBLAS']]],
+  ['matrix_3c_20myblas_3a_3anumerictype_20_3e_781',['Matrix&lt; MyBLAS::NumericType &gt;',['../d0/d27/classMyBLAS_1_1Matrix.html',1,'MyBLAS']]],
+  ['matrix_3c_20t_20_3e_782',['Matrix&lt; T &gt;',['../d0/d27/classMyBLAS_1_1Matrix.html',1,'MyBLAS']]],
+  ['matrixbuildargs_783',['MatrixBuildArgs',['../d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs',1,'']]],
+  ['matrixexpressiontests_784',['MatrixExpressionTests',['../de/d99/classMyBLAS_1_1MatrixExpressionTests.html',1,'MyBLAS']]],
+  ['matrixvectorexpression_785',['MatrixVectorExpression',['../d4/d68/classMatrixVectorExpression.html',1,'']]],
+  ['matrixvectortests_786',['MatrixVectorTests',['../d3/dab/classMatrixVectorTests.html',1,'']]]
 ];

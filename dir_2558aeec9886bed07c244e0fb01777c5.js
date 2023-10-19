@@ -1,5 +1,6 @@
 var dir_2558aeec9886bed07c244e0fb01777c5 =
 [
+    [ "elementwise", "dir_a45f9d91f088ed3a4e08fa6eb8acbee5.html", "dir_a45f9d91f088ed3a4e08fa6eb8acbee5" ],
     [ "matrix", "dir_b68a48aa2a0ac34a16e8d1585cdaec99.html", "dir_b68a48aa2a0ac34a16e8d1585cdaec99" ],
     [ "system", "dir_4c972bb3e1bebddcf0d2daaaedbb67b5.html", "dir_4c972bb3e1bebddcf0d2daaaedbb67b5" ],
     [ "tests", "dir_eeb2278aa19789b64f9844cc77ce7daa.html", "dir_eeb2278aa19789b64f9844cc77ce7daa" ],

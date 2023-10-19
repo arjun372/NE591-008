@@ -252,7 +252,7 @@ var NAVTREE =
       [ "Data Fields", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
@@ -277,14 +277,15 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d0/d40/classParser.html#ad9d8cf54a3f65df6a00700fd2282c667",
-"d2/d34/labs_2inlab6_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627",
-"d4/d4d/classMyBLAS_1_1Vector.html#aa6aeb882447a3c3e4d40100105d1f63f",
-"d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a87a53ec9aada8ed594374e722770ddb7",
-"d8/d36/outlab3_2extern_2function_8h.html#a155780bb1e2d0448b996140b5681b775",
-"db/d86/structOutputs.html#a5982c6358023d639ac0c6c47e5683db9",
-"dd/d02/classCommandLine.html#af6988d808145820c39fd1f0649a97e82",
-"de/d6b/classMyBLAS_1_1AbstractMatrix.html#ad0d4f8b3a2fed82c4674555bdc273e28",
-"globals_func_w.html"
+"d2/d34/labs_2inlab6_2main_8cpp.html",
+"d4/d4d/classMyBLAS_1_1Vector.html#a8e7d9b86d0a33274a6fc0ebb838b0626",
+"d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a1f2b2ad03807ff796cc4a84c3ad410ee",
+"d8/d25/namespaceprocess.html#a1e83182d6c23075177216aaf8f5e9014",
+"db/d2e/namespaceMyBLAS_1_1LU.html#a876ff0f2a17c8145a0e18eb54c37506b",
+"dd/d02/classCommandLine.html#a659b8132244da7ff3d2d5427b7117440",
+"de/d83/structMyLinearSolvingMethod_1_1Solution.html#a60e4ee612c28deee2fe684a66959116c",
+"functions_vars_y.html",
+""
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
