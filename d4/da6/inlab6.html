@@ -118,27 +118,27 @@ $(document).ready(function(){initNavTree('d4/da6/inlab6.html','../../'); initRes
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md68">InLab 06: Iterative Linear Equations Solver: Point-Jacobi</a><ul><li class="level2"><a href="#autotoc_md69">Overview</a></li>
-<li class="level2"><a href="#autotoc_md70">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md71">Parameters</a></li>
-<li class="level3"><a href="#autotoc_md72">Solver Methods</a></li>
-<li class="level3"><a href="#autotoc_md73">General options</a></li>
+<ul><li class="level1"><a href="#autotoc_md72">InLab 06: Iterative Linear Equations Solver: Point-Jacobi</a><ul><li class="level2"><a href="#autotoc_md73">Overview</a></li>
+<li class="level2"><a href="#autotoc_md74">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md75">Parameters</a></li>
+<li class="level3"><a href="#autotoc_md76">Solver Methods</a></li>
+<li class="level3"><a href="#autotoc_md77">General options</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md74">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md75">Sample Parameters File</a></li>
+<li class="level2"><a href="#autotoc_md78">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md79">Sample Parameters File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md76">Output Format</a><ul><li class="level3"><a href="#autotoc_md77">Sample Outputs File</a></li>
+<li class="level2"><a href="#autotoc_md80">Output Format</a><ul><li class="level3"><a href="#autotoc_md81">Sample Outputs File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md78">Example:</a></li>
+<li class="level2"><a href="#autotoc_md82">Example:</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md68"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md72"></a>
 InLab 06: Iterative Linear Equations Solver: Point-Jacobi</h1>
 <p>Solves a system of linear equations using the point-Jacobi method. File based I/O is supported using JSON files.</p>
-<div style="display: none"></div><h2><a class="anchor" id="autotoc_md69"></a>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md73"></a>
 Overview</h2>
 <ol type="1">
 <li><a href="../../#building--usage">Building &amp; Usage</a><ul>
@@ -153,7 +153,7 @@ Overview</h2>
 </li>
 <li><a href="../../#example">Example</a></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md70"></a>
+<h2><a class="anchor" id="autotoc_md74"></a>
 Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>inlab6</code> target executable:</p>
 <div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
@@ -174,7 +174,7 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md71"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md75"></a>
 Parameters</h3>
 <ul>
 <li><code>-t [ --threshold ] arg</code>: iterative convergence threshold [𝜀 &gt; 0]</li>
@@ -183,7 +183,7 @@ Parameters</h3>
 <li><code>-i [ --input-json ] arg</code>: input JSON containing A, and b</li>
 <li><code>-o [ --output-json ] arg</code>: path for the output JSON</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md72"></a>
+<h3><a class="anchor" id="autotoc_md76"></a>
 Solver Methods</h3>
 <ul>
 <li><code>--use-LUP</code>: Use the LUP method</li>
@@ -191,7 +191,7 @@ Solver Methods</h3>
 <li><code>--use-gauss-seidel</code>: [DISABLED] Use the Gauss-Seidel method</li>
 <li><code>--use-SOR</code>: [DISABLED] Use the SOR method</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md73"></a>
+<h3><a class="anchor" id="autotoc_md77"></a>
 General options</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message</li>
@@ -199,10 +199,10 @@ General options</h3>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
 <li><code>-P [ --profile ]</code>: Turn on profiling for performance comparison</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md74"></a>
+<h2><a class="anchor" id="autotoc_md78"></a>
 Parameters Format</h2>
 <p>The expected input json file requires the following fields:</p>
-<h3><a class="anchor" id="autotoc_md75"></a>
+<h3><a class="anchor" id="autotoc_md79"></a>
 Sample Parameters File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;coefficients&quot;: [</div>
@@ -213,10 +213,10 @@ Sample Parameters File</h3>
 <div class="line">   ],</div>
 <div class="line">   &quot;constants&quot;: [1.00, 1.00, 1.00, 1.00]</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md76"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md80"></a>
 Output Format</h2>
 <p>The output is written to a JSON file as well.</p>
-<h3><a class="anchor" id="autotoc_md77"></a>
+<h3><a class="anchor" id="autotoc_md81"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;inputs&quot;: {</div>
@@ -281,7 +281,7 @@ Sample Outputs File</h3>
 <div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md78"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md82"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
 <div class="fragment"><div class="line">NE591: InLab 06: Solving a system of linear equations using the Point Jacobi method</div>
