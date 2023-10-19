@@ -75,10 +75,6 @@ typedef struct Output {
     SolverInputs inputs;
     MyLinearSolvingMethod::Solution<MyBLAS::NumericType> solution;
 
-    MyBLAS::NumericType mean_execution_time = std::numeric_limits<MyBLAS::NumericType>::quiet_NaN();
-    MyBLAS::NumericType stddev_execution_time = std::numeric_limits<MyBLAS::NumericType>::quiet_NaN();
-    size_t runs = 0;
-
     MyBLAS::Vector<MyBLAS::NumericType> residual;
     MyBLAS::Matrix<MyBLAS::NumericType> fluxes;
 
@@ -109,8 +105,7 @@ typedef struct Output {
         // if LUP is used
         // jsonMap["l2-error"] = getSolutionError();
 
-        jsonMap["wall-time-ns"] = summary.toJSON();
-        jsonMap["wall-time-ns"]["samples"] = summary.runs;
+        summary.toJSON(jsonMap["wall-time-ns"]);
     }
 } SolverOutputs;
 

@@ -40,7 +40,7 @@ struct Summary {
     T median = std::numeric_limits<T>::quiet_NaN(); ///< The median value.
     T p5th = std::numeric_limits<T>::quiet_NaN(); ///< The 5th percentile.
     T p95th = std::numeric_limits<T>::quiet_NaN(); ///< The 95th percentile.
-    size_t runs;
+    size_t runs{};
 
     /**
      * @brief Overloaded stream insertion operator to print the summary statistics.
@@ -62,8 +62,7 @@ struct Summary {
     }
 
     // TODO:: DOCUMENT
-    nlohmann::json toJSON() const {
-        nlohmann::json jsonMap;
+    void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["min"] = min;
         jsonMap["max"] = max;
         jsonMap["sum"] = sum;
@@ -72,7 +71,7 @@ struct Summary {
         jsonMap["stddev"] = stddev;
         jsonMap["p5th"] = p5th;
         jsonMap["p95th"] = p95th;
-        return jsonMap;
+        jsonMap["samples"] = runs;
     }
 };
 

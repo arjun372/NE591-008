@@ -1,4 +1,4 @@
-# Project Milestone 2: Lazy-Evaluated Serial Diffusion Equation Solver
+# Project Milestone 2: Iterative, Lazy-Evaluated, Serial Diffusion Equation Solver
 
 Serial 2D, one speed, time-independent, neutron diffusion equation solver. Matrix equation solved using 5 iterative 
 solvers and 1 direct solver (LU factorization) with pivoting. File I/O is performed using a combination of `CSV` and 
@@ -6,31 +6,86 @@ solvers and 1 direct solver (LU factorization) with pivoting. File I/O is perfor
 
 ## Table of Contents
 
-1. [Building & Usage](#building--usage)
-    - [Parameters](#parameters)
-    - [Inputs/Outputs](#inputsoutputs)
-    - [Solver Options](#solver-options)
-    - [Performance Benchmarking](#performance-benchmarking)
-    - [General options](#general-options)
-2. [Parameters Format](#input-format)
+1. [Building](#building)
+   - [EOS`remote.eos.ncsu.edu`](#eos)
+   - [Hazel`login.hpc.ncsu.edu`](#on-hazel) 
+     - [Interactive Mode](#interactive-mode)
+     - [Batch Jobs](#batch-jobs)
+2. [Usage](#usage)
+   - [Parameters](#parameters)
+   - [Inputs/Outputs](#inputsoutputs)
+   - [Solver Options](#solver-options)
+   - [Performance Benchmarking](#performance-benchmarking)
+   - [General options](#general-options)
+3. [Parameters Format](#input-format)
     - [Sample Parameters Files](#sample-input-files)
         - [[REQUIRED] Source Term q(i,j) CSV](#source-term-qij-csv-required)
         - [Parameters JSON](#parameters-json)
-3. [Output Format](#output-format)
+4. [Output Format](#output-format)
     - [Sample Outputs Files](#sample-outputs-files)
         - [Computed Flux 𝜙(𝑖,𝑗) CSV](#computed-flux-𝜙𝑖𝑗-csv)
         - [Results JSON](#results-json)
-4. [Example](#example)
+5. [Example](#example)
 
-## Building & Usage
+## Building
 
-The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
-configuration except choosing the build target, and output file. Here is a repeatable script
+The code has been built and tested on the NCSU Hazel`login.hpc.ncsu.edu` and NCSU EOS `remote.eos.ncsu.edu` servers. 
+It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script
 to perform the build and run the `project2` target executable:
 
+### Hazel
+There are two ways to do run jobs on Hazel, currently, we support the interactive mode option.
+#### Interactive Mode
+This mode requires a few additional steps, but for the most part, it follows the same process as the EOS server.
 ```bash
-# Assuming cwd is the repo root:
 #!/bin/bash
+
+# Start by logging in
+ssh login.hpc.ncsu.edu
+
+# Then, start an interactive session
+bsub -Is -n 4 -R "span[hosts=1]" -W 20 bash
+
+# Create a working directory, in this case we call it earthperson_project2 to avoid naming conflicts
+mkdir -p /share/$GROUP/$USER/earthperson_project2
+
+# Go into that directory.
+cd /share/$GROUP/$USER/earthperson_project2
+
+# Load the build modules
+module load openmpi-gcc/openmpi4.1.0-gcc10.2.0 cmake/3.24.1
+
+# Begin by copying the files over using rsync, scp, sftp, etc...
+# Then, assuming the repo root is the current directory:
+
+## Specify the build target
+export BUILD_TARGET=project2
+
+## Create the build directory, configure and compile the $BUILD_TARGET
+mkdir -p build && cd build && \
+cmake .. -DCMAKE_BUILD_TYPE=Release && \
+make -j$(nproc) $BUILD_TARGET && cd ../
+
+## Specify the input and output files.
+## NOTE: This path is relative to the repo root directory
+export INPUT_PARAMETERS=./src/project/project2/examples/project2_example_input_parameters.json
+export INPUT_SOURCETERMS=./src/project/project2/examples/project2_example_source_terms.csv
+export OUTPUT_RESULTS=./src/project/project2/examples/project2_example_output_results.json
+export OUTPUT_COMPUTED_FLUX=./src/project/project2/examples/project2_example_computed_flux
+
+## Execute
+./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o $OUTPUT_RESULTS -f $OUTPUT_COMPUTED_FLUX
+```
+#### Batch Jobs
+
+Coming Soon
+
+### EOS
+```bash
+#!/bin/bash
+
+# Begin by copying the files over using rsync, scp, sftp, etc...
+# Then, assuming the repo root is the current directory:
 
 ## Specify the build target
 export BUILD_TARGET=project2
@@ -46,12 +101,15 @@ export INPUT_PARAMETERS=./src/project/project2/examples/project2_example_input_p
 export INPUT_SOURCETERMS=./src/project/project2/examples/project2_example_source_terms.csv
 
 export OUTPUT_RESULTS=./src/project/project2/examples/project2_example_output_results.json
-export OUTPUT_COMPUTED_FLUX=./src/project/project2/examples/project2_example_computed_flux.csv
+export OUTPUT_COMPUTED_FLUX=./src/project/project2/examples/project2_example_computed_flux
 
 ## Execute
 ./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o $OUTPUT_RESULTS -f $OUTPUT_COMPUTED_FLUX
 ```
 
+---
+
+## Usage
 ### Parameters
 - `-a arg`: Length of 1st dimension (+ve real)
 - `-b arg`: Length of 2nd dimension (+ve real)
@@ -64,7 +122,7 @@ export OUTPUT_COMPUTED_FLUX=./src/project/project2/examples/project2_example_com
 - `-i [ --input-parameter-json ] arg`: Path to input parameter JSON
 - `-s [ --source-terms-csv ] arg`: Path to source-terms 𝑞(𝑖,𝑗) CSV
 - `-o [ --output-results-json ] arg`: Path to output results JSON
-- `-f [ --output-flux-csv ] arg`: Path to computed flux 𝜙(𝑖,𝑗) CSV
+- `-f [ --output-flux ] arg`: Path to computed flux 𝜙(𝑖,𝑗) directory
 
 ### Solver Options
 - `--use-LUP`: Use LUP factorization
@@ -125,11 +183,7 @@ terminal.
       "relaxation-factor": 1.08,
       "methods": [
          "LUP",
-         "point-jacobi",
-         "SORJ",
-         "gauss-seidel",
          "SOR",
-         "SSOR"
       ]
    }
    ```
@@ -155,50 +209,77 @@ Both output files are optional, but if not supplied, outputs will be written to 
 #### Results JSON:
 
    ```json
-   {
-       "outputs": {
-           "max_residual": 2.168404344971009e-19,
-           "residual": [
-               0,
-               1.0842021724855044e-19,
-               0,
-               -2.168404344971009e-19,
-               2.168404344971009e-19,
-               0,
-               2.168404344971009e-19,
-               0,
-               2.168404344971009e-19
-           ],
-           "solution": [
-              322.6797742410937,
-              360.9424588400793,
-              377.7344809335781,
-              615.8771291565212,
-              663.981599580839,
-              672.5292781157306,
-              873.2268411659375,
-              927.4639484321724,
-              928.2815478584218
-           ]
-       },
-      "inputs": {
-         "D": 0.07,
-         "cross-section": 0.0033,
-         "dimensions": {
-            "a": 100.0,
-            "b": 100.0
+{
+   "inputs": {
+      "D": 0.07,
+      "cross-section": 0.0033,
+      "dimensions": {
+         "a": 100.0,
+         "b": 100.0
+      },
+      "mesh": {
+         "m": 5,
+         "n": 5,
+         "𝛾": 16.666666666666668,
+         "𝛿": 16.666666666666668
+      },
+      "methods": [
+         "LUP",
+         "SOR"
+      ]
+   },
+   "outputs": {
+      "LUP": {
+         "converged": true,
+         "iterations": {
+            "actual": 0,
+            "maximum": 5000
          },
-         "mesh": {
-            "m": 3,
-            "n": 3,
-            "𝛾": 25.0,
-            "𝛿": 25.0
+         "iterative-error": {
+            "actual": null,
+            "maximum": 0.0001
          },
-         "methods": [
-            "LUP"
-         ]
+         "max-residual": 1.6263032587282567e-19,
+         "residual": [],
+         "solution": [],
+         "wall-time-ns": {
+            "max": 186824.0,
+            "mean": 121115.6,
+            "min": 98279.0,
+            "p5th": 98457.6,
+            "p95th": 173750.0,
+            "samples": 5,
+            "stddev": 33979.430546140706,
+            "sum": 605578.0,
+            "variance": 1154601700.24
+         }
+      },
+      "SOR": {
+         "converged": true,
+         "iterations": {
+            "actual": 8,
+            "maximum": 5000
+         },
+         "iterative-error": {
+            "actual": 8.566771904100693e-05,
+            "maximum": 0.0001
+         },
+         "max-residual": 3.872281957573891e-08,
+         "residual": [],
+         "solution": [],
+         "wall-time-ns": {
+            "max": 132794.0,
+            "mean": 87897.0,
+            "min": 76575.0,
+            "p5th": 76586.6,
+            "p95th": 121584.0,
+            "samples": 5,
+            "stddev": 22448.59176875022,
+            "sum": 439485.0,
+            "variance": 503939272.4
+         }
       }
-
+   }
 }
 ```
 
@@ -207,51 +288,69 @@ Both output files are optional, but if not supplied, outputs will be written to 
 The following is an example of the program's output:
 
 ```shell
-NE591: Project Milestone 1: Serial Neutron Diffusion Code
+NE591: Project Milestone 2: Iterative, Lazy-Evaluated, Serial Diffusion Equation Solver
 Arjun Earthperson
-09/29/2023
+10/13/2023
 --------------------------------------------------------------------------------
+using 128-bit floats
 compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so
 --------------------------------------------------------------------------------
 Parameters:
-  -a arg                            = Length of 1st dimension (+ve real)
-  -b arg                            = Length of 2nd dimension (+ve real)
-  -m arg                            = Number of mesh-points in 1st dimension
-  -n arg                            = Number of mesh-points in 2nd dimension
-  -D arg                            = Diffusion coefficient D (+ve real)
-  --cross-section arg               = Removal cross-section Σₐ (+ve real)
-  -i [ --input-parameter-json ] arg = Path to input parameter JSON
-  -s [ --source-terms-csv ] arg     = Path to source-terms 𝑞(𝑖,𝑗) CSV
-  -o [ --output-results-json ] arg  = Path to output results JSON
-  -f [ --output-flux-csv ] arg      = Path to computed flux 𝜙(𝑖,𝑗) CSV
+  -a arg                             = Length of 1st dimension (+ve real)
+  -b arg                             = Length of 2nd dimension (+ve real)
+  -m arg                             = Number of mesh-points in 1st dimension
+  -n arg                             = Number of mesh-points in 2nd dimension
+  -D arg                             = Diffusion coefficient D (+ve real)
+  --cross-section arg                = Removal cross-section Σₐ (+ve real)
 
-Solver Methods:
-  --use-LUP                         = Use the LUP method
-  --use-point-jacobi                = [DISABLED] Use the Point-Jacobi method
-  --use-gauss-seidel                = [DISABLED] Use the Gauss-Seidel method
-  --use-SOR                         = [DISABLED] Use the SOR method
+Solver Options:
+  --use-LUP                          = Use LUP factorization
+  --use-point-jacobi                 = Use the Point-Jacobi method
+  --use-SORJ                         = Use the SOR Jacobi method
+  --use-gauss-seidel                 = Use the Gauss-Seidel method
+  --use-SOR                          = Use the SOR method
+  --use-SSOR                         = Use the symmetric SOR method
+  -t [ --threshold ] arg             = convergence threshold [𝜀 > 0]
+  -k [ --max-iterations ] arg        = maximum iterations [n ∈ ℕ]
+  -w [ --relaxation-factor ] arg     = SOR weight, typical ω ∈ [0,2]
+
+Inputs/Outputs:
+  -i [ --input-parameter-json ] arg  = Path to input parameter JSON
+  -s [ --source-terms-csv ] arg      = Path to source-terms 𝑞(𝑖,𝑗) CSV
+  -o [ --output-results-json ] arg   = Path to output results JSON
+  -f [ --flux-output-dir ] arg       = Path to computed flux 𝜙(𝑖,𝑗)
+
+Performance Benchmarking:
+  -R [ --bench-runs ] arg (=1)       = <R> runs to perform
+  -T [ --bench-timeout ] arg (=0)    = Timeout after <T> seconds [0=never]
+  -B [ --bench ]                     = Run performance benchmarks
 
 General options:
-  -h [ --help ]                     = Show this help message
-  -q [ --quiet ]                    = Reduce verbosity
-  -p [ --precision ] arg (=15)      = Number of digits to represent long double
-  -P [ --profile ]                  = Turn on performance profiling
+  -h [ --help ]                      = Show this help message
+  -q [ --quiet ]                     = Reduce verbosity
+  -p [ --precision ] arg (=15)       = Number of digits to represent long 
+                                     double
 
 --------------------------------------------------------------------------------
-			Precision in digits:  default: 6, maximum: 19, current: 1
+        Precision in digits:  default: 6, maximum: 19, current: 15
 --------------------------------------------------------------------------------
-Warning: File already exists at path, will be overwritten 
-Warning: File already exists at path, will be overwritten 
+Provided path is a directory: ../project2_example_fluxes
+Would you like to use the LUP factorization method? [YES/no]: y
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
-	Parameters JSON                              i: ../example_input_parameters.json
-	Output JSON                             o: ../example_output_results.json
+	Input JSON,     i: ../project2_example_input_parameters.json
+	Output JSON,    o: ../project2_example_output.json
 	----
-	Use LUP method                           : Yes
-	Use Point-Jacobi method                  : No
-	Use Gauss-Seidel method                  : No
-	Use SOR method                           : No
+	Convergence Threshold,                  𝜀: 0.0001
+	Max iterations,                         k: 5000
+	SOR weight,                             ω: 1.080000
+	Use LUP factorization                    : Yes
+	Use Gauss-Seidel                         : Yes
+	Use Point-Jacobi                         : Yes
+	Use SOR                                  : Yes
+	Use Point-Jacobi with SOR                : Yes
+	Use symmetric SOR                        : Yes
 	----
 	1st dimension length,                   a: 100
 	2nd dimension length,                   b: 100
@@ -262,97 +361,48 @@ Warning: File already exists at path, will be overwritten
 --------------------------------------------------------------------------------
                               Intermediates
 --------------------------------------------------------------------------------
-	Mesh spacing in the 1st dimension,     𝛿: 2e+01
-	Mesh spacing in the 2nd dimension,     𝛾: 2e+01
+	Mesh spacing in the 1st dimension,     𝛿: 25
+	Mesh spacing in the 2nd dimension,     𝛾: 25
 --------------------------------------------------------------------------------
 Source terms 𝑞(𝑖,𝑗):
 --------------------------------------------------------------------------------
-    1.1e+00    1.2e+00    1.3e+00
-    2.1e+00    2.2e+00    2.3e+00
-    3.1e+00    3.2e+00    3.3e+00
+    1.100000000000000e+00    1.200000000000000e+00    1.300000000000000e+00
+    2.100000000000000e+00    2.200000000000000e+00    2.300000000000000e+00
+    3.100000000000000e+00    3.200000000000000e+00    3.300000000000000e+00
 --------------------------------------------------------------------------------
-Diffusion Matrix A: 
+::::::::::::::::::::::::::::::: PROFILE SUMMARY ::::::::::::::::::::::::::::::::
+[5/5] : LUP
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 1.30e+05 :::::::: VARIANCE: 6.94e+07 :::::::: MEDIAN: 2.25e+04 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {1.96e+04, 4.23e+04} : (2.60e+04 ± 8.33e+03) : [1.99e+04, 3.88e+04] :::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 --------------------------------------------------------------------------------
-    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-   -1.1e-04    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00   -1.1e-04    3.7e-03    0.0e+00    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    0.0e+00
-   -1.1e-04    0.0e+00    0.0e+00    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00    0.0e+00
-    0.0e+00   -1.1e-04    0.0e+00   -1.1e-04    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00
-    0.0e+00    0.0e+00   -1.1e-04    0.0e+00   -1.1e-04    3.7e-03    0.0e+00    0.0e+00   -1.1e-04
-    0.0e+00    0.0e+00    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    3.7e-03   -1.1e-04    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00   -1.1e-04    0.0e+00   -1.1e-04    3.7e-03   -1.1e-04
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00   -1.1e-04    0.0e+00   -1.1e-04    3.7e-03
+LUP Factorization Results
 --------------------------------------------------------------------------------
-Right Hand Side Vector B: 
+	order                     : 9
+	total iterations          : 0
+	converged                 : Yes
+	iterative error           : nan
+	absolute maximum residual : 2.168404344971009e-19
 --------------------------------------------------------------------------------
-    1.1e+00    1.2e+00    1.3e+00    2.1e+00    2.2e+00    2.3e+00    3.1e+00    3.2e+00    3.3e+00
+::::::::::::::::::::::::::::::: PROFILE SUMMARY ::::::::::::::::::::::::::::::::
+[5/5] : SOR
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 2.53e+05 :::::::: VARIANCE: 8.48e+04 :::::::: MEDIAN: 5.06e+04 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {5.03e+04, 5.12e+04} : (5.07e+04 ± 2.91e+02) : [5.03e+04, 5.11e+04] :::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 --------------------------------------------------------------------------------
-Lower Triangular Matrix (L):
+SOR Method Results
 --------------------------------------------------------------------------------
-    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-   -3.0e-02    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00   -3.0e-02    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-   -3.0e-02   -8.9e-04   -2.7e-05    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00   -3.0e-02   -8.9e-04   -3.0e-02    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00   -3.0e-02   -8.0e-07   -3.0e-02    1.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00   -3.0e-02   -9.0e-04   -2.7e-05    1.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00   -3.0e-02   -9.0e-04   -3.0e-02    1.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00   -3.0e-02   -8.0e-07   -3.0e-02    1.0e+00
+	order                     : 9
+	total iterations          : 7
+	converged                 : Yes
+	iterative error           : 9.925586527559588e-05
+	absolute maximum residual : 2.241588572204044e-08
 --------------------------------------------------------------------------------
-Upper Triangular Matrix (U):
---------------------------------------------------------------------------------
-    3.7e-03   -1.1e-04    0.0e+00   -1.1e-04    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    3.7e-03   -1.1e-04   -3.3e-06   -1.1e-04    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    3.7e-03   -1.0e-07   -3.3e-06   -1.1e-04    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.1e-04   -3.0e-09   -1.1e-04    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.1e-04   -3.4e-06   -1.1e-04    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.0e-07   -3.4e-06   -1.1e-04
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.1e-04   -3.0e-09
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03   -1.1e-04
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    3.7e-03
---------------------------------------------------------------------------------
-Permutation Matrix (P):
---------------------------------------------------------------------------------
-    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00    1.0e+00
---------------------------------------------------------------------------------
-Permuted constants (Pb = P * b):
---------------------------------------------------------------------------------
-    1.1e+00    1.2e+00    1.3e+00    2.1e+00    2.2e+00    2.3e+00    3.1e+00    3.2e+00    3.3e+00
---------------------------------------------------------------------------------
-Intermediate vector (y), where (Ly = Pb):
---------------------------------------------------------------------------------
-    1.1e+00    1.2e+00    1.3e+00    2.1e+00    2.3e+00    2.4e+00    3.2e+00    3.4e+00    3.5e+00
---------------------------------------------------------------------------------
-Solution vector (x, phi), where (Ux = y):
---------------------------------------------------------------------------------
-    3.2e+02    3.6e+02    3.8e+02    6.2e+02    6.6e+02    6.7e+02    8.7e+02    9.3e+02    9.3e+02
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-Computed flux 𝜙(𝑖,𝑗): 
---------------------------------------------------------------------------------
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
-    0.0e+00    3.2e+02    3.6e+02    3.8e+02    0.0e+00
-    0.0e+00    6.2e+02    6.6e+02    6.7e+02    0.0e+00
-    0.0e+00    8.7e+02    9.3e+02    9.3e+02    0.0e+00
-    0.0e+00    0.0e+00    0.0e+00    0.0e+00    0.0e+00
---------------------------------------------------------------------------------
-Residual vector (r = b - Ax) :
---------------------------------------------------------------------------------
-    0.0e+00    1.1e-19    0.0e+00   -2.2e-19    2.2e-19    0.0e+00    2.2e-19    0.0e+00    2.2e-19
---------------------------------------------------------------------------------
-Max Residual abs(r): 2.1684043449710088680e-19
---------------------------------------------------------------------------------
-
-JSON data has been written to profile_3x3.json
+JSON data has been written to ../project2_example_output.json
 
 Process finished with exit code 0
-
 ```

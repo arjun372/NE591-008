@@ -81,7 +81,6 @@ class Project2 : public Project<SolverInputs, Parser, SolverOutputs> {
         std::cout << "\tconverged                 : " << (results.solution.converged ? "Yes" : "No") << std::endl;
         std::cout << "\titerative error           : " << (results.solution.iterative_error) << std::endl;
         std::cout << "\tabsolute maximum residual : " << (results.max_residual()) << std::endl;
-        std::cout << "\texecution time [ms]       : " << formatMeanStd(results.mean_execution_time/1.0e6, results.stddev_execution_time/1.0e6) << std::endl;
     }
 
 
@@ -191,7 +190,7 @@ class Project2 : public Project<SolverInputs, Parser, SolverOutputs> {
 
         // write output data
         if (values.count("output-results-json")) {
-            outputs.toJSON(results["outputs"]);
+            //outputs.toJSON(results["outputs"]);
             writeJSON(values["output-results-json"].as<std::string>(), results);
         }
 };

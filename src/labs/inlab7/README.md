@@ -60,7 +60,7 @@ mpirun $WD/hello_world
 6. Run the compile script `./compile_inlab7.sh`
 7. Run the build target directly `mpirun ./hello_world`
 
-All together:
+##### All together:
 ```bash
 $ ssh login.hpc.ncsu.edu
 $ bsub -Is -n 4 -R "span[hosts=1]" -W 20 bash

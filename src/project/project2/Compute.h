@@ -92,11 +92,8 @@ void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.solution = outputs.solution = MyBLAS::LUP::applyLUP(inMemoryA, b);
     }, inputs.numRuns, inputs.timeout, "LUP");
 
-
-    auto summary = profiler.run().getSummary();
-    outputs.mean_execution_time = summary.mean;
-    outputs.stddev_execution_time = summary.stddev;
-    outputs.runs = profiler.getTotalRuns();
+    outputs.summary = profiler.run().getSummary();
+    outputs.summary.runs = profiler.getTotalRuns();
     std::cout<<std::endl<<profiler;
 
     // post-process
@@ -132,10 +129,8 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold);
     }, inputs.numRuns, inputs.timeout, "Point Jacobi");
 
-    auto summary = profiler.run().getSummary();
-    outputs.mean_execution_time = summary.mean;
-    outputs.stddev_execution_time = summary.stddev;
-    outputs.runs = profiler.getTotalRuns();
+    outputs.summary = profiler.run().getSummary();
+    outputs.summary.runs = profiler.getTotalRuns();
     std::cout<<std::endl<<profiler;
 
     // post-process
@@ -169,10 +164,8 @@ void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.solution = MyRelaxationMethod::applyGaussSeidel(A, b, max_iterations, threshold);
     }, inputs.numRuns, inputs.timeout, "Gauss Seidel");
 
-    auto summary = profiler.run().getSummary();
-    outputs.mean_execution_time = summary.mean;
-    outputs.stddev_execution_time = summary.stddev;
-    outputs.runs = profiler.getTotalRuns();
+    outputs.summary = profiler.run().getSummary();
+    outputs.summary.runs = profiler.getTotalRuns();
     std::cout<<std::endl<<profiler;
 
     // post-process
@@ -207,10 +200,8 @@ void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.solution = MyRelaxationMethod::applySOR(A, b, max_iterations, threshold, omega);
     }, inputs.numRuns, inputs.timeout, "SOR"); // Run the block 10 times
 
-    auto summary = profiler.run().getSummary();
-    outputs.mean_execution_time = summary.mean;
-    outputs.stddev_execution_time = summary.stddev;
-    outputs.runs = profiler.getTotalRuns();
+    outputs.summary = profiler.run().getSummary();
+    outputs.summary.runs = profiler.getTotalRuns();
     std::cout<<std::endl<<profiler;
 
     // post-process
@@ -235,21 +226,17 @@ void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
     const size_t max_iterations = inputs.solverParams.max_iterations;
     const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
     const MyBLAS::NumericType omega = inputs.solverParams.relaxation_factor;
-    const MyBLAS::NumericType fudge_factor_omega = (2.0f - omega);
-
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting SOR point jacobi calculation\n";
         return;
     }
 
     auto profiler = Profiler([&]() {
-        outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold, fudge_factor_omega);
+        outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold, 2.0f - omega);
     }, inputs.numRuns, inputs.timeout, "SORJ");
 
-    auto summary = profiler.run().getSummary();
-    outputs.mean_execution_time = summary.mean;
-    outputs.stddev_execution_time = summary.stddev;
-    outputs.runs = profiler.getTotalRuns();
+    outputs.summary = profiler.run().getSummary();
+    outputs.summary.runs = profiler.getTotalRuns();
     std::cout<<std::endl<<profiler;
 
     // post-process
@@ -284,10 +271,8 @@ void usingSymmetricSOR(SolverOutputs &outputs, SolverInputs &inputs) {
         outputs.solution = MyRelaxationMethod::applySSOR(A, b, max_iterations, threshold, omega);
     }, inputs.numRuns, inputs.timeout, "SSOR");
 
-    auto summary = profiler.run().getSummary();
-    outputs.mean_execution_time = summary.mean;
-    outputs.stddev_execution_time = summary.stddev;
-    outputs.runs = profiler.getTotalRuns();
+    outputs.summary = profiler.run().getSummary();
+    outputs.summary.runs = profiler.getTotalRuns();
     std::cout<<std::endl<<profiler;
 
     // post-process

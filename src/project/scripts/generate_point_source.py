@@ -76,5 +76,5 @@ def plot_map(inputfile, outputfile):
 # plot_map("../analysis/fluxes/raw/project2_fluxes_4x4.csv", "../analysis/fluxes/plots/project2_fluxes_4x4.png")
 # plot_map("../analysis/fluxes/raw/project2_fluxes_8x8.csv", "../analysis/fluxes/plots/project2_fluxes_8x8.png")
 # plot_map("../analysis/fluxes/raw/project2_fluxes_16x16.csv", "../analysis/fluxes/plots/project2_fluxes_16x16.png")
-plot_map("../analysis/fluxes/raw/project2_fluxes_32x32.csv", "../analysis/fluxes/plots/project2_fluxes_32x32.png")
+# plot_map("../analysis/fluxes/raw/project2_fluxes_32x32.csv", "../analysis/fluxes/plots/project2_fluxes_32x32.png")
 # plot_map("../analysis/fluxes/raw/project2_fluxes_64x64.csv", "../analysis/fluxes/plots/project2_fluxes_64x64.png")
