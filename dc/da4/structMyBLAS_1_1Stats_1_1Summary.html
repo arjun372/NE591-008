@@ -137,8 +137,8 @@ $(document).ready(function(){initNavTree('dc/da4/structMyBLAS_1_1Stats_1_1Summar
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab12cabc456c23b3b87a4275d70915359"><td class="memItemLeft" align="right" valign="top">nlohmann::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#ab12cabc456c23b3b87a4275d70915359">toJSON</a> () const</td></tr>
-<tr class="separator:ab12cabc456c23b3b87a4275d70915359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a66f2ddbad3de15b434c6582bd2011"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011">toJSON</a> (nlohmann::json &amp;jsonMap) const</td></tr>
+<tr class="separator:a96a66f2ddbad3de15b434c6582bd2011"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -169,7 +169,7 @@ Data Fields</h2></td></tr>
 <tr class="memitem:aee9f5a2d05716d811ef08b8ca66f12ae"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aee9f5a2d05716d811ef08b8ca66f12ae">p95th</a> = std::numeric_limits&lt;T&gt;::quiet_NaN()</td></tr>
 <tr class="memdesc:aee9f5a2d05716d811ef08b8ca66f12ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">The 95th percentile.  <a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aee9f5a2d05716d811ef08b8ca66f12ae">More...</a><br /></td></tr>
 <tr class="separator:aee9f5a2d05716d811ef08b8ca66f12ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7af63373da847d2147bb521bfd1bd6b3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a7af63373da847d2147bb521bfd1bd6b3">runs</a></td></tr>
+<tr class="memitem:a7af63373da847d2147bb521bfd1bd6b3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a7af63373da847d2147bb521bfd1bd6b3">runs</a> {}</td></tr>
 <tr class="separator:a7af63373da847d2147bb521bfd1bd6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -190,8 +190,8 @@ struct MyBLAS::Stats::Summary&lt; T &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab12cabc456c23b3b87a4275d70915359"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab12cabc456c23b3b87a4275d70915359">&#9670;&nbsp;</a></span>toJSON()</h2>
+<a id="a96a66f2ddbad3de15b434c6582bd2011"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a66f2ddbad3de15b434c6582bd2011">&#9670;&nbsp;</a></span>toJSON()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,9 +202,10 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">nlohmann::json <a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; T &gt;::toJSON </td>
+          <td class="memname">void <a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; T &gt;::toJSON </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>jsonMap</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -214,36 +215,36 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        nlohmann::json jsonMap;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        jsonMap[<span class="stringliteral">&quot;min&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aa41dcac3470d01f9e3f9cd352d92caf3">min</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        jsonMap[<span class="stringliteral">&quot;max&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a1ba8eed98cdbcafe5f20ea23cc6893d1">max</a>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        jsonMap[<span class="stringliteral">&quot;sum&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a434963de3fd9ce7eb5d7663fe426f0df">sum</a>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        jsonMap[<span class="stringliteral">&quot;mean&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a3c292e59a4f2e9ed837c237e555b0f57">mean</a>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        jsonMap[<span class="stringliteral">&quot;variance&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a24b861cb93d7b14e8e7d7bfc86cb95e2">variance</a>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        jsonMap[<span class="stringliteral">&quot;stddev&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#abef558a26a60bb3f19a1d3b1fe7deb2c">stddev</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        jsonMap[<span class="stringliteral">&quot;p5th&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#adb5daae316a47beab01dbf8eead160ae">p5th</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        jsonMap[<span class="stringliteral">&quot;p95th&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aee9f5a2d05716d811ef08b8ca66f12ae">p95th</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> jsonMap;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                             {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        jsonMap[<span class="stringliteral">&quot;min&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aa41dcac3470d01f9e3f9cd352d92caf3">min</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        jsonMap[<span class="stringliteral">&quot;max&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a1ba8eed98cdbcafe5f20ea23cc6893d1">max</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        jsonMap[<span class="stringliteral">&quot;sum&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a434963de3fd9ce7eb5d7663fe426f0df">sum</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        jsonMap[<span class="stringliteral">&quot;mean&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a3c292e59a4f2e9ed837c237e555b0f57">mean</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        jsonMap[<span class="stringliteral">&quot;variance&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a24b861cb93d7b14e8e7d7bfc86cb95e2">variance</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        jsonMap[<span class="stringliteral">&quot;stddev&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#abef558a26a60bb3f19a1d3b1fe7deb2c">stddev</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        jsonMap[<span class="stringliteral">&quot;p5th&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#adb5daae316a47beab01dbf8eead160ae">p5th</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        jsonMap[<span class="stringliteral">&quot;p95th&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aee9f5a2d05716d811ef08b8ca66f12ae">p95th</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        jsonMap[<span class="stringliteral">&quot;samples&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a7af63373da847d2147bb521bfd1bd6b3">runs</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a1ba8eed98cdbcafe5f20ea23cc6893d1"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a1ba8eed98cdbcafe5f20ea23cc6893d1">MyBLAS::Stats::Summary::max</a></div><div class="ttdeci">T max</div><div class="ttdoc">The maximum value.</div><div class="ttdef"><b>Definition:</b> Stats.h:35</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a24b861cb93d7b14e8e7d7bfc86cb95e2"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a24b861cb93d7b14e8e7d7bfc86cb95e2">MyBLAS::Stats::Summary::variance</a></div><div class="ttdeci">T variance</div><div class="ttdoc">The variance.</div><div class="ttdef"><b>Definition:</b> Stats.h:38</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a3c292e59a4f2e9ed837c237e555b0f57"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a3c292e59a4f2e9ed837c237e555b0f57">MyBLAS::Stats::Summary::mean</a></div><div class="ttdeci">T mean</div><div class="ttdoc">The mean value.</div><div class="ttdef"><b>Definition:</b> Stats.h:37</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a434963de3fd9ce7eb5d7663fe426f0df"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a434963de3fd9ce7eb5d7663fe426f0df">MyBLAS::Stats::Summary::sum</a></div><div class="ttdeci">T sum</div><div class="ttdoc">The sum of all values.</div><div class="ttdef"><b>Definition:</b> Stats.h:36</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a7af63373da847d2147bb521bfd1bd6b3"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a7af63373da847d2147bb521bfd1bd6b3">MyBLAS::Stats::Summary::runs</a></div><div class="ttdeci">size_t runs</div><div class="ttdef"><b>Definition:</b> Stats.h:43</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_aa41dcac3470d01f9e3f9cd352d92caf3"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aa41dcac3470d01f9e3f9cd352d92caf3">MyBLAS::Stats::Summary::min</a></div><div class="ttdeci">T min</div><div class="ttdoc">The minimum value.</div><div class="ttdef"><b>Definition:</b> Stats.h:34</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_abef558a26a60bb3f19a1d3b1fe7deb2c"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#abef558a26a60bb3f19a1d3b1fe7deb2c">MyBLAS::Stats::Summary::stddev</a></div><div class="ttdeci">T stddev</div><div class="ttdoc">The standard deviation.</div><div class="ttdef"><b>Definition:</b> Stats.h:39</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_adb5daae316a47beab01dbf8eead160ae"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#adb5daae316a47beab01dbf8eead160ae">MyBLAS::Stats::Summary::p5th</a></div><div class="ttdeci">T p5th</div><div class="ttdoc">The 5th percentile.</div><div class="ttdef"><b>Definition:</b> Stats.h:41</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_aee9f5a2d05716d811ef08b8ca66f12ae"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aee9f5a2d05716d811ef08b8ca66f12ae">MyBLAS::Stats::Summary::p95th</a></div><div class="ttdeci">T p95th</div><div class="ttdoc">The 95th percentile.</div><div class="ttdef"><b>Definition:</b> Stats.h:42</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00035">MyBLAS::Stats::Summary&lt; T &gt;::max</a>, <a class="el" href="../../#l00037">MyBLAS::Stats::Summary&lt; T &gt;::mean</a>, <a class="el" href="../../#l00034">MyBLAS::Stats::Summary&lt; T &gt;::min</a>, <a class="el" href="../../#l00041">MyBLAS::Stats::Summary&lt; T &gt;::p5th</a>, <a class="el" href="../../#l00042">MyBLAS::Stats::Summary&lt; T &gt;::p95th</a>, <a class="el" href="../../#l00039">MyBLAS::Stats::Summary&lt; T &gt;::stddev</a>, <a class="el" href="../../#l00036">MyBLAS::Stats::Summary&lt; T &gt;::sum</a>, and <a class="el" href="../../#l00038">MyBLAS::Stats::Summary&lt; T &gt;::variance</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00035">MyBLAS::Stats::Summary&lt; T &gt;::max</a>, <a class="el" href="../../#l00037">MyBLAS::Stats::Summary&lt; T &gt;::mean</a>, <a class="el" href="../../#l00034">MyBLAS::Stats::Summary&lt; T &gt;::min</a>, <a class="el" href="../../#l00041">MyBLAS::Stats::Summary&lt; T &gt;::p5th</a>, <a class="el" href="../../#l00042">MyBLAS::Stats::Summary&lt; T &gt;::p95th</a>, <a class="el" href="../../#l00043">MyBLAS::Stats::Summary&lt; T &gt;::runs</a>, <a class="el" href="../../#l00039">MyBLAS::Stats::Summary&lt; T &gt;::stddev</a>, <a class="el" href="../../#l00036">MyBLAS::Stats::Summary&lt; T &gt;::sum</a>, and <a class="el" href="../../#l00038">MyBLAS::Stats::Summary&lt; T &gt;::variance</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00096">Output::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00092">Output::toJSON()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary_ab12cabc456c23b3b87a4275d70915359_icgraph.svg" width="366" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary_a96a66f2ddbad3de15b434c6582bd2011_icgraph.svg" width="366" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -440,12 +441,12 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; T &gt;::runs</td>
+          <td class="memname">size_t <a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; T &gt;::runs {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00087">Profiler&lt; FunctionType &gt;::getSummary()</a>, and <a class="el" href="../../#l00096">Output::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00087">Profiler&lt; FunctionType &gt;::getSummary()</a>, <a class="el" href="../../#l00065">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>, <a class="el" href="../../#l00152">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00223">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00079">Compute::usingLUP()</a>, <a class="el" href="../../#l00116">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00187">Compute::usingSOR()</a>, and <a class="el" href="../../#l00258">Compute::usingSymmetricSOR()</a>.</p>
 
 </div>
 </div>

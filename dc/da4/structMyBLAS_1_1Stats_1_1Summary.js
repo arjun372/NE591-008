@@ -1,6 +1,6 @@
 var structMyBLAS_1_1Stats_1_1Summary =
 [
-    [ "toJSON", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#ab12cabc456c23b3b87a4275d70915359", null ],
+    [ "toJSON", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011", null ],
     [ "operator<<", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#ab84cc2e0d432ca0b9c307ccadd82d5f6", null ],
     [ "max", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a1ba8eed98cdbcafe5f20ea23cc6893d1", null ],
     [ "mean", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a3c292e59a4f2e9ed837c237e555b0f57", null ],

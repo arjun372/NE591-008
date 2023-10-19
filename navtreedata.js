@@ -143,96 +143,96 @@ var NAVTREE =
       ] ]
     ] ],
     [ "OutLab 01: Elementwise Ops on 2D Matrices", "d8/df8/outlab1.html", [
-      [ "OutLab 01: Non-vectorized, elementwise (mul, add) operations on 2D matrices", "d8/df8/outlab1.html#autotoc_md86", [
-        [ "Usage", "d8/df8/outlab1.html#autotoc_md87", [
-          [ "Parameters", "d8/df8/outlab1.html#autotoc_md88", null ],
-          [ "General options", "d8/df8/outlab1.html#autotoc_md89", null ]
+      [ "OutLab 01: Non-vectorized, elementwise (mul, add) operations on 2D matrices", "d8/df8/outlab1.html#autotoc_md87", [
+        [ "Usage", "d8/df8/outlab1.html#autotoc_md88", [
+          [ "Parameters", "d8/df8/outlab1.html#autotoc_md89", null ],
+          [ "General options", "d8/df8/outlab1.html#autotoc_md90", null ]
         ] ],
-        [ "Example", "d8/df8/outlab1.html#autotoc_md90", null ]
+        [ "Example", "d8/df8/outlab1.html#autotoc_md91", null ]
       ] ]
     ] ],
     [ "OutLab 02: Lagrange Interpolation Polynomials II", "d9/d83/outlab2.html", [
-      [ "OutLab 02: Lagrange Interpolation Polynomials", "d9/d83/outlab2.html#autotoc_md91", [
-        [ "Overview", "d9/d83/outlab2.html#autotoc_md92", null ],
-        [ "Analysis", "d9/d83/outlab2.html#autotoc_md93", null ],
-        [ "Building & Usage", "d9/d83/outlab2.html#autotoc_md94", [
-          [ "Options", "d9/d83/outlab2.html#autotoc_md95", null ],
-          [ "General options:", "d9/d83/outlab2.html#autotoc_md96", null ]
+      [ "OutLab 02: Lagrange Interpolation Polynomials", "d9/d83/outlab2.html#autotoc_md92", [
+        [ "Overview", "d9/d83/outlab2.html#autotoc_md93", null ],
+        [ "Analysis", "d9/d83/outlab2.html#autotoc_md94", null ],
+        [ "Building & Usage", "d9/d83/outlab2.html#autotoc_md95", [
+          [ "Options", "d9/d83/outlab2.html#autotoc_md96", null ],
+          [ "General options:", "d9/d83/outlab2.html#autotoc_md97", null ]
         ] ],
-        [ "Implementing your own <tt>f(x)</tt>", "d9/d83/outlab2.html#autotoc_md97", null ],
-        [ "File I/O", "d9/d83/outlab2.html#autotoc_md98", null ],
-        [ "Parameters Format", "d9/d83/outlab2.html#autotoc_md99", [
-          [ "Sample Inputs File", "d9/d83/outlab2.html#autotoc_md100", null ]
+        [ "Implementing your own <tt>f(x)</tt>", "d9/d83/outlab2.html#autotoc_md98", null ],
+        [ "File I/O", "d9/d83/outlab2.html#autotoc_md99", null ],
+        [ "Parameters Format", "d9/d83/outlab2.html#autotoc_md100", [
+          [ "Sample Inputs File", "d9/d83/outlab2.html#autotoc_md101", null ]
         ] ],
-        [ "0.67", "d9/d83/outlab2.html#autotoc_md101", null ],
-        [ "Inputs", "d9/d83/outlab2.html#autotoc_md102", null ],
-        [ "Output Format", "d9/d83/outlab2.html#autotoc_md103", [
-          [ "Sample Outputs File", "d9/d83/outlab2.html#autotoc_md104", null ]
+        [ "0.67", "d9/d83/outlab2.html#autotoc_md102", null ],
+        [ "Inputs", "d9/d83/outlab2.html#autotoc_md103", null ],
+        [ "Output Format", "d9/d83/outlab2.html#autotoc_md104", [
+          [ "Sample Outputs File", "d9/d83/outlab2.html#autotoc_md105", null ]
         ] ],
-        [ "Example:", "d9/d83/outlab2.html#autotoc_md105", null ]
+        [ "Example:", "d9/d83/outlab2.html#autotoc_md106", null ]
       ] ]
     ] ],
     [ "OutLab 03: Gauss-Legendre Numerical Integration", "dc/d1d/outlab3.html", [
-      [ "OutLab 03: Numerical Integration using Composite Newton-Cotes & Gauss-Legendre Quadratures", "dc/d1d/outlab3.html#autotoc_md106", [
-        [ "Overview", "dc/d1d/outlab3.html#autotoc_md107", null ],
-        [ "Building & Usage", "dc/d1d/outlab3.html#autotoc_md108", [
-          [ "Parameters", "dc/d1d/outlab3.html#autotoc_md109", null ],
-          [ "General options", "dc/d1d/outlab3.html#autotoc_md110", null ]
+      [ "OutLab 03: Numerical Integration using Composite Newton-Cotes & Gauss-Legendre Quadratures", "dc/d1d/outlab3.html#autotoc_md107", [
+        [ "Overview", "dc/d1d/outlab3.html#autotoc_md108", null ],
+        [ "Building & Usage", "dc/d1d/outlab3.html#autotoc_md109", [
+          [ "Parameters", "dc/d1d/outlab3.html#autotoc_md110", null ],
+          [ "General options", "dc/d1d/outlab3.html#autotoc_md111", null ]
         ] ],
-        [ "Implementing your own <tt>f(x)</tt>", "dc/d1d/outlab3.html#autotoc_md111", null ],
-        [ "Output Format", "dc/d1d/outlab3.html#autotoc_md112", [
-          [ "Sample Outputs File", "dc/d1d/outlab3.html#autotoc_md113", null ]
+        [ "Implementing your own <tt>f(x)</tt>", "dc/d1d/outlab3.html#autotoc_md112", null ],
+        [ "Output Format", "dc/d1d/outlab3.html#autotoc_md113", [
+          [ "Sample Outputs File", "dc/d1d/outlab3.html#autotoc_md114", null ]
         ] ],
-        [ "Example:", "dc/d1d/outlab3.html#autotoc_md114", null ]
+        [ "Example:", "dc/d1d/outlab3.html#autotoc_md115", null ]
       ] ]
     ] ],
     [ "OutLab 04: LU - Linear Equations Solver II", "d5/d26/outlab4.html", [
-      [ "OutLab 04: System of Linear Equations Solver", "d5/d26/outlab4.html#autotoc_md115", [
-        [ "Overview", "d5/d26/outlab4.html#autotoc_md116", null ],
-        [ "Building & Usage", "d5/d26/outlab4.html#autotoc_md117", [
-          [ "Parameters", "d5/d26/outlab4.html#autotoc_md118", null ],
-          [ "General options", "d5/d26/outlab4.html#autotoc_md119", null ]
+      [ "OutLab 04: System of Linear Equations Solver", "d5/d26/outlab4.html#autotoc_md116", [
+        [ "Overview", "d5/d26/outlab4.html#autotoc_md117", null ],
+        [ "Building & Usage", "d5/d26/outlab4.html#autotoc_md118", [
+          [ "Parameters", "d5/d26/outlab4.html#autotoc_md119", null ],
+          [ "General options", "d5/d26/outlab4.html#autotoc_md120", null ]
         ] ],
-        [ "Parameters Format", "d5/d26/outlab4.html#autotoc_md120", [
-          [ "Sample Parameters File", "d5/d26/outlab4.html#autotoc_md121", null ]
+        [ "Parameters Format", "d5/d26/outlab4.html#autotoc_md121", [
+          [ "Sample Parameters File", "d5/d26/outlab4.html#autotoc_md122", null ]
         ] ],
-        [ "Output Format", "d5/d26/outlab4.html#autotoc_md122", [
-          [ "Sample Outputs File", "d5/d26/outlab4.html#autotoc_md123", null ]
+        [ "Output Format", "d5/d26/outlab4.html#autotoc_md123", [
+          [ "Sample Outputs File", "d5/d26/outlab4.html#autotoc_md124", null ]
         ] ],
-        [ "Example:", "d5/d26/outlab4.html#autotoc_md124", null ]
+        [ "Example:", "d5/d26/outlab4.html#autotoc_md125", null ]
       ] ]
     ] ],
     [ "OutLab 05: LUP - Linear Equations Solver II", "de/de4/outlab5.html", [
-      [ "OutLab 05: System of Linear Equations Solver, with Pivoting", "de/de4/outlab5.html#autotoc_md125", [
-        [ "Overview", "de/de4/outlab5.html#autotoc_md126", null ],
-        [ "Building & Usage", "de/de4/outlab5.html#autotoc_md127", [
-          [ "Parameters", "de/de4/outlab5.html#autotoc_md128", null ],
-          [ "General options", "de/de4/outlab5.html#autotoc_md129", null ]
+      [ "OutLab 05: System of Linear Equations Solver, with Pivoting", "de/de4/outlab5.html#autotoc_md126", [
+        [ "Overview", "de/de4/outlab5.html#autotoc_md127", null ],
+        [ "Building & Usage", "de/de4/outlab5.html#autotoc_md128", [
+          [ "Parameters", "de/de4/outlab5.html#autotoc_md129", null ],
+          [ "General options", "de/de4/outlab5.html#autotoc_md130", null ]
         ] ],
-        [ "Parameters Format", "de/de4/outlab5.html#autotoc_md130", [
-          [ "Sample Parameters File", "de/de4/outlab5.html#autotoc_md131", null ]
+        [ "Parameters Format", "de/de4/outlab5.html#autotoc_md131", [
+          [ "Sample Parameters File", "de/de4/outlab5.html#autotoc_md132", null ]
         ] ],
-        [ "Output Format", "de/de4/outlab5.html#autotoc_md132", [
-          [ "Sample Outputs File", "de/de4/outlab5.html#autotoc_md133", null ]
+        [ "Output Format", "de/de4/outlab5.html#autotoc_md133", [
+          [ "Sample Outputs File", "de/de4/outlab5.html#autotoc_md134", null ]
         ] ],
-        [ "Example:", "de/de4/outlab5.html#autotoc_md134", null ]
+        [ "Example:", "de/de4/outlab5.html#autotoc_md135", null ]
       ] ]
     ] ],
     [ "OutLab 06: Iterative Linear Equation Solvers", "dd/dfb/outlab6.html", [
-      [ "OutLab 06: Iterative Linear Equation Solvers", "dd/dfb/outlab6.html#autotoc_md135", [
-        [ "Overview", "dd/dfb/outlab6.html#autotoc_md136", null ],
-        [ "Building & Usage", "dd/dfb/outlab6.html#autotoc_md137", [
-          [ "Parameters", "dd/dfb/outlab6.html#autotoc_md138", null ],
-          [ "Solver Methods", "dd/dfb/outlab6.html#autotoc_md139", null ],
-          [ "General options", "dd/dfb/outlab6.html#autotoc_md140", null ]
+      [ "OutLab 06: Iterative Linear Equation Solvers", "dd/dfb/outlab6.html#autotoc_md136", [
+        [ "Overview", "dd/dfb/outlab6.html#autotoc_md137", null ],
+        [ "Building & Usage", "dd/dfb/outlab6.html#autotoc_md138", [
+          [ "Parameters", "dd/dfb/outlab6.html#autotoc_md139", null ],
+          [ "Solver Methods", "dd/dfb/outlab6.html#autotoc_md140", null ],
+          [ "General options", "dd/dfb/outlab6.html#autotoc_md141", null ]
         ] ],
-        [ "Parameters Format", "dd/dfb/outlab6.html#autotoc_md141", [
-          [ "Sample Parameters File", "dd/dfb/outlab6.html#autotoc_md142", null ]
+        [ "Parameters Format", "dd/dfb/outlab6.html#autotoc_md142", [
+          [ "Sample Parameters File", "dd/dfb/outlab6.html#autotoc_md143", null ]
         ] ],
-        [ "Output Format", "dd/dfb/outlab6.html#autotoc_md143", [
-          [ "Sample Outputs File", "dd/dfb/outlab6.html#autotoc_md144", null ]
+        [ "Output Format", "dd/dfb/outlab6.html#autotoc_md144", [
+          [ "Sample Outputs File", "dd/dfb/outlab6.html#autotoc_md145", null ]
         ] ],
-        [ "Example:", "dd/dfb/outlab6.html#autotoc_md145", null ]
+        [ "Example:", "dd/dfb/outlab6.html#autotoc_md146", null ]
       ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [
@@ -284,7 +284,7 @@ var NAVTREEINDEX =
 "db/d2e/namespaceMyBLAS_1_1LU.html#a876ff0f2a17c8145a0e18eb54c37506b",
 "dd/d02/classCommandLine.html#a659b8132244da7ff3d2d5427b7117440",
 "de/d83/structMyLinearSolvingMethod_1_1Solution.html#a60e4ee612c28deee2fe684a66959116c",
-"functions_vars_y.html",
+"functions_x.html",
 ""
 ];
 
