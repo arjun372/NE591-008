@@ -84,24 +84,84 @@ a high-precision profiler for performance analysis.
 
 ## Building
 
-The source code requires no additional configuration except choosing the build target. Here is a repeatable script to
-perform the build and run a target executable:
+The code has been built and tested on the NCSU Hazel`login.hpc.ncsu.edu` and NCSU EOS `remote.eos.ncsu.edu` servers.
+It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script
+to perform the build and run the `project2` target executable:
 
+### Hazel
+There are two ways to do run jobs on Hazel, currently, we support the interactive mode option.
+#### Interactive Mode
+This mode requires a few additional steps, but for the most part, it follows the same process as the EOS server.
 ```bash
-# Assuming cwd is the repo root:
 #!/bin/bash
 
+# Start by logging in
+ssh login.hpc.ncsu.edu
+
+# Then, start an interactive session
+bsub -Is -n 4 -R "span[hosts=1]" -W 20 bash
+
+# Create a working directory, in this case we call it earthperson_project2 to avoid naming conflicts
+mkdir -p /share/$GROUP/$USER/earthperson_project2
+
+# Go into that directory.
+cd /share/$GROUP/$USER/earthperson_project2
+
+# Load the build modules
+module load openmpi-gcc/openmpi4.1.0-gcc10.2.0 cmake/3.24.1
+
+# Begin by copying the files over using rsync, scp, sftp, etc...
+# Then, assuming the repo root is the current directory:
+
 ## Specify the build target
-export BUILD_TARGET=inlab1
+export BUILD_TARGET=project2
 
 ## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
 cmake .. -DCMAKE_BUILD_TYPE=Release && \
 make -j$(nproc) $BUILD_TARGET && cd ../
 
+## Specify the input and output files.
+## NOTE: This path is relative to the repo root directory
+export INPUT_PARAMETERS=./src/project/project2/examples/project2_example_input_parameters.json
+export INPUT_SOURCETERMS=./src/project/project2/examples/project2_example_source_terms.csv
+export OUTPUT_RESULTS=./src/project/project2/examples/project2_example_output_results.json
+export OUTPUT_COMPUTED_FLUX=./src/project/project2/examples/project2_example_computed_flux
+
 ## Execute
-./build/bin/$BUILD_TARGET
+./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o $OUTPUT_RESULTS -f $OUTPUT_COMPUTED_FLUX
 ```
+#### Batch Jobs
+
+Coming Soon
+
+### EOS
+```bash
+#!/bin/bash
+
+# Begin by copying the files over using rsync, scp, sftp, etc...
+# Then, assuming the repo root is the current directory:
+
+## Specify the build target
+export BUILD_TARGET=project2
+
+## Create the build directory, configure and compile the $BUILD_TARGET
+mkdir -p build && cd build && \
+cmake .. -DCMAKE_BUILD_TYPE=Release && \
+make -j$(nproc) $BUILD_TARGET && cd ../
+
+## Specify the input and output files.
+## NOTE: This path is relative to the repo root directory
+export INPUT_PARAMETERS=./src/project/project2/examples/project2_example_input_parameters.json
+export INPUT_SOURCETERMS=./src/project/project2/examples/project2_example_source_terms.csv
+
+export OUTPUT_RESULTS=./src/project/project2/examples/project2_example_output_results.json
+export OUTPUT_COMPUTED_FLUX=./src/project/project2/examples/project2_example_computed_flux
+
+## Execute
+./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o $OUTPUT_RESULTS -f $OUTPUT_COMPUTED_FLUX
+```
+
 
 ### Build Environments
 
