@@ -42,7 +42,9 @@ class Project2 : public Project<SolverInputs, Parser, SolverOutputs> {
      * @brief Constructor for the project2 class
      * @param args Command line arguments
      */
-    explicit Project2(CommandLineArgs args) : Project(args) {}
+    explicit Project2(CommandLineArgs args) : Project(args) {
+
+    }
 
   protected:
     /**

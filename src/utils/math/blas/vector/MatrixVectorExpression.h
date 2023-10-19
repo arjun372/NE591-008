@@ -1,5 +1,5 @@
 /**
-* @file MatrixExpression.h
+* @file ElementwiseExpression.h
 * @brief TODO:: DOCUMENT
 * @author Arjun Earthperson
 * @date 10/13/2023
@@ -12,7 +12,6 @@
 #include <cstddef>
 
 template <template <typename> class MatrixType, template <typename> class VectorType, typename T>
-//template <typename DataType, typename MatrixType, typename VectorType>
 class MatrixVectorExpression {
   public:
     MatrixVectorExpression(const MatrixType<T>& matrix, const VectorType<T>& vector)

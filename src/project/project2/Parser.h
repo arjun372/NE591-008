@@ -42,7 +42,7 @@ class Parser : public CommandLine<SolverInputs> {
             "input-parameter-json,i", boost::program_options::value<std::string>(), "= Path to input parameter JSON")(
             "source-terms-csv,s", boost::program_options::value<std::string>(), "= Path to source-terms 𝑞(𝑖,𝑗) CSV")(
             "output-results-json,o", boost::program_options::value<std::string>(), "= Path to output results JSON")(
-            "flux-output-dir,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗) CSV");
+            "flux-output-dir,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗)");
 
         boost::program_options::options_description methods("Solver Options");
         methods.add_options()
@@ -358,6 +358,14 @@ class Parser : public CommandLine<SolverInputs> {
 
         if (map.count("relaxation-factor")) {
             inputs.solverParams.relaxation_factor = map["relaxation-factor"].as<MyBLAS::NumericType>();
+        }
+
+        if (map.count("bench")) {
+            inputs.numRuns = map.count("bench-runs") ? static_cast<size_t>(map["bench-runs"].as<long double>()) : 1;
+            inputs.timeout = map.count("bench-timeout") ? map["bench-timeout"].as<long double>() : 0;
+        } else {
+            inputs.numRuns = 1;
+            inputs.timeout = 0;
         }
 
         if (!map.count("quiet")) {

@@ -101,7 +101,7 @@ template <typename T>
 T max(const Vector<T>& v) {
     auto data = v.getData();
     if (data.empty()) {
-        return NAN;
+        return std::numeric_limits<T>::quiet_NaN();
     }
     return *std::max_element(data.begin(), data.end());
 }

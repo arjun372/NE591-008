@@ -13,8 +13,10 @@
 #include <cstddef>
 #include <functional>
 
-#include "Matrix.h"
-#include "MatrixExpression.h"
+#include "math/blas/matrix/ContainerExpression.h"
+#include "math/blas/matrix/ElementwiseExpression.h"
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/LazyVector.h"
 #include "math/blas/vector/MatrixVectorExpression.h"
 
 namespace MyBLAS {
@@ -64,145 +66,169 @@ class LazyMatrix {
         return *this;
     }
 
-    // Define the addition operation.
-    template <typename MatrixType1, typename MatrixType2>
-    static LazyMatrix addMatrices(const MatrixType1& a, const MatrixType2& b) {
-        auto binary_op = [](DataType const& x, DataType const& y) { return x + y; };
-        MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyMatrix(a.getRows(), a.getCols(), [expr](size_t i, size_t j) { return expr(i, j); });
+    /**
+     * Matrix-Matrix Multiplication
+     */
+    // MyBLAS::Matrix--MyBLAS::LazyMatrix multiplication, return MyBLAS::Matrix
+    friend LazyMatrix operator*(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
+        return ContainerExpression<MyBLAS::Matrix, LazyMatrix, DataType>::multiplyMatrixMatrixType2(a, b);
     }
-
-    template <typename MatrixType>
-    friend LazyMatrix operator+(LazyMatrix const& a, MatrixType const& b) {
-        return addMatrices(a, b);
+    //  MyBLAS::LazyMatrix--MyBLAS::Matrix multiplication, return MyBLAS::Matrix
+    friend LazyMatrix operator*(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
+        return ContainerExpression<LazyMatrix, MyBLAS::Matrix, DataType>::multiplyMatrixMatrixType1(a, b);
     }
-
-    template <typename MatrixType>
-    friend LazyMatrix operator+(MatrixType const& a, LazyMatrix const& b) {
-        return addMatrices(a, b);
-    }
-
-    friend LazyMatrix operator+(LazyMatrix const& a, LazyMatrix const& b) {
-        return addMatrices(a, b);
-    }
-
-    // Define the subtraction operation.
-    template <typename MatrixType1, typename MatrixType2>
-    static LazyMatrix subtractMatrices(const MatrixType1& a, const MatrixType2& b) {
-        auto binary_op = [](DataType const& x, DataType const& y) { return x - y; };
-        MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyMatrix(a.getRows(), a.getCols(), [expr](size_t i, size_t j) { return expr(i, j); });
-    }
-
-    template <typename MatrixType>
-    friend LazyMatrix operator-(LazyMatrix const& a, MatrixType const& b) {
-        return subtractMatrices(a, b);
-    }
-
-    template <typename MatrixType>
-    friend LazyMatrix operator-(MatrixType const& a, LazyMatrix const& b) {
-        return subtractMatrices(a, b);
-    }
-
-    friend LazyMatrix operator-(LazyMatrix const& a, LazyMatrix const& b) {
-        return subtractMatrices(a, b);
-    }
-
-    template <typename MatrixType1, typename MatrixType2>
-    static LazyMatrix multiplyMatrices(const MatrixType1& a, const MatrixType2& b) {
-        auto binary_op = [](DataType const& x, DataType const& y) { return x * y; };
-        MatrixExpression<DataType, MatrixType1, MatrixType2, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyMatrix(a.getRows(), a.getCols(), [expr](size_t i, size_t j) { return expr(i, j); });
-    }
-
-    template <typename MatrixType>
-    friend LazyMatrix operator*(LazyMatrix const& a, MatrixType const& b) {
-        return multiplyMatrices(a, b);
-    }
-
-    template <typename MatrixType>
-    friend LazyMatrix operator*(MatrixType const& a, LazyMatrix const& b) {
-        return multiplyMatrices(a, b);
-    }
-
+    //  MyBLAS::LazyMatrix-MyBLAS::LazyMatrix multiplication, return MyBLAS::LazyMatrix
     friend LazyMatrix operator*(LazyMatrix const& a, LazyMatrix const& b) {
-        return multiplyMatrices(a, b);
+        return ContainerExpression<LazyMatrix, LazyMatrix, DataType>::multiplyMatrixMatrixType2(a, b);
     }
 
+    /**
+     * Matrix-Vector Multiplication
+     */
+    //  MyBLAS::LazyMatrix--MyBLAS::Vector multiplication, return MyBLAS::Vector
+    friend MyBLAS::Vector<DataType> operator*(LazyMatrix const& a, MyBLAS::Vector<DataType> const& b) {
+        return MatrixVectorExpression<LazyMatrix, MyBLAS::Vector, DataType>::multiplyMatrixVector(a, b);
+    }
+    //  MyBLAS::LazyMatrix-MyBLAS::LazyVector multiplication, return MyBLAS::LazyVector
+    friend LazyVector<DataType> operator*(LazyMatrix const& a, LazyVector<DataType> const& b) {
+        return MatrixVectorExpression<LazyMatrix, LazyVector, DataType>::multiplyMatrixVector(a, b);
+    }
+    // MyBLAS::LazyVector--MyBLAS::LazyMatrix multiplication, NOT IMPLEMENTED
+    // MyBLAS::Vector--MyBLAS::LazyMatrix multiplication, NOT IMPLEMENTED
+
+    /**
+     * Matrix-Matrix Elementwise Operations
+     */
+    /** Define the addition operation. **/
+    // MyBLAS::Matrix--MyBLAS::LazyMatrix addition, return MyBLAS::Matrix
+    friend LazyMatrix operator+(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return x + y; };
+        return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(a, b, op);
+    }
+    //  MyBLAS::LazyMatrix--MyBLAS::Matrix addition, return MyBLAS::Matrix
+    friend LazyMatrix operator+(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return y + x; };
+        return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(b, a, op);
+    }
+    //  MyBLAS::LazyMatrix--MyBLAS::LazyMatrix addition, return MyBLAS::LazyMatrix
+    friend LazyMatrix operator+(LazyMatrix const& a, LazyMatrix const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return x + y; };
+        return ElementwiseExpression<DataType, LazyMatrix, LazyMatrix, decltype(op)>::matrix(a, b, op);
+    }
+    /** Define the subtraction operation. **/
+    // MyBLAS::Matrix--MyBLAS::LazyMatrix subtraction, return MyBLAS::Matrix
+    friend LazyMatrix operator-(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return x - y; };
+        return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(a, b, op);
+    }
+    //  MyBLAS::LazyMatrix--MyBLAS::Matrix subtraction, return MyBLAS::Matrix
+    friend LazyMatrix operator-(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return y - x; };
+        return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(b, a, op);
+    }
+    //  MyBLAS::LazyMatrix--MyBLAS::LazyMatrix subtraction, return MyBLAS::LazyMatrix
+    friend LazyMatrix operator-(LazyMatrix const& a, LazyMatrix const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return x - y; };
+        return ElementwiseExpression<DataType, LazyMatrix, LazyMatrix, decltype(op)>::matrix(a, b, op);
+    }
+    /** Define the equality operation. **/
+    // MyBLAS::Matrix--MyBLAS::LazyMatrix equality, return MyBLAS::Matrix
+    friend LazyMatrix operator==(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return x == y; };
+        return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(a, b, op);
+    }
+    //  MyBLAS::LazyMatrix--MyBLAS::Matrix equality, return MyBLAS::Matrix
+    friend LazyMatrix operator==(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return y == x; };
+        return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(b, a, op);
+    }
+    //  MyBLAS::LazyMatrix--MyBLAS::LazyMatrix equality, return MyBLAS::LazyMatrix
+    friend LazyMatrix operator==(LazyMatrix const& a, LazyMatrix const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return x == y; };
+        return ElementwiseExpression<DataType, LazyMatrix, LazyMatrix, decltype(op)>::matrix(a, b, op);
+    }
+    /** Define the inequality operation. **/
+    // MyBLAS::Matrix--MyBLAS::LazyMatrix inequality, return MyBLAS::Matrix
+    friend LazyMatrix operator!=(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return x != y; };
+        return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(a, b, op);
+    }
+    //  MyBLAS::LazyMatrix--MyBLAS::Matrix inequality, return MyBLAS::Matrix
+    friend LazyMatrix operator!=(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return y != x; };
+        return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(b, a, op);
+    }
+    //  MyBLAS::LazyMatrix--MyBLAS::LazyMatrix inequality, return MyBLAS::LazyMatrix
+    friend LazyMatrix operator!=(LazyMatrix const& a, LazyMatrix const& b) {
+        auto op = [](DataType const& x, DataType const& y) { return x != y; };
+        return ElementwiseExpression<DataType, LazyMatrix, LazyMatrix, decltype(op)>::matrix(a, b, op);
+    }
+
+    /**
+     * Matrix-Scalar Operations
+     */
     // Define the scalar addition operation.
     LazyMatrix operator+(DataType scalar) const {
-        return LazyMatrix(rows_, cols_, [this, scalar](size_t i, size_t j) { return (*this)(i, j) + scalar; });
+        return LazyMatrix(getRows(), getCols(), [this, scalar](size_t i, size_t j) { return (*this)(i, j) + scalar; });
     }
-
     // Define the scalar subtraction operation.
     LazyMatrix operator-(DataType scalar) const {
-        return LazyMatrix(rows_, cols_, [this, scalar](size_t i, size_t j) { return (*this)(i, j) - scalar; });
+        return LazyMatrix(getRows(), getCols(), [this, scalar](size_t i, size_t j) { return (*this)(i, j) - scalar; });
     }
-
     // Define the scalar multiplication operation.
     LazyMatrix operator*(DataType scalar) const {
-        return LazyMatrix(rows_, cols_, [this, scalar](size_t i, size_t j) { return (*this)(i, j) * scalar; });
+        return LazyMatrix(getRows(), getCols(), [this, scalar](size_t i, size_t j) { return (*this)(i, j) * scalar; });
     }
-
     // Define the scalar division operation.
     LazyMatrix operator/(DataType scalar) const {
-        return LazyMatrix(rows_, cols_, [this, scalar](size_t i, size_t j) { return (*this)(i, j) / scalar; });
+        return LazyMatrix(getRows(), getCols(), [this, scalar](size_t i, size_t j) { return (*this)(i, j) / scalar; });
     }
-
     // Define the unary negation operation.
     LazyMatrix operator-() const {
-        return LazyMatrix(rows_, cols_, [this](size_t i, size_t j) { return -(*this)(i, j); });
+        return LazyMatrix(getRows(), getCols(), [this](size_t i, size_t j) { return -(*this)(i, j); });
     }
-
     // Define the in-place addition operation.
     LazyMatrix& operator+=(LazyMatrix const& b) {
         auto old_gen = generator_;
         generator_ = [old_gen, b](size_t i, size_t j) { return old_gen(i, j) + b(i, j); };
         return *this;
     }
-
     // Define the in-place subtraction operation.
     LazyMatrix& operator-=(LazyMatrix const& b) {
         auto old_gen = generator_;
         generator_ = [old_gen, b](size_t i, size_t j) { return old_gen(i, j) - b(i, j); };
         return *this;
     }
-
     // Define the in-place multiplication operation.
     LazyMatrix& operator*=(LazyMatrix const& b) {
         auto old_gen = generator_;
         generator_ = [old_gen, b](size_t i, size_t j) { return old_gen(i, j) * b(i, j); };
         return *this;
     }
-
     // Define the in-place division operation.
     LazyMatrix& operator/=(LazyMatrix const& b) {
         auto old_gen = generator_;
         generator_ = [old_gen, b](size_t i, size_t j) { return old_gen(i, j) / b(i, j); };
         return *this;
     }
-
     // Define the in-place scalar addition operation.
     LazyMatrix& operator+=(DataType scalar) {
         auto old_gen = generator_;
         generator_ = [this, old_gen, scalar](size_t i, size_t j) { return old_gen(i, j) + scalar; };
         return *this;
     }
-
     // Define the in-place scalar subtraction operation.
     LazyMatrix& operator-=(DataType scalar) {
         auto old_gen = generator_;
         generator_ = [this, old_gen, scalar](size_t i, size_t j) { return old_gen(i, j) - scalar; };
         return *this;
     }
-
     // Define the in-place scalar multiplication operation.
     LazyMatrix& operator*=(DataType scalar) {
         auto old_gen = generator_;
         generator_ = [this, old_gen, scalar](size_t i, size_t j) { return old_gen(i, j) * scalar; };
         return *this;
     }
-
     // Define the in-place scalar division operation.
     LazyMatrix& operator/=(DataType scalar) {
         auto old_gen = generator_;
@@ -213,12 +239,11 @@ class LazyMatrix {
     // Define the element-wise equality comparison operation.
     friend LazyMatrix<bool> equal(LazyMatrix const& a, LazyMatrix const& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x == y; };
-        MatrixExpression<bool, LazyMatrix, LazyMatrix, decltype(binary_op)> expr(a, b, binary_op);
+        ElementwiseExpression<bool, LazyMatrix, LazyMatrix, decltype(binary_op)> expr(a, b, binary_op);
         return LazyMatrix<bool>(a.getRows(), a.getCols(), [expr](size_t i, size_t j) { return expr(i, j); });
     }
-
     // Define the equality comparison operation.
-    friend bool operator==(LazyMatrix const& a, LazyMatrix const& b) {
+    friend bool allElementsEqual(LazyMatrix const& a, LazyMatrix const& b) {
         if (a.getRows() != b.getRows() || a.getCols() != b.getCols()) {
             return false;
         }
@@ -231,11 +256,6 @@ class LazyMatrix {
             }
         }
         return true;
-    }
-
-    // Define the inequality comparison operation.
-    friend bool operator!=(LazyMatrix const& a, LazyMatrix const& b) {
-        return !(a == b);
     }
 
     class Proxy {

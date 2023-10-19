@@ -9,7 +9,9 @@
 #define NE591_008_PROJECT2_INPUTOUTPUTS_H
 
 #include <utility>
+#include <memory>
 
+#include "Project.h"
 #include "json.hpp"
 #include "math/LinearSolver.h"
 #include "math/blas/BLAS.h"
@@ -36,6 +38,9 @@ typedef struct Input {
     MyBLAS::Vector<MyBLAS::NumericType> diffusionConstants;
 
     std::string fluxOutputDirectory;
+
+    size_t numRuns;
+    long double timeout;
 
     /**
      * @brief Converts the input parameters to a JSON object.

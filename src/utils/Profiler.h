@@ -40,12 +40,14 @@ class Profiler {
        _totalRuns = runs > 0 ? runs : 1;
        _timeout = timeout > 0 ? timeout : 0;
        _stopwatches = std::vector<Stopwatch<Nanoseconds>>(0);
-       _description = description;
+       _description = std::move(description);
        _summary = MyBLAS::Stats::Summary<long double>();
    }
 
+   Profiler() = default;
+
    // TODO:: DOCUMENT
-   size_t getTotalRuns() const { return _totalRuns; }
+   [[nodiscard]] size_t getTotalRuns() const { return _totalRuns; }
 
    /**
     * @brief Runs the function for profiling and summarizes the results.

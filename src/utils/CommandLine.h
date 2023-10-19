@@ -263,6 +263,7 @@ template <typename InputType> class CommandLine {
      * console.
      */
     static void printCompileConfigs() {
+        std::cout << "using " << sizeof(MyBLAS::NumericType) * 8 <<"-bit floats\n";
         std::cout << "compiler: " << CXX_COMPILER_ID << " " << CXX_COMPILER_VERSION;
         std::cout << ", boost: " << Boost_VERSION << " " << Boost_LIBRARIES << "\n";
         printLine();

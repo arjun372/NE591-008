@@ -11,7 +11,7 @@
 
 namespace MyBLAS {
 
-using NumericType = float;
+using NumericType = long double;
 
 }
 

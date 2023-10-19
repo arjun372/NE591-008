@@ -47,7 +47,7 @@ TYPED_TEST(LazyMatrixTests, ElementAccessTest) {
 TYPED_TEST(LazyMatrixTests, AdditionTest) {
     LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
     LazyMatrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
-    auto m3 = m1 + m2;
+    LazyMatrix<TypeParam> m3 = m1 + m2;
     for (size_t i = 0; i < m3.getRows(); ++i) {
         for (size_t j = 0; j < m3.getCols(); ++j) {
             EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m3(i, j), static_cast<TypeParam>(i) + static_cast<TypeParam>(j) + static_cast<TypeParam>(i) * static_cast<TypeParam>(j)));
@@ -62,6 +62,21 @@ TYPED_TEST(LazyMatrixTests, SubtractionTest) {
     for (size_t i = 0; i < m3.getRows(); ++i) {
         for (size_t j = 0; j < m3.getCols(); ++j) {
             EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m3(i, j), static_cast<TypeParam>(i) + static_cast<TypeParam>(j) - static_cast<TypeParam>(i) * static_cast<TypeParam>(j)));
+        }
+    }
+}
+
+TYPED_TEST(LazyMatrixTests, MatrixMultiplicationTest) {
+    LazyMatrix<TypeParam> m1(10, 5, [](size_t i, size_t j) { return static_cast<TypeParam>(i + j); });
+    LazyMatrix<TypeParam> m2(5, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i * j); });
+    auto m3 = m1 * m2;
+    for (size_t i = 0; i < m3.getRows(); ++i) {
+        for (size_t j = 0; j < m3.getCols(); ++j) {
+            TypeParam expected = 0;
+            for (size_t k = 0; k < m1.getCols(); ++k) {
+                expected += m1(i, k) * m2(k, j);
+            }
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(m3(i, j), expected));
         }
     }
 }
@@ -127,13 +142,13 @@ TYPED_TEST(LazyMatrixTests, BLASMatrixSubtractionTest) {
 TYPED_TEST(LazyMatrixTests, EqualityTest) {
     LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
     LazyMatrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
-    EXPECT_TRUE(m1 == m2);
+    EXPECT_TRUE(allElementsEqual(m2, m1));
 }
 
 TYPED_TEST(LazyMatrixTests, InequalityTest) {
     LazyMatrix<TypeParam> m1(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
     LazyMatrix<TypeParam> m2(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) * static_cast<TypeParam>(j); });
-    EXPECT_TRUE(m1 != m2);
+    EXPECT_TRUE(!allElementsEqual(m1, m2));
 }
 
 TYPED_TEST(LazyMatrixTests, ScalarAdditionTest) {

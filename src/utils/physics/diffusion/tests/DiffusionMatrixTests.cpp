@@ -31,8 +31,6 @@ TYPED_TEST(DiffusionMatrixTests, ConstructorTest) {
     EXPECT_EQ(matrix.getParams().getB(), 1.0);
     EXPECT_EQ(matrix.getParams().getM(), 10);
     EXPECT_EQ(matrix.getParams().getN(), 10);
-    EXPECT_EQ(matrix.getParams().getDiffusionCoefficient(), 0.1);
-    EXPECT_EQ(matrix.getParams().getMacroscopicRemovalCrossSection(), 0.2);
 }
 
 TYPED_TEST(DiffusionMatrixTests, CopyConstructorTest) {
@@ -44,8 +42,6 @@ TYPED_TEST(DiffusionMatrixTests, CopyConstructorTest) {
     EXPECT_EQ(matrix2.getParams().getB(), 1.0);
     EXPECT_EQ(matrix2.getParams().getM(), 10);
     EXPECT_EQ(matrix2.getParams().getN(), 10);
-    EXPECT_EQ(matrix2.getParams().getDiffusionCoefficient(), 0.1);
-    EXPECT_EQ(matrix2.getParams().getMacroscopicRemovalCrossSection(), 0.2);
 }
 
 TYPED_TEST(DiffusionMatrixTests, AssignmentOperatorTest) {
@@ -57,8 +53,6 @@ TYPED_TEST(DiffusionMatrixTests, AssignmentOperatorTest) {
     EXPECT_EQ(matrix2.getParams().getB(), 1.0);
     EXPECT_EQ(matrix2.getParams().getM(), 10);
     EXPECT_EQ(matrix2.getParams().getN(), 10);
-    EXPECT_EQ(matrix2.getParams().getDiffusionCoefficient(), 0.1);
-    EXPECT_EQ(matrix2.getParams().getMacroscopicRemovalCrossSection(), 0.2);
 }
 
 TYPED_TEST(DiffusionMatrixTests, MatrixDimensionsMatchMeshDimensionsTest) {

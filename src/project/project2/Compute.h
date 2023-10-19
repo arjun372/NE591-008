@@ -77,41 +77,35 @@ static MatrixType &fill_fluxes(SolverOutputs &outputs) {
  * @param inputs The input data structure containing the system to solve.
  */
 void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
-
     inputs.diffusionCoefficients = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
-    MyBLAS::Vector b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
+    auto A = inputs.diffusionCoefficients;
+    auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
 
-    auto inMemoryA = MyBLAS::Matrix<MyBLAS::NumericType>(inputs.diffusionCoefficients);
-
-    if (!MyFactorizationMethod::passesPreChecks(inputs.diffusionCoefficients, b)) {
+    if (!MyFactorizationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting LUP calculation\n";
         return;
     }
 
-    {
-        const size_t maxRuns = 10;
-        auto runTimes = std::vector<MyBLAS::NumericType>(maxRuns);
-        Stopwatch<Nanoseconds> timer;
-        for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
-            timer.restart();
-            {
-                outputs.solution = MyBLAS::LUP::applyLUP(inMemoryA, b);
-            }
-            timer.click();
-            runTimes[outputs.runs] = (timer.duration().count());
-        }
-        auto stats = computeMeanStd(runTimes);
-        outputs.mean_execution_time = boost::accumulators::mean(stats);
-        outputs.stddev_execution_time = std::sqrt(boost::accumulators::variance(stats));
-        outputs.runs = maxRuns;
-    }
+    auto inMemoryA = MyBLAS::Matrix<MyBLAS::NumericType>(inputs.diffusionCoefficients);
+
+    auto profiler = Profiler([&]() {
+        outputs.solution = outputs.solution = MyBLAS::LUP::applyLUP(inMemoryA, b);
+    }, inputs.numRuns, inputs.timeout, "LUP");
+
+
+    auto summary = profiler.run().getSummary();
+    outputs.mean_execution_time = summary.mean;
+    outputs.stddev_execution_time = summary.stddev;
+    outputs.runs = profiler.getTotalRuns();
+    std::cout<<std::endl<<profiler;
+
     // post-process
     {
         outputs.solution.converged = true;
         outputs.fluxes = fill_fluxes<MyBLAS::Matrix<MyBLAS::NumericType>>(outputs);
-        auto b_prime = MatrixVectorExpression<MyPhysics::Diffusion::Matrix, MyBLAS::Vector, MyBLAS::NumericType>::multiplyMatrixVector(inputs.diffusionCoefficients, outputs.solution.x);
+        auto b_prime = A * outputs.solution.x;
         outputs.residual = b - b_prime;
-        if (!inputs.fluxOutputDirectory.empty()) {
+            if (!inputs.fluxOutputDirectory.empty()) {
             writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "LUP.csv", outputs.fluxes);
         }
     }
@@ -123,8 +117,8 @@ void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
  * @param inputs The input data structure containing the system to solve.
  */
 void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
-
-    auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
+    inputs.diffusionCoefficients = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
+    auto A = inputs.diffusionCoefficients;
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
     const size_t max_iterations = inputs.solverParams.max_iterations;
     const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
@@ -136,18 +130,18 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
 
     auto profiler = Profiler([&]() {
         outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold);
-    }, 10, 0, "Point Jacobi"); // Run the block 10 times
+    }, inputs.numRuns, inputs.timeout, "Point Jacobi");
 
     auto summary = profiler.run().getSummary();
     outputs.mean_execution_time = summary.mean;
     outputs.stddev_execution_time = summary.stddev;
     outputs.runs = profiler.getTotalRuns();
-    std::cout<<std::endl<<summary<<std::endl;
+    std::cout<<std::endl<<profiler;
 
     // post-process
     {
         outputs.fluxes = fill_fluxes<MyBLAS::Matrix<MyBLAS::NumericType>>(outputs);
-        auto b_prime = MatrixVectorExpression<MyPhysics::Diffusion::Matrix, MyBLAS::Vector, MyBLAS::NumericType>::multiplyMatrixVector(A, outputs.solution.x);
+        auto b_prime = A * outputs.solution.x;
         outputs.residual = b - b_prime;
         if (!inputs.fluxOutputDirectory.empty()) {
             writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "point-jacobi.csv", outputs.fluxes);
@@ -173,13 +167,13 @@ void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
 
     auto profiler = Profiler([&]() {
         outputs.solution = MyRelaxationMethod::applyGaussSeidel(A, b, max_iterations, threshold);
-    }, 10, 0, "Gauss Seidel"); // Run the block 10 times
+    }, inputs.numRuns, inputs.timeout, "Gauss Seidel");
 
     auto summary = profiler.run().getSummary();
     outputs.mean_execution_time = summary.mean;
     outputs.stddev_execution_time = summary.stddev;
     outputs.runs = profiler.getTotalRuns();
-    std::cout<<std::endl<<summary<<std::endl;
+    std::cout<<std::endl<<profiler;
 
     // post-process
     {
@@ -211,13 +205,13 @@ void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
 
     auto profiler = Profiler([&]() {
         outputs.solution = MyRelaxationMethod::applySOR(A, b, max_iterations, threshold, omega);
-    }, 10, 0, "SOR"); // Run the block 10 times
+    }, inputs.numRuns, inputs.timeout, "SOR"); // Run the block 10 times
 
     auto summary = profiler.run().getSummary();
     outputs.mean_execution_time = summary.mean;
     outputs.stddev_execution_time = summary.stddev;
     outputs.runs = profiler.getTotalRuns();
-    std::cout<<std::endl<<summary<<std::endl;
+    std::cout<<std::endl<<profiler;
 
     // post-process
     {
@@ -241,6 +235,7 @@ void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
     const size_t max_iterations = inputs.solverParams.max_iterations;
     const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
     const MyBLAS::NumericType omega = inputs.solverParams.relaxation_factor;
+    const MyBLAS::NumericType fudge_factor_omega = (2.0f - omega);
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting SOR point jacobi calculation\n";
@@ -248,14 +243,14 @@ void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
     }
 
     auto profiler = Profiler([&]() {
-        outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold, omega);
-    }, 10, 0, "SORJ"); // Run the block 10 times
+        outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold, fudge_factor_omega);
+    }, inputs.numRuns, inputs.timeout, "SORJ");
 
     auto summary = profiler.run().getSummary();
     outputs.mean_execution_time = summary.mean;
     outputs.stddev_execution_time = summary.stddev;
     outputs.runs = profiler.getTotalRuns();
-    std::cout<<std::endl<<summary<<std::endl;
+    std::cout<<std::endl<<profiler;
 
     // post-process
     {
@@ -287,13 +282,13 @@ void usingSymmetricSOR(SolverOutputs &outputs, SolverInputs &inputs) {
 
     auto profiler = Profiler([&]() {
         outputs.solution = MyRelaxationMethod::applySSOR(A, b, max_iterations, threshold, omega);
-    }, 10, 0, "SSOR"); // Run the block 10 times
+    }, inputs.numRuns, inputs.timeout, "SSOR");
 
     auto summary = profiler.run().getSummary();
     outputs.mean_execution_time = summary.mean;
     outputs.stddev_execution_time = summary.stddev;
     outputs.runs = profiler.getTotalRuns();
-    std::cout<<std::endl<<summary<<std::endl;
+    std::cout<<std::endl<<profiler;
 
     // post-process
     {

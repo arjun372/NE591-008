@@ -15,10 +15,9 @@ set(UTILS_LIB_HEADERS
 
         math/blas/system/Circuit.h
 
-        math/blas/matrix/AbstractMatrix.h
         math/blas/matrix/Matrix.h
         math/blas/matrix/LazyMatrix.h
-        math/blas/matrix/MatrixExpression.h
+        math/blas/matrix/ElementwiseExpression.h
 
         math/blas/vector/LazyVector.h
         math/blas/vector/Vector.h
@@ -44,6 +43,8 @@ set(UTILS_LIB_HEADERS
         math/Math.h
         math/blas/Constants.h
         math/blas/vector/MatrixVectorExpression.h
+        math/blas/matrix/ContainerExpression.h
+        math/blas/elementwise/ElementwiseAddExpression.h
 )
 
 set(UTILS_LIB_SOURCES

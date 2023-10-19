@@ -8,11 +8,12 @@
 #ifndef NE591_008_VECTOR_H
 #define NE591_008_VECTOR_H
 
+#include "LazyVector.h"
+#include <cassert>
 #include <functional>
 #include <iomanip>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 namespace MyBLAS {
 /**
@@ -74,6 +75,20 @@ template <typename T> class Vector {
     explicit Vector(size_t size, std::function<T(size_t)> func) : data(size), isRow(false) {
         for (size_t i = 0; i < size; i++) {
             data[i] = func(i);
+        }
+    }
+
+    // TODO:: DOCUMENT
+    explicit Vector(LazyVector<T> &vector, bool _isRow = false): data(vector.size()), isRow(_isRow) {
+        for (size_t i = 0; i < vector.size(); i++) {
+            data[i] = vector[i];
+        }
+    }
+
+    // TODO:: DOCUMENT
+    explicit Vector(LazyVector<T> vector, bool _isRow = false): data(vector.size()), isRow(_isRow) {
+        for (size_t i = 0; i < vector.size(); i++) {
+            data[i] = vector[i];
         }
     }
 
