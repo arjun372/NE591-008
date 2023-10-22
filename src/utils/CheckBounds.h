@@ -198,6 +198,23 @@ template <typename T> static bool failsExclusiveRangeCheck(T value, T min, T max
 template <typename T> static bool failsProbabilityCheck(T value) { return failsInclusiveRangeCheck(value, 0, 1); }
 
 /**
+ * @brief Checks if the input value is a power of 2.  Uses bitwise AND to check if there is only one '1' bit in the
+ * binary representation of the number. If the result is 0, then it's a power of 2. If not, it's not a power of 2.
+ *
+ * @tparam T The type of the input value.
+ * @param num The input value to be checked.
+ * @return true If the input value is a power of 2.
+ * @return false If the input value is not a power of 2.
+ */
+template <typename T> static bool failsPowerOf2Check(T num) {
+    if (num <= 0) {
+        return true;  // 0 and negative numbers are not powers of 2
+    }
+
+    return (num & (num - 1)) != 0;
+}
+
+/**
  * @brief Converts a string to a long double number.
  *
  * This function attempts to convert a given string to a long double number.

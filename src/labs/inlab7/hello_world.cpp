@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
 
 
     // Open the input file
-    std::ifstream input("input");
+    std::ifstream input("../input");
 
     // Check if the file was opened successfully
     if (!input) {
