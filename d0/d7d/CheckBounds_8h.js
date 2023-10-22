@@ -8,6 +8,7 @@ var CheckBounds_8h =
     [ "failsNaturalNumberCheck", "d0/d7d/CheckBounds_8h.html#a3c1ae2e6c7c5be240c177eff0a55bdb8", null ],
     [ "failsNonNegativeNumberCheck", "d0/d7d/CheckBounds_8h.html#a5dbecc6a0a3416f685ce0534d8af671b", null ],
     [ "failsPositiveNumberCheck", "d0/d7d/CheckBounds_8h.html#aebae5093ceaf78a6b72feadef5e4ec44", null ],
+    [ "failsPowerOf2Check", "d0/d7d/CheckBounds_8h.html#a511ccef5a5f2361f5781cbae235db912", null ],
     [ "failsProbabilityCheck", "d0/d7d/CheckBounds_8h.html#ab3e279562a8015a00f3befa5394b1d99", null ],
     [ "failsWholeNumberCheck", "d0/d7d/CheckBounds_8h.html#a87b086ea6d7e595030cf6795e111ee5b", null ],
     [ "isUnfilledVector", "d0/d7d/CheckBounds_8h.html#ac7b75c806811a5722298b858a1599ad7", null ],

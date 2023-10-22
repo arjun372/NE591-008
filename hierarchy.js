@@ -28,6 +28,9 @@ var hierarchy =
     [ "CommandLine< OutLab6Inputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
+    [ "CommandLine< OutLab7Inputs >", "dd/d02/classCommandLine.html", [
+      [ "Parser", "d0/d40/classParser.html", null ]
+    ] ],
     [ "CommandLine< SolverInputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ]
@@ -101,6 +104,9 @@ var hierarchy =
     ] ],
     [ "Project< OutLab6Inputs, Parser, OutLab6Outputs >", "db/d91/classProject.html", [
       [ "OutLab6", "d0/d4c/classOutLab6.html", null ]
+    ] ],
+    [ "Project< OutLab7Inputs, Parser, OutLab7Outputs >", "db/d91/classProject.html", [
+      [ "OutLab7", "d3/d49/classOutLab7.html", null ]
     ] ],
     [ "Project< SolverInputs, Parser, SolverOutputs >", "db/d91/classProject.html", [
       [ "Project1", "d8/ddb/classProject1.html", null ],

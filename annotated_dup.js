@@ -64,6 +64,7 @@ var annotated_dup =
     [ "OutLab4", "d8/d5b/classOutLab4.html", "d8/d5b/classOutLab4" ],
     [ "OutLab5", "d3/d1d/classOutLab5.html", "d3/d1d/classOutLab5" ],
     [ "OutLab6", "d0/d4c/classOutLab6.html", "d0/d4c/classOutLab6" ],
+    [ "OutLab7", "d3/d49/classOutLab7.html", "d3/d49/classOutLab7" ],
     [ "Output", "df/df1/structOutput.html", "df/df1/structOutput" ],
     [ "Outputs", "db/d86/structOutputs.html", "db/d86/structOutputs" ],
     [ "Parser", "d0/d40/classParser.html", "d0/d40/classParser" ],

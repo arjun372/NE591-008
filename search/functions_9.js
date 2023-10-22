@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['juliasetiterations_1075',['juliaSetIterations',['../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1',1,'Helpers.h']]]
+  ['juliasetiterations_1088',['juliaSetIterations',['../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1',1,'Helpers.h']]]
 ];

@@ -152,6 +152,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ab38c6016d5c4907c1f4f468600278560"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560">usingSymmetricSOR</a> (<a class="el" href="../../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a1fc92a4e6842c6fcb5f3febd0707fd13">OutLab6Outputs</a> &amp;outputs, <a class="el" href="../../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a120c91aa89bf5c4ca05edbd47eda09e4">OutLab6Inputs</a> &amp;inputs)</td></tr>
 <tr class="memdesc:ab38c6016d5c4907c1f4f468600278560"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves a linear system using the Symmetric SOR method.  <a href="../../de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560">More...</a><br /></td></tr>
 <tr class="separator:ab38c6016d5c4907c1f4f468600278560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ae7a13da0a11e4eba6759be88e9e99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#aeaba4d245610870af7f067c3c4a33f76">MyBLAS::NumericType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db3/namespaceCompute.html#aa2ae7a13da0a11e4eba6759be88e9e99">logSeries</a> (const size_t offset, const size_t <a class="el" href="../../d2/d12/outlab2_2examples_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, const size_t workers=1)</td></tr>
+<tr class="separator:aa2ae7a13da0a11e4eba6759be88e9e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a929436d401892c8514b96bf13698b40b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a929436d401892c8514b96bf13698b40b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/db3/namespaceCompute.html#a929436d401892c8514b96bf13698b40b">naive_fill_diffusion_vector</a> (<a class="el" href="../../d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs">SolverInputs</a> &amp;inputs)</td></tr>
 <tr class="separator:a929436d401892c8514b96bf13698b40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -250,6 +252,43 @@ template&lt;typename MatrixType &gt; </div>
 </div>
 </div>
 
+</div>
+</div>
+<a id="aa2ae7a13da0a11e4eba6759be88e9e99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ae7a13da0a11e4eba6759be88e9e99">&#9670;&nbsp;</a></span>logSeries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#aeaba4d245610870af7f067c3c4a33f76">MyBLAS::NumericType</a> Compute::logSeries </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>workers</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                                                                             {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">return</span> NAN;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a929436d401892c8514b96bf13698b40b"></a>

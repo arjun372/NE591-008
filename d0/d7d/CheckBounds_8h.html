@@ -184,6 +184,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ab3e279562a8015a00f3befa5394b1d99"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d7d/CheckBounds_8h.html#ab3e279562a8015a00f3befa5394b1d99">failsProbabilityCheck</a> (T value)</td></tr>
 <tr class="memdesc:ab3e279562a8015a00f3befa5394b1d99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the input value is a valid probability (between 0 and 1 inclusive).  <a href="../../d0/d7d/CheckBounds_8h.html#ab3e279562a8015a00f3befa5394b1d99">More...</a><br /></td></tr>
 <tr class="separator:ab3e279562a8015a00f3befa5394b1d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a511ccef5a5f2361f5781cbae235db912"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a511ccef5a5f2361f5781cbae235db912"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d7d/CheckBounds_8h.html#a511ccef5a5f2361f5781cbae235db912">failsPowerOf2Check</a> (T num)</td></tr>
+<tr class="memdesc:a511ccef5a5f2361f5781cbae235db912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the input value is a power of 2. Uses bitwise AND to check if there is only one '1' bit in the binary representation of the number. If the result is 0, then it's a power of 2. If not, it's not a power of 2.  <a href="../../d0/d7d/CheckBounds_8h.html#a511ccef5a5f2361f5781cbae235db912">More...</a><br /></td></tr>
+<tr class="separator:a511ccef5a5f2361f5781cbae235db912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f0090f7a4bad221631596dbfc2cd126"><td class="memItemLeft" align="right" valign="top">static long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d7d/CheckBounds_8h.html#a0f0090f7a4bad221631596dbfc2cd126">asNumber</a> (const std::string &amp;input)</td></tr>
 <tr class="memdesc:a0f0090f7a4bad221631596dbfc2cd126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to a long double number.  <a href="../../d0/d7d/CheckBounds_8h.html#a0f0090f7a4bad221631596dbfc2cd126">More...</a><br /></td></tr>
 <tr class="separator:a0f0090f7a4bad221631596dbfc2cd126"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -323,21 +327,21 @@ false If the absolute value of the input is less than 1. </dd></dl>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                                                    {</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">return</span> std::stod(input);</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::invalid_argument &amp;) {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Argument is invalid\n&quot;</span>;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">throw</span>;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::out_of_range &amp;) {</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Argument is out of range for a double\n&quot;</span>;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keywordflow">throw</span>;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    } <span class="keywordflow">catch</span> (...) {</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">throw</span>;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    }</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                                                    {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">return</span> std::stod(input);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::invalid_argument &amp;) {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Argument is invalid\n&quot;</span>;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">throw</span>;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::out_of_range &amp;) {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Argument is out of range for a double\n&quot;</span>;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keywordflow">throw</span>;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    } <span class="keywordflow">catch</span> (...) {</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">throw</span>;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00315">performChecksAndUpdateInput()</a>, and <a class="el" href="../../#l00044">Parser::performInputArgumentsCheck()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00332">performChecksAndUpdateInput()</a>, and <a class="el" href="../../#l00044">Parser::performInputArgumentsCheck()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -390,26 +394,26 @@ false If the input string is "no" or "n". </dd></dl>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                                       {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <a class="code" href="../../d0/d7d/CheckBounds_8h.html#a7c1bf450b09ecd9c80b6b0c3e8551653">toLowerCase</a>(input);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <a class="code" href="../../d0/d7d/CheckBounds_8h.html#a4c30c74208336fdb09103808cf0c8bed">stripSpaces</a>(input);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">if</span> (input == <span class="stringliteral">&quot;y&quot;</span> || input == <span class="stringliteral">&quot;yes&quot;</span>) {</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">if</span> (input == <span class="stringliteral">&quot;n&quot;</span> || input == <span class="stringliteral">&quot;no&quot;</span>) {</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    }</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Unknown value, please specify one of: [yes,y,no,n]\n&quot;</span>;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">throw</span> std::exception();</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;}</div>
-<div class="ttc" id="aCheckBounds_8h_html_a4c30c74208336fdb09103808cf0c8bed"><div class="ttname"><a href="../../d0/d7d/CheckBounds_8h.html#a4c30c74208336fdb09103808cf0c8bed">stripSpaces</a></div><div class="ttdeci">static void stripSpaces(std::string &amp;spaceyStr)</div><div class="ttdoc">Removes all spaces from a given string.</div><div class="ttdef"><b>Definition:</b> CheckBounds.h:243</div></div>
-<div class="ttc" id="aCheckBounds_8h_html_a7c1bf450b09ecd9c80b6b0c3e8551653"><div class="ttname"><a href="../../d0/d7d/CheckBounds_8h.html#a7c1bf450b09ecd9c80b6b0c3e8551653">toLowerCase</a></div><div class="ttdeci">static void toLowerCase(std::string &amp;mixedCaseStr)</div><div class="ttdoc">Converts all characters in a given string to lowercase.</div><div class="ttdef"><b>Definition:</b> CheckBounds.h:232</div></div>
+<div class="fragment"><div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                                       {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <a class="code" href="../../d0/d7d/CheckBounds_8h.html#a7c1bf450b09ecd9c80b6b0c3e8551653">toLowerCase</a>(input);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <a class="code" href="../../d0/d7d/CheckBounds_8h.html#a4c30c74208336fdb09103808cf0c8bed">stripSpaces</a>(input);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">if</span> (input == <span class="stringliteral">&quot;y&quot;</span> || input == <span class="stringliteral">&quot;yes&quot;</span>) {</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">if</span> (input == <span class="stringliteral">&quot;n&quot;</span> || input == <span class="stringliteral">&quot;no&quot;</span>) {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    }</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Unknown value, please specify one of: [yes,y,no,n]\n&quot;</span>;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">throw</span> std::exception();</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;}</div>
+<div class="ttc" id="aCheckBounds_8h_html_a4c30c74208336fdb09103808cf0c8bed"><div class="ttname"><a href="../../d0/d7d/CheckBounds_8h.html#a4c30c74208336fdb09103808cf0c8bed">stripSpaces</a></div><div class="ttdeci">static void stripSpaces(std::string &amp;spaceyStr)</div><div class="ttdoc">Removes all spaces from a given string.</div><div class="ttdef"><b>Definition:</b> CheckBounds.h:260</div></div>
+<div class="ttc" id="aCheckBounds_8h_html_a7c1bf450b09ecd9c80b6b0c3e8551653"><div class="ttname"><a href="../../d0/d7d/CheckBounds_8h.html#a7c1bf450b09ecd9c80b6b0c3e8551653">toLowerCase</a></div><div class="ttdeci">static void toLowerCase(std::string &amp;mixedCaseStr)</div><div class="ttdoc">Converts all characters in a given string to lowercase.</div><div class="ttdef"><b>Definition:</b> CheckBounds.h:249</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00243">stripSpaces()</a>, and <a class="el" href="../../#l00232">toLowerCase()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00260">stripSpaces()</a>, and <a class="el" href="../../#l00249">toLowerCase()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00084">Parser::performInputArgumentsCheck()</a>, and <a class="el" href="../../#l00356">promptAndSetFlags()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00084">Parser::performInputArgumentsCheck()</a>, and <a class="el" href="../../#l00373">promptAndSetFlags()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -806,6 +810,68 @@ false If the input value is a positive number. </dd></dl>
 
 </div>
 </div>
+<a id="a511ccef5a5f2361f5781cbae235db912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a511ccef5a5f2361f5781cbae235db912">&#9670;&nbsp;</a></span>failsPowerOf2Check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool failsPowerOf2Check </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the input value is a power of 2. Uses bitwise AND to check if there is only one '1' bit in the binary representation of the number. If the result is 0, then it's a power of 2. If not, it's not a power of 2. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the input value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>The input value to be checked. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the input value is a power of 2. </dd>
+<dd>
+false If the input value is not a power of 2. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                                                            {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">if</span> (num &lt;= 0) {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;  <span class="comment">// 0 and negative numbers are not powers of 2</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">return</span> (num &amp; (num - 1)) != 0;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="../../#l00126">Parser::buildInputs()</a>.</p>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_a511ccef5a5f2361f5781cbae235db912_icgraph.svg" width="355" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="ab3e279562a8015a00f3befa5394b1d99"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3e279562a8015a00f3befa5394b1d99">&#9670;&nbsp;</a></span>failsProbabilityCheck()</h2>
 
@@ -852,11 +918,11 @@ false If the input value is a valid probability. </dd></dl>
 <div class="ttc" id="aCheckBounds_8h_html_a4e248d837fb993668bb741421c3d3984"><div class="ttname"><a href="../../d0/d7d/CheckBounds_8h.html#a4e248d837fb993668bb741421c3d3984">failsInclusiveRangeCheck</a></div><div class="ttdeci">static bool failsInclusiveRangeCheck(T value, T min, T max)</div><div class="ttdoc">Checks if the input value is within the specified range (inclusive).</div><div class="ttdef"><b>Definition:</b> CheckBounds.h:164</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00164">failsInclusiveRangeCheck()</a>.</p>
-<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_ab3e279562a8015a00f3befa5394b1d99_cgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -927,19 +993,19 @@ false If the input value is a whole number. </dd></dl>
 <p class="reference">References <a class="el" href="../../#l00023">error</a>, and <a class="el" href="../../#l00085">MyBLAS::Stats::min()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00084">Parser::performInputArgumentsCheck()</a>.</p>
-<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_a87b086ea6d7e595030cf6795e111ee5b_cgraph.svg" width="626" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 <div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_a87b086ea6d7e595030cf6795e111ee5b_cgraph.svg" width="626" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_a87b086ea6d7e595030cf6795e111ee5b_icgraph.svg" width="468" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1085,31 +1151,31 @@ template&lt;typename T &gt; </div>
 The function uses the asNumber function to convert the user's input to a number, and the replace function to update the value in the variables_map object. </dd>
 <dd>
 The function catches any exceptions thrown by the asNumber or replace functions and continues prompting the user for a new value. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                                                                                    {</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="comment">// first, sync any differences between the JSON and variables_map</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    syncMapKeys&lt;T&gt;(key, inputMap, map);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">while</span> (map[key].empty() || valueFailsChecks&lt;T&gt;(map[key].as&lt;T&gt;(), checkList)) {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Enter a value for &quot;</span> &lt;&lt; key &lt;&lt; <span class="stringliteral">&quot;:&quot;</span>;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        std::string input;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        std::cin &gt;&gt; input;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <a class="code" href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a>(map, key, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(<a class="code" href="../../d0/d7d/CheckBounds_8h.html#a0f0090f7a4bad221631596dbfc2cd126">asNumber</a>(input)));</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;) {</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        }</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;}</div>
-<div class="ttc" id="aCheckBounds_8h_html_a0f0090f7a4bad221631596dbfc2cd126"><div class="ttname"><a href="../../d0/d7d/CheckBounds_8h.html#a0f0090f7a4bad221631596dbfc2cd126">asNumber</a></div><div class="ttdeci">static long double asNumber(const std::string &amp;input)</div><div class="ttdoc">Converts a string to a long double number.</div><div class="ttdef"><b>Definition:</b> CheckBounds.h:213</div></div>
+<div class="fragment"><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                                                                                    {</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="comment">// first, sync any differences between the JSON and variables_map</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    syncMapKeys&lt;T&gt;(key, inputMap, map);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordflow">while</span> (map[key].empty() || valueFailsChecks&lt;T&gt;(map[key].as&lt;T&gt;(), checkList)) {</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Enter a value for &quot;</span> &lt;&lt; key &lt;&lt; <span class="stringliteral">&quot;:&quot;</span>;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        std::string input;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        std::cin &gt;&gt; input;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            <a class="code" href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a>(map, key, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(<a class="code" href="../../d0/d7d/CheckBounds_8h.html#a0f0090f7a4bad221631596dbfc2cd126">asNumber</a>(input)));</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;) {</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        }</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    }</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;}</div>
+<div class="ttc" id="aCheckBounds_8h_html_a0f0090f7a4bad221631596dbfc2cd126"><div class="ttname"><a href="../../d0/d7d/CheckBounds_8h.html#a0f0090f7a4bad221631596dbfc2cd126">asNumber</a></div><div class="ttdeci">static long double asNumber(const std::string &amp;input)</div><div class="ttdoc">Converts a string to a long double number.</div><div class="ttdef"><b>Definition:</b> CheckBounds.h:230</div></div>
 <div class="ttc" id="aHelpers_8h_html_a06fb04e23a8f81efa8cd535a7abf1045"><div class="ttname"><a href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a></div><div class="ttdeci">void replace(std::map&lt; std::string, boost::program_options::variable_value &gt; &amp;vm, const std::string &amp;opt, const T &amp;val)</div><div class="ttdoc">This function replaces the value of a specified option in a map with a new value.</div><div class="ttdef"><b>Definition:</b> Helpers.h:33</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00213">asNumber()</a>, and <a class="el" href="../../#l00033">replace()</a>.</p>
-<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00230">asNumber()</a>, and <a class="el" href="../../#l00033">replace()</a>.</p>
+<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_ad3ed424a6ddd0011e8d55c6b1e4105bf_cgraph.svg" width="375" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1170,43 +1236,43 @@ The function catches any exceptions thrown by the asNumber or replace functions 
 to use the [description]? [YES/no]: ". The user's input is then read into a string.</p>
 <p>The function then attempts to replace the value of the flag in the variables_map with the result of the asYesOrNo function called with the user's input as an argument. If this is successful, the flagSet variable is set to true and the loop ends.</p>
 <p>If an exception is thrown during this process, the function catches it and continues with the next iteration of the loop, prompting the user again. </p>
-<div class="fragment"><div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                                                                                                            {</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordtype">bool</span> flagSet = map.count(key);</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordflow">if</span> (flagSet) {</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <a class="code" href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a>(map, key, <a class="code" href="../../d0/d7d/CheckBounds_8h.html#a8e00f3c090f7c62365c135a14293fc6c">asYesOrNo</a>(<span class="stringliteral">&quot;yes&quot;</span>));</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    }</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordflow">while</span> (!flagSet) {</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Would you like to use the &quot;</span> &lt;&lt; description &lt;&lt; <span class="stringliteral">&quot;? [YES/no]: &quot;</span>;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            std::string input;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            std::cin &gt;&gt; input;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <a class="code" href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a>(map, key, <a class="code" href="../../d0/d7d/CheckBounds_8h.html#a8e00f3c090f7c62365c135a14293fc6c">asYesOrNo</a>(input));</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            flagSet = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;) {</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        }</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    }</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;}</div>
-<div class="ttc" id="aCheckBounds_8h_html_a8e00f3c090f7c62365c135a14293fc6c"><div class="ttname"><a href="../../d0/d7d/CheckBounds_8h.html#a8e00f3c090f7c62365c135a14293fc6c">asYesOrNo</a></div><div class="ttdeci">static bool asYesOrNo(std::string input)</div><div class="ttdoc">Converts a given string to a boolean value based on its content.</div><div class="ttdef"><b>Definition:</b> CheckBounds.h:258</div></div>
+<div class="fragment"><div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                                                                                                            {</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordtype">bool</span> flagSet = map.count(key);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordflow">if</span> (flagSet) {</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <a class="code" href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a>(map, key, <a class="code" href="../../d0/d7d/CheckBounds_8h.html#a8e00f3c090f7c62365c135a14293fc6c">asYesOrNo</a>(<span class="stringliteral">&quot;yes&quot;</span>));</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    }</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordflow">while</span> (!flagSet) {</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Would you like to use the &quot;</span> &lt;&lt; description &lt;&lt; <span class="stringliteral">&quot;? [YES/no]: &quot;</span>;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            std::string input;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            std::cin &gt;&gt; input;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            <a class="code" href="../../db/df1/Helpers_8h.html#a06fb04e23a8f81efa8cd535a7abf1045">replace</a>(map, key, <a class="code" href="../../d0/d7d/CheckBounds_8h.html#a8e00f3c090f7c62365c135a14293fc6c">asYesOrNo</a>(input));</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            flagSet = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;) {</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        }</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    }</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;}</div>
+<div class="ttc" id="aCheckBounds_8h_html_a8e00f3c090f7c62365c135a14293fc6c"><div class="ttname"><a href="../../d0/d7d/CheckBounds_8h.html#a8e00f3c090f7c62365c135a14293fc6c">asYesOrNo</a></div><div class="ttdeci">static bool asYesOrNo(std::string input)</div><div class="ttdoc">Converts a given string to a boolean value based on its content.</div><div class="ttdef"><b>Definition:</b> CheckBounds.h:275</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00258">asYesOrNo()</a>, and <a class="el" href="../../#l00033">replace()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00275">asYesOrNo()</a>, and <a class="el" href="../../#l00033">replace()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00084">Parser::performInputArgumentsCheck()</a>.</p>
-<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_a8a81ed2e59fe68b25543e2bdef969d8b_cgraph.svg" width="455" height="114"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 <div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_a8a81ed2e59fe68b25543e2bdef969d8b_cgraph.svg" width="455" height="114"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_a8a81ed2e59fe68b25543e2bdef969d8b_icgraph.svg" width="436" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1244,16 +1310,16 @@ to use the [description]? [YES/no]: ". The user's input is then read into a stri
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                                              {</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    spaceyStr.erase(std::remove_if(spaceyStr.begin(), spaceyStr.end(), ::isspace), spaceyStr.end());</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                                              {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    spaceyStr.erase(std::remove_if(spaceyStr.begin(), spaceyStr.end(), ::isspace), spaceyStr.end());</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00258">asYesOrNo()</a>.</p>
-<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00275">asYesOrNo()</a>.</p>
+<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_a4c30c74208336fdb09103808cf0c8bed_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -1291,18 +1357,18 @@ to use the [description]? [YES/no]: ". The user's input is then read into a stri
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                                                 {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">char</span> &amp;c : mixedCaseStr) {</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        c = std::tolower(c);</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                                                 {</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">char</span> &amp;c : mixedCaseStr) {</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        c = std::tolower(c);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    }</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00258">asYesOrNo()</a>.</p>
-<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00275">asYesOrNo()</a>.</p>
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d7d/CheckBounds_8h_a7c1bf450b09ecd9c80b6b0c3e8551653_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -1363,9 +1429,9 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>true If the input value fails any of the provided checks. </dd>
 <dd>
 false If the input value passes all the provided checks. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                                                                                                                 {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">return</span> std::any_of(checks.begin(), checks.end(), [value](<span class="keyword">const</span> <span class="keyword">auto</span> &amp;check) { return check(value); });</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                                                                                                                 {</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordflow">return</span> std::any_of(checks.begin(), checks.end(), [value](<span class="keyword">const</span> <span class="keyword">auto</span> &amp;check) { return check(value); });</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
