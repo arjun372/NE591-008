@@ -12,14 +12,14 @@
 #include "math/blas/system/Circuit.h"
 
 #include "CheckBounds.h"
-#include "CommandLine.h"
+#include "MPICommandLine.h"
 #include "FileParser.h"
 #include "Helpers.h"
 
 class Parser : public CommandLine<OutLab7Inputs> {
 
   public:
-    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine(headerInfo, args) {}
+    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine<OutLab7Inputs>(headerInfo, args) {}
 
     explicit Parser() = default;
 
@@ -30,9 +30,9 @@ class Parser : public CommandLine<OutLab7Inputs> {
      * @return A boost::program_options::options_description object containing the description of the input options.
      */
     void buildInputArguments(boost::program_options::options_description &values) override {
-        values.add_options()("p", boost::program_options::value<long double>(), "= total processors [p ∈ ℕ]")
+        values.add_options()
             ("n", boost::program_options::value<long double>(), "= sum upper limit [n ∈ ℕ]")(
-            "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing n, and p")(
+            "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing n")(
             "output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
     }
 
@@ -51,7 +51,6 @@ class Parser : public CommandLine<OutLab7Inputs> {
         std::cout << "\tInput JSON,              i: " << inputJson << "\n";
         std::cout << "\tOutput JSON,             o: " << vm["output-json"].as<std::string>() << "\n";
         std::cout << "\tSum Upper Limit,         n: " << std::to_string(static_cast<size_t>(vm["n"].as<long double>())) << "\n";
-        std::cout << "\tTotal Processors,        p: " << std::to_string(static_cast<size_t>(vm["p"].as<long double>())) << "\n";
         CommandLine::printLine();
     }
 
@@ -113,11 +112,10 @@ class Parser : public CommandLine<OutLab7Inputs> {
 
         std::vector<std::function<bool(long double)>> checks;
 
-        // add checks for parameters 𝜀 and k
+        // add checks for parameter n
         checks.clear();
         checks.emplace_back([](long double value) { return failsNaturalNumberCheck(value); });
         performChecksAndUpdateInput<long double>("n", inputMap, map, checks);
-        performChecksAndUpdateInput<long double>("p", inputMap, map, checks);
     }
 
     /**
@@ -131,14 +129,6 @@ class Parser : public CommandLine<OutLab7Inputs> {
             readJSON(values["input-json"].as<std::string>(), inputMap);
         }
 
-        // check for processor count being a power of 2 for spanning tree algorithm
-        const auto numProcessors = static_cast<size_t>(values["p"].as<long double>());
-        if(failsPowerOf2Check(numProcessors)) {
-            std::cerr << "Error: processor count [p="<<numProcessors<<"] is not a power of 2, aborting\n";
-            exit(-1);
-        }
-
-        inputs.p = numProcessors;
         inputs.n = static_cast<size_t>(values["n"].as<long double>());
     }
 };

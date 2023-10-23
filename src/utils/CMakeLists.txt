@@ -1,13 +1,16 @@
 set(UTILS_LIB_HEADERS
         CheckBounds.h
-        CommandLine.h
         FileParser.h
         Helpers.h
         json.hpp
         Profiler.h
-        Project.h
         Stopwatch.h
         CommandlineHelpers.h
+
+        MPICommandLine.h
+        CommandLine.h
+        Project.h
+        MPIProject.h
 
         math/blas/BLAS.h
         math/blas/Ops.h

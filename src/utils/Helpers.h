@@ -11,6 +11,8 @@
 #include <iomanip>
 #include <iostream>
 #include <limits>
+#include <sstream>
+#include <string>
 
 #include "json.hpp"
 
@@ -289,9 +291,37 @@ void printJuliaSet(const Canvas &canvas, const T x0, const T y0, const size_t ma
             size_t clamped_index = std::clamp<size_t>(static_cast<size_t>(color_index), 0, colors.size() - 1);
             std::cout << colors[clamped_index] << canvas.character;
         }
-        std::cout << '\n';
+        if (y < canvas.height - 1) {
+            std::cout << '\n';
+        } else {
+            std::cout << "\033[0m";
+            const auto x_ = static_cast<double>(x0);
+            const auto y_ = static_cast<double>(y0);
+            std::cout << "\n\t\t\tJulia set at (" << x_ << "," << y_ << "), " << max_iterations << " iterations";
+        }
     }
-    std::cout << "\033[0m";
+
+}
+
+/**
+ * @brief Draws the Julia set to a string buffer using the specified canvas properties.
+ * @tparam T The type of the numbers used for the complex numbers.
+ * @param canvas The canvas properties for rendering the Julia set.
+ * @param x0 The real part of the constant complex number.
+ * @param y0 The imaginary part of the constant complex number.
+ * @param max_iterations The maximum number of iterations (default is 120).
+ */
+template <typename T>
+std::string drawJuliaSet(const Canvas &canvas, const T x0, const T y0, const size_t max_iterations = 120) {
+    // Create a string-stream to capture the output
+    std::ostringstream output;
+    // Redirect the standard output stream (cout) to the stringstream
+    std::streambuf* originalCoutBuffer = std::cout.rdbuf(output.rdbuf());
+    printJuliaSet(canvas, x0, y0, max_iterations);
+    // Restore the original cout stream buffer
+    std::cout.rdbuf(originalCoutBuffer);
+    // Extract the captured output as a string
+    return output.str();
 }
 
 typedef boost::accumulators::tag::mean mean;

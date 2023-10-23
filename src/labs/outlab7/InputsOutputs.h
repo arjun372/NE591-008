@@ -9,6 +9,11 @@
 #define NE591_008_OUTLAB7_INPUTOUTPUTS_H
 
 #include <utility>
+#include <boost/serialization/serialization.hpp>
+#include <boost/serialization/nvp.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <sstream>
 
 #include "json.hpp"
 #include "math/blas/Constants.h"
@@ -20,6 +25,11 @@ typedef struct Input {
     size_t p = 1;
     size_t n = 1;
 
+    friend std::ostream& operator<<(std::ostream& os, const Input& input) {
+        os << "p: " << input.p << ", n: " << input.n;
+        return os;
+    }
+
     /**
      * @brief Converts the input parameters to a JSON object.
      *
@@ -28,6 +38,13 @@ typedef struct Input {
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["n"] = p;
         jsonMap["p"] = n;
+    }
+
+    // TODO:: DOCUMENT
+    template<class Archive>
+    void serialize(Archive & ar, const unsigned int version) {
+        ar & BOOST_SERIALIZATION_NVP(p);
+        ar & BOOST_SERIALIZATION_NVP(n);
     }
 } OutLab7Inputs;
 

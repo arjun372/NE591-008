@@ -18,6 +18,7 @@
 #include <boost/program_options.hpp>
 #include <iostream>
 #include <string>
+#include <utility>
 
 /**
  * @struct HeaderInfo
@@ -35,6 +36,7 @@ typedef struct {
     std::string HeaderArt;
 } HeaderInfo;
 
+// TODO:: DOCUMENT
 struct CommandLineArgs {
     int argc{};
     char **argv{};
@@ -69,7 +71,7 @@ template <typename InputType> class CommandLine {
     explicit CommandLine(HeaderInfo headerInfo, CommandLineArgs args) {
         cmdArgs = args;
         initialized = false;
-        printHeader(headerInfo);
+        header = std::move(headerInfo);
     }
 
     /**
@@ -96,6 +98,12 @@ template <typename InputType> class CommandLine {
         }
         return variablesMap;
     }
+
+    /**
+     * @brief Method to get the command line argv, argc objects.
+     * @return TODO:: DOCUMENT
+     */
+    [[nodiscard]] const CommandLineArgs &getCmdArgs() const { return cmdArgs; }
 
     /**
      * @brief Method to get the current precision.
@@ -144,11 +152,11 @@ template <typename InputType> class CommandLine {
     // fill inputs object based on values
     virtual void buildInputs(InputType &ToFill, boost::program_options::variables_map &values) = 0;
 
-  private:
     boost::program_options::variables_map variablesMap;
     bool initialized = false;
     CommandLineArgs cmdArgs;
     InputType inputs = InputType();
+    HeaderInfo header;
 
     /**
      * @brief Method to build a set of generic command line options.
@@ -206,7 +214,7 @@ template <typename InputType> class CommandLine {
         printLine();
     }
 
-    /**
+    virtual /**
      * @brief Method to initialize the CommandLine object.
      * This method initializes the CommandLine object by printing the compile configurations and precision information,
      * and parsing the command line arguments. If the CommandLine object is already initialized, it does nothing.
@@ -216,6 +224,9 @@ template <typename InputType> class CommandLine {
         if (initialized) {
             return;
         }
+
+        // print the header
+        printHeader(header);
 
         initialized = true;
         boost::program_options::options_description options("Parameters");

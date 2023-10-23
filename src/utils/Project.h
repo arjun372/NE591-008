@@ -41,26 +41,27 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
      */
     virtual ~Project() = default;
 
-    /**
+    virtual /**
      * @brief Executes the project.
      */
     void execute() {
         initialize();
         timedRun();
+        finalize();
     }
 
-    /**
+    virtual /**
      * @brief Returns the terminal.
      * @return The terminal.
      */
     CommandLineParserType getTerminal() const { return terminal; }
 
-  private:
+  protected:
     CommandLineArgs cmdArgs{};
     CommandLineParserType terminal;
     OutputType outputs;
 
-    /**
+    virtual /**
      * @brief Initializes the project.
      */
     void initialize() {
@@ -69,8 +70,12 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
         outputs = OutputType();
     }
 
+    // TODO:: DOCUMENT
+    virtual void finalize() {
 
-    /**
+    }
+
+    virtual /**
      * @brief Executes the project in a timed manner.
      * This method calls preRun, run, and postRun methods in sequence.
      */

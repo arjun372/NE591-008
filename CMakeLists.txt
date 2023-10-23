@@ -94,7 +94,7 @@ message(STATUS "Extra link flags: ${PROJECT_CXX_LINK_FLAGS}")
 ######################## End compiler configurations #################### }}}
 
 ## BOOST,ss
-set(BOOST_MIN_VERSION "1.66.0" COMPONENTS program_options) # COMPONENTS program_options
+set(BOOST_MIN_VERSION "1.66.0" COMPONENTS program_options serialization) # COMPONENTS program_options
 SET(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 SET(Boost_USE_STATIC_RUNTIME OFF)

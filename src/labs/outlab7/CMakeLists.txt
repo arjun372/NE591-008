@@ -18,7 +18,7 @@ set(MPI_C_COMPILER /usr/lib64/openmpi/bin/mpicc)
 set(MPI_CXX_COMPILER /usr/lib64/openmpi/bin/mpicxx)
 find_package(MPI REQUIRED)
 
-set(LINK_LIBS utils stdc++fs ${MPI_LIBRARIES} ${Boost_PROGRAM_OPTIONS_LIBRARY})
+set(LINK_LIBS utils stdc++fs ${MPI_LIBRARIES} ${Boost_LIBRARIES})
 
 # Create the outlab7_lib library target
 add_library(outlab7_lib STATIC ${LIB_SRC})
