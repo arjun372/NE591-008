@@ -2,8 +2,8 @@ var namespaces_dup =
 [
     [ "Compute", "de/db3/namespaceCompute.html", [
       [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
-      [ "logSeries", "de/db3/namespaceCompute.html#aa2ae7a13da0a11e4eba6759be88e9e99", null ],
       [ "naive_fill_diffusion_vector", "de/db3/namespaceCompute.html#a929436d401892c8514b96bf13698b40b", null ],
+      [ "seriesSum", "de/db3/namespaceCompute.html#a89e0e08fa4ab3cc310cb9a7b8cd816c9", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a242d211ce9bbd59a9619238689816210", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a017b511b9ab24d2388a864d6cb14c1cc", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a0b405b6556f147fd5af6a277cccb5e65", null ],
@@ -67,7 +67,9 @@ var namespaces_dup =
       [ "pow", "de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919", null ],
       [ "pow", "de/d4d/namespaceMyMath.html#af3e9a9de7b922fdfb6e3d2988b1212ff", null ]
     ] ],
-    [ "MyPhysics", "d8/da1/namespaceMyPhysics.html", "d8/da1/namespaceMyPhysics" ],
+    [ "MyPhysics", null, [
+      [ "Diffusion", "d2/d71/namespaceMyPhysics_1_1Diffusion.html", "d2/d71/namespaceMyPhysics_1_1Diffusion" ]
+    ] ],
     [ "MyRelaxationMethod", "d7/d9a/namespaceMyRelaxationMethod.html", [
       [ "Type", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824", [
         [ "METHOD_POINT_JACOBI", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a6b2d48132c7667a1997527e4c522ac94", null ],

@@ -1,4 +1,4 @@
 var labs_2outlab7_2Compute_8h =
 [
-    [ "logSeries", "d4/dfd/labs_2outlab7_2Compute_8h.html#aa2ae7a13da0a11e4eba6759be88e9e99", null ]
+    [ "seriesSum", "d4/dfd/labs_2outlab7_2Compute_8h.html#a89e0e08fa4ab3cc310cb9a7b8cd816c9", null ]
 ];

@@ -19,7 +19,6 @@ var namespaceMyBLAS =
     ] ],
     [ "Input", "d7/dd6/structMyBLAS_1_1Input.html", "d7/dd6/structMyBLAS_1_1Input" ],
     [ "Output", "d9/d29/structMyBLAS_1_1Output.html", "d9/d29/structMyBLAS_1_1Output" ],
-    [ "ElementwiseAdditionExpression", "d7/dff/classMyBLAS_1_1ElementwiseAdditionExpression.html", "d7/dff/classMyBLAS_1_1ElementwiseAdditionExpression" ],
     [ "ContainerExpression", "d5/d49/classMyBLAS_1_1ContainerExpression.html", "d5/d49/classMyBLAS_1_1ContainerExpression" ],
     [ "ElementwiseExpression", "df/d63/classMyBLAS_1_1ElementwiseExpression.html", "df/d63/classMyBLAS_1_1ElementwiseExpression" ],
     [ "LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html", "d0/d28/classMyBLAS_1_1LazyMatrix" ],

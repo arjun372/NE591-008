@@ -175,6 +175,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0412b8fd27d6e91551671da11cd8fe93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4cbf5d26202274bf54502c925137951"><td class="memTemplParams" colspan="2">template&lt;class Archive &gt; </td></tr>
 <tr class="memitem:ad4cbf5d26202274bf54502c925137951"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#ad4cbf5d26202274bf54502c925137951">serialize</a> (Archive &amp;ar, const unsigned int version)</td></tr>
+<tr class="memdesc:ad4cbf5d26202274bf54502c925137951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to serialize the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure.  <a href="../../df/df1/structOutput.html#ad4cbf5d26202274bf54502c925137951">More...</a><br /></td></tr>
 <tr class="separator:ad4cbf5d26202274bf54502c925137951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8c66cf55da5018b30b2f26df2545825"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#ac8c66cf55da5018b30b2f26df2545825">Output</a> ()=default</td></tr>
 <tr class="separator:ac8c66cf55da5018b30b2f26df2545825"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -243,8 +244,10 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a861fd24e29462ff47347546f6ba98019"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#a861fd24e29462ff47347546f6ba98019">runs</a> = 0</td></tr>
 <tr class="separator:a861fd24e29462ff47347546f6ba98019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7e1ea4bee3feed356a82e375bf5f95e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#aeaba4d245610870af7f067c3c4a33f76">MyBLAS::NumericType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#ae7e1ea4bee3feed356a82e375bf5f95e">sum</a> = 0</td></tr>
+<tr class="memdesc:ae7e1ea4bee3feed356a82e375bf5f95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total sum of the given series.  <a href="../../df/df1/structOutput.html#ae7e1ea4bee3feed356a82e375bf5f95e">More...</a><br /></td></tr>
 <tr class="separator:ae7e1ea4bee3feed356a82e375bf5f95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13824898af1c038b3f9ffbedf8bdfa01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; long double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#a13824898af1c038b3f9ffbedf8bdfa01">summary</a></td></tr>
+<tr class="memdesc:a13824898af1c038b3f9ffbedf8bdfa01"><td class="mdescLeft">&#160;</td><td class="mdescRight">The summary of the benchmark runs This structure holds the summary statistics of computation runtime, including the mean, standard deviation, etc.  <a href="../../df/df1/structOutput.html#a13824898af1c038b3f9ffbedf8bdfa01">More...</a><br /></td></tr>
 <tr class="separator:a13824898af1c038b3f9ffbedf8bdfa01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46b20513ccb8423da25be47e52e7932e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; long double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#a46b20513ccb8423da25be47e52e7932e">fluxes</a></td></tr>
 <tr class="separator:a46b20513ccb8423da25be47e52e7932e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -262,6 +265,7 @@ Data Fields</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Struct to hold variables for Taylor Series. </p>
 <p>Struct representing the output vector for the BLAS library.</p>
+<p>A structure to hold the output.</p>
 <p>A structure to hold the output of the relaxation method.</p>
 <p>Struct representing the output parameters for the Newton-Cotes integration methods.</p>
 <p>This structure contains the input parameters, the solution, and the execution time. </p>
@@ -689,12 +693,22 @@ template&lt;class Archive &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                                             {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        ar &amp; BOOST_SERIALIZATION_NVP(<a class="code" href="../../df/df1/structOutput.html#ae7e1ea4bee3feed356a82e375bf5f95e">sum</a>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="ttc" id="astructOutput_html_ae7e1ea4bee3feed356a82e375bf5f95e"><div class="ttname"><a href="../../df/df1/structOutput.html#ae7e1ea4bee3feed356a82e375bf5f95e">Output::sum</a></div><div class="ttdeci">MyBLAS::NumericType sum</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:55</div></div>
+
+<p>Function to serialize the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure. </p>
+<p>This function uses the Boost library to serialize the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure, allowing it to be saved to a file or sent over a network.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ar</td><td>The archive where the serialized data will be stored. </td></tr>
+    <tr><td class="paramname">version</td><td>The version of the serialization library. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                                             {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        ar &amp; BOOST_SERIALIZATION_NVP(<a class="code" href="../../df/df1/structOutput.html#ae7e1ea4bee3feed356a82e375bf5f95e">sum</a>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="ttc" id="astructOutput_html_ae7e1ea4bee3feed356a82e375bf5f95e"><div class="ttname"><a href="../../df/df1/structOutput.html#ae7e1ea4bee3feed356a82e375bf5f95e">Output::sum</a></div><div class="ttdeci">MyBLAS::NumericType sum</div><div class="ttdoc">The total sum of the given series.</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:90</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00055">sum</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00090">sum</a>.</p>
 
 </div>
 </div>
@@ -730,7 +744,7 @@ template&lt;class Archive &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00057">h</a>, and <a class="el" href="../../#l00058">integral</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00135">OutLab7::postRun()</a>, <a class="el" href="../../#l00089">InLab3::run()</a>, <a class="el" href="../../#l00084">OutLab3::run()</a>, <a class="el" href="../../#l00092">InLab6::run()</a>, <a class="el" href="../../#l00096">OutLab6::run()</a>, <a class="el" href="../../#l00090">InLab4::run()</a>, <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, and <a class="el" href="../../#l00094">Project2::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00168">OutLab7::postRun()</a>, <a class="el" href="../../#l00089">InLab3::run()</a>, <a class="el" href="../../#l00084">OutLab3::run()</a>, <a class="el" href="../../#l00092">InLab6::run()</a>, <a class="el" href="../../#l00096">OutLab6::run()</a>, <a class="el" href="../../#l00090">InLab4::run()</a>, <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, and <a class="el" href="../../#l00094">Project2::run()</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -806,9 +820,9 @@ template&lt;class Archive &gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{ jsonMap[<span class="stringliteral">&quot;solution&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#ac0fbf4e15509bd1a6ed3e957603d8340">solution</a>.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>(); }</div>
-<div class="ttc" id="aclassMyBLAS_1_1Vector_html_a6188d71192e096e25ae1c1a46150a0ab"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">MyBLAS::Vector::getData</a></div><div class="ttdeci">const std::vector&lt; T &gt; &amp; getData() const</div><div class="ttdoc">Getter for the vector data.</div><div class="ttdef"><b>Definition:</b> Vector.h:99</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1Vector_html_a6188d71192e096e25ae1c1a46150a0ab"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">MyBLAS::Vector::getData</a></div><div class="ttdeci">const std::vector&lt; T &gt; &amp; getData() const</div><div class="ttdoc">Getter for the vector data.</div><div class="ttdef"><b>Definition:</b> Vector.h:111</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>, and <a class="el" href="../../#l00044">solution</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00111">MyBLAS::Vector&lt; T &gt;::getData()</a>, and <a class="el" href="../../#l00044">solution</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -870,7 +884,7 @@ template&lt;class Archive &gt; </div>
 <div class="ttc" id="astructOutput_html_a3787bd5f7ad2ffa9e43b5d85508cd92c"><div class="ttname"><a href="../../df/df1/structOutput.html#a3787bd5f7ad2ffa9e43b5d85508cd92c">Output::execution_time</a></div><div class="ttdeci">long double execution_time</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:68</div></div>
 <div class="ttc" id="astructOutput_html_ae704800decdb8ea025e434e5d8ee2765"><div class="ttname"><a href="../../df/df1/structOutput.html#ae704800decdb8ea025e434e5d8ee2765">Output::getMaxResidual</a></div><div class="ttdeci">long double getMaxResidual() const</div><div class="ttdoc">Calculates the maximum residual of the solution.</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:75</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00068">execution_time</a>, <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00075">getMaxResidual()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00030">Input::max_iterations</a>, <a class="el" href="../../#l00044">solution</a>, and <a class="el" href="../../#l00029">Input::threshold</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00068">execution_time</a>, <a class="el" href="../../#l00111">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00075">getMaxResidual()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00030">Input::max_iterations</a>, <a class="el" href="../../#l00044">solution</a>, and <a class="el" href="../../#l00029">Input::threshold</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -919,7 +933,7 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-residual&quot;</span>] = MyBLAS::Stats::max&lt;long double&gt;(<a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">MyBLAS::Stats::abs</a>(<a class="code" href="../../df/df1/structOutput.html#afd0fa0f15738e2871e0abbc554b7a630">residual</a>));</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00114">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00067">residual</a>, and <a class="el" href="../../#l00044">solution</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00114">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00111">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00067">residual</a>, and <a class="el" href="../../#l00044">solution</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -987,7 +1001,7 @@ template&lt;class Archive &gt; </div>
 <div class="ttc" id="astructOutput_html_aa91aa39c068c79585b906df4c6fda232"><div class="ttname"><a href="../../df/df1/structOutput.html#aa91aa39c068c79585b906df4c6fda232">Output::getSolutionError</a></div><div class="ttdeci">long double getSolutionError() const</div><div class="ttdoc">Calculates and returns the error of the solution.</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:79</div></div>
 <div class="ttc" id="astructOutput_html_af4755a931f5004e02f0da0d58fe67783"><div class="ttname"><a href="../../df/df1/structOutput.html#af4755a931f5004e02f0da0d58fe67783">Output::stddev_execution_time</a></div><div class="ttdeci">long double stddev_execution_time</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:68</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00060">MyLinearSolvingMethod::Parameters&lt; T &gt;::coefficients</a>, <a class="el" href="../../#l00061">MyLinearSolvingMethod::Parameters&lt; T &gt;::constants</a>, <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00079">getSolutionError()</a>, <a class="el" href="../../#l00030">Input::input</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00059">MyLinearSolvingMethod::Parameters&lt; T &gt;::max_iterations</a>, <a class="el" href="../../#l00067">mean_execution_time</a>, <a class="el" href="../../#l00044">solution</a>, <a class="el" href="../../#l00068">stddev_execution_time</a>, and <a class="el" href="../../#l00057">MyLinearSolvingMethod::Parameters&lt; T &gt;::threshold</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00060">MyLinearSolvingMethod::Parameters&lt; T &gt;::coefficients</a>, <a class="el" href="../../#l00061">MyLinearSolvingMethod::Parameters&lt; T &gt;::constants</a>, <a class="el" href="../../#l00111">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00079">getSolutionError()</a>, <a class="el" href="../../#l00030">Input::input</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00059">MyLinearSolvingMethod::Parameters&lt; T &gt;::max_iterations</a>, <a class="el" href="../../#l00067">mean_execution_time</a>, <a class="el" href="../../#l00044">solution</a>, <a class="el" href="../../#l00068">stddev_execution_time</a>, and <a class="el" href="../../#l00057">MyLinearSolvingMethod::Parameters&lt; T &gt;::threshold</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -1030,14 +1044,14 @@ template&lt;class Archive &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                             {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        jsonMap[<span class="stringliteral">&quot;total_sum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#ae7e1ea4bee3feed356a82e375bf5f95e">sum</a>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="../../df/df1/structOutput.html#a13824898af1c038b3f9ffbedf8bdfa01">summary</a>.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011">toJSON</a>(jsonMap[<span class="stringliteral">&quot;benchmark&quot;</span>]);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                             {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        jsonMap[<span class="stringliteral">&quot;total_sum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#ae7e1ea4bee3feed356a82e375bf5f95e">sum</a>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="../../df/df1/structOutput.html#a13824898af1c038b3f9ffbedf8bdfa01">summary</a>.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011">toJSON</a>(jsonMap[<span class="stringliteral">&quot;benchmark&quot;</span>]);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a96a66f2ddbad3de15b434c6582bd2011"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011">MyBLAS::Stats::Summary::toJSON</a></div><div class="ttdeci">void toJSON(nlohmann::json &amp;jsonMap) const</div><div class="ttdef"><b>Definition:</b> Stats.h:65</div></div>
-<div class="ttc" id="astructOutput_html_a13824898af1c038b3f9ffbedf8bdfa01"><div class="ttname"><a href="../../df/df1/structOutput.html#a13824898af1c038b3f9ffbedf8bdfa01">Output::summary</a></div><div class="ttdeci">MyBLAS::Stats::Summary&lt; long double &gt; summary</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:56</div></div>
+<div class="ttc" id="astructOutput_html_a13824898af1c038b3f9ffbedf8bdfa01"><div class="ttname"><a href="../../df/df1/structOutput.html#a13824898af1c038b3f9ffbedf8bdfa01">Output::summary</a></div><div class="ttdeci">MyBLAS::Stats::Summary&lt; long double &gt; summary</div><div class="ttdoc">The summary of the benchmark runs This structure holds the summary statistics of computation runtime,...</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:95</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00055">sum</a>, <a class="el" href="../../#l00056">summary</a>, and <a class="el" href="../../#l00065">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00090">sum</a>, <a class="el" href="../../#l00095">summary</a>, and <a class="el" href="../../#l00065">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
@@ -1086,7 +1100,7 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-residual&quot;</span>] = MyBLAS::Stats::max&lt;long double&gt;(<a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">MyBLAS::Stats::abs</a>(<a class="code" href="../../df/df1/structOutput.html#afd0fa0f15738e2871e0abbc554b7a630">residual</a>));</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00114">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00067">residual</a>, and <a class="el" href="../../#l00044">solution</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00114">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00111">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00067">residual</a>, and <a class="el" href="../../#l00044">solution</a>.</p>
 <div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
@@ -1150,7 +1164,7 @@ template&lt;class Archive &gt; </div>
 <div class="ttc" id="astructInput_html_a65657f62a989412d42823d30b67506a2"><div class="ttname"><a href="../../d4/dae/structInput.html#a65657f62a989412d42823d30b67506a2">Input::solverParams</a></div><div class="ttdeci">MyLinearSolvingMethod::Parameters&lt; MyBLAS::NumericType &gt; solverParams</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:32</div></div>
 <div class="ttc" id="astructOutput_html_a6217468a262f7c25201add41b2709b75"><div class="ttname"><a href="../../df/df1/structOutput.html#a6217468a262f7c25201add41b2709b75">Output::max_residual</a></div><div class="ttdeci">long double max_residual</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:68</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00099">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00059">MyLinearSolvingMethod::Parameters&lt; T &gt;::max_iterations</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00067">residual</a>, <a class="el" href="../../#l00044">solution</a>, <a class="el" href="../../#l00032">Input::solverParams</a>, <a class="el" href="../../#l00056">summary</a>, <a class="el" href="../../#l00057">MyLinearSolvingMethod::Parameters&lt; T &gt;::threshold</a>, and <a class="el" href="../../#l00065">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00111">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00059">MyLinearSolvingMethod::Parameters&lt; T &gt;::max_iterations</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00067">residual</a>, <a class="el" href="../../#l00044">solution</a>, <a class="el" href="../../#l00032">Input::solverParams</a>, <a class="el" href="../../#l00095">summary</a>, <a class="el" href="../../#l00057">MyLinearSolvingMethod::Parameters&lt; T &gt;::threshold</a>, and <a class="el" href="../../#l00065">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
 <div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -1543,7 +1557,10 @@ template&lt;class Archive &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00135">OutLab7::postRun()</a>, <a class="el" href="../../#l00089">OutLab7::run()</a>, <a class="el" href="../../#l00069">serialize()</a>, and <a class="el" href="../../#l00063">toJSON()</a>.</p>
+<p>The total sum of the given series. </p>
+<p>This variable holds the total sum of the given series. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00168">OutLab7::postRun()</a>, <a class="el" href="../../#l00125">OutLab7::run()</a>, <a class="el" href="../../#l00115">serialize()</a>, and <a class="el" href="../../#l00101">toJSON()</a>.</p>
 
 </div>
 </div>
@@ -1559,7 +1576,9 @@ template&lt;class Archive &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00089">OutLab7::run()</a>, <a class="el" href="../../#l00063">toJSON()</a>, <a class="el" href="../../#l00152">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00223">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00079">Compute::usingLUP()</a>, <a class="el" href="../../#l00116">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00187">Compute::usingSOR()</a>, and <a class="el" href="../../#l00258">Compute::usingSymmetricSOR()</a>.</p>
+<p>The summary of the benchmark runs This structure holds the summary statistics of computation runtime, including the mean, standard deviation, etc. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00125">OutLab7::run()</a>, <a class="el" href="../../#l00101">toJSON()</a>, <a class="el" href="../../#l00152">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00223">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00079">Compute::usingLUP()</a>, <a class="el" href="../../#l00116">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00187">Compute::usingSOR()</a>, and <a class="el" href="../../#l00258">Compute::usingSymmetricSOR()</a>.</p>
 
 </div>
 </div>

@@ -26,42 +26,42 @@ var NAVTREE =
 [
   [ "NE591-008 C++17 Codebase", "index.html", [
     [ "NE591 Monorepo - Overview", "index.html", [
-      [ "Locating Source Files", "index.html#autotoc_md4", null ],
-      [ "Building", "index.html#autotoc_md5", [
-        [ "Hazel", "index.html#autotoc_md6", [
-          [ "Interactive Mode", "index.html#autotoc_md7", null ],
-          [ "Batch Jobs", "index.html#autotoc_md8", null ]
+      [ "Locating Source Files", "index.html#autotoc_md1", null ],
+      [ "Building", "index.html#autotoc_md2", [
+        [ "Hazel", "index.html#autotoc_md3", [
+          [ "Interactive Mode", "index.html#autotoc_md4", null ],
+          [ "Batch Jobs", "index.html#autotoc_md5", null ]
         ] ],
-        [ "EOS", "index.html#autotoc_md9", null ],
-        [ "Build Environments", "index.html#autotoc_md10", [
-          [ "EOS", "index.html#autotoc_md11", null ],
-          [ "Hazel", "index.html#autotoc_md12", null ]
+        [ "EOS", "index.html#autotoc_md6", null ],
+        [ "Build Environments", "index.html#autotoc_md7", [
+          [ "EOS", "index.html#autotoc_md8", null ],
+          [ "Hazel", "index.html#autotoc_md9", null ]
         ] ],
-        [ "Class Project", "index.html#autotoc_md13", null ],
-        [ "InLabs and OutLabs", "index.html#autotoc_md14", null ],
-        [ "Optional CMake Arguments", "index.html#autotoc_md15", null ]
+        [ "Class Project", "index.html#autotoc_md10", null ],
+        [ "InLabs and OutLabs", "index.html#autotoc_md11", null ],
+        [ "Optional CMake Arguments", "index.html#autotoc_md12", null ]
       ] ],
-      [ "Docker Usage Guide", "index.html#autotoc_md16", [
-        [ "Why Docker?", "index.html#autotoc_md17", null ],
-        [ "Building the Docker Image", "index.html#autotoc_md18", null ],
-        [ "Running the Docker Container", "index.html#autotoc_md19", null ],
-        [ "Building and Running Tests", "index.html#autotoc_md20", null ]
+      [ "Docker Usage Guide", "index.html#autotoc_md13", [
+        [ "Why Docker?", "index.html#autotoc_md14", null ],
+        [ "Building the Docker Image", "index.html#autotoc_md15", null ],
+        [ "Running the Docker Container", "index.html#autotoc_md16", null ],
+        [ "Building and Running Tests", "index.html#autotoc_md17", null ]
       ] ],
-      [ "Development - JetBrains Clion Support", "index.html#autotoc_md21", [
-        [ "Prerequisites", "index.html#autotoc_md22", null ],
-        [ "Clion Docker Toolchain", "index.html#autotoc_md23", [
-          [ "Instructions", "index.html#autotoc_md24", null ]
+      [ "Development - JetBrains Clion Support", "index.html#autotoc_md18", [
+        [ "Prerequisites", "index.html#autotoc_md19", null ],
+        [ "Clion Docker Toolchain", "index.html#autotoc_md20", [
+          [ "Instructions", "index.html#autotoc_md21", null ]
         ] ],
-        [ "Troubleshooting", "index.html#autotoc_md25", null ],
-        [ "Clion Remote Debugging via SSH", "index.html#autotoc_md26", null ]
+        [ "Troubleshooting", "index.html#autotoc_md22", null ],
+        [ "Clion Remote Debugging via SSH", "index.html#autotoc_md23", null ]
       ] ],
-      [ "License", "index.html#autotoc_md27", null ],
-      [ "FAQs", "index.html#autotoc_md28", null ]
+      [ "License", "index.html#autotoc_md24", null ],
+      [ "FAQs", "index.html#autotoc_md25", null ]
     ] ],
     [ "InLab 01: Taylor series approximation of sin(x)", "d7/d5f/inlab1.html", [
-      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md0", [
-        [ "Usage", "d7/d5f/inlab1.html#autotoc_md1", null ],
-        [ "Example", "d7/d5f/inlab1.html#autotoc_md2", null ]
+      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md26", [
+        [ "Usage", "d7/d5f/inlab1.html#autotoc_md27", null ],
+        [ "Example", "d7/d5f/inlab1.html#autotoc_md28", null ]
       ] ]
     ] ],
     [ "InLab 02: Lagrange Interpolation Polynomials I", "d1/def/inlab2.html", [
@@ -280,18 +280,17 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d0/d28/classMyBLAS_1_1LazyMatrix.html#ad3d74ee9126424a708882d279dd64173",
-"d0/d40/classParser.html#ac832ae62f1a9173c3493c95a0e3acecc",
-"d1/d8c/classInLab6.html#aa176f763c07de3d80ecf50ef88b4ded2",
-"d3/d3f/labs_2outlab5_2tests_2LUMatrixTests_8cpp.html",
-"d5/d51/BaseMatrixTests_8cpp.html#a52f08abceee687dd868844d780177aa0",
-"d7/da1/project_2project1_2Compute_8h.html#a9c1752b04a8f0ec48acd75f06f1bfc68",
-"d9/d41/generate__source__radially__distributed_8py.html#aa874295d900d3fee692edc03e6490fa7",
-"dc/d09/Stats_8h.html#a403bf760cf802cddf8dd73e5d3e46a05",
-"dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6",
-"df/df1/structOutput.html#ab498f7b76ca4504e996685d7fcbb5387",
-"namespacemembers_func_i.html"
+"annotated.html",
+"d0/d40/classParser.html#a6b685f98b9861029ccf6ec651df9a9a8",
+"d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87",
+"d2/d6e/namespaceMyBLAS.html#a9d89e846e20f02c0a9772fc397680559",
+"d4/dae/structInput.html#a4ff7e621eae37b3313931fdad9ba8eba",
+"d6/d95/utils_2physics_2diffusion_2tests_2main_8cpp.html",
+"d8/deb/classInLab5.html#a2ccb315fa492215574b147c09a4a6c0d",
+"db/dde/readfile_8m.html#aa96c156cf9fc911289569876fd4ea749",
+"dd/d2c/BaseVectorTests_8cpp.html#ae48b7ad4f6ec0e34d5710e84fe23e7b8",
+"de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d",
+"globals_k.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

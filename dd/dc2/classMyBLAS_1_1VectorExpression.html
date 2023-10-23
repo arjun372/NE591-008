@@ -121,6 +121,9 @@ $(document).ready(function(){initNavTree('dd/dc2/classMyBLAS_1_1VectorExpression
 </div><!--header-->
 <div class="contents">
 
+<p>Represents an expression for element-wise vector operations.  
+ <a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../">VectorExpression.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;:</div>
@@ -134,25 +137,42 @@ $(document).ready(function(){initNavTree('dd/dc2/classMyBLAS_1_1VectorExpression
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a59afe4b5fa42b36319ae0244d0cac781"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a59afe4b5fa42b36319ae0244d0cac781">VectorExpression</a> (Op1 const &amp;op1, Op2 const &amp;op2, BinaryOp binary_op)</td></tr>
+<tr class="memdesc:a59afe4b5fa42b36319ae0244d0cac781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html" title="Represents an expression for element-wise vector operations.">VectorExpression</a>.  <a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a59afe4b5fa42b36319ae0244d0cac781">More...</a><br /></td></tr>
 <tr class="separator:a59afe4b5fa42b36319ae0244d0cac781"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5bf7162450e7e66a964d61c99dead5c"><td class="memItemLeft" align="right" valign="top">DataType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#ab5bf7162450e7e66a964d61c99dead5c">operator[]</a> (size_t <a class="el" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) const</td></tr>
+<tr class="memdesc:ab5bf7162450e7e66a964d61c99dead5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator[] to access the result of the element-wise operation at a specific index.  <a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#ab5bf7162450e7e66a964d61c99dead5c">More...</a><br /></td></tr>
 <tr class="separator:ab5bf7162450e7e66a964d61c99dead5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92fb750fdcb0bf02be0be9a828164cf2"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a92fb750fdcb0bf02be0be9a828164cf2">size</a> () const</td></tr>
+<tr class="memdesc:a92fb750fdcb0bf02be0be9a828164cf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the size of the resulting vector expression.  <a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a92fb750fdcb0bf02be0be9a828164cf2">More...</a><br /></td></tr>
 <tr class="separator:a92fb750fdcb0bf02be0be9a828164cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a1f7985b77715eb55418b413b6f934cfc"><td class="memItemLeft" align="right" valign="top">Op1 const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">op1_</a></td></tr>
+<tr class="memdesc:a1f7985b77715eb55418b413b6f934cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The first vector operand.  <a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">More...</a><br /></td></tr>
 <tr class="separator:a1f7985b77715eb55418b413b6f934cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a651fac51d94e70228dc0f603a2a24a90"><td class="memItemLeft" align="right" valign="top">Op2 const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a651fac51d94e70228dc0f603a2a24a90">op2_</a></td></tr>
+<tr class="memdesc:a651fac51d94e70228dc0f603a2a24a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">The second vector operand.  <a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a651fac51d94e70228dc0f603a2a24a90">More...</a><br /></td></tr>
 <tr class="separator:a651fac51d94e70228dc0f603a2a24a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e23433660d4755af8b6de2e922992c6"><td class="memItemLeft" align="right" valign="top">BinaryOp&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6">binary_op_</a></td></tr>
+<tr class="memdesc:a2e23433660d4755af8b6de2e922992c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The binary operation to be performed.  <a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6">More...</a><br /></td></tr>
 <tr class="separator:a2e23433660d4755af8b6de2e922992c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename DataType, typename Op1, typename Op2, typename BinaryOp&gt;<br />
 class MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;</h3>
 
+<p>Represents an expression for element-wise vector operations. </p>
+<p>This class defines an expression for performing element-wise binary operations on two vectors.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>The data type of the vector elements. </td></tr>
+    <tr><td class="paramname">Op1</td><td>The first vector operand. </td></tr>
+    <tr><td class="paramname">Op2</td><td>The second vector operand. </td></tr>
+    <tr><td class="paramname">BinaryOp</td><td>The binary operation to be performed on the vectors. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a59afe4b5fa42b36319ae0244d0cac781"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59afe4b5fa42b36319ae0244d0cac781">&#9670;&nbsp;</a></span>VectorExpression()</h2>
@@ -195,10 +215,20 @@ template&lt;typename DataType , typename Op1 , typename Op2 , typename BinaryOp 
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        : <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">op1_</a>(op1), <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a651fac51d94e70228dc0f603a2a24a90">op2_</a>(op2), <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6">binary_op_</a>(binary_op) {}</div>
-<div class="ttc" id="aclassMyBLAS_1_1VectorExpression_html_a1f7985b77715eb55418b413b6f934cfc"><div class="ttname"><a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">MyBLAS::VectorExpression::op1_</a></div><div class="ttdeci">Op1 const  &amp; op1_</div><div class="ttdef"><b>Definition:</b> VectorExpression.h:26</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1VectorExpression_html_a2e23433660d4755af8b6de2e922992c6"><div class="ttname"><a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6">MyBLAS::VectorExpression::binary_op_</a></div><div class="ttdeci">BinaryOp binary_op_</div><div class="ttdef"><b>Definition:</b> VectorExpression.h:28</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1VectorExpression_html_a651fac51d94e70228dc0f603a2a24a90"><div class="ttname"><a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a651fac51d94e70228dc0f603a2a24a90">MyBLAS::VectorExpression::op2_</a></div><div class="ttdeci">Op2 const  &amp; op2_</div><div class="ttdef"><b>Definition:</b> VectorExpression.h:27</div></div>
+
+<p>Constructor for the <a class="el" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html" title="Represents an expression for element-wise vector operations.">VectorExpression</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">op1</td><td>The first vector operand. </td></tr>
+    <tr><td class="paramname">op2</td><td>The second vector operand. </td></tr>
+    <tr><td class="paramname">binary_op</td><td>The binary operation to be performed on the vectors. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        : <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">op1_</a>(op1), <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a651fac51d94e70228dc0f603a2a24a90">op2_</a>(op2), <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6">binary_op_</a>(binary_op) {}</div>
+<div class="ttc" id="aclassMyBLAS_1_1VectorExpression_html_a1f7985b77715eb55418b413b6f934cfc"><div class="ttname"><a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">MyBLAS::VectorExpression::op1_</a></div><div class="ttdeci">Op1 const  &amp; op1_</div><div class="ttdoc">The first vector operand.</div><div class="ttdef"><b>Definition:</b> VectorExpression.h:54</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1VectorExpression_html_a2e23433660d4755af8b6de2e922992c6"><div class="ttname"><a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6">MyBLAS::VectorExpression::binary_op_</a></div><div class="ttdeci">BinaryOp binary_op_</div><div class="ttdoc">The binary operation to be performed.</div><div class="ttdef"><b>Definition:</b> VectorExpression.h:56</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1VectorExpression_html_a651fac51d94e70228dc0f603a2a24a90"><div class="ttname"><a href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a651fac51d94e70228dc0f603a2a24a90">MyBLAS::VectorExpression::op2_</a></div><div class="ttdeci">Op2 const  &amp; op2_</div><div class="ttdoc">The second vector operand.</div><div class="ttdef"><b>Definition:</b> VectorExpression.h:55</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -228,10 +258,19 @@ template&lt;typename DataType , typename Op1 , typename Op2 , typename BinaryOp 
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6">binary_op_</a>(<a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">op1_</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>], <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a651fac51d94e70228dc0f603a2a24a90">op2_</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>]); }</div>
+
+<p>Operator[] to access the result of the element-wise operation at a specific index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The index of the element to access. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The result of the element-wise operation at the given index. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6">binary_op_</a>(<a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">op1_</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>], <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a651fac51d94e70228dc0f603a2a24a90">op2_</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>]); }</div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00028">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::binary_op_</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00026">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::op1_</a>, and <a class="el" href="../../#l00027">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::op2_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00056">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::binary_op_</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00054">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::op1_</a>, and <a class="el" href="../../#l00055">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::op2_</a>.</p>
 
 </div>
 </div>
@@ -259,9 +298,12 @@ template&lt;typename DataType , typename Op1 , typename Op2 , typename BinaryOp 
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">op1_</a>.size(); }  <span class="comment">// Assume both operands are the same size.</span></div>
+
+<p>Getter for the size of the resulting vector expression. </p>
+<dl class="section return"><dt>Returns</dt><dd>The size of the resulting vector expression. Assumes both operands have the same size. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../dd/dc2/classMyBLAS_1_1VectorExpression.html#a1f7985b77715eb55418b413b6f934cfc">op1_</a>.size(); }  <span class="comment">// Assume both operands are the same size.</span></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00026">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::op1_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00054">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::op1_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00147">MyBLAS::TEST_F()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -298,7 +340,9 @@ template&lt;typename DataType , typename Op1 , typename Op2 , typename BinaryOp 
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00021">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::operator[]()</a>.</p>
+<p>The binary operation to be performed. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00045">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::operator[]()</a>.</p>
 
 </div>
 </div>
@@ -324,7 +368,9 @@ template&lt;typename DataType , typename Op1 , typename Op2 , typename BinaryOp 
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00021">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::operator[]()</a>, and <a class="el" href="../../#l00023">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::size()</a>.</p>
+<p>The first vector operand. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00045">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::operator[]()</a>, and <a class="el" href="../../#l00051">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -350,7 +396,9 @@ template&lt;typename DataType , typename Op1 , typename Op2 , typename BinaryOp 
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00021">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::operator[]()</a>.</p>
+<p>The second vector operand. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00045">MyBLAS::VectorExpression&lt; DataType, Op1, Op2, BinaryOp &gt;::operator[]()</a>.</p>
 
 </div>
 </div>

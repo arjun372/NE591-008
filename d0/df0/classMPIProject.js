@@ -1,7 +1,7 @@
 var classMPIProject =
 [
     [ "MPIProject", "d0/df0/classMPIProject.html#a15793e21767def6a3283e2e7a3af60f8", null ],
-    [ "~MPIProject", "d0/df0/classMPIProject.html#ab0b518c1e6d3f153f400b32c7db281bd", null ],
+    [ "~MPIProject", "d0/df0/classMPIProject.html#a73682125a552ec09fd06891b65c75bfe", null ],
     [ "blockingReceive", "d0/df0/classMPIProject.html#af1f54c68fbe29377398d33872053de06", null ],
     [ "blockingSend", "d0/df0/classMPIProject.html#a63c4b9dc5d8b0fdf4e75471de06686ef", null ],
     [ "execute", "d0/df0/classMPIProject.html#adfcf67cb35e3298dad11500f37de8339", null ],

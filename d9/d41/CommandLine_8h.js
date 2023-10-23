@@ -12,6 +12,6 @@ var CommandLine_8h =
       [ "argv", "d9/d41/CommandLine_8h.html#aa5600980bc0370a950e32c98f4f94d03", null ]
     ] ],
     [ "CommandLine", "dd/d02/classCommandLine.html", "dd/d02/classCommandLine" ],
-    [ "default_precision", "d9/d41/CommandLine_8h.html#a490c76b355e69aabc18b99fa3ab795c3", null ],
-    [ "max_precision", "d9/d41/CommandLine_8h.html#a78959ecd5c09c39ab16731c88cff9f9b", null ]
+    [ "default_precision", "d9/d41/CommandLine_8h.html#a62aef5753b7a627993a55d7d2a1bc7e4", null ],
+    [ "max_precision", "d9/d41/CommandLine_8h.html#a628337903dfa89d1c89bc6a08d955459", null ]
 ];

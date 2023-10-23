@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Executes the project. It calls the preRun, run, and postRun methods, and then finalizes MPI.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-57.5 0,-76.5 113,-76.5 113,-57.5 0,-57.5"/>
 <text text-anchor="middle" x="56.5" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">MPIProject::execute</text>
 </a>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d0/df0/classMPIProject.html#aaad8af6f437a15ef6f0d839066d089ed" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="../../d0/df0/classMPIProject.html#aaad8af6f437a15ef6f0d839066d089ed" target="_top" xlink:title="Finalizes MPI.">
 <polygon fill="white" stroke="black" points="151,-114.5 151,-133.5 261,-133.5 261,-114.5 151,-114.5"/>
 <text text-anchor="middle" x="206" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">MPIProject::finalize</text>
 </a>
@@ -36,7 +36,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d0/df0/classMPIProject.html#a01b7f56dd495562d937e86689e7fb855" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="../../d0/df0/classMPIProject.html#a01b7f56dd495562d937e86689e7fb855" target="_top" xlink:title="A virtual method that is called after the run method. It can be overridden in derived classes.">
 <polygon fill="white" stroke="black" points="149,-76.5 149,-95.5 263,-95.5 263,-76.5 149,-76.5"/>
 <text text-anchor="middle" x="206" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">MPIProject::postRun</text>
 </a>
@@ -51,7 +51,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d0/df0/classMPIProject.html#a7f3be9ef6f36a9f268450127ebe32693" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="../../d0/df0/classMPIProject.html#a7f3be9ef6f36a9f268450127ebe32693" target="_top" xlink:title="A virtual method that is called before the run method. It can be overridden in derived classes.">
 <polygon fill="white" stroke="black" points="151.5,-38.5 151.5,-57.5 260.5,-57.5 260.5,-38.5 151.5,-38.5"/>
 <text text-anchor="middle" x="206" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MPIProject::preRun</text>
 </a>
@@ -66,7 +66,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d0/df0/classMPIProject.html#aeaf915cc5b3bfb50f98a25645580da15" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="../../d0/df0/classMPIProject.html#aeaf915cc5b3bfb50f98a25645580da15" target="_top" xlink:title="A virtual method that is called to run the project. It can be overridden in derived classes.">
 <polygon fill="white" stroke="black" points="161,-0.5 161,-19.5 251,-19.5 251,-0.5 161,-0.5"/>
 <text text-anchor="middle" x="206" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MPIProject::run</text>
 </a>

@@ -118,37 +118,37 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md4">Locating Source Files</a></li>
-<li class="level1"><a href="#autotoc_md5">Building</a><ul><li class="level2"><a href="#autotoc_md6">Hazel</a><ul><li class="level3"><a href="#autotoc_md7">Interactive Mode</a></li>
-<li class="level3"><a href="#autotoc_md8">Batch Jobs</a></li>
+<ul><li class="level1"><a href="#autotoc_md1">Locating Source Files</a></li>
+<li class="level1"><a href="#autotoc_md2">Building</a><ul><li class="level2"><a href="#autotoc_md3">Hazel</a><ul><li class="level3"><a href="#autotoc_md4">Interactive Mode</a></li>
+<li class="level3"><a href="#autotoc_md5">Batch Jobs</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md9">EOS</a></li>
-<li class="level2"><a href="#autotoc_md10">Build Environments</a><ul><li class="level3"><a href="#autotoc_md11">EOS</a></li>
-<li class="level3"><a href="#autotoc_md12">Hazel</a></li>
+<li class="level2"><a href="#autotoc_md6">EOS</a></li>
+<li class="level2"><a href="#autotoc_md7">Build Environments</a><ul><li class="level3"><a href="#autotoc_md8">EOS</a></li>
+<li class="level3"><a href="#autotoc_md9">Hazel</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md13">Class Project</a></li>
-<li class="level2"><a href="#autotoc_md14">InLabs and OutLabs</a></li>
-<li class="level2"><a href="#autotoc_md15">Optional CMake Arguments</a></li>
+<li class="level2"><a href="#autotoc_md10">Class Project</a></li>
+<li class="level2"><a href="#autotoc_md11">InLabs and OutLabs</a></li>
+<li class="level2"><a href="#autotoc_md12">Optional CMake Arguments</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md16">Docker Usage Guide</a><ul><li class="level2"><a href="#autotoc_md17">Why Docker?</a></li>
-<li class="level2"><a href="#autotoc_md18">Building the Docker Image</a></li>
-<li class="level2"><a href="#autotoc_md19">Running the Docker Container</a></li>
-<li class="level2"><a href="#autotoc_md20">Building and Running Tests</a></li>
+<li class="level1"><a href="#autotoc_md13">Docker Usage Guide</a><ul><li class="level2"><a href="#autotoc_md14">Why Docker?</a></li>
+<li class="level2"><a href="#autotoc_md15">Building the Docker Image</a></li>
+<li class="level2"><a href="#autotoc_md16">Running the Docker Container</a></li>
+<li class="level2"><a href="#autotoc_md17">Building and Running Tests</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md21">Development - JetBrains Clion Support</a><ul><li class="level2"><a href="#autotoc_md22">Prerequisites</a></li>
-<li class="level2"><a href="#autotoc_md23">Clion Docker Toolchain</a><ul><li class="level3"><a href="#autotoc_md24">Instructions</a></li>
+<li class="level1"><a href="#autotoc_md18">Development - JetBrains Clion Support</a><ul><li class="level2"><a href="#autotoc_md19">Prerequisites</a></li>
+<li class="level2"><a href="#autotoc_md20">Clion Docker Toolchain</a><ul><li class="level3"><a href="#autotoc_md21">Instructions</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md25">Troubleshooting</a></li>
-<li class="level2"><a href="#autotoc_md26">Clion Remote Debugging via SSH</a></li>
+<li class="level2"><a href="#autotoc_md22">Troubleshooting</a></li>
+<li class="level2"><a href="#autotoc_md23">Clion Remote Debugging via SSH</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md27">License</a></li>
-<li class="level1"><a href="#autotoc_md28">FAQs</a></li>
+<li class="level1"><a href="#autotoc_md24">License</a></li>
+<li class="level1"><a href="#autotoc_md25">FAQs</a></li>
 </ul>
 </div>
 <div class="textblock"><p><a class="anchor" id="md_README"></a> This is a monorepo for my class project and inlab, outlab deliverables for the <code>NE591-008</code> course, titled <code>Mathematical and Computational Methods in Nuclear Engineering</code>. The course aims to provide a theoretical foundation of mathematical methods applied broadly in nuclear engineering and to construct algorithms to implement the resulting formalisms on digital computers. The labs involve designing computer programs in low-level languages (exclusively Fortran or C++) and their implementation, verification, and testing. I have chosen to organize this repo in a manner that builds on the cumulative code changes from each deliverable, and reuses as many helper functions as possible. A secondary objective is to benchmark my implementations against the <code>C++17</code>, <code>CUDA</code>, and <code>Boost</code> library functions.</p>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li><a href="#license">License</a></li>
 <li><a href="#faqs">FAQs</a></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md1"></a>
 Locating Source Files</h1>
 <p>Sources and file paths for each deliverable follow the following structure:</p>
 <div class="fragment"><div class="line">├── README.md   &lt;= You are now here</div>
@@ -228,13 +228,13 @@ Locating Source Files</h1>
 <div class="line">│   ├── ...</div>
 <div class="line">├── external                     &lt;= External dependencies</div>
 </div><!-- fragment --><p>The <code>utils</code> directory contains helper methods used across the project. These include a helper math library, methods for checking bounds, interacting with the command line, I/O operations on CSV and JSON files, general helper functions, and a high-precision profiler for performance analysis.</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Building</h1>
 <p>The code has been built and tested on the NCSU Hazel<code>login.hpc.ncsu.edu</code> and NCSU EOS <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>project2</code> target executable:</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Hazel</h2>
 <p>There are two ways to do run jobs on Hazel, currently, we support the interactive mode option. </p>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="autotoc_md4"></a>
 Interactive Mode</h3>
 <p>This mode requires a few additional steps, but for the most part, it follows the same process as the EOS server. </p><div class="fragment"><div class="line">#!/bin/bash</div>
 <div class="line"> </div>
@@ -273,10 +273,10 @@ Interactive Mode</h3>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o $OUTPUT_RESULTS -f $OUTPUT_COMPUTED_FLUX</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md5"></a>
 Batch Jobs</h3>
 <p>Coming Soon</p>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 EOS</h2>
 <div class="fragment"><div class="line">#!/bin/bash</div>
 <div class="line"> </div>
@@ -301,16 +301,16 @@ EOS</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o $OUTPUT_RESULTS -f $OUTPUT_COMPUTED_FLUX</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
 Build Environments</h2>
 <p>The entire codebase has been built and tested on the NCSU Hazel <code>login.hpc.ncsu.edu</code> and EOS <code>remote.eos.ncsu.edu</code> servers, which, as of Fall 2023, provide support for the following dependencies:</p>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h3><a class="anchor" id="autotoc_md8"></a>
 EOS</h3>
 <ul>
 <li><code>Boost : 1.66.0</code></li>
 <li><code>C/C++ compiler : GNU 8.5.0</code></li>
 </ul>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md9"></a>
 Hazel</h3>
 <ul>
 <li><code>Boost : 1.72.0</code></li>
@@ -319,7 +319,7 @@ Hazel</h3>
 <li><code>MPI: OpenMPI 4.1.0</code></li>
 </ul>
 <p>To facilitate local development, equivalent Dockerfiles have been created. Checkout <a href="eos.Dockerfile">eos.Dockerfile</a> and <a href="hazel.Dockerfile">hazel.Dockerfile</a> and the <a href="#docker-usage-guide">Docker instructions</a> below.</p>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Class Project</h2>
 <p>Currently supported project build targets include: </p><table class="doxtable">
 <tr>
@@ -335,7 +335,7 @@ Class Project</h2>
 <tr>
 <td>5 </td><td></td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 InLabs and OutLabs</h2>
 <p>Currently supported inlab, outlab build targets include:</p>
 <table class="doxtable">
@@ -368,7 +368,7 @@ InLabs and OutLabs</h2>
 <tr>
 <td>13 </td><td></td><td></td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Optional CMake Arguments</h2>
 <p>Available options are:</p>
 <table class="markdownTable">
@@ -383,31 +383,31 @@ Optional CMake Arguments</h2>
 </table>
 <p>To use these options, you can add them to the <code>cmake</code> command in the build script. For example, to build with tests, you would modify the <code>cmake</code> command as follows:</p>
 <div class="fragment"><div class="line">cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md16"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md13"></a>
 Docker Usage Guide</h1>
 <p>This repository contains Dockerfiles that are designed to mimic the OS and packages available on the <code>login.hpc.ncsu.edu</code> and <code>remote.eos.ncsu.edu</code> servers. These Dockerfiles also set up SSH for remote debugging access with tools such as <a href="#development---jetbrains-clion-support">JetBrains Clion</a>.</p>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Why Docker?</h2>
 <p>Docker is a platform that allows us to package our application and its dependencies into a container which can run on any Linux/macOS/Windows machine. This helps to eliminate the "it works on my machine" problem. In this case, the Dockerfiles were needed to ensure that the code can be built, run, and debugged in an environment that closely matches the <code>login.hpc.ncsu.edu</code> and <code>remote.eos.ncsu.edu</code> servers.</p>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md15"></a>
 Building the Docker Image</h2>
 <p>The current default [Dockerfile](Dockerfile) is a symlink to <a href="eos.Dockerfile">eos.Dockerfile</a>. You can change it to build for <a href="hazel.Dockerfile">hazel.Dockerfile</a> instead. Alternatively, you can always specify the Dockerfile to use using the <code>-f &lt;your.Dockerfile&gt;</code> option.</p>
 <p>To simply run the executables, build an image from the [Dockerfile](Dockerfile) using the following command:</p>
 <div class="fragment"><div class="line">docker build -t ne591:binary .</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md16"></a>
 Running the Docker Container</h2>
 <p>To run the Docker container, use the following command:</p>
 <div class="fragment"><div class="line">docker run --rm -it ne591:binary</div>
 </div><!-- fragment --><p>This command tells Docker to run the container interactively (i.e., it attaches a terminal session to the running container) and starts a bash shell.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 Building and Running Tests</h2>
 <p>The Dockerfile includes arguments for building tests and performance benchmarks. To build and run the tests, you can modify the <code>docker build</code> command as follows:</p>
 <div class="fragment"><div class="line">docker build --build-arg CMAKE_BUILD_TESTS=ON -t ne591:binary .</div>
 </div><!-- fragment --><p>Then, you can run the tests in the Docker container as you would normally do.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 Development - JetBrains Clion Support</h1>
 <p>You can use <a href="https://www.jetbrains.com/clion/">JetBrains Clion</a> as the debug environment. Use Docker as the debug toolchain.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Prerequisites</h2>
 <ul>
 <li>Docker</li>
@@ -421,10 +421,10 @@ Prerequisites</h2>
 </li>
 <li>Then, build the docker <code>debugger</code> target, and save the built image with the tag <code>eos:debugger</code>. ```shell docker build &ndash;target=debugger -t eos:debugger . ```</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Clion Docker Toolchain</h2>
 <p>Developing in Clion using the Docker Toolchain provides a consistent experience. The debugging environment is an ephemeral Docker container based on the <code>eos:debugger</code> image you just built.</p>
-<h3><a class="anchor" id="autotoc_md24"></a>
+<h3><a class="anchor" id="autotoc_md21"></a>
 Instructions</h3>
 <ol type="1">
 <li>##### <a href="https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html#create-docker-toolchain">Create Docker Toolchain</a><ol type="a">
@@ -447,7 +447,7 @@ Instructions</h3>
 </ol>
 </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Troubleshooting</h2>
 <ul>
 <li>#### <a href="https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html#windows-performance">Improve Docker Toolchain performance on Windows</a><ul>
@@ -460,7 +460,7 @@ Troubleshooting</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Clion Remote Debugging via SSH</h2>
 <p>The Dockerfile sets up SSH for root access in the <code>ssh-debugger</code> stage. This allows you to connect to the running container using SSH and debug the code. To do this, you need to build the SSH target and run the container in the background with port 22 exposed:</p>
 <div class="fragment"><div class="line">docker build --target=ssh-debugger -t ne591:ssh-debugger .</div>
@@ -468,11 +468,11 @@ Clion Remote Debugging via SSH</h2>
 </div><!-- fragment --><p>Then, you can connect to the running container using SSH. Clion provides native support for debugging remotely. Follow <a href="https://www.jetbrains.com/help/clion/remote-projects-support.html">these instructions</a> to set it up.</p>
 <div class="fragment"><div class="line">ssh root@localhost</div>
 </div><!-- fragment --><p>The password for the root user is "debugger".</p>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md24"></a>
 License</h1>
 <p>This project is licensed under the <a href="http://unlicense.org/">Unlicense</a> - a license with no conditions whatsoever which dedicates works to the public domain. Unlicensed works, modifications, and larger works may be distributed under different terms and without source code.</p>
 <p>However, note that this code uses libraries that are bound by their own licenses.</p>
-<h1><a class="anchor" id="autotoc_md28"></a>
+<h1><a class="anchor" id="autotoc_md25"></a>
 FAQs</h1>
 <ul>
 <li><b>This is a course project. Why all the extra effort?</b><ul>

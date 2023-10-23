@@ -124,6 +124,9 @@ $(document).ready(function(){initNavTree('d0/d87/classMyPhysics_1_1Diffusion_1_1
 </div><!--header-->
 <div class="contents">
 
+<p>This class represents a diffusion matrix. It extends the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">MyBLAS::LazyMatrix</a> class.  
+ <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../">DiffusionMatrix.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for MyPhysics::Diffusion::Matrix&lt; T &gt;:</div>
@@ -144,30 +147,41 @@ $(document).ready(function(){initNavTree('d0/d87/classMyPhysics_1_1Diffusion_1_1
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aec48b718b97e7a45b53d10c26476bdbe"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aec48b718b97e7a45b53d10c26476bdbe">Generator</a> = <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">std::function</a>&lt; T(size_t, size_t)&gt;</td></tr>
-<tr class="separator:aec48b718b97e7a45b53d10c26476bdbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bb00450e102d52f4cb0312421875422"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422">Generator</a> = <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">std::function</a>&lt; T(size_t, size_t)&gt;</td></tr>
+<tr class="memdesc:a0bb00450e102d52f4cb0312421875422"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that generates a matrix element given its row and column indices.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422">More...</a><br /></td></tr>
+<tr class="separator:a0bb00450e102d52f4cb0312421875422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0de933e50d49f85f09816a46070d34bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0de933e50d49f85f09816a46070d34bc">Matrix</a> ()=default</td></tr>
+<tr class="memdesc:a0de933e50d49f85f09816a46070d34bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0de933e50d49f85f09816a46070d34bc">More...</a><br /></td></tr>
 <tr class="separator:a0de933e50d49f85f09816a46070d34bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5145d5be9fc1a44756b6c47c29a3585"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#af5145d5be9fc1a44756b6c47c29a3585">Matrix</a> (const <a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">Params</a>&lt; T &gt; params)</td></tr>
+<tr class="memdesc:af5145d5be9fc1a44756b6c47c29a3585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that takes diffusion parameters.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#af5145d5be9fc1a44756b6c47c29a3585">More...</a><br /></td></tr>
 <tr class="separator:af5145d5be9fc1a44756b6c47c29a3585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90c86cba30338740d4ebc96a20cc82d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a90c86cba30338740d4ebc96a20cc82d4">Matrix</a> (const <a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html">Matrix</a>&lt; T &gt; &amp;matrix)</td></tr>
+<tr class="memdesc:a90c86cba30338740d4ebc96a20cc82d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a90c86cba30338740d4ebc96a20cc82d4">More...</a><br /></td></tr>
 <tr class="separator:a90c86cba30338740d4ebc96a20cc82d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5150591a4f7c736f69dd844b0c801f4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a5150591a4f7c736f69dd844b0c801f4a">operator=</a> (const <a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html">Matrix</a> &amp;other)</td></tr>
+<tr class="memdesc:a5150591a4f7c736f69dd844b0c801f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a5150591a4f7c736f69dd844b0c801f4a">More...</a><br /></td></tr>
 <tr class="separator:a5150591a4f7c736f69dd844b0c801f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a528f85b7a4f0f69e4b91f24186abe236"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a528f85b7a4f0f69e4b91f24186abe236">Matrix</a> (const <a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">Params</a>&lt; T &gt; &amp;params, <a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aec48b718b97e7a45b53d10c26476bdbe">Generator</a> generator)</td></tr>
+<tr class="memitem:a528f85b7a4f0f69e4b91f24186abe236"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a528f85b7a4f0f69e4b91f24186abe236">Matrix</a> (const <a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">Params</a>&lt; T &gt; &amp;params, <a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422">Generator</a> generator)</td></tr>
+<tr class="memdesc:a528f85b7a4f0f69e4b91f24186abe236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that takes diffusion parameters and a generator function.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a528f85b7a4f0f69e4b91f24186abe236">More...</a><br /></td></tr>
 <tr class="separator:a528f85b7a4f0f69e4b91f24186abe236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad956ebcbbd8c1e20955d417306ca581c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">Params</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ad956ebcbbd8c1e20955d417306ca581c">getParams</a> () const</td></tr>
+<tr class="memdesc:ad956ebcbbd8c1e20955d417306ca581c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the diffusion parameters.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ad956ebcbbd8c1e20955d417306ca581c">More...</a><br /></td></tr>
 <tr class="separator:ad956ebcbbd8c1e20955d417306ca581c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50e80b5eaaf02cb9e18596369b888fc7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html">Constants</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a50e80b5eaaf02cb9e18596369b888fc7">getConstants</a> () const</td></tr>
+<tr class="memdesc:a50e80b5eaaf02cb9e18596369b888fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the diffusion constants.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a50e80b5eaaf02cb9e18596369b888fc7">More...</a><br /></td></tr>
 <tr class="separator:a50e80b5eaaf02cb9e18596369b888fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b96736a2af9a33b25d0c0395658abb4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a8b96736a2af9a33b25d0c0395658abb4">getRows</a> () const</td></tr>
+<tr class="memdesc:a8b96736a2af9a33b25d0c0395658abb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of rows in the matrix.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a8b96736a2af9a33b25d0c0395658abb4">More...</a><br /></td></tr>
 <tr class="separator:a8b96736a2af9a33b25d0c0395658abb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a381d3fcf07fad9ad13ee145b083b93a7"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a381d3fcf07fad9ad13ee145b083b93a7">getCols</a> () const</td></tr>
+<tr class="memdesc:a381d3fcf07fad9ad13ee145b083b93a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of columns in the matrix.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a381d3fcf07fad9ad13ee145b083b93a7">More...</a><br /></td></tr>
 <tr class="separator:a381d3fcf07fad9ad13ee145b083b93a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02e772e260576b39c43c25bacb0180e7"><td class="memItemLeft" align="right" valign="top">virtual T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a02e772e260576b39c43c25bacb0180e7">operator()</a> (size_t row, size_t col) const</td></tr>
+<tr class="memdesc:a02e772e260576b39c43c25bacb0180e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes and returns the value at the specified row and column.  <a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a02e772e260576b39c43c25bacb0180e7">More...</a><br /></td></tr>
 <tr class="separator:a02e772e260576b39c43c25bacb0180e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4a483d842ff598f6f4234f118044914"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ad3d74ee9126424a708882d279dd64173">LazyMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ae4a483d842ff598f6f4234f118044914">operator*</a> (T scalar) const</td></tr>
 <tr class="separator:ae4a483d842ff598f6f4234f118044914"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,6 +217,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:accf0012585f5c7af122ca043990547ec"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">generate</a> (size_t idx, size_t idy, const <a class="el" href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html">Constants</a>&lt; T &gt; &amp;c)</td></tr>
+<tr class="memdesc:accf0012585f5c7af122ca043990547ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a matrix element.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">More...</a><br /></td></tr>
 <tr class="separator:accf0012585f5c7af122ca043990547ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -211,31 +226,41 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a5950f1f4d71a26d7df7c447578f97aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03ded3b6b923777cb3b1dbd0eacc2469"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">setCols</a> (size_t cols)</td></tr>
 <tr class="separator:a03ded3b6b923777cb3b1dbd0eacc2469"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a221cf0cda155cf5fc252f42c319ab1df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a> (const <a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aec48b718b97e7a45b53d10c26476bdbe">Generator</a> &amp;generator)</td></tr>
+<tr class="memitem:a221cf0cda155cf5fc252f42c319ab1df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a> (const <a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422">Generator</a> &amp;generator)</td></tr>
 <tr class="separator:a221cf0cda155cf5fc252f42c319ab1df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ae279788d29369699103f70c5a731f416"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">Params</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a> {}</td></tr>
+<tr class="memdesc:ae279788d29369699103f70c5a731f416"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parameters of the diffusion process.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">More...</a><br /></td></tr>
 <tr class="separator:ae279788d29369699103f70c5a731f416"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2632f681737490169cd3b99126a33c4a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a> = 0</td></tr>
+<tr class="memdesc:a2632f681737490169cd3b99126a33c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the matrix.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">More...</a><br /></td></tr>
 <tr class="separator:a2632f681737490169cd3b99126a33c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7665dfc140535a981abec6120be9dfa3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html">Constants</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a> {}</td></tr>
+<tr class="memdesc:a7665dfc140535a981abec6120be9dfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constants used in the diffusion process.  <a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">More...</a><br /></td></tr>
 <tr class="separator:a7665dfc140535a981abec6120be9dfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65f38861fe066e8e077f0aed9519d33f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a></td></tr>
 <tr class="separator:a65f38861fe066e8e077f0aed9519d33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b15617e180289ea3dcfddea93712010"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a></td></tr>
 <tr class="separator:a8b15617e180289ea3dcfddea93712010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3054cd9b972d3919c2a5be3caae5ff78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aec48b718b97e7a45b53d10c26476bdbe">Generator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a></td></tr>
+<tr class="memitem:a3054cd9b972d3919c2a5be3caae5ff78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422">Generator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a></td></tr>
 <tr class="separator:a3054cd9b972d3919c2a5be3caae5ff78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class MyPhysics::Diffusion::Matrix&lt; T &gt;</h3>
 
+<p>This class represents a diffusion matrix. It extends the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">MyBLAS::LazyMatrix</a> class. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the elements in the matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="aec48b718b97e7a45b53d10c26476bdbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec48b718b97e7a45b53d10c26476bdbe">&#9670;&nbsp;</a></span>Generator</h2>
+<a id="a0bb00450e102d52f4cb0312421875422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bb00450e102d52f4cb0312421875422">&#9670;&nbsp;</a></span>Generator</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,10 +268,12 @@ class MyPhysics::Diffusion::Matrix&lt; T &gt;</h3>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html">MyPhysics::Diffusion::Matrix</a>&lt; T &gt;::<a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aec48b718b97e7a45b53d10c26476bdbe">Generator</a> =  <a class="el" href="../../dd/dd7/plot__points_8m.html#a6ca7dbdce16456ca4efaeebf0ea675a4">std::function</a>&lt;T(size_t, size_t)&gt;</td>
+          <td class="memname"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html">MyPhysics::Diffusion::Matrix</a>&lt; T &gt;::<a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422">Generator</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A function that generates a matrix element given its row and column indices. </p>
 
 </div>
 </div>
@@ -276,6 +303,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Default constructor. </p>
+
 </div>
 </div>
 <a id="af5145d5be9fc1a44756b6c47c29a3585"></a>
@@ -303,27 +332,35 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                           : <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>(params), <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>(<a class="code" href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html#aa4b27b31e865576eb1b6280ef04e3fd2">Constants&lt;T&gt;::compute</a>(params)) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a> = <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a4baf3f31fe7d8290e9b83a5d50832293">getM</a>() * <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#af03d96d9d471d6953b819b548bb633d9">getN</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">setRows</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">setCols</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a>([<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">generate</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j, <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        });</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a03ded3b6b923777cb3b1dbd0eacc2469"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">MyBLAS::LazyMatrix&lt; T &gt;::setCols</a></div><div class="ttdeci">void setCols(size_t cols)</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:302</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a221cf0cda155cf5fc252f42c319ab1df"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator</a></div><div class="ttdeci">void setGenerator(const Generator &amp;generator)</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:303</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a5950f1f4d71a26d7df7c447578f97aa2"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">MyBLAS::LazyMatrix&lt; T &gt;::setRows</a></div><div class="ttdeci">void setRows(size_t rows)</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:301</div></div>
-<div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_a2632f681737490169cd3b99126a33c4a"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">MyPhysics::Diffusion::Matrix::_size</a></div><div class="ttdeci">size_t _size</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:28</div></div>
-<div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_a7665dfc140535a981abec6120be9dfa3"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">MyPhysics::Diffusion::Matrix::_constants</a></div><div class="ttdeci">Constants&lt; T &gt; _constants</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:29</div></div>
-<div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_accf0012585f5c7af122ca043990547ec"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">MyPhysics::Diffusion::Matrix::generate</a></div><div class="ttdeci">static T generate(size_t idx, size_t idy, const Constants&lt; T &gt; &amp;c)</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:67</div></div>
-<div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_ae279788d29369699103f70c5a731f416"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">MyPhysics::Diffusion::Matrix::_params</a></div><div class="ttdeci">Params&lt; T &gt; _params</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:27</div></div>
+
+<p>Constructor that takes diffusion parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>The diffusion parameters. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                           : <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>(params), <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>(<a class="code" href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html#aa4b27b31e865576eb1b6280ef04e3fd2">Constants&lt;T&gt;::compute</a>(params)) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a> = <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a4baf3f31fe7d8290e9b83a5d50832293">getM</a>() * <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#af03d96d9d471d6953b819b548bb633d9">getN</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">setRows</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">setCols</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a>([<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">generate</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j, <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        });</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a03ded3b6b923777cb3b1dbd0eacc2469"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">MyBLAS::LazyMatrix&lt; T &gt;::setCols</a></div><div class="ttdeci">void setCols(size_t cols)</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:394</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a221cf0cda155cf5fc252f42c319ab1df"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator</a></div><div class="ttdeci">void setGenerator(const Generator &amp;generator)</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:396</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a5950f1f4d71a26d7df7c447578f97aa2"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">MyBLAS::LazyMatrix&lt; T &gt;::setRows</a></div><div class="ttdeci">void setRows(size_t rows)</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:392</div></div>
+<div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_a2632f681737490169cd3b99126a33c4a"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">MyPhysics::Diffusion::Matrix::_size</a></div><div class="ttdeci">size_t _size</div><div class="ttdoc">The size of the matrix.</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:47</div></div>
+<div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_a7665dfc140535a981abec6120be9dfa3"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">MyPhysics::Diffusion::Matrix::_constants</a></div><div class="ttdeci">Constants&lt; T &gt; _constants</div><div class="ttdoc">The constants used in the diffusion process.</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:51</div></div>
+<div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_accf0012585f5c7af122ca043990547ec"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">MyPhysics::Diffusion::Matrix::generate</a></div><div class="ttdeci">static T generate(size_t idx, size_t idy, const Constants&lt; T &gt; &amp;c)</div><div class="ttdoc">Generates a matrix element.</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:107</div></div>
+<div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_ae279788d29369699103f70c5a731f416"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">MyPhysics::Diffusion::Matrix::_params</a></div><div class="ttdeci">Params&lt; T &gt; _params</div><div class="ttdoc">The parameters of the diffusion process.</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:43</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
-<div class="ttc" id="astructMyPhysics_1_1Diffusion_1_1Constants_html_aa4b27b31e865576eb1b6280ef04e3fd2"><div class="ttname"><a href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html#aa4b27b31e865576eb1b6280ef04e3fd2">MyPhysics::Diffusion::Constants::compute</a></div><div class="ttdeci">static Constants compute(const Params&lt; T &gt; &amp;params)</div><div class="ttdef"><b>Definition:</b> DiffusionConstants.h:34</div></div>
+<div class="ttc" id="astructMyPhysics_1_1Diffusion_1_1Constants_html_aa4b27b31e865576eb1b6280ef04e3fd2"><div class="ttname"><a href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html#aa4b27b31e865576eb1b6280ef04e3fd2">MyPhysics::Diffusion::Constants::compute</a></div><div class="ttdeci">static Constants compute(const Params&lt; T &gt; &amp;params)</div><div class="ttdoc">Computes the constants based on the provided diffusion parameters.</div><div class="ttdef"><b>Definition:</b> DiffusionConstants.h:93</div></div>
 <div class="ttc" id="astructMyPhysics_1_1Diffusion_1_1Params_html_a4baf3f31fe7d8290e9b83a5d50832293"><div class="ttname"><a href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a4baf3f31fe7d8290e9b83a5d50832293">MyPhysics::Diffusion::Params::getM</a></div><div class="ttdeci">size_t getM() const</div><div class="ttdoc">Get the number of mesh points in the x-direction.</div><div class="ttdef"><b>Definition:</b> DiffusionParams.h:292</div></div>
 <div class="ttc" id="astructMyPhysics_1_1Diffusion_1_1Params_html_af03d96d9d471d6953b819b548bb633d9"><div class="ttname"><a href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#af03d96d9d471d6953b819b548bb633d9">MyPhysics::Diffusion::Params::getN</a></div><div class="ttdeci">size_t getN() const</div><div class="ttdoc">Get the number of mesh points in the y-direction.</div><div class="ttdef"><b>Definition:</b> DiffusionParams.h:299</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00029">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00027">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00028">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00067">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00302">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00303">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00301">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00107">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00394">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00396">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00392">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -360,17 +397,25 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                   : <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">MyBLAS::LazyMatrix&lt;T&gt;</a>(matrix), <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>(matrix._params), <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>(<a class="code" href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html#aa4b27b31e865576eb1b6280ef04e3fd2">Constants&lt;T&gt;::compute</a>(matrix._params)) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a> = matrix._size;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">setRows</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">setCols</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a>([<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">generate</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j, <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        });</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+
+<p>Copy constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>The matrix to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                                   : <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">MyBLAS::LazyMatrix&lt;T&gt;</a>(matrix), <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>(matrix._params), <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>(<a class="code" href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html#aa4b27b31e865576eb1b6280ef04e3fd2">Constants&lt;T&gt;::compute</a>(matrix._params)) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a> = matrix._size;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">setRows</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">setCols</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a>([<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">generate</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j, <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        });</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
 <div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">MyBLAS::LazyMatrix&lt; T &gt;</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00029">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00028">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00067">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00302">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00303">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00301">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00107">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00394">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00396">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00392">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -402,7 +447,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aec48b718b97e7a45b53d10c26476bdbe">Generator</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422">Generator</a>&#160;</td>
           <td class="paramname"><em>generator</em>&#160;</td>
         </tr>
         <tr>
@@ -417,14 +462,23 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                                        : <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>(params), <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>(<a class="code" href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html#aa4b27b31e865576eb1b6280ef04e3fd2">Constants&lt;T&gt;::compute</a>(params)) {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a> = <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a4baf3f31fe7d8290e9b83a5d50832293">getM</a>() * <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#af03d96d9d471d6953b819b548bb633d9">getN</a>();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">setRows</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">setCols</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a>(generator);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+
+<p>Constructor that takes diffusion parameters and a generator function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>The diffusion parameters. </td></tr>
+    <tr><td class="paramname">generator</td><td>The generator function. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                                                        : <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>(params), <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>(<a class="code" href="../../da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html#aa4b27b31e865576eb1b6280ef04e3fd2">Constants&lt;T&gt;::compute</a>(params)) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a> = <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a4baf3f31fe7d8290e9b83a5d50832293">getM</a>() * <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#af03d96d9d471d6953b819b548bb633d9">getN</a>();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">setRows</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">setCols</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a>(generator);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00027">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00028">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00302">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00303">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00301">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00394">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00396">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00392">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -478,25 +532,36 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                                                     {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> (idx == idy) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> c.diagonal;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = (idx / c.n), p = (idy / c.n);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> ((<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> == p) &amp;&amp; (idx == idy + 1 || idx == idy - 1)) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> c.minus_D_over_gamma_squared;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> j = (idx % c.n), <a class="code" href="../../d1/d67/namespacegenerate__source__multi__lobe.html#ac4de0c865aabff1c5421914e4039e990">q</a> = (idy % c.n);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> ((j == <a class="code" href="../../d1/d67/namespacegenerate__source__multi__lobe.html#ac4de0c865aabff1c5421914e4039e990">q</a>) &amp;&amp; (idx == idy + c.n || idx == idy - c.n)) {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">return</span> c.minus_D_over_delta_squared;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+
+<p>Generates a matrix element. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The row index. </td></tr>
+    <tr><td class="paramname">idy</td><td>The column index. </td></tr>
+    <tr><td class="paramname">c</td><td>The diffusion constants. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The generated matrix element. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                                                     {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span> (idx == idy) {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">return</span> c.diagonal;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = (idx / c.n), p = (idy / c.n);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">if</span> ((<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> == p) &amp;&amp; (idx == idy + 1 || idx == idy - 1)) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span> c.minus_D_over_gamma_squared;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> j = (idx % c.n), <a class="code" href="../../d1/d67/namespacegenerate__source__multi__lobe.html#ac4de0c865aabff1c5421914e4039e990">q</a> = (idy % c.n);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">if</span> ((j == <a class="code" href="../../d1/d67/namespacegenerate__source__multi__lobe.html#ac4de0c865aabff1c5421914e4039e990">q</a>) &amp;&amp; (idx == idy + c.n || idx == idy - c.n)) {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">return</span> c.minus_D_over_delta_squared;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
 <div class="ttc" id="anamespacegenerate__source__multi__lobe_html_ac4de0c865aabff1c5421914e4039e990"><div class="ttname"><a href="../../d1/d67/namespacegenerate__source__multi__lobe.html#ac4de0c865aabff1c5421914e4039e990">generate_source_multi_lobe.q</a></div><div class="ttdeci">q</div><div class="ttdef"><b>Definition:</b> generate_source_multi_lobe.py:13</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00022">MyPhysics::Diffusion::Constants&lt; T &gt;::diagonal</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00018">MyPhysics::Diffusion::Constants&lt; T &gt;::minus_D_over_delta_squared</a>, <a class="el" href="../../#l00020">MyPhysics::Diffusion::Constants&lt; T &gt;::minus_D_over_gamma_squared</a>, <a class="el" href="../../#l00014">MyPhysics::Diffusion::Constants&lt; T &gt;::n</a>, and <a class="el" href="../../#l00013">generate_source_multi_lobe::q</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00070">MyPhysics::Diffusion::Constants&lt; T &gt;::diagonal</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00054">MyPhysics::Diffusion::Constants&lt; T &gt;::minus_D_over_delta_squared</a>, <a class="el" href="../../#l00062">MyPhysics::Diffusion::Constants&lt; T &gt;::minus_D_over_gamma_squared</a>, <a class="el" href="../../#l00038">MyPhysics::Diffusion::Constants&lt; T &gt;::n</a>, and <a class="el" href="../../#l00013">generate_source_multi_lobe::q</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00035">MyPhysics::Diffusion::Matrix&lt; T &gt;::Matrix()</a>, and <a class="el" href="../../#l00053">MyPhysics::Diffusion::Matrix&lt; T &gt;::operator=()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00062">MyPhysics::Diffusion::Matrix&lt; T &gt;::Matrix()</a>, and <a class="el" href="../../#l00087">MyPhysics::Diffusion::Matrix&lt; T &gt;::operator=()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -533,14 +598,17 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">MyBLAS::LazyMatrix&lt; T &gt;</a>.</p>
-<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                         {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00028">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>.</p>
+<p>Returns the number of columns in the matrix. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of columns in the matrix. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00058">TYPED_TEST()</a>.</p>
+<p>Reimplemented from <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">MyBLAS::LazyMatrix&lt; T &gt;</a>.</p>
+<div class="fragment"><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                                         {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00080">TYPED_TEST()</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -576,9 +644,12 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>; }</div>
+
+<p>Returns the diffusion constants. </p>
+<dl class="section return"><dt>Returns</dt><dd>The diffusion constants. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00029">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>.</p>
 
 </div>
 </div>
@@ -606,11 +677,14 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>; }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00027">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00026">TYPED_TEST()</a>.</p>
+<p>Returns the diffusion parameters. </p>
+<dl class="section return"><dt>Returns</dt><dd>The diffusion parameters. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00036">TYPED_TEST()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -647,14 +721,17 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">MyBLAS::LazyMatrix&lt; T &gt;</a>.</p>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                         {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00028">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>.</p>
+<p>Returns the number of rows in the matrix. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of rows in the matrix. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00058">TYPED_TEST()</a>.</p>
+<p>Reimplemented from <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">MyBLAS::LazyMatrix&lt; T &gt;</a>.</p>
+<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                                         {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00080">TYPED_TEST()</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -699,10 +776,20 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                                              {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>(<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>, col);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a3054cd9b972d3919c2a5be3caae5ff78"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">MyBLAS::LazyMatrix&lt; T &gt;::generator_</a></div><div class="ttdeci">Generator generator_</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:298</div></div>
+
+<p>Computes and returns the value at the specified row and column. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>The row index. </td></tr>
+    <tr><td class="paramname">col</td><td>The column index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The computed value at the specified row and column. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                                              {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>(<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>, col);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a3054cd9b972d3919c2a5be3caae5ff78"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">MyBLAS::LazyMatrix&lt; T &gt;::generator_</a></div><div class="ttdeci">Generator generator_</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:388</div></div>
 <div class="ttc" id="anamespaceprocess_html_a642508a3f698c3dc98a03f79a3b625d3"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">process.row</a></div><div class="ttdeci">row</div><div class="ttdef"><b>Definition:</b> process.py:24</div></div>
 </div><!-- fragment -->
 </div>
@@ -730,12 +817,12 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                                                {</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * scalar; });</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a19df35bdca989adb5f016678ba149695"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">MyBLAS::LazyMatrix&lt; T &gt;::getRows</a></div><div class="ttdeci">virtual size_t getRows() const</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:45</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_ac4dda47a455caeae9cfc442659d1d681"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">MyBLAS::LazyMatrix&lt; T &gt;::LazyMatrix</a></div><div class="ttdeci">LazyMatrix()=default</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_adf8f185e46b07c34f43bfefe18a1a6b0"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">MyBLAS::LazyMatrix&lt; T &gt;::getCols</a></div><div class="ttdeci">virtual size_t getCols() const</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:46</div></div>
+<div class="fragment"><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                                                {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * scalar; });</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a19df35bdca989adb5f016678ba149695"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">MyBLAS::LazyMatrix&lt; T &gt;::getRows</a></div><div class="ttdeci">virtual size_t getRows() const</div><div class="ttdoc">Returns the number of rows in the matrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:63</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_ac4dda47a455caeae9cfc442659d1d681"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">MyBLAS::LazyMatrix&lt; T &gt;::LazyMatrix</a></div><div class="ttdeci">LazyMatrix()=default</div><div class="ttdoc">Default constructor for the LazyMatrix class.</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_adf8f185e46b07c34f43bfefe18a1a6b0"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">MyBLAS::LazyMatrix&lt; T &gt;::getCols</a></div><div class="ttdeci">virtual size_t getCols() const</div><div class="ttdoc">Returns the number of columns in the matrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:70</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -762,11 +849,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                                                {</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                                                {</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -793,11 +880,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                                            {</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * scalar; };</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                                            {</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * scalar; };</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -825,9 +912,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Matrix-Scalar Operations </p>
-<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                                                {</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + scalar; });</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                                                {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + scalar; });</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -854,11 +941,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                                                {</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                                                {</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -885,11 +972,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                                            {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + scalar; };</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                                            {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + scalar; };</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -915,9 +1002,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                                 {</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> -(*this)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); });</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                                 {</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> -(*this)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); });</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -944,9 +1031,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                                {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - scalar; });</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                                                {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - scalar; });</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -973,11 +1060,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                                                {</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                                                {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1004,11 +1091,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                                            {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - scalar; };</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                                            {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - scalar; };</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1035,9 +1122,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                                                {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / scalar; });</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                                                {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / scalar; });</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1064,11 +1151,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                                                {</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                                                {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1095,11 +1182,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                                            {</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / scalar; };</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                                            {</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / scalar; };</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1128,21 +1215,30 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                           {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;other) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a> = other._params;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a> = other._size;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a> = other._constants;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">setRows</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">setCols</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a>([<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">generate</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j, <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            });</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+
+<p>Copy assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The matrix to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to this matrix. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                           {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;other) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416">_params</a> = other._params;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a> = other._size;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a> = other._constants;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">setRows</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">setCols</a>(<a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">_size</a>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a>([<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">generate</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j, <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            });</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00029">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00027">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00028">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00067">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00302">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00303">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00301">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00107">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00394">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00396">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00392">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -1177,9 +1273,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                                 {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">return</span> Proxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                                 {</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        <span class="keywordflow">return</span> Proxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1206,9 +1302,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                                            {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keywordflow">return</span> ConstProxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                                            {</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="keywordflow">return</span> ConstProxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1235,8 +1331,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a> = cols; }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a8b15617e180289ea3dcfddea93712010"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">MyBLAS::LazyMatrix&lt; T &gt;::cols_</a></div><div class="ttdeci">size_t cols_</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:297</div></div>
+<div class="fragment"><div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a> = cols; }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a8b15617e180289ea3dcfddea93712010"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">MyBLAS::LazyMatrix&lt; T &gt;::cols_</a></div><div class="ttdeci">size_t cols_</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:386</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1263,7 +1359,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = generator; }</div>
+<div class="fragment"><div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = generator; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1290,8 +1386,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a> = rows; }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a65f38861fe066e8e077f0aed9519d33f"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">MyBLAS::LazyMatrix&lt; T &gt;::rows_</a></div><div class="ttdeci">size_t rows_</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:296</div></div>
+<div class="fragment"><div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a> = rows; }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a65f38861fe066e8e077f0aed9519d33f"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">MyBLAS::LazyMatrix&lt; T &gt;::rows_</a></div><div class="ttdeci">size_t rows_</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:384</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1318,7 +1414,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00091">MyPhysics::Diffusion::Matrix&lt; T &gt;::getConstants()</a>, <a class="el" href="../../#l00035">MyPhysics::Diffusion::Matrix&lt; T &gt;::Matrix()</a>, and <a class="el" href="../../#l00053">MyPhysics::Diffusion::Matrix&lt; T &gt;::operator=()</a>.</p>
+<p>The constants used in the diffusion process. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00141">MyPhysics::Diffusion::Matrix&lt; T &gt;::getConstants()</a>, <a class="el" href="../../#l00062">MyPhysics::Diffusion::Matrix&lt; T &gt;::Matrix()</a>, and <a class="el" href="../../#l00087">MyPhysics::Diffusion::Matrix&lt; T &gt;::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1344,7 +1442,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00089">MyPhysics::Diffusion::Matrix&lt; T &gt;::getParams()</a>, <a class="el" href="../../#l00035">MyPhysics::Diffusion::Matrix&lt; T &gt;::Matrix()</a>, and <a class="el" href="../../#l00053">MyPhysics::Diffusion::Matrix&lt; T &gt;::operator=()</a>.</p>
+<p>The parameters of the diffusion process. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00136">MyPhysics::Diffusion::Matrix&lt; T &gt;::getParams()</a>, <a class="el" href="../../#l00062">MyPhysics::Diffusion::Matrix&lt; T &gt;::Matrix()</a>, and <a class="el" href="../../#l00087">MyPhysics::Diffusion::Matrix&lt; T &gt;::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1370,7 +1470,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00097">MyPhysics::Diffusion::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00093">MyPhysics::Diffusion::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00035">MyPhysics::Diffusion::Matrix&lt; T &gt;::Matrix()</a>, and <a class="el" href="../../#l00053">MyPhysics::Diffusion::Matrix&lt; T &gt;::operator=()</a>.</p>
+<p>The size of the matrix. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00153">MyPhysics::Diffusion::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00146">MyPhysics::Diffusion::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00062">MyPhysics::Diffusion::Matrix&lt; T &gt;::Matrix()</a>, and <a class="el" href="../../#l00087">MyPhysics::Diffusion::Matrix&lt; T &gt;::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1406,7 +1508,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aec48b718b97e7a45b53d10c26476bdbe">Generator</a> <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">MyBLAS::LazyMatrix</a>&lt; T  &gt;::generator_</td>
+          <td class="memname"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422">Generator</a> <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">MyBLAS::LazyMatrix</a>&lt; T  &gt;::generator_</td>
         </tr>
       </table>
   </td>
@@ -1448,7 +1550,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d8/da1/namespaceMyPhysics.html">MyPhysics</a></li><li class="navelem"><a class="el" href="../../d2/d71/namespaceMyPhysics_1_1Diffusion.html">Diffusion</a></li><li class="navelem"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html">Matrix</a></li>
+    <li class="navelem"><b>MyPhysics</b></li><li class="navelem"><a class="el" href="../../d2/d71/namespaceMyPhysics_1_1Diffusion.html">Diffusion</a></li><li class="navelem"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html">Matrix</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

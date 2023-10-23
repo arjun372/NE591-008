@@ -6,7 +6,6 @@ var annotated_dup =
       ] ],
       [ "Input", "d7/dd6/structMyBLAS_1_1Input.html", "d7/dd6/structMyBLAS_1_1Input" ],
       [ "Output", "d9/d29/structMyBLAS_1_1Output.html", "d9/d29/structMyBLAS_1_1Output" ],
-      [ "ElementwiseAdditionExpression", "d7/dff/classMyBLAS_1_1ElementwiseAdditionExpression.html", "d7/dff/classMyBLAS_1_1ElementwiseAdditionExpression" ],
       [ "ContainerExpression", "d5/d49/classMyBLAS_1_1ContainerExpression.html", "d5/d49/classMyBLAS_1_1ContainerExpression" ],
       [ "ElementwiseExpression", "df/d63/classMyBLAS_1_1ElementwiseExpression.html", "df/d63/classMyBLAS_1_1ElementwiseExpression" ],
       [ "LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html", "d0/d28/classMyBLAS_1_1LazyMatrix" ],
@@ -29,7 +28,7 @@ var annotated_dup =
       [ "Parameters", "de/d18/namespaceMyLinearSolvingMethod.html#d8/d53/structMyLinearSolvingMethod_1_1Parameters", "de/d18/namespaceMyLinearSolvingMethod_d8/d53/structMyLinearSolvingMethod_1_1Parameters_dup" ],
       [ "Solution", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", "de/d83/structMyLinearSolvingMethod_1_1Solution" ]
     ] ],
-    [ "MyPhysics", "d8/da1/namespaceMyPhysics.html", [
+    [ "MyPhysics", null, [
       [ "Diffusion", "d2/d71/namespaceMyPhysics_1_1Diffusion.html", [
         [ "Constants", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants" ],
         [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix" ],
@@ -59,7 +58,6 @@ var annotated_dup =
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h_d8/dd7/structMatrixBuildArgs" ],
     [ "MatrixVectorExpression", "d4/d68/classMatrixVectorExpression.html", "d4/d68/classMatrixVectorExpression" ],
     [ "MatrixVectorTests", "d3/dab/classMatrixVectorTests.html", null ],
-    [ "MPICommandLine", "d8/de9/classMPICommandLine.html", "d8/de9/classMPICommandLine" ],
     [ "MPIProject", "d0/df0/classMPIProject.html", "d0/df0/classMPIProject" ],
     [ "OutLab1", "dd/df3/classOutLab1.html", "dd/df3/classOutLab1" ],
     [ "OutLab3", "da/df0/classOutLab3.html", "da/df0/classOutLab3" ],

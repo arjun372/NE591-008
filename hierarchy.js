@@ -2,9 +2,7 @@ var hierarchy =
 [
     [ "ArgsPrintMatrix", "d7/d12/structArgsPrintMatrix.html", null ],
     [ "CanvasType< T >", "db/df1/Helpers_8h.html#de/d8a/structCanvasType", null ],
-    [ "CommandLine< InputType >", "dd/d02/classCommandLine.html", [
-      [ "MPICommandLine< InputType >", "d8/de9/classMPICommandLine.html", null ]
-    ] ],
+    [ "CommandLine< InputType >", "dd/d02/classCommandLine.html", null ],
     [ "CommandLine< InLab6Inputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
@@ -59,7 +57,6 @@ var hierarchy =
       [ "OutLab7", "d3/d49/classOutLab7.html", null ]
     ] ],
     [ "MyBLAS::ContainerExpression< ContainerType1, ContainerType2, T >", "d5/d49/classMyBLAS_1_1ContainerExpression.html", null ],
-    [ "MyBLAS::ElementwiseAdditionExpression< MatrixType, T >", "d7/dff/classMyBLAS_1_1ElementwiseAdditionExpression.html", null ],
     [ "MyBLAS::ElementwiseExpression< DataType, ContainerType1, ContainerType2, BinaryOp >", "df/d63/classMyBLAS_1_1ElementwiseExpression.html", null ],
     [ "MyBLAS::Input", "d7/dd6/structMyBLAS_1_1Input.html", null ],
     [ "MyBLAS::LazyMatrix< DataType >", "d0/d28/classMyBLAS_1_1LazyMatrix.html", null ],

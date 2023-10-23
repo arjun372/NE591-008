@@ -122,6 +122,9 @@ $(document).ready(function(){initNavTree('df/d63/classMyBLAS_1_1ElementwiseExpre
 </div><!--header-->
 <div class="contents">
 
+<p>A class for performing element-wise operations on two containers.  
+ <a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../">ElementwiseExpression.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;:</div>
@@ -135,32 +138,50 @@ $(document).ready(function(){initNavTree('df/d63/classMyBLAS_1_1ElementwiseExpre
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab56ae3a26fb84133d27fe371ae1825d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab56ae3a26fb84133d27fe371ae1825d4">ElementwiseExpression</a> (ContainerType1 const &amp;op1, ContainerType2 const &amp;op2, BinaryOp binary_op)</td></tr>
+<tr class="memdesc:ab56ae3a26fb84133d27fe371ae1825d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html" title="A class for performing element-wise operations on two containers.">ElementwiseExpression</a> class.  <a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab56ae3a26fb84133d27fe371ae1825d4">More...</a><br /></td></tr>
 <tr class="separator:ab56ae3a26fb84133d27fe371ae1825d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa70facd0797dda99843881dc6a892b54"><td class="memItemLeft" align="right" valign="top">DataType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa70facd0797dda99843881dc6a892b54">operator()</a> (size_t <a class="el" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) const</td></tr>
+<tr class="memdesc:aa70facd0797dda99843881dc6a892b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function call operator for performing the operation on a specific element of the containers.  <a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa70facd0797dda99843881dc6a892b54">More...</a><br /></td></tr>
 <tr class="separator:aa70facd0797dda99843881dc6a892b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6508c3cd687f2d6146d1bb387f80a8a2"><td class="memItemLeft" align="right" valign="top">DataType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a6508c3cd687f2d6146d1bb387f80a8a2">operator()</a> (size_t <a class="el" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, size_t j) const</td></tr>
+<tr class="memdesc:a6508c3cd687f2d6146d1bb387f80a8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function call operator for performing the operation on a specific element of the containers (for matrices).  <a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a6508c3cd687f2d6146d1bb387f80a8a2">More...</a><br /></td></tr>
 <tr class="separator:a6508c3cd687f2d6146d1bb387f80a8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a74ab88087b54729650118c065a29142c"><td class="memItemLeft" align="right" valign="top">static ContainerType2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a74ab88087b54729650118c065a29142c">vector</a> (const ContainerType1 &amp;a, const ContainerType2 &amp;b, BinaryOp op)</td></tr>
+<tr class="memdesc:a74ab88087b54729650118c065a29142c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static function for performing the operation on two vectors.  <a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a74ab88087b54729650118c065a29142c">More...</a><br /></td></tr>
 <tr class="separator:a74ab88087b54729650118c065a29142c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b21fa3112dc208b0554b3e009cf17b1"><td class="memItemLeft" align="right" valign="top">static ContainerType2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a9b21fa3112dc208b0554b3e009cf17b1">matrix</a> (const ContainerType1 &amp;a, const ContainerType2 &amp;b, BinaryOp op)</td></tr>
+<tr class="memdesc:a9b21fa3112dc208b0554b3e009cf17b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static function for performing the operation on two matrices.  <a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a9b21fa3112dc208b0554b3e009cf17b1">More...</a><br /></td></tr>
 <tr class="separator:a9b21fa3112dc208b0554b3e009cf17b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a0090e7c4e227b4d45c8176282a97fa48"><td class="memItemLeft" align="right" valign="top">ContainerType1 const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">op1_</a></td></tr>
+<tr class="memdesc:a0090e7c4e227b4d45c8176282a97fa48"><td class="mdescLeft">&#160;</td><td class="mdescRight">The first operand (container).  <a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">More...</a><br /></td></tr>
 <tr class="separator:a0090e7c4e227b4d45c8176282a97fa48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa027a10544773a51ca6d5a2957f6ede4"><td class="memItemLeft" align="right" valign="top">ContainerType2 const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">op2_</a></td></tr>
+<tr class="memdesc:aa027a10544773a51ca6d5a2957f6ede4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The second operand (container).  <a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">More...</a><br /></td></tr>
 <tr class="separator:aa027a10544773a51ca6d5a2957f6ede4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab75ade9ed7ce21f77e6157cfc171d22b"><td class="memItemLeft" align="right" valign="top">BinaryOp&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">binary_op_</a></td></tr>
+<tr class="memdesc:ab75ade9ed7ce21f77e6157cfc171d22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The binary operation to be performed.  <a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">More...</a><br /></td></tr>
 <tr class="separator:ab75ade9ed7ce21f77e6157cfc171d22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename DataType, typename ContainerType1, typename ContainerType2, typename BinaryOp&gt;<br />
 class MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;</h3>
 
+<p>A class for performing element-wise operations on two containers. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>The type of data stored in the containers. </td></tr>
+    <tr><td class="paramname">ContainerType1</td><td>The type of the first container. </td></tr>
+    <tr><td class="paramname">ContainerType2</td><td>The type of the second container. </td></tr>
+    <tr><td class="paramname">BinaryOp</td><td>The type of the binary operation to be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab56ae3a26fb84133d27fe371ae1825d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab56ae3a26fb84133d27fe371ae1825d4">&#9670;&nbsp;</a></span>ElementwiseExpression()</h2>
@@ -203,10 +224,20 @@ template&lt;typename DataType , typename ContainerType1 , typename ContainerType
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        : <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">op1_</a>(op1), <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">op2_</a>(op2), <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">binary_op_</a>(binary_op) {}</div>
-<div class="ttc" id="aclassMyBLAS_1_1ElementwiseExpression_html_a0090e7c4e227b4d45c8176282a97fa48"><div class="ttname"><a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">MyBLAS::ElementwiseExpression::op1_</a></div><div class="ttdeci">ContainerType1 const  &amp; op1_</div><div class="ttdef"><b>Definition:</b> ElementwiseExpression.h:39</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1ElementwiseExpression_html_aa027a10544773a51ca6d5a2957f6ede4"><div class="ttname"><a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">MyBLAS::ElementwiseExpression::op2_</a></div><div class="ttdeci">ContainerType2 const  &amp; op2_</div><div class="ttdef"><b>Definition:</b> ElementwiseExpression.h:40</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1ElementwiseExpression_html_ab75ade9ed7ce21f77e6157cfc171d22b"><div class="ttname"><a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">MyBLAS::ElementwiseExpression::binary_op_</a></div><div class="ttdeci">BinaryOp binary_op_</div><div class="ttdef"><b>Definition:</b> ElementwiseExpression.h:41</div></div>
+
+<p>Constructor for the <a class="el" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html" title="A class for performing element-wise operations on two containers.">ElementwiseExpression</a> class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">op1</td><td>The first operand (container). </td></tr>
+    <tr><td class="paramname">op2</td><td>The second operand (container). </td></tr>
+    <tr><td class="paramname">binary_op</td><td>The binary operation to be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        : <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">op1_</a>(op1), <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">op2_</a>(op2), <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">binary_op_</a>(binary_op) {}</div>
+<div class="ttc" id="aclassMyBLAS_1_1ElementwiseExpression_html_a0090e7c4e227b4d45c8176282a97fa48"><div class="ttname"><a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">MyBLAS::ElementwiseExpression::op1_</a></div><div class="ttdeci">ContainerType1 const  &amp; op1_</div><div class="ttdoc">The first operand (container).</div><div class="ttdef"><b>Definition:</b> ElementwiseExpression.h:96</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1ElementwiseExpression_html_aa027a10544773a51ca6d5a2957f6ede4"><div class="ttname"><a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">MyBLAS::ElementwiseExpression::op2_</a></div><div class="ttdeci">ContainerType2 const  &amp; op2_</div><div class="ttdoc">The second operand (container).</div><div class="ttdef"><b>Definition:</b> ElementwiseExpression.h:101</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1ElementwiseExpression_html_ab75ade9ed7ce21f77e6157cfc171d22b"><div class="ttname"><a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">MyBLAS::ElementwiseExpression::binary_op_</a></div><div class="ttdeci">BinaryOp binary_op_</div><div class="ttdoc">The binary operation to be performed.</div><div class="ttdef"><b>Definition:</b> ElementwiseExpression.h:106</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -252,13 +283,24 @@ template&lt;typename DataType , typename ContainerType1 , typename ContainerType
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                                                                                {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        assert(a.getRows() == b.getRows());</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        assert(a.getCols() == b.getCols());</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab56ae3a26fb84133d27fe371ae1825d4">ElementwiseExpression</a>&lt;DataType, ContainerType1, ContainerType2, decltype(op)&gt; expr(a, b, op);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> ContainerType2(a.getRows(), b.getCols(), [expr](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { return expr(i, j); });</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1ElementwiseExpression_html_ab56ae3a26fb84133d27fe371ae1825d4"><div class="ttname"><a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab56ae3a26fb84133d27fe371ae1825d4">MyBLAS::ElementwiseExpression::ElementwiseExpression</a></div><div class="ttdeci">ElementwiseExpression(ContainerType1 const &amp;op1, ContainerType2 const &amp;op2, BinaryOp binary_op)</div><div class="ttdef"><b>Definition:</b> ElementwiseExpression.h:19</div></div>
+
+<p>Static function for performing the operation on two matrices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>The first matrix. </td></tr>
+    <tr><td class="paramname">b</td><td>The second matrix. </td></tr>
+    <tr><td class="paramname">op</td><td>The operation to be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new matrix that is the result of the operation. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                                                                                {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        assert(a.getRows() == b.getRows());</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        assert(a.getCols() == b.getCols());</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab56ae3a26fb84133d27fe371ae1825d4">ElementwiseExpression</a>&lt;DataType, ContainerType1, ContainerType2, decltype(op)&gt; expr(a, b, op);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> ContainerType2(a.getRows(), b.getCols(), [expr](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { return expr(i, j); });</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="ttc" id="aclassMyBLAS_1_1ElementwiseExpression_html_ab56ae3a26fb84133d27fe371ae1825d4"><div class="ttname"><a href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab56ae3a26fb84133d27fe371ae1825d4">MyBLAS::ElementwiseExpression::ElementwiseExpression</a></div><div class="ttdeci">ElementwiseExpression(ContainerType1 const &amp;op1, ContainerType2 const &amp;op2, BinaryOp binary_op)</div><div class="ttdoc">Constructor for the ElementwiseExpression class.</div><div class="ttdef"><b>Definition:</b> ElementwiseExpression.h:43</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00023">i</a>.</p>
@@ -290,9 +332,18 @@ template&lt;typename DataType , typename ContainerType1 , typename ContainerType
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">binary_op_</a>(<a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">op1_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>), <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">op2_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>)); }</div>
+
+<p>Function call operator for performing the operation on a specific element of the containers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The index of the element. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The result of the operation. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">binary_op_</a>(<a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">op1_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>), <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">op2_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>)); }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00041">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::binary_op_</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00039">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::op1_</a>, and <a class="el" href="../../#l00040">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::op2_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00106">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::binary_op_</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00096">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::op1_</a>, and <a class="el" href="../../#l00101">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::op2_</a>.</p>
 
 </div>
 </div>
@@ -331,9 +382,19 @@ template&lt;typename DataType , typename ContainerType1 , typename ContainerType
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">binary_op_</a>(<a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">op1_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j), <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">op2_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j)); }</div>
+
+<p>Function call operator for performing the operation on a specific element of the containers (for matrices). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The row index of the element. </td></tr>
+    <tr><td class="paramname">j</td><td>The column index of the element. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The result of the operation. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab75ade9ed7ce21f77e6157cfc171d22b">binary_op_</a>(<a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#a0090e7c4e227b4d45c8176282a97fa48">op1_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j), <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#aa027a10544773a51ca6d5a2957f6ede4">op2_</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j)); }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00041">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::binary_op_</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00039">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::op1_</a>, and <a class="el" href="../../#l00040">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::op2_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00106">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::binary_op_</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00096">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::op1_</a>, and <a class="el" href="../../#l00101">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::op2_</a>.</p>
 
 </div>
 </div>
@@ -378,11 +439,22 @@ template&lt;typename DataType , typename ContainerType1 , typename ContainerType
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                                                                                {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        assert(a.size() == b.size());</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab56ae3a26fb84133d27fe371ae1825d4">ElementwiseExpression</a>&lt;DataType, ContainerType1, ContainerType2, decltype(op)&gt; expr(a, b, op);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> ContainerType2(a.size(), [expr](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) { return expr(i); });</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+
+<p>Static function for performing the operation on two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">b</td><td>The second vector. </td></tr>
+    <tr><td class="paramname">op</td><td>The operation to be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector that is the result of the operation. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                                                                                {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        assert(a.size() == b.size());</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="../../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab56ae3a26fb84133d27fe371ae1825d4">ElementwiseExpression</a>&lt;DataType, ContainerType1, ContainerType2, decltype(op)&gt; expr(a, b, op);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> ContainerType2(a.size(), [expr](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) { return expr(i); });</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00023">i</a>.</p>
 
@@ -411,7 +483,9 @@ template&lt;typename DataType , typename ContainerType1 , typename ContainerType
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00022">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::operator()()</a>.</p>
+<p>The binary operation to be performed. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00052">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::operator()()</a>.</p>
 
 </div>
 </div>
@@ -437,7 +511,9 @@ template&lt;typename DataType , typename ContainerType1 , typename ContainerType
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00022">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::operator()()</a>.</p>
+<p>The first operand (container). </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00052">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::operator()()</a>.</p>
 
 </div>
 </div>
@@ -463,7 +539,9 @@ template&lt;typename DataType , typename ContainerType1 , typename ContainerType
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00022">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::operator()()</a>.</p>
+<p>The second operand (container). </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00052">MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;::operator()()</a>.</p>
 
 </div>
 </div>

@@ -123,10 +123,10 @@ $(document).ready(function(){initNavTree('d9/d41/CommandLine_8h.html','../../');
 
 <p>This file contains the definition of the <a class="el" href="../../dd/d02/classCommandLine.html" title="A class to parse command line arguments and display information about the project.">CommandLine</a> class and the <a class="el" href="../../d9/d41/CommandLine_8h.html#d3/db0/structHeaderInfo" title="A struct to store information about the project.">HeaderInfo</a> struct.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../">CommandlineHelpers.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">Helpers.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">Profiler.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../">Helpers.h</a>&quot;</code><br />
 <code>#include &quot;project-config.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">utils/profiler/Profiler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">utils/profiler/ProfilerHelper.h</a>&quot;</code><br />
 <code>#include &lt;boost/program_options.hpp&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -156,6 +156,7 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:d3/db0/structHeaderInfo"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct to store information about the project.  <a href="../../d9/d41/CommandLine_8h.html#d3/db0/structHeaderInfo">More...</a><br /></td></tr>
 <tr class="separator:d3/db0/structHeaderInfo"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:de/d26/structCommandLineArgs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d41/CommandLine_8h.html#de/d26/structCommandLineArgs">CommandLineArgs</a></td></tr>
+<tr class="memdesc:de/d26/structCommandLineArgs"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct to store command line arguments.  <a href="../../d9/d41/CommandLine_8h.html#de/d26/structCommandLineArgs">More...</a><br /></td></tr>
 <tr class="separator:de/d26/structCommandLineArgs"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d02/classCommandLine.html">CommandLine&lt; InputType &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to parse command line arguments and display information about the project.  <a href="../../dd/d02/classCommandLine.html#details">More...</a><br /></td></tr>
@@ -163,10 +164,12 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a490c76b355e69aabc18b99fa3ab795c3"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d41/CommandLine_8h.html#a490c76b355e69aabc18b99fa3ab795c3">default_precision</a> {std::cout.precision()}</td></tr>
-<tr class="separator:a490c76b355e69aabc18b99fa3ab795c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78959ecd5c09c39ab16731c88cff9f9b"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d41/CommandLine_8h.html#a78959ecd5c09c39ab16731c88cff9f9b">max_precision</a> {std::numeric_limits&lt;long double&gt;::digits10 + 1}</td></tr>
-<tr class="separator:a78959ecd5c09c39ab16731c88cff9f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62aef5753b7a627993a55d7d2a1bc7e4"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d41/CommandLine_8h.html#a62aef5753b7a627993a55d7d2a1bc7e4">default_precision</a> {std::cout.precision()}</td></tr>
+<tr class="memdesc:a62aef5753b7a627993a55d7d2a1bc7e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default precision for output streams.  <a href="../../d9/d41/CommandLine_8h.html#a62aef5753b7a627993a55d7d2a1bc7e4">More...</a><br /></td></tr>
+<tr class="separator:a62aef5753b7a627993a55d7d2a1bc7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a628337903dfa89d1c89bc6a08d955459"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d41/CommandLine_8h.html#a628337903dfa89d1c89bc6a08d955459">max_precision</a> {std::numeric_limits&lt;long double&gt;::digits10 + 1}</td></tr>
+<tr class="memdesc:a628337903dfa89d1c89bc6a08d955459"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum precision for long double type.  <a href="../../d9/d41/CommandLine_8h.html#a628337903dfa89d1c89bc6a08d955459">More...</a><br /></td></tr>
+<tr class="separator:a628337903dfa89d1c89bc6a08d955459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the definition of the <a class="el" href="../../dd/d02/classCommandLine.html" title="A class to parse command line arguments and display information about the project.">CommandLine</a> class and the <a class="el" href="../../d9/d41/CommandLine_8h.html#d3/db0/structHeaderInfo" title="A struct to store information about the project.">HeaderInfo</a> struct. </p>
@@ -243,7 +246,9 @@ SubmissionDate</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+<div class="textblock"><p>A struct to store command line arguments. </p>
+<p>This struct contains two members: argc and argv. argc is an integer that represents the number of command line arguments, and argv is a pointer to an array of character pointers that represent the command line arguments themselves. </p>
+</div><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for CommandLineArgs:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
@@ -258,36 +263,39 @@ SubmissionDate</td>
 <td class="fieldname">
 argc</td>
 <td class="fielddoc">
-</td></tr>
+The number of command line arguments. </td></tr>
 <tr><td class="fieldtype">
 <a id="aa5600980bc0370a950e32c98f4f94d03"></a>char **</td>
 <td class="fieldname">
 argv</td>
 <td class="fielddoc">
-</td></tr>
+The array of command line arguments. </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a490c76b355e69aabc18b99fa3ab795c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a490c76b355e69aabc18b99fa3ab795c3">&#9670;&nbsp;</a></span>default_precision</h2>
+<a id="a62aef5753b7a627993a55d7d2a1bc7e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62aef5753b7a627993a55d7d2a1bc7e4">&#9670;&nbsp;</a></span>default_precision</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const auto default_precision {std::cout.precision()}</td>
+          <td class="memname">default_precision {std::cout.precision()}</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The default precision for output streams. </p>
+<p>This variable stores the default precision for output streams. It is initialized with the current precision of std::cout. </p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00086">Parser::printInputArguments()</a>.</p>
 
 </div>
 </div>
-<a id="a78959ecd5c09c39ab16731c88cff9f9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78959ecd5c09c39ab16731c88cff9f9b">&#9670;&nbsp;</a></span>max_precision</h2>
+<a id="a628337903dfa89d1c89bc6a08d955459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a628337903dfa89d1c89bc6a08d955459">&#9670;&nbsp;</a></span>max_precision</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -296,7 +304,7 @@ argv</td>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto max_precision {std::numeric_limits&lt;long double&gt;::digits10 + 1}</td>
+          <td class="memname">max_precision {std::numeric_limits&lt;long double&gt;::digits10 + 1}</td>
         </tr>
       </table>
   </td>
@@ -305,6 +313,9 @@ argv</td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The maximum precision for long double type. </p>
+<p>This variable stores the maximum precision for long double type. It is initialized with the maximum number of decimal digits that can be represented without change for the long double type. </p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00081">OutLab5::run()</a>, and <a class="el" href="../../#l00079">Project1::run()</a>.</p>
 
