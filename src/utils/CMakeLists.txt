@@ -3,11 +3,10 @@ set(UTILS_LIB_HEADERS
         FileParser.h
         Helpers.h
         json.hpp
-        Profiler.h
+        profiler/Profiler.h
         Stopwatch.h
-        CommandlineHelpers.h
+        profiler/ProfilerHelper.h
 
-        MPICommandLine.h
         CommandLine.h
         Project.h
         mpi/MPIProject.h
@@ -47,8 +46,6 @@ set(UTILS_LIB_HEADERS
         math/blas/Constants.h
         math/blas/vector/MatrixVectorExpression.h
         math/blas/matrix/ContainerExpression.h
-        math/blas/elementwise/ElementwiseAddExpression.h
-        mpi/MPIContainer.h
 )
 
 set(UTILS_LIB_SOURCES

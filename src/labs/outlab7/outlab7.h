@@ -33,14 +33,32 @@
 class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
 
   public:
-    // TODO:: DOCUMENT
+    /**
+     * @brief This function is used to get the instance of the OutLab7 class.
+     * @details This function follows the Singleton design pattern. It ensures that only one instance of the OutLab7
+     * class is created.
+     * @param args Command line arguments
+     * @return Returns the instance of the OutLab7 class.
+     */
     [[maybe_unused]] static OutLab7& getInstance(CommandLineArgs args) {
         static OutLab7 instance(args);
         return instance;
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief This function is used to delete the copy constructor.
+     * @details This function ensures that the OutLab7 class cannot be copied. This is necessary because we are
+     * following the Singleton design pattern.
+     * @param OutLab7 const& The reference to the OutLab7 object to be copied.
+     */
     OutLab7(OutLab7 const&) = delete;
+
+    /**
+     * @brief This function is used to delete the assignment operator.
+     * @details This function ensures that the OutLab7 class cannot be assigned. This is necessary because we are
+     * following the Singleton design pattern.
+     * @param OutLab7 const& The reference to the OutLab7 object to be assigned.
+     */
     void operator=(OutLab7 const&) = delete;
 
   protected:
@@ -74,7 +92,16 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
         };
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Used to check if the number of processes is a power of 2 before running the main computation.
+     * @details If the number of processes is not a power of 2, an error message is printed and the function returns
+     * true to indicate an error.
+     * @param outputs The outputs of the computation.
+     * @param inputs The inputs to the computation.
+     * @param rank The rank of the current process.
+     * @param size The total number of processes.
+     * @return Returns true if the number of processes is not a power of 2, false otherwise.
+     */
     bool preRun(OutLab7Outputs &outputs, OutLab7Inputs &inputs, const int rank, const int size) override {
         if (failsPowerOf2Check(size)) {
             if (rank == 0) {
@@ -85,26 +112,24 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
         return false;
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief This function is used to perform the main computation.
+     * @details The computation is divided among the processes. Each process computes a partial sum and then the partial
+     * sums are combined using a binary tree communication logic.
+     * @param outputs The outputs of the computation.
+     * @param inputs The inputs to the computation.
+     * @param rank The rank of the current process.
+     * @param size The total number of processes.
+     * @return Returns false to indicate that the computation was successful.
+     */
     bool run(OutLab7Outputs &outputs, OutLab7Inputs &inputs, const int rank, const int size) override {
 
         auto profiler = getProfiler([&rank, &inputs, &size, &outputs]{
+
             size_t start = static_cast<size_t>(rank) * inputs.n / static_cast<size_t>(size) + 1;
             size_t stop = static_cast<size_t>(rank + 1) * inputs.n / static_cast<size_t>(size);
 
-            MyBLAS::NumericType partial_sum = 0;
-            MyBLAS::NumericType previousLog = std::log10(start);
-
-            for (size_t i = start + 1; i < stop; i++) {
-                const MyBLAS::NumericType currentLog = std::log10(i);
-                const MyBLAS::NumericType denominator = (i - 1) + currentLog;
-                const MyBLAS::NumericType numerator = 1.0f + previousLog;
-                previousLog = currentLog;
-                const MyBLAS::NumericType term = std::pow(numerator / denominator, 2);
-                partial_sum += term;
-            }
-
-            outputs.sum = partial_sum;
+            outputs.sum  = Compute::seriesSum(start, stop);
 
             int tag = 0;
             MPI_Status status;
@@ -131,7 +156,15 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
         return false;
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief This function is used to perform operations after the main computation.
+     * @details The final sum is printed in the root process and the inputs and outputs are written to a JSON file.
+     * @param outputs The outputs of the computation.
+     * @param inputs The inputs to the computation.
+     * @param rank The rank of the current process.
+     * @param size The total number of processes.
+     * @return Returns false to indicate that the post-run operations were successful.
+     */
     bool postRun(OutLab7Outputs &outputs, OutLab7Inputs &inputs, const int rank, const int size) override {
 
         if (rank != 0) {

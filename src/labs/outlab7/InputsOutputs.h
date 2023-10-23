@@ -18,18 +18,41 @@
 #include "json.hpp"
 #include "math/blas/Constants.h"
 
-// TODO:: DOCUMENT
+/**
+ * @brief A structure to hold the input parameters for the relaxation method.
+ *
+ * This structure contains a size_t variable 'n' and a string 'outputJSON'.
+ */
 typedef struct Input {
+    /**
+     * @brief The default constructor for the Input struct
+     */
     Input() = default;
-
+    /**
+     * @brief The number of iterations for the relaxation method.
+     *
+     * This variable is initialized to 1 by default.
+     */
     size_t n = 1;
+    /**
+     * @brief The output file name in JSON format.
+     *
+     * This string variable holds the name of the output file where the results will be stored in JSON format.
+     */
     std::string outputJSON;
-
+    /**
+     * @brief Overloaded stream insertion operator for the Input structure.
+     *
+     * This function allows the Input structure to be outputted to an ostream object in a formatted manner.
+     *
+     * @param os The ostream object where the Input structure will be outputted.
+     * @param input The Input structure that will be outputted.
+     * @return The ostream object with the Input structure outputted to it.
+     */
     friend std::ostream& operator<<(std::ostream& os, const Input& input) {
         os << "n: " << input.n<< ", outputJSON: " << input.outputJSON;
         return os;
     }
-
     /**
      * @brief Converts the input parameters to a JSON object.
      *
@@ -38,8 +61,15 @@ typedef struct Input {
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["n"] = n;
     }
-
-    // TODO:: DOCUMENT
+    /**
+     * @brief Function to serialize the Input structure.
+     *
+     * This function uses the Boost library to serialize the Input structure, allowing it to be saved to a file or
+     * sent over a network.
+     *
+     * @param ar The archive where the serialized data will be stored.
+     * @param version The version of the serialization library.
+     */
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version) {
         ar & BOOST_SERIALIZATION_NVP(n);
@@ -47,14 +77,22 @@ typedef struct Input {
 } OutLab7Inputs;
 
 /**
- * @brief A structure to hold the output of the relaxation method.
+ * @brief A structure to hold the output
  *
  * This structure contains the input parameters, the solution, and the execution time.
  */
 typedef struct Output {
+    /**
+     * @brief The total sum of the given series
+     *
+     * This variable holds the total sum of the given series.
+     */
     MyBLAS::NumericType sum = 0;
+    /**
+     * @brief The summary of the benchmark runs
+     * This structure holds the summary statistics of computation runtime, including the mean, standard deviation, etc.
+     */
     MyBLAS::Stats::Summary<long double> summary;
-
     /**
      * @brief Converts the output parameters to a JSON object.
      *
@@ -64,7 +102,15 @@ typedef struct Output {
         jsonMap["total_sum"] = sum;
         summary.toJSON(jsonMap["benchmark"]);
     }
-
+    /**
+     * @brief Function to serialize the Output structure.
+     *
+     * This function uses the Boost library to serialize the Output structure, allowing it to be saved to a file or
+     * sent over a network.
+     *
+     * @param ar The archive where the serialized data will be stored.
+     * @param version The version of the serialization library.
+     */
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version) {
         ar & BOOST_SERIALIZATION_NVP(sum);

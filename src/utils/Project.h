@@ -10,7 +10,7 @@
 #define NE591_008_PROJECT_H
 
 #include "CommandLine.h"
-#include "Profiler.h"
+#include "utils/profiler/Profiler.h"
 #include <boost/program_options.hpp>
 #include <utility>
 
@@ -56,13 +56,28 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
      */
     CommandLineParserType getTerminal() const { return terminal; }
 
+    /**
+     * @brief Returns the input data.
+     * @return A reference to the input data.
+     */
     InputType &getInputs() {
         return this->inputs;
     }
 
   protected:
+    /**
+     * @brief Holds the command line arguments.
+     */
     CommandLineArgs cmdArgs{};
+
+    /**
+     * @brief An instance of CommandLineParserType which is used to parse command line arguments.
+     */
     CommandLineParserType terminal;
+
+    /**
+     * @brief Holds the output data of the project.
+     */
     OutputType outputs;
 
     virtual /**
@@ -74,7 +89,10 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
         outputs = OutputType();
     }
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Finalizes the project.
+     * This is a virtual function and can be overridden by derived classes to provide specific finalization steps.
+     */
     virtual void finalize() {
 
     }

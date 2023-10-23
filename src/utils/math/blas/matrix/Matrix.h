@@ -1,9 +1,10 @@
 /**
- * @file Matrix.h
- * @author Arjun Earthperson
- * @date 09/22/2023
- * @brief This file contains my BLAS::Matrix declarations.
- */
+* @file Matrix.h
+* @brief Header file for the MyBLAS::Matrix class.
+* @author Arjun Earthperson
+* @date 09/22/2023
+* @details This file contains the declaration of the MyBLAS::Matrix class, which represents a matrix of T type values.
+*/
 
 #ifndef NE591_008_MATRIX_H
 #define NE591_008_MATRIX_H
@@ -15,8 +16,6 @@
 
 #include "math/blas/Constants.h"
 #include "math/blas/vector/Vector.h"
-
-//template <typename T> class MyPhysics::Diffusion::Matrix;
 
 namespace MyBLAS {
 
@@ -55,7 +54,12 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      */
     explicit Matrix(std::vector<std::vector<T>> _data) : data(_data) {}
 
-    // TODO:: DOCUMENT
+    /**
+     * @brief Constructor that initializes the matrix with another matrix.
+     * @param matrix The matrix to initialize from.
+     *
+     * This constructor allows for initializing a Matrix from another Matrix or a compatible type.
+     */
     template <class MatrixType>
     explicit Matrix(MatrixType matrix) {
         const size_t rows = matrix.getRows(), cols = matrix.getCols();
@@ -579,53 +583,3 @@ template <typename T, typename T2> static MyBLAS::Vector<T> cast(const MyBLAS::V
 } // namespace MyBLAS
 
 #endif // NE591_008_MATRIX_H
-
-//namespace MyBLAS {
-//
-//template <typename T> class Matrix;
-//template <typename T> class Vector;
-//
-//template <typename T = MyBLAS::NumericType> class Matrix {
-//
-//  protected:
-//    std::vector<std::vector<T>> data;
-//
-//  public:
-//    Matrix() = default;
-//    virtual ~Matrix() = default;
-//    explicit Matrix(std::vector<std::vector<T>> &_data);
-//    explicit Matrix(std::vector<std::vector<T>> _data);
-//    Matrix(size_t _rows, size_t _cols, const T _initial = 0);
-//    Matrix(std::initializer_list<std::initializer_list<T>> initList);
-//    std::vector<T> &operator[](const size_t rowNum);
-//    const std::vector<T> &operator[](const size_t rowNum) const;
-//    const std::vector<std::vector<T>> &getData() const;
-//    std::vector<std::vector<T>> &getData();
-//    void push_back(const std::vector<T> &row);
-//    inline size_t getRows() const;
-//    inline size_t getCols() const;
-//    static Matrix eye(size_t size);
-//    Matrix operator+(const Matrix &rhs) const;
-//    Matrix operator-(const Matrix &rhs) const;
-//    Matrix operator*(const Matrix &rhs) const;
-//    Vector<T> operator*(const Vector<T> &rhs) const;
-//    void setSubMatrix(size_t rowStart, size_t colStart, const Matrix<T> &subMatrix);
-//    Matrix<T> subMatrix(size_t rowStart, size_t colStart, size_t subRows, size_t subCols) const;
-//    bool operator==(const Matrix &rhs) const;
-//    Matrix operator*(const T &scalar) const;
-//    Matrix operator/(const T &scalar) const;
-//    Matrix operator+(const T &scalar) const;
-//    Matrix operator-(const T &scalar) const;
-//    void swapRows(size_t row1, size_t row2);
-//    friend std::ostream &operator<<(std::ostream &os, const Matrix &m);
-//};
-//
-//template <template<typename> class M, template<typename> class V, typename T> V<T> forwardSubstitution(const M<T> &L, const V<T> &b);
-//
-//template <template<typename> class M, template<typename> class V, typename T> V<T> backwardSubstitution(const M<T> &U, const V<T> &y);
-//
-//template <typename T, typename T2> static MyBLAS::Matrix<T> cast(const MyBLAS::Matrix<T2> &input);
-//
-//template <typename T, typename T2> static MyBLAS::Vector<T> cast(const MyBLAS::Vector<T2> &input);
-//
-//} // namespace MyBLAS

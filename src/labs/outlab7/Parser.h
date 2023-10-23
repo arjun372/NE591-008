@@ -12,15 +12,33 @@
 #include "math/blas/system/Circuit.h"
 
 #include "CheckBounds.h"
-#include "MPICommandLine.h"
 #include "FileParser.h"
 #include "Helpers.h"
 
+/**
+ * @class Parser
+ * @brief This class is responsible for parsing command line arguments and validating user inputs.
+ *
+ * The Parser class extends the CommandLine class template with OutLab7Inputs as the template argument.
+ * It provides methods to build input arguments, print input arguments, perform checks on input arguments,
+ * and build inputs based on the parsed arguments.
+ */
 class Parser : public CommandLine<OutLab7Inputs> {
 
   public:
+    /**
+     * @brief Constructor that initializes the Parser object with header information and command line arguments.
+     *
+     * @param headerInfo A constant reference to a HeaderInfo object containing the header information.
+     * @param args A constant reference to a CommandLineArgs object containing the command line arguments.
+     */
     explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine<OutLab7Inputs>(headerInfo, args) {}
 
+    /**
+     * @brief Default constructor for the Parser class.
+     *
+     * This constructor is explicitly defined to allow creating Parser objects without any initialization.
+     */
     explicit Parser() = default;
 
   protected:

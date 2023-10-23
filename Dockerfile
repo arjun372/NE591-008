@@ -14,7 +14,7 @@ RUN cd /etc/yum.repos.d/ && \
     sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* && \
     yum -y update && \
     yum -y groupinstall "Development Tools" && \
-    yum -y install epel-release boost-devel cmake && yum -y clean all && \
+    yum -y install epel-release boost-devel cmake openmpi && yum -y clean all && \
     yum -y autoremove && dnf clean all && \
     rm -rf /var/cache/*
 
@@ -52,9 +52,9 @@ RUN cmake .. \
 # Create a new stage based on the base stage for debugging
 FROM base as debugger
 
-# Install gdb and gdb-gdbserver for debugging
+# Install gdb and gdb-gdbserver for debugging and perf, systemtap for profiling
 # Clean the yum cache and remove unnecessary packages
-RUN yum -y install gdb gdb-gdbserver && \
+RUN yum -y install gdb gdb-gdbserver perf systemtap strace && \
     yum -y clean all && \
     yum -y autoremove && dnf clean all && \
     rm -rf /var/cache/*

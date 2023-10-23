@@ -1,14 +1,15 @@
 /**
- * @file Vector.h
- * @author Arjun Earthperson
- * @date 09/22/2023
- * @brief This file contains my BLAS::Vector implementation.
- */
+* @file Vector.h
+* @brief Header file for the MyBLAS::Vector class.
+* @author Arjun Earthperson
+* @date 09/22/2023
+* @details This file contains the declaration of the MyBLAS::Vector class, which represents a vector of T values.
+*/
 
 #ifndef NE591_008_VECTOR_H
 #define NE591_008_VECTOR_H
 
-#include "LazyVector.h"
+#include "LazyVector.h" // Include LazyVector for constructor and conversion from LazyVector
 #include <cassert>
 #include <functional>
 #include <iomanip>
@@ -16,10 +17,13 @@
 #include <vector>
 
 namespace MyBLAS {
+
 /**
- * @class Vector
- * @brief Class representing a vector of T values.
- */
+* @class Vector
+* @brief Class representing a vector of T values.
+* This class represents a vector of elements of type T. It provides various operations for working with vectors.
+* @tparam T The data type of the vector elements.
+*/
 template <typename T> class Vector {
 
   protected:
@@ -78,14 +82,22 @@ template <typename T> class Vector {
         }
     }
 
-    // TODO:: DOCUMENT
+    /**
+    * @brief Constructor that initializes the vector with a LazyVector and a row/column indicator.
+    * @param vector The LazyVector to initialize the vector with.
+    * @param _isRow Boolean indicating whether the vector is a row vector.
+     */
     explicit Vector(LazyVector<T> &vector, bool _isRow = false): data(vector.size()), isRow(_isRow) {
         for (size_t i = 0; i < vector.size(); i++) {
             data[i] = vector[i];
         }
     }
 
-    // TODO:: DOCUMENT
+    /**
+    * @brief Constructor that initializes the vector with a LazyVector and a row/column indicator.
+    * @param vector The LazyVector to initialize the vector with.
+    * @param _isRow Boolean indicating whether the vector is a row vector.
+     */
     explicit Vector(LazyVector<T> vector, bool _isRow = false): data(vector.size()), isRow(_isRow) {
         for (size_t i = 0; i < vector.size(); i++) {
             data[i] = vector[i];
@@ -145,6 +157,11 @@ template <typename T> class Vector {
         return true;
     }
 
+    /**
+    * @brief Overloaded operator!= to check for inequality between two vectors.
+    * @param rhs Vector to compare with the current vector.
+    * @return Boolean indicating whether the two vectors are not equal.
+    */
     bool operator!=(const Vector &rhs) const {
         return !(*this==rhs);
     }

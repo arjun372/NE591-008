@@ -1,9 +1,9 @@
 /**
-* @file DiffusionMatrixTestss.cpp
+* @file DiffusionMatrixTests.cpp
 * @author Arjun Earthperson
 * @date 10/13/2023
 *
-* @brief TODO::DOCUMENT
+* @brief This file contains test cases for the DiffusionMatrix class and related functions.
 */
 
 #include "physics/diffusion/DiffusionMatrix.h"
@@ -20,9 +20,19 @@ using namespace MyPhysics::Diffusion;
 typedef ::testing::Types<float, double, long double> FloatTypes;
 TYPED_TEST_SUITE(DiffusionMatrixTests, FloatTypes);
 
+/**
+* @class DiffusionMatrixTests
+* @brief Test fixture for testing the DiffusionMatrix class with various floating-point types.
+* @tparam T The floating-point type to be used for testing.
+ */
+
 template <typename T>
 class DiffusionMatrixTests : public ::testing::Test {};
 
+/**
+* @brief Test case for testing the constructor of the DiffusionMatrix class.
+* It verifies if the constructor properly initializes the matrix with the provided parameters.
+ */
 TYPED_TEST(DiffusionMatrixTests, ConstructorTest) {
     Params<TypeParam> params;
     params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
@@ -33,6 +43,10 @@ TYPED_TEST(DiffusionMatrixTests, ConstructorTest) {
     EXPECT_EQ(matrix.getParams().getN(), 10);
 }
 
+/**
+* @brief Test case for testing the copy constructor of the DiffusionMatrix class.
+* It checks if the copy constructor correctly duplicates the matrix with the same parameters.
+ */
 TYPED_TEST(DiffusionMatrixTests, CopyConstructorTest) {
     Params<TypeParam> params;
     params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
@@ -44,6 +58,10 @@ TYPED_TEST(DiffusionMatrixTests, CopyConstructorTest) {
     EXPECT_EQ(matrix2.getParams().getN(), 10);
 }
 
+/**
+* @brief Test case for testing the assignment operator of the DiffusionMatrix class.
+* It ensures that the assignment operator creates a copy of the matrix with the same parameters.
+ */
 TYPED_TEST(DiffusionMatrixTests, AssignmentOperatorTest) {
     Params<TypeParam> params;
     params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
@@ -55,6 +73,10 @@ TYPED_TEST(DiffusionMatrixTests, AssignmentOperatorTest) {
     EXPECT_EQ(matrix2.getParams().getN(), 10);
 }
 
+/**
+* @brief Test case for ensuring that matrix dimensions match the mesh dimensions.
+* It checks if the matrix dimensions are calculated correctly based on the provided parameters.
+ */
 TYPED_TEST(DiffusionMatrixTests, MatrixDimensionsMatchMeshDimensionsTest) {
     Params<TypeParam> params;
     const size_t m = 3810;
@@ -65,12 +87,20 @@ TYPED_TEST(DiffusionMatrixTests, MatrixDimensionsMatchMeshDimensionsTest) {
     EXPECT_EQ(matrix.getCols(), params.getM() * params.getN());
 }
 
+/**
+* @brief Fill a diffusion matrix and vector using a naive approach.
+* In the diffusion matrix, the non-zero elements are on the diagonal (i == j), and on the positions where `i` and `j`
+* differ by `1` or `n` (the number of columns). This is because in the diffusion matrix, each node is connected to its
+* immediate neighbors (left, right, up, down) in the grid.
+* @param c Constants for the diffusion equation.
+* @return The filled diffusion matrix.
+ */
 template <typename TypeParam>
 static MyBLAS::Matrix<TypeParam> naive_fill_diffusion_matrix_and_vector(const MyPhysics::Diffusion::Constants<TypeParam> &c) {
     const size_t m = c.m;
     const size_t n = c.n;
 
-    auto diffusion_matrix_A = MyBLAS::Matrix<TypeParam>(std::vector<std::vector<TypeParam>>(m * n, std::vector<TypeParam>(m * n, 0)));
+    auto A = MyBLAS::Matrix<TypeParam>(std::vector<std::vector<TypeParam>>(m*n, std::vector<TypeParam>(m*n, 0)));
     // Loop through all the nodes i = 1, ..., m and j = 1, ..., n
     for (size_t i = 1; i <= m; ++i) {
         for (size_t j = 1; j <= n; ++j) {
@@ -78,29 +108,30 @@ static MyBLAS::Matrix<TypeParam> naive_fill_diffusion_matrix_and_vector(const My
             int idx = (i - 1) * n + (j - 1);
 
             // Fill the diagonal element of the matrix A using the given equation
-            diffusion_matrix_A[idx][idx] = c.diagonal;
+            A[idx][idx] = c.diagonal;
 
             // Fill the off-diagonal elements of the matrix A using the given equation
             if (i > 1) {
-                diffusion_matrix_A[idx][idx - n] = c.minus_D_over_delta_squared;
+                A[idx][idx - n] = c.minus_D_over_delta_squared;
             }
             if (i < m) {
-                diffusion_matrix_A[idx][idx + n] = c.minus_D_over_delta_squared;
+                A[idx][idx + n] = c.minus_D_over_delta_squared;
             }
             if (j > 1) {
-                diffusion_matrix_A[idx][idx - 1] = c.minus_D_over_gamma_squared;
+                A[idx][idx - 1] = c.minus_D_over_gamma_squared;
             }
             if (j < n) {
-                diffusion_matrix_A[idx][idx + 1] = c.minus_D_over_gamma_squared;
+                A[idx][idx + 1] = c.minus_D_over_gamma_squared;
             }
-
-            // Fill the right-hand-side vector B using the fixed source q(i, j)
-           // intermediates.right_hand_side_vector_B[idx] = c.sources[i - 1][j - 1];
         }
     }
-    return diffusion_matrix_A;
+    return A;
 }
 
+/**
+* @brief Test case for verifying that the DiffusionMatrix matches the results of naive matrix filling for a square grid.
+* It compares the generated matrix against a matrix filled using the naive approach for a square grid.
+ */
 TYPED_TEST(DiffusionMatrixTests, DiffusionEquationSquareFillTest) {
     auto p = MyPhysics::Diffusion::Params<TypeParam>()
                       .setA(100)
@@ -119,6 +150,14 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionEquationSquareFillTest) {
     }
 }
 
+/**
+ * @brief This test case checks if the diffusion matrix and vector are correctly filled for a wide configuration.
+ * The test case sets up a diffusion parameter object with specific values and uses it to compute a diffusion constant.
+ * The constant is then used to fill a matrix and a vector using a naive method. The test case then checks if the
+ * elements of the matrix match with the elements of the matrix filled using the naive method.
+ *
+ * @tparam TypeParam The type of the elements in the matrix and vector.
+ */
 TYPED_TEST(DiffusionMatrixTests, DiffusionEquationWideFillTest) {
     auto p = MyPhysics::Diffusion::Params<TypeParam>()
                  .setA(100)
@@ -137,6 +176,14 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionEquationWideFillTest) {
     }
 }
 
+/**
+ * @brief This test case checks if the diffusion matrix and vector are correctly filled for a tall configuration.
+ * The test case sets up a diffusion parameter object with specific values and uses it to compute a diffusion constant.
+ * The constant is then used to fill a matrix and a vector using a naive method. The test case then checks if the
+ * elements of the matrix match with the elements of the matrix filled using the naive method.
+ *
+ * @tparam TypeParam The type of the elements in the matrix and vector.
+ */
 TYPED_TEST(DiffusionMatrixTests, DiffusionEquationTallFillTest) {
     auto p = MyPhysics::Diffusion::Params<TypeParam>()
                  .setA(100)
@@ -155,6 +202,14 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionEquationTallFillTest) {
     }
 }
 
+/**
+ * @brief This test case checks if the diffusion matrix and vector are correctly filled for a square configuration.
+ * The test case sets up a diffusion parameter object with specific values and uses it to compute a diffusion constant.
+ * The constant is then used to fill a matrix and a vector using a naive method. The test case then checks if the
+ * elements of the matrix match with the elements of the matrix filled using the naive method.
+ *
+ * @tparam TypeParam The type of the elements in the matrix and vector.
+ */
 TYPED_TEST(DiffusionMatrixTests, DiffusionMatrix32Test) {
     auto p = MyPhysics::Diffusion::Params<TypeParam>()
                  .setA(100)
@@ -173,6 +228,13 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionMatrix32Test) {
     }
 }
 
+/**
+ * @brief This test case checks if two matrices with the same parameters are equal.
+ * The test case sets up two diffusion parameter objects with the same values and uses them to create two matrices.
+ * The test case then checks if the elements of the two matrices are equal.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, MatrixEqualityTest) {
     Params<TypeParam> params;
     params.setA(1.0)
@@ -191,6 +253,13 @@ TYPED_TEST(DiffusionMatrixTests, MatrixEqualityTest) {
     }
 }
 
+/**
+ * @brief This test case checks if two matrices with different parameters are not equal.
+ * The test case sets up two diffusion parameter objects with different values and uses them to create two matrices.
+ * The test case then checks if the elements of the two matrices are not equal.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, MatrixInequalityTest) {
     Params<TypeParam> p1;
     p1.setA(1.0)
@@ -218,6 +287,13 @@ TYPED_TEST(DiffusionMatrixTests, MatrixInequalityTest) {
     }
 }
 
+/**
+ * @brief This test case checks if the size of the matrix is correct.
+ * The test case sets up a diffusion parameter object with specific values and uses it to create a matrix.
+ * The test case then checks if the number of rows and columns of the matrix match with the expected values.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, MatrixSizeTest) {
     Params<TypeParam> params;
     Params<TypeParam> p;
@@ -233,6 +309,14 @@ TYPED_TEST(DiffusionMatrixTests, MatrixSizeTest) {
     EXPECT_EQ(matrix.getCols(), params.getM() * params.getN());
 }
 
+/**
+ * @brief This test case checks if the boundary elements of the diffusion matrix are correctly filled.
+ * The test case sets up a diffusion parameter object with specific values and uses it to compute a diffusion constant.
+ * The constant is then used to fill a matrix using a naive method. The test case then checks if the boundary elements
+ * of the matrix match with the boundary elements of the matrix filled using the naive method.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, DiffusionEquationBoundaryCheck) {
     Params<TypeParam> p;
     p.setA(1.0)
@@ -261,6 +345,15 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionEquationBoundaryCheck) {
     EXPECT_EQ(matrix[matrix.getRows() - 1][1], memoryBacked[matrix.getRows() - 1][1]);
 }
 
+/**
+ * @brief Test case for checking the generation of diffusion equation matrix.
+ *
+ * Creates a 3x3 matrix with a diffusion coefficient of 0.1 and a macroscopic removal cross section of 0.2.
+ * Matrix is filled using a generator function that sets the diagonal elements to 1.0 and the off-diagonal elements to 0
+ * The test case then checks if the elements of the matrix are as expected.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, DiffusionEquationGeneratorTest) {
     Params<TypeParam> params;
     params
@@ -288,6 +381,15 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionEquationGeneratorTest) {
     EXPECT_EQ(matrix[2][2], static_cast<TypeParam>(1.0));
 }
 
+/**
+ * @brief Test case for checking the diagonal elements of the diffusion matrix.
+ *
+ * Creates a 20x20 matrix with a diffusion coefficient of 0.1 and a macroscopic removal cross section of 0.2.
+ * The matrix is filled using the naive_fill_diffusion_matrix_and_vector function.
+ * The test case then checks if the diagonal elements of the matrix are as expected.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, DiagonalElementTest) {
     Params<TypeParam> p;
     p.setA(1.0)
@@ -307,6 +409,15 @@ TYPED_TEST(DiffusionMatrixTests, DiagonalElementTest) {
     }
 }
 
+/**
+ * @brief Test case for checking the off-diagonal elements of the diffusion matrix.
+ *
+ * Creates a 10x10 matrix with a diffusion coefficient of 0.1 and a macroscopic removal cross section of 0.2.
+ * The matrix is filled using the naive_fill_diffusion_matrix_and_vector function.
+ * The test case then checks if the off-diagonal elements of the matrix are as expected.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, OffDiagonalElementTest) {
     Params<TypeParam> params;
     params.setA(1.0)
@@ -337,9 +448,13 @@ TYPED_TEST(DiffusionMatrixTests, OffDiagonalElementTest) {
 }
 
 /**
- * In the diffusion matrix, the non-zero elements are on the diagonal (i == j), and on the positions where `i` and `j`
- * differ by `1` or `n` (the number of columns). This is because in the diffusion matrix, each node is connected to its
- * immediate neighbors (left, right, up, down) in the grid.
+ * @brief Test case for checking the zero elements of the diffusion matrix.
+ *
+ * Creates a 7x11 matrix with a diffusion coefficient of 0.1 and a macroscopic removal cross section of 0.2.
+ * The matrix is filled using the naive_fill_diffusion_matrix_and_vector function.
+ * The test case then checks if the elements of the matrix that are supposed to be zero are indeed zero.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
  */
 TYPED_TEST(DiffusionMatrixTests, ZeroElementTest) {
     Params<TypeParam> params;
@@ -365,6 +480,15 @@ TYPED_TEST(DiffusionMatrixTests, ZeroElementTest) {
     }
 }
 
+/**
+ * @brief Test case for checking the symmetry of the diffusion matrix.
+ *
+ * This test case creates an 8x3 matrix with a diffusion coefficient of 0.1 and a macroscopic removal cross section of 0.2.
+ * The matrix is filled using the naive_fill_diffusion_matrix_and_vector function.
+ * The test case then checks if the matrix is symmetric, i.e., if matrix[i][j] is equal to matrix[j][i] for all i and j.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, MatrixSymmetryTest) {
     Params<TypeParam> p;
     p.setA(1.0)
@@ -383,6 +507,15 @@ TYPED_TEST(DiffusionMatrixTests, MatrixSymmetryTest) {
     }
 }
 
+/**
+ * @brief Test case for checking the performance of the symmetry test for a square matrix.
+ *
+ * This test case creates a 91x91 matrix with a diffusion coefficient of 0.1 and a macroscopic removal cross section of 0.2.
+ * The matrix is filled using the naive_fill_diffusion_matrix_and_vector function.
+ * The test case then checks the symmetry of the matrix and measures the time taken for the operation.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, SquareMatrixSymmetryTimingTest) {
     Params<TypeParam> p;
     p.setA(1.0)
@@ -415,6 +548,15 @@ TYPED_TEST(DiffusionMatrixTests, SquareMatrixSymmetryTimingTest) {
     EXPECT_TRUE(duration < 8000);
 }
 
+/**
+ * @brief Test case for checking the performance of the symmetry test for a wide matrix.
+ *
+ * This test case creates an 8x1024 matrix with a diffusion coefficient of 0.1 and a macroscopic removal cross section of 0.2.
+ * The matrix is filled using the naive_fill_diffusion_matrix_and_vector function.
+ * The test case then checks the symmetry of the matrix and measures the time taken for the operation.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, WideMatrixSymmetryTimingTest) {
     Params<TypeParam> p;
     p.setA(1.0)
@@ -447,6 +589,15 @@ TYPED_TEST(DiffusionMatrixTests, WideMatrixSymmetryTimingTest) {
     EXPECT_TRUE(duration < 8000);
 }
 
+/**
+ * @brief Test case for checking the performance of the symmetry test for a tall matrix.
+ *
+ * This test case creates a 1024x8 matrix with a diffusion coefficient of 0.1 and a macroscopic removal cross section of 0.2.
+ * The matrix is filled using the naive_fill_diffusion_matrix_and_vector function.
+ * The test case then checks the symmetry of the matrix and measures the time taken for the operation.
+ *
+ * @tparam TypeParam The type of the elements in the matrix.
+ */
 TYPED_TEST(DiffusionMatrixTests, TallMatrixSymmetryTimingTest) {
     Params<TypeParam> p;
     p.setA(1.0)
@@ -479,13 +630,43 @@ TYPED_TEST(DiffusionMatrixTests, TallMatrixSymmetryTimingTest) {
     EXPECT_TRUE(duration < 8000);
 }
 
-// Define a list of types to run the tests with
-typedef ::testing::Types<short, int, float, double, long double> NumericTypes;
-TYPED_TEST_SUITE(MatrixVectorTests, NumericTypes);
-
+/**
+ * @brief A template test class for testing matrix-vector operations.
+ *
+ * This class is a test fixture class that uses Google Test framework's features.
+ * It is used to define and run multiple tests related to matrix-vector operations.
+ * The tests will be run for all the types defined in NumericTypes.
+ *
+ * @tparam T The type of the elements in the matrix and the vector.
+ */
 template <typename T>
 class MatrixVectorTests : public ::testing::Test {};
 
+/**
+ * @brief A list of numeric types for which the tests will be run.
+ *
+ * This typedef is used to define a list of numeric types that the tests in the MatrixVectorTests class will be run for.
+ * The types include short, int, float, double, and long double.
+ */
+typedef ::testing::Types<short, int, float, double, long double> NumericTypes;
+
+/**
+ * @brief A macro that registers the MatrixVectorTests test case.
+ *
+ * This macro is used to register the MatrixVectorTests test case with Google Test framework.
+ * The tests in the MatrixVectorTests class will be run for all the types defined in NumericTypes.
+ */
+TYPED_TEST_SUITE(MatrixVectorTests, NumericTypes);
+
+/**
+ * @brief Test case for checking the multiplication of a matrix and a vector.
+ *
+ * This test case creates a 3x3 matrix with a diffusion coefficient of 1 and a macroscopic removal cross section of 2.
+ * A vector of size 9 with all elements equal to 1 is also created.
+ * The test case then checks if the result of the multiplication of the matrix and the vector is as expected.
+ *
+ * @tparam TypeParam The type of the elements in the matrix and the vector.
+ */
 TYPED_TEST(MatrixVectorTests, MatrixVectorMultiplicationTest1) {
     Params<TypeParam> p;
     p.setA(2)
@@ -501,6 +682,15 @@ TYPED_TEST(MatrixVectorTests, MatrixVectorMultiplicationTest1) {
     // Add more assertions based on the expected result of the multiplication
 }
 
+/**
+ * @brief Test case for checking the multiplication of a matrix and a vector.
+ *
+ * This test case creates a 2x2 matrix with a diffusion coefficient of 1 and a macroscopic removal cross section of 2.
+ * A vector of size 4 with all elements equal to 2 is also created.
+ * The test case then checks if the result of the multiplication of the matrix and the vector is as expected.
+ *
+ * @tparam TypeParam The type of the elements in the matrix and the vector.
+ */
 TYPED_TEST(MatrixVectorTests, MatrixVectorMultiplicationTest2) {
     Params<TypeParam> p;
     p.setA(3)
@@ -516,6 +706,15 @@ TYPED_TEST(MatrixVectorTests, MatrixVectorMultiplicationTest2) {
     // Add more assertions based on the expected result of the multiplication
 }
 
+/**
+ * @brief Test case for checking the multiplication of a matrix and a vector.
+ *
+ * This test case creates a 4x4 matrix with a diffusion coefficient of 1 and a macroscopic removal cross section of 2.
+ * A vector of size 16 with all elements equal to 3 is also created.
+ * The test case then checks if the result of the multiplication of the matrix and the vector is as expected.
+ *
+ * @tparam TypeParam The type of the elements in the matrix and the vector.
+ */
 TYPED_TEST(MatrixVectorTests, MatrixVectorMultiplicationTest3) {
     Params<TypeParam> p;
     p.setA(3)

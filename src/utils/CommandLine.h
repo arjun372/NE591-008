@@ -11,10 +11,10 @@
 #ifndef NE591_008_COMMANDLINE_H
 #define NE591_008_COMMANDLINE_H
 
-#include "CommandlineHelpers.h"
 #include "Helpers.h"
-#include "Profiler.h"
 #include "project-config.h"
+#include "utils/profiler/Profiler.h"
+#include "utils/profiler/ProfilerHelper.h"
 #include <boost/program_options.hpp>
 #include <iostream>
 #include <string>
@@ -36,14 +36,34 @@ typedef struct {
     std::string HeaderArt;
 } HeaderInfo;
 
-// TODO:: DOCUMENT
+/**
+ * @struct CommandLineArgs
+ * @brief A struct to store command line arguments.
+ *
+ * This struct contains two members: argc and argv. argc is an integer that represents the number of command line arguments,
+ * and argv is a pointer to an array of character pointers that represent the command line arguments themselves.
+ */
 struct CommandLineArgs {
-    int argc{};
-    char **argv{};
+    int argc{}; ///< The number of command line arguments.
+    char **argv{}; ///< The array of command line arguments.
 };
 
-const auto default_precision{std::cout.precision()};                          // Default precision for output streams
-constexpr auto max_precision{std::numeric_limits<long double>::digits10 + 1}; // Maximum precision for long double type
+/**
+ * @var default_precision
+ * @brief The default precision for output streams.
+ *
+ * This variable stores the default precision for output streams. It is initialized with the current precision of std::cout.
+ */
+const auto default_precision{std::cout.precision()};
+
+/**
+ * @var max_precision
+ * @brief The maximum precision for long double type.
+ *
+ * This variable stores the maximum precision for long double type. It is initialized with the maximum number of decimal digits
+ * that can be represented without change for the long double type.
+ */
+constexpr auto max_precision{std::numeric_limits<long double>::digits10 + 1};
 
 /**
  * @class CommandLine
@@ -99,6 +119,12 @@ template <typename InputType> class CommandLine {
         return variablesMap;
     }
 
+    /**
+     * @brief Method to get a copy of the parsed command line arguments.
+     * @return A copy of the variables map that contains the parsed command line arguments.
+     * This method returns a copy of the parsed command line arguments. If the CommandLine object is not initialized,
+     * it calls the initialize method before returning the arguments.
+     */
     boost::program_options::variables_map getArgumentsMap() {
         if (!initialized) {
             initialize();
@@ -108,7 +134,8 @@ template <typename InputType> class CommandLine {
 
     /**
      * @brief Method to get the command line argv, argc objects.
-     * @return TODO:: DOCUMENT
+     * @return A const reference to the CommandLineArgs object that contains the command line arguments.
+     * This method returns the command line arguments that were passed to the program.
      */
     [[nodiscard]] const CommandLineArgs &getCmdArgs() const { return cmdArgs; }
 
@@ -152,17 +179,80 @@ template <typename InputType> class CommandLine {
     }
 
   protected:
-    // Handle input arguments
+    /**
+     * @brief Method to build a set of input arguments.
+     * @param inputArguments A reference to an options_description object that will be filled with the input arguments.
+     * This is a pure virtual method that must be implemented by derived classes. It is used to build a set of input arguments
+     * for the command line parser.
+     */
     virtual void buildInputArguments(boost::program_options::options_description &inputArguments) = 0;
+
+    /**
+     * @brief Method to print the input arguments.
+     * @param values A reference to a variables_map object that contains the parsed command line arguments.
+     * This is a pure virtual method that must be implemented by derived classes. It is used to print the input arguments
+     * to the console.
+     */
     virtual void printInputArguments(boost::program_options::variables_map &values) = 0;
+
+    /**
+     * @brief Method to perform a check on the input arguments.
+     * @param values A reference to a variables_map object that contains the parsed command line arguments.
+     * This is a pure virtual method that must be implemented by derived classes. It is used to perform a check on the input
+     * arguments to ensure they are valid.
+     */
     virtual void performInputArgumentsCheck(boost::program_options::variables_map &values) = 0;
-    // fill inputs object based on values
+
+    /**
+     * @brief Method to fill the inputs object based on the parsed command line arguments.
+     * @param ToFill A reference to the inputs object that will be filled.
+     * @param values A reference to a variables_map object that contains the parsed command line arguments.
+     * This is a pure virtual method that must be implemented by derived classes. It is used to fill the inputs object based
+     * on the parsed command line arguments.
+     */
     virtual void buildInputs(InputType &ToFill, boost::program_options::variables_map &values) = 0;
 
+    /**
+     * @var variablesMap
+     * @brief A variables_map object to store the parsed command line arguments.
+     *
+     * This object is used to store the parsed command line arguments. It is filled by the Boost library's command line
+     * parser.
+     */
     boost::program_options::variables_map variablesMap;
+
+    /**
+     * @var initialized
+     * @brief A boolean flag to indicate whether the CommandLine object has been initialized.
+     *
+     * This flag is set to true when the CommandLine object is initialized, and is used to prevent the object from being
+     * initialized more than once.
+     */
     bool initialized = false;
+
+    /**
+     * @var cmdArgs
+     * @brief A CommandLineArgs object to store the command line arguments.
+     *
+     * This object is used to store the command line arguments that were passed to the program.
+     */
     CommandLineArgs cmdArgs;
+
+    /**
+     * @var inputs
+     * @brief An InputType object to store the inputs.
+     *
+     * This object is used to store the inputs that are parsed from the command line arguments.
+     */
     InputType inputs = InputType();
+
+    /**
+     * @var header
+     * @brief A HeaderInfo object to store information about the project.
+     *
+     * This object is used to store information about the project, such as the project name, project description,
+     * submission date, and student name.
+     */
     HeaderInfo header;
 
     /**

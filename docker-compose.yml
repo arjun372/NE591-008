@@ -1,0 +1,27 @@
+version: '3.9'
+
+x-base: &base
+  volumes:
+    - /dev/shm:/dev/shm
+  restart: always
+
+x-build: &build_base
+  context: ./ # repo root directory
+  dockerfile: eos.Dockerfile
+  target: ssh-debugger
+
+services:
+  eos:
+    <<: *base
+    build:
+      <<: *build_base
+    container_name: eos
+    ports:
+      - "32702:22"
+  hazel:
+    <<: *base
+    build:
+      <<: *build_base
+    container_name: eos-faked-hazel
+    ports:
+      - "32703:22"

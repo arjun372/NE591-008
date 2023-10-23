@@ -19,9 +19,9 @@
 #include "CheckBounds.h"
 #include "CommandLine.h"
 #include "Helpers.h"
-#include "Profiler.h"
 #include "Project.h"
 #include "Stopwatch.h"
+#include "utils/profiler/Profiler.h"
 
 /**
  * @brief Struct to hold variables for Taylor Series.
