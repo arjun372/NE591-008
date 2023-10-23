@@ -99,6 +99,13 @@ template <typename InputType> class CommandLine {
         return variablesMap;
     }
 
+    boost::program_options::variables_map getArgumentsMap() {
+        if (!initialized) {
+            initialize();
+        }
+        return variablesMap;
+    }
+
     /**
      * @brief Method to get the command line argv, argc objects.
      * @return TODO:: DOCUMENT
@@ -276,7 +283,7 @@ template <typename InputType> class CommandLine {
     static void printCompileConfigs() {
         std::cout << "using " << sizeof(MyBLAS::NumericType) * 8 <<"-bit floats\n";
         std::cout << "compiler: " << CXX_COMPILER_ID << " " << CXX_COMPILER_VERSION;
-        std::cout << ", boost: " << Boost_VERSION << " " << Boost_LIBRARIES << "\n";
+        std::cout << "\nboost: " << Boost_VERSION << " " << Boost_LIBRARIES << "\n";
         printLine();
     }
 };

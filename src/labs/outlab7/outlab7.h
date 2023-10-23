@@ -20,7 +20,7 @@
 #include "Parser.h"
 
 #include "CommandLine.h"
-#include "MPIProject.h"
+#include "utils/mpi/MPIProject.h"
 
 #include "Compute.h"
 #include "json.hpp"
@@ -33,18 +33,29 @@
 class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
 
   public:
+    // TODO:: DOCUMENT
+    [[maybe_unused]] static OutLab7& getInstance(CommandLineArgs args) {
+        static OutLab7 instance(args);
+        return instance;
+    }
+
+    // TODO:: DOCUMENT
+    OutLab7(OutLab7 const&) = delete;
+    void operator=(OutLab7 const&) = delete;
+
+  protected:
     /**
      * @brief Constructor for the outlab7 class
      * @param args Command line arguments
      */
-    explicit OutLab7(CommandLineArgs args) : MPIProject<OutLab7Inputs, Parser, OutLab7Outputs>(args) {}
+    explicit OutLab7(CommandLineArgs args) : MPIProject<OutLab7Inputs, Parser, OutLab7Outputs>(buildHeaderInfo(), args) {}
 
   protected:
     /**
      * @brief This function builds the header information for the project.
      * @return HeaderInfo object containing project information
      */
-    HeaderInfo buildHeaderInfo() override {
+    static HeaderInfo buildHeaderInfo() {
         Canvas canvas;
         __float128 x = 0.13;
         __float128 y = -0.66;
@@ -63,55 +74,78 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
         };
     }
 
-    /**
-     * @brief This function runs the computation.
-     * @param outputs The outputs of the computation.
-     * @param inputs The inputs to the computation.
-     * @param values The values used in the computation.
-     */
-    void run(OutLab7Outputs &outputs, OutLab7Inputs &inputs, boost::program_options::variables_map &values) override {
+    // TODO:: DOCUMENT
+    bool preRun(OutLab7Outputs &outputs, OutLab7Inputs &inputs, const int rank, const int size) override {
+        if (failsPowerOf2Check(size)) {
+            if (rank == 0) {
+                std::cerr << "Number of processes is not a power of 2";
+            }
+            return true;
+        }
+        return false;
+    }
+
+    // TODO:: DOCUMENT
+    bool run(OutLab7Outputs &outputs, OutLab7Inputs &inputs, const int rank, const int size) override {
+
+        auto profiler = getProfiler([&rank, &inputs, &size, &outputs]{
+            size_t start = static_cast<size_t>(rank) * inputs.n / static_cast<size_t>(size) + 1;
+            size_t stop = static_cast<size_t>(rank + 1) * inputs.n / static_cast<size_t>(size);
+
+            MyBLAS::NumericType partial_sum = 0;
+            MyBLAS::NumericType previousLog = std::log10(start);
+
+            for (size_t i = start + 1; i < stop; i++) {
+                const MyBLAS::NumericType currentLog = std::log10(i);
+                const MyBLAS::NumericType denominator = (i - 1) + currentLog;
+                const MyBLAS::NumericType numerator = 1.0f + previousLog;
+                previousLog = currentLog;
+                const MyBLAS::NumericType term = std::pow(numerator / denominator, 2);
+                partial_sum += term;
+            }
+
+            outputs.sum = partial_sum;
+
+            int tag = 0;
+            MPI_Status status;
+            // Binary tree communication logic
+            for (int stride = 1; stride < size; stride *= 2) {
+                if (rank % (2 * stride) != 0) {
+                    // Send partial sum to the process at an interval of stride
+                    MPI_Send(&outputs.sum, 1, MPI_LONG_DOUBLE, rank - stride, tag, MPI_COMM_WORLD);
+                    break;
+                }
+                // Receive partial sum from the process at an interval of stride
+                if (rank + stride < size) {
+                    MyBLAS::NumericType received_sum;
+                    MPI_Recv(&received_sum, 1, MPI_LONG_DOUBLE, rank + stride, tag, MPI_COMM_WORLD, &status);
+                    outputs.sum += received_sum;
+                }
+            }
+        }, 10, 0, "run").run();
+
+        if (rank == 0) {
+            outputs.summary = profiler.getSummary();
+            std::cout<<outputs.summary<<std::endl;
+        }
+        return false;
+    }
+
+    // TODO:: DOCUMENT
+    bool postRun(OutLab7Outputs &outputs, OutLab7Inputs &inputs, const int rank, const int size) override {
+
+        if (rank != 0) {
+            return false;
+        }
+
+        // Print the final sum in the root process
+        std::cout << _uuid << "Final sum: " << outputs.sum << std::endl;
 
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);
-
-//        int numprocs, rank_id;
-//        MPI_Status stat;
-//
-//        auto args = getTerminal().getCmdArgs();
-//        MPI_Init(&args.argc, &args.argv);
-//        MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
-//        MPI_Comm_rank(MPI_COMM_WORLD, &rank_id);
-////
-//        auto n = 1000;
-//        MPI_Bcast(&n, 1, MPI_UNSIGNED_LONG_LONG, 0, MPI_COMM_WORLD);
-//
-//        if ((numprocs & (numprocs - 1)) != 0) {
-//            if (rank_id == 0) {
-//                std::cout << "Number of processes is not a power of 2";
-//            }
-//            MPI_Finalize();
-//            exit(1);
-//        }
-//
-//        size_t i1 = n / numprocs * rank_id;
-//        size_t i2 = rank_id == numprocs - 1 ? n : n / numprocs * (rank_id + 1);
-//
-//        MyBLAS::NumericType partial_sum = 0;
-//        for (size_t i = i1; i < i2; i++) {
-//            partial_sum += (1 + log10(i)) / pow(i + log10(i + 1), 2);
-//        }
-//
-//        int dest = rank_id % 2 == 0 ? rank_id + 1 : rank_id - 1;
-//        MPI_Send(&partial_sum, 1, MPI_DOUBLE, dest, 0, MPI_COMM_WORLD);
-//
-//        if (rank_id == 0) {
-//            double total_sum;
-//            MPI_Recv(&total_sum, 1, MPI_DOUBLE, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &stat);
-//            std::cout << "The value of the series is: " << total_sum << std::endl;
-//        }
-        Parser::printLine();
         outputs.toJSON(results["outputs"]);
-        writeJSON(values["output-json"].as<std::string>(), results);
+        writeJSON(inputs.outputJSON, results);
+        return false;
     }
 };
 

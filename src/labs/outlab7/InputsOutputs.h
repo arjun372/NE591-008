@@ -22,11 +22,11 @@
 typedef struct Input {
     Input() = default;
 
-    size_t p = 1;
     size_t n = 1;
+    std::string outputJSON;
 
     friend std::ostream& operator<<(std::ostream& os, const Input& input) {
-        os << "p: " << input.p << ", n: " << input.n;
+        os << "n: " << input.n<< ", outputJSON: " << input.outputJSON;
         return os;
     }
 
@@ -36,14 +36,12 @@ typedef struct Input {
      * @param jsonMap The JSON object to which the input parameters are added.
      */
     void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["n"] = p;
-        jsonMap["p"] = n;
+        jsonMap["n"] = n;
     }
 
     // TODO:: DOCUMENT
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version) {
-        ar & BOOST_SERIALIZATION_NVP(p);
         ar & BOOST_SERIALIZATION_NVP(n);
     }
 } OutLab7Inputs;
@@ -54,11 +52,8 @@ typedef struct Input {
  * This structure contains the input parameters, the solution, and the execution time.
  */
 typedef struct Output {
-    explicit Output(OutLab7Inputs inputMatrices) { inputs = inputMatrices; };
-
-    Output() = default;
-    OutLab7Inputs inputs;
     MyBLAS::NumericType sum = 0;
+    MyBLAS::Stats::Summary<long double> summary;
 
     /**
      * @brief Converts the output parameters to a JSON object.
@@ -66,7 +61,13 @@ typedef struct Output {
      * @param jsonMap The JSON object to which the output parameters are added.
      */
     void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["sum"] = sum;
+        jsonMap["total_sum"] = sum;
+        summary.toJSON(jsonMap["benchmark"]);
+    }
+
+    template<class Archive>
+    void serialize(Archive & ar, const unsigned int version) {
+        ar & BOOST_SERIALIZATION_NVP(sum);
     }
 } OutLab7Outputs;
 

@@ -44,6 +44,7 @@ class Profiler {
        _summary = MyBLAS::Stats::Summary<long double>();
    }
 
+   // TODO:: DOCUMENT
    Profiler() = default;
 
    // TODO:: DOCUMENT
@@ -62,6 +63,12 @@ class Profiler {
            _timedOut = false;
        }
        summarize(_summary, _stopwatches);
+       return *this;
+   }
+
+   // TODO:: DOCUMENT
+   Profiler& operator=(const std::function<void()>& function) {
+       this->_function = function;
        return *this;
    }
 

@@ -31,7 +31,7 @@ class Parser : public CommandLine<OutLab7Inputs> {
      */
     void buildInputArguments(boost::program_options::options_description &values) override {
         values.add_options()
-            ("n", boost::program_options::value<long double>(), "= sum upper limit [n ∈ ℕ]")(
+            (",n", boost::program_options::value<long double>(), "= sum upper limit [n ∈ ℕ]")(
             "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing n")(
             "output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
     }
@@ -130,6 +130,7 @@ class Parser : public CommandLine<OutLab7Inputs> {
         }
 
         inputs.n = static_cast<size_t>(values["n"].as<long double>());
+        inputs.outputJSON = values["output-json"].as<std::string>();
     }
 };
 

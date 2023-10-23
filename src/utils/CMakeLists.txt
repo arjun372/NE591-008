@@ -10,7 +10,7 @@ set(UTILS_LIB_HEADERS
         MPICommandLine.h
         CommandLine.h
         Project.h
-        MPIProject.h
+        mpi/MPIProject.h
 
         math/blas/BLAS.h
         math/blas/Ops.h
@@ -48,6 +48,7 @@ set(UTILS_LIB_HEADERS
         math/blas/vector/MatrixVectorExpression.h
         math/blas/matrix/ContainerExpression.h
         math/blas/elementwise/ElementwiseAddExpression.h
+        mpi/MPIContainer.h
 )
 
 set(UTILS_LIB_SOURCES

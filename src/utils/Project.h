@@ -56,6 +56,10 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
      */
     CommandLineParserType getTerminal() const { return terminal; }
 
+    InputType &getInputs() {
+        return this->inputs;
+    }
+
   protected:
     CommandLineArgs cmdArgs{};
     CommandLineParserType terminal;
@@ -108,7 +112,7 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
      * @param input The input data.
      * @param values The variable map.
      */
-    virtual void run(OutputType &output, InputType &input, boost::program_options::variables_map &values) = 0;
+    virtual void run(OutputType &output, InputType &input, boost::program_options::variables_map &values) {}
 
     /**
      * @brief A hook for performing actions after the run.
