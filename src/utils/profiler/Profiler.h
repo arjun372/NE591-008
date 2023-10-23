@@ -3,6 +3,7 @@
 * @author Arjun Earthperson
 * @date 10/11/2023
 * @brief This file contains the Profiler class which is used to profile the execution time of a function.
+* @details //TODO::DOCUMENT with DETAILED EXPLANATION
 */
 
 #ifndef NE591_008_PROFILER_H
@@ -44,10 +45,17 @@ class Profiler {
        _summary = MyBLAS::Stats::Summary<long double>();
    }
 
-   // TODO:: DOCUMENT
+   /**
+    * @brief Default constructor for the Profiler class.
+    * @details This constructor initializes a Profiler object without any function to profile.
+    *          The function to profile can be set later using the assignment operator.
+    */
    Profiler() = default;
 
-   // TODO:: DOCUMENT
+   /**
+    * @brief Gets the total number of runs for profiling.
+    * @return The total number of runs for profiling.
+    */
    [[nodiscard]] size_t getTotalRuns() const { return _totalRuns; }
 
    /**
@@ -66,7 +74,11 @@ class Profiler {
        return *this;
    }
 
-   // TODO:: DOCUMENT
+   /**
+    * @brief Overloads the assignment operator to set the function to be profiled.
+    * @param function The function to be profiled.
+    * @return A reference to this Profiler object.
+    */
    Profiler& operator=(const std::function<void()>& function) {
        this->_function = function;
        return *this;
