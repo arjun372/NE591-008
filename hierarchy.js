@@ -2,7 +2,9 @@ var hierarchy =
 [
     [ "ArgsPrintMatrix", "d7/d12/structArgsPrintMatrix.html", null ],
     [ "CanvasType< T >", "db/df1/Helpers_8h.html#de/d8a/structCanvasType", null ],
-    [ "CommandLine< InputType >", "dd/d02/classCommandLine.html", null ],
+    [ "CommandLine< InputType >", "dd/d02/classCommandLine.html", [
+      [ "MPICommandLine< InputType >", "d8/de9/classMPICommandLine.html", null ]
+    ] ],
     [ "CommandLine< InLab6Inputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
@@ -78,7 +80,12 @@ var hierarchy =
     [ "MyPhysics::Diffusion::Params< MyBLAS::NumericType >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "MyPhysics::Diffusion::Params< T >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "Profiler< FunctionType >", "dd/d0e/classProfiler.html", null ],
-    [ "Project< InputType, CommandLineParserType, OutputType >", "db/d91/classProject.html", null ],
+    [ "Project< InputType, CommandLineParserType, OutputType >", "db/d91/classProject.html", [
+      [ "MPIProject< OutLab7Inputs, Parser, OutLab7Outputs >", "d0/df0/classMPIProject.html", [
+        [ "OutLab7", "d3/d49/classOutLab7.html", null ]
+      ] ],
+      [ "MPIProject< InputType, CommandLineParserType, OutputType >", "d0/df0/classMPIProject.html", null ]
+    ] ],
     [ "Project< InLab6Inputs, Parser, InLab6Outputs >", "db/d91/classProject.html", [
       [ "InLab6", "d1/d8c/classInLab6.html", null ]
     ] ],
@@ -104,9 +111,6 @@ var hierarchy =
     ] ],
     [ "Project< OutLab6Inputs, Parser, OutLab6Outputs >", "db/d91/classProject.html", [
       [ "OutLab6", "d0/d4c/classOutLab6.html", null ]
-    ] ],
-    [ "Project< OutLab7Inputs, Parser, OutLab7Outputs >", "db/d91/classProject.html", [
-      [ "OutLab7", "d3/d49/classOutLab7.html", null ]
     ] ],
     [ "Project< SolverInputs, Parser, SolverOutputs >", "db/d91/classProject.html", [
       [ "Project1", "d8/ddb/classProject1.html", null ],

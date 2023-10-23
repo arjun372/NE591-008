@@ -1,37 +1,38 @@
 <map id="src/utils/math/factorization/LU.h" name="src/utils/math/factorization/LU.h">
-<area shape="rect" id="node1" title="LU factorization and related methods for MyBLAS library." alt="" coords="1517,5,1747,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="1333,386,1395,413"/>
-<area shape="rect" id="node3" title=" " alt="" coords="525,543,605,569"/>
-<area shape="rect" id="node4" href="$d3/db1/Matrix_8h.html" title="This file contains my BLAS::Matrix declarations." alt="" coords="1420,386,1612,413"/>
-<area shape="rect" id="node9" href="$d6/dbe/Vector_8h.html" title="This file contains my BLAS::Vector implementation." alt="" coords="1551,468,1739,495"/>
-<area shape="rect" id="node15" href="$d9/d41/CommandLine_8h.html" title="This file contains the definition of the CommandLine class and the HeaderInfo struct." alt="" coords="516,80,668,107"/>
-<area shape="rect" id="node28" href="$d4/d2e/Stopwatch_8h.html" title="This file contains the Stopwatch class which is a utility for measuring time durations in various uni..." alt="" coords="2005,229,2107,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="1389,617,1475,644"/>
-<area shape="rect" id="node6" title=" " alt="" coords="1500,543,1569,569"/>
-<area shape="rect" id="node7" title=" " alt="" coords="1773,543,1835,569"/>
-<area shape="rect" id="node8" href="$d1/d45/Constants_8h.html" title="MyBLAS Constants definition." alt="" coords="1257,468,1425,495"/>
-<area shape="rect" id="node10" href="$de/dcb/LazyVector_8h.html" title="TODO:: DOCUMENT." alt="" coords="1593,543,1697,569"/>
-<area shape="rect" id="node12" title=" " alt="" coords="1721,617,1807,644"/>
-<area shape="rect" id="node14" title=" " alt="" coords="1069,543,1144,569"/>
-<area shape="rect" id="node11" title=" " alt="" coords="1591,692,1662,719"/>
-<area shape="rect" id="node13" href="$d6/d9f/VectorExpression_8h.html" title="TODO:: DOCUMENT." alt="" coords="1499,617,1645,644"/>
-<area shape="rect" id="node16" href="$d2/d0e/CommandlineHelpers_8h.html" title="This file contains helper functions for handling command line options and initializing the profiler." alt="" coords="217,155,391,181"/>
-<area shape="rect" id="node18" title=" " alt="" coords="93,386,293,413"/>
-<area shape="rect" id="node20" href="$db/df1/Helpers_8h.html" title="This file contains helper functions and structures used throughout the program." alt="" coords="617,304,701,331"/>
-<area shape="rect" id="node24" href="$df/d69/Profiler_8h.html" title="This file contains the Profiler class which is used to profile the execution time of a function." alt="" coords="1074,155,1153,181"/>
-<area shape="rect" id="node34" title=" " alt="" coords="416,155,539,181"/>
-<area shape="rect" id="node35" title=" " alt="" coords="563,155,621,181"/>
-<area shape="rect" id="node17" href="$d0/d7d/CheckBounds_8h.html" title="This file contains the declaration of functions for checking the validity of input parameters." alt="" coords="419,229,541,256"/>
-<area shape="rect" id="node21" title=" " alt="" coords="368,386,445,413"/>
-<area shape="rect" id="node19" title=" " alt="" coords="469,386,528,413"/>
-<area shape="rect" id="node22" title=" " alt="" coords="778,379,929,420"/>
-<area shape="rect" id="node23" title=" " alt="" coords="603,379,754,420"/>
-<area shape="rect" id="node25" title=" " alt="" coords="1077,229,1150,256"/>
-<area shape="rect" id="node26" title=" " alt="" coords="1175,229,1247,256"/>
-<area shape="rect" id="node27" title=" " alt="" coords="1271,229,1331,256"/>
-<area shape="rect" id="node30" href="$dc/d09/Stats_8h.html" title="This file contains the declaration of statistical functions and structures for vectors and matrices." alt="" coords="1423,229,1559,256"/>
-<area shape="rect" id="node29" title=" " alt="" coords="2023,304,2089,331"/>
-<area shape="rect" id="node31" title=" " alt="" coords="1453,304,1528,331"/>
-<area shape="rect" id="node32" title=" " alt="" coords="1553,304,1629,331"/>
-<area shape="rect" id="node33" href="$d1/d80/BLAS_8h.html" title=" " alt="" coords="1653,304,1721,331"/>
+<area shape="rect" id="node1" title="LU factorization and related methods for MyBLAS library." alt="" coords="754,5,985,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="663,386,726,413"/>
+<area shape="rect" id="node3" title=" " alt="" coords="905,543,985,569"/>
+<area shape="rect" id="node4" href="$d3/db1/Matrix_8h.html" title="This file contains my BLAS::Matrix declarations." alt="" coords="89,386,281,413"/>
+<area shape="rect" id="node9" href="$d6/dbe/Vector_8h.html" title="This file contains my BLAS::Vector implementation." alt="" coords="438,468,626,495"/>
+<area shape="rect" id="node15" href="$d9/d41/CommandLine_8h.html" title="This file contains the definition of the CommandLine class and the HeaderInfo struct." alt="" coords="1403,80,1555,107"/>
+<area shape="rect" id="node30" href="$d4/d2e/Stopwatch_8h.html" title="This file contains the Stopwatch class which is a utility for measuring time durations in various uni..." alt="" coords="1759,229,1862,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="13,617,99,644"/>
+<area shape="rect" id="node6" title=" " alt="" coords="184,543,253,569"/>
+<area shape="rect" id="node7" title=" " alt="" coords="369,543,431,569"/>
+<area shape="rect" id="node8" href="$d1/d45/Constants_8h.html" title="MyBLAS Constants definition." alt="" coords="195,468,363,495"/>
+<area shape="rect" id="node10" href="$de/dcb/LazyVector_8h.html" title="TODO:: DOCUMENT." alt="" coords="468,543,572,569"/>
+<area shape="rect" id="node12" title=" " alt="" coords="618,617,705,644"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1356,543,1431,569"/>
+<area shape="rect" id="node11" title=" " alt="" coords="429,692,499,719"/>
+<area shape="rect" id="node13" href="$d6/d9f/VectorExpression_8h.html" title="TODO:: DOCUMENT." alt="" coords="447,617,593,644"/>
+<area shape="rect" id="node16" href="$d2/d0e/CommandlineHelpers_8h.html" title="This file contains helper functions for handling command line options and initializing the profiler." alt="" coords="1454,155,1629,181"/>
+<area shape="rect" id="node18" title=" " alt="" coords="2165,386,2365,413"/>
+<area shape="rect" id="node20" href="$db/df1/Helpers_8h.html" title="This file contains helper functions and structures used throughout the program." alt="" coords="1637,304,1721,331"/>
+<area shape="rect" id="node22" title=" " alt="" coords="2389,386,2448,413"/>
+<area shape="rect" id="node26" href="$df/d69/Profiler_8h.html" title="This file contains the Profiler class which is used to profile the execution time of a function." alt="" coords="1153,155,1231,181"/>
+<area shape="rect" id="node29" title=" " alt="" coords="1381,229,1441,256"/>
+<area shape="rect" id="node36" title=" " alt="" coords="1256,155,1379,181"/>
+<area shape="rect" id="node17" href="$d0/d7d/CheckBounds_8h.html" title="This file contains the declaration of functions for checking the validity of input parameters." alt="" coords="1516,229,1639,256"/>
+<area shape="rect" id="node23" title=" " alt="" coords="1329,386,1407,413"/>
+<area shape="rect" id="node19" title=" " alt="" coords="1532,386,1591,413"/>
+<area shape="rect" id="node21" title=" " alt="" coords="2067,386,2141,413"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1717,379,1867,420"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1891,379,2042,420"/>
+<area shape="rect" id="node27" title=" " alt="" coords="1085,229,1158,256"/>
+<area shape="rect" id="node28" title=" " alt="" coords="1183,229,1255,256"/>
+<area shape="rect" id="node32" href="$dc/d09/Stats_8h.html" title="This file contains the declaration of statistical functions and structures for vectors and matrices." alt="" coords="455,229,591,256"/>
+<area shape="rect" id="node31" title=" " alt="" coords="1796,304,1863,331"/>
+<area shape="rect" id="node33" title=" " alt="" coords="732,304,807,331"/>
+<area shape="rect" id="node34" title=" " alt="" coords="581,304,657,331"/>
+<area shape="rect" id="node35" href="$d1/d80/BLAS_8h.html" title=" " alt="" coords="489,304,557,331"/>
 </map>

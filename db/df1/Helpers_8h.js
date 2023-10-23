@@ -20,6 +20,7 @@ var Helpers_8h =
     [ "variance", "db/df1/Helpers_8h.html#a010d918706cfc56207dee5c39bd0e9f4", null ],
     [ "computeMeanStd", "db/df1/Helpers_8h.html#a47bde9d4fb76f7eee1cfe4a98be0f8db", null ],
     [ "contains", "db/df1/Helpers_8h.html#a30efc103609272a0dc0cba3b12f85907", null ],
+    [ "drawJuliaSet", "db/df1/Helpers_8h.html#a0bd7444ed4f75d9a9b3a9c3c711b4dca", null ],
     [ "fill_linspace", "db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12", null ],
     [ "formatMeanStd", "db/df1/Helpers_8h.html#a97f5ae737c1d7ece540e2b07c8e8b3d4", null ],
     [ "getGrays256bitANSI", "db/df1/Helpers_8h.html#a1e95f5da95a0e7c0b5d568c5400f4f30", null ],

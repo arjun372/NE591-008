@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 551;
+var viewWidth = 841;
 var viewHeight = 113;
 var sectionId = 'dynsection-1';
 </script>
@@ -54,13 +54,13 @@ var sectionId = 'dynsection-1';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>Random::generate</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-109 547,-109 547,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-109 837,-109 837,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Generates a vector of random numbers.">
-<polygon fill="#bfbfbf" stroke="black" points="436,-57.5 436,-76.5 543,-76.5 543,-57.5 436,-57.5"/>
-<text text-anchor="middle" x="489.5" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">Random::generate</text>
+<polygon fill="#bfbfbf" stroke="black" points="726,-57.5 726,-76.5 833,-76.5 833,-57.5 726,-57.5"/>
+<text text-anchor="middle" x="779.5" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">Random::generate</text>
 </a>
 </g>
 </g>
@@ -68,97 +68,127 @@ var sectionId = 'dynsection-1';
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="../../d0/d40/classParser.html#a123dc1be35999de898396ade606098f6" target="_top" xlink:title="Builds the input matrices for the MyBLAS library from a JSON file.">
-<polygon fill="white" stroke="black" points="116,-85.5 116,-104.5 223,-104.5 223,-85.5 116,-85.5"/>
-<text text-anchor="middle" x="169.5" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
+<polygon fill="white" stroke="black" points="406,-85.5 406,-104.5 513,-104.5 513,-85.5 406,-85.5"/>
+<text text-anchor="middle" x="459.5" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M441.02,-78.77C427.82,-81.61 413.42,-84.31 400,-86 339.67,-93.6 269.78,-95.34 223.12,-95.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="441.85,-82.17 450.85,-76.58 440.33,-75.34 441.85,-82.17"/>
+<path fill="none" stroke="midnightblue" d="M731.02,-78.77C717.82,-81.61 703.42,-84.31 690,-86 629.67,-93.6 559.78,-95.34 513.12,-95.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="731.85,-82.17 740.85,-76.58 730.33,-75.34 731.85,-82.17"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a487070ac751d33afa7f9fceaef312ea0" target="_top" xlink:title="This function generates a circuit with random resistances and currents, and computes the correspondin...">
-<polygon fill="white" stroke="black" points="263,-57.5 263,-76.5 400,-76.5 400,-57.5 263,-57.5"/>
-<text text-anchor="middle" x="331.5" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::System::Circuit</text>
+<polygon fill="white" stroke="black" points="553,-57.5 553,-76.5 690,-76.5 690,-57.5 553,-57.5"/>
+<text text-anchor="middle" x="621.5" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::System::Circuit</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M425.62,-67C417.25,-67 408.64,-67 400.19,-67"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="425.69,-70.5 435.69,-67 425.69,-63.5 425.69,-70.5"/>
+<path fill="none" stroke="midnightblue" d="M715.62,-67C707.25,-67 698.64,-67 690.19,-67"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="715.69,-70.5 725.69,-67 715.69,-63.5 715.69,-70.5"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="../../db/df1/Helpers_8h.html#adbb387f590a9aee9c19ca2752ec93a12" target="_top" xlink:title="This function fills a vector with evenly spaced values between a start and end value.">
-<polygon fill="white" stroke="black" points="294.5,-19.5 294.5,-38.5 368.5,-38.5 368.5,-19.5 294.5,-19.5"/>
-<text text-anchor="middle" x="331.5" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">fill_linspace</text>
+<polygon fill="white" stroke="black" points="584.5,-19.5 584.5,-38.5 658.5,-38.5 658.5,-19.5 584.5,-19.5"/>
+<text text-anchor="middle" x="621.5" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">fill_linspace</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M439.26,-55C416.37,-49.43 389.63,-42.92 368.64,-37.8"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="438.59,-58.44 449.13,-57.41 440.25,-51.64 438.59,-58.44"/>
+<path fill="none" stroke="midnightblue" d="M729.26,-55C706.37,-49.43 679.63,-42.92 658.64,-37.8"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="728.59,-58.44 739.13,-57.41 730.25,-51.64 728.59,-58.44"/>
 </g>
 <!-- Node3&#45;&gt;Node2 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M265.74,-78.33C251.62,-80.8 236.84,-83.39 223.25,-85.77"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="266.64,-81.73 275.88,-76.56 265.43,-74.83 266.64,-81.73"/>
+<path fill="none" stroke="midnightblue" d="M555.74,-78.33C541.62,-80.8 526.84,-83.39 513.25,-85.77"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="556.64,-81.73 565.88,-76.56 555.43,-74.83 556.64,-81.73"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="../../db/df1/Helpers_8h.html#a1e95f5da95a0e7c0b5d568c5400f4f30" target="_top" xlink:title="Generates a vector of 256&#45;bit ANSI gray shades.">
-<polygon fill="white" stroke="black" points="112,-38.5 112,-57.5 227,-57.5 227,-38.5 112,-38.5"/>
-<text text-anchor="middle" x="169.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">getGrays256bitANSI</text>
+<polygon fill="white" stroke="black" points="402,-38.5 402,-57.5 517,-57.5 517,-38.5 402,-38.5"/>
+<text text-anchor="middle" x="459.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">getGrays256bitANSI</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge5" class="edge">
 <title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M284.05,-34.52C266.24,-36.63 245.72,-39.07 227.07,-41.28"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="284.68,-37.97 294.19,-33.31 283.85,-31.02 284.68,-37.97"/>
+<path fill="none" stroke="midnightblue" d="M574.05,-34.52C556.24,-36.63 535.72,-39.07 517.07,-41.28"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="574.68,-37.97 584.19,-33.31 573.85,-31.02 574.68,-37.97"/>
 </g>
-<!-- Node7 -->
-<g id="node7" class="node">
-<title>Node7</title>
-<g id="a_node7"><a xlink:href="../../d4/d63/classInLab2.html#aa21d4fafce339dc04b7171830300cb02" target="_top" xlink:title="This function is responsible for the main logic of the program.">
-<polygon fill="white" stroke="black" points="134,-0.5 134,-19.5 205,-19.5 205,-0.5 134,-0.5"/>
-<text text-anchor="middle" x="169.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">InLab2::run</text>
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="../../d4/d63/classInLab2.html#aa21d4fafce339dc04b7171830300cb02" target="_top" xlink:title="This function is responsible for the main logic of the program.">
+<polygon fill="white" stroke="black" points="424,-0.5 424,-19.5 495,-19.5 495,-0.5 424,-0.5"/>
+<text text-anchor="middle" x="459.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">InLab2::run</text>
 </a>
 </g>
 </g>
-<!-- Node4&#45;&gt;Node7 -->
-<g id="edge7" class="edge">
-<title>Node4&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M284.1,-23.49C258.85,-20.49 228.14,-16.84 205.02,-14.1"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="283.85,-26.98 294.19,-24.69 284.68,-20.03 283.85,-26.98"/>
+<!-- Node4&#45;&gt;Node9 -->
+<g id="edge9" class="edge">
+<title>Node4&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M574.1,-23.49C548.85,-20.49 518.14,-16.84 495.02,-14.1"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="573.85,-26.98 584.19,-24.69 574.68,-20.03 573.85,-26.98"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
 <g id="a_node6"><a xlink:href="../../db/df1/Helpers_8h.html#ae8d5abc9a487df9eaa8058819e252d0f" target="_top" xlink:title="Prints the Julia set to the console using the specified canvas properties.">
-<polygon fill="white" stroke="black" points="0,-38.5 0,-57.5 76,-57.5 76,-38.5 0,-38.5"/>
-<text text-anchor="middle" x="38" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">printJuliaSet</text>
+<polygon fill="white" stroke="black" points="290,-38.5 290,-57.5 366,-57.5 366,-38.5 290,-38.5"/>
+<text text-anchor="middle" x="328" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">printJuliaSet</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge6" class="edge">
 <title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M101.44,-48C92.69,-48 84,-48 76.01,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="101.7,-51.5 111.7,-48 101.7,-44.5 101.7,-51.5"/>
+<path fill="none" stroke="midnightblue" d="M391.44,-48C382.69,-48 374,-48 366.01,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="391.7,-51.5 401.7,-48 391.7,-44.5 391.7,-51.5"/>
+</g>
+<!-- Node7 -->
+<g id="node7" class="node">
+<title>Node7</title>
+<g id="a_node7"><a xlink:href="../../db/df1/Helpers_8h.html#a0bd7444ed4f75d9a9b3a9c3c711b4dca" target="_top" xlink:title="Draws the Julia set to a string buffer using the specified canvas properties.">
+<polygon fill="white" stroke="black" points="177,-38.5 177,-57.5 254,-57.5 254,-38.5 177,-38.5"/>
+<text text-anchor="middle" x="215.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">drawJuliaSet</text>
+</a>
+</g>
+</g>
+<!-- Node6&#45;&gt;Node7 -->
+<g id="edge7" class="edge">
+<title>Node6&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M279.65,-48C271.1,-48 262.29,-48 254.07,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="279.9,-51.5 289.9,-48 279.9,-44.5 279.9,-51.5"/>
+</g>
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="../../d3/d49/classOutLab7.html#ad41f6597089187f75caef96a8075377e" target="_top" xlink:title="This function builds the header information for the project.">
+<polygon fill="white" stroke="black" points="0,-38.5 0,-57.5 141,-57.5 141,-38.5 0,-38.5"/>
+<text text-anchor="middle" x="70.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab7::buildHeaderInfo</text>
+</a>
+</g>
+</g>
+<!-- Node7&#45;&gt;Node8 -->
+<g id="edge8" class="edge">
+<title>Node7&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M166.8,-48C158.57,-48 149.86,-48 141.19,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="166.93,-51.5 176.93,-48 166.93,-44.5 166.93,-51.5"/>
 </g>
 </g>
 </svg>

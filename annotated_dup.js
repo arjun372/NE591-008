@@ -59,6 +59,8 @@ var annotated_dup =
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h_d8/dd7/structMatrixBuildArgs" ],
     [ "MatrixVectorExpression", "d4/d68/classMatrixVectorExpression.html", "d4/d68/classMatrixVectorExpression" ],
     [ "MatrixVectorTests", "d3/dab/classMatrixVectorTests.html", null ],
+    [ "MPICommandLine", "d8/de9/classMPICommandLine.html", "d8/de9/classMPICommandLine" ],
+    [ "MPIProject", "d0/df0/classMPIProject.html", "d0/df0/classMPIProject" ],
     [ "OutLab1", "dd/df3/classOutLab1.html", "dd/df3/classOutLab1" ],
     [ "OutLab3", "da/df0/classOutLab3.html", "da/df0/classOutLab3" ],
     [ "OutLab4", "d8/d5b/classOutLab4.html", "d8/d5b/classOutLab4" ],
