@@ -6,6 +6,7 @@ var classMPICommandLine =
     [ "buildInputArguments", "d8/de9/classMPICommandLine.html#aa8841eee4285da132c9d6b14cdd3202a", null ],
     [ "buildInputs", "d8/de9/classMPICommandLine.html#aa4ebf35ae9b19bf323cc44c119db2ced", null ],
     [ "getArguments", "d8/de9/classMPICommandLine.html#a5058573f1179becf721f7ff0372584c2", null ],
+    [ "getArgumentsMap", "d8/de9/classMPICommandLine.html#a8ef8e180ef37b2c4fce3552bfdf1d39a", null ],
     [ "getCmdArgs", "d8/de9/classMPICommandLine.html#a056bbc8f6cd5028598468c2e95b04a13", null ],
     [ "getCurrentPrecision", "d8/de9/classMPICommandLine.html#a6a94f5e16b2081e769567d3790b6d8ec", null ],
     [ "getInputs", "d8/de9/classMPICommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667", null ],

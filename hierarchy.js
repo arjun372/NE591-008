@@ -54,6 +54,10 @@ var hierarchy =
     [ "MyBLAS::Matrix< T >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", null ],
     [ "MatrixVectorExpression< MatrixType, VectorType, T >", "d4/d68/classMatrixVectorExpression.html", null ],
+    [ "MPIProject< InputType, CommandLineParserType, OutputType >", "d0/df0/classMPIProject.html", null ],
+    [ "MPIProject< OutLab7Inputs, Parser, OutLab7Outputs >", "d0/df0/classMPIProject.html", [
+      [ "OutLab7", "d3/d49/classOutLab7.html", null ]
+    ] ],
     [ "MyBLAS::ContainerExpression< ContainerType1, ContainerType2, T >", "d5/d49/classMyBLAS_1_1ContainerExpression.html", null ],
     [ "MyBLAS::ElementwiseAdditionExpression< MatrixType, T >", "d7/dff/classMyBLAS_1_1ElementwiseAdditionExpression.html", null ],
     [ "MyBLAS::ElementwiseExpression< DataType, ContainerType1, ContainerType2, BinaryOp >", "df/d63/classMyBLAS_1_1ElementwiseExpression.html", null ],
@@ -80,12 +84,7 @@ var hierarchy =
     [ "MyPhysics::Diffusion::Params< MyBLAS::NumericType >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "MyPhysics::Diffusion::Params< T >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "Profiler< FunctionType >", "dd/d0e/classProfiler.html", null ],
-    [ "Project< InputType, CommandLineParserType, OutputType >", "db/d91/classProject.html", [
-      [ "MPIProject< OutLab7Inputs, Parser, OutLab7Outputs >", "d0/df0/classMPIProject.html", [
-        [ "OutLab7", "d3/d49/classOutLab7.html", null ]
-      ] ],
-      [ "MPIProject< InputType, CommandLineParserType, OutputType >", "d0/df0/classMPIProject.html", null ]
-    ] ],
+    [ "Project< InputType, CommandLineParserType, OutputType >", "db/d91/classProject.html", null ],
     [ "Project< InLab6Inputs, Parser, InLab6Outputs >", "db/d91/classProject.html", [
       [ "InLab6", "d1/d8c/classInLab6.html", null ]
     ] ],

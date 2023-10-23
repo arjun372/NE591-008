@@ -154,6 +154,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a748bf752c84f1333d905f6d30fcd2e45"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../d0/d40/classParser.html">Parser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classProject.html#a748bf752c84f1333d905f6d30fcd2e45">getTerminal</a> () const</td></tr>
 <tr class="memdesc:a748bf752c84f1333d905f6d30fcd2e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the terminal.  <a href="../../db/d91/classProject.html#a748bf752c84f1333d905f6d30fcd2e45">More...</a><br /></td></tr>
 <tr class="separator:a748bf752c84f1333d905f6d30fcd2e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ccb315fa492215574b147c09a4a6c0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs">SolverInputs</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classProject.html#a2ccb315fa492215574b147c09a4a6c0d">getInputs</a> ()</td></tr>
+<tr class="separator:a2ccb315fa492215574b147c09a4a6c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -324,9 +326,9 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="../../db/d91/classProject.html#aa176f763c07de3d80ecf50ef88b4ded2">timedRun</a>();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a3c1d452f2dbab887ce82a17d14f02331">finalize</a>();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="ttc" id="aclassProject_html_a3c1d452f2dbab887ce82a17d14f02331"><div class="ttname"><a href="../../db/d91/classProject.html#a3c1d452f2dbab887ce82a17d14f02331">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::finalize</a></div><div class="ttdeci">virtual void finalize()</div><div class="ttdef"><b>Definition:</b> Project.h:74</div></div>
-<div class="ttc" id="aclassProject_html_a3dba336803f373c6c0423b1a94ac7e68"><div class="ttname"><a href="../../db/d91/classProject.html#a3dba336803f373c6c0423b1a94ac7e68">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::initialize</a></div><div class="ttdeci">virtual void initialize()</div><div class="ttdoc">Initializes the project.</div><div class="ttdef"><b>Definition:</b> Project.h:67</div></div>
-<div class="ttc" id="aclassProject_html_aa176f763c07de3d80ecf50ef88b4ded2"><div class="ttname"><a href="../../db/d91/classProject.html#aa176f763c07de3d80ecf50ef88b4ded2">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::timedRun</a></div><div class="ttdeci">virtual void timedRun()</div><div class="ttdoc">Executes the project in a timed manner. This method calls preRun, run, and postRun methods in sequenc...</div><div class="ttdef"><b>Definition:</b> Project.h:82</div></div>
+<div class="ttc" id="aclassProject_html_a3c1d452f2dbab887ce82a17d14f02331"><div class="ttname"><a href="../../db/d91/classProject.html#a3c1d452f2dbab887ce82a17d14f02331">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::finalize</a></div><div class="ttdeci">virtual void finalize()</div><div class="ttdef"><b>Definition:</b> Project.h:78</div></div>
+<div class="ttc" id="aclassProject_html_a3dba336803f373c6c0423b1a94ac7e68"><div class="ttname"><a href="../../db/d91/classProject.html#a3dba336803f373c6c0423b1a94ac7e68">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::initialize</a></div><div class="ttdeci">virtual void initialize()</div><div class="ttdoc">Initializes the project.</div><div class="ttdef"><b>Definition:</b> Project.h:71</div></div>
+<div class="ttc" id="aclassProject_html_aa176f763c07de3d80ecf50ef88b4ded2"><div class="ttname"><a href="../../db/d91/classProject.html#aa176f763c07de3d80ecf50ef88b4ded2">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::timedRun</a></div><div class="ttdeci">virtual void timedRun()</div><div class="ttdoc">Executes the project in a timed manner. This method calls preRun, run, and postRun methods in sequenc...</div><div class="ttdef"><b>Definition:</b> Project.h:86</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -352,9 +354,38 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                            {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2ccb315fa492215574b147c09a4a6c0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ccb315fa492215574b147c09a4a6c0d">&#9670;&nbsp;</a></span>getInputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs">SolverInputs</a> &amp; <a class="el" href="../../db/d91/classProject.html">Project</a>&lt; <a class="el" href="../../d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs">SolverInputs</a> , <a class="el" href="../../d0/d40/classParser.html">Parser</a> , <a class="el" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#aa60e1b2883d30819d60f60dd680b9b38">SolverOutputs</a>  &gt;::getInputs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                           {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="ttc" id="anamespaceprocess_html_a28a68c9ef07157605b034da333fdcfc1"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">process.inputs</a></div><div class="ttdeci">inputs</div><div class="ttdef"><b>Definition:</b> process.py:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -421,9 +452,9 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../dd/d0e/classProfiler.html" title="A template class to profile the execution time of a function.">Profiler</a> object. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                                                                                                     {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html">Profiler</a>(func, samples, timeout, description);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                                                                                                     {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html">Profiler</a>(func, samples, timeout, description);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div>
 <div class="ttc" id="aclassProfiler_html"><div class="ttname"><a href="../../dd/d0e/classProfiler.html">Profiler</a></div><div class="ttdoc">A template class to profile the execution time of a function.</div><div class="ttdef"><b>Definition:</b> Profiler.h:28</div></div>
 </div><!-- fragment -->
 </div>
@@ -484,9 +515,9 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../dd/d0e/classProfiler.html" title="A template class to profile the execution time of a function.">Profiler</a> object. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                                                                            {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html">Profiler</a>(func, samples, 0, description);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                                                                            {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html">Profiler</a>(func, samples, 0, description);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -539,9 +570,9 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../dd/d0e/classProfiler.html" title="A template class to profile the execution time of a function.">Profiler</a> object. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                                                            {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d1/d09/namespaceProfilerHelper.html#abe11cd437b44ab44edb928fd207cd1ed">ProfilerHelper::InitProfiler</a>(func, <a class="code" href="../../db/d91/classProject.html#a748bf752c84f1333d905f6d30fcd2e45">getTerminal</a>().getArguments(), description);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                                                            {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d1/d09/namespaceProfilerHelper.html#abe11cd437b44ab44edb928fd207cd1ed">ProfilerHelper::InitProfiler</a>(func, <a class="code" href="../../db/d91/classProject.html#a748bf752c84f1333d905f6d30fcd2e45">getTerminal</a>().getArguments(), description);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
 <div class="ttc" id="aclassProject_html_a748bf752c84f1333d905f6d30fcd2e45"><div class="ttname"><a href="../../db/d91/classProject.html#a748bf752c84f1333d905f6d30fcd2e45">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::getTerminal</a></div><div class="ttdeci">virtual Parser getTerminal() const</div><div class="ttdoc">Returns the terminal.</div><div class="ttdef"><b>Definition:</b> Project.h:57</div></div>
 <div class="ttc" id="anamespaceProfilerHelper_html_abe11cd437b44ab44edb928fd207cd1ed"><div class="ttname"><a href="../../d1/d09/namespaceProfilerHelper.html#abe11cd437b44ab44edb928fd207cd1ed">ProfilerHelper::InitProfiler</a></div><div class="ttdeci">auto InitProfiler(Func func, boost::program_options::variables_map &amp;map, std::string description)</div><div class="ttdoc">This function initializes the profiler with the given function, command line options,...</div><div class="ttdef"><b>Definition:</b> CommandlineHelpers.h:59</div></div>
 </div><!-- fragment -->
@@ -573,7 +604,7 @@ Protected Attributes</h2></td></tr>
 <p>Returns the terminal. </p>
 <dl class="section return"><dt>Returns</dt><dd>The terminal. </dd></dl>
 <div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>; }</div>
-<div class="ttc" id="aclassProject_html_a6a745ed8b9a383f5c1fe341a530301ed"><div class="ttname"><a href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::terminal</a></div><div class="ttdeci">Parser terminal</div><div class="ttdef"><b>Definition:</b> Project.h:61</div></div>
+<div class="ttc" id="aclassProject_html_a6a745ed8b9a383f5c1fe341a530301ed"><div class="ttname"><a href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::terminal</a></div><div class="ttdeci">Parser terminal</div><div class="ttdef"><b>Definition:</b> Project.h:65</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -601,15 +632,15 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the project. </p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                      {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a> = CommandLineParserType(<a class="code" href="../../db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd">buildHeaderInfo</a>(), <a class="code" href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">cmdArgs</a>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a> = OutputType();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="ttc" id="aclassCommandLine_html_ad9d8cf54a3f65df6a00700fd2282c667"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">CommandLine::getInputs</a></div><div class="ttdeci">InputType &amp; getInputs()</div><div class="ttdoc">Method to get the inputs.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:131</div></div>
-<div class="ttc" id="aclassProject_html_a06149764196c5bb48dfb591ab1c9bf34"><div class="ttname"><a href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::outputs</a></div><div class="ttdeci">SolverOutputs outputs</div><div class="ttdef"><b>Definition:</b> Project.h:62</div></div>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                      {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a> = CommandLineParserType(<a class="code" href="../../db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd">buildHeaderInfo</a>(), <a class="code" href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">cmdArgs</a>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a> = OutputType();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="ttc" id="aclassCommandLine_html_ad9d8cf54a3f65df6a00700fd2282c667"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">CommandLine::getInputs</a></div><div class="ttdeci">InputType &amp; getInputs()</div><div class="ttdoc">Method to get the inputs.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:138</div></div>
+<div class="ttc" id="aclassProject_html_a06149764196c5bb48dfb591ab1c9bf34"><div class="ttname"><a href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::outputs</a></div><div class="ttdeci">SolverOutputs outputs</div><div class="ttdef"><b>Definition:</b> Project.h:66</div></div>
 <div class="ttc" id="aclassProject_html_a253538a3f4435358c94fd6e682b154dd"><div class="ttname"><a href="../../db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::buildHeaderInfo</a></div><div class="ttdeci">virtual HeaderInfo buildHeaderInfo()=0</div><div class="ttdoc">Builds the header information.</div></div>
-<div class="ttc" id="aclassProject_html_a44d2055fa63fb0d7684efd9a7db32272"><div class="ttname"><a href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::cmdArgs</a></div><div class="ttdeci">CommandLineArgs cmdArgs</div><div class="ttdef"><b>Definition:</b> Project.h:60</div></div>
+<div class="ttc" id="aclassProject_html_a44d2055fa63fb0d7684efd9a7db32272"><div class="ttname"><a href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::cmdArgs</a></div><div class="ttdeci">CommandLineArgs cmdArgs</div><div class="ttdef"><b>Definition:</b> Project.h:64</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -662,7 +693,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{}</div>
+<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -715,7 +746,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{}</div>
+<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -786,7 +817,7 @@ The solution vector 𝜙 will contain the scalar fluxes at each node 𝑖, 𝑗,
 
 6. Output the results: Write the scalar fluxes 𝜙(𝑖,𝑗) for 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛 to an output file.
 </pre>
-<p>Implements <a class="el" href="../../db/d91/classProject.html#a02f8b0f24035e49482aaf78a020a7b8c">Project&lt; SolverInputs, Parser, SolverOutputs &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="../../db/d91/classProject.html#a4640723b4d363a0987576b8de578ede7">Project&lt; SolverInputs, Parser, SolverOutputs &gt;</a>.</p>
 <div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                                                                                               {</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">        /**</span></div>
@@ -962,14 +993,13 @@ The solution vector 𝜙 will contain the scalar fluxes at each node 𝑖, 𝑗,
 <div class="ttc" id="aCommandLine_8h_html_a78959ecd5c09c39ab16731c88cff9f9b"><div class="ttname"><a href="../../d9/d41/CommandLine_8h.html#a78959ecd5c09c39ab16731c88cff9f9b">max_precision</a></div><div class="ttdeci">constexpr auto max_precision</div><div class="ttdef"><b>Definition:</b> CommandLine.h:46</div></div>
 <div class="ttc" id="aFileParser_8h_html_a3dcefb9b5c6bf2d5e28ebe848b09cad5"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#a3dcefb9b5c6bf2d5e28ebe848b09cad5">writeCSVMatrixNoHeaders</a></div><div class="ttdeci">static void writeCSVMatrixNoHeaders(const std::string &amp;filepath, MyBLAS::Matrix&lt; T &gt; &amp;data)</div><div class="ttdef"><b>Definition:</b> FileParser.h:275</div></div>
 <div class="ttc" id="aFileParser_8h_html_abb1a95d027a077ecf097a06ef4a968b6"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#abb1a95d027a077ecf097a06ef4a968b6">writeJSON</a></div><div class="ttdeci">static void writeJSON(const std::string &amp;filepath, nlohmann::json &amp;data)</div><div class="ttdoc">Writes the given JSON data to a file at the specified file path.</div><div class="ttdef"><b>Definition:</b> FileParser.h:342</div></div>
-<div class="ttc" id="aclassCommandLine_html_a7001590923e6bfdf380448136b8e65bd"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">CommandLine&lt; InLab6Inputs &gt;::printLine</a></div><div class="ttdeci">static void printLine()</div><div class="ttdoc">Method to print a line to the console. This method prints a line of dashes to the console.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:142</div></div>
+<div class="ttc" id="aclassCommandLine_html_a7001590923e6bfdf380448136b8e65bd"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">CommandLine&lt; InLab6Inputs &gt;::printLine</a></div><div class="ttdeci">static void printLine()</div><div class="ttdoc">Method to print a line to the console. This method prints a line of dashes to the console.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:149</div></div>
 <div class="ttc" id="aclassMyBLAS_1_1Vector_html"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector&lt; long double &gt;</a></div></div>
-<div class="ttc" id="aclassProject_html_a1bb61af5e341b555e01de0b756409db0"><div class="ttname"><a href="../../db/d91/classProject.html#a1bb61af5e341b555e01de0b756409db0">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::getProfiler</a></div><div class="ttdeci">auto getProfiler(Func func, size_t samples, long double timeout=0, std::string description=&quot;&quot;)</div><div class="ttdoc">Creates a Profiler object with the given function, number of samples, timeout, and description.</div><div class="ttdef"><b>Definition:</b> Project.h:131</div></div>
+<div class="ttc" id="aclassProject_html_a1bb61af5e341b555e01de0b756409db0"><div class="ttname"><a href="../../db/d91/classProject.html#a1bb61af5e341b555e01de0b756409db0">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::getProfiler</a></div><div class="ttdeci">auto getProfiler(Func func, size_t samples, long double timeout=0, std::string description=&quot;&quot;)</div><div class="ttdoc">Creates a Profiler object with the given function, number of samples, timeout, and description.</div><div class="ttdef"><b>Definition:</b> Project.h:135</div></div>
 <div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_aaa0d2e3d22af2b7894169b7c90ba6146"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">MyBLAS::Stats::sum</a></div><div class="ttdeci">T sum(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the sum of all elements in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:145</div></div>
 <div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_afeaf3b7bba0ff1b952b35d0effc0bca9"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">MyBLAS::Stats::abs</a></div><div class="ttdeci">Vector&lt; T &gt; abs(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Function to find the absolute value of each element in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:114</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_aa3501265c4bb7f37e8e949d37244473a"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#aa3501265c4bb7f37e8e949d37244473a">MyBLAS::forwardSubstitution</a></div><div class="ttdeci">V&lt; T &gt; forwardSubstitution(const M&lt; T &gt; &amp;L, const V&lt; T &gt; &amp;b)</div><div class="ttdoc">Perform forward substitution.</div><div class="ttdef"><b>Definition:</b> Matrix.h:494</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_af710039e87de86c8b4ac8a9e139efbcb"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#af710039e87de86c8b4ac8a9e139efbcb">MyBLAS::backwardSubstitution</a></div><div class="ttdeci">V&lt; T &gt; backwardSubstitution(const M&lt; T &gt; &amp;U, const V&lt; T &gt; &amp;y)</div><div class="ttdoc">Perform backward substitution.</div><div class="ttdef"><b>Definition:</b> Matrix.h:524</div></div>
-<div class="ttc" id="anamespaceprocess_html_a28a68c9ef07157605b034da333fdcfc1"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">process.inputs</a></div><div class="ttdeci">inputs</div><div class="ttdef"><b>Definition:</b> process.py:19</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 <div class="ttc" id="aproject_2project1_2Compute_8h_html_a5c27829d7bc2f4441c23f858e41cf9f7"><div class="ttname"><a href="../../d7/da1/project_2project1_2Compute_8h.html#a5c27829d7bc2f4441c23f858e41cf9f7">fill_fluxes</a></div><div class="ttdeci">static void fill_fluxes(MyBLAS::Vector&lt; long double &gt; phi, SolverInputs &amp;inputs, SolverOutputs &amp;outputs)</div><div class="ttdoc">Fills the fluxes.</div><div class="ttdef"><b>Definition:</b> Compute.h:160</div></div>
 <div class="ttc" id="aproject_2project1_2Compute_8h_html_a9c1752b04a8f0ec48acd75f06f1bfc68"><div class="ttname"><a href="../../d7/da1/project_2project1_2Compute_8h.html#a9c1752b04a8f0ec48acd75f06f1bfc68">naive_fill_diffusion_matrix_and_vector</a></div><div class="ttdeci">static void naive_fill_diffusion_matrix_and_vector(SolverInputs &amp;inputs, IntermediateResults &amp;intermediates)</div><div class="ttdoc">Fills the diffusion matrix and vector.</div><div class="ttdef"><b>Definition:</b> Compute.h:76</div></div>
@@ -984,7 +1014,7 @@ The solution vector 𝜙 will contain the scalar fluxes at each node 𝑖, 𝑗,
 <div class="ttc" id="astructOutput_html_ac0fbf4e15509bd1a6ed3e957603d8340"><div class="ttname"><a href="../../df/df1/structOutput.html#ac0fbf4e15509bd1a6ed3e957603d8340">Output::solution</a></div><div class="ttdeci">MyBLAS::Vector&lt; long double &gt; solution</div><div class="ttdoc">Output vector.</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:44</div></div>
 <div class="ttc" id="astructOutput_html_afd0fa0f15738e2871e0abbc554b7a630"><div class="ttname"><a href="../../df/df1/structOutput.html#afd0fa0f15738e2871e0abbc554b7a630">Output::residual</a></div><div class="ttdeci">MyBLAS::Vector&lt; long double &gt; residual</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:67</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00114">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00524">MyBLAS::backwardSubstitution()</a>, <a class="el" href="../../#l00081">Map::diffusion_matrix_A</a>, <a class="el" href="../../#l00160">fill_fluxes()</a>, <a class="el" href="../../#l00104">Output::fluxes</a>, <a class="el" href="../../#l00494">MyBLAS::forwardSubstitution()</a>, <a class="el" href="../../#l00131">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::getProfiler()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00044">Map::L</a>, <a class="el" href="../../#l00046">max_precision</a>, <a class="el" href="../../#l00076">naive_fill_diffusion_matrix_and_vector()</a>, <a class="el" href="../../#l00062">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::outputs</a>, <a class="el" href="../../#l00046">Map::P</a>, <a class="el" href="../../#l00142">CommandLine&lt; InLab6Inputs &gt;::printLine()</a>, <a class="el" href="../../#l00067">Output::residual</a>, <a class="el" href="../../#l00082">Map::right_hand_side_vector_B</a>, <a class="el" href="../../#l00044">Output::solution</a>, <a class="el" href="../../#l00145">MyBLAS::Stats::sum()</a>, <a class="el" href="../../#l00059">Output::toJSON()</a>, <a class="el" href="../../#l00045">Map::U</a>, <a class="el" href="../../#l00275">writeCSVMatrixNoHeaders()</a>, <a class="el" href="../../#l00342">writeJSON()</a>, and <a class="el" href="../../#l00020">y</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00114">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00524">MyBLAS::backwardSubstitution()</a>, <a class="el" href="../../#l00081">Map::diffusion_matrix_A</a>, <a class="el" href="../../#l00160">fill_fluxes()</a>, <a class="el" href="../../#l00104">Output::fluxes</a>, <a class="el" href="../../#l00494">MyBLAS::forwardSubstitution()</a>, <a class="el" href="../../#l00135">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::getProfiler()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00044">Map::L</a>, <a class="el" href="../../#l00046">max_precision</a>, <a class="el" href="../../#l00076">naive_fill_diffusion_matrix_and_vector()</a>, <a class="el" href="../../#l00066">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::outputs</a>, <a class="el" href="../../#l00046">Map::P</a>, <a class="el" href="../../#l00149">CommandLine&lt; InLab6Inputs &gt;::printLine()</a>, <a class="el" href="../../#l00067">Output::residual</a>, <a class="el" href="../../#l00082">Map::right_hand_side_vector_B</a>, <a class="el" href="../../#l00044">Output::solution</a>, <a class="el" href="../../#l00145">MyBLAS::Stats::sum()</a>, <a class="el" href="../../#l00059">Output::toJSON()</a>, <a class="el" href="../../#l00045">Map::U</a>, <a class="el" href="../../#l00275">writeCSVMatrixNoHeaders()</a>, <a class="el" href="../../#l00342">writeJSON()</a>, and <a class="el" href="../../#l00020">y</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -1020,17 +1050,17 @@ The solution vector 𝜙 will contain the scalar fluxes at each node 𝑖, 𝑗,
 </div><div class="memdoc">
 
 <p>Executes the project in a timed manner. This method calls preRun, run, and postRun methods in sequence. </p>
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="../../db/d91/classProject.html#ab323cfcafd876a24b9321d58355b7662">preRun</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a02f8b0f24035e49482aaf78a020a7b8c">run</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a2873dd0aa78848433775442dda988e79">postRun</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="../../db/d91/classProject.html#ab323cfcafd876a24b9321d58355b7662">preRun</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a4640723b4d363a0987576b8de578ede7">run</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a2873dd0aa78848433775442dda988e79">postRun</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
 <div class="ttc" id="aclassCommandLine_html_a5058573f1179becf721f7ff0372584c2"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">CommandLine::getArguments</a></div><div class="ttdeci">boost::program_options::variables_map &amp; getArguments()</div><div class="ttdoc">Method to get the parsed command line arguments.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:95</div></div>
-<div class="ttc" id="aclassProject_html_a02f8b0f24035e49482aaf78a020a7b8c"><div class="ttname"><a href="../../db/d91/classProject.html#a02f8b0f24035e49482aaf78a020a7b8c">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::run</a></div><div class="ttdeci">virtual void run(SolverOutputs &amp;output, SolverInputs &amp;input, boost::program_options::variables_map &amp;values)=0</div><div class="ttdoc">Executes the project.</div></div>
-<div class="ttc" id="aclassProject_html_a2873dd0aa78848433775442dda988e79"><div class="ttname"><a href="../../db/d91/classProject.html#a2873dd0aa78848433775442dda988e79">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::postRun</a></div><div class="ttdeci">virtual void postRun(SolverOutputs &amp;output, SolverInputs &amp;input, boost::program_options::variables_map &amp;values)</div><div class="ttdoc">A hook for performing actions after the run.</div><div class="ttdef"><b>Definition:</b> Project.h:119</div></div>
-<div class="ttc" id="aclassProject_html_ab323cfcafd876a24b9321d58355b7662"><div class="ttname"><a href="../../db/d91/classProject.html#ab323cfcafd876a24b9321d58355b7662">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::preRun</a></div><div class="ttdeci">virtual void preRun(SolverOutputs &amp;output, SolverInputs &amp;input, boost::program_options::variables_map &amp;values)</div><div class="ttdoc">A hook for performing actions before the run.</div><div class="ttdef"><b>Definition:</b> Project.h:103</div></div>
+<div class="ttc" id="aclassProject_html_a2873dd0aa78848433775442dda988e79"><div class="ttname"><a href="../../db/d91/classProject.html#a2873dd0aa78848433775442dda988e79">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::postRun</a></div><div class="ttdeci">virtual void postRun(SolverOutputs &amp;output, SolverInputs &amp;input, boost::program_options::variables_map &amp;values)</div><div class="ttdoc">A hook for performing actions after the run.</div><div class="ttdef"><b>Definition:</b> Project.h:123</div></div>
+<div class="ttc" id="aclassProject_html_a4640723b4d363a0987576b8de578ede7"><div class="ttname"><a href="../../db/d91/classProject.html#a4640723b4d363a0987576b8de578ede7">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::run</a></div><div class="ttdeci">virtual void run(SolverOutputs &amp;output, SolverInputs &amp;input, boost::program_options::variables_map &amp;values)</div><div class="ttdoc">Executes the project.</div><div class="ttdef"><b>Definition:</b> Project.h:115</div></div>
+<div class="ttc" id="aclassProject_html_ab323cfcafd876a24b9321d58355b7662"><div class="ttname"><a href="../../db/d91/classProject.html#ab323cfcafd876a24b9321d58355b7662">Project&lt; SolverInputs, Parser, SolverOutputs &gt;::preRun</a></div><div class="ttdeci">virtual void preRun(SolverOutputs &amp;output, SolverInputs &amp;input, boost::program_options::variables_map &amp;values)</div><div class="ttdoc">A hook for performing actions before the run.</div><div class="ttdef"><b>Definition:</b> Project.h:107</div></div>
 </div><!-- fragment -->
 </div>
 </div>

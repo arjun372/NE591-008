@@ -46,7 +46,7 @@ var structInput =
     [ "N", "d4/dae/structInput.html#aa163162a318f5cb262556e1617798371", null ],
     [ "n", "d4/dae/structInput.html#a5f3c3645fcb4f39f72811de16de7b950", null ],
     [ "numRuns", "d4/dae/structInput.html#ac65cebfc2c2445c1000687bf5e3db814", null ],
-    [ "p", "d4/dae/structInput.html#add1ef9630690767cdc7d3fb11a3547ff", null ],
+    [ "outputJSON", "d4/dae/structInput.html#a916c4e7ce1f67c9fd6c94d47c69d1ca7", null ],
     [ "solver_methods", "d4/dae/structInput.html#a38be57cfa24ccc4364427d7c6134496d", null ],
     [ "solverParams", "d4/dae/structInput.html#a65657f62a989412d42823d30b67506a2", null ],
     [ "sources", "d4/dae/structInput.html#ad2d4165d167265fabf538de8774e99f4", null ],

@@ -59,9 +59,9 @@ var NAVTREE =
       [ "FAQs", "index.html#autotoc_md28", null ]
     ] ],
     [ "InLab 01: Taylor series approximation of sin(x)", "d7/d5f/inlab1.html", [
-      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md1", [
-        [ "Usage", "d7/d5f/inlab1.html#autotoc_md2", null ],
-        [ "Example", "d7/d5f/inlab1.html#autotoc_md3", null ]
+      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md0", [
+        [ "Usage", "d7/d5f/inlab1.html#autotoc_md1", null ],
+        [ "Example", "d7/d5f/inlab1.html#autotoc_md2", null ]
       ] ]
     ] ],
     [ "InLab 02: Lagrange Interpolation Polynomials I", "d1/def/inlab2.html", [
@@ -282,16 +282,16 @@ var NAVTREEINDEX =
 [
 "",
 "d0/d28/classMyBLAS_1_1LazyMatrix.html#ad3d74ee9126424a708882d279dd64173",
-"d0/d40/classParser.html#ad5a319883542edade6c07373ae2b9134",
-"d1/dcf/labs_2outlab2_2Compute_8h.html",
-"d3/d49/classOutLab7.html",
-"d5/d51/BaseMatrixTests_8cpp.html#a771b1a86d12c0d221854ac554b6ff1ca",
-"d7/da1/project_2project1_2Compute_8h.html#acddcb7395a0d22a81020f268fd96918a",
-"d9/d83/outlab2.html#autotoc_md100",
-"dc/d1d/outlab3.html",
-"dd/dd7/plot__points_8m.html#a1f339dcd84285a772b96e884b3755b05",
-"df/df1/structOutput.html#ae4d269e36fb9b632ffa52727e7315c89",
-"namespacemembers_l.html"
+"d0/d40/classParser.html#ac832ae62f1a9173c3493c95a0e3acecc",
+"d1/d8c/classInLab6.html#aa176f763c07de3d80ecf50ef88b4ded2",
+"d3/d3f/labs_2outlab5_2tests_2LUMatrixTests_8cpp.html",
+"d5/d51/BaseMatrixTests_8cpp.html#a52f08abceee687dd868844d780177aa0",
+"d7/da1/project_2project1_2Compute_8h.html#a9c1752b04a8f0ec48acd75f06f1bfc68",
+"d9/d41/generate__source__radially__distributed_8py.html#aa874295d900d3fee692edc03e6490fa7",
+"dc/d09/Stats_8h.html#a403bf760cf802cddf8dd73e5d3e46a05",
+"dd/dc2/classMyBLAS_1_1VectorExpression.html#a2e23433660d4755af8b6de2e922992c6",
+"df/df1/structOutput.html#ab498f7b76ca4504e996685d7fcbb5387",
+"namespacemembers_func_i.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

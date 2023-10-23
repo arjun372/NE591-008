@@ -4,6 +4,7 @@ var classInLab2 =
     [ "buildHeaderInfo", "d4/d63/classInLab2.html#a6bcac7ca600f7e032e34c23546f8c1cb", null ],
     [ "execute", "d4/d63/classInLab2.html#a72d9d2de140c436278d65674f477198c", null ],
     [ "finalize", "d4/d63/classInLab2.html#a3c1d452f2dbab887ce82a17d14f02331", null ],
+    [ "getInputs", "d4/d63/classInLab2.html#a2ccb315fa492215574b147c09a4a6c0d", null ],
     [ "getProfiler", "d4/d63/classInLab2.html#a1bb61af5e341b555e01de0b756409db0", null ],
     [ "getProfiler", "d4/d63/classInLab2.html#a930c3207c99d9ddeb684c1fb371fa80e", null ],
     [ "getProfiler", "d4/d63/classInLab2.html#aadf8055fdd095b12168bcf7e42df9d98", null ],

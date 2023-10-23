@@ -4,6 +4,7 @@ var classProfiler =
     [ "Profiler", "dd/d0e/classProfiler.html#a3f2873170b1fe4ff43de434de6411948", null ],
     [ "getSummary", "dd/d0e/classProfiler.html#a836e34177ff72ff8098386168b3cd690", null ],
     [ "getTotalRuns", "dd/d0e/classProfiler.html#a832e214be8b7f48103c9d287dcff6163", null ],
+    [ "operator=", "dd/d0e/classProfiler.html#aea5a00eb76bc73ada86e2cf3994167b0", null ],
     [ "resetRuns", "dd/d0e/classProfiler.html#a64306917107f0c655a74b908add86a4d", null ],
     [ "run", "dd/d0e/classProfiler.html#a3079911f79afc765205a92c66c971b65", null ],
     [ "runNoTimeout", "dd/d0e/classProfiler.html#ae0e3d2665f540a740a52e200d0ad4f55", null ],

@@ -4,6 +4,7 @@ var classInLab5 =
     [ "buildHeaderInfo", "d8/deb/classInLab5.html#a5b3900f94184f3ef8ac7b4a684257d8a", null ],
     [ "execute", "d8/deb/classInLab5.html#a72d9d2de140c436278d65674f477198c", null ],
     [ "finalize", "d8/deb/classInLab5.html#a3c1d452f2dbab887ce82a17d14f02331", null ],
+    [ "getInputs", "d8/deb/classInLab5.html#a2ccb315fa492215574b147c09a4a6c0d", null ],
     [ "getProfiler", "d8/deb/classInLab5.html#a1bb61af5e341b555e01de0b756409db0", null ],
     [ "getProfiler", "d8/deb/classInLab5.html#a930c3207c99d9ddeb684c1fb371fa80e", null ],
     [ "getProfiler", "d8/deb/classInLab5.html#aadf8055fdd095b12168bcf7e42df9d98", null ],

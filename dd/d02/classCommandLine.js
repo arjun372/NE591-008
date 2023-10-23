@@ -7,6 +7,7 @@ var classCommandLine =
     [ "buildInputArguments", "dd/d02/classCommandLine.html#aa8841eee4285da132c9d6b14cdd3202a", null ],
     [ "buildInputs", "dd/d02/classCommandLine.html#aa4ebf35ae9b19bf323cc44c119db2ced", null ],
     [ "getArguments", "dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2", null ],
+    [ "getArgumentsMap", "dd/d02/classCommandLine.html#a8ef8e180ef37b2c4fce3552bfdf1d39a", null ],
     [ "getCmdArgs", "dd/d02/classCommandLine.html#a056bbc8f6cd5028598468c2e95b04a13", null ],
     [ "getCurrentPrecision", "dd/d02/classCommandLine.html#a6a94f5e16b2081e769567d3790b6d8ec", null ],
     [ "getInputs", "dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667", null ],

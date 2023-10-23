@@ -241,8 +241,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:a790a496609f8fcffdec350869c66bd55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ff7e621eae37b3313931fdad9ba8eba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; long double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dae/structInput.html#a4ff7e621eae37b3313931fdad9ba8eba">known_solution</a></td></tr>
 <tr class="separator:a4ff7e621eae37b3313931fdad9ba8eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add1ef9630690767cdc7d3fb11a3547ff"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dae/structInput.html#add1ef9630690767cdc7d3fb11a3547ff">p</a> = 1</td></tr>
-<tr class="separator:add1ef9630690767cdc7d3fb11a3547ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a916c4e7ce1f67c9fd6c94d47c69d1ca7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dae/structInput.html#a916c4e7ce1f67c9fd6c94d47c69d1ca7">outputJSON</a></td></tr>
+<tr class="separator:a916c4e7ce1f67c9fd6c94d47c69d1ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38be57cfa24ccc4364427d7c6134496d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/dde/readfile_8m.html#a6eb2b313378121d0d376589d32a625bd">std::set</a>&lt; <a class="el" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5">SolverMethod</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dae/structInput.html#a38be57cfa24ccc4364427d7c6134496d">solver_methods</a> = {<a class="el" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5ae14effda56d292d6ccad8f364bd04e52">METHOD_LUP</a>}</td></tr>
 <tr class="separator:a38be57cfa24ccc4364427d7c6134496d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab638f71f99841f3f3778b82b0267d2ae"><td class="memItemLeft" align="right" valign="top">long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dae/structInput.html#ab638f71f99841f3f3778b82b0267d2ae">delta</a> = 1</td></tr>
@@ -504,14 +504,12 @@ template&lt;class Archive &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                                             {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ar &amp; BOOST_SERIALIZATION_NVP(<a class="code" href="../../d4/dae/structInput.html#add1ef9630690767cdc7d3fb11a3547ff">p</a>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        ar &amp; BOOST_SERIALIZATION_NVP(<a class="code" href="../../d4/dae/structInput.html#a5f3c3645fcb4f39f72811de16de7b950">n</a>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                                             {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        ar &amp; BOOST_SERIALIZATION_NVP(<a class="code" href="../../d4/dae/structInput.html#a5f3c3645fcb4f39f72811de16de7b950">n</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
 <div class="ttc" id="astructInput_html_a5f3c3645fcb4f39f72811de16de7b950"><div class="ttname"><a href="../../d4/dae/structInput.html#a5f3c3645fcb4f39f72811de16de7b950">Input::n</a></div><div class="ttdeci">size_t n</div><div class="ttdoc">Size of the matrices.</div><div class="ttdef"><b>Definition:</b> Parser.h:5</div></div>
-<div class="ttc" id="astructInput_html_add1ef9630690767cdc7d3fb11a3547ff"><div class="ttname"><a href="../../d4/dae/structInput.html#add1ef9630690767cdc7d3fb11a3547ff">Input::p</a></div><div class="ttdeci">size_t p</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:25</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00005">n</a>, and <a class="el" href="../../#l00025">p</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00005">n</a>.</p>
 
 </div>
 </div>
@@ -875,11 +873,10 @@ template&lt;class Archive &gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                             {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        jsonMap[<span class="stringliteral">&quot;n&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#add1ef9630690767cdc7d3fb11a3547ff">p</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        jsonMap[<span class="stringliteral">&quot;p&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a5f3c3645fcb4f39f72811de16de7b950">n</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        jsonMap[<span class="stringliteral">&quot;n&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a5f3c3645fcb4f39f72811de16de7b950">n</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00005">n</a>, and <a class="el" href="../../#l00025">p</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00005">n</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1042,7 @@ template&lt;class Archive &gt; </div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                                                      {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;p: &quot;</span> &lt;&lt; <a class="code" href="../../d4/dae/structInput.html#a790a496609f8fcffdec350869c66bd55">input</a>.p &lt;&lt; <span class="stringliteral">&quot;, n: &quot;</span> &lt;&lt; <a class="code" href="../../d4/dae/structInput.html#a790a496609f8fcffdec350869c66bd55">input</a>.<a class="code" href="../../de/d18/namespaceMyLinearSolvingMethod.html#a6e17681d60d4c698ccff82a9c5526e0f">n</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;n: &quot;</span> &lt;&lt; <a class="code" href="../../d4/dae/structInput.html#a790a496609f8fcffdec350869c66bd55">input</a>.<a class="code" href="../../de/d18/namespaceMyLinearSolvingMethod.html#a6e17681d60d4c698ccff82a9c5526e0f">n</a>&lt;&lt; <span class="stringliteral">&quot;, outputJSON: &quot;</span> &lt;&lt; <a class="code" href="../../d4/dae/structInput.html#a790a496609f8fcffdec350869c66bd55">input</a>.outputJSON;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> os;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
 </div><!-- fragment -->
@@ -1497,7 +1494,7 @@ template&lt;class Archive &gt; </div>
 <p>Size of the matrices. </p>
 <p>The number of quadrature points if Gauss-Legendre Quadrature will be used. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00218">Parser::buildInputs()</a>, <a class="el" href="../../#l00045">serialize()</a>, and <a class="el" href="../../#l00031">toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00218">Parser::buildInputs()</a>, <a class="el" href="../../#l00044">serialize()</a>, and <a class="el" href="../../#l00031">toJSON()</a>.</p>
 
 </div>
 </div>
@@ -1517,19 +1514,19 @@ template&lt;class Archive &gt; </div>
 
 </div>
 </div>
-<a id="add1ef9630690767cdc7d3fb11a3547ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add1ef9630690767cdc7d3fb11a3547ff">&#9670;&nbsp;</a></span>p</h2>
+<a id="a916c4e7ce1f67c9fd6c94d47c69d1ca7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a916c4e7ce1f67c9fd6c94d47c69d1ca7">&#9670;&nbsp;</a></span>outputJSON</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Input::p = 1</td>
+          <td class="memname">std::string Input::outputJSON</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00045">serialize()</a>, and <a class="el" href="../../#l00038">toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00124">Parser::buildInputs()</a>.</p>
 
 </div>
 </div>
