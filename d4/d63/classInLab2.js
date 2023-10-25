@@ -12,9 +12,9 @@ var classInLab2 =
     [ "initialize", "d4/d63/classInLab2.html#a3dba336803f373c6c0423b1a94ac7e68", null ],
     [ "postRun", "d4/d63/classInLab2.html#a2873dd0aa78848433775442dda988e79", null ],
     [ "preRun", "d4/d63/classInLab2.html#ab323cfcafd876a24b9321d58355b7662", null ],
-    [ "run", "d4/d63/classInLab2.html#aa21d4fafce339dc04b7171830300cb02", null ],
+    [ "run", "d4/d63/classInLab2.html#a833850a60a910d29099f3dd00b1b1830", null ],
     [ "timedRun", "d4/d63/classInLab2.html#aa176f763c07de3d80ecf50ef88b4ded2", null ],
+    [ "_outputs", "d4/d63/classInLab2.html#a08d7234d71ef49cc92e37256062ba20b", null ],
     [ "cmdArgs", "d4/d63/classInLab2.html#a44d2055fa63fb0d7684efd9a7db32272", null ],
-    [ "outputs", "d4/d63/classInLab2.html#a06149764196c5bb48dfb591ab1c9bf34", null ],
     [ "terminal", "d4/d63/classInLab2.html#a6a745ed8b9a383f5c1fe341a530301ed", null ]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['a_25',['a',['../d4/dae/structInput.html#a2b038ab33ed80d471d4b2a7a196d2530',1,'Input']]],
-  ['abs_26',['abs',['../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9',1,'MyBLAS::Stats::abs(const Vector&lt; T &gt; &amp;a)'],['../dd/df5/namespaceMyBLAS_1_1Stats.html#a76ff25554e971fa2a717ae781efe5b92',1,'MyBLAS::Stats::abs(const Matrix&lt; T &gt; &amp;a)']]],
+  ['abs_26',['abs',['../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9',1,'MyBLAS::Stats::abs(const Vector&lt; T &gt; &amp;a)'],['../dd/df5/namespaceMyBLAS_1_1Stats.html#a76ff25554e971fa2a717ae781efe5b92',1,'MyBLAS::Stats::abs(const Matrix&lt; T &gt; &amp;a)'],['../de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a',1,'MyMath::abs()']]],
   ['absolutemaxresidual_27',['AbsoluteMaxResidual',['../d2/d6e/namespaceMyBLAS.html#ad38fb7c86134c4334e6bf29c2c734afd',1,'MyBLAS::AbsoluteMaxResidual(const ContainerType &amp;a, const ContainerType &amp;b, const size_t n)'],['../d2/d6e/namespaceMyBLAS.html#a5c6ac08b56fee69d079c63eda5482464',1,'MyBLAS::AbsoluteMaxResidual(const MyBLAS::Vector&lt; T &gt; &amp;a, const MyBLAS::Vector&lt; T &gt; &amp;b)']]],
   ['absolutevaluefailsgreaterthan1check_28',['absoluteValueFailsGreaterThan1Check',['../d0/d7d/CheckBounds_8h.html#abce8de40b5bce1a6097233d800370ffd',1,'CheckBounds.h']]],
   ['all_29',['all',['../db/dde/readfile_8m.html#a00a349297fa58bc80ff5329e25dcfe28',1,'readfile.m']]],

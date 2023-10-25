@@ -5,7 +5,7 @@ var DiffusionMatrixTests_8cpp =
     [ "FLOAT_TYPE", "d6/d18/DiffusionMatrixTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769", null ],
     [ "TOLERANCE", "d6/d18/DiffusionMatrixTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e", null ],
     [ "FloatTypes", "d6/d18/DiffusionMatrixTests_8cpp.html#a2c13952d65dfc8ded36613a01a506fa3", null ],
-    [ "NumericTypes", "d6/d18/DiffusionMatrixTests_8cpp.html#aa4875ba64216f6d8061225acf512ea63", null ],
+    [ "NumericTypes", "d6/d18/DiffusionMatrixTests_8cpp.html#a58044bf7df36634bcf598a72249c010e", null ],
     [ "naive_fill_diffusion_matrix_and_vector", "d6/d18/DiffusionMatrixTests_8cpp.html#aea6ffdb6b05203c8c06331bade2a7bbc", null ],
     [ "TYPED_TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#a52e600ac41e3f43e1112089193764d6e", null ],
     [ "TYPED_TEST", "d6/d18/DiffusionMatrixTests_8cpp.html#a23a4433db54f1fe785875a1b450edbf6", null ],

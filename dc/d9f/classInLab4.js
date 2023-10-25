@@ -15,7 +15,7 @@ var classInLab4 =
     [ "printMandelbrotSet", "dc/d9f/classInLab4.html#a95f32ac7f4ed5eb5d1093d22a291a6cb", null ],
     [ "run", "dc/d9f/classInLab4.html#a4177d98b14bfef260d100923e8245f24", null ],
     [ "timedRun", "dc/d9f/classInLab4.html#aa176f763c07de3d80ecf50ef88b4ded2", null ],
+    [ "_outputs", "dc/d9f/classInLab4.html#a08d7234d71ef49cc92e37256062ba20b", null ],
     [ "cmdArgs", "dc/d9f/classInLab4.html#a44d2055fa63fb0d7684efd9a7db32272", null ],
-    [ "outputs", "dc/d9f/classInLab4.html#a06149764196c5bb48dfb591ab1c9bf34", null ],
     [ "terminal", "dc/d9f/classInLab4.html#a6a745ed8b9a383f5c1fe341a530301ed", null ]
 ];

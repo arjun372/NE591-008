@@ -15,7 +15,7 @@ var classInLab6 =
     [ "printResults", "d1/d8c/classInLab6.html#af49f9da28a843417e9144f047689eecb", null ],
     [ "run", "d1/d8c/classInLab6.html#a55667f27b7ba522dd4288f18d16c9f8d", null ],
     [ "timedRun", "d1/d8c/classInLab6.html#aa176f763c07de3d80ecf50ef88b4ded2", null ],
+    [ "_outputs", "d1/d8c/classInLab6.html#a08d7234d71ef49cc92e37256062ba20b", null ],
     [ "cmdArgs", "d1/d8c/classInLab6.html#a44d2055fa63fb0d7684efd9a7db32272", null ],
-    [ "outputs", "d1/d8c/classInLab6.html#a06149764196c5bb48dfb591ab1c9bf34", null ],
     [ "terminal", "d1/d8c/classInLab6.html#a6a745ed8b9a383f5c1fe341a530301ed", null ]
 ];

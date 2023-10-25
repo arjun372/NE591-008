@@ -13,9 +13,9 @@ var classProject2 =
     [ "postRun", "dd/db5/classProject2.html#a2873dd0aa78848433775442dda988e79", null ],
     [ "preRun", "dd/db5/classProject2.html#ab323cfcafd876a24b9321d58355b7662", null ],
     [ "printResults", "dd/db5/classProject2.html#a10d2ed4784bbc4bda12fe6acc38b2acb", null ],
-    [ "run", "dd/db5/classProject2.html#ae3fb99498f7859230efae48b2915a8cb", null ],
+    [ "run", "dd/db5/classProject2.html#a0990db917f6a27a4e1cb9ac885698524", null ],
     [ "timedRun", "dd/db5/classProject2.html#aa176f763c07de3d80ecf50ef88b4ded2", null ],
+    [ "_outputs", "dd/db5/classProject2.html#a08d7234d71ef49cc92e37256062ba20b", null ],
     [ "cmdArgs", "dd/db5/classProject2.html#a44d2055fa63fb0d7684efd9a7db32272", null ],
-    [ "outputs", "dd/db5/classProject2.html#a06149764196c5bb48dfb591ab1c9bf34", null ],
     [ "terminal", "dd/db5/classProject2.html#a6a745ed8b9a383f5c1fe341a530301ed", null ]
 ];

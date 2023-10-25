@@ -19,9 +19,9 @@ var classCommandLine =
     [ "printLine", "dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd", null ],
     [ "printPrecisionInformation", "dd/d02/classCommandLine.html#a7c63951e1420bbc012ff2d1af5f24ae4", null ],
     [ "setPrecision", "dd/d02/classCommandLine.html#a6b2c9bf028534ad87c3d63f1dd902e1f", null ],
+    [ "_inputs", "dd/d02/classCommandLine.html#a43472312dad846f8ff6e54b6c6c23a65", null ],
     [ "cmdArgs", "dd/d02/classCommandLine.html#a6b685f98b9861029ccf6ec651df9a9a8", null ],
     [ "header", "dd/d02/classCommandLine.html#a6207284c8f789db14c6056216167fc0d", null ],
     [ "initialized", "dd/d02/classCommandLine.html#a659132cb89992c80bbae4be657575ae3", null ],
-    [ "inputs", "dd/d02/classCommandLine.html#a5c844edd24519003dfd33eb2f13a02b7", null ],
     [ "variablesMap", "dd/d02/classCommandLine.html#aa3b7785bf0da0c5ae08adfbee3dd901c", null ]
 ];

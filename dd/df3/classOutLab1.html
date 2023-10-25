@@ -195,9 +195,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a6a745ed8b9a383f5c1fe341a530301ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d40/classParser.html">Parser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a></td></tr>
 <tr class="memdesc:a6a745ed8b9a383f5c1fe341a530301ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">An instance of CommandLineParserType which is used to parse command line arguments.  <a href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">More...</a><br /></td></tr>
 <tr class="separator:a6a745ed8b9a383f5c1fe341a530301ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06149764196c5bb48dfb591ab1c9bf34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/deb/outlab1_8h.html#a9b541e1020b9162cb4422223166d693f">NoOutput</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a></td></tr>
-<tr class="memdesc:a06149764196c5bb48dfb591ab1c9bf34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the output data of the project.  <a href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">More...</a><br /></td></tr>
-<tr class="separator:a06149764196c5bb48dfb591ab1c9bf34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08d7234d71ef49cc92e37256062ba20b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/deb/outlab1_8h.html#a9b541e1020b9162cb4422223166d693f">NoOutput</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classProject.html#a08d7234d71ef49cc92e37256062ba20b">_outputs</a></td></tr>
+<tr class="memdesc:a08d7234d71ef49cc92e37256062ba20b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the output data of the project.  <a href="../../db/d91/classProject.html#a08d7234d71ef49cc92e37256062ba20b">More...</a><br /></td></tr>
+<tr class="separator:a08d7234d71ef49cc92e37256062ba20b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -451,7 +451,7 @@ Protected Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                                                                                                     {</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html">Profiler</a>(func, samples, timeout, description);</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
-<div class="ttc" id="aclassProfiler_html"><div class="ttname"><a href="../../dd/d0e/classProfiler.html">Profiler</a></div><div class="ttdoc">A template class to profile the execution time of a function.</div><div class="ttdef"><b>Definition:</b> Profiler.h:29</div></div>
+<div class="ttc" id="aclassProfiler_html"><div class="ttname"><a href="../../dd/d0e/classProfiler.html">Profiler</a></div><div class="ttdoc">A template class to profile the execution time of a function.</div><div class="ttdef"><b>Definition:</b> Profiler.h:28</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -631,10 +631,10 @@ Protected Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                      {</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a> = CommandLineParserType(<a class="code" href="../../db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd">buildHeaderInfo</a>(), <a class="code" href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">cmdArgs</a>);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a> = OutputType();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a08d7234d71ef49cc92e37256062ba20b">_outputs</a> = OutputType();</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
 <div class="ttc" id="aclassCommandLine_html_ad9d8cf54a3f65df6a00700fd2282c667"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">CommandLine::getInputs</a></div><div class="ttdeci">InputType &amp; getInputs()</div><div class="ttdoc">Method to get the inputs.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:165</div></div>
-<div class="ttc" id="aclassProject_html_a06149764196c5bb48dfb591ab1c9bf34"><div class="ttname"><a href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">Project&lt; MatrixConstructParams, Parser, NoOutput &gt;::outputs</a></div><div class="ttdeci">NoOutput outputs</div><div class="ttdoc">Holds the output data of the project.</div><div class="ttdef"><b>Definition:</b> Project.h:81</div></div>
+<div class="ttc" id="aclassProject_html_a08d7234d71ef49cc92e37256062ba20b"><div class="ttname"><a href="../../db/d91/classProject.html#a08d7234d71ef49cc92e37256062ba20b">Project&lt; MatrixConstructParams, Parser, NoOutput &gt;::_outputs</a></div><div class="ttdeci">NoOutput _outputs</div><div class="ttdoc">Holds the output data of the project.</div><div class="ttdef"><b>Definition:</b> Project.h:81</div></div>
 <div class="ttc" id="aclassProject_html_a253538a3f4435358c94fd6e682b154dd"><div class="ttname"><a href="../../db/d91/classProject.html#a253538a3f4435358c94fd6e682b154dd">Project&lt; MatrixConstructParams, Parser, NoOutput &gt;::buildHeaderInfo</a></div><div class="ttdeci">virtual HeaderInfo buildHeaderInfo()=0</div><div class="ttdoc">Builds the header information.</div></div>
 <div class="ttc" id="aclassProject_html_a44d2055fa63fb0d7684efd9a7db32272"><div class="ttname"><a href="../../db/d91/classProject.html#a44d2055fa63fb0d7684efd9a7db32272">Project&lt; MatrixConstructParams, Parser, NoOutput &gt;::cmdArgs</a></div><div class="ttdeci">CommandLineArgs cmdArgs</div><div class="ttdoc">Holds the command line arguments.</div><div class="ttdef"><b>Definition:</b> Project.h:71</div></div>
 </div><!-- fragment -->
@@ -896,11 +896,11 @@ Protected Attributes</h2></td></tr>
 
 <p>Executes the project in a timed manner. This method calls preRun, run, and postRun methods in sequence. </p>
 <div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="../../db/d91/classProject.html#ab323cfcafd876a24b9321d58355b7662">preRun</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="../../db/d91/classProject.html#ab323cfcafd876a24b9321d58355b7662">preRun</a>(<a class="code" href="../../db/d91/classProject.html#a08d7234d71ef49cc92e37256062ba20b">_outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a4640723b4d363a0987576b8de578ede7">run</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a4640723b4d363a0987576b8de578ede7">run</a>(<a class="code" href="../../db/d91/classProject.html#a08d7234d71ef49cc92e37256062ba20b">_outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a2873dd0aa78848433775442dda988e79">postRun</a>(<a class="code" href="../../db/d91/classProject.html#a06149764196c5bb48dfb591ab1c9bf34">outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="../../db/d91/classProject.html#a2873dd0aa78848433775442dda988e79">postRun</a>(<a class="code" href="../../db/d91/classProject.html#a08d7234d71ef49cc92e37256062ba20b">_outputs</a>, <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#ad9d8cf54a3f65df6a00700fd2282c667">getInputs</a>(), <a class="code" href="../../db/d91/classProject.html#a6a745ed8b9a383f5c1fe341a530301ed">terminal</a>.<a class="code" href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">getArguments</a>());</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
 <div class="ttc" id="aclassCommandLine_html_a5058573f1179becf721f7ff0372584c2"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#a5058573f1179becf721f7ff0372584c2">CommandLine::getArguments</a></div><div class="ttdeci">boost::program_options::variables_map &amp; getArguments()</div><div class="ttdoc">Method to get the parsed command line arguments.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:115</div></div>
 <div class="ttc" id="aclassProject_html_a2873dd0aa78848433775442dda988e79"><div class="ttname"><a href="../../db/d91/classProject.html#a2873dd0aa78848433775442dda988e79">Project&lt; MatrixConstructParams, Parser, NoOutput &gt;::postRun</a></div><div class="ttdeci">virtual void postRun(NoOutput &amp;output, MatrixConstructParams &amp;input, boost::program_options::variables_map &amp;values)</div><div class="ttdoc">A hook for performing actions after the run.</div><div class="ttdef"><b>Definition:</b> Project.h:141</div></div>
@@ -910,6 +910,30 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
+<a id="a08d7234d71ef49cc92e37256062ba20b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08d7234d71ef49cc92e37256062ba20b">&#9670;&nbsp;</a></span>_outputs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/deb/outlab1_8h.html#a9b541e1020b9162cb4422223166d693f">NoOutput</a>  <a class="el" href="../../db/d91/classProject.html">Project</a>&lt; <a class="el" href="../../d1/d62/labs_2outlab1_2Parser_8h.html#ae8ecb3743a637d60bbe2d2e633cb3185">MatrixConstructParams</a> , <a class="el" href="../../d0/d40/classParser.html">Parser</a> , <a class="el" href="../../d3/deb/outlab1_8h.html#a9b541e1020b9162cb4422223166d693f">NoOutput</a>  &gt;::_outputs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Holds the output data of the project. </p>
+
+</div>
+</div>
 <a id="a44d2055fa63fb0d7684efd9a7db32272"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44d2055fa63fb0d7684efd9a7db32272">&#9670;&nbsp;</a></span>cmdArgs</h2>
 
@@ -931,30 +955,6 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Holds the command line arguments. </p>
-
-</div>
-</div>
-<a id="a06149764196c5bb48dfb591ab1c9bf34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06149764196c5bb48dfb591ab1c9bf34">&#9670;&nbsp;</a></span>outputs</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d3/deb/outlab1_8h.html#a9b541e1020b9162cb4422223166d693f">NoOutput</a>  <a class="el" href="../../db/d91/classProject.html">Project</a>&lt; <a class="el" href="../../d1/d62/labs_2outlab1_2Parser_8h.html#ae8ecb3743a637d60bbe2d2e633cb3185">MatrixConstructParams</a> , <a class="el" href="../../d0/d40/classParser.html">Parser</a> , <a class="el" href="../../d3/deb/outlab1_8h.html#a9b541e1020b9162cb4422223166d693f">NoOutput</a>  &gt;::outputs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Holds the output data of the project. </p>
 
 </div>
 </div>

@@ -132,12 +132,71 @@ Functions</h2></td></tr>
 <tr class="separator:a52ed3b9bbd57490ed3dac1c78fe4832b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3e9a9de7b922fdfb6e3d2988b1212ff"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:af3e9a9de7b922fdfb6e3d2988b1212ff"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d4d/namespaceMyMath.html#af3e9a9de7b922fdfb6e3d2988b1212ff">pow</a> (T base, int exponent)</td></tr>
+<tr class="memdesc:af3e9a9de7b922fdfb6e3d2988b1212ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">A template function to calculate the power of a base number.  <a href="../../de/d4d/namespaceMyMath.html#af3e9a9de7b922fdfb6e3d2988b1212ff">More...</a><br /></td></tr>
 <tr class="separator:af3e9a9de7b922fdfb6e3d2988b1212ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f2b6e445ba885637efd0db1a7708919"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a5f2b6e445ba885637efd0db1a7708919"><td class="memTemplItemLeft" align="right" valign="top">__float128&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919">pow</a> (__float128 base, int exponent)</td></tr>
+<tr class="memdesc:a5f2b6e445ba885637efd0db1a7708919"><td class="mdescLeft">&#160;</td><td class="mdescRight">A template specialization function to calculate the power of a __float128 base number.  <a href="../../de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919">More...</a><br /></td></tr>
 <tr class="separator:a5f2b6e445ba885637efd0db1a7708919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65264d3fe16d8278498a14fc821b438a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a65264d3fe16d8278498a14fc821b438a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a">abs</a> (T <a class="el" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>)</td></tr>
+<tr class="memdesc:a65264d3fe16d8278498a14fc821b438a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A template function to calculate the absolute value of a number.  <a href="../../de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a">More...</a><br /></td></tr>
+<tr class="separator:a65264d3fe16d8278498a14fc821b438a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a65264d3fe16d8278498a14fc821b438a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65264d3fe16d8278498a14fc821b438a">&#9670;&nbsp;</a></span>abs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T MyMath::abs </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A template function to calculate the absolute value of a number. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The number whose absolute value is to be calculated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The absolute value of the number. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d4d/_2home_2runner_2work_2NE591-008-Monorepo_2NE591-008-Monorepo_2src_2utils_2Helpers_8h-example.html#a30">/home/runner/work/NE591-008-Monorepo/NE591-008-Monorepo/src/utils/Helpers.h</a>.</dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;           {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> &lt; 0 ? -<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> : <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
+<div class="ttc" id="aplot__points_8m_html_a9336ebf25087d91c818ee6e9ec29f8c1"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a></div><div class="ttdeci">Define the x values x</div><div class="ttdef"><b>Definition:</b> plot_points.m:18</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00018">x</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00255">printJuliaSet()</a>.</p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d4d/namespaceMyMath_a65264d3fe16d8278498a14fc821b438a_icgraph.svg" width="267" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a52ed3b9bbd57490ed3dac1c78fe4832b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52ed3b9bbd57490ed3dac1c78fe4832b">&#9670;&nbsp;</a></span>isfinite() <span class="overload">[1/2]</span></h2>
 
@@ -165,17 +224,17 @@ template&lt;&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the value is finite, false otherwise. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Check if value is within the range of finite values for __float128</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> (value &gt; -__float128(INFINITY) &amp;&amp; value &lt; __float128(INFINITY));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Check if value is within the range of finite values for __float128</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> (value &gt; -__float128(INFINITY) &amp;&amp; value &lt; __float128(INFINITY));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00029">isfinite()</a>.</p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00033">isfinite()</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/d4d/namespaceMyMath_a52ed3b9bbd57490ed3dac1c78fe4832b_icgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -215,27 +274,27 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the value is finite, false otherwise. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                       {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../de/d4d/namespaceMyMath.html#a52ed3b9bbd57490ed3dac1c78fe4832b">std::isfinite</a>(value);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="ttc" id="anamespaceMyMath_html_a52ed3b9bbd57490ed3dac1c78fe4832b"><div class="ttname"><a href="../../de/d4d/namespaceMyMath.html#a52ed3b9bbd57490ed3dac1c78fe4832b">MyMath::isfinite</a></div><div class="ttdeci">bool isfinite(__float128 value)</div><div class="ttdoc">Specialization for the __float128 type.</div><div class="ttdef"><b>Definition:</b> Math.h:44</div></div>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                       {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../de/d4d/namespaceMyMath.html#a52ed3b9bbd57490ed3dac1c78fe4832b">std::isfinite</a>(value);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="ttc" id="anamespaceMyMath_html_a52ed3b9bbd57490ed3dac1c78fe4832b"><div class="ttname"><a href="../../de/d4d/namespaceMyMath.html#a52ed3b9bbd57490ed3dac1c78fe4832b">MyMath::isfinite</a></div><div class="ttdeci">bool isfinite(__float128 value)</div><div class="ttdoc">Specialization for the __float128 type.</div><div class="ttdef"><b>Definition:</b> Math.h:48</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00044">isfinite()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00048">isfinite()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00165">MyPhysics::Diffusion::Params&lt; FloatType &gt;::setA()</a>, <a class="el" href="../../#l00182">MyPhysics::Diffusion::Params&lt; FloatType &gt;::setB()</a>, <a class="el" href="../../#l00233">MyPhysics::Diffusion::Params&lt; FloatType &gt;::setDiffusionCoefficient()</a>, and <a class="el" href="../../#l00249">MyPhysics::Diffusion::Params&lt; FloatType &gt;::setMacroscopicRemovalCrossSection()</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d4d/namespaceMyMath_a308f33828e533b4824ad79e67faee59b_cgraph.svg" width="312" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d4d/namespaceMyMath_a308f33828e533b4824ad79e67faee59b_cgraph.svg" width="312" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d4d/namespaceMyMath_a308f33828e533b4824ad79e67faee59b_icgraph.svg" width="636" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -269,35 +328,45 @@ template&lt;&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                              {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (exponent == 0)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> 1.0;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">if</span> (exponent == 1)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> base;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    __float128 result = 1.0;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> isNegativeExponent = exponent &lt; 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    exponent = isNegativeExponent ? -exponent : exponent;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    __float128 current = base;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">while</span> (exponent &gt; 0) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span> (exponent % 2 == 1) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            result *= current;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        current = current * current;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        exponent /= 2;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> isNegativeExponent ? 1.0 / result : result;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+
+<p>A template specialization function to calculate the power of a __float128 base number. </p>
+<p>This function uses a custom algorithm to calculate the power of a __float128 base number. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>The base number. </td></tr>
+    <tr><td class="paramname">exponent</td><td>The exponent to which the base number is raised. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The result of the base number raised to the exponent. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                                              {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span> (exponent == 0)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> 1.0;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> (exponent == 1)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> base;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    __float128 result = 1.0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">bool</span> isNegativeExponent = exponent &lt; 0;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    exponent = isNegativeExponent ? -exponent : exponent;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    __float128 current = base;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">while</span> (exponent &gt; 0) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">if</span> (exponent % 2 == 1) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            result *= current;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        current = current * current;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        exponent /= 2;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> isNegativeExponent ? 1.0 / result : result;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00051">pow()</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00062">pow()</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/d4d/namespaceMyMath_a5f2b6e445ba885637efd0db1a7708919_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -331,27 +400,43 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                            {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919">std::pow</a>(base, exponent);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="ttc" id="anamespaceMyMath_html_a5f2b6e445ba885637efd0db1a7708919"><div class="ttname"><a href="../../de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919">MyMath::pow</a></div><div class="ttdeci">__float128 pow(__float128 base, int exponent)</div><div class="ttdef"><b>Definition:</b> Math.h:57</div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00057">pow()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00053">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00053">MyRelaxationMethod::approximateOptimalRelaxationFactor()</a>, <a class="el" href="../../#l00093">MyPhysics::Diffusion::Constants&lt; T &gt;::compute()</a>, <a class="el" href="../../#l00184">getGaussLegendreWeight()</a>, <a class="el" href="../../#l00161">getLegendrePolynomialDerivative()</a>, <a class="el" href="../../#l00021">MyBLAS::L2()</a>, <a class="el" href="../../#l00091">my_naive_sin()</a>, <a class="el" href="../../#l00057">my_sisd_sin()</a>, <a class="el" href="../../#l00087">MyBLAS::norm()</a>, <a class="el" href="../../#l00029">Compute::seriesSum()</a>, <a class="el" href="../../#l00087">MyBLAS::TEST_F()</a>, and <a class="el" href="../../#l00023">MyBLAS::TYPED_TEST()</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d4d/namespaceMyMath_af3e9a9de7b922fdfb6e3d2988b1212ff_cgraph.svg" width="280" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
+<p>A template function to calculate the power of a base number. </p>
+<p>This function uses the std::pow function to calculate the power of a base number. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the base number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>The base number. </td></tr>
+    <tr><td class="paramname">exponent</td><td>The exponent to which the base number is raised. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The result of the base number raised to the exponent. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                            {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919">std::pow</a>(base, exponent);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="ttc" id="anamespaceMyMath_html_a5f2b6e445ba885637efd0db1a7708919"><div class="ttname"><a href="../../de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919">MyMath::pow</a></div><div class="ttdeci">__float128 pow(__float128 base, int exponent)</div><div class="ttdoc">A template specialization function to calculate the power of a __float128 base number.</div><div class="ttdef"><b>Definition:</b> Math.h:74</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00074">pow()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00053">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00053">MyRelaxationMethod::approximateOptimalRelaxationFactor()</a>, <a class="el" href="../../#l00093">MyPhysics::Diffusion::Constants&lt; T &gt;::compute()</a>, <a class="el" href="../../#l00184">getGaussLegendreWeight()</a>, <a class="el" href="../../#l00161">getLegendrePolynomialDerivative()</a>, <a class="el" href="../../#l00037">MyBLAS::L2()</a>, <a class="el" href="../../#l00091">my_naive_sin()</a>, <a class="el" href="../../#l00057">my_sisd_sin()</a>, <a class="el" href="../../#l00075">MyBLAS::norm()</a>, <a class="el" href="../../#l00029">Compute::seriesSum()</a>, <a class="el" href="../../#l00085">MyBLAS::TEST_F()</a>, and <a class="el" href="../../#l00023">MyBLAS::TYPED_TEST()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d4d/namespaceMyMath_af3e9a9de7b922fdfb6e3d2988b1212ff_cgraph.svg" width="280" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/d4d/namespaceMyMath_af3e9a9de7b922fdfb6e3d2988b1212ff_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>

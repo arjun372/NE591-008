@@ -62,6 +62,7 @@ var namespaces_dup =
     [ "MyFactorizationMethod", "d1/d18/namespaceMyFactorizationMethod.html", "d1/d18/namespaceMyFactorizationMethod" ],
     [ "MyLinearSolvingMethod", "de/d18/namespaceMyLinearSolvingMethod.html", "de/d18/namespaceMyLinearSolvingMethod" ],
     [ "MyMath", "de/d4d/namespaceMyMath.html", [
+      [ "abs", "de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a", null ],
       [ "isfinite", "de/d4d/namespaceMyMath.html#a52ed3b9bbd57490ed3dac1c78fe4832b", null ],
       [ "isfinite", "de/d4d/namespaceMyMath.html#a308f33828e533b4824ad79e67faee59b", null ],
       [ "pow", "de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919", null ],
@@ -121,7 +122,7 @@ var namespaces_dup =
     ] ],
     [ "Random", "d6/d03/namespaceRandom.html", [
       [ "binary", "d6/d03/namespaceRandom.html#a647fb4c4923c1ad6b7867e1ad5fd96b9", null ],
-      [ "generate", "d6/d03/namespaceRandom.html#a26c3caf157a29ac9d9227ec40248c845", null ],
+      [ "generate", "d6/d03/namespaceRandom.html#a0a28065abe9fb360714369ba4956aca7", null ],
       [ "generate", "d6/d03/namespaceRandom.html#a371907f9564db8ce0e08321e800e3d7d", null ]
     ] ],
     [ "RootFinder", "da/db0/namespaceRootFinder.html", [

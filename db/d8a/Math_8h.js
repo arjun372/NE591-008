@@ -1,5 +1,6 @@
 var Math_8h =
 [
+    [ "abs", "db/d8a/Math_8h.html#a65264d3fe16d8278498a14fc821b438a", null ],
     [ "isfinite", "db/d8a/Math_8h.html#a52ed3b9bbd57490ed3dac1c78fe4832b", null ],
     [ "isfinite", "db/d8a/Math_8h.html#a308f33828e533b4824ad79e67faee59b", null ],
     [ "pow", "db/d8a/Math_8h.html#a5f2b6e445ba885637efd0db1a7708919", null ],

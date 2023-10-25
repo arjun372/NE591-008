@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('da/d4c/DiffusionParamsTests_8cpp.html'
 </div><!--header-->
 <div class="contents">
 
-<p>The purpose of these tests is to ensure the correct functionality of the DiffusionParams class, which is part of a physics simulation library. The DiffusionParams class is responsible for storing and manipulating the parameters related to the diffusion process in a physical system. The tests are designed to verify the correctness of the class's methods, including constructors, setters, getters, and the output operator. They also check the class's ability to handle invalid and edge-case inputs, such as zero, negative, and non-finite values.  
+<p>The purpose of these tests is to ensure the correct functionality of the DiffusionParams class, which is part of a physics simulation library. The DiffusionParams class is responsible for storing and manipulating the parameters related to the diffusion process in a physical system. The tests are designed to verify the correctness of the class's methods, including constructors, setters, getters, and the output operator. They also check the class's ability to handle invalid and edge-case _inputs, such as zero, negative, and non-finite values.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../">physics/diffusion/DiffusionParams.h</a>&quot;</code><br />
 <code>#include &lt;gtest/gtest.h&gt;</code><br />
@@ -156,6 +156,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7d0201841e9193ae741085d5024f2e89"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a7d0201841e9193ae741085d5024f2e89">isClose</a> (<a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> a, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> b, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> tolerance=<a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e">TOLERANCE</a>)</td></tr>
+<tr class="separator:a7d0201841e9193ae741085d5024f2e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af383979f0604398f51d66d38a18d8d30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#af383979f0604398f51d66d38a18d8d30">TEST_P</a> (<a class="el" href="../../d1/d6a/classDiffusionParamsValidTest.html">DiffusionParamsValidTest</a>, ParameterizedConstructor)</td></tr>
 <tr class="memdesc:af383979f0604398f51d66d38a18d8d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for the parameterized constructor of DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#af383979f0604398f51d66d38a18d8d30">More...</a><br /></td></tr>
 <tr class="separator:af383979f0604398f51d66d38a18d8d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,9 +167,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5d269a1b015597ee2a46e3e95ee0e773"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a5d269a1b015597ee2a46e3e95ee0e773">TEST_P</a> (<a class="el" href="../../d1/d6a/classDiffusionParamsValidTest.html">DiffusionParamsValidTest</a>, OutputOperator)</td></tr>
 <tr class="memdesc:a5d269a1b015597ee2a46e3e95ee0e773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for the output operator of DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#a5d269a1b015597ee2a46e3e95ee0e773">More...</a><br /></td></tr>
 <tr class="separator:a5d269a1b015597ee2a46e3e95ee0e773"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8daf35094abb39c3e45ec1d4c03dbcaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a8daf35094abb39c3e45ec1d4c03dbcaa">INSTANTIATE_TEST_SUITE_P</a> (InputValues, <a class="el" href="../../d1/d6a/classDiffusionParamsValidTest.html">DiffusionParamsValidTest</a>, ::testing::Values(<a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;(100.4, 78.5, 5, 5, 1.3029, 1e-4, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a49313ac1b1816fb26887b55584b430d4">_sources</a>), <a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;(100.4, 78.5, 5, 5, 1.3029, 1e-4, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a49313ac1b1816fb26887b55584b430d4">_sources</a>)))</td></tr>
-<tr class="memdesc:a8daf35094abb39c3e45ec1d4c03dbcaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate the test suite for valid DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#a8daf35094abb39c3e45ec1d4c03dbcaa">More...</a><br /></td></tr>
-<tr class="separator:a8daf35094abb39c3e45ec1d4c03dbcaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8df2f3384166175da1dbbdfce84b709"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#af8df2f3384166175da1dbbdfce84b709">INSTANTIATE_TEST_SUITE_P</a> (InputValues, <a class="el" href="../../d1/d6a/classDiffusionParamsValidTest.html">DiffusionParamsValidTest</a>, ::testing::Values(<a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;(100.4, 78.5<a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f</a>, 5, 5, 1.3029, 1e-4, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a9d615034e72d1445e1a142e8ac7b087f">sources_</a>), <a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;(100.4, 78.5<a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f</a>, 5, 5, 1.3029, 1e-4, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a9d615034e72d1445e1a142e8ac7b087f">sources_</a>)))</td></tr>
+<tr class="memdesc:af8df2f3384166175da1dbbdfce84b709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate the test suite for valid DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#af8df2f3384166175da1dbbdfce84b709">More...</a><br /></td></tr>
+<tr class="separator:af8df2f3384166175da1dbbdfce84b709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dd99f0d1615f0ccd89607d49d97d14f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a8dd99f0d1615f0ccd89607d49d97d14f">TEST_F</a> (<a class="el" href="../../d5/d15/classDiffusionParamsTest.html">DiffusionParamsTest</a>, DefaultConstructor)</td></tr>
 <tr class="memdesc:a8dd99f0d1615f0ccd89607d49d97d14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for the default constructor of DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#a8dd99f0d1615f0ccd89607d49d97d14f">More...</a><br /></td></tr>
 <tr class="separator:a8dd99f0d1615f0ccd89607d49d97d14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,13 +180,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:a994ad262eebc8cfcb31869b6c37a1207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for the setters and getters of DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#a994ad262eebc8cfcb31869b6c37a1207">More...</a><br /></td></tr>
 <tr class="separator:a994ad262eebc8cfcb31869b6c37a1207"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac2cca28b82d2baa6dbaf4b488986272"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#aac2cca28b82d2baa6dbaf4b488986272">TEST_F</a> (<a class="el" href="../../d5/d15/classDiffusionParamsTest.html">DiffusionParamsTest</a>, InvalidInputs)</td></tr>
-<tr class="memdesc:aac2cca28b82d2baa6dbaf4b488986272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for invalid inputs to DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#aac2cca28b82d2baa6dbaf4b488986272">More...</a><br /></td></tr>
+<tr class="memdesc:aac2cca28b82d2baa6dbaf4b488986272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for invalid _inputs to DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#aac2cca28b82d2baa6dbaf4b488986272">More...</a><br /></td></tr>
 <tr class="separator:aac2cca28b82d2baa6dbaf4b488986272"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89aaa31182c2e5ece6a7e9b3211cd785"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a89aaa31182c2e5ece6a7e9b3211cd785">TEST_F</a> (<a class="el" href="../../d5/d15/classDiffusionParamsTest.html">DiffusionParamsTest</a>, NegativeInputs)</td></tr>
-<tr class="memdesc:a89aaa31182c2e5ece6a7e9b3211cd785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for negative inputs to DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#a89aaa31182c2e5ece6a7e9b3211cd785">More...</a><br /></td></tr>
+<tr class="memdesc:a89aaa31182c2e5ece6a7e9b3211cd785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for negative _inputs to DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#a89aaa31182c2e5ece6a7e9b3211cd785">More...</a><br /></td></tr>
 <tr class="separator:a89aaa31182c2e5ece6a7e9b3211cd785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad22ede18a1efb7c8638c5c673554076c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#ad22ede18a1efb7c8638c5c673554076c">TEST_F</a> (<a class="el" href="../../d5/d15/classDiffusionParamsTest.html">DiffusionParamsTest</a>, NonFiniteInputs)</td></tr>
-<tr class="memdesc:ad22ede18a1efb7c8638c5c673554076c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for non-finite inputs to DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#ad22ede18a1efb7c8638c5c673554076c">More...</a><br /></td></tr>
+<tr class="memdesc:ad22ede18a1efb7c8638c5c673554076c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for non-finite _inputs to DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#ad22ede18a1efb7c8638c5c673554076c">More...</a><br /></td></tr>
 <tr class="separator:ad22ede18a1efb7c8638c5c673554076c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5902803d1ba54a9dd0ce7c20fc37b55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#ac5902803d1ba54a9dd0ce7c20fc37b55">TEST_F</a> (<a class="el" href="../../d5/d15/classDiffusionParamsTest.html">DiffusionParamsTest</a>, OutputOperator)</td></tr>
 <tr class="memdesc:ac5902803d1ba54a9dd0ce7c20fc37b55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for the output operator of DiffusionParams.  <a href="../../da/d4c/DiffusionParamsTests_8cpp.html#ac5902803d1ba54a9dd0ce7c20fc37b55">More...</a><br /></td></tr>
@@ -192,14 +194,14 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a49313ac1b1816fb26887b55584b430d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a49313ac1b1816fb26887b55584b430d4">_sources</a></td></tr>
-<tr class="separator:a49313ac1b1816fb26887b55584b430d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d615034e72d1445e1a142e8ac7b087f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a9d615034e72d1445e1a142e8ac7b087f">sources_</a></td></tr>
+<tr class="separator:a9d615034e72d1445e1a142e8ac7b087f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The purpose of these tests is to ensure the correct functionality of the DiffusionParams class, which is part of a physics simulation library. The DiffusionParams class is responsible for storing and manipulating the parameters related to the diffusion process in a physical system. The tests are designed to verify the correctness of the class's methods, including constructors, setters, getters, and the output operator. They also check the class's ability to handle invalid and edge-case inputs, such as zero, negative, and non-finite values. </p>
+<div class="textblock"><p>The purpose of these tests is to ensure the correct functionality of the DiffusionParams class, which is part of a physics simulation library. The DiffusionParams class is responsible for storing and manipulating the parameters related to the diffusion process in a physical system. The tests are designed to verify the correctness of the class's methods, including constructors, setters, getters, and the output operator. They also check the class's ability to handle invalid and edge-case _inputs, such as zero, negative, and non-finite values. </p>
 <dl class="section author"><dt>Author</dt><dd>Arjun Earthperson </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>10/13/2023</dd></dl>
-<p>The tests cover a wide range of scenarios to ensure comprehensive code coverage. The tests for the default and parameterized constructors verify that the class correctly initializes its member variables. The tests for the setters and getters ensure that these methods correctly modify and retrieve the class's member variables. The tests for invalid, negative, and non-finite inputs check that the class correctly throws exceptions when given these types of inputs. The test for the output operator verifies that this operator correctly formats a string representation of a DiffusionParams object. The parameterized tests, instantiated with a variety of valid inputs, ensure that the class behaves correctly under different conditions. Overall, these tests provide a thorough examination of the DiffusionParams class's functionality. </p>
+<p>The tests cover a wide range of scenarios to ensure comprehensive code coverage. The tests for the default and parameterized constructors verify that the class correctly initializes its member variables. The tests for the setters and getters ensure that these methods correctly modify and retrieve the class's member variables. The tests for invalid, negative, and non-finite _inputs check that the class correctly throws exceptions when given these types of _inputs. The test for the output operator verifies that this operator correctly formats a string representation of a DiffusionParams object. The parameterized tests, instantiated with a variety of valid _inputs, ensure that the class behaves correctly under different conditions. Overall, these tests provide a thorough examination of the DiffusionParams class's functionality. </p>
 
 <p class="definition">Definition in file <a class="el" href="../../">DiffusionParamsTests.cpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -232,8 +234,8 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a8daf35094abb39c3e45ec1d4c03dbcaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8daf35094abb39c3e45ec1d4c03dbcaa">&#9670;&nbsp;</a></span>INSTANTIATE_TEST_SUITE_P()</h2>
+<a id="af8df2f3384166175da1dbbdfce84b709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8df2f3384166175da1dbbdfce84b709">&#9670;&nbsp;</a></span>INSTANTIATE_TEST_SUITE_P()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -253,7 +255,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">::testing::Values(<a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;(100.4, 78.5, 5, 5, 1.3029, 1e-4, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a49313ac1b1816fb26887b55584b430d4">_sources</a>), <a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;(100.4, 78.5, 5, 5, 1.3029, 1e-4, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a49313ac1b1816fb26887b55584b430d4">_sources</a>))&#160;</td>
+          <td class="paramtype">::testing::Values(<a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;(100.4, 78.5<a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f</a>, 5, 5, 1.3029, 1e-4, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a9d615034e72d1445e1a142e8ac7b087f">sources_</a>), <a class="el" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params</a>&lt; <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a> &gt;(100.4, 78.5<a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f</a>, 5, 5, 1.3029, 1e-4, <a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a9d615034e72d1445e1a142e8ac7b087f">sources_</a>))&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -265,6 +267,72 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Instantiate the test suite for valid DiffusionParams. </p>
+
+</div>
+</div>
+<a id="a7d0201841e9193ae741085d5024f2e89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d0201841e9193ae741085d5024f2e89">&#9670;&nbsp;</a></span>isClose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool isClose </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code><a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e">TOLERANCE</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                                                                  {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">std::abs</a>(a - b) &lt; tolerance;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_afeaf3b7bba0ff1b952b35d0effc0bca9"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9">MyBLAS::Stats::abs</a></div><div class="ttdeci">Vector&lt; T &gt; abs(const Vector&lt; T &gt; &amp;a)</div><div class="ttdoc">Function to find the absolute value of each element in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:113</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00113">MyBLAS::Stats::abs()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00133">TEST_F()</a>, and <a class="el" href="../../#l00072">TEST_P()</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../da/d4c/DiffusionParamsTests_8cpp_a7d0201841e9193ae741085d5024f2e89_cgraph.svg" width="483" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../da/d4c/DiffusionParamsTests_8cpp_a7d0201841e9193ae741085d5024f2e89_icgraph.svg" width="198" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -295,16 +363,16 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Test for the default constructor of DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                                                {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    EXPECT_EQ(params.getA(), 1);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    EXPECT_EQ(params.getB(), 1);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    EXPECT_EQ(params.getM(), 1);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    EXPECT_EQ(params.getN(), 1);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    EXPECT_EQ(params.getDelta(), 1);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    EXPECT_EQ(params.getGamma(), 1);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    EXPECT_EQ(params.getDiffusionCoefficient(), 0.0);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    EXPECT_EQ(params.getMacroscopicRemovalCrossSection(), 0.0);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                                                {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    EXPECT_EQ(params.getA(), 1);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    EXPECT_EQ(params.getB(), 1);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    EXPECT_EQ(params.getM(), 1);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    EXPECT_EQ(params.getN(), 1);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    EXPECT_EQ(params.getDelta(), 1);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    EXPECT_EQ(params.getGamma(), 1);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    EXPECT_EQ(params.getDiffusionCoefficient(), 0.0f);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    EXPECT_EQ(params.getMacroscopicRemovalCrossSection(), 0.0f);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -334,17 +402,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Test for invalid inputs to DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                                           {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    EXPECT_THROW(params.setA(0), std::invalid_argument);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    EXPECT_THROW(params.setB(0), std::invalid_argument);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    EXPECT_THROW(params.setM(0), std::invalid_argument);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    EXPECT_THROW(params.setN(0), std::invalid_argument);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    EXPECT_THROW(params.setDiffusionCoefficient(0), std::invalid_argument);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    EXPECT_THROW(params.setMacroscopicRemovalCrossSection(0), std::invalid_argument);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;FLOAT_TYPE&gt;</a> sources = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}};</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    EXPECT_THROW(params.setSources(sources), std::invalid_argument);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
+<p>Test for invalid _inputs to DiffusionParams. </p>
+<div class="fragment"><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                                           {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    EXPECT_THROW(params.setA(0), std::invalid_argument);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    EXPECT_THROW(params.setB(0), std::invalid_argument);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    EXPECT_THROW(params.setM(0), std::invalid_argument);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    EXPECT_THROW(params.setN(0), std::invalid_argument);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    EXPECT_THROW(params.setDiffusionCoefficient(0), std::invalid_argument);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    EXPECT_THROW(params.setMacroscopicRemovalCrossSection(0), std::invalid_argument);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;FLOAT_TYPE&gt;</a> sources = {{1.0f, 2.0f, 3.0f}, {4.0f, 5.0f, 6.0f}};</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    EXPECT_THROW(params.setSources(sources), std::invalid_argument);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
 <div class="ttc" id="aclassMyBLAS_1_1Matrix_html"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a></div><div class="ttdoc">Class representing a matrix of T type values.</div><div class="ttdef"><b>Definition:</b> Matrix.h:23</div></div>
 </div><!-- fragment -->
 </div>
@@ -375,13 +443,13 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Test for negative inputs to DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                            {</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    EXPECT_THROW(params.setA(-1), std::invalid_argument);</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    EXPECT_THROW(params.setB(-1), std::invalid_argument);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    EXPECT_THROW(params.setDiffusionCoefficient(-1), std::invalid_argument);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    EXPECT_THROW(params.setMacroscopicRemovalCrossSection(-1), std::invalid_argument);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
+<p>Test for negative _inputs to DiffusionParams. </p>
+<div class="fragment"><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                                            {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    EXPECT_THROW(params.setA(-1), std::invalid_argument);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    EXPECT_THROW(params.setB(-1), std::invalid_argument);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    EXPECT_THROW(params.setDiffusionCoefficient(-1), std::invalid_argument);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    EXPECT_THROW(params.setMacroscopicRemovalCrossSection(-1), std::invalid_argument);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -411,17 +479,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Test for non-finite inputs to DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                                             {</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    EXPECT_THROW(params.setA(std::numeric_limits&lt;FLOAT_TYPE&gt;::infinity()), std::invalid_argument);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    EXPECT_THROW(params.setB(std::numeric_limits&lt;FLOAT_TYPE&gt;::infinity()), std::invalid_argument);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    EXPECT_THROW(params.setDiffusionCoefficient(std::numeric_limits&lt;FLOAT_TYPE&gt;::infinity()), std::invalid_argument);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    EXPECT_THROW(params.setMacroscopicRemovalCrossSection(std::numeric_limits&lt;FLOAT_TYPE&gt;::infinity()), std::invalid_argument);</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    EXPECT_THROW(params.setA(std::numeric_limits&lt;FLOAT_TYPE&gt;::quiet_NaN()), std::invalid_argument);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    EXPECT_THROW(params.setB(std::numeric_limits&lt;FLOAT_TYPE&gt;::quiet_NaN()), std::invalid_argument);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    EXPECT_THROW(params.setDiffusionCoefficient(std::numeric_limits&lt;FLOAT_TYPE&gt;::quiet_NaN()), std::invalid_argument);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    EXPECT_THROW(params.setMacroscopicRemovalCrossSection(std::numeric_limits&lt;FLOAT_TYPE&gt;::quiet_NaN()), std::invalid_argument);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
+<p>Test for non-finite _inputs to DiffusionParams. </p>
+<div class="fragment"><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                                             {</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    EXPECT_THROW(params.setA(std::numeric_limits&lt;FLOAT_TYPE&gt;::infinity()), std::invalid_argument);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    EXPECT_THROW(params.setB(std::numeric_limits&lt;FLOAT_TYPE&gt;::infinity()), std::invalid_argument);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    EXPECT_THROW(params.setDiffusionCoefficient(std::numeric_limits&lt;FLOAT_TYPE&gt;::infinity()), std::invalid_argument);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    EXPECT_THROW(params.setMacroscopicRemovalCrossSection(std::numeric_limits&lt;FLOAT_TYPE&gt;::infinity()), std::invalid_argument);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    EXPECT_THROW(params.setA(std::numeric_limits&lt;FLOAT_TYPE&gt;::quiet_NaN()), std::invalid_argument);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    EXPECT_THROW(params.setB(std::numeric_limits&lt;FLOAT_TYPE&gt;::quiet_NaN()), std::invalid_argument);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    EXPECT_THROW(params.setDiffusionCoefficient(std::numeric_limits&lt;FLOAT_TYPE&gt;::quiet_NaN()), std::invalid_argument);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    EXPECT_THROW(params.setMacroscopicRemovalCrossSection(std::numeric_limits&lt;FLOAT_TYPE&gt;::quiet_NaN()), std::invalid_argument);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -452,13 +520,13 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Test for the output operator of DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                                            {</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;FLOAT_TYPE&gt;</a> sources = {{1.0, 2.0}, {3.0, 4.0}};</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    params.setA(2.0).setB(3.0).setM(2).setN(2).setDiffusionCoefficient(0.5).setMacroscopicRemovalCrossSection(0.6).setSources(sources);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    std::ostringstream os;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    os &lt;&lt; params;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    EXPECT_EQ(os.str(), <span class="stringliteral">&quot;a: 2 b: 3 m: 2 n: 2 delta: 0.666667 gamma: 1 diff_coeff: 0.5 cross_section: 0.6&quot;</span>);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                                            {</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;FLOAT_TYPE&gt;</a> sources = {{1.0f, 2.0f}, {3.0f, 4.0f}};</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    params.setA(2.0f).setB(3.0f).setM(2).setN(2).setDiffusionCoefficient(0.5f).setMacroscopicRemovalCrossSection(0.6f).setSources(sources);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    std::ostringstream os;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    os &lt;&lt; params;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    EXPECT_EQ(os.str(), <span class="stringliteral">&quot;a: 2 b: 3 m: 2 n: 2 delta: 0.666667 gamma: 1 diff_coeff: 0.5 cross_section: 0.6&quot;</span>);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -489,29 +557,29 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Test for the parameterized constructor of DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                                                      {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;FLOAT_TYPE&gt;</a> sources = {{1.0, 2.0}, {3.0, 4.0}};</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params&lt;FLOAT_TYPE&gt;</a> params(2.0, 3.0, 2, 2, 0.5, 0.6, sources);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    EXPECT_EQ(params.getA(), 2.0);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    EXPECT_EQ(params.getB(), 3.0);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    EXPECT_EQ(params.getM(), 2);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    EXPECT_EQ(params.getN(), 2);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    EXPECT_NEAR(params.getDelta(), 2.0 / 3.0, <a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e">TOLERANCE</a>);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    EXPECT_NEAR(params.getGamma(), 3.0 / 3.0, <a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e">TOLERANCE</a>);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    EXPECT_EQ(params.getDiffusionCoefficient(), 0.5);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    EXPECT_EQ(params.getMacroscopicRemovalCrossSection(), 0.6);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    EXPECT_EQ(params.getSources(), sources);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
-<div class="ttc" id="aDiffusionParamsTests_8cpp_html_a30c17564229ec2e37dfea9c6c9ad643e"><div class="ttname"><a href="../../da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e">TOLERANCE</a></div><div class="ttdeci">#define TOLERANCE</div><div class="ttdef"><b>Definition:</b> DiffusionParamsTests.cpp:29</div></div>
+<div class="fragment"><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                                                      {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;FLOAT_TYPE&gt;</a> sources = {{1.0f, 2.0f}, {3.0f, 4.0f}};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params&lt;FLOAT_TYPE&gt;</a> params2(2.0f, 3.0f, 2, 2, 0.5f, 0.6f, sources);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    EXPECT_EQ(params2.getA(), 2.0f);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    EXPECT_EQ(params2.getB(), 3.0f);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    EXPECT_EQ(params2.getM(), 2);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    EXPECT_EQ(params2.getN(), 2);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    EXPECT_TRUE(<a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a7d0201841e9193ae741085d5024f2e89">isClose</a>(params2.getDelta(), 2.0f / 3.0f, 1e-6));</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    EXPECT_TRUE(<a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a7d0201841e9193ae741085d5024f2e89">isClose</a>(params2.getGamma(), 3.0f / 3.0f, 1e-6));</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    EXPECT_EQ(params2.getDiffusionCoefficient(), 0.5f);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    EXPECT_EQ(params2.getMacroscopicRemovalCrossSection(), 0.6f);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    EXPECT_EQ(params2.getSources(), sources);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
+<div class="ttc" id="aDiffusionParamsTests_8cpp_html_a7d0201841e9193ae741085d5024f2e89"><div class="ttname"><a href="../../da/d4c/DiffusionParamsTests_8cpp.html#a7d0201841e9193ae741085d5024f2e89">isClose</a></div><div class="ttdeci">static bool isClose(FLOAT_TYPE a, FLOAT_TYPE b, FLOAT_TYPE tolerance=TOLERANCE)</div><div class="ttdef"><b>Definition:</b> DiffusionParamsTests.cpp:33</div></div>
 <div class="ttc" id="astructMyPhysics_1_1Diffusion_1_1Params_html"><div class="ttname"><a href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html">MyPhysics::Diffusion::Params&lt; FLOAT_TYPE &gt;</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00278">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getA()</a>, <a class="el" href="../../#l00285">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getB()</a>, <a class="el" href="../../#l00306">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDelta()</a>, <a class="el" href="../../#l00320">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDiffusionCoefficient()</a>, <a class="el" href="../../#l00313">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getGamma()</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00327">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getMacroscopicRemovalCrossSection()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00334">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getSources()</a>, and <a class="el" href="../../#l00029">TOLERANCE</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00278">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getA()</a>, <a class="el" href="../../#l00285">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getB()</a>, <a class="el" href="../../#l00306">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDelta()</a>, <a class="el" href="../../#l00320">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDiffusionCoefficient()</a>, <a class="el" href="../../#l00313">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getGamma()</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00327">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getMacroscopicRemovalCrossSection()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00334">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getSources()</a>, and <a class="el" href="../../#l00033">isClose()</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../da/d4c/DiffusionParamsTests_8cpp_abad684dab61e19170f0cf3ab370cdcb3_cgraph.svg" width="375" height="591"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../da/d4c/DiffusionParamsTests_8cpp_abad684dab61e19170f0cf3ab370cdcb3_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -544,21 +612,29 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Test for the setters and getters of DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                               {</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;FLOAT_TYPE&gt;</a> sources = {{1.0, 2.0}, {3.0, 4.0}};</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    params.setA(2.0).setB(3.0).setM(2).setN(2).setDiffusionCoefficient(0.5).setMacroscopicRemovalCrossSection(0.6).setSources(sources);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    EXPECT_EQ(params.getA(), 2.0);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    EXPECT_EQ(params.getB(), 3.0);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    EXPECT_EQ(params.getM(), 2);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    EXPECT_EQ(params.getN(), 2);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    EXPECT_NEAR(params.getDelta(), 2.0 / 3.0, <a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e">TOLERANCE</a>);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    EXPECT_NEAR(params.getGamma(), 3.0 / 3.0, <a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e">TOLERANCE</a>);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    EXPECT_EQ(params.getDiffusionCoefficient(), 0.5);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    EXPECT_EQ(params.getMacroscopicRemovalCrossSection(), 0.6);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    EXPECT_EQ(params.getSources(), sources);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                                               {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;FLOAT_TYPE&gt;</a> sources = {{1.0f, 2.0f}, {3.0f, 4.0f}};</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    params.setA(2.0f).setB(3.0f).setM(2).setN(2).setDiffusionCoefficient(0.5f).setMacroscopicRemovalCrossSection(0.6f).setSources(sources);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    EXPECT_EQ(params.getA(), 2.0f);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    EXPECT_EQ(params.getB(), 3.0f);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    EXPECT_EQ(params.getM(), 2);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    EXPECT_EQ(params.getN(), 2);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    EXPECT_TRUE(<a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a7d0201841e9193ae741085d5024f2e89">isClose</a>(params.getDelta(), 2.0f / 3.0f, 1e-6));</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    EXPECT_TRUE(<a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a7d0201841e9193ae741085d5024f2e89">isClose</a>(params.getGamma(), 3.0f / 3.0f, 1e-6));</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    EXPECT_EQ(params.getDiffusionCoefficient(), 0.5f);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    EXPECT_EQ(params.getMacroscopicRemovalCrossSection(), 0.6f);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    EXPECT_EQ(params.getSources(), sources);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00029">TOLERANCE</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00033">isClose()</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../da/d4c/DiffusionParamsTests_8cpp_a994ad262eebc8cfcb31869b6c37a1207_cgraph.svg" width="600" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -589,12 +665,12 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Test for the output operator of DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                                 {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    params = GetParam();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::ostringstream os;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    os &lt;&lt; params;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    EXPECT_FALSE(os.str().empty());</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                                 {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    params = GetParam();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    std::ostringstream os;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    os &lt;&lt; params;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    EXPECT_FALSE(os.str().empty());</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -625,19 +701,19 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Test for the parameterized constructor of DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                                           {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    params = GetParam();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    EXPECT_GT(params.getA(), 0);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    EXPECT_GT(params.getB(), 0);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    EXPECT_GT(params.getM(), 0);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    EXPECT_GT(params.getN(), 0);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    EXPECT_GT(params.getDelta(), 0);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    EXPECT_GT(params.getGamma(), 0);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    EXPECT_GT(params.getDiffusionCoefficient(), 0);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    EXPECT_GT(params.getMacroscopicRemovalCrossSection(), 0);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    EXPECT_EQ(params.getSources().getRows(), params.getM());</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    EXPECT_EQ(params.getSources().getCols(), params.getN());</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                                           {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    params = GetParam();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    EXPECT_GT(params.getA(), 0);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    EXPECT_GT(params.getB(), 0);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    EXPECT_GT(params.getM(), 0);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    EXPECT_GT(params.getN(), 0);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    EXPECT_GT(params.getDelta(), 0);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    EXPECT_GT(params.getGamma(), 0);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    EXPECT_GT(params.getDiffusionCoefficient(), 0);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    EXPECT_GT(params.getMacroscopicRemovalCrossSection(), 0);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    EXPECT_EQ(params.getSources().getRows(), params.getM());</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    EXPECT_EQ(params.getSources().getCols(), params.getN());</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -668,32 +744,42 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Test for the setters and getters of DiffusionParams. </p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                                    {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    params = GetParam();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    params.setA(2.0).setB(3.0).setM(2).setN(2).setDiffusionCoefficient(0.5).setMacroscopicRemovalCrossSection(0.6);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    EXPECT_EQ(params.getA(), 2.0);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    EXPECT_EQ(params.getB(), 3.0);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    EXPECT_EQ(params.getM(), 2);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    EXPECT_EQ(params.getN(), 2);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    EXPECT_NEAR(params.getDelta(), 2.0 / 3.0, <a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e">TOLERANCE</a>);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    EXPECT_NEAR(params.getGamma(), 3.0 / 3.0, <a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e">TOLERANCE</a>);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    EXPECT_EQ(params.getDiffusionCoefficient(), 0.5);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    EXPECT_EQ(params.getMacroscopicRemovalCrossSection(), 0.6);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                                    {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    params = GetParam();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    params.setA(2.0f).setB(3.0f).setM(2).setN(2).setDiffusionCoefficient(0.5f).setMacroscopicRemovalCrossSection(0.6f);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    EXPECT_EQ(params.getA(), 2.0f);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    EXPECT_EQ(params.getB(), 3.0f);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    EXPECT_EQ(params.getM(), 2);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    EXPECT_EQ(params.getN(), 2);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">//    EXPECT_EQ(params.getDelta(), 2.0 / 3.0);</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    EXPECT_EQ(params.getGamma(), 3.0 / 3.0);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    EXPECT_TRUE(<a class="code" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a7d0201841e9193ae741085d5024f2e89">isClose</a>(params.getDelta(), 2.0f / 3.0f, 1e-6));</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">//    EXPECT_TRUE(isClose(params.getGamma(), 2.0f / 3.0f));</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    EXPECT_EQ(params.getDiffusionCoefficient(), 0.5f);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    EXPECT_EQ(params.getMacroscopicRemovalCrossSection(), 0.6f);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00029">TOLERANCE</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00033">isClose()</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../da/d4c/DiffusionParamsTests_8cpp_afa8278dfc128eb21fc9cb7f3356dda9c_cgraph.svg" width="600" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a49313ac1b1816fb26887b55584b430d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49313ac1b1816fb26887b55584b430d4">&#9670;&nbsp;</a></span>_sources</h2>
+<a id="a9d615034e72d1445e1a142e8ac7b087f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d615034e72d1445e1a142e8ac7b087f">&#9670;&nbsp;</a></span>sources_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt;<a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a>&gt; _sources</td>
+          <td class="memname"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt;<a class="el" href="../../da/d4c/DiffusionParamsTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769">FLOAT_TYPE</a>&gt; sources_</td>
         </tr>
       </table>
 </div><div class="memdoc">

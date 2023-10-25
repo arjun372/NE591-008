@@ -218,14 +218,13 @@ Locating Source Files</h1>
 <div class="line">│   │   ├── inlab2</div>
 <div class="line">│   │   ├── outlab2</div>
 <div class="line">│   │   ├── ...</div>
-<div class="line">│   ├── ...</div>
+<div class="line">│   ├── utils                        &lt;= Helper methods</div>
+<div class="line">│   │   ├── math                     </div>
+<div class="line">│   │   │   ├── blas                 &lt;= Self implemented Math, BLAS libraries</div>
+<div class="line">│   │   ├── CheckBounds.h</div>
+<div class="line">│   │   ├── CommandLine.h            &lt;= Other helper functions</div>
+<div class="line">│   │   ├── ...</div>
 <div class="line">├── ...</div>
-<div class="line">├── utils                        &lt;= Helper methods</div>
-<div class="line">│   ├── math                     </div>
-<div class="line">│   │   ├── blas                 &lt;= Self implemented Math, BLAS libraries</div>
-<div class="line">│   ├── CheckBounds.h</div>
-<div class="line">│   ├── CommandLine.h            &lt;= Other helper functions</div>
-<div class="line">│   ├── ...</div>
 <div class="line">├── external                     &lt;= External dependencies</div>
 </div><!-- fragment --><p>The <code>utils</code> directory contains helper methods used across the project. These include a helper math library, methods for checking bounds, interacting with the command line, I/O operations on CSV and JSON files, general helper functions, and a high-precision profiler for performance analysis.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
@@ -307,13 +306,13 @@ Build Environments</h2>
 <h3><a class="anchor" id="autotoc_md8"></a>
 EOS</h3>
 <ul>
-<li><code>Boost : 1.66.0</code></li>
+<li><code>Boost : 1.83.0</code></li>
 <li><code>C/C++ compiler : GNU 8.5.0</code></li>
 </ul>
 <h3><a class="anchor" id="autotoc_md9"></a>
 Hazel</h3>
 <ul>
-<li><code>Boost : 1.72.0</code></li>
+<li><code>Boost : 1.83.0</code></li>
 <li><code>C/C++ compiler : GNU 10.2.0</code></li>
 <li><code>CUDA: 12.0.0</code></li>
 <li><code>MPI: OpenMPI 4.1.0</code></li>
@@ -327,9 +326,9 @@ Class Project</h2>
 <tr>
 <td>1 </td><td><code>✅ project1</code> <code>✅ project1_tests</code>  </td></tr>
 <tr>
-<td>2 </td><td><code>🚧 project2</code> <code>🚧 project2_tests</code> <code>🚧 physics_diffusion_tests</code>  </td></tr>
+<td>2 </td><td><code>✅ project2</code> <code>✅ project2_tests</code> <code>✅ physics_diffusion_tests</code><code>✅ blas_tests</code>  </td></tr>
 <tr>
-<td>3 </td><td></td></tr>
+<td>2 </td><td><code>🚧 project3</code> <code>🚧 project3_tests</code>  </td></tr>
 <tr>
 <td>4 </td><td></td></tr>
 <tr>
@@ -352,9 +351,9 @@ InLabs and OutLabs</h2>
 <tr>
 <td>5 </td><td><code>✅ inlab5</code> <code>❌ inlab5_tests</code> </td><td><code>✅ outlab5</code> <code>✅ outlab5_tests</code>  </td></tr>
 <tr>
-<td>6 </td><td><code>✅ inlab6</code> <code>✅ inlab6_tests</code> </td><td><code>✅ outlab6</code> <code>❌ outlab6_tests</code>  </td></tr>
+<td>6 </td><td><code>✅ inlab6</code> <code>✅ inlab6_tests</code> </td><td><code>✅ outlab6</code> <code>✅ outlab6_tests</code>  </td></tr>
 <tr>
-<td>7 </td><td><code>✅ inlab7</code> </td><td></td></tr>
+<td>7 </td><td><code>✅ inlab7</code> </td><td><code>✅ outlab7</code> <code>✅ outlab7_tests</code>  </td></tr>
 <tr>
 <td>8 </td><td></td><td></td></tr>
 <tr>
@@ -379,7 +378,13 @@ Optional CMake Arguments</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">PORTABLE   </td><td class="markdownTableBodyNone">Build without explicitly setting flags <code>-march=native</code>, <code>-mfma</code>, <code>-mavx</code>, <code>-mavx2</code>, <code>-msse4.2</code>, trading speed for portability   </td><td class="markdownTableBodyNone">OFF    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">BUILD_PERFORMANCE_BENCHMARKS   </td><td class="markdownTableBodyNone">Build a separate benchmarks target (for e.g. <code>inlab1_bench</code>)   </td><td class="markdownTableBodyNone">OFF   </td></tr>
+<td class="markdownTableBodyNone">CODE_COVERAGE   </td><td class="markdownTableBodyNone">Perform code coverage analysis   </td><td class="markdownTableBodyNone">OFF    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">ENABLE_LTO   </td><td class="markdownTableBodyNone">Enable Link-Time Optimization   </td><td class="markdownTableBodyNone">ON    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">ENABLE_PGO   </td><td class="markdownTableBodyNone">Enable Profile-Guided Optimization   </td><td class="markdownTableBodyNone">OFF    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">ENABLE_CODE_QUALITY_CHECKS   </td><td class="markdownTableBodyNone">Enable extra compile-time warnings   </td><td class="markdownTableBodyNone">ON   </td></tr>
 </table>
 <p>To use these options, you can add them to the <code>cmake</code> command in the build script. For example, to build with tests, you would modify the <code>cmake</code> command as follows:</p>
 <div class="fragment"><div class="line">cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON</div>

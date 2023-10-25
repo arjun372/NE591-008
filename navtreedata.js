@@ -240,6 +240,23 @@ var NAVTREE =
         [ "Example:", "dd/dfb/outlab6.html#autotoc_md150", null ]
       ] ]
     ] ],
+    [ "OutLab 07: Iterative Linear Equation Solvers", "da/d4d/outlab7.html", [
+      [ "OutLab 07: Iterative Linear Equation Solvers", "da/d4d/outlab7.html#autotoc_md151", [
+        [ "Overview", "da/d4d/outlab7.html#autotoc_md152", null ],
+        [ "Building & Usage", "da/d4d/outlab7.html#autotoc_md153", [
+          [ "Parameters", "da/d4d/outlab7.html#autotoc_md154", null ],
+          [ "Solver Methods", "da/d4d/outlab7.html#autotoc_md155", null ],
+          [ "General options", "da/d4d/outlab7.html#autotoc_md156", null ]
+        ] ],
+        [ "Parameters Format", "da/d4d/outlab7.html#autotoc_md157", [
+          [ "Sample Parameters File", "da/d4d/outlab7.html#autotoc_md158", null ]
+        ] ],
+        [ "Output Format", "da/d4d/outlab7.html#autotoc_md159", [
+          [ "Sample Outputs File", "da/d4d/outlab7.html#autotoc_md160", null ]
+        ] ],
+        [ "Example:", "da/d4d/outlab7.html#autotoc_md161", null ]
+      ] ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -280,17 +297,18 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d0/d40/classParser.html#a6b685f98b9861029ccf6ec651df9a9a8",
-"d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87",
-"d2/d6e/namespaceMyBLAS.html#a9d89e846e20f02c0a9772fc397680559",
-"d4/dae/structInput.html#a4ff7e621eae37b3313931fdad9ba8eba",
-"d6/d95/utils_2physics_2diffusion_2tests_2main_8cpp.html",
-"d8/deb/classInLab5.html#a2ccb315fa492215574b147c09a4a6c0d",
-"db/dde/readfile_8m.html#aa96c156cf9fc911289569876fd4ea749",
-"dd/d2c/BaseVectorTests_8cpp.html#ae48b7ad4f6ec0e34d5710e84fe23e7b8",
-"de/def/classStopwatch.html#a3c8a6cb60a31a8cafd1d2dad1b6c851d",
-"globals_k.html"
+"",
+"d0/d28/classMyBLAS_1_1LazyMatrix.html#ad4fbcdd50932d20e220bccdbafa7bfb2",
+"d0/d40/classParser.html#ac6eef90914633f370075a04e8143315b",
+"d1/d8c/classInLab6.html#aadf8055fdd095b12168bcf7e42df9d98",
+"d3/d49/classOutLab7.html#a0e8fef716b4108b73af66792e32ab24a",
+"d5/d51/BaseMatrixTests_8cpp.html#afc4aa998ce25e62d718a7a10b5b3907b",
+"d7/dd6/structMyBLAS_1_1Input.html#a1052e5397b651918cdc7df6931ea1f96",
+"da/d4c/DiffusionParamsTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e",
+"dc/d22/namespacegenerate__point__source.html#af9c12812c8aef52b5f5ac58c6df0c5ab",
+"dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1",
+"dir_17915e33a814a238bb3a2acc29d47579.html",
+"pages.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

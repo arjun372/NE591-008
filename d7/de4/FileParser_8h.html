@@ -180,6 +180,7 @@ Functions</h2></td></tr>
 <tr class="separator:ae87885d224a53e1eee2aee7ee11eb396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dcefb9b5c6bf2d5e28ebe848b09cad5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a3dcefb9b5c6bf2d5e28ebe848b09cad5"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/de4/FileParser_8h.html#a3dcefb9b5c6bf2d5e28ebe848b09cad5">writeCSVMatrixNoHeaders</a> (const std::string &amp;filepath, <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; T &gt; &amp;<a class="el" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>)</td></tr>
+<tr class="memdesc:a3dcefb9b5c6bf2d5e28ebe848b09cad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A template function to write a matrix to a CSV file without headers.  <a href="../../d7/de4/FileParser_8h.html#a3dcefb9b5c6bf2d5e28ebe848b09cad5">More...</a><br /></td></tr>
 <tr class="separator:a3dcefb9b5c6bf2d5e28ebe848b09cad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae0e89e11fed2832c3179eb9e152f249"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aae0e89e11fed2832c3179eb9e152f249"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/de4/FileParser_8h.html#aae0e89e11fed2832c3179eb9e152f249">writeCSVMatrixNoHeaders</a> (const std::string &amp;directory, const std::string &amp;file, <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; T &gt; &amp;<a class="el" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>)</td></tr>
@@ -259,7 +260,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> T &amp;value : inputVector) {</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        std::stringstream ss;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        ss &lt;&lt; std::scientific &lt;&lt; std::setprecision(precision) &lt;&lt; value;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        ss &lt;&lt; std::scientific &lt;&lt; std::setprecision(static_cast&lt;int&gt;(precision)) &lt;&lt; value;</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        stringVector.push_back(ss.str());</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    }</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
@@ -387,7 +388,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00114">Parser::performInputArgumentsCheck()</a>, and <a class="el" href="../../#l00301">writeCSVMatrixNoHeaders()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00114">Parser::performInputArgumentsCheck()</a>, and <a class="el" href="../../#l00307">writeCSVMatrixNoHeaders()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -444,7 +445,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../#l00092">Parser::performInputArgumentsCheck()</a>, <a class="el" href="../../#l00224">writeCSV()</a>, <a class="el" href="../../#l00275">writeCSVMatrixNoHeaders()</a>, and <a class="el" href="../../#l00342">writeJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00092">Parser::performInputArgumentsCheck()</a>, <a class="el" href="../../#l00224">writeCSV()</a>, <a class="el" href="../../#l00281">writeCSVMatrixNoHeaders()</a>, and <a class="el" href="../../#l00348">writeJSON()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -683,19 +684,19 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                                                                   {</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="comment">// Open the JSON file</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    std::ifstream inputFile(filepath);</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">if</span> (!inputFile.is_open()) {</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Unable to open the input JSON: &quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        exit(1);</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    }</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="comment">// read the file</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    map = nlohmann::json::parse(inputFile);</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                                                                   {</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="comment">// Open the JSON file</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    std::ifstream inputFile(filepath);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordflow">if</span> (!inputFile.is_open()) {</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Unable to open the input JSON: &quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        exit(1);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="comment">// read the file</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    map = nlohmann::json::parse(inputFile);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="../../#l00112">Parser::buildInputs()</a>, and <a class="el" href="../../#l00084">Parser::performInputArgumentsCheck()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -872,16 +873,16 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                                                                                                                                    {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d7/de4/FileParser_8h.html#aa29f75480318c8d72e93251cdd8e5d24">isDirectoryWritable</a>(directory)) {</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    }</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <a class="code" href="../../d7/de4/FileParser_8h.html#a3dcefb9b5c6bf2d5e28ebe848b09cad5">writeCSVMatrixNoHeaders</a>(directory+<span class="stringliteral">&quot;/&quot;</span>+file, <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;}</div>
-<div class="ttc" id="aFileParser_8h_html_a3dcefb9b5c6bf2d5e28ebe848b09cad5"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#a3dcefb9b5c6bf2d5e28ebe848b09cad5">writeCSVMatrixNoHeaders</a></div><div class="ttdeci">static void writeCSVMatrixNoHeaders(const std::string &amp;filepath, MyBLAS::Matrix&lt; T &gt; &amp;data)</div><div class="ttdef"><b>Definition:</b> FileParser.h:275</div></div>
+<div class="fragment"><div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                                                                                                                                    {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d7/de4/FileParser_8h.html#aa29f75480318c8d72e93251cdd8e5d24">isDirectoryWritable</a>(directory)) {</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <a class="code" href="../../d7/de4/FileParser_8h.html#a3dcefb9b5c6bf2d5e28ebe848b09cad5">writeCSVMatrixNoHeaders</a>(directory+<span class="stringliteral">&quot;/&quot;</span>+file, <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>);</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
+<div class="ttc" id="aFileParser_8h_html_a3dcefb9b5c6bf2d5e28ebe848b09cad5"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#a3dcefb9b5c6bf2d5e28ebe848b09cad5">writeCSVMatrixNoHeaders</a></div><div class="ttdeci">static void writeCSVMatrixNoHeaders(const std::string &amp;filepath, MyBLAS::Matrix&lt; T &gt; &amp;data)</div><div class="ttdoc">A template function to write a matrix to a CSV file without headers.</div><div class="ttdef"><b>Definition:</b> FileParser.h:281</div></div>
 <div class="ttc" id="aFileParser_8h_html_aa29f75480318c8d72e93251cdd8e5d24"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#aa29f75480318c8d72e93251cdd8e5d24">isDirectoryWritable</a></div><div class="ttdeci">static bool isDirectoryWritable(const std::string &amp;directoryPath)</div><div class="ttdoc">Checks if a directory exists. If it doesn't exist, it is created.</div><div class="ttdef"><b>Definition:</b> FileParser.h:50</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00009">data</a>, <a class="el" href="../../#l00050">isDirectoryWritable()</a>, and <a class="el" href="../../#l00275">writeCSVMatrixNoHeaders()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00009">data</a>, <a class="el" href="../../#l00050">isDirectoryWritable()</a>, and <a class="el" href="../../#l00281">writeCSVMatrixNoHeaders()</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -928,35 +929,50 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                                                                                                            {</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d7/de4/FileParser_8h.html#a784eb9bb658a54b0577db5cc2d73acae">isFileWritable</a>(filepath)) {</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Unable to write output CSV to path: &quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    }</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="comment">// Open the CSV file for writing</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    std::ofstream csvFile(filepath);</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">// Check if the file was opened successfully</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordflow">if</span> (!csvFile.is_open()) {</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error opening the output CSV file&quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    }</div>
+
+<p>A template function to write a matrix to a CSV file without headers. </p>
+<p>This function writes a matrix to a CSV file. If the file is not writable, an error message is printed. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the matrix elements. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>The path to the CSV file. </td></tr>
+    <tr><td class="paramname">data</td><td>The matrix to be written to the CSV file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                                                                                                            {</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d7/de4/FileParser_8h.html#a784eb9bb658a54b0577db5cc2d73acae">isFileWritable</a>(filepath)) {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Unable to write output CSV to path: &quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="comment">// Open the CSV file for writing</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    std::ofstream csvFile(filepath);</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.getRows(); <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.getCols(); j++) {</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            csvFile &lt;&lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] &lt;&lt; ((j == <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.getCols() - 1) ? <span class="stringliteral">&quot;\n&quot;</span> : <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="comment">// Check if the file was opened successfully</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">if</span> (!csvFile.is_open()) {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error opening the output CSV file&quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    }</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="comment">// Close the CSV file</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    csvFile.close();</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.getRows(); <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.getCols(); j++) {</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            csvFile &lt;&lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] &lt;&lt; ((j == <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.getCols() - 1) ? <span class="stringliteral">&quot;\n&quot;</span> : <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="comment">// Close the CSV file</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    csvFile.close();</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00009">data</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00032">isFileWritable()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00152">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00223">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00079">Compute::usingLUP()</a>, <a class="el" href="../../#l00116">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00187">Compute::usingSOR()</a>, <a class="el" href="../../#l00258">Compute::usingSymmetricSOR()</a>, and <a class="el" href="../../#l00301">writeCSVMatrixNoHeaders()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00079">Project1::run()</a>, <a class="el" href="../../#l00158">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00229">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00085">Compute::usingLUP()</a>, <a class="el" href="../../#l00122">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00193">Compute::usingSOR()</a>, <a class="el" href="../../#l00264">Compute::usingSymmetricSOR()</a>, and <a class="el" href="../../#l00307">writeCSVMatrixNoHeaders()</a>.</p>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
@@ -1019,31 +1035,31 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                                                                     {</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d7/de4/FileParser_8h.html#a784eb9bb658a54b0577db5cc2d73acae">isFileWritable</a>(filepath)) {</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Unable to write output JSON to path: &quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    }</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="comment">// Open the CSV file for writing</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    std::ofstream jsonFile(filepath);</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="comment">// Check if the file was opened successfully</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">if</span> (!jsonFile.is_open()) {</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error opening the output JSON file&quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                                                                     {</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d7/de4/FileParser_8h.html#a784eb9bb658a54b0577db5cc2d73acae">isFileWritable</a>(filepath)) {</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Unable to write output JSON to path: &quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    }</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">// Open the CSV file for writing</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    std::ofstream jsonFile(filepath);</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">// Write the JSON data to the file</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    jsonFile &lt;&lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.dump(4); <span class="comment">// The &#39;4&#39; argument is for pretty formatting with 4 spaces</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;JSON data has been written to &quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;}</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">// Check if the file was opened successfully</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordflow">if</span> (!jsonFile.is_open()) {</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error opening the output JSON file&quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    }</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="comment">// Write the JSON data to the file</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    jsonFile &lt;&lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>.dump(4); <span class="comment">// The &#39;4&#39; argument is for pretty formatting with 4 spaces</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;JSON data has been written to &quot;</span> &lt;&lt; filepath &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00009">data</a>, and <a class="el" href="../../#l00032">isFileWritable()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00168">OutLab7::postRun()</a>, <a class="el" href="../../#l00089">InLab3::run()</a>, <a class="el" href="../../#l00084">OutLab3::run()</a>, <a class="el" href="../../#l00092">InLab6::run()</a>, <a class="el" href="../../#l00071">InLab5::run()</a>, <a class="el" href="../../#l00073">OutLab4::run()</a>, <a class="el" href="../../#l00096">OutLab6::run()</a>, <a class="el" href="../../#l00090">InLab4::run()</a>, <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, and <a class="el" href="../../#l00094">Project2::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00168">OutLab7::postRun()</a>, <a class="el" href="../../#l00089">InLab3::run()</a>, <a class="el" href="../../#l00084">OutLab3::run()</a>, <a class="el" href="../../#l00092">InLab6::run()</a>, <a class="el" href="../../#l00071">InLab5::run()</a>, <a class="el" href="../../#l00073">OutLab4::run()</a>, <a class="el" href="../../#l00094">OutLab6::run()</a>, <a class="el" href="../../#l00090">InLab4::run()</a>, <a class="el" href="../../#l00081">OutLab5::run()</a>, <a class="el" href="../../#l00079">Project1::run()</a>, and <a class="el" href="../../#l00094">Project2::run()</a>.</p>
 <div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">

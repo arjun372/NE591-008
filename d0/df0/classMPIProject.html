@@ -281,10 +281,10 @@ template&lt;typename InputType , typename CommandLineParserType , typename Outpu
 <div class="ttc" id="aclassMPIProject_html_a0e8fef716b4108b73af66792e32ab24a"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a0e8fef716b4108b73af66792e32ab24a">MPIProject::_inputs</a></div><div class="ttdeci">InputType _inputs</div><div class="ttdoc">The inputs for the project.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:69</div></div>
 <div class="ttc" id="aclassMPIProject_html_a3397717bb7c69ce098e0e37d21449f54"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a3397717bb7c69ce098e0e37d21449f54">MPIProject::_uuid</a></div><div class="ttdeci">std::string _uuid</div><div class="ttdoc">A unique identifier for the current process.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:65</div></div>
 <div class="ttc" id="aclassMPIProject_html_a92324e12d5dcf6a15ab52e02495962df"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a92324e12d5dcf6a15ab52e02495962df">MPIProject::getInputs</a></div><div class="ttdeci">static InputType getInputs(HeaderInfo header, CommandLineArgs args, const int rank, const int size)</div><div class="ttdoc">Gets the inputs for the project. If the rank is not 0, it receives the inputs from the main process....</div><div class="ttdef"><b>Definition:</b> MPIProject.h:84</div></div>
-<div class="ttc" id="aclassMPIProject_html_a98c5ee04f7c6246e1f2c2fba16faf274"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">MPIProject::hostname</a></div><div class="ttdeci">static std::string hostname()</div><div class="ttdoc">Gets the name of the processor that the current process is running on.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:213</div></div>
+<div class="ttc" id="aclassMPIProject_html_a98c5ee04f7c6246e1f2c2fba16faf274"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">MPIProject::hostname</a></div><div class="ttdeci">static std::string hostname()</div><div class="ttdoc">Gets the name of the processor that the current process is running on.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:214</div></div>
 <div class="ttc" id="aclassMPIProject_html_ac7bd936bdf6bdab20d0cfebd2892218a"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a">MPIProject::_size</a></div><div class="ttdeci">int _size</div><div class="ttdoc">The total number of processes in the MPI_COMM_WORLD communicator.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:61</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00069">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::_inputs</a>, <a class="el" href="../../#l00057">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::_rank</a>, <a class="el" href="../../#l00061">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::_size</a>, <a class="el" href="../../#l00065">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::_uuid</a>, <a class="el" href="../../#l00047">CommandLineArgs::argc</a>, <a class="el" href="../../#l00048">CommandLineArgs::argv</a>, <a class="el" href="../../#l00084">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::getInputs()</a>, and <a class="el" href="../../#l00213">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::hostname()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00069">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::_inputs</a>, <a class="el" href="../../#l00057">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::_rank</a>, <a class="el" href="../../#l00061">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::_size</a>, <a class="el" href="../../#l00065">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::_uuid</a>, <a class="el" href="../../#l00047">CommandLineArgs::argc</a>, <a class="el" href="../../#l00048">CommandLineArgs::argv</a>, <a class="el" href="../../#l00084">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::getInputs()</a>, and <a class="el" href="../../#l00214">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::hostname()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -361,21 +361,21 @@ template&lt;typename DataType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The received data. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                                      {</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        MPI_Status status;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordtype">int</span> length;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        MPI_Probe(MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &amp;status);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        MPI_Get_count(&amp;status, MPI_CHAR, &amp;length);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordtype">char</span>* buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[length];</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        MPI_Recv(buffer, length, MPI_CHAR, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        std::string received_str(buffer);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keyword">delete</span>[] buffer;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        std::istringstream iss(received_str);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        boost::archive::text_iarchive ia(iss);</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        DataType received;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        ia &gt;&gt; received;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">return</span> received;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                                      {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        MPI_Status status;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordtype">int</span> length;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        MPI_Probe(MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &amp;status);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        MPI_Get_count(&amp;status, MPI_CHAR, &amp;length);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordtype">char</span>* buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(length)];</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        MPI_Recv(buffer, length, MPI_CHAR, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        std::string received_str(buffer);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keyword">delete</span>[] buffer;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        std::istringstream iss(received_str);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        boost::archive::text_iarchive ia(iss);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        DataType received;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        ia &gt;&gt; received;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">return</span> received;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -436,8 +436,9 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        boost::archive::text_oarchive oa(oss);</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        oa &lt;&lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        std::string serialized = oss.str();</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        MPI_Send(serialized.c_str(), serialized.size() + 1, MPI_CHAR, rank, 0, MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> length = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(serialized.size()) + 1;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        MPI_Send(serialized.c_str(), length, MPI_CHAR, rank, 0, MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
 <div class="ttc" id="areadfile_8m_html_a0d456e3b30ae0a83ca2f097a1a1669f5"><div class="ttname"><a href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a></div><div class="ttdeci">Read the table from the CSV file data</div><div class="ttdef"><b>Definition:</b> readfile.m:9</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00009">data</a>.</p>
@@ -725,7 +726,7 @@ template&lt;typename Func &gt; </div>
 <div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                                                                                     {</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html">Profiler</a>(func, samples, timeout, description);</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
-<div class="ttc" id="aclassProfiler_html"><div class="ttname"><a href="../../dd/d0e/classProfiler.html">Profiler</a></div><div class="ttdoc">A template class to profile the execution time of a function.</div><div class="ttdef"><b>Definition:</b> Profiler.h:29</div></div>
+<div class="ttc" id="aclassProfiler_html"><div class="ttname"><a href="../../dd/d0e/classProfiler.html">Profiler</a></div><div class="ttdoc">A template class to profile the execution time of a function.</div><div class="ttdef"><b>Definition:</b> Profiler.h:28</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -756,12 +757,12 @@ template&lt;typename InputType , typename CommandLineParserType , typename Outpu
 
 <p>Gets the name of the processor that the current process is running on. </p>
 <dl class="section return"><dt>Returns</dt><dd>The name of the processor. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                                {</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordtype">char</span> <a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>[MPI_MAX_PROCESSOR_NAME];</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordtype">int</span> resultlen;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        MPI_Get_processor_name(<a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>, &amp;resultlen);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordflow">return</span> std::string{<a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(resultlen)};</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                                {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordtype">char</span> <a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>[MPI_MAX_PROCESSOR_NAME];</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordtype">int</span> resultlen;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        MPI_Get_processor_name(<a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>, &amp;resultlen);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span> std::string{<a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(resultlen)};</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="../../#l00040">MPIProject&lt; InputType, CommandLineParserType, OutputType &gt;::MPIProject()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">

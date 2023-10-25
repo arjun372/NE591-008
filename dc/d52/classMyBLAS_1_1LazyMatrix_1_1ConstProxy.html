@@ -121,6 +121,9 @@ $(document).ready(function(){initNavTree('dc/d52/classMyBLAS_1_1LazyMatrix_1_1Co
 </div><!--header-->
 <div class="contents">
 
+<p>A helper class to provide a proxy for const access to a row of the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>.  
+ <a href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../">LazyMatrix.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy:</div>
@@ -134,21 +137,27 @@ $(document).ready(function(){initNavTree('dc/d52/classMyBLAS_1_1LazyMatrix_1_1Co
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a96dd5da10e00462345657f5d71542faf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a96dd5da10e00462345657f5d71542faf">ConstProxy</a> (const <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">LazyMatrix</a> &amp;matrix, size_t row)</td></tr>
+<tr class="memdesc:a96dd5da10e00462345657f5d71542faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html" title="A helper class to provide a proxy for const access to a row of the LazyMatrix.">ConstProxy</a> class.  <a href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a96dd5da10e00462345657f5d71542faf">More...</a><br /></td></tr>
 <tr class="separator:a96dd5da10e00462345657f5d71542faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a4bc6c68455d8d260d426b0b3cf3f74"><td class="memItemLeft" align="right" valign="top">DataType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a1a4bc6c68455d8d260d426b0b3cf3f74">operator[]</a> (size_t col) const</td></tr>
+<tr class="memdesc:a1a4bc6c68455d8d260d426b0b3cf3f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the [] operator for const access to a column of the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>.  <a href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a1a4bc6c68455d8d260d426b0b3cf3f74">More...</a><br /></td></tr>
 <tr class="separator:a1a4bc6c68455d8d260d426b0b3cf3f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a293a64fe00c1974249cfaf7b6dbc9131"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">LazyMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a293a64fe00c1974249cfaf7b6dbc9131">matrix_</a></td></tr>
+<tr class="memdesc:a293a64fe00c1974249cfaf7b6dbc9131"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant reference to the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a> object.  <a href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a293a64fe00c1974249cfaf7b6dbc9131">More...</a><br /></td></tr>
 <tr class="separator:a293a64fe00c1974249cfaf7b6dbc9131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ae98e13b1462c7a4f5884ae1f01e716"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a5ae98e13b1462c7a4f5884ae1f01e716">row_</a></td></tr>
+<tr class="memdesc:a5ae98e13b1462c7a4f5884ae1f01e716"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the row to be accessed in the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>.  <a href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a5ae98e13b1462c7a4f5884ae1f01e716">More...</a><br /></td></tr>
 <tr class="separator:a5ae98e13b1462c7a4f5884ae1f01e716"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename DataType&gt;<br />
 class MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy</h3>
 
+<p>A helper class to provide a proxy for const access to a row of the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>. </p>
+<p>This class is used to overload the [] operator for const access to a row of the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a96dd5da10e00462345657f5d71542faf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96dd5da10e00462345657f5d71542faf">&#9670;&nbsp;</a></span>ConstProxy()</h2>
@@ -185,9 +194,18 @@ template&lt;typename DataType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;: <a class="code" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a293a64fe00c1974249cfaf7b6dbc9131">matrix_</a>(matrix), <a class="code" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a5ae98e13b1462c7a4f5884ae1f01e716">row_</a>(<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>) {}</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_1_1ConstProxy_html_a293a64fe00c1974249cfaf7b6dbc9131"><div class="ttname"><a href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a293a64fe00c1974249cfaf7b6dbc9131">MyBLAS::LazyMatrix::ConstProxy::matrix_</a></div><div class="ttdeci">const LazyMatrix &amp; matrix_</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:369</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_1_1ConstProxy_html_a5ae98e13b1462c7a4f5884ae1f01e716"><div class="ttname"><a href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a5ae98e13b1462c7a4f5884ae1f01e716">MyBLAS::LazyMatrix::ConstProxy::row_</a></div><div class="ttdeci">size_t row_</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:371</div></div>
+
+<p>Constructor for the <a class="el" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html" title="A helper class to provide a proxy for const access to a row of the LazyMatrix.">ConstProxy</a> class. </p>
+<p>This constructor initializes a <a class="el" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html" title="A helper class to provide a proxy for const access to a row of the LazyMatrix.">ConstProxy</a> object for const access to a row of the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>A constant reference to the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a> object. </td></tr>
+    <tr><td class="paramname">row</td><td>The index of the row to be accessed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;: <a class="code" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a293a64fe00c1974249cfaf7b6dbc9131">matrix_</a>(matrix), <a class="code" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a5ae98e13b1462c7a4f5884ae1f01e716">row_</a>(<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>) {}</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_1_1ConstProxy_html_a293a64fe00c1974249cfaf7b6dbc9131"><div class="ttname"><a href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a293a64fe00c1974249cfaf7b6dbc9131">MyBLAS::LazyMatrix::ConstProxy::matrix_</a></div><div class="ttdeci">const LazyMatrix &amp; matrix_</div><div class="ttdoc">A constant reference to the LazyMatrix object.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:579</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_1_1ConstProxy_html_a5ae98e13b1462c7a4f5884ae1f01e716"><div class="ttname"><a href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a5ae98e13b1462c7a4f5884ae1f01e716">MyBLAS::LazyMatrix::ConstProxy::row_</a></div><div class="ttdeci">size_t row_</div><div class="ttdoc">The index of the row to be accessed in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:584</div></div>
 <div class="ttc" id="anamespaceprocess_html_a642508a3f698c3dc98a03f79a3b625d3"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">process.row</a></div><div class="ttdeci">row</div><div class="ttdef"><b>Definition:</b> process.py:24</div></div>
 </div><!-- fragment -->
 </div>
@@ -218,11 +236,20 @@ template&lt;typename DataType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                                              {</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a293a64fe00c1974249cfaf7b6dbc9131">matrix_</a>(<a class="code" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a5ae98e13b1462c7a4f5884ae1f01e716">row_</a>, col);</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        }</div>
+
+<p>Overload of the [] operator for const access to a column of the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">col</td><td>The index of the column to access. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value at the specified row and column in the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                                              {</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a293a64fe00c1974249cfaf7b6dbc9131">matrix_</a>(<a class="code" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html#a5ae98e13b1462c7a4f5884ae1f01e716">row_</a>, col);</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00369">MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy::matrix_</a>, and <a class="el" href="../../#l00371">MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy::row_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00579">MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy::matrix_</a>, and <a class="el" href="../../#l00584">MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy::row_</a>.</p>
 
 </div>
 </div>
@@ -249,7 +276,9 @@ template&lt;typename DataType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00363">MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy::operator[]()</a>.</p>
+<p>A constant reference to the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a> object. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00571">MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy::operator[]()</a>.</p>
 
 </div>
 </div>
@@ -275,7 +304,9 @@ template&lt;typename DataType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00363">MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy::operator[]()</a>.</p>
+<p>The index of the row to be accessed in the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00571">MyBLAS::LazyMatrix&lt; DataType &gt;::ConstProxy::operator[]()</a>.</p>
 
 </div>
 </div>

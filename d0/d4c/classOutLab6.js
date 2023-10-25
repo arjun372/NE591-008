@@ -13,9 +13,9 @@ var classOutLab6 =
     [ "postRun", "d0/d4c/classOutLab6.html#a2873dd0aa78848433775442dda988e79", null ],
     [ "preRun", "d0/d4c/classOutLab6.html#ab323cfcafd876a24b9321d58355b7662", null ],
     [ "printResults", "d0/d4c/classOutLab6.html#a770effb030dbdb45bcecb764ed75d455", null ],
-    [ "run", "d0/d4c/classOutLab6.html#a7f817fd9bedd2b88e683e2514d386c8c", null ],
+    [ "run", "d0/d4c/classOutLab6.html#a901a1283fd029c9174f8469ac5cb3ad8", null ],
     [ "timedRun", "d0/d4c/classOutLab6.html#aa176f763c07de3d80ecf50ef88b4ded2", null ],
+    [ "_outputs", "d0/d4c/classOutLab6.html#a08d7234d71ef49cc92e37256062ba20b", null ],
     [ "cmdArgs", "d0/d4c/classOutLab6.html#a44d2055fa63fb0d7684efd9a7db32272", null ],
-    [ "outputs", "d0/d4c/classOutLab6.html#a06149764196c5bb48dfb591ab1c9bf34", null ],
     [ "terminal", "d0/d4c/classOutLab6.html#a6a745ed8b9a383f5c1fe341a530301ed", null ]
 ];

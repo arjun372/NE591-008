@@ -14,7 +14,7 @@ var classOutLab5 =
     [ "preRun", "d3/d1d/classOutLab5.html#ab323cfcafd876a24b9321d58355b7662", null ],
     [ "run", "d3/d1d/classOutLab5.html#aa1d5363426e0ce8f620d47c1b2aa2260", null ],
     [ "timedRun", "d3/d1d/classOutLab5.html#aa176f763c07de3d80ecf50ef88b4ded2", null ],
+    [ "_outputs", "d3/d1d/classOutLab5.html#a08d7234d71ef49cc92e37256062ba20b", null ],
     [ "cmdArgs", "d3/d1d/classOutLab5.html#a44d2055fa63fb0d7684efd9a7db32272", null ],
-    [ "outputs", "d3/d1d/classOutLab5.html#a06149764196c5bb48dfb591ab1c9bf34", null ],
     [ "terminal", "d3/d1d/classOutLab5.html#a6a745ed8b9a383f5c1fe341a530301ed", null ]
 ];

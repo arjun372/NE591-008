@@ -5,7 +5,7 @@ var CheckBounds_8h =
     [ "asYesOrNo", "d0/d7d/CheckBounds_8h.html#a8e00f3c090f7c62365c135a14293fc6c", null ],
     [ "failsExclusiveRangeCheck", "d0/d7d/CheckBounds_8h.html#a5efba033e4e41ec3fb10dd1afacaa737", null ],
     [ "failsInclusiveRangeCheck", "d0/d7d/CheckBounds_8h.html#a4e248d837fb993668bb741421c3d3984", null ],
-    [ "failsNaturalNumberCheck", "d0/d7d/CheckBounds_8h.html#a3c1ae2e6c7c5be240c177eff0a55bdb8", null ],
+    [ "failsNaturalNumberCheck", "d0/d7d/CheckBounds_8h.html#a371da837f64c47ef4948374870e248bd", null ],
     [ "failsNonNegativeNumberCheck", "d0/d7d/CheckBounds_8h.html#a5dbecc6a0a3416f685ce0534d8af671b", null ],
     [ "failsPositiveNumberCheck", "d0/d7d/CheckBounds_8h.html#aebae5093ceaf78a6b72feadef5e4ec44", null ],
     [ "failsPowerOf2Check", "d0/d7d/CheckBounds_8h.html#a511ccef5a5f2361f5781cbae235db912", null ],
