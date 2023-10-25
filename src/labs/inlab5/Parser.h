@@ -195,23 +195,23 @@ class Parser : public CommandLine<MyBLAS::InputMatrices> {
             printLine();
             std::cout << "Lower Triangular Matrix (L):\n";
             printLine();
-            std::cout << std::setprecision(precision) << lower;
+            std::cout << std::setprecision(static_cast<int>(precision)) << lower;
             printLine();
             std::cout << "Upper Triangular Matrix (U):\n";
             printLine();
-            std::cout << std::setprecision(precision) << upper;
+            std::cout << std::setprecision(static_cast<int>(precision)) << upper;
             printLine();
             std::cout << "Permutation Matrix (P):\n";
             printLine();
-            std::cout << std::setprecision(precision) << inputs.permutation;
+            std::cout << std::setprecision(static_cast<int>(precision)) << inputs.permutation;
             printLine();
             std::cout << "Constants Vector (b):\n";
             printLine();
-            std::cout << std::setprecision(precision) << inputs.constants;
+            std::cout << std::setprecision(static_cast<int>(precision)) << inputs.constants;
             printLine();
             std::cout << "LU Matrix:\n";
             printLine();
-            std::cout << std::setprecision(precision) << inputs.LU;
+            std::cout << std::setprecision(static_cast<int>(precision)) << inputs.LU;
             printLine();
         }
     }

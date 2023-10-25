@@ -81,35 +81,35 @@ class InLab2 : public Project<LagrangePolynomialInputs, Parser, Dictionary> {
      *
      * Finally, it writes the output map to a CSV file specified by the "output-csv" command line argument.
      */
-    void run(Dictionary &outputs, Input &inputs, boost::program_options::variables_map &values) override {
+    void run(Dictionary &output, Input &inputs, boost::program_options::variables_map &values) override {
 
         // create indices 1 -> m
         std::vector<size_t> indexVector(inputs.m);
         std::iota(indexVector.begin(), indexVector.end(), 1);
-        outputs.emplace("i", asStringVector(indexVector));
+        output.emplace("i", asStringVector(indexVector));
 
         // uniform interval over [a,b]
         const auto xMinMax = std::minmax_element(inputs.xData.begin(), inputs.xData.end());
         auto uniformXiInterval = std::vector<long double>(inputs.m, 0);
         fill_linspace(uniformXiInterval, *xMinMax.first, *xMinMax.second, inputs.m);
-        outputs.emplace("x(i)", asStringVector(uniformXiInterval));
+        output.emplace("x(i)", asStringVector(uniformXiInterval));
 
         // Lagrange interpolated samples L[x(i)]
         auto lagrangePolynomials = std::vector<long double>(inputs.m, 0);
         fillLagrangePolys(lagrangePolynomials, uniformXiInterval, inputs.xData, inputs.fxData);
-        outputs.emplace("L(x)", asStringVector(lagrangePolynomials));
+        output.emplace("L(x)", asStringVector(lagrangePolynomials));
 
         // Interpolation error samples E[L(x)-f(x)]
         if (values.count("use-fx-function")) {
             auto functionAtX = std::vector<long double>(inputs.m, 0);
             fillInterpolationError(functionAtX, lagrangePolynomials, inputs.fxData);
-            outputs.emplace("f(x)", asStringVector(lagrangePolynomials));
+            output.emplace("f(x)", asStringVector(lagrangePolynomials));
 
             auto interpolationErrors = std::vector<long double>(inputs.m, 0);
             fillInterpolationError(interpolationErrors, lagrangePolynomials, inputs.fxData);
-            outputs.emplace("E(x)", asStringVector(lagrangePolynomials));
+            output.emplace("E(x)", asStringVector(lagrangePolynomials));
         }
 
-        writeCSV(values["output-csv"].as<std::string>(), outputs, {"i", "x(i)", "L(x)", "f(x)", "E(x)"});
+        writeCSV(values["output-csv"].as<std::string>(), output, {"i", "x(i)", "L(x)", "f(x)", "E(x)"});
     }
 };

@@ -2,8 +2,6 @@
 * @file VectorExpressionTests.cpp
 * @author Arjun Earthperson
 * @date 10/13/2023
-*
-* @brief TODO::DOCUMENT
  */
 
 #include "math/blas/vector/VectorExpression.h"

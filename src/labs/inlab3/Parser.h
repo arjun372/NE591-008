@@ -60,8 +60,8 @@ class Parser : public CommandLine<NewtonCotesInputs> {
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
         std::cout << "\tInterval Count,            m: " << m << "\n";
-        std::cout << "\tInterval Start,            a: " << std::setprecision(precision) << a << "\n";
-        std::cout << "\tInterval Stop,             b: " << std::setprecision(precision) << b << "\n";
+        std::cout << "\tInterval Start,            a: " << std::setprecision(static_cast<int>(precision)) << a << "\n";
+        std::cout << "\tInterval Stop,             b: " << std::setprecision(static_cast<int>(precision)) << b << "\n";
         std::cout << "\tOutput JSON,               o: " << vm["output-json"].as<std::string>() << "\n";
         std::cout << "\tUse Trapezoidal Rule,      t: " << (use_trapezoidal ? "yes" : "no") << "\n";
         std::cout << "\tUse Simpson's Rule,        s: " << (use_simpson ? "yes" : "no") << "\n";

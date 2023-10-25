@@ -78,7 +78,7 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
     /**
      * @brief Holds the output data of the project.
      */
-    OutputType outputs;
+    OutputType _outputs;
 
     virtual /**
      * @brief Initializes the project.
@@ -86,7 +86,7 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
     void initialize() {
         terminal = CommandLineParserType(buildHeaderInfo(), cmdArgs);
         terminal.getInputs();
-        outputs = OutputType();
+        _outputs = OutputType();
     }
 
     /**
@@ -102,11 +102,11 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
      * This method calls preRun, run, and postRun methods in sequence.
      */
     void timedRun() {
-        preRun(outputs, terminal.getInputs(), terminal.getArguments());
+        preRun(_outputs, terminal.getInputs(), terminal.getArguments());
 
-        run(outputs, terminal.getInputs(), terminal.getArguments());
+        run(_outputs, terminal.getInputs(), terminal.getArguments());
 
-        postRun(outputs, terminal.getInputs(), terminal.getArguments());
+        postRun(_outputs, terminal.getInputs(), terminal.getArguments());
     }
 
   protected:

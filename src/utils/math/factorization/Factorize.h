@@ -91,7 +91,20 @@ template <typename T> struct Parameters {
 };
 
 
-// TODO:: DOCUMENT
+/**
+ * @brief Checks if a matrix and a vector pass certain pre-checks.
+ *
+ * @details This function checks if a matrix is empty, if it is square, and if it has the same rank as a vector.
+ * If any of these checks fail, an error message is printed to the standard error output and the function returns false.
+ *
+ * @tparam MatrixType The type of the matrix. It should be compatible with the MyBLAS library.
+ * @tparam VectorType The type of the vector. It should be compatible with the MyBLAS library.
+ *
+ * @param A The matrix to check.
+ * @param b The vector to check.
+ *
+ * @return True if all checks pass, false otherwise.
+ */
 template <typename MatrixType, typename VectorType>
 bool passesPreChecks(const MatrixType &A, const VectorType &b) {
 

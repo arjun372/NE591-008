@@ -77,7 +77,7 @@ typedef struct Output {
      * @return The error of the solution as a long double.
      */
     [[maybe_unused]] [[nodiscard]] long double getSolutionError() const {
-        return std::sqrt(MyBLAS::L2Norm(solution.x, inputs.known_solution));
+        return std::sqrt(MyBLAS::L2(solution.x, inputs.known_solution));
     }
 
     /**

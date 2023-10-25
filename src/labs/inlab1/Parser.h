@@ -87,17 +87,17 @@ class Parser : public CommandLine<TaylorSeriesInputs> {
         const auto precision = vm["precision"].as<int>();
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        std::cout << "\tangle, x: " << std::setprecision(precision) << vm["angle"].as<long double>() << "\n";
-        std::cout << "\tconvergence-threshold, t: " << std::setprecision(precision)
+        std::cout << "\tangle, x: " << std::setprecision(static_cast<int>(precision)) << vm["angle"].as<long double>() << "\n";
+        std::cout << "\tconvergence-threshold, t: " << std::setprecision(static_cast<int>(precision))
                   << vm["convergence-threshold"].as<long double>() << "\n";
-        std::cout << "\titerations, n: " << std::setprecision(default_precision) << vm["iterations"].as<long double>()
+        std::cout << "\titerations, n: " << std::setprecision(static_cast<int>(default_precision)) << vm["iterations"].as<long double>()
                   << "\n";
         CommandLine::printLine();
     }
 
-    void buildInputs(TaylorSeriesInputs &inputs, boost::program_options::variables_map &values) override {
-        inputs.x = values["angle"].as<long double>();
-        inputs.target_threshold = values["convergence-threshold"].as<long double>();
-        inputs.N = static_cast<size_t>(ceil(values["iterations"].as<long double>()));
+    void buildInputs(TaylorSeriesInputs &input, boost::program_options::variables_map &values) override {
+        input.x = values["angle"].as<long double>();
+        input.target_threshold = values["convergence-threshold"].as<long double>();
+        input.N = static_cast<size_t>(std::ceil(values["iterations"].as<long double>()));
     }
 };

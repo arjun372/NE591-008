@@ -82,9 +82,7 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
                   << (results.solution.getMaxResidual(results.inputs.input.coefficients,
                                                       results.inputs.input.constants))
                   << std::endl;
-//        std::cout << "\texecution time [ns]       : " << formatMeanStd(results.mean_execution_time, results.stddev_execution_time) << std::endl;
         std::cout << "\texecution time [ms]       : " << formatMeanStd(results.mean_execution_time/1.0e6, results.stddev_execution_time/1.0e6) << std::endl;
-//        std::cout << "\texecution time [s]        : " << formatMeanStd(results.mean_execution_time/1.0e9, results.stddev_execution_time/1.0e9) << std::endl;
     }
 
     /**
@@ -93,7 +91,7 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
      * @param inputs The inputs to the computation.
      * @param values The values used in the computation.
      */
-    void run(OutLab6Outputs &outputs, OutLab6Inputs &inputs, boost::program_options::variables_map &values) override {
+    void run(OutLab6Outputs &output, OutLab6Inputs &inputs, boost::program_options::variables_map &values) override {
 
         /**
          * @brief This section of the function handles the computation using different methods.

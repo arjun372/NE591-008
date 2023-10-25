@@ -35,7 +35,7 @@ static void usingPointJacobi(InLab6Outputs &outputs, InLab6Inputs &inputs) {
 
     Stopwatch<Nanoseconds> timer;
     timer.restart();
-    { outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold); }
+    { outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold); }
     timer.click();
 
     const auto time = static_cast<long double>(timer.duration().count());

@@ -16,25 +16,6 @@
 
 namespace MyBLAS {
 
-// TODO:: DOCUMENT
-template <template<typename> class VectorType, typename T>
-inline T L2(const VectorType<T> &a, const VectorType<T> &b, const size_t n) {
-    T norm = 0;
-    const T two = static_cast<T>(2);
-    for (size_t i = 0; i < n; i++) {
-        const auto difference = a[i] - b[i];
-        const auto squared = std::pow(difference, two);
-        norm += squared;
-    }
-    return norm;
-}
-
-// TODO:: DOCUMENT
-template <typename T> T L2(const MyBLAS::Vector<T> &a, const MyBLAS::Vector<T> &b) {
-    const size_t n = std::min(a.size(), b.size());
-    return MyBLAS::L2<MyBLAS::Vector<T>, T>(a, b, n);
-}
-
 /**
  * @brief Calculates the L2 norm (Euclidean distance) between two containers.
  *
@@ -52,9 +33,16 @@ template <typename T> T L2(const MyBLAS::Vector<T> &a, const MyBLAS::Vector<T> &
  *
  * @return The L2 norm (Euclidean distance) between the two containers.
  */
-template <typename ContainerType, typename DataType>
-inline DataType L2Norm(const ContainerType &a, const ContainerType &b, const size_t n) {
-    return std::sqrt(L2<ContainerType, DataType>(a, b, n));
+template <template<typename> class VectorType, typename T>
+inline T L2(const VectorType<T> &a, const VectorType<T> &b, const size_t n) {
+    T norm = 0;
+    const T two = static_cast<T>(2);
+    for (size_t i = 0; i < n; i++) {
+        const auto difference = a[i] - b[i];
+        const auto squared = std::pow(difference, two);
+        norm += squared;
+    }
+    return norm;
 }
 
 /**
@@ -71,17 +59,17 @@ inline DataType L2Norm(const ContainerType &a, const ContainerType &b, const siz
  *
  * @return The L2 norm (Euclidean distance) between the two vectors.
  */
-template <typename T> T L2Norm(const MyBLAS::Vector<T> &a, const MyBLAS::Vector<T> &b) {
+template <typename T> T L2(const MyBLAS::Vector<T> &a, const MyBLAS::Vector<T> &b) {
     const size_t n = std::min(a.size(), b.size());
-    return MyBLAS::L2Norm<MyBLAS::Vector<T>, T>(a, b, n);
+    return MyBLAS::L2(a, b, n);
 }
 
-// TODO:: DOCUMENT
 /**
- *     ||v|| = sqrt(v1^2 + v2^2 + ... + vn^2)
- * @tparam T
- * @param v
- * @return
+ * @brief A template function to calculate the norm of a vector.
+ * @details The norm is calculated as the square root of the sum of the squares of the vector elements.
+ * @tparam T The type of the vector elements.
+ * @param v The vector whose norm is to be calculated.
+ * @return The norm of the vector.
  */
 template <typename T>
 T norm(const MyBLAS::Vector<T>& v) {

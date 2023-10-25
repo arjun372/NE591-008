@@ -101,15 +101,16 @@ static bool absoluteValueFailsGreaterThan1Check(long double value) {
  * @return true If the input value is not a positive natural number.
  * @return false If the input value is a positive natural number.
  */
-static bool failsNaturalNumberCheck(long double value) {
-    const long double min = 0;
+ template <typename T>
+static bool failsNaturalNumberCheck(T value) {
+    const T min = 0;
     auto error = false;
     if (value <= min) {
         std::cerr << "Error: "
                   << "Input should be a positive number\n";
         error = true;
     }
-    if (ceil(value) != floor(value)) {
+    if (std::ceil(value) != std::floor(value)) {
         std::cerr << "Error: "
                   << "Input should be a natural number\n";
         error = true;
@@ -142,7 +143,7 @@ template <typename T> static bool failsWholeNumberCheck(T value) {
                   << "Input should be a non-negative number\n";
         error = true;
     }
-    if (ceil(value) != floor(value)) {
+    if (std::ceil(value) != std::floor(value)) {
         std::cerr << "Error: "
                   << "Input should be a natural number\n";
         error = true;
@@ -248,7 +249,7 @@ static long double asNumber(const std::string &input) {
  */
 static void toLowerCase(std::string &mixedCaseStr) {
     for (char &c : mixedCaseStr) {
-        c = std::tolower(c);
+        c = static_cast<char>(std::tolower(c));
     }
 }
 

@@ -3,7 +3,6 @@
  * @author Arjun Earthperson
  * @date 10/13/2023
  *
- * //TODO:: DOCUMENT
  */
 
 #include "physics/diffusion/DiffusionConstants.h"

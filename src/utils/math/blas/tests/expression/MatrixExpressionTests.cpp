@@ -2,9 +2,7 @@
 * @file MatrixExpressionTests.cpp
 * @author Arjun Earthperson
 * @date 10/13/2023
-*
-* @brief TODO::DOCUMENT
- */
+*/
 
 #include "math/blas/matrix/ElementwiseExpression.h"
 
@@ -22,17 +20,17 @@ class MatrixExpressionTests : public ::testing::Test {
 TEST_F(MatrixExpressionTests, TestMatrixExpression) {
     // Define two simple lambda functions as operands
     auto op1 = [](size_t i, size_t j) { return i + j; };
-    auto op2 = [](size_t i, size_t j) { return i - j; };
+    auto op2 = [](size_t i, size_t j) { return i + j; };
 
     // Define a binary operation
     auto binary_op = [](auto a, auto b) { return a * b; };
 
     // Create a ElementwiseExpression
-    ElementwiseExpression<int, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
+    ElementwiseExpression<size_t, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
 
     // Test the operator()
-    EXPECT_EQ(expr(1, 2), -3);  // (1+2) * (1-2) = -3
-    EXPECT_EQ(expr(3, 4), -7);  // (3+4) * (3-4) = -7
+    EXPECT_EQ(expr(1, 2), 9);  // (1+2) * (1+2) = 9
+    EXPECT_EQ(expr(3, 4), 49);  // (3+4) * (3+4) = 49
 }
 
 TEST_F(MatrixExpressionTests, TestMatrixExpressionWithDifferentBinaryOp) {
@@ -44,7 +42,7 @@ TEST_F(MatrixExpressionTests, TestMatrixExpressionWithDifferentBinaryOp) {
     auto binary_op = [](auto a, auto b) { return a + b; };
 
     // Create a ElementwiseExpression
-    ElementwiseExpression<int, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
+    ElementwiseExpression<size_t, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
 
     // Test the operator()
     EXPECT_EQ(expr(1, 2), 2);  // (1+2) + (1-2) = 2
@@ -56,7 +54,7 @@ TEST_F(MatrixExpressionTests, TestMatrixExpressionWithMultiplication) {
     auto op2 = [](size_t i, size_t j) { return i + j; };
     auto binary_op = [](auto a, auto b) { return a * b; };
 
-    ElementwiseExpression<int, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
+    ElementwiseExpression<size_t, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
 
     EXPECT_EQ(expr(2, 3), 30);  // (2*3) * (2+3) = 30
     EXPECT_EQ(expr(4, 5), 180);  // (4*5) * (4+5) = 180
@@ -78,7 +76,7 @@ TEST_F(MatrixExpressionTests, TestMatrixExpressionWithModulo) {
     auto op2 = [](size_t i, size_t j) { return i * j; };
     auto binary_op = [](auto a, auto b) { return a % b; };
 
-    ElementwiseExpression<int, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
+    ElementwiseExpression<size_t, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
 
     EXPECT_EQ(expr(2, 3), 5);  // (2+3) % (2*3) = 5
     EXPECT_EQ(expr(4, 5), 9);  // (4+5) % (4*5) = 9
@@ -100,7 +98,7 @@ TEST_F(MatrixExpressionTests, TestMatrixExpressionWithMax) {
     auto op2 = [](size_t i, size_t j) { return i * j; };
     auto binary_op = [](auto a, auto b) { return std::max(a, b); };
 
-    ElementwiseExpression<int, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
+    ElementwiseExpression<size_t, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
 
     EXPECT_EQ(expr(2, 3), 6);  // max(2+3, 2*3) = 6
     EXPECT_EQ(expr(4, 5), 20);  // max(4+5, 4*5) = 20
@@ -111,7 +109,7 @@ TEST_F(MatrixExpressionTests, TestMatrixExpressionWithMin) {
     auto op2 = [](size_t i, size_t j) { return i * j; };
     auto binary_op = [](auto a, auto b) { return std::min(a, b); };
 
-    ElementwiseExpression<int, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
+    ElementwiseExpression<size_t, decltype(op1), decltype(op2), decltype(binary_op)> expr(op1, op2, binary_op);
 
     EXPECT_EQ(expr(2, 3), 5);  // min(2+3, 2*3) = 5
     EXPECT_EQ(expr(4, 5), 9);  // min(4+5, 4*5) = 9

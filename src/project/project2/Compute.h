@@ -26,7 +26,13 @@
  */
 namespace Compute {
 
-// TODO:: DOCUMENT
+/**
+ * @brief A template function to fill a diffusion vector.
+ * @details This function fills a diffusion vector using the fixed source q(i, j).
+ * @tparam T The type of the diffusion constants.
+ * @param inputs The solver inputs containing the diffusion parameters and sources.
+ * @return The filled diffusion constants vector.
+ */
 template <typename T>
 MyBLAS::Vector<T> &naive_fill_diffusion_vector(SolverInputs &inputs) {
     const size_t m = inputs.diffusionParams.getM();

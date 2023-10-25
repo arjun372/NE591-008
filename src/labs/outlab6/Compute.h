@@ -84,7 +84,7 @@ void usingPointJacobi(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-               outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold);
+               outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
@@ -119,7 +119,7 @@ void usingGaussSeidel(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-               outputs.solution = MyRelaxationMethod::applyGaussSeidel<long double>(A, b, max_iterations, threshold);
+               outputs.solution = MyRelaxationMethod::applyGaussSeidel(A, b, max_iterations, threshold);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
@@ -155,7 +155,7 @@ void usingSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-               outputs.solution = MyRelaxationMethod::applySOR<long double>(A, b, max_iterations, threshold, omega);
+               outputs.solution = MyRelaxationMethod::applySOR(A, b, max_iterations, threshold, omega);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
@@ -191,7 +191,7 @@ void usingJacobiSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-                outputs.solution = MyRelaxationMethod::applyPointJacobi<long double>(A, b, max_iterations, threshold, omega);
+                outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold, omega);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());
@@ -227,7 +227,7 @@ void usingSymmetricSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-                outputs.solution = MyRelaxationMethod::applySSOR<long double>(A, b, max_iterations, threshold, omega);
+                outputs.solution = MyRelaxationMethod::applySSOR(A, b, max_iterations, threshold, omega);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());

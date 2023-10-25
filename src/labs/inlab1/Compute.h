@@ -67,7 +67,7 @@ long double my_sisd_sin(TaylorSeriesVariables &vars) {
     // n<=N && (ce > e)
     const long double direction = ((vars.n % 2) == 0) ? 1.0f : -1.0f;   // positive if n is even, negative if n is odd.
     const auto two_n_plus_1 = static_cast<long double>(2 * vars.n + 1); // (2n+1)
-    const long double x_power_two_n_plus_1 = pow(vars.x, two_n_plus_1); // x^(2n+1)
+    const long double x_power_two_n_plus_1 = std::pow(vars.x, two_n_plus_1); // x^(2n+1)
     const long double current_factorial = naive_factorial(static_cast<size_t>(two_n_plus_1)); // (2n+1) * prev_factorial
     const long double current_threshold = x_power_two_n_plus_1 / current_factorial;
     const long double accumulated = vars.running_sum + direction * current_threshold;
@@ -103,7 +103,7 @@ long double my_naive_sin(const long double x, long double prev_threshold, long d
     // n<=N && (ce > e)
     const long double direction = ((n % 2) == 0) ? 1.0f : -1.0f;   // positive if n is even, negative if n is odd.
     const auto two_n_plus_1 = static_cast<long double>(2 * n + 1); // (2n+1)
-    const long double x_power_two_n_plus_1 = pow(x, two_n_plus_1); // x^(2n+1)
+    const long double x_power_two_n_plus_1 = std::pow(x, two_n_plus_1); // x^(2n+1)
     const long double current_factorial = naive_factorial(static_cast<size_t>(two_n_plus_1)); // (2n+1) * prev_factorial
     const long double current_threshold = x_power_two_n_plus_1 / current_factorial;
     const long double accumulated = sum + direction * current_threshold;

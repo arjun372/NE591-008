@@ -30,7 +30,7 @@ namespace Random {
  * @param seed The seed for the random number generator.
  * @return A vector of random numbers.
  */
-template <typename T> MyBLAS::Vector<T> generate(const size_t n, T min = 0, T max = 1, const long long seed = 372) {
+template <typename T> MyBLAS::Vector<T> generate(const size_t n, T min = 0, T max = 1, const size_t seed = 372) {
     if (max < min) {
         auto temp = max;
         max = min;

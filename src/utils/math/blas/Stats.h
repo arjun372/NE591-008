@@ -57,11 +57,10 @@ struct Summary {
         os << ":::::: {" << summary.min << ", " << summary.max << "} ";
         os << ": (" << summary.mean << " ± " << summary.stddev << ") : [";
         os << summary.p5th << ", "<< summary.p95th << "] :::::";
-        os << std::setprecision(precision);
+        os << std::setprecision(static_cast<int>(precision));
         return os;
     }
 
-    // TODO:: DOCUMENT
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["min"] = min;
         jsonMap["max"] = max;

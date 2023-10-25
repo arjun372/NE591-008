@@ -67,7 +67,7 @@ _____________________\|/__________\\;_\\//___\|/_______________________________)
         }
         clock.click();
 
-        std::cout << " my_sin(x) completed in: " << static_cast<long double>(clock.duration().count() * 1.0f) << "ns"
+        std::cout << " my_sin(x) completed in: " << (static_cast<long double>(clock.duration().count()) * 1.0f) << "ns"
                   << std::endl;
         auto my_sin_val2 = my_sin(input.x, input.N, input.target_threshold);
         // sin(x)
@@ -75,12 +75,12 @@ _____________________\|/__________\\;_\\//___\|/_______________________________)
         Stopwatch<Microseconds> clock2;
         clock2.restart();
         for (int i = 0; i < 1000; i++) {
-            math_sin_val = sin(static_cast<long double>(i) / 1000.0f);
+            math_sin_val = std::sin(static_cast<long double>(i) / 1000.0f);
         }
         clock2.click();
-        std::cout << " sin(x) completed in: " << static_cast<long double>(clock2.duration().count() * 1.0f) << "ns"
+        std::cout << " sin(x) completed in: " << (static_cast<long double>(clock2.duration().count()) * 1.0f) << "ns"
                   << std::endl;
-        auto math_sin_val2 = sin(input.x);
+        auto math_sin_val2 = std::sin(input.x);
         // truncation error
         const long double truncation_error = abs(math_sin_val2 - my_sin_val2);
         Parser::printLine();
@@ -89,9 +89,9 @@ _____________________\|/__________\\;_\\//___\|/_______________________________)
         Parser::printLine();
         std::cout << "\tConverged at n=" << mySineVars.n
                   << " at convergence threshold: " << mySineVars.current_threshold << "\n\t...\n";
-        std::cout << "\tmy_sin(x):" << std::setw(37) << std::setprecision(precision) << my_sin_val2 << "\n";
-        std::cout << "\tsin(x) from math.h:" << std::setw(28) << std::setprecision(precision) << math_sin_val2 << "\n";
-        std::cout << "\ttruncation error: " << std::setw(30) << std::setprecision(precision) << truncation_error
+        std::cout << "\tmy_sin(x):" << std::setw(37) << std::setprecision(static_cast<int>(precision)) << my_sin_val2 << "\n";
+        std::cout << "\tsin(x) from math.h:" << std::setw(28) << std::setprecision(static_cast<int>(precision)) << math_sin_val2 << "\n";
+        std::cout << "\ttruncation error: " << std::setw(30) << std::setprecision(static_cast<int>(precision)) << truncation_error
                   << "\n";
         Parser::printLine();
         my_sin_val += my_sin_val;

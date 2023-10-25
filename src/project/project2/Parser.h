@@ -71,7 +71,7 @@ class Parser : public CommandLine<SolverInputs> {
             return;
         }
 
-        std::cout << std::setprecision(default_precision);
+        std::cout << std::setprecision(static_cast<int>(default_precision));
         // list the parameters
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
@@ -294,9 +294,9 @@ class Parser : public CommandLine<SolverInputs> {
      * @param inputs Reference to a MyBLAS::InputMatrices object to store the input matrices.
      * @param map Reference to a boost::program_options::variables_map object containing the command line arguments.
      */
-    void buildInputs(SolverInputs &inputs, boost::program_options::variables_map &map) override {
+    void buildInputs(SolverInputs &input, boost::program_options::variables_map &map) override {
 
-        inputs.diffusionParams
+        input.diffusionParams
             .setA(map["a"].as<MyBLAS::NumericType>())
             .setB(map["b"].as<MyBLAS::NumericType>())
             .setM(static_cast<size_t>(map["m"].as<MyBLAS::NumericType>()))
@@ -305,67 +305,67 @@ class Parser : public CommandLine<SolverInputs> {
             .setMacroscopicRemovalCrossSection(map["cross-section"].as<MyBLAS::NumericType>());
 
         const auto sourceTermsFilepath = map["source-terms-csv"].as<std::string>();
-        readCSVRowWiseNoHeaders<MyBLAS::NumericType>(sourceTermsFilepath, inputs.sources);
+        readCSVRowWiseNoHeaders<MyBLAS::NumericType>(sourceTermsFilepath, input.sources);
 
-        inputs.fluxOutputDirectory = map["flux-output-dir"].as<std::string>();
+        input.fluxOutputDirectory = map["flux-output-dir"].as<std::string>();
 
-        if (inputs.sources.getRows() < 1 || inputs.sources.getCols() < 1) {
-            std::cerr << "ERROR: No Source terms matrix dimension (rows=" << inputs.sources.getRows()
-                      << ", columns=" << inputs.sources.getCols() << ")  can be less than 1!\n";
+        if (input.sources.getRows() < 1 || input.sources.getCols() < 1) {
+            std::cerr << "ERROR: No Source terms matrix dimension (rows=" << input.sources.getRows()
+                      << ", columns=" << input.sources.getCols() << ")  can be less than 1!\n";
             std::cerr << "ABORTING.\n";
             exit(-1);
         }
 
         // 1st dimension internal nodes
-        if (inputs.diffusionParams.getM() != inputs.sources.getRows()) {
-            inputs.diffusionParams.setM(inputs.sources.getRows());
-            std::cerr << "WARNING: Source terms matrix rows != m, overriding m to " << inputs.diffusionParams.getM() << std::endl;
+        if (input.diffusionParams.getM() != input.sources.getRows()) {
+            input.diffusionParams.setM(input.sources.getRows());
+            std::cerr << "WARNING: Source terms matrix rows != m, overriding m to " << input.diffusionParams.getM() << std::endl;
         }
 
         // 2nd dimension internal nodes
-        if (inputs.diffusionParams.getN() != inputs.sources.getCols()) {
-            inputs.diffusionParams.setN(inputs.sources.getCols());
-            std::cerr << "WARNING: Source terms matrix columns != n, overriding n to " << inputs.diffusionParams.getN() << std::endl;
+        if (input.diffusionParams.getN() != input.sources.getCols()) {
+            input.diffusionParams.setN(input.sources.getCols());
+            std::cerr << "WARNING: Source terms matrix columns != n, overriding n to " << input.diffusionParams.getN() << std::endl;
         }
 
-        inputs.solverParams.threshold = map["threshold"].as<MyBLAS::NumericType>();
-        inputs.solverParams.max_iterations = static_cast<size_t>(map["max-iterations"].as<MyBLAS::NumericType>());
-        inputs.solverParams.n = inputs.diffusionParams.getM() * inputs.diffusionParams.getN();
+        input.solverParams.threshold = map["threshold"].as<MyBLAS::NumericType>();
+        input.solverParams.max_iterations = static_cast<size_t>(map["max-iterations"].as<MyBLAS::NumericType>());
+        input.solverParams.n = input.diffusionParams.getM() * input.diffusionParams.getN();
 
         if (map["use-LUP"].as<bool>()) {
-            inputs.methods.insert(MyFactorizationMethod::Type::METHOD_LUP);
+            input.methods.insert(MyFactorizationMethod::Type::METHOD_LUP);
         }
 
         if (map["use-point-jacobi"].as<bool>()) {
-            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_POINT_JACOBI);
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_POINT_JACOBI);
         }
 
         if (map["use-gauss-seidel"].as<bool>()) {
-            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL);
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL);
         }
 
         if (map["use-SOR"].as<bool>()) {
-            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SOR);
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_SOR);
         }
 
         if (map["use-SORJ"].as<bool>()) {
-            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SORJ);
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_SORJ);
         }
 
         if (map["use-SSOR"].as<bool>()) {
-            inputs.methods.insert(MyRelaxationMethod::Type::METHOD_SSOR);
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_SSOR);
         }
 
         if (map.count("relaxation-factor")) {
-            inputs.solverParams.relaxation_factor = map["relaxation-factor"].as<MyBLAS::NumericType>();
+            input.solverParams.relaxation_factor = map["relaxation-factor"].as<MyBLAS::NumericType>();
         }
 
         if (map.count("bench")) {
-            inputs.numRuns = map.count("bench-runs") ? static_cast<size_t>(map["bench-runs"].as<long double>()) : 1;
-            inputs.timeout = map.count("bench-timeout") ? map["bench-timeout"].as<long double>() : 0;
+            input.numRuns = map.count("bench-runs") ? static_cast<size_t>(map["bench-runs"].as<long double>()) : 1;
+            input.timeout = map.count("bench-timeout") ? map["bench-timeout"].as<long double>() : 0;
         } else {
-            inputs.numRuns = 1;
-            inputs.timeout = 0;
+            input.numRuns = 1;
+            input.timeout = 0;
         }
 
         if (!map.count("quiet")) {
@@ -373,12 +373,12 @@ class Parser : public CommandLine<SolverInputs> {
             CommandLine::printLine();
             std::cout << std::setw(44) << "Intermediates\n";
             CommandLine::printLine();
-            std::cout << "\tMesh spacing in the 1st dimension,     𝛿: " << inputs.diffusionParams.getDelta() << "\n";
-            std::cout << "\tMesh spacing in the 2nd dimension,     𝛾: " << inputs.diffusionParams.getGamma() << "\n";
+            std::cout << "\tMesh spacing in the 1st dimension,     𝛿: " << input.diffusionParams.getDelta() << "\n";
+            std::cout << "\tMesh spacing in the 2nd dimension,     𝛾: " << input.diffusionParams.getGamma() << "\n";
             CommandLine::printLine();
             std::cout << "Source terms 𝑞(𝑖,𝑗):\n";
             CommandLine::printLine();
-            std::cout << inputs.sources;
+            std::cout << input.sources;
             CommandLine::printLine();
         }
     }

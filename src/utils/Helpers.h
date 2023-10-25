@@ -15,6 +15,7 @@
 #include <string>
 
 #include "json.hpp"
+#include "math/Math.h"
 
 #include <boost/program_options.hpp>
 #include <boost/accumulators/accumulators.hpp>
@@ -172,7 +173,7 @@ typedef CanvasType<__float128> Canvas;
  * @brief Generates a vector of 256-bit ANSI gray shades.
  * @return A vector of ANSI escape codes representing gray shades.
  */
-static std::vector<std::string> getGrays256bitANSI(double scaling_factor = 1e-7, double growth_rate = 0.3) {
+static std::vector<std::string> getGrays256bitANSI(long double scaling_factor = 1e-7, long double growth_rate = 0.3) {
 
     const long double x_min = 232;
     const long double x_max = 255;
@@ -196,15 +197,14 @@ static std::vector<std::string> getGrays256bitANSI(double scaling_factor = 1e-7,
     std::vector<std::string> grayShades;
     grayShades.emplace_back("\033[38;5;016m"); // black
     for (size_t i = 0; i < 24; ++i) {
-        int colorCode = 232 + i;
-        grayShades.push_back("\033[38;5;" + std::to_string(colorCode) + "m");
+        grayShades.push_back("\033[38;5;" + std::to_string(232 + i) + "m");
     }
     grayShades.emplace_back("\033[38;5;231m"); // white
 
     std::vector<std::string> toneMap;
     for (size_t i = 0; i <= 25; ++i) {
         auto yi = 0 + (y[i] - y_min) * (25 - 0) / (y_max - y_min);
-        auto idx = static_cast<int>(std::floor(yi));
+        auto idx = static_cast<size_t>(std::floor(yi));
         toneMap.push_back(grayShades[idx]);
     }
     return toneMap;
@@ -254,8 +254,8 @@ static std::vector<std::string> getHSV256bitANSI() {
 template <typename T>
 void printJuliaSet(const Canvas &canvas, const T x0, const T y0, const size_t max_iterations = 120) {
 
-    const T x_range = fabsl(canvas.x_stop - canvas.x_start);
-    const T y_range = fabsl(canvas.y_stop - canvas.y_start);
+    const T x_range = MyMath::abs(canvas.x_stop - canvas.x_start);
+    const T y_range = MyMath::abs(canvas.y_stop - canvas.y_start);
     T x_step = x_range / static_cast<T>(canvas.width);
     T y_step = y_range / static_cast<T>(canvas.height);
 
@@ -280,7 +280,9 @@ void printJuliaSet(const Canvas &canvas, const T x0, const T y0, const size_t ma
     }
     avg = avg / (canvas.width * canvas.height);
 
-    std::vector<std::string> colors = getGrays256bitANSI(canvas.tone_map.scaling_factor, canvas.tone_map.growth_rate);
+    const auto scalar = static_cast<long double>(canvas.tone_map.scaling_factor);
+    const auto growth = static_cast<long double>(canvas.tone_map.growth_rate);
+    std::vector<std::string> colors = getGrays256bitANSI(scalar, growth);
     for (size_t y = 0; y < canvas.height; ++y) {
         for (size_t x = 0; x < canvas.width; ++x) {
             std::complex<T> z = std::complex<T>(canvas.x_start + x * x_step, canvas.y_start + y * y_step);
@@ -317,7 +319,7 @@ std::string drawJuliaSet(const Canvas &canvas, const T x0, const T y0, const siz
     std::ostringstream output;
     // Redirect the standard output stream (cout) to the stringstream
     std::streambuf* originalCoutBuffer = std::cout.rdbuf(output.rdbuf());
-    printJuliaSet(canvas, x0, y0, max_iterations);
+    printJuliaSet<T>(canvas, x0, y0, max_iterations);
     // Restore the original cout stream buffer
     std::cout.rdbuf(originalCoutBuffer);
     // Extract the captured output as a string
@@ -362,7 +364,7 @@ boost::accumulators::accumulator_set<T, boost::accumulators::features<mean, vari
  * as a string in the following format: "mean ± std".
  *
  * @tparam T The data type of the mean and standard deviation values.
- * @param mean The calculated mean value.
+ * @param avg The calculated mean value.
  * @param std The calculated standard deviation value.
  * @return A string containing the formatted mean and standard deviation.
  *
@@ -378,12 +380,21 @@ boost::accumulators::accumulator_set<T, boost::accumulators::features<mean, vari
  * ```
  */
 template<typename T>
-inline std::string formatMeanStd(T mean, T std) {
-    return std::to_string(mean) + " ± " + std::to_string(std);
+inline std::string formatMeanStd(T avg, T std) {
+    return std::to_string(avg) + " ± " + std::to_string(std);
 }
 
-//TODO:: DOCUMENT
-// USES TYPE DEDUCTION, APPLY THIS TO L2 NORM
+/**
+ * @brief Checks if a container contains a specific value.
+ *
+ * @details This function uses the std::find algorithm to check if a specific value is present in a container.
+ *
+ * @tparam Container The type of the container. It should support begin() and end() methods.
+ * @param container The container in which to search for the value.
+ * @param value The value to search for in the container.
+ *
+ * @return True if the value is found in the container, false otherwise.
+ */
 template <typename Container>
 bool contains(const Container& container, const typename Container::value_type& value) {
     return std::find(container.begin(), container.end(), value) != container.end();

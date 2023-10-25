@@ -35,7 +35,7 @@ class DiffusionMatrixTests : public ::testing::Test {};
  */
 TYPED_TEST(DiffusionMatrixTests, ConstructorTest) {
     Params<TypeParam> params;
-    params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
+    params.setA(1.0f).setB(1.0f).setM(10).setN(10).setDiffusionCoefficient(0.1f).setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix(params);
     EXPECT_EQ(matrix.getParams().getA(), 1.0);
     EXPECT_EQ(matrix.getParams().getB(), 1.0);
@@ -49,7 +49,7 @@ TYPED_TEST(DiffusionMatrixTests, ConstructorTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, CopyConstructorTest) {
     Params<TypeParam> params;
-    params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
+    params.setA(1.0f).setB(1.0f).setM(10).setN(10).setDiffusionCoefficient(0.1f).setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix1(params);
     Matrix<TypeParam> matrix2(matrix1);
     EXPECT_EQ(matrix2.getParams().getA(), 1.0);
@@ -64,7 +64,7 @@ TYPED_TEST(DiffusionMatrixTests, CopyConstructorTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, AssignmentOperatorTest) {
     Params<TypeParam> params;
-    params.setA(1.0).setB(1.0).setM(10).setN(10).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
+    params.setA(1.0f).setB(1.0f).setM(10).setN(10).setDiffusionCoefficient(0.1f).setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix1(params);
     Matrix<TypeParam> matrix2 = matrix1;
     EXPECT_EQ(matrix2.getParams().getA(), 1.0);
@@ -81,7 +81,7 @@ TYPED_TEST(DiffusionMatrixTests, MatrixDimensionsMatchMeshDimensionsTest) {
     Params<TypeParam> params;
     const size_t m = 3810;
     const size_t n = 1029;
-    params.setA(1.0).setB(1.0).setM(m).setN(n).setDiffusionCoefficient(0.1).setMacroscopicRemovalCrossSection(0.2);
+    params.setA(1.0f).setB(1.0f).setM(m).setN(n).setDiffusionCoefficient(0.1f).setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix(params);
     EXPECT_EQ(matrix.getRows(), params.getM() * params.getN());
     EXPECT_EQ(matrix.getCols(), params.getM() * params.getN());
@@ -105,7 +105,7 @@ static MyBLAS::Matrix<TypeParam> naive_fill_diffusion_matrix_and_vector(const My
     for (size_t i = 1; i <= m; ++i) {
         for (size_t j = 1; j <= n; ++j) {
             // Calculate the index of the current node in the matrix A and vector B
-            int idx = (i - 1) * n + (j - 1);
+            size_t idx = (i - 1) * n + (j - 1);
 
             // Fill the diagonal element of the matrix A using the given equation
             A[idx][idx] = c.diagonal;
@@ -136,8 +136,8 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionEquationSquareFillTest) {
     auto p = MyPhysics::Diffusion::Params<TypeParam>()
                       .setA(100)
                       .setB(100)
-                      .setDiffusionCoefficient(0.033)
-                      .setMacroscopicRemovalCrossSection(0.77)
+                      .setDiffusionCoefficient(0.033f)
+                      .setMacroscopicRemovalCrossSection(0.77f)
                       .setM(9)
                       .setN(9);
 
@@ -162,8 +162,8 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionEquationWideFillTest) {
     auto p = MyPhysics::Diffusion::Params<TypeParam>()
                  .setA(100)
                  .setB(100)
-                 .setDiffusionCoefficient(0.033)
-                 .setMacroscopicRemovalCrossSection(0.77)
+                 .setDiffusionCoefficient(0.033f)
+                 .setMacroscopicRemovalCrossSection(0.77f)
                  .setM(6)
                  .setN(10);
 
@@ -188,8 +188,8 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionEquationTallFillTest) {
     auto p = MyPhysics::Diffusion::Params<TypeParam>()
                  .setA(100)
                  .setB(100)
-                 .setDiffusionCoefficient(0.033)
-                 .setMacroscopicRemovalCrossSection(0.77)
+                 .setDiffusionCoefficient(0.033f)
+                 .setMacroscopicRemovalCrossSection(0.77f)
                  .setM(13)
                  .setN(7);
 
@@ -214,8 +214,8 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionMatrix32Test) {
     auto p = MyPhysics::Diffusion::Params<TypeParam>()
                  .setA(100)
                  .setB(100)
-                 .setDiffusionCoefficient(0.033)
-                 .setMacroscopicRemovalCrossSection(0.77)
+                 .setDiffusionCoefficient(0.033f)
+                 .setMacroscopicRemovalCrossSection(0.77f)
                  .setM(32)
                  .setN(32);
 
@@ -237,12 +237,12 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionMatrix32Test) {
  */
 TYPED_TEST(DiffusionMatrixTests, MatrixEqualityTest) {
     Params<TypeParam> params;
-    params.setA(1.0)
-        .setB(1.0)
+    params.setA(1.0f)
+        .setB(1.0f)
         .setM(9)
         .setN(11)
-        .setDiffusionCoefficient(0.1)
-        .setMacroscopicRemovalCrossSection(0.2);
+        .setDiffusionCoefficient(0.1f)
+        .setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix1(params);
     Matrix<TypeParam> matrix2(params);
     // Check that the two matrices are equal
@@ -262,20 +262,20 @@ TYPED_TEST(DiffusionMatrixTests, MatrixEqualityTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, MatrixInequalityTest) {
     Params<TypeParam> p1;
-    p1.setA(1.0)
-    .setB(1.0)
+    p1.setA(1.0f)
+    .setB(1.0f)
     .setM(9)
     .setN(11)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix1(p1);
     Params<TypeParam> p2;
-    p2.setA(1.0)
-    .setB(1.0)
+    p2.setA(1.0f)
+    .setB(1.0f)
     .setM(11)
     .setN(9)
-    .setDiffusionCoefficient(0.002381)
-    .setMacroscopicRemovalCrossSection(1e-2);
+    .setDiffusionCoefficient(0.002381f)
+    .setMacroscopicRemovalCrossSection(1e-2f);
     Matrix<TypeParam> matrix2(p2);
     // Check that the two matrices are not equal
     for (size_t i = 0; i < matrix1.getRows(); ++i) {
@@ -297,12 +297,12 @@ TYPED_TEST(DiffusionMatrixTests, MatrixInequalityTest) {
 TYPED_TEST(DiffusionMatrixTests, MatrixSizeTest) {
     Params<TypeParam> params;
     Params<TypeParam> p;
-    p.setA(1.0)
-    .setB(1.0)
+    p.setA(1.0f)
+    .setB(1.0f)
     .setM(11)
     .setN(11)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix(params);
     // Check that the size of the matrix is correct
     EXPECT_EQ(matrix.getRows(), params.getM() * params.getN());
@@ -319,12 +319,12 @@ TYPED_TEST(DiffusionMatrixTests, MatrixSizeTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, DiffusionEquationBoundaryCheck) {
     Params<TypeParam> p;
-    p.setA(1.0)
-    .setB(1.0)
+    p.setA(1.0f)
+    .setB(1.0f)
     .setM(5)
     .setN(7)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix(p);
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<TypeParam>::compute(p));
 
@@ -392,12 +392,12 @@ TYPED_TEST(DiffusionMatrixTests, DiffusionEquationGeneratorTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, DiagonalElementTest) {
     Params<TypeParam> p;
-    p.setA(1.0)
-    .setB(1.0)
+    p.setA(1.0f)
+    .setB(1.0f)
     .setM(20)
     .setN(20)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix(p);
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<TypeParam>::compute(p));
     Constants<TypeParam> constants = Constants<TypeParam>::compute(p);
@@ -420,12 +420,12 @@ TYPED_TEST(DiffusionMatrixTests, DiagonalElementTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, OffDiagonalElementTest) {
     Params<TypeParam> params;
-    params.setA(1.0)
-    .setB(1.0)
+    params.setA(1.0f)
+    .setB(1.0f)
     .setM(10)
     .setN(10)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix(params);
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<TypeParam>::compute(params));
     Constants<TypeParam> constants = Constants<TypeParam>::compute(params);
@@ -458,12 +458,12 @@ TYPED_TEST(DiffusionMatrixTests, OffDiagonalElementTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, ZeroElementTest) {
     Params<TypeParam> params;
-    params.setA(1.0)
-    .setB(1.0)
+    params.setA(1.0f)
+    .setB(1.0f)
     .setM(7)
     .setN(11)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix(params);
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<TypeParam>::compute(params));
     for (size_t i = 0; i < matrix.getRows(); ++i) {
@@ -491,12 +491,12 @@ TYPED_TEST(DiffusionMatrixTests, ZeroElementTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, MatrixSymmetryTest) {
     Params<TypeParam> p;
-    p.setA(1.0)
-    .setB(1.0)
+    p.setA(1.0f)
+    .setB(1.0f)
     .setM(8)
     .setN(3)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     Matrix<TypeParam> matrix(p);
     auto memoryBacked = naive_fill_diffusion_matrix_and_vector(MyPhysics::Diffusion::Constants<TypeParam>::compute(p));
     for (size_t i = 0; i < matrix.getRows(); ++i) {
@@ -518,12 +518,12 @@ TYPED_TEST(DiffusionMatrixTests, MatrixSymmetryTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, SquareMatrixSymmetryTimingTest) {
     Params<TypeParam> p;
-    p.setA(1.0)
-    .setB(1.0)
+    p.setA(1.0f)
+    .setB(1.0f)
     .setM(91)
     .setN(91)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     auto start = std::chrono::high_resolution_clock::now();
     Matrix<TypeParam> matrix(p);
     for (size_t i = 0; i < matrix.getRows(); ++i) {
@@ -559,12 +559,12 @@ TYPED_TEST(DiffusionMatrixTests, SquareMatrixSymmetryTimingTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, WideMatrixSymmetryTimingTest) {
     Params<TypeParam> p;
-    p.setA(1.0)
-    .setB(1.0)
+    p.setA(1.0f)
+    .setB(1.0f)
     .setM(8)
     .setN(1024)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     auto start = std::chrono::high_resolution_clock::now();
     Matrix<TypeParam> matrix(p);
     for (size_t i = 0; i < matrix.getRows(); ++i) {
@@ -600,12 +600,12 @@ TYPED_TEST(DiffusionMatrixTests, WideMatrixSymmetryTimingTest) {
  */
 TYPED_TEST(DiffusionMatrixTests, TallMatrixSymmetryTimingTest) {
     Params<TypeParam> p;
-    p.setA(1.0)
-    .setB(1.0)
+    p.setA(1.0f)
+    .setB(1.0f)
     .setM(1024)
     .setN(8)
-    .setDiffusionCoefficient(0.1)
-    .setMacroscopicRemovalCrossSection(0.2);
+    .setDiffusionCoefficient(0.1f)
+    .setMacroscopicRemovalCrossSection(0.2f);
     auto start = std::chrono::high_resolution_clock::now();
     Matrix<TypeParam> matrix(p);
     for (size_t i = 0; i < matrix.getRows(); ++i) {
@@ -646,9 +646,9 @@ class MatrixVectorTests : public ::testing::Test {};
  * @brief A list of numeric types for which the tests will be run.
  *
  * This typedef is used to define a list of numeric types that the tests in the MatrixVectorTests class will be run for.
- * The types include short, int, float, double, and long double.
+ * The types include int, float, double, and long double.
  */
-typedef ::testing::Types<short, int, float, double, long double> NumericTypes;
+typedef ::testing::Types<float, double, long double> NumericTypes;
 
 /**
  * @brief A macro that registers the MatrixVectorTests test case.

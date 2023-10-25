@@ -3,7 +3,6 @@
 * @author Arjun Earthperson
 * @date 10/11/2023
 * @brief This file contains the Profiler class which is used to profile the execution time of a function.
-* @details //TODO::DOCUMENT with DETAILED EXPLANATION
 */
 
 #ifndef NE591_008_PROFILER_H

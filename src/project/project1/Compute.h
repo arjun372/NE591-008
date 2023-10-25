@@ -90,7 +90,7 @@ static void naive_fill_diffusion_matrix_and_vector(SolverInputs &inputs, Interme
     for (size_t i = 1; i <= m; ++i) {
         for (size_t j = 1; j <= n; ++j) {
             // Calculate the index of the current node in the matrix A and vector B
-            int idx = (i - 1) * n + (j - 1);
+            auto idx = (i - 1) * n + (j - 1);
 
             // Fill the diagonal element of the matrix A using the given equation
             intermediates.diffusion_matrix_A[idx][idx] = diagonal;

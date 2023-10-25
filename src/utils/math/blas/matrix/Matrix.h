@@ -38,9 +38,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     Matrix() = default;
 
     /**
-     * @brief Default virtual destructor.
+     * @brief Default  destructor.
      */
-    virtual ~Matrix() = default;
+     ~Matrix() = default;
 
     /**
      * @brief Constructor that initializes the matrix with a given 2D vector.
@@ -112,7 +112,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         }
     }
 
-    virtual
+    
      /**
      * @brief Overloaded operator() to access individual elements of the matrix.
      * @param row Row index of the element to access.
@@ -123,8 +123,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         assert(row < getRows() && col < getCols());
         return data[row][col];
     }
-
-    virtual
+    
     /**
      * @brief Overloaded operator() const to access individual elements of the matrix.
      * @param row Row index of the element to access.
@@ -137,7 +136,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     }
 
 
-    virtual /**
+     /**
      * @brief Overloaded operator[] to access individual rows of the matrix.
      * @param rowNum Index of the row to access.
      * @return Reference to the row at the given index.
@@ -147,7 +146,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         return data[rowNum];
     }
 
-    virtual /**
+     /**
      * @brief Overloaded operator[] to access individual rows of the matrix (const version).
      * @param rowNum Index of the row to access.
      * @return Const reference to the row at the given index.
@@ -177,7 +176,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         data.push_back(row);
     }
 
-    [[nodiscard]] virtual /**
+    [[nodiscard]]  /**
      * @brief Getter for the number of rows in the matrix.
      * @return Number of rows in the matrix.
      */
@@ -185,7 +184,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         return data.size();
     }
 
-    [[nodiscard]] virtual /**
+    [[nodiscard]]  /**
      * @brief Getter for the number of columns in the matrix.
      * @return Number of columns in the matrix.
      */
@@ -532,7 +531,7 @@ template <template<typename> class M, template<typename> class V, typename T> V<
     auto x = V<T>(n, static_cast<T>(0));
     for (int64_t i = n - 1; i >= 0; i--) {
         T sum = 0;
-        for (size_t j = i + 1; j < n; j++) {
+        for (auto j = static_cast<size_t>(i + 1); j < n; j++) {
             sum += U[i][j] * x[j];
         }
         x[i] = (y[i] - sum) / U[i][i];

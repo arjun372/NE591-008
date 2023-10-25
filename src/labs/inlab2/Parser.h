@@ -64,8 +64,8 @@ class Parser : public CommandLine<LagrangePolynomialInputs> {
         for (size_t i = 0; i < x.size(); i++) {
             const auto x_sign = (x[i] >= 0) ? "+" : "";
             const auto fx_sign = (fx[i] >= 0) ? "+" : "";
-            std::cout << "\t" << x_sign << std::setprecision(precision) << x[i];
-            std::cout << "\t\t\t" << fx_sign << std::setprecision(precision) << fx[i] << std::endl;
+            std::cout << "\t" << x_sign << std::setprecision(static_cast<int>(precision)) << x[i];
+            std::cout << "\t\t\t" << fx_sign << std::setprecision(static_cast<int>(precision)) << fx[i] << std::endl;
         }
         CommandLine::printLine();
         std::cout << "\tnum-points,     n: " << n << "\n";
@@ -215,10 +215,10 @@ class Parser : public CommandLine<LagrangePolynomialInputs> {
         }
     }
 
-    void buildInputs(Input &inputs, boost::program_options::variables_map &values) override {
-        inputs.n = static_cast<size_t>(values["num-points"].as<long double>());
-        inputs.m = static_cast<size_t>(values["num-samples"].as<long double>());
-        inputs.xData = values["x-points"].as<std::vector<long double>>();
-        inputs.fxData = values["fx-points"].as<std::vector<long double>>();
+    void buildInputs(Input &input, boost::program_options::variables_map &values) override {
+        input.n = static_cast<size_t>(values["num-points"].as<long double>());
+        input.m = static_cast<size_t>(values["num-samples"].as<long double>());
+        input.xData = values["x-points"].as<std::vector<long double>>();
+        input.fxData = values["fx-points"].as<std::vector<long double>>();
     }
 };

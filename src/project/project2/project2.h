@@ -55,7 +55,7 @@ class Project2 : public Project<SolverInputs, Parser, SolverOutputs> {
         Canvas canvas;
         auto x = -0.172;
         auto y = -0.66;
-        auto iterations = 2000;
+        const size_t iterations = 2000;
         canvas.x_start = -0.007514104707;
         canvas.x_stop = 0.075446744304;
         canvas.y_start = 0.825578589953;
@@ -87,11 +87,11 @@ class Project2 : public Project<SolverInputs, Parser, SolverOutputs> {
     /**
      * @brief This function runs the project.
      * @details It solves the system of linear equations using forward and back substitution.
-     * @param outputs The output vector
+     * @param output The output vector
      * @param inputs The input matrices
      * @param values The variable map
      */
-    void run(SolverOutputs &outputs, SolverInputs &inputs, boost::program_options::variables_map &values) override {
+    void run(SolverOutputs &output, SolverInputs &inputs, boost::program_options::variables_map &values) override {
 
         /**
             1. Read input parameters: Read the values of 𝑎, 𝑏, 𝑚, 𝑛, 𝐷, and Σₐ from an input file. Also,

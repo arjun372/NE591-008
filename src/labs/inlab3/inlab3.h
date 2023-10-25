@@ -110,7 +110,7 @@ class InLab3 : public Project<NewtonCotesInputs, Parser, Dictionary> {
             nlohmann::json json1;
             output1.toJSON(json1);
             outputsJSON[ruleKey(RULE_COMPOSITE_TRAPEZOIDAL)] = json1;
-            std::cout << "Integral over [a,b] using trapezoidal rule: " << std::setprecision(precision)
+            std::cout << "Integral over [a,b] using trapezoidal rule: " << std::setprecision(static_cast<int>(precision))
                       << output1.integral << std::endl;
             Parser::printLine();
         }
@@ -122,7 +122,7 @@ class InLab3 : public Project<NewtonCotesInputs, Parser, Dictionary> {
             nlohmann::json json2;
             output2.toJSON(json2);
             outputsJSON[ruleKey(RULE_COMPOSITE_SIMPSONS)] = json2;
-            std::cout << "Integral over [a,b] using Simpson's rule:   " << std::setprecision(precision)
+            std::cout << "Integral over [a,b] using Simpson's rule:   " << std::setprecision(static_cast<int>(precision))
                       << output2.integral << std::endl;
             Parser::printLine();
         }

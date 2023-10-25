@@ -139,7 +139,7 @@ class Parser : public CommandLine<OutLab7Inputs> {
     /**
      * @brief Builds the inputs
      */
-    void buildInputs(OutLab7Inputs &inputs, boost::program_options::variables_map &values) override {
+    void buildInputs(OutLab7Inputs &input, boost::program_options::variables_map &values) override {
 
         // first, read the input file into a json map
         nlohmann::json inputMap;
@@ -147,8 +147,8 @@ class Parser : public CommandLine<OutLab7Inputs> {
             readJSON(values["input-json"].as<std::string>(), inputMap);
         }
 
-        inputs.n = static_cast<size_t>(values["n"].as<long double>());
-        inputs.outputJSON = values["output-json"].as<std::string>();
+        input.n = static_cast<size_t>(values["n"].as<long double>());
+        input.outputJSON = values["output-json"].as<std::string>();
     }
 };
 

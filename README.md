@@ -169,12 +169,12 @@ servers, which, as of Fall 2023, provide support for the following dependencies:
 
 #### EOS
 
-* `Boost : 1.66.0`
+* `Boost : 1.83.0`
 * `C/C++ compiler : GNU 8.5.0`
 
 #### Hazel
 
-* `Boost : 1.72.0`
+* `Boost : 1.83.0`
 * `C/C++ compiler : GNU 10.2.0`
 * `CUDA: 12.0.0`
 * `MPI: OpenMPI 4.1.0`
@@ -190,17 +190,17 @@ Currently supported project build targets include:
     <th colspan="1" style="text-align:center;"><strong>#</strong></th>
     <th colspan="2" style="text-align:center;"><strong>Project Milestone</strong></th>
   </tr>
-   <tr>
+  <tr>
     <td>1</td>
     <td><code>✅ project1</code>  <code>✅ project1_tests</code></td>
-  </tr>
-   <tr>
+    </tr>
+  <tr>
     <td>2</td>
-    <td><code>🚧 project2</code>  <code>🚧 project2_tests</code> <code>🚧 physics_diffusion_tests</code></td>
+    <td><code>✅ project2</code>  <code>✅ project2_tests</code> <code>✅ physics_diffusion_tests</code><code>✅ blas_tests</code></td>
   </tr>
-   <tr>
-    <td>3</td>
-    <td></td>
+  <tr>
+    <td>2</td>
+    <td><code>🚧 project3</code>  <code>🚧 project3_tests</code></td>
   </tr>
    <tr>
     <td>4</td>
@@ -250,12 +250,12 @@ Currently supported inlab, outlab build targets include:
   <tr>
     <td>6</td>
     <td><code>✅ inlab6</code>  <code>✅ inlab6_tests</code></td>
-    <td><code>✅ outlab6</code>  <code>❌ outlab6_tests</code></td>
+    <td><code>✅ outlab6</code>  <code>✅ outlab6_tests</code></td>
   </tr>
   <tr>
     <td>7</td>
     <td><code>✅ inlab7</code></td>
-    <td></td>
+    <td><code>✅ outlab7</code>  <code>✅ outlab7_tests</code></td>
   </tr>
   <tr>
     <td>8</td>
@@ -293,11 +293,14 @@ Currently supported inlab, outlab build targets include:
 
 Available options are:
 
-| CMake Option                 | Description                                                                                                                   | Default |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|
-| BUILD_TESTS                  | Build a separate test target (for e.g. `inlab1_tests`)                                                                        | ON      |
-| PORTABLE                     | Build without explicitly setting flags `-march=native`, `-mfma`, `-mavx`, `-mavx2`, `-msse4.2`, trading speed for portability | OFF     |
-| BUILD_PERFORMANCE_BENCHMARKS | Build a separate benchmarks target (for e.g. `inlab1_bench`)                                                                  | OFF     |
+| CMake Option               | Description                                                                                                                   | Default |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|
+| BUILD_TESTS                | Build a separate test target (for e.g. `inlab1_tests`)                                                                        | ON      |
+| PORTABLE                   | Build without explicitly setting flags `-march=native`, `-mfma`, `-mavx`, `-mavx2`, `-msse4.2`, trading speed for portability | OFF     |
+| CODE_COVERAGE              | Perform code coverage analysis                                                                                                | OFF     |
+| ENABLE_LTO                 | Enable Link-Time Optimization                                                                                                 | ON      |
+| ENABLE_PGO                 | Enable Profile-Guided Optimization                                                                                            | OFF     |
+| ENABLE_CODE_QUALITY_CHECKS | Enable extra compile-time warnings                                                                                            | ON      |
 
 To use these options, you can add them to the `cmake` command in the build script. For example, to build with tests, you
 would modify the `cmake` command as follows:

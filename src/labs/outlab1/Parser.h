@@ -118,7 +118,7 @@ class Parser : public CommandLine<MatrixConstructParams> {
         // list the parameters
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        std::cout << "\tscalar, k: " << std::setprecision(precision) << k << "\n";
+        std::cout << "\tscalar, k: " << std::setprecision(static_cast<int>(precision)) << k << "\n";
         std::cout << "\tm-rank, M: " << M << "\n";
         std::cout << "\tn-rank, N: " << N << "\n";
         std::cout << "\tj-rank, J: " << J << "\n";

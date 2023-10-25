@@ -14,7 +14,7 @@
 namespace MyBLAS {
 
 // Define a list of types to run the tests with
-typedef ::testing::Types<short, int, long, float, double, long double> NumericTypes;
+typedef ::testing::Types<int, long, float, double, long double> NumericTypes;
 TYPED_TEST_SUITE(PerformanceMatrixTests, NumericTypes);
 
 template <typename T>

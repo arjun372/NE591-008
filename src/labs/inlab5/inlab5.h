@@ -90,15 +90,15 @@ class InLab5 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVecto
             const auto precision = getTerminal().getCurrentPrecision();
             std::cout << "Permuted constants Pb = P * b:\n";
             Parser::printLine();
-            std::cout << std::setprecision(precision) << Pb;
+            std::cout << std::setprecision(static_cast<int>(precision)) << Pb;
             Parser::printLine();
             std::cout << "Intermediate vector y = inv(L) * b:\n";
             Parser::printLine();
-            std::cout << std::setprecision(precision) << y;
+            std::cout << std::setprecision(static_cast<int>(precision)) << y;
             Parser::printLine();
             std::cout << "Solution vector (x):\n";
             Parser::printLine();
-            std::cout << std::setprecision(precision) << x;
+            std::cout << std::setprecision(static_cast<int>(precision)) << x;
             Parser::printLine();
         }
 

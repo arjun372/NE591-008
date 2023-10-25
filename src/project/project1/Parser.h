@@ -56,7 +56,7 @@ class Parser : public CommandLine<SolverInputs> {
      *
      */
     void printInputArguments(boost::program_options::variables_map &vm) override {
-        std::cout << std::setprecision(default_precision);
+        std::cout << std::setprecision(static_cast<int>(default_precision));
         // list the parameters
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
@@ -66,7 +66,7 @@ class Parser : public CommandLine<SolverInputs> {
         std::cout << "\tOutput JSON                             o: "
                   << (vm.count("output-results-json") ? vm["output-results-json"].as<std::string>() : "None") << "\n";
         std::cout << "\t----\n";
-        std::cout << "\tUse LUP method                           : " << (vm.count("use-LUP") ? "Yes" : "Yes") << "\n";
+        std::cout << "\tUse LUP method                           : " << (vm.count("use-LUP") ? "Yes" : "yes") << "\n";
         std::cout << "\tUse Point-Jacobi method                  : " << (vm.count("use-point-jacobi") ? "Yes" : "No")
                   << "\n";
         std::cout << "\tUse Gauss-Seidel method                  : " << (vm.count("use-gauss-seidel") ? "Yes" : "No")
@@ -230,36 +230,36 @@ class Parser : public CommandLine<SolverInputs> {
      * @param inputs Reference to a MyBLAS::InputMatrices object to store the input matrices.
      * @param map Reference to a boost::program_options::variables_map object containing the command line arguments.
      */
-    void buildInputs(SolverInputs &inputs, boost::program_options::variables_map &map) override {
+    void buildInputs(SolverInputs &input, boost::program_options::variables_map &map) override {
 
-        inputs.a = map["a"].as<long double>();
-        inputs.b = map["b"].as<long double>();
-        inputs.m = static_cast<size_t>(map["m"].as<long double>());
-        inputs.n = static_cast<size_t>(map["n"].as<long double>());
-        inputs.diffusion_coefficient = map["D"].as<long double>();
-        inputs.macroscopic_removal_cross_section = map["cross-section"].as<long double>();
-        calculate_mesh_spacings(inputs); // calculate delta and gamma
+        input.a = map["a"].as<long double>();
+        input.b = map["b"].as<long double>();
+        input.m = static_cast<size_t>(map["m"].as<long double>());
+        input.n = static_cast<size_t>(map["n"].as<long double>());
+        input.diffusion_coefficient = map["D"].as<long double>();
+        input.macroscopic_removal_cross_section = map["cross-section"].as<long double>();
+        calculate_mesh_spacings(input); // calculate delta and gamma
 
         const auto sourceTermsFilepath = map["source-terms-csv"].as<std::string>();
-        readCSVRowWiseNoHeaders<long double>(sourceTermsFilepath, inputs.sources);
+        readCSVRowWiseNoHeaders<long double>(sourceTermsFilepath, input.sources);
 
-        if (inputs.sources.getRows() < 1 || inputs.sources.getCols() < 1) {
-            std::cerr << "ERROR: No Source terms matrix dimension (rows=" << inputs.sources.getRows()
-                      << ", columns=" << inputs.sources.getCols() << ")  can be less than 1!\n";
+        if (input.sources.getRows() < 1 || input.sources.getCols() < 1) {
+            std::cerr << "ERROR: No Source terms matrix dimension (rows=" << input.sources.getRows()
+                      << ", columns=" << input.sources.getCols() << ")  can be less than 1!\n";
             std::cerr << "ABORTING.\n";
             exit(-1);
         }
 
         // 1st dimension internal nodes
-        if (inputs.m != inputs.sources.getRows()) {
-            inputs.m = inputs.sources.getRows();
-            std::cerr << "WARNING: Source terms matrix rows != m, overriding m to " << inputs.m << std::endl;
+        if (input.m != input.sources.getRows()) {
+            input.m = input.sources.getRows();
+            std::cerr << "WARNING: Source terms matrix rows != m, overriding m to " << input.m << std::endl;
         }
 
         // 2nd dimension internal nodes
-        if (inputs.n != inputs.sources.getCols()) {
-            inputs.n = inputs.sources.getCols();
-            std::cerr << "WARNING: Source terms matrix columns != n, overriding n to " << inputs.n << std::endl;
+        if (input.n != input.sources.getCols()) {
+            input.n = input.sources.getCols();
+            std::cerr << "WARNING: Source terms matrix columns != n, overriding n to " << input.n << std::endl;
         }
 
         if (!map.count("quiet")) {
@@ -267,12 +267,12 @@ class Parser : public CommandLine<SolverInputs> {
             CommandLine::printLine();
             std::cout << std::setw(44) << "Intermediates\n";
             CommandLine::printLine();
-            std::cout << "\tMesh spacing in the 1st dimension,     𝛿: " << inputs.delta << "\n";
-            std::cout << "\tMesh spacing in the 2nd dimension,     𝛾: " << inputs.gamma << "\n";
+            std::cout << "\tMesh spacing in the 1st dimension,     𝛿: " << input.delta << "\n";
+            std::cout << "\tMesh spacing in the 2nd dimension,     𝛾: " << input.gamma << "\n";
             CommandLine::printLine();
             std::cout << "Source terms 𝑞(𝑖,𝑗):\n";
             CommandLine::printLine();
-            std::cout << inputs.sources;
+            std::cout << input.sources;
             CommandLine::printLine();
         }
     }

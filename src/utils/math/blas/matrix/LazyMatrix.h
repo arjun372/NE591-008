@@ -113,216 +113,390 @@ class LazyMatrix {
     }
 
     /**
-     * Matrix-Matrix Multiplication
+     * @brief Overload of the multiplication operator for multiplying a MyBLAS::Matrix and a LazyMatrix.
+     * @details This function performs matrix-matrix multiplication between a MyBLAS::Matrix and a LazyMatrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the MyBLAS::Matrix.
+     * @param b A constant reference to the LazyMatrix.
+     * @return A LazyMatrix that represents the result of the multiplication.
      */
-    // TODO::DOCUMENT
-    // MyBLAS::Matrix--MyBLAS::LazyMatrix multiplication, return MyBLAS::Matrix
     friend LazyMatrix operator*(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
         return ContainerExpression<MyBLAS::Matrix, LazyMatrix, DataType>::multiplyMatrixMatrixType2(a, b);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::Matrix multiplication, return MyBLAS::Matrix
+
+    /**
+     * @brief Overload of the multiplication operator for multiplying a LazyMatrix and a MyBLAS::Matrix.
+     * @details This function performs matrix-matrix multiplication between a LazyMatrix and a MyBLAS::Matrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the LazyMatrix.
+     * @param b A constant reference to the MyBLAS::Matrix.
+     * @return A LazyMatrix that represents the result of the multiplication.
+     */
     friend LazyMatrix operator*(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
         return ContainerExpression<LazyMatrix, MyBLAS::Matrix, DataType>::multiplyMatrixMatrixType1(a, b);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix-MyBLAS::LazyMatrix multiplication, return MyBLAS::LazyMatrix
+
+    /**
+     * @brief Overload of the multiplication operator for multiplying two LazyMatrix objects.
+     * @details This function performs matrix-matrix multiplication between two LazyMatrix objects.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the first LazyMatrix.
+     * @param b A constant reference to the second LazyMatrix.
+     * @return A LazyMatrix that represents the result of the multiplication.
+     */
     friend LazyMatrix operator*(LazyMatrix const& a, LazyMatrix const& b) {
         return ContainerExpression<LazyMatrix, LazyMatrix, DataType>::multiplyMatrixMatrixType2(a, b);
     }
 
     /**
-     * Matrix-Vector Multiplication
+     * @brief Overload of the multiplication operator for multiplying a LazyMatrix and a MyBLAS::Vector.
+     * @details This function performs matrix-vector multiplication between a LazyMatrix and a MyBLAS::Vector.
+     * @tparam DataType The type of data contained in the matrix and the vector.
+     * @param a A constant reference to the LazyMatrix.
+     * @param b A constant reference to the MyBLAS::Vector.
+     * @return A MyBLAS::Vector that represents the result of the multiplication.
      */
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::Vector multiplication, return MyBLAS::Vector
     friend MyBLAS::Vector<DataType> operator*(LazyMatrix const& a, MyBLAS::Vector<DataType> const& b) {
         return MatrixVectorExpression<LazyMatrix, MyBLAS::Vector, DataType>::multiplyMatrixVector(a, b);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix-MyBLAS::LazyVector multiplication, return MyBLAS::LazyVector
+
+    /**
+     * @brief Overload of the multiplication operator for multiplying a LazyMatrix and a LazyVector.
+     * @details This function performs matrix-vector multiplication between a LazyMatrix and a LazyVector.
+     * @tparam DataType The type of data contained in the matrix and the vector.
+     * @param a A constant reference to the LazyMatrix.
+     * @param b A constant reference to the LazyVector.
+     * @return A LazyVector that represents the result of the multiplication.
+     */
     friend LazyVector<DataType> operator*(LazyMatrix const& a, LazyVector<DataType> const& b) {
         return MatrixVectorExpression<LazyMatrix, LazyVector, DataType>::multiplyMatrixVector(a, b);
     }
-    // TODO::DOCUMENT
-    // MyBLAS::LazyVector--MyBLAS::LazyMatrix multiplication, NOT IMPLEMENTED
-    // TODO::DOCUMENT
-    // MyBLAS::Vector--MyBLAS::LazyMatrix multiplication, NOT IMPLEMENTED
 
     /**
-     * Matrix-Matrix Elementwise Operations
+     * @brief Overload of the addition operator for adding a MyBLAS::Matrix and a LazyMatrix.
+     * @details This function performs element-wise addition between a MyBLAS::Matrix and a LazyMatrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the MyBLAS::Matrix.
+     * @param b A constant reference to the LazyMatrix.
+     * @return A LazyMatrix that represents the result of the addition.
      */
-    /** Define the addition operation. **/
-    // TODO::DOCUMENT
-    // MyBLAS::Matrix--MyBLAS::LazyMatrix addition, return MyBLAS::Matrix
     friend LazyMatrix operator+(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
         auto op = [](DataType const& x, DataType const& y) { return x + y; };
         return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(a, b, op);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::Matrix addition, return MyBLAS::Matrix
+
+    /**
+     * @brief Overload of the addition operator for adding a LazyMatrix and a MyBLAS::Matrix.
+     * @details This function performs element-wise addition between a LazyMatrix and a MyBLAS::Matrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the LazyMatrix.
+     * @param b A constant reference to the MyBLAS::Matrix.
+     * @return A LazyMatrix that represents the result of the addition.
+     */
     friend LazyMatrix operator+(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
         auto op = [](DataType const& x, DataType const& y) { return y + x; };
         return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(b, a, op);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::LazyMatrix addition, return MyBLAS::LazyMatrix
+
+    /**
+     * @brief Overload of the addition operator for adding two LazyMatrix objects.
+     * @details This function performs element-wise addition between two LazyMatrix objects.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the first LazyMatrix.
+     * @param b A constant reference to the second LazyMatrix.
+     * @return A LazyMatrix that represents the result of the addition.
+     */
     friend LazyMatrix operator+(LazyMatrix const& a, LazyMatrix const& b) {
         auto op = [](DataType const& x, DataType const& y) { return x + y; };
         return ElementwiseExpression<DataType, LazyMatrix, LazyMatrix, decltype(op)>::matrix(a, b, op);
     }
-    /** Define the subtraction operation. **/
-    // TODO::DOCUMENT
-    // MyBLAS::Matrix--MyBLAS::LazyMatrix subtraction, return MyBLAS::Matrix
+
+    /**
+     * @brief Overload of the subtraction operator for subtracting a LazyMatrix from a MyBLAS::Matrix.
+     * @details This function performs element-wise subtraction between a MyBLAS::Matrix and a LazyMatrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the MyBLAS::Matrix.
+     * @param b A constant reference to the LazyMatrix.
+     * @return A LazyMatrix that represents the result of the subtraction.
+     */
     friend LazyMatrix operator-(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
         auto op = [](DataType const& x, DataType const& y) { return x - y; };
         return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(a, b, op);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::Matrix subtraction, return MyBLAS::Matrix
+
+    /**
+     * @brief Overload of the subtraction operator for subtracting a MyBLAS::Matrix from a LazyMatrix.
+     * @details This function performs element-wise subtraction between a LazyMatrix and a MyBLAS::Matrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the LazyMatrix.
+     * @param b A constant reference to the MyBLAS::Matrix.
+     * @return A LazyMatrix that represents the result of the subtraction.
+     */
     friend LazyMatrix operator-(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
         auto op = [](DataType const& x, DataType const& y) { return y - x; };
         return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(b, a, op);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::LazyMatrix subtraction, return MyBLAS::LazyMatrix
+
+    /**
+     * @brief Overload of the subtraction operator for subtracting one LazyMatrix from another.
+     * @details This function performs element-wise subtraction between two LazyMatrix objects.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the first LazyMatrix.
+     * @param b A constant reference to the second LazyMatrix.
+     * @return A LazyMatrix that represents the result of the subtraction.
+     */
     friend LazyMatrix operator-(LazyMatrix const& a, LazyMatrix const& b) {
         auto op = [](DataType const& x, DataType const& y) { return x - y; };
         return ElementwiseExpression<DataType, LazyMatrix, LazyMatrix, decltype(op)>::matrix(a, b, op);
     }
-    /** Define the equality operation. **/
-    // TODO::DOCUMENT
-    // MyBLAS::Matrix--MyBLAS::LazyMatrix equality, return MyBLAS::Matrix
+
+    /**
+     * @brief Overload of the equality operator for comparing a MyBLAS::Matrix and a LazyMatrix.
+     * @details This function performs element-wise comparison between a MyBLAS::Matrix and a LazyMatrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the MyBLAS::Matrix.
+     * @param b A constant reference to the LazyMatrix.
+     * @return A LazyMatrix that represents the result of the comparison.
+     */
     friend LazyMatrix operator==(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
         auto op = [](DataType const& x, DataType const& y) { return x == y; };
         return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(a, b, op);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::Matrix equality, return MyBLAS::Matrix
+
+    /**
+     * @brief Overload of the equality operator for comparing a LazyMatrix and a MyBLAS::Matrix.
+     * @details This function performs element-wise comparison between a LazyMatrix and a MyBLAS::Matrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the LazyMatrix.
+     * @param b A constant reference to the MyBLAS::Matrix.
+     * @return A LazyMatrix that represents the result of the comparison.
+     */
     friend LazyMatrix operator==(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
         auto op = [](DataType const& x, DataType const& y) { return y == x; };
         return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(b, a, op);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::LazyMatrix equality, return MyBLAS::LazyMatrix
+
+    /**
+     * @brief Overload of the equality operator for comparing two LazyMatrix objects.
+     * @details This function performs element-wise comparison between two LazyMatrix objects.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the first LazyMatrix.
+     * @param b A constant reference to the second LazyMatrix.
+     * @return A LazyMatrix that represents the result of the comparison.
+     */
     friend LazyMatrix operator==(LazyMatrix const& a, LazyMatrix const& b) {
         auto op = [](DataType const& x, DataType const& y) { return x == y; };
         return ElementwiseExpression<DataType, LazyMatrix, LazyMatrix, decltype(op)>::matrix(a, b, op);
     }
-    /** Define the inequality operation. **/
-    // TODO::DOCUMENT
-    // MyBLAS::Matrix--MyBLAS::LazyMatrix inequality, return MyBLAS::Matrix
+
+    /**
+     * @brief Overload of the inequality operator for comparing a MyBLAS::Matrix and a LazyMatrix.
+     * @details This function performs element-wise comparison between a MyBLAS::Matrix and a LazyMatrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the MyBLAS::Matrix.
+     * @param b A constant reference to the LazyMatrix.
+     * @return A LazyMatrix that represents the result of the comparison.
+     */
     friend LazyMatrix operator!=(MyBLAS::Matrix<DataType> const& a, LazyMatrix const& b) {
         auto op = [](DataType const& x, DataType const& y) { return x != y; };
         return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(a, b, op);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::Matrix inequality, return MyBLAS::Matrix
+
+    /**
+     * @brief Overload of the inequality operator for comparing a LazyMatrix and a MyBLAS::Matrix.
+     * @details This function performs element-wise comparison between a LazyMatrix and a MyBLAS::Matrix.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the LazyMatrix.
+     * @param b A constant reference to the MyBLAS::Matrix.
+     * @return A LazyMatrix that represents the result of the comparison.
+     */
     friend LazyMatrix operator!=(LazyMatrix const& a, MyBLAS::Matrix<DataType> const& b) {
         auto op = [](DataType const& x, DataType const& y) { return y != x; };
         return ElementwiseExpression<DataType, MyBLAS::Matrix<DataType>, LazyMatrix, decltype(op)>::matrix(b, a, op);
     }
-    // TODO::DOCUMENT
-    //  MyBLAS::LazyMatrix--MyBLAS::LazyMatrix inequality, return MyBLAS::LazyMatrix
+
+    /**
+     * @brief Overload of the inequality operator for comparing two LazyMatrix objects.
+     * @details This function performs element-wise comparison between two LazyMatrix objects.
+     * @tparam DataType The type of data contained in the matrices.
+     * @param a A constant reference to the first LazyMatrix.
+     * @param b A constant reference to the second LazyMatrix.
+     * @return A LazyMatrix that represents the result of the comparison.
+     */
     friend LazyMatrix operator!=(LazyMatrix const& a, LazyMatrix const& b) {
         auto op = [](DataType const& x, DataType const& y) { return x != y; };
         return ElementwiseExpression<DataType, LazyMatrix, LazyMatrix, decltype(op)>::matrix(a, b, op);
     }
 
     /**
-     * Matrix-Scalar Operations
+     * @brief Overload of the addition operator for adding a scalar to a LazyMatrix.
+     * @details This function performs element-wise addition between a LazyMatrix and a scalar.
+     * @tparam DataType The type of data contained in the matrix and the scalar.
+     * @param scalar The scalar to be added to the matrix.
+     * @return A LazyMatrix that represents the result of the addition.
      */
-    // Define the scalar addition operation.
-    // TODO::DOCUMENT
     LazyMatrix operator+(DataType scalar) const {
         return LazyMatrix(getRows(), getCols(), [this, scalar](size_t i, size_t j) { return (*this)(i, j) + scalar; });
     }
-    // Define the scalar subtraction operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the subtraction operator for subtracting a scalar from a LazyMatrix.
+     * @details This function performs element-wise subtraction between a LazyMatrix and a scalar.
+     * @tparam DataType The type of data contained in the matrix and the scalar.
+     * @param scalar The scalar to be subtracted from the matrix.
+     * @return A LazyMatrix that represents the result of the subtraction.
+     */
     LazyMatrix operator-(DataType scalar) const {
         return LazyMatrix(getRows(), getCols(), [this, scalar](size_t i, size_t j) { return (*this)(i, j) - scalar; });
     }
-    // Define the scalar multiplication operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the multiplication operator for multiplying a LazyMatrix by a scalar.
+     * @details This function performs element-wise multiplication between a LazyMatrix and a scalar.
+     * @tparam DataType The type of data contained in the matrix and the scalar.
+     * @param scalar The scalar to multiply the matrix by.
+     * @return A LazyMatrix that represents the result of the multiplication.
+     */
     LazyMatrix operator*(DataType scalar) const {
         return LazyMatrix(getRows(), getCols(), [this, scalar](size_t i, size_t j) { return (*this)(i, j) * scalar; });
     }
-    // Define the scalar division operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the division operator for dividing a LazyMatrix by a scalar.
+     * @details This function performs element-wise division between a LazyMatrix and a scalar.
+     * @tparam DataType The type of data contained in the matrix and the scalar.
+     * @param scalar The scalar to divide the matrix by.
+     * @return A LazyMatrix that represents the result of the division.
+     */
     LazyMatrix operator/(DataType scalar) const {
         return LazyMatrix(getRows(), getCols(), [this, scalar](size_t i, size_t j) { return (*this)(i, j) / scalar; });
     }
-    // Define the unary negation operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the unary negation operator for a LazyMatrix.
+     * @details This function performs element-wise negation on a LazyMatrix.
+     * @return A LazyMatrix that represents the result of the negation.
+     */
     LazyMatrix operator-() const {
         return LazyMatrix(getRows(), getCols(), [this](size_t i, size_t j) { return -(*this)(i, j); });
     }
-    // Define the in-place addition operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the addition assignment operator for adding a LazyMatrix to the current matrix.
+     * @details This function performs element-wise addition between the current matrix and another LazyMatrix.
+     * @param b A constant reference to the LazyMatrix to be added.
+     * @return A reference to the current matrix which now represents the result of the addition.
+     */
     LazyMatrix& operator+=(LazyMatrix const& b) {
         auto old_gen = generator_;
         generator_ = [old_gen, b](size_t i, size_t j) { return old_gen(i, j) + b(i, j); };
         return *this;
     }
-    // Define the in-place subtraction operation.
-    // TODO::DOCUMENT
-    LazyMatrix& operator-=(LazyMatrix const& b) {
+
+    /**
+     * @brief Overload of the subtraction assignment operator for subtracting a LazyMatrix from the current matrix.
+     * @details This function performs element-wise subtraction between the current matrix and another LazyMatrix.
+     * @param b A constant reference to the LazyMatrix to be subtracted.
+     * @return A reference to the current matrix which now represents the result of the subtraction.
+     */
+     LazyMatrix& operator-=(LazyMatrix const& b) {
         auto old_gen = generator_;
         generator_ = [old_gen, b](size_t i, size_t j) { return old_gen(i, j) - b(i, j); };
         return *this;
     }
-    // Define the in-place multiplication operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the multiplication assignment operator for multiplying a LazyMatrix with the current matrix.
+     * @details This function performs element-wise multiplication between the current matrix and another LazyMatrix.
+     * @param b A constant reference to the LazyMatrix to be multiplied.
+     * @return A reference to the current matrix which now represents the result of the multiplication.
+     */
     LazyMatrix& operator*=(LazyMatrix const& b) {
         auto old_gen = generator_;
         generator_ = [old_gen, b](size_t i, size_t j) { return old_gen(i, j) * b(i, j); };
         return *this;
     }
-    // Define the in-place division operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the division assignment operator for dividing the current matrix by a LazyMatrix.
+     * @details This function performs element-wise division between the current matrix and another LazyMatrix.
+     * @param b A constant reference to the LazyMatrix to be divided by.
+     * @return A reference to the current matrix which now represents the result of the division.
+     */
     LazyMatrix& operator/=(LazyMatrix const& b) {
         auto old_gen = generator_;
         generator_ = [old_gen, b](size_t i, size_t j) { return old_gen(i, j) / b(i, j); };
         return *this;
     }
-    // Define the in-place scalar addition operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the addition assignment operator for adding a scalar to the current matrix.
+     * @details This function performs element-wise addition between the current matrix and a scalar.
+     * @param scalar The scalar to be added.
+     * @return A reference to the current matrix which now represents the result of the addition.
+     */
     LazyMatrix& operator+=(DataType scalar) {
         auto old_gen = generator_;
         generator_ = [this, old_gen, scalar](size_t i, size_t j) { return old_gen(i, j) + scalar; };
         return *this;
     }
-    // Define the in-place scalar subtraction operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the subtraction assignment operator for subtracting a scalar from the current matrix.
+     * @details This function performs element-wise subtraction between the current matrix and a scalar.
+     * @param scalar The scalar to be subtracted.
+     * @return A reference to the current matrix which now represents the result of the subtraction.
+     */
     LazyMatrix& operator-=(DataType scalar) {
         auto old_gen = generator_;
         generator_ = [this, old_gen, scalar](size_t i, size_t j) { return old_gen(i, j) - scalar; };
         return *this;
     }
-    // Define the in-place scalar multiplication operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the multiplication assignment operator for multiplying the current matrix by a scalar.
+     * @details This function performs element-wise multiplication between the current matrix and a scalar.
+     * @param scalar The scalar to be multiplied.
+     * @return A reference to the current matrix which now represents the result of the multiplication.
+     */
     LazyMatrix& operator*=(DataType scalar) {
         auto old_gen = generator_;
         generator_ = [this, old_gen, scalar](size_t i, size_t j) { return old_gen(i, j) * scalar; };
         return *this;
     }
-    // Define the in-place scalar division operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the division assignment operator for dividing the current matrix by a scalar.
+     * @details This function performs element-wise division between the current matrix and a scalar.
+     * @param scalar The scalar to be divided by.
+     * @return A reference to the current matrix which now represents the result of the division.
+     */
     LazyMatrix& operator/=(DataType scalar) {
         auto old_gen = generator_;
         generator_ = [this, old_gen, scalar](size_t i, size_t j) { return old_gen(i, j) / scalar; };
         return *this;
     }
 
-    // Define the element-wise equality comparison operation.
-    // TODO::DOCUMENT
+    /**
+     * @brief Function to compare two LazyMatrix objects for element-wise equality.
+     * @details This function generates a new LazyMatrix of boolean values, where each element represents the equality of the corresponding elements in the input matrices.
+     * @param a A constant reference to the first LazyMatrix.
+     * @param b A constant reference to the second LazyMatrix.
+     * @return A LazyMatrix of boolean values, where each element represents the equality of the corresponding elements in the input matrices.
+     */
     friend LazyMatrix<bool> equal(LazyMatrix const& a, LazyMatrix const& b) {
         auto binary_op = [](DataType const& x, DataType const& y) { return x == y; };
         ElementwiseExpression<bool, LazyMatrix, LazyMatrix, decltype(binary_op)> expr(a, b, binary_op);
         return LazyMatrix<bool>(a.getRows(), a.getCols(), [expr](size_t i, size_t j) { return expr(i, j); });
     }
-    // Define the equality comparison operation.
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Function to compare two LazyMatrix objects for equality.
+     * @details This function checks if all elements in the two input matrices are equal.
+     * @param a A constant reference to the first LazyMatrix.
+     * @param b A constant reference to the second LazyMatrix.
+     * @return A boolean value indicating whether all elements in the two input matrices are equal.
+     */
     friend bool allElementsEqual(LazyMatrix const& a, LazyMatrix const& b) {
         if (a.getRows() != b.getRows() || a.getCols() != b.getCols()) {
             return false;
@@ -338,66 +512,142 @@ class LazyMatrix {
         return true;
     }
 
-    // TODO::DOCUMENT
+    /**
+     * @class Proxy
+     * @brief A helper class to provide a proxy for non-const access to a row of the LazyMatrix.
+     * @details This class is used to overload the [] operator for non-const access to a row of the LazyMatrix.
+     */
     class Proxy {
       public:
-        // TODO::DOCUMENT
+        /**
+         * @brief Constructor for the Proxy class.
+         * @details This constructor initializes a Proxy object for non-const access to a row of the LazyMatrix.
+         * @param matrix A reference to the LazyMatrix object.
+         * @param row The index of the row to be accessed.
+         */
         Proxy(LazyMatrix& matrix, size_t row) : matrix_(matrix), row_(row) {}
-        // TODO::DOCUMENT
+
+        /**
+         * @brief Overload of the [] operator for non-const access to a column of the LazyMatrix.
+         * @param col The index of the column to access.
+         * @return The value at the specified row and column in the LazyMatrix.
+         */
         DataType operator[](size_t col) const {
             return matrix_(row_, col);
         }
 
       private:
-        // TODO::DOCUMENT
+        /**
+         * @brief A reference to the LazyMatrix object.
+         */
         LazyMatrix& matrix_;
-        // TODO::DOCUMENT
+
+        /**
+         * @brief The index of the row to be accessed in the LazyMatrix.
+         */
         size_t row_;
     };
-    // TODO::DOCUMENT
+
+    /**
+     * @class ConstProxy
+     * @brief A helper class to provide a proxy for const access to a row of the LazyMatrix.
+     * @details This class is used to overload the [] operator for const access to a row of the LazyMatrix.
+     */
     class ConstProxy {
       public:
-        // TODO::DOCUMENT
+        /**
+         * @brief Constructor for the ConstProxy class.
+         * @details This constructor initializes a ConstProxy object for const access to a row of the LazyMatrix.
+         * @param matrix A constant reference to the LazyMatrix object.
+         * @param row The index of the row to be accessed.
+         */
         ConstProxy(const LazyMatrix& matrix, size_t row) : matrix_(matrix), row_(row) {}
-        // TODO::DOCUMENT
+
+        /**
+         * @brief Overload of the [] operator for const access to a column of the LazyMatrix.
+         * @param col The index of the column to access.
+         * @return The value at the specified row and column in the LazyMatrix.
+         */
         DataType operator[](size_t col) const {
             return matrix_(row_, col);
         }
 
       private:
-        // TODO::DOCUMENT
+        /**
+         * @brief A constant reference to the LazyMatrix object.
+         */
         const LazyMatrix& matrix_;
-        // TODO::DOCUMENT
+
+        /**
+         * @brief The index of the row to be accessed in the LazyMatrix.
+         */
         size_t row_;
     };
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the [] operator for non-const access to a row of the LazyMatrix.
+     * @param row The index of the row to access.
+     * @return A Proxy object representing the row at the given index.
+     */
     Proxy operator[](size_t row) {
         return Proxy(*this, row);
     }
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Overload of the [] operator for const access to a row of the LazyMatrix.
+     * @param row The index of the row to access.
+     * @return A ConstProxy object representing the row at the given index.
+     */
     ConstProxy operator[](size_t row) const {
         return ConstProxy(*this, row);
     }
 
   private:
-    // TODO::DOCUMENT
+    /**
+     * @brief The number of rows in the LazyMatrix.
+     */
     size_t rows_;
-    // TODO::DOCUMENT
+
+    /**
+     * @brief The number of columns in the LazyMatrix.
+     */
     size_t cols_;
-    // TODO::DOCUMENT
+
+    /**
+     * @brief The generator function that computes the values of the LazyMatrix.
+     */
     Generator generator_;
 
   protected:
-    // TODO::DOCUMENT
+    /**
+     * @brief Setter for the number of rows in the LazyMatrix.
+     * @param rows The new number of rows.
+     */
     void setRows(size_t rows) { rows_ = rows; }
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Setter for the number of columns in the LazyMatrix.
+     * @param cols The new number of columns.
+     */
     void setCols(size_t cols) { cols_ = cols; }
-    // TODO::DOCUMENT
+
+    /**
+     * @brief Setter for the generator function of the LazyMatrix.
+     * @param generator The new generator function.
+     */
     void setGenerator(const Generator &generator) { generator_ = generator; }
 };
 
-// vector-matrix multiplication is not implemented for MyBLAS::Vector<DataType>
-// TODO::DOCUMENT
+/**
+ * @brief This function template is a placeholder for vector-matrix multiplication in the MyBLAS library.
+ * @details This function is currently not implemented and is marked for deletion.
+ * It is intended to perform multiplication of a vector and a lazy matrix.
+ * @tparam DataType The type of data contained in the vector and the lazy matrix.
+ * @param a A constant reference to the vector.
+ * @param b A constant reference to the lazy matrix.
+ * @return This function does not return a value as it is marked for deletion.
+ * @note This function is marked as deleted and will cause a compile error if used.
+ */
 template <typename DataType>
 MyBLAS::Vector<DataType> operator*(MyBLAS::Vector<DataType> const& a, LazyMatrix<DataType> const& b) = delete;
 }

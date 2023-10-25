@@ -208,7 +208,7 @@ static std::vector<std::string> asStringVector(const std::vector<T> &inputVector
 
     for (const T &value : inputVector) {
         std::stringstream ss;
-        ss << std::scientific << std::setprecision(precision) << value;
+        ss << std::scientific << std::setprecision(static_cast<int>(precision)) << value;
         stringVector.push_back(ss.str());
     }
 
@@ -271,7 +271,13 @@ static void writeCSV(const std::string &filepath, std::map<std::string, std::vec
     csvFile.close();
 }
 
-// TODO:: DOCUMENT
+/**
+ * @brief A template function to write a matrix to a CSV file without headers.
+ * @details This function writes a matrix to a CSV file. If the file is not writable, an error message is printed.
+ * @tparam T The type of the matrix elements.
+ * @param filepath The path to the CSV file.
+ * @param data The matrix to be written to the CSV file.
+ */
 template <typename T> static void writeCSVMatrixNoHeaders(const std::string &filepath, MyBLAS::Matrix<T> &data) {
 
     if (!isFileWritable(filepath)) {

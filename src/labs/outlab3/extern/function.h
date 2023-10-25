@@ -43,5 +43,5 @@ template <typename T> [[maybe_unused]] static void fill_fx(std::vector<T> &x, st
     fx.resize(x.size());
 
     // Use std::transform with a lambda function to evaluate fx for each x value
-    std::transform(x.begin(), x.end(), fx.begin(), [](T x) { return user_defined_fx(x); });
+    std::transform(x.begin(), x.end(), fx.begin(), [](T x_) { return user_defined_fx(x_); });
 }

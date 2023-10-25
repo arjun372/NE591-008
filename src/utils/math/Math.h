@@ -2,8 +2,12 @@
 * @file Math.h
 * @author Arjun Earthperson
 * @date 10/13/2023
-* @brief TODO:: DOCUMENT
-*/
+* @brief This file contains the declaration of various mathematical functions.
+* @details The functions declared in this file include checking if a numeric value is finite,
+* calculating the power of a base number, and calculating the absolute value of a number.
+* These functions are declared within the MyMath namespace. Specializations for the __float128
+* type are also provided for the isfinite and pow functions.
+ */
 
 #ifndef NE591_008_MATH_H
 #define NE591_008_MATH_H
@@ -46,13 +50,26 @@ bool isfinite(__float128 value) {
     return (value > -__float128(INFINITY) && value < __float128(INFINITY));
 }
 
-// TODO:: DOCUMENT
+/**
+ * @brief A template function to calculate the power of a base number.
+ * @details This function uses the std::pow function to calculate the power of a base number.
+ * @tparam T The type of the base number.
+ * @param base The base number.
+ * @param exponent The exponent to which the base number is raised.
+ * @return The result of the base number raised to the exponent.
+ */
 template <typename T>
 T pow(T base, int exponent) {
     return std::pow(base, exponent);
 }
 
-// TODO:: DOCUMENT
+/**
+ * @brief A template specialization function to calculate the power of a __float128 base number.
+ * @details This function uses a custom algorithm to calculate the power of a __float128 base number.
+ * @param base The base number.
+ * @param exponent The exponent to which the base number is raised.
+ * @return The result of the base number raised to the exponent.
+ */
 template <>
 __float128 pow(__float128 base, int exponent) {
     if (exponent == 0)
@@ -75,6 +92,17 @@ __float128 pow(__float128 base, int exponent) {
     }
 
     return isNegativeExponent ? 1.0 / result : result;
+}
+
+/**
+ * @brief A template function to calculate the absolute value of a number.
+ * @tparam T The type of the number.
+ * @param x The number whose absolute value is to be calculated.
+ * @return The absolute value of the number.
+ */
+template <typename T>
+T abs(T x) {
+    return x < 0 ? -x : x;
 }
 
 }  // namespace MyMath

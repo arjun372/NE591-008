@@ -2,8 +2,6 @@
 * @file LazyVectorTests.cpp
 * @author Arjun Earthperson
 * @date 10/13/2023
-*
-* @brief TODO::DOCUMENT
 */
 
 #include "math/blas/vector/LazyVector.h"
@@ -84,7 +82,7 @@ TEST_F(LazyVectorTests, ScalarAdditionTest) {
     LazyVector<FLOAT_TYPE> v(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
     auto v2 = v + 5.0;
     for (size_t i = 0; i < v2.size(); ++i) {
-        EXPECT_TRUE(IsClose(v2[i], static_cast<FLOAT_TYPE>(i + 5.0)));
+        EXPECT_TRUE(IsClose(v2[i], static_cast<FLOAT_TYPE>(i) + 5.0));
     }
 }
 
@@ -93,7 +91,7 @@ TEST_F(LazyVectorTests, ScalarSubtractionTest) {
     LazyVector<FLOAT_TYPE> v(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
     auto v2 = v - 5.0;
     for (size_t i = 0; i < v2.size(); ++i) {
-        EXPECT_TRUE(IsClose(v2[i], static_cast<FLOAT_TYPE>(i - 5.0)));
+        EXPECT_TRUE(IsClose(v2[i], static_cast<FLOAT_TYPE>(i) - 5.0));
     }
 }
 
@@ -102,7 +100,7 @@ TEST_F(LazyVectorTests, ScalarMultiplicationTest) {
     LazyVector<FLOAT_TYPE> v(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
     auto v2 = v * 5.0;
     for (size_t i = 0; i < v2.size(); ++i) {
-        EXPECT_TRUE(IsClose(v2[i], static_cast<FLOAT_TYPE>(i * 5.0)));
+        EXPECT_TRUE(IsClose(v2[i], static_cast<FLOAT_TYPE>(i) * 5.0));
     }
 }
 

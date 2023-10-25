@@ -75,9 +75,9 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
      */
     static HeaderInfo buildHeaderInfo() {
         Canvas canvas;
-        __float128 x = 0.13;
-        __float128 y = -0.66;
-        auto iterations = 80;
+        const __float128 x = 0.13;
+        const __float128 y = -0.66;
+        const size_t iterations = 80;
         canvas.x_start = -0.007514104707;
         canvas.x_stop = 0.075446744304;
         canvas.y_start = 0.825578589953;
@@ -88,7 +88,7 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
             .ProjectDescription = "",
             .SubmissionDate = "10/13/2023",
             .StudentName = "Arjun Earthperson",
-            .HeaderArt = drawJuliaSet(canvas, x, y, iterations),
+            .HeaderArt = drawJuliaSet<__float128>(canvas, x, y, iterations),
         };
     }
 

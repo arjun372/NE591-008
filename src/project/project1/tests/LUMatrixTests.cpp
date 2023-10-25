@@ -46,8 +46,8 @@ INSTANTIATE_TEST_SUITE_P(
 class FactorizeInvalidLUMatrixTest : public ::testing::TestWithParam<MyBLAS::Matrix<long double>> {
   protected:
     MyBLAS::Matrix<long double> coefficients;
-    MyBLAS::Matrix<long double> L;
-    MyBLAS::Matrix<long double> U;
+    MyBLAS::Matrix<long double> left;
+    MyBLAS::Matrix<long double> upper;
 };
 
 TEST_P(FactorizeInvalidLUMatrixTest, FactorizesInvalidLowerMatrix) {

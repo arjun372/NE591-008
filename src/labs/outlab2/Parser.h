@@ -74,8 +74,8 @@ class Parser : public CommandLine<LagrangePolynomialInputs> {
         for (size_t i = 0; i < x.size(); i++) {
             const auto x_sign = (x[i] >= 0) ? "+" : "";
             const auto fx_sign = (fx[i] >= 0) ? "+" : "";
-            std::cout << "\t" << x_sign << std::setprecision(precision) << x[i];
-            std::cout << "\t\t\t" << fx_sign << std::setprecision(precision) << fx[i] << std::endl;
+            std::cout << "\t" << x_sign << std::setprecision(static_cast<int>(precision)) << x[i];
+            std::cout << "\t\t\t" << fx_sign << std::setprecision(static_cast<int>(precision)) << fx[i] << std::endl;
         }
         CommandLine::printLine();
         std::cout << "\tnum-points,     n: " << n << "\n";

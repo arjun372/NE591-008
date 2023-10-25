@@ -158,11 +158,11 @@ class Parser : public CommandLine<InputMatrices> {
             printLine();
             std::cout << "Coefficient Matrix (A):\n";
             printLine();
-            std::cout << std::setprecision(precision) << inputs.coefficients;
+            std::cout << std::setprecision(static_cast<int>(precision)) << inputs.coefficients;
             printLine();
             std::cout << "Constants Vector (b):\n";
             printLine();
-            std::cout << std::setprecision(precision) << inputs.constants;
+            std::cout << std::setprecision(static_cast<int>(precision)) << inputs.constants;
         }
     }
 };

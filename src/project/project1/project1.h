@@ -53,7 +53,7 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
         Canvas canvas;
         auto x = -0.172;
         auto y = -0.66;
-        auto iterations = 2000;
+        size_t iterations = 2000;
         canvas.x_start = -0.007514104707;
         canvas.x_stop = 0.075446744304;
         canvas.y_start = 0.825578589953;
@@ -72,11 +72,11 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
     /**
      * @brief This function runs the project.
      * @details It solves the system of linear equations using forward and back substitution.
-     * @param outputs The output vector
+     * @param output The output vector
      * @param inputs The input matrices
      * @param values The variable map
      */
-    void run(SolverOutputs &outputs, SolverInputs &inputs, boost::program_options::variables_map &values) override {
+    void run(SolverOutputs &output, SolverInputs &inputs, boost::program_options::variables_map &values) override {
 
         /**
             1. Read input parameters: Read the values of 𝑎, 𝑏, 𝑚, 𝑛, 𝐷, and Σₐ from an input file. Also,
@@ -171,11 +171,11 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
         clocks[3].restart();
         {
             // compute fluxes
-            fill_fluxes(phi, inputs, outputs);
+            fill_fluxes(phi, inputs, output);
             b_prime = intermediates.diffusion_matrix_A * phi;
             r = b - b_prime;
-            outputs.residual = r;
-            outputs.solution = phi;
+            output.residual = r;
+            output.solution = phi;
 
             maxResidual = MyBLAS::Stats::max<long double>(MyBLAS::Stats::abs(r));
         }
@@ -213,7 +213,7 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
             Parser::printLine();
             std::cout << "Computed flux 𝜙(𝑖,𝑗): \n";
             Parser::printLine();
-            std::cout << outputs.fluxes;
+            std::cout << output.fluxes;
             Parser::printLine();
             std::cout << "Residual vector (r = b - Ax) :\n";
             Parser::printLine();
@@ -230,12 +230,12 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
             if (values.count("output-results-json")) {
                 nlohmann::json results;
                 inputs.toJSON(results["inputs"]);
-                outputs.toJSON(results["outputs"]);
+                output.toJSON(results["outputs"]);
                 writeJSON(values["output-results-json"].as<std::string>(), results);
             }
 
             if (values.count("output-flux-csv")) {
-                writeCSVMatrixNoHeaders(values["output-flux-csv"].as<std::string>(), outputs.fluxes);
+                writeCSVMatrixNoHeaders(values["output-flux-csv"].as<std::string>(), output.fluxes);
             }
         }
         clocks[4].click();

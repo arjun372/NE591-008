@@ -111,27 +111,27 @@ class OutLab4 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVect
             Parser::printLine();
             std::cout << "Lower Triangular Matrix (L):\n";
             Parser::printLine();
-            std::cout << std::scientific << std::setprecision(precision) << L;
+            std::cout << std::scientific << std::setprecision(static_cast<int>(precision)) << L;
             Parser::printLine();
             std::cout << "Upper Triangular Matrix (U):\n";
             Parser::printLine();
-            std::cout << std::setprecision(precision) << U;
+            std::cout << std::setprecision(static_cast<int>(precision)) << U;
             Parser::printLine();
             std::cout << "Factorized Matrix LU: \n";
             Parser::printLine();
-            std::cout << std::setprecision(precision) << L + U - MyBLAS::Matrix<long double>::eye(A.getCols());
+            std::cout << std::setprecision(static_cast<int>(precision)) << L + U - MyBLAS::Matrix<long double>::eye(A.getCols());
             Parser::printLine();
             std::cout << "Intermediate vector y = inv(L) * b:\n";
             Parser::printLine();
-            std::cout << std::setprecision(precision) << y;
+            std::cout << std::setprecision(static_cast<int>(precision)) << y;
             Parser::printLine();
             std::cout << "Solution vector (x):\n";
             Parser::printLine();
-            std::cout << std::setprecision(precision) << x;
+            std::cout << std::setprecision(static_cast<int>(precision)) << x;
             Parser::printLine();
             std::cout << "Residual vector r=|b' - b| :\n";
             Parser::printLine();
-            std::cout << std::setprecision(precision) << r;
+            std::cout << std::setprecision(static_cast<int>(precision)) << r;
             Parser::printLine();
         }
 

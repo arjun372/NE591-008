@@ -166,7 +166,7 @@ template <typename InputType> class CommandLine {
         if (!initialized) {
             initialize();
         }
-        return inputs;
+        return _inputs;
     }
 
     /**
@@ -244,7 +244,7 @@ template <typename InputType> class CommandLine {
      *
      * This object is used to store the inputs that are parsed from the command line arguments.
      */
-    InputType inputs = InputType();
+    InputType _inputs = InputType();
 
     /**
      * @var header
@@ -303,7 +303,7 @@ template <typename InputType> class CommandLine {
      */
     void printPrecisionInformation() {
         const auto precision = variablesMap["precision"].as<int>();
-        std::cout << std::setprecision(precision);
+        std::cout << std::setprecision(static_cast<int>(precision));
         std::cout << "\t\t\tPrecision in digits:  ";
         std::cout << "default: " << default_precision << ", ";
         std::cout << "maximum: " << max_precision << ", ";
@@ -361,8 +361,8 @@ template <typename InputType> class CommandLine {
             printInputArguments(variablesMap);
         }
 
-        // finally, build and save the inputs object
-        buildInputs(inputs, variablesMap);
+        // finally, build and save the _inputs object
+        buildInputs(_inputs, variablesMap);
     }
 
     /**

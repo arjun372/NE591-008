@@ -180,7 +180,8 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
         boost::archive::text_oarchive oa(oss);
         oa << data;
         std::string serialized = oss.str();
-        MPI_Send(serialized.c_str(), serialized.size() + 1, MPI_CHAR, rank, 0, MPI_COMM_WORLD);
+        const int length = static_cast<int>(serialized.size()) + 1;
+        MPI_Send(serialized.c_str(), length, MPI_CHAR, rank, 0, MPI_COMM_WORLD);
     }
 
     /**
@@ -194,7 +195,7 @@ template <typename InputType, typename CommandLineParserType, typename OutputTyp
         int length;
         MPI_Probe(MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
         MPI_Get_count(&status, MPI_CHAR, &length);
-        char* buffer = new char[length];
+        char* buffer = new char[static_cast<size_t>(length)];
         MPI_Recv(buffer, length, MPI_CHAR, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         std::string received_str(buffer);
         delete[] buffer;
