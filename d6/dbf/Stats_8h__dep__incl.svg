@@ -384,34 +384,34 @@ var sectionId = 'dynsection-1';
 <!-- Node26 -->
 <g id="node24" class="node">
 <title>Node26</title>
-<g id="a_node24"><a xlink:href="../../dd/d7b/PointJacobi_8h.html" target="_top" xlink:title="This file contains the implementation of the Point Jacobi method for solving systems of linear equati...">
-<polygon fill="white" stroke="black" points="3579,-335.5 3579,-365.5 3715,-365.5 3715,-335.5 3579,-335.5"/>
-<text text-anchor="start" x="3587" y="-353.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/utils/math/relaxation</text>
-<text text-anchor="middle" x="3647" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">/PointJacobi.h</text>
-</a>
-</g>
-</g>
-<!-- Node15&#45;&gt;Node26 -->
-<g id="edge32" class="edge">
-<title>Node15&#45;&gt;Node26</title>
-<path fill="none" stroke="midnightblue" d="M3647,-397.41C3647,-387.22 3647,-374.9 3647,-365.59"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="3643.5,-397.73 3647,-407.73 3650.5,-397.73 3643.5,-397.73"/>
-</g>
-<!-- Node28 -->
-<g id="node26" class="node">
-<title>Node28</title>
-<g id="a_node26"><a xlink:href="../../d6/db9/GaussSeidel_8h.html" target="_top" xlink:title="This file contains the implementation of the Gauss&#45;Seidel method for solving systems of linear equati...">
+<g id="a_node24"><a xlink:href="../../d6/db9/GaussSeidel_8h.html" target="_top" xlink:title="This file contains the implementation of the Gauss&#45;Seidel method for solving systems of linear equati...">
 <polygon fill="white" stroke="black" points="3732,-268.5 3732,-298.5 3868,-298.5 3868,-268.5 3732,-268.5"/>
 <text text-anchor="start" x="3740" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/utils/math/relaxation</text>
 <text text-anchor="middle" x="3800" y="-275.5" font-family="Helvetica,sans-Serif" font-size="10.00">/GaussSeidel.h</text>
 </a>
 </g>
 </g>
-<!-- Node15&#45;&gt;Node28 -->
-<g id="edge37" class="edge">
-<title>Node15&#45;&gt;Node28</title>
+<!-- Node15&#45;&gt;Node26 -->
+<g id="edge32" class="edge">
+<title>Node15&#45;&gt;Node26</title>
 <path fill="none" stroke="midnightblue" d="M3670.85,-402.9C3686.61,-393.44 3707.34,-380.04 3724,-366 3749.15,-344.8 3774.41,-315.82 3788.55,-298.74"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="3669.05,-399.9 3662.21,-408 3672.61,-405.93 3669.05,-399.9"/>
+</g>
+<!-- Node27 -->
+<g id="node25" class="node">
+<title>Node27</title>
+<g id="a_node25"><a xlink:href="../../dd/d7b/PointJacobi_8h.html" target="_top" xlink:title="This file contains the implementation of the Point Jacobi method for solving systems of linear equati...">
+<polygon fill="white" stroke="black" points="3579,-335.5 3579,-365.5 3715,-365.5 3715,-335.5 3579,-335.5"/>
+<text text-anchor="start" x="3587" y="-353.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/utils/math/relaxation</text>
+<text text-anchor="middle" x="3647" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">/PointJacobi.h</text>
+</a>
+</g>
+</g>
+<!-- Node15&#45;&gt;Node27 -->
+<g id="edge35" class="edge">
+<title>Node15&#45;&gt;Node27</title>
+<path fill="none" stroke="midnightblue" d="M3647,-397.41C3647,-387.22 3647,-374.9 3647,-365.59"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="3643.5,-397.73 3647,-407.73 3650.5,-397.73 3643.5,-397.73"/>
 </g>
 <!-- Node29 -->
 <g id="node27" class="node">
@@ -540,53 +540,53 @@ var sectionId = 'dynsection-1';
 <polygon fill="midnightblue" stroke="midnightblue" points="3558.64,-202.39 3569.2,-201.48 3560.38,-195.61 3558.64,-202.39"/>
 </g>
 <!-- Node26&#45;&gt;Node23 -->
-<g id="edge35" class="edge">
+<g id="edge33" class="edge">
 <title>Node26&#45;&gt;Node23</title>
+<path fill="none" stroke="midnightblue" d="M3789.85,-258.94C3784.94,-247.54 3779.34,-234.55 3775.75,-226.19"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="3786.75,-260.6 3793.92,-268.4 3793.18,-257.83 3786.75,-260.6"/>
+</g>
+<!-- Node26&#45;&gt;Node24 -->
+<g id="edge34" class="edge">
+<title>Node26&#45;&gt;Node24</title>
+<path fill="none" stroke="midnightblue" d="M3752.12,-264.82C3723.83,-254.37 3688.51,-241.32 3662.11,-231.58"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="3751.22,-268.21 3761.81,-268.4 3753.64,-261.65 3751.22,-268.21"/>
+</g>
+<!-- Node27&#45;&gt;Node23 -->
+<g id="edge38" class="edge">
+<title>Node27&#45;&gt;Node23</title>
 <path fill="none" stroke="midnightblue" d="M3667.04,-327.78C3682.3,-311.29 3703.86,-288.12 3723,-268 3737.14,-253.13 3753.83,-236.03 3763.62,-226.03"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="3664.32,-325.57 3660.1,-335.29 3669.45,-330.32 3664.32,-325.57"/>
 </g>
-<!-- Node26&#45;&gt;Node24 -->
-<g id="edge36" class="edge">
-<title>Node26&#45;&gt;Node24</title>
+<!-- Node27&#45;&gt;Node24 -->
+<g id="edge39" class="edge">
+<title>Node27&#45;&gt;Node24</title>
 <path fill="none" stroke="midnightblue" d="M3649.68,-325.14C3650.82,-308.79 3651.1,-286.87 3647,-268 3644.18,-255.01 3637.72,-241.35 3632.36,-231.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="3646.16,-325.2 3648.79,-335.46 3653.13,-325.8 3646.16,-325.2"/>
 </g>
-<!-- Node27 -->
-<g id="node25" class="node">
-<title>Node27</title>
-<g id="a_node25"><a xlink:href="../../dd/d66/labs_2inlab6_2Compute_8h.html" target="_top" xlink:title="This file contains the Compute namespace which includes methods for inlab6 in NE591&#45;008.">
+<!-- Node28 -->
+<g id="node26" class="node">
+<title>Node28</title>
+<g id="a_node26"><a xlink:href="../../dd/d66/labs_2inlab6_2Compute_8h.html" target="_top" xlink:title="This file contains the Compute namespace which includes methods for inlab6 in NE591&#45;008.">
 <polygon fill="white" stroke="black" points="2909.5,-274 2909.5,-293 3052.5,-293 3052.5,-274 2909.5,-274"/>
 <text text-anchor="middle" x="2981" y="-281" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/inlab6/Compute.h</text>
 </a>
 </g>
 </g>
-<!-- Node26&#45;&gt;Node27 -->
-<g id="edge33" class="edge">
-<title>Node26&#45;&gt;Node27</title>
+<!-- Node27&#45;&gt;Node28 -->
+<g id="edge36" class="edge">
+<title>Node27&#45;&gt;Node28</title>
 <path fill="none" stroke="midnightblue" d="M3568.4,-345.06C3455.7,-338.18 3241.85,-323.13 3061,-299 3048.97,-297.39 3035.99,-295.23 3024.06,-293.07"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="3568.46,-348.57 3578.66,-345.69 3568.89,-341.59 3568.46,-348.57"/>
 </g>
-<!-- Node27&#45;&gt;Node17 -->
-<g id="edge34" class="edge">
-<title>Node27&#45;&gt;Node17</title>
+<!-- Node28&#45;&gt;Node17 -->
+<g id="edge37" class="edge">
+<title>Node28&#45;&gt;Node17</title>
 <path fill="none" stroke="midnightblue" d="M2932.92,-271.72C2875.82,-258.92 2781.72,-237.83 2729.3,-226.08"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="2932.27,-275.16 2942.79,-273.94 2933.8,-268.33 2932.27,-275.16"/>
 </g>
-<!-- Node28&#45;&gt;Node23 -->
-<g id="edge38" class="edge">
-<title>Node28&#45;&gt;Node23</title>
-<path fill="none" stroke="midnightblue" d="M3789.85,-258.94C3784.94,-247.54 3779.34,-234.55 3775.75,-226.19"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="3786.75,-260.6 3793.92,-268.4 3793.18,-257.83 3786.75,-260.6"/>
-</g>
-<!-- Node28&#45;&gt;Node24 -->
-<g id="edge39" class="edge">
-<title>Node28&#45;&gt;Node24</title>
-<path fill="none" stroke="midnightblue" d="M3752.12,-264.82C3723.83,-254.37 3688.51,-241.32 3662.11,-231.58"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="3751.22,-268.21 3761.81,-268.4 3753.64,-261.65 3751.22,-268.21"/>
-</g>
-<!-- Node29&#45;&gt;Node28 -->
+<!-- Node29&#45;&gt;Node26 -->
 <g id="edge41" class="edge">
-<title>Node29&#45;&gt;Node28</title>
+<title>Node29&#45;&gt;Node26</title>
 <path fill="none" stroke="midnightblue" d="M3825.25,-326.58C3819.64,-317.24 3813.35,-306.75 3808.45,-298.58"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="3822.39,-328.62 3830.54,-335.4 3828.39,-325.02 3822.39,-328.62"/>
 </g>
