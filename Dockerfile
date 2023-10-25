@@ -54,7 +54,7 @@ FROM base as debugger
 
 # Install gdb and gdb-gdbserver for debugging and perf, systemtap for profiling
 # Clean the yum cache and remove unnecessary packages
-RUN yum -y install gdb gdb-gdbserver perf systemtap strace && \
+RUN yum -y install gdb gdb-gdbserver perf systemtap strace python3 && \
     yum -y clean all && \
     yum -y autoremove && dnf clean all && \
     rm -rf /var/cache/*

@@ -58,5 +58,8 @@ if (NOT TARGET utils)
     target_include_directories(utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 endif ()
 
+# Link utils against Boost libraries
+target_link_libraries(utils Boost::program_options Boost::serialization)
+
 add_subdirectory(physics)
 add_subdirectory(math)

@@ -67,14 +67,13 @@ Sources and file paths for each deliverable follow the following structure:
 │   │   ├── inlab2
 │   │   ├── outlab2
 │   │   ├── ...
-│   ├── ...
+│   ├── utils                        <= Helper methods
+│   │   ├── math                     
+│   │   │   ├── blas                 <= Self implemented Math, BLAS libraries
+│   │   ├── CheckBounds.h
+│   │   ├── CommandLine.h            <= Other helper functions
+│   │   ├── ...
 ├── ...
-├── utils                        <= Helper methods
-│   ├── math                     
-│   │   ├── blas                 <= Self implemented Math, BLAS libraries
-│   ├── CheckBounds.h
-│   ├── CommandLine.h            <= Other helper functions
-│   ├── ...
 ├── external                     <= External dependencies
 ```
 

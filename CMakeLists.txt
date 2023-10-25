@@ -12,6 +12,8 @@ option(BUILD_TESTS "Build the tests" ON)  # Influences CTest.
 option(CODE_COVERAGE "Perform code coverage analysis" OFF)
 option(PORTABLE "Build without CPU specific optimizations" OFF)
 option(BUILD_PERFORMANCE_BENCHMARKS "Build performance benchmarks" OFF)
+option(ENABLE_PGO "Enable Profile-Guided Optimization (PGO)" OFF)
+option(ENABLE_LTO "Enable Link Time Optimization (LTO)" ON)
 ####################### Options ##################### }}}
 
 # Add the resources/cmake folder to Module Search Path
@@ -25,13 +27,13 @@ include_directories("${PROJECT_SOURCE_DIR}/src")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)  # Needed for Clang Tooling.
 
-# Default to C++20.
+# Default to C++17.
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # Enable Link-Time Optimization (LTO)
-set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ${ENABLE_LTO})
 
 function(CHECK_COMPILER_VERSION MIN_VERSION)
     if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS MIN_VERSION)
@@ -86,6 +88,17 @@ if (CODE_COVERAGE)
     endif ()
 endif ()
 
+## Profiler Guided Optimization
+if(ENABLE_PGO)
+    if(CMAKE_BUILD_TYPE STREQUAL "Release")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-generate")
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-generate")
+    elseif(CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-use -fprofile-correction")
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-use -fprofile-correction")
+    endif()
+endif()
+
 add_compile_options(${PROJECT_CXX_FLAGS})
 add_link_options(${PROJECT_CXX_LINK_FLAGS})
 message(STATUS "Extra compile flags: ${PROJECT_CXX_FLAGS}")
@@ -93,18 +106,13 @@ message(STATUS "Extra link flags: ${PROJECT_CXX_LINK_FLAGS}")
 
 ######################## End compiler configurations #################### }}}
 
-## BOOST,ss
-set(BOOST_MIN_VERSION "1.66.0" COMPONENTS program_options serialization) # COMPONENTS program_options
-SET(Boost_USE_STATIC_LIBS OFF)
-set(Boost_USE_MULTITHREADED ON)
-SET(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost ${BOOST_MIN_VERSION} REQUIRED)
-message(STATUS "Boost Include directory: ${Boost_INCLUDE_DIR}")
-message(STATUS "Boost Library directories: ${Boost_LIBRARY_DIRS}")
-list(APPEND LIBS ${Boost_LIBRARIES})
+### Boost
+set(BOOST_URL https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.bz2)
+set(BOOST_URL_SHA256 6478edfe2f3305127cffe8caf73ea0176c53769f4bf1585be237eb30798c3b8e)
+add_subdirectory(external/boost-cmake)
+
 list(APPEND LIBS ${CMAKE_DL_LIBS})
 message(STATUS "Libraries: ${LIBS}")
-include_directories(SYSTEM "${Boost_INCLUDE_DIR}")
 
 include_directories("${CMAKE_SOURCE_DIR}")  # Include the core headers via "src".
 
