@@ -1,8 +1,6 @@
 var dir_607cbc66c57a0f67766ebe1d0e664fdc =
 [
-    [ "LazyVector.h", "de/dcb/LazyVector_8h.html", [
-      [ "LazyVector", "d6/d07/classMyBLAS_1_1LazyVector.html", "d6/d07/classMyBLAS_1_1LazyVector" ]
-    ] ],
+    [ "LazyVector.h", "de/dcb/LazyVector_8h.html", "de/dcb/LazyVector_8h" ],
     [ "MatrixVectorExpression.h", "d2/dc6/MatrixVectorExpression_8h.html", [
       [ "MatrixVectorExpression", "d4/d68/classMatrixVectorExpression.html", "d4/d68/classMatrixVectorExpression" ]
     ] ],

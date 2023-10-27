@@ -7,6 +7,8 @@ var classMyBLAS_1_1LazyMatrix =
     [ "LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681", null ],
     [ "~LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a620b053154361e3b116ce1a55dbfcbda", null ],
     [ "LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a540639684dc86f0205f91bc084910715", null ],
+    [ "LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a30c8efb64775561dd4dfb1632782ac5a", null ],
+    [ "LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4ab6dcb0f33a2f8474e97e01659e5fa", null ],
     [ "getCols", "d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0", null ],
     [ "getRows", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695", null ],
     [ "operator()", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a02e772e260576b39c43c25bacb0180e7", null ],
@@ -50,5 +52,6 @@ var classMyBLAS_1_1LazyMatrix =
     [ "operator==", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a2be27d45be765e6669f62749e9070ffc", null ],
     [ "cols_", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010", null ],
     [ "generator_", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78", null ],
+    [ "matrix_", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a1a9bea38a8a7b30495fb7b285f178599", null ],
     [ "rows_", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f", null ]
 ];

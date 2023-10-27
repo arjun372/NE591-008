@@ -32,6 +32,7 @@ var classMyBLAS_1_1Matrix =
     [ "setSubMatrix", "d0/d27/classMyBLAS_1_1Matrix.html#a420b27d81659c030bfbbd5b89a304734", null ],
     [ "subMatrix", "d0/d27/classMyBLAS_1_1Matrix.html#ad19043186fc1ff51ca83d91ffec9e2e5", null ],
     [ "swapRows", "d0/d27/classMyBLAS_1_1Matrix.html#a95f15a700d1ac3c9639ee831da4c903c", null ],
+    [ "operator*", "d0/d27/classMyBLAS_1_1Matrix.html#ade5ee5b1cf9598805aa555b65f1b7f5e", null ],
     [ "operator<<", "d0/d27/classMyBLAS_1_1Matrix.html#a060711074cb5bcaf4e75498bc040c4b7", null ],
     [ "data", "d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08", null ]
 ];

@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('d0/d87/classMyPhysics_1_1Diffusion_1_1
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/db3/classMyPhysics_1_1Diffusion_1_1Matrix__coll__graph.svg" width="430" height="346"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/db3/classMyPhysics_1_1Diffusion_1_1Matrix__coll__graph.svg" width="430" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -267,6 +267,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a3054cd9b972d3919c2a5be3caae5ff78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422">Generator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a></td></tr>
 <tr class="memdesc:a3054cd9b972d3919c2a5be3caae5ff78"><td class="mdescLeft">&#160;</td><td class="mdescRight">The generator function that computes the values of the LazyMatrix.  <a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">More...</a><br /></td></tr>
 <tr class="separator:a3054cd9b972d3919c2a5be3caae5ff78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a9bea38a8a7b30495fb7b285f178599"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a1a9bea38a8a7b30495fb7b285f178599">matrix_</a></td></tr>
+<tr class="memdesc:a1a9bea38a8a7b30495fb7b285f178599"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shared pointer to the memory backed matrix.  <a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a1a9bea38a8a7b30495fb7b285f178599">More...</a><br /></td></tr>
+<tr class="separator:a1a9bea38a8a7b30495fb7b285f178599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -369,9 +372,9 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">generate</a>(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j, <a class="code" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">_constants</a>);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        });</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a03ded3b6b923777cb3b1dbd0eacc2469"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">MyBLAS::LazyMatrix&lt; T &gt;::setCols</a></div><div class="ttdeci">void setCols(size_t cols)</div><div class="ttdoc">Setter for the number of columns in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:632</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a221cf0cda155cf5fc252f42c319ab1df"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator</a></div><div class="ttdeci">void setGenerator(const Generator &amp;generator)</div><div class="ttdoc">Setter for the generator function of the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:638</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a5950f1f4d71a26d7df7c447578f97aa2"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">MyBLAS::LazyMatrix&lt; T &gt;::setRows</a></div><div class="ttdeci">void setRows(size_t rows)</div><div class="ttdoc">Setter for the number of rows in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:626</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a03ded3b6b923777cb3b1dbd0eacc2469"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a03ded3b6b923777cb3b1dbd0eacc2469">MyBLAS::LazyMatrix&lt; T &gt;::setCols</a></div><div class="ttdeci">void setCols(size_t cols)</div><div class="ttdoc">Setter for the number of columns in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:656</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a221cf0cda155cf5fc252f42c319ab1df"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator</a></div><div class="ttdeci">void setGenerator(const Generator &amp;generator)</div><div class="ttdoc">Setter for the generator function of the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:662</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a5950f1f4d71a26d7df7c447578f97aa2"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a5950f1f4d71a26d7df7c447578f97aa2">MyBLAS::LazyMatrix&lt; T &gt;::setRows</a></div><div class="ttdeci">void setRows(size_t rows)</div><div class="ttdoc">Setter for the number of rows in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:650</div></div>
 <div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_a2632f681737490169cd3b99126a33c4a"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a">MyPhysics::Diffusion::Matrix::_size</a></div><div class="ttdeci">size_t _size</div><div class="ttdoc">The size of the matrix.</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:47</div></div>
 <div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_a7665dfc140535a981abec6120be9dfa3"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7665dfc140535a981abec6120be9dfa3">MyPhysics::Diffusion::Matrix::_constants</a></div><div class="ttdeci">Constants&lt; T &gt; _constants</div><div class="ttdoc">The constants used in the diffusion process.</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:51</div></div>
 <div class="ttc" id="aclassMyPhysics_1_1Diffusion_1_1Matrix_html_accf0012585f5c7af122ca043990547ec"><div class="ttname"><a href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec">MyPhysics::Diffusion::Matrix::generate</a></div><div class="ttdeci">static T generate(size_t idx, size_t idy, const Constants&lt; T &gt; &amp;c)</div><div class="ttdoc">Generates a matrix element.</div><div class="ttdef"><b>Definition:</b> DiffusionMatrix.h:107</div></div>
@@ -381,7 +384,7 @@ template&lt;typename T &gt; </div>
 <div class="ttc" id="astructMyPhysics_1_1Diffusion_1_1Params_html_a4baf3f31fe7d8290e9b83a5d50832293"><div class="ttname"><a href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a4baf3f31fe7d8290e9b83a5d50832293">MyPhysics::Diffusion::Params::getM</a></div><div class="ttdeci">size_t getM() const</div><div class="ttdoc">Get the number of mesh points in the x-direction.</div><div class="ttdef"><b>Definition:</b> DiffusionParams.h:292</div></div>
 <div class="ttc" id="astructMyPhysics_1_1Diffusion_1_1Params_html_af03d96d9d471d6953b819b548bb633d9"><div class="ttname"><a href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#af03d96d9d471d6953b819b548bb633d9">MyPhysics::Diffusion::Params::getN</a></div><div class="ttdeci">size_t getN() const</div><div class="ttdoc">Get the number of mesh points in the y-direction.</div><div class="ttdef"><b>Definition:</b> DiffusionParams.h:299</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00107">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00632">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00638">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00626">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00107">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00656">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00662">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00650">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -436,7 +439,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
 <div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">MyBLAS::LazyMatrix&lt; T &gt;</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00107">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00632">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00638">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00626">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00107">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00656">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00662">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00650">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -499,7 +502,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a221cf0cda155cf5fc252f42c319ab1df">setGenerator</a>(generator);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00632">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00638">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00626">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, <a class="el" href="../../#l00656">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00662">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00650">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -807,10 +810,10 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The computed value at the specified row and column. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                                              {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>(<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>, col);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a3054cd9b972d3919c2a5be3caae5ff78"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">MyBLAS::LazyMatrix&lt; T &gt;::generator_</a></div><div class="ttdeci">Generator generator_</div><div class="ttdoc">The generator function that computes the values of the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:619</div></div>
+<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                                              {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>(<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>, col);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a3054cd9b972d3919c2a5be3caae5ff78"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">MyBLAS::LazyMatrix&lt; T &gt;::generator_</a></div><div class="ttdeci">Generator generator_</div><div class="ttdoc">The generator function that computes the values of the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:638</div></div>
 <div class="ttc" id="anamespaceprocess_html_a642508a3f698c3dc98a03f79a3b625d3"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">process.row</a></div><div class="ttdeci">row</div><div class="ttdef"><b>Definition:</b> process.py:24</div></div>
 </div><!-- fragment -->
 </div>
@@ -853,12 +856,12 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A LazyMatrix that represents the result of the multiplication. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                                                {</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * scalar; });</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a19df35bdca989adb5f016678ba149695"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">MyBLAS::LazyMatrix&lt; T &gt;::getRows</a></div><div class="ttdeci">virtual size_t getRows() const</div><div class="ttdoc">Returns the number of rows in the matrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:63</div></div>
+<div class="fragment"><div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                                                {</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * scalar; });</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a19df35bdca989adb5f016678ba149695"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">MyBLAS::LazyMatrix&lt; T &gt;::getRows</a></div><div class="ttdeci">virtual size_t getRows() const</div><div class="ttdoc">Returns the number of rows in the matrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:64</div></div>
 <div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_ac4dda47a455caeae9cfc442659d1d681"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">MyBLAS::LazyMatrix&lt; T &gt;::LazyMatrix</a></div><div class="ttdeci">LazyMatrix()=default</div><div class="ttdoc">Default constructor for the LazyMatrix class.</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_adf8f185e46b07c34f43bfefe18a1a6b0"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">MyBLAS::LazyMatrix&lt; T &gt;::getCols</a></div><div class="ttdeci">virtual size_t getCols() const</div><div class="ttdoc">Returns the number of columns in the matrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:70</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_adf8f185e46b07c34f43bfefe18a1a6b0"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">MyBLAS::LazyMatrix&lt; T &gt;::getCols</a></div><div class="ttdeci">virtual size_t getCols() const</div><div class="ttdoc">Returns the number of columns in the matrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:71</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -894,11 +897,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the current matrix which now represents the result of the multiplication. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                                                {</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                                                {</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -934,11 +937,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the current matrix which now represents the result of the multiplication. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                                            {</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * scalar; };</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                                            {</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) * scalar; };</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -980,9 +983,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A LazyMatrix that represents the result of the addition. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                                                {</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + scalar; });</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                                                {</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + scalar; });</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1018,11 +1021,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the current matrix which now represents the result of the addition. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                                                {</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                                                {</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1058,11 +1061,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the current matrix which now represents the result of the addition. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                                            {</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + scalar; };</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;                                            {</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) + scalar; };</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1091,9 +1094,9 @@ template&lt;typename T &gt; </div>
 
 <p>Overload of the unary negation operator for a LazyMatrix. </p>
 <p>This function performs element-wise negation on a LazyMatrix. </p><dl class="section return"><dt>Returns</dt><dd>A LazyMatrix that represents the result of the negation. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                                 {</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> -(*this)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); });</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                                 {</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> -(*this)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); });</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1135,9 +1138,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A LazyMatrix that represents the result of the subtraction. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                                                {</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - scalar; });</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                                                {</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - scalar; });</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1173,11 +1176,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the current matrix which now represents the result of the subtraction. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                                                 {</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                                                 {</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1213,11 +1216,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the current matrix which now represents the result of the subtraction. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                                            {</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - scalar; };</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;                                            {</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) - scalar; };</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1259,9 +1262,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A LazyMatrix that represents the result of the division. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                                                {</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / scalar; });</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                                                {</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#ac4dda47a455caeae9cfc442659d1d681">LazyMatrix</a>(<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695">getRows</a>(), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">getCols</a>(), [<span class="keyword">this</span>, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> (*<span class="keyword">this</span>)(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / scalar; });</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1297,11 +1300,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the current matrix which now represents the result of the division. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                                                {</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                                                {</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [old_gen, b](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / b(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1337,11 +1340,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the current matrix which now represents the result of the division. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                                            {</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / scalar; };</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;                                            {</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;        <span class="keyword">auto</span> old_gen = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [<span class="keyword">this</span>, old_gen, scalar](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> old_gen(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j) / scalar; };</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1393,7 +1396,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00107">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00632">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00638">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00626">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00051">MyPhysics::Diffusion::Matrix&lt; T &gt;::_constants</a>, <a class="el" href="../../#l00043">MyPhysics::Diffusion::Matrix&lt; T &gt;::_params</a>, <a class="el" href="../../#l00047">MyPhysics::Diffusion::Matrix&lt; T &gt;::_size</a>, <a class="el" href="../../#l00107">MyPhysics::Diffusion::Matrix&lt; T &gt;::generate()</a>, <a class="el" href="../../#l00023">i</a>, <a class="el" href="../../#l00656">MyBLAS::LazyMatrix&lt; T &gt;::setCols()</a>, <a class="el" href="../../#l00662">MyBLAS::LazyMatrix&lt; T &gt;::setGenerator()</a>, and <a class="el" href="../../#l00650">MyBLAS::LazyMatrix&lt; T &gt;::setRows()</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -1437,9 +1440,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A Proxy object representing the row at the given index. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                                 {</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;        <span class="keywordflow">return</span> Proxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;                                 {</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        <span class="keywordflow">return</span> Proxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1475,9 +1478,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A ConstProxy object representing the row at the given index. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                                            {</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        <span class="keywordflow">return</span> ConstProxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                                            {</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        <span class="keywordflow">return</span> ConstProxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1512,8 +1515,8 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a> = cols; }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a8b15617e180289ea3dcfddea93712010"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">MyBLAS::LazyMatrix&lt; T &gt;::cols_</a></div><div class="ttdeci">size_t cols_</div><div class="ttdoc">The number of columns in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:614</div></div>
+<div class="fragment"><div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a> = cols; }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a8b15617e180289ea3dcfddea93712010"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">MyBLAS::LazyMatrix&lt; T &gt;::cols_</a></div><div class="ttdeci">size_t cols_</div><div class="ttdoc">The number of columns in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:633</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1548,7 +1551,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = generator; }</div>
+<div class="fragment"><div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = generator; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1583,8 +1586,8 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a> = rows; }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a65f38861fe066e8e077f0aed9519d33f"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">MyBLAS::LazyMatrix&lt; T &gt;::rows_</a></div><div class="ttdeci">size_t rows_</div><div class="ttdoc">The number of rows in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:609</div></div>
+<div class="fragment"><div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a> = rows; }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a65f38861fe066e8e077f0aed9519d33f"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">MyBLAS::LazyMatrix&lt; T &gt;::rows_</a></div><div class="ttdeci">size_t rows_</div><div class="ttdoc">The number of rows in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:628</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1718,6 +1721,30 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>The generator function that computes the values of the LazyMatrix. </p>
+
+</div>
+</div>
+<a id="a1a9bea38a8a7b30495fb7b285f178599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a9bea38a8a7b30495fb7b285f178599">&#9670;&nbsp;</a></span>matrix_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt;T &gt; &gt; <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">MyBLAS::LazyMatrix</a>&lt; T  &gt;::matrix_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A shared pointer to the memory backed matrix. </p>
 
 </div>
 </div>

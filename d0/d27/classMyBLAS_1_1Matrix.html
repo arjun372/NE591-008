@@ -151,7 +151,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a883b252d42659e1905ca190494b81ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initializes the matrix with a given 2D vector.  <a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a883b252d42659e1905ca190494b81ba1">More...</a><br /></td></tr>
 <tr class="separator:a883b252d42659e1905ca190494b81ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a727514e013177ce3bb50d8cd2ad532eb"><td class="memTemplParams" colspan="2">template&lt;class MatrixType &gt; </td></tr>
-<tr class="memitem:a727514e013177ce3bb50d8cd2ad532eb"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a727514e013177ce3bb50d8cd2ad532eb">Matrix</a> (MatrixType matrix)</td></tr>
+<tr class="memitem:a727514e013177ce3bb50d8cd2ad532eb"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a727514e013177ce3bb50d8cd2ad532eb">Matrix</a> (<a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a> matrix)</td></tr>
 <tr class="memdesc:a727514e013177ce3bb50d8cd2ad532eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initializes the matrix with another matrix.  <a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a727514e013177ce3bb50d8cd2ad532eb">More...</a><br /></td></tr>
 <tr class="separator:a727514e013177ce3bb50d8cd2ad532eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5029a33f8e290f79960bfd0e75227f64"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a5029a33f8e290f79960bfd0e75227f64">Matrix</a> (size_t _rows, size_t _cols, const T _initial=0)</td></tr>
@@ -249,6 +249,9 @@ Protected Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
+<tr class="memitem:ade5ee5b1cf9598805aa555b65f1b7f5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html#ade5ee5b1cf9598805aa555b65f1b7f5e">operator*</a> (const T &amp;scalar, const <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">Matrix</a> &amp;<a class="el" href="../../db/dde/readfile_8m.html#a1352f112f57d3fce1732e0e08f35efe2">m</a>)</td></tr>
+<tr class="memdesc:ade5ee5b1cf9598805aa555b65f1b7f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friend function to overload the operator* for scalar * matrix.  <a href="../../d0/d27/classMyBLAS_1_1Matrix.html#ade5ee5b1cf9598805aa555b65f1b7f5e">More...</a><br /></td></tr>
+<tr class="separator:ade5ee5b1cf9598805aa555b65f1b7f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a060711074cb5bcaf4e75498bc040c4b7"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a060711074cb5bcaf4e75498bc040c4b7">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">Matrix</a> &amp;<a class="el" href="../../db/dde/readfile_8m.html#a1352f112f57d3fce1732e0e08f35efe2">m</a>)</td></tr>
 <tr class="memdesc:a060711074cb5bcaf4e75498bc040c4b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator&lt;&lt; to print the matrix to an output stream.  <a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a060711074cb5bcaf4e75498bc040c4b7">More...</a><br /></td></tr>
 <tr class="separator:a060711074cb5bcaf4e75498bc040c4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -408,7 +411,7 @@ template&lt;class MatrixType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; T &gt;::<a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">Matrix</a> </td>
           <td>(</td>
-          <td class="paramtype">MatrixType&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&#160;</td>
           <td class="paramname"><em>matrix</em></td><td>)</td>
           <td></td>
         </tr>
@@ -429,7 +432,7 @@ template&lt;class MatrixType &gt; </div>
 </dl>
 <p>This constructor allows for initializing a <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html" title="Class representing a matrix of T type values.">Matrix</a> from another <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html" title="Class representing a matrix of T type values.">Matrix</a> or a compatible type. </p>
 <div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                       {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = matrix.getRows(), cols = matrix.getCols();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = matrix.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>(), cols = matrix.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">getCols</a>();</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a> = std::vector&lt;std::vector&lt;T&gt;&gt;(rows, std::vector&lt;T&gt;(cols, 0));</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; rows; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; cols; ++j) {</div>
@@ -437,9 +440,19 @@ template&lt;class MatrixType &gt; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a0772df3e76eadc9035e847316de0d249"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">MyBLAS::Matrix::getRows</a></div><div class="ttdeci">size_t getRows() const</div><div class="ttdoc">Getter for the number of rows in the matrix.</div><div class="ttdef"><b>Definition:</b> Matrix.h:183</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a720cd9095d330d43de367bfbffffb864"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">MyBLAS::Matrix::getCols</a></div><div class="ttdeci">size_t getCols() const</div><div class="ttdoc">Getter for the number of columns in the matrix.</div><div class="ttdef"><b>Definition:</b> Matrix.h:191</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a727514e013177ce3bb50d8cd2ad532eb_cgraph.svg" width="426" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -660,12 +673,12 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00023">i</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00112">Parser::buildInputs()</a>, <a class="el" href="../../#l00031">dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00155">factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, and <a class="el" href="../../#l00100">MyBLAS::TYPED_TEST()</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00112">Parser::buildInputs()</a>, <a class="el" href="../../#l00031">dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00155">factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, and <a class="el" href="../../#l00125">MyBLAS::TYPED_TEST()</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_af038a1ce616639b7e9f9e3955bb6bd02_icgraph.svg" width="590" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -705,12 +718,12 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00127">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00553">MyBLAS::cast()</a>, <a class="el" href="../../#l00058">MyBLAS::LU::doolittleFactorize()</a>, <a class="el" href="../../#l00058">MyBLAS::doolittleFactorizeLU()</a>, <a class="el" href="../../#l00031">dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00113">MyBLAS::isValidUpperTriangularMatrix()</a>, <a class="el" href="../../#l00128">naive_solve_linear_system()</a>, <a class="el" href="../../#l00122">MyBLAS::Matrix&lt; T &gt;::operator()()</a>, <a class="el" href="../../#l00249">MyBLAS::Matrix&lt; T &gt;::operator*()</a>, <a class="el" href="../../#l00213">MyBLAS::Matrix&lt; T &gt;::operator+()</a>, <a class="el" href="../../#l00231">MyBLAS::Matrix&lt; T &gt;::operator-()</a>, <a class="el" href="../../#l00409">MyBLAS::Matrix&lt; T &gt;::operator/()</a>, <a class="el" href="../../#l00373">MyBLAS::Matrix&lt; T &gt;::operator==()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00105">MyBLAS::LU::recursiveLUFactorize()</a>, <a class="el" href="../../#l00265">MyPhysics::Diffusion::Params&lt; FloatType &gt;::setSources()</a>, <a class="el" href="../../#l00329">MyBLAS::Matrix&lt; T &gt;::setSubMatrix()</a>, <a class="el" href="../../#l00348">MyBLAS::Matrix&lt; T &gt;::subMatrix()</a>, <a class="el" href="../../#l00010">TEST_P()</a>, and <a class="el" href="../../#l00025">MyBLAS::TYPED_TEST()</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00127">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00563">MyBLAS::cast()</a>, <a class="el" href="../../#l00058">MyBLAS::LU::doolittleFactorize()</a>, <a class="el" href="../../#l00058">MyBLAS::doolittleFactorizeLU()</a>, <a class="el" href="../../#l00061">MyBLAS::LUP::dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00031">dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00039">MyBLAS::isEmptyMatrix()</a>, <a class="el" href="../../#l00027">MyBLAS::isSquareMatrix()</a>, <a class="el" href="../../#l00113">MyBLAS::isValidUpperTriangularMatrix()</a>, <a class="el" href="../../#l00064">MyBLAS::Matrix&lt; T &gt;::Matrix()</a>, <a class="el" href="../../#l00128">naive_solve_linear_system()</a>, <a class="el" href="../../#l00122">MyBLAS::Matrix&lt; T &gt;::operator()()</a>, <a class="el" href="../../#l00249">MyBLAS::Matrix&lt; T &gt;::operator*()</a>, <a class="el" href="../../#l00213">MyBLAS::Matrix&lt; T &gt;::operator+()</a>, <a class="el" href="../../#l00231">MyBLAS::Matrix&lt; T &gt;::operator-()</a>, <a class="el" href="../../#l00419">MyBLAS::Matrix&lt; T &gt;::operator/()</a>, <a class="el" href="../../#l00373">MyBLAS::Matrix&lt; T &gt;::operator==()</a>, <a class="el" href="../../#l00109">MyBLAS::LUP::recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00105">MyBLAS::LU::recursiveLUFactorize()</a>, <a class="el" href="../../#l00265">MyPhysics::Diffusion::Params&lt; FloatType &gt;::setSources()</a>, <a class="el" href="../../#l00329">MyBLAS::Matrix&lt; T &gt;::setSubMatrix()</a>, <a class="el" href="../../#l00348">MyBLAS::Matrix&lt; T &gt;::subMatrix()</a>, <a class="el" href="../../#l00010">TEST_P()</a>, and <a class="el" href="../../#l00025">MyBLAS::TYPED_TEST()</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a720cd9095d330d43de367bfbffffb864_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -782,11 +795,11 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00031">Input::toJSON()</a>, <a class="el" href="../../#l00038">MyBLAS::Input::toJSON()</a>, and <a class="el" href="../../#l00052">Map::toJSON()</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a23654643cd581a49d01f7575d4eabbbd_icgraph.svg" width="570" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -826,12 +839,12 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00127">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00185">Parser::buildInputs()</a>, <a class="el" href="../../#l00553">MyBLAS::cast()</a>, <a class="el" href="../../#l00155">factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00113">MyBLAS::isValidUpperTriangularMatrix()</a>, <a class="el" href="../../#l00138">MyBLAS::makeDiagonallyDominant()</a>, <a class="el" href="../../#l00128">naive_solve_linear_system()</a>, <a class="el" href="../../#l00122">MyBLAS::Matrix&lt; T &gt;::operator()()</a>, <a class="el" href="../../#l00249">MyBLAS::Matrix&lt; T &gt;::operator*()</a>, <a class="el" href="../../#l00213">MyBLAS::Matrix&lt; T &gt;::operator+()</a>, <a class="el" href="../../#l00231">MyBLAS::Matrix&lt; T &gt;::operator-()</a>, <a class="el" href="../../#l00409">MyBLAS::Matrix&lt; T &gt;::operator/()</a>, <a class="el" href="../../#l00373">MyBLAS::Matrix&lt; T &gt;::operator==()</a>, <a class="el" href="../../#l00144">MyBLAS::Matrix&lt; T &gt;::operator[]()</a>, <a class="el" href="../../#l00265">MyPhysics::Diffusion::Params&lt; FloatType &gt;::setSources()</a>, <a class="el" href="../../#l00329">MyBLAS::Matrix&lt; T &gt;::setSubMatrix()</a>, <a class="el" href="../../#l00348">MyBLAS::Matrix&lt; T &gt;::subMatrix()</a>, <a class="el" href="../../#l00458">MyBLAS::Matrix&lt; T &gt;::swapRows()</a>, <a class="el" href="../../#l00010">TEST_P()</a>, and <a class="el" href="../../#l00025">MyBLAS::TYPED_TEST()</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00127">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00277">MyBLAS::LUP::applyLUP()</a>, <a class="el" href="../../#l00053">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00185">Parser::buildInputs()</a>, <a class="el" href="../../#l00563">MyBLAS::cast()</a>, <a class="el" href="../../#l00256">MyBLAS::LUP::factorize()</a>, <a class="el" href="../../#l00185">MyBLAS::LUP::factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00155">factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00290">MyBLAS::haveEqualRank()</a>, <a class="el" href="../../#l00039">MyBLAS::isEmptyMatrix()</a>, <a class="el" href="../../#l00027">MyBLAS::isSquareMatrix()</a>, <a class="el" href="../../#l00113">MyBLAS::isValidUpperTriangularMatrix()</a>, <a class="el" href="../../#l00138">MyBLAS::makeDiagonallyDominant()</a>, <a class="el" href="../../#l00064">MyBLAS::Matrix&lt; T &gt;::Matrix()</a>, <a class="el" href="../../#l00057">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::multiplyMatrixVector()</a>, <a class="el" href="../../#l00128">naive_solve_linear_system()</a>, <a class="el" href="../../#l00122">MyBLAS::Matrix&lt; T &gt;::operator()()</a>, <a class="el" href="../../#l00249">MyBLAS::Matrix&lt; T &gt;::operator*()</a>, <a class="el" href="../../#l00213">MyBLAS::Matrix&lt; T &gt;::operator+()</a>, <a class="el" href="../../#l00231">MyBLAS::Matrix&lt; T &gt;::operator-()</a>, <a class="el" href="../../#l00419">MyBLAS::Matrix&lt; T &gt;::operator/()</a>, <a class="el" href="../../#l00373">MyBLAS::Matrix&lt; T &gt;::operator==()</a>, <a class="el" href="../../#l00144">MyBLAS::Matrix&lt; T &gt;::operator[]()</a>, <a class="el" href="../../#l00265">MyPhysics::Diffusion::Params&lt; FloatType &gt;::setSources()</a>, <a class="el" href="../../#l00329">MyBLAS::Matrix&lt; T &gt;::setSubMatrix()</a>, <a class="el" href="../../#l00348">MyBLAS::Matrix&lt; T &gt;::subMatrix()</a>, <a class="el" href="../../#l00468">MyBLAS::Matrix&lt; T &gt;::swapRows()</a>, <a class="el" href="../../#l00010">TEST_P()</a>, and <a class="el" href="../../#l00025">MyBLAS::TYPED_TEST()</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a0772df3e76eadc9035e847316de0d249_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -887,15 +900,13 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        assert(<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> &lt; <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>() &amp;&amp; col &lt; <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">getCols</a>());</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col];</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a0772df3e76eadc9035e847316de0d249"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">MyBLAS::Matrix::getRows</a></div><div class="ttdeci">size_t getRows() const</div><div class="ttdoc">Getter for the number of rows in the matrix.</div><div class="ttdef"><b>Definition:</b> Matrix.h:183</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a720cd9095d330d43de367bfbffffb864"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">MyBLAS::Matrix::getCols</a></div><div class="ttdeci">size_t getCols() const</div><div class="ttdoc">Getter for the number of columns in the matrix.</div><div class="ttdef"><b>Definition:</b> Matrix.h:191</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00024">process::row</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_abe64427fc8df7514e27ab486ae3ebdde_cgraph.svg" width="448" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -953,11 +964,11 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00024">process::row</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_aeaff60c335ac1d524a30b2fab4a0c2f8_cgraph.svg" width="448" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1015,11 +1026,11 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="ttc" id="aplot__points_8m_html_a1d29dc479da36afac98ac968a4e0e5a6"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a1d29dc479da36afac98ac968a4e0e5a6">k</a></div><div class="ttdeci">grid on grid minor box on Plot Plot k</div><div class="ttdef"><b>Definition:</b> plot_points.m:13</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00013">k</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a0bf69964f51bcc8d749e17567103919d_cgraph.svg" width="446" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1078,11 +1089,11 @@ template&lt;typename MatrixType1 , typename MatrixType2 &gt; </div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00013">k</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_aa5c26afedc712293c45994584b09fa34_cgraph.svg" width="446" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1141,11 +1152,11 @@ template&lt;typename MatrixType1 , typename MatrixType2 &gt; </div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00013">k</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a97d19657c901ebeb6f873c9afc1a1112_cgraph.svg" width="446" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1198,11 +1209,11 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00023">i</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_aa59ed308d9c711db7c720af23f5b7d3d_cgraph.svg" width="446" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1255,12 +1266,12 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00123">MyBLAS::Vector&lt; T &gt;::size()</a>.</p>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00125">MyBLAS::Vector&lt; T &gt;::size()</a>.</p>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_ae8360b27d9b22cb2060c29ac71ab20a7_cgraph.svg" width="446" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1315,11 +1326,11 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00023">i</a>.</p>
-<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a1eabd5defef6958c586b6be1809629d7_cgraph.svg" width="450" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1360,23 +1371,23 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Resultant matrix after addition. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                                            {</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>(), cols = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">getCols</a>();</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a27dded7e57ac10b3fc8eed92d3ac01e6">Matrix</a> result(rows, cols, 0);</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; rows; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; cols; ++j) {</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                result[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] = this-&gt;<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] + scalar;</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            }</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        }</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                                            {</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>(), cols = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">getCols</a>();</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a27dded7e57ac10b3fc8eed92d3ac01e6">Matrix</a> result(rows, cols, 0);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; rows; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; cols; ++j) {</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;                result[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] = this-&gt;<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] + scalar;</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            }</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        }</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00023">i</a>.</p>
-<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a1abd201dbcd78049ea717478f04c78d1_cgraph.svg" width="450" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1431,11 +1442,11 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00023">i</a>.</p>
-<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_ac3f6dad49d6dec0e1afc58046e9355a3_cgraph.svg" width="444" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1476,23 +1487,23 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Resultant matrix after subtraction. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                                            {</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>(), cols = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">getCols</a>();</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a27dded7e57ac10b3fc8eed92d3ac01e6">Matrix</a> result(rows, cols, 0);</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; rows; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; cols; ++j) {</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                result[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] = this-&gt;<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] - scalar;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;            }</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        }</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;                                            {</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>(), cols = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">getCols</a>();</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a27dded7e57ac10b3fc8eed92d3ac01e6">Matrix</a> result(rows, cols, 0);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; rows; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; cols; ++j) {</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;                result[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] = this-&gt;<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] - scalar;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;            }</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        }</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00023">i</a>.</p>
-<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_ae2e58313195c12d598fbe5c2669f09b8_cgraph.svg" width="444" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1533,24 +1544,24 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Resultant matrix after division. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                                            {</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        assert(scalar != 0);</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>(), cols = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">getCols</a>();</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a27dded7e57ac10b3fc8eed92d3ac01e6">Matrix</a> result(rows, cols, 0);</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; rows; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; cols; ++j) {</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;                result[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] = this-&gt;<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] / scalar;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            }</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        }</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                                            {</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        assert(scalar != 0);</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>(), cols = <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">getCols</a>();</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a27dded7e57ac10b3fc8eed92d3ac01e6">Matrix</a> result(rows, cols, 0);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; rows; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; cols; ++j) {</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                result[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] = this-&gt;<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j] / scalar;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            }</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        }</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00023">i</a>.</p>
-<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a38b62351a0f43804e9d32efa4cfc8957_cgraph.svg" width="443" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1608,11 +1619,11 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00023">i</a>.</p>
-<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a2a93d2e6bfbebee6c9afe1b191873019_cgraph.svg" width="460" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1659,11 +1670,11 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, and <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>.</p>
-<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a1bf4cb65e87d4ac48b749aa257e2292b_cgraph.svg" width="448" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1710,11 +1721,11 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, and <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>.</p>
-<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a7ef6d9fb57b29d5b4de5dccc64e904a1_cgraph.svg" width="448" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1827,21 +1838,21 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00348">MyBLAS::Matrix&lt; T &gt;::subMatrix()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00105">MyBLAS::LU::recursiveLUFactorize()</a>, and <a class="el" href="../../#l00134">MyBLAS::TYPED_TEST()</a>.</p>
-<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a420b27d81659c030bfbbd5b89a304734_cgraph.svg" width="100%" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
+<p class="reference">Referenced by <a class="el" href="../../#l00109">MyBLAS::LUP::recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00105">MyBLAS::LU::recursiveLUFactorize()</a>, and <a class="el" href="../../#l00159">MyBLAS::TYPED_TEST()</a>.</p>
 <div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-21-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a420b27d81659c030bfbbd5b89a304734_icgraph.svg" width="523" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a420b27d81659c030bfbbd5b89a304734_cgraph.svg" width="100%" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a420b27d81659c030bfbbd5b89a304734_icgraph.svg" width="539" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1921,21 +1932,21 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00105">MyBLAS::LU::recursiveLUFactorize()</a>, <a class="el" href="../../#l00329">MyBLAS::Matrix&lt; T &gt;::setSubMatrix()</a>, and <a class="el" href="../../#l00122">MyBLAS::TYPED_TEST()</a>.</p>
-<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-22-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_ad19043186fc1ff51ca83d91ffec9e2e5_cgraph.svg" width="448" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
+<p class="reference">Referenced by <a class="el" href="../../#l00109">MyBLAS::LUP::recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00105">MyBLAS::LU::recursiveLUFactorize()</a>, <a class="el" href="../../#l00329">MyBLAS::Matrix&lt; T &gt;::setSubMatrix()</a>, and <a class="el" href="../../#l00147">MyBLAS::TYPED_TEST()</a>.</p>
 <div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-23-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-23-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_ad19043186fc1ff51ca83d91ffec9e2e5_icgraph.svg" width="100%" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_ad19043186fc1ff51ca83d91ffec9e2e5_cgraph.svg" width="448" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_ad19043186fc1ff51ca83d91ffec9e2e5_icgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -1985,34 +1996,86 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                                            {</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        assert(row1 &lt; <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>() &amp;&amp; row2 &lt; <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>());</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        std::swap(<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[row1], <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[row2]);</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;                                            {</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        assert(row1 &lt; <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>() &amp;&amp; row2 &lt; <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>());</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        std::swap(<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[row1], <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a9a08d60c7299e4140b605300fbe99d08">data</a>[row2]);</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00032">MyBLAS::Matrix&lt; T &gt;::data</a>, and <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00031">dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00155">factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, and <a class="el" href="../../#l00142">MyBLAS::TYPED_TEST()</a>.</p>
-<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-24-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a95f15a700d1ac3c9639ee831da4c903c_cgraph.svg" width="452" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
+<p class="reference">Referenced by <a class="el" href="../../#l00061">MyBLAS::LUP::dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00031">dooLittleFactorizeLUP()</a>, <a class="el" href="../../#l00185">MyBLAS::LUP::factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00155">factorizeLUwithPartialPivoting()</a>, <a class="el" href="../../#l00109">MyBLAS::LUP::recursiveFactorizeLUP()</a>, <a class="el" href="../../#l00079">recursiveFactorizeLUP()</a>, and <a class="el" href="../../#l00167">MyBLAS::TYPED_TEST()</a>.</p>
 <div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-25-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-25-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a95f15a700d1ac3c9639ee831da4c903c_icgraph.svg" width="634" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a95f15a700d1ac3c9639ee831da4c903c_cgraph.svg" width="452" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d27/classMyBLAS_1_1Matrix_a95f15a700d1ac3c9639ee831da4c903c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ade5ee5b1cf9598805aa555b65f1b7f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade5ee5b1cf9598805aa555b65f1b7f5e">&#9670;&nbsp;</a></span>operator*</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = MyBLAS::NumericType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">Matrix</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Friend function to overload the operator* for scalar * matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Scalar to multiply the matrix with. </td></tr>
+    <tr><td class="paramname">m</td><td><a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html" title="Class representing a matrix of T type values.">Matrix</a> to be multiplied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Resultant matrix after multiplication. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                                                              {</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a> * scalar;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    }</div>
+<div class="ttc" id="aanalysis_8m_html_ab3cd915d758008bd19d0f2428fbb354a"><div class="ttname"><a href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a></div><div class="ttdeci">m</div><div class="ttdef"><b>Definition:</b> analysis.m:9</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a060711074cb5bcaf4e75498bc040c4b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a060711074cb5bcaf4e75498bc040c4b7">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
 
@@ -2058,18 +2121,17 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the output stream. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;                                                                   {</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::cout.precision() + <span class="keyword">static_cast&lt;</span>std::streamsize<span class="keyword">&gt;</span>(10));</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>.getRows(), cols = <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>.getCols();</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; rows; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; cols; ++j) {</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                os &lt;&lt; std::setw(width) &lt;&lt; std::setfill(&#39; &#39;) &lt;&lt; std::scientific &lt;&lt; static_cast&lt;long double&gt;(<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j]);</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;            }</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;            os &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        }</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    }</div>
-<div class="ttc" id="aanalysis_8m_html_ab3cd915d758008bd19d0f2428fbb354a"><div class="ttname"><a href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a></div><div class="ttdeci">m</div><div class="ttdef"><b>Definition:</b> analysis.m:9</div></div>
+<div class="fragment"><div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                                                                   {</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::cout.precision() + <span class="keyword">static_cast&lt;</span>std::streamsize<span class="keyword">&gt;</span>(10));</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows = <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>.getRows(), cols = <a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>.getCols();</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; rows; ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; cols; ++j) {</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                os &lt;&lt; std::setw(width) &lt;&lt; std::setfill(&#39; &#39;) &lt;&lt; std::scientific &lt;&lt; static_cast&lt;long double&gt;(<a class="code" href="../../d0/d01/analysis_8m.html#ab3cd915d758008bd19d0f2428fbb354a">m</a>[<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>][j]);</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;            }</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;            os &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        }</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2098,7 +2160,7 @@ template&lt;typename T  = MyBLAS::NumericType&gt; </div>
 
 <p>2D vector representing the matrix data. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00163">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00064">MyBLAS::Matrix&lt; T &gt;::Matrix()</a>, <a class="el" href="../../#l00122">MyBLAS::Matrix&lt; T &gt;::operator()()</a>, <a class="el" href="../../#l00249">MyBLAS::Matrix&lt; T &gt;::operator*()</a>, <a class="el" href="../../#l00213">MyBLAS::Matrix&lt; T &gt;::operator+()</a>, <a class="el" href="../../#l00231">MyBLAS::Matrix&lt; T &gt;::operator-()</a>, <a class="el" href="../../#l00373">MyBLAS::Matrix&lt; T &gt;::operator==()</a>, <a class="el" href="../../#l00144">MyBLAS::Matrix&lt; T &gt;::operator[]()</a>, <a class="el" href="../../#l00175">MyBLAS::Matrix&lt; T &gt;::push_back()</a>, <a class="el" href="../../#l00329">MyBLAS::Matrix&lt; T &gt;::setSubMatrix()</a>, <a class="el" href="../../#l00348">MyBLAS::Matrix&lt; T &gt;::subMatrix()</a>, and <a class="el" href="../../#l00458">MyBLAS::Matrix&lt; T &gt;::swapRows()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00191">MyBLAS::Matrix&lt; T &gt;::getCols()</a>, <a class="el" href="../../#l00163">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00183">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00064">MyBLAS::Matrix&lt; T &gt;::Matrix()</a>, <a class="el" href="../../#l00122">MyBLAS::Matrix&lt; T &gt;::operator()()</a>, <a class="el" href="../../#l00249">MyBLAS::Matrix&lt; T &gt;::operator*()</a>, <a class="el" href="../../#l00213">MyBLAS::Matrix&lt; T &gt;::operator+()</a>, <a class="el" href="../../#l00231">MyBLAS::Matrix&lt; T &gt;::operator-()</a>, <a class="el" href="../../#l00373">MyBLAS::Matrix&lt; T &gt;::operator==()</a>, <a class="el" href="../../#l00144">MyBLAS::Matrix&lt; T &gt;::operator[]()</a>, <a class="el" href="../../#l00175">MyBLAS::Matrix&lt; T &gt;::push_back()</a>, <a class="el" href="../../#l00329">MyBLAS::Matrix&lt; T &gt;::setSubMatrix()</a>, <a class="el" href="../../#l00348">MyBLAS::Matrix&lt; T &gt;::subMatrix()</a>, and <a class="el" href="../../#l00468">MyBLAS::Matrix&lt; T &gt;::swapRows()</a>.</p>
 
 </div>
 </div>

@@ -35,5 +35,6 @@ var classMyPhysics_1_1Diffusion_1_1Matrix =
     [ "_size", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a", null ],
     [ "cols_", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a8b15617e180289ea3dcfddea93712010", null ],
     [ "generator_", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a3054cd9b972d3919c2a5be3caae5ff78", null ],
+    [ "matrix_", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a1a9bea38a8a7b30495fb7b285f178599", null ],
     [ "rows_", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a65f38861fe066e8e077f0aed9519d33f", null ]
 ];

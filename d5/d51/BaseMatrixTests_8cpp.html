@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('d5/d51/BaseMatrixTests_8cpp.html','../
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains unit tests for the <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html" title="Class representing a matrix of T type values.">MyBLAS::Matrix</a> class.  
+<p>This file contains unit tests for the Matrix-Vector operations needed in <a class="el" href="../../d9/d0e/classInLab10.html" title="This class is a child of the MPI Project class.">InLab10</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../">math/blas/matrix/Matrix.h</a>&quot;</code><br />
 <code>#include &lt;gtest/gtest.h&gt;</code><br />
@@ -164,7 +164,7 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9546804a84c962e1bd4d7ff89400d10d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a9546804a84c962e1bd4d7ff89400d10d">MyBLAS::TYPED_TEST_SUITE</a> (BaseMatrixTests, <a class="el" href="../../d6/d18/DiffusionMatrixTests_8cpp.html#a58044bf7df36634bcf598a72249c010e">NumericTypes</a>)</td></tr>
+<tr class="memitem:a9546804a84c962e1bd4d7ff89400d10d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a9546804a84c962e1bd4d7ff89400d10d">MyBLAS::TYPED_TEST_SUITE</a> (BaseMatrixTests, <a class="el" href="../../de/d20/InLab10Tests_8cpp.html#a58044bf7df36634bcf598a72249c010e">NumericTypes</a>)</td></tr>
 <tr class="separator:a9546804a84c962e1bd4d7ff89400d10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac4ff539db942c70ee356594045d8669"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#aac4ff539db942c70ee356594045d8669">MyBLAS::TYPED_TEST</a> (BaseMatrixTests, ConstructorTest)</td></tr>
 <tr class="separator:aac4ff539db942c70ee356594045d8669"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,8 +174,12 @@ Functions</h2></td></tr>
 <tr class="separator:abf0961eeec911430161f2f90666563bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9bea099e19b7e6aeae9caea1b19750d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#af9bea099e19b7e6aeae9caea1b19750d">MyBLAS::TYPED_TEST</a> (BaseMatrixTests, MultiplicationTest)</td></tr>
 <tr class="separator:af9bea099e19b7e6aeae9caea1b19750d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab872e47d7ae17d822c23a07f34f0beae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#ab872e47d7ae17d822c23a07f34f0beae">MyBLAS::TYPED_TEST</a> (BaseMatrixTests, ScalarMultiplicationTest)</td></tr>
-<tr class="separator:ab872e47d7ae17d822c23a07f34f0beae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad38e7e21eff57dece1c61445922ff659"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#ad38e7e21eff57dece1c61445922ff659">MyBLAS::TYPED_TEST</a> (BaseMatrixTests, RightSideScalarMultiplicationTest)</td></tr>
+<tr class="separator:ad38e7e21eff57dece1c61445922ff659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7750d96934ea1e2a0555693c1096e041"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a7750d96934ea1e2a0555693c1096e041">MyBLAS::TYPED_TEST</a> (BaseMatrixTests, LeftSideScalarMultiplicationTest)</td></tr>
+<tr class="separator:a7750d96934ea1e2a0555693c1096e041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd6caa62b6a6e635aa696578d0bb84b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#afd6caa62b6a6e635aa696578d0bb84b2">MyBLAS::TYPED_TEST</a> (BaseMatrixTests, ScalarMultiplicationSymmetryTest)</td></tr>
+<tr class="separator:afd6caa62b6a6e635aa696578d0bb84b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50fdcf9d85d395402da184a0cd252494"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a50fdcf9d85d395402da184a0cd252494">MyBLAS::TYPED_TEST</a> (BaseMatrixTests, EqualityTest)</td></tr>
 <tr class="separator:a50fdcf9d85d395402da184a0cd252494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6da5b793dac7a590b42b55db0a32dd6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a6da5b793dac7a590b42b55db0a32dd6f">MyBLAS::TYPED_TEST</a> (BaseMatrixTests, InequalityTest)</td></tr>
@@ -204,7 +208,10 @@ Functions</h2></td></tr>
 <tr class="separator:a771b1a86d12c0d221854ac554b6ff1ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains unit tests for the <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html" title="Class representing a matrix of T type values.">MyBLAS::Matrix</a> class. </p>
+<div class="textblock"><p>This file contains unit tests for the Matrix-Vector operations needed in <a class="el" href="../../d9/d0e/classInLab10.html" title="This class is a child of the MPI Project class.">InLab10</a>. </p>
+<p>This file contains unit tests for the <a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html" title="Class representing a matrix of T type values.">MyBLAS::Matrix</a> class.</p>
+<dl class="section author"><dt>Author</dt><dd>Arjun Earthperson </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>10/27/2023</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Arjun Earthperson </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>10/13/2023 </dd></dl>
 

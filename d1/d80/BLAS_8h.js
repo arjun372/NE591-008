@@ -10,9 +10,6 @@ var BLAS_8h =
     [ "isSquareMatrix", "d1/d80/BLAS_8h.html#a0b887e323f8337bd87ef20dff8af5c1f", null ],
     [ "isUnitLowerTriangularMatrix", "d1/d80/BLAS_8h.html#ae371a7b6812d897b1395ef461745cea1", null ],
     [ "isUpperTriangularMatrix", "d1/d80/BLAS_8h.html#ada02d6a37edcab7294168e9b005871a1", null ],
-    [ "noZerosInDiagonal", "d1/d80/BLAS_8h.html#a56e77d4aef50489830f5ce0ef7bcf7a4", null ],
-    [ "operator*", "d1/d80/BLAS_8h.html#aa37c00740fffc48c82fa1c7262e5df2d", null ],
-    [ "operator*", "d1/d80/BLAS_8h.html#a0e0611bf2ca130cc573d632f490f2375", null ],
-    [ "operator+", "d1/d80/BLAS_8h.html#afa5133a8105804dee3622106f567cb43", null ],
-    [ "operator+", "d1/d80/BLAS_8h.html#a5f2abaf963898ac46cad587ddfbc0520", null ]
+    [ "matrixWeightedInnerProduct", "d1/d80/BLAS_8h.html#aeed4de64a78e0b7da3315730dfa2cec8", null ],
+    [ "noZerosInDiagonal", "d1/d80/BLAS_8h.html#a56e77d4aef50489830f5ce0ef7bcf7a4", null ]
 ];

@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['nanoseconds_1545',['Nanoseconds',['../d4/d2e/Stopwatch_8h.html#aa909686beb2d8acbedf5bd6587cb3fba',1,'Stopwatch.h']]],
-  ['newtoncotesinputs_1546',['NewtonCotesInputs',['../db/def/labs_2inlab3_2InputsOutputs_8h.html#aa6de214a5c071b89852031a1866624a4',1,'NewtonCotesInputs():&#160;InputsOutputs.h'],['../d7/df7/labs_2outlab3_2InputsOutputs_8h.html#aa6de214a5c071b89852031a1866624a4',1,'NewtonCotesInputs():&#160;InputsOutputs.h']]],
-  ['newtoncotesoutputs_1547',['NewtonCotesOutputs',['../db/def/labs_2inlab3_2InputsOutputs_8h.html#a32108239c7c256ed8a081030570f3089',1,'NewtonCotesOutputs():&#160;InputsOutputs.h'],['../d7/df7/labs_2outlab3_2InputsOutputs_8h.html#a32108239c7c256ed8a081030570f3089',1,'NewtonCotesOutputs():&#160;InputsOutputs.h']]],
-  ['nooutput_1548',['NoOutput',['../d3/deb/outlab1_8h.html#a9b541e1020b9162cb4422223166d693f',1,'outlab1.h']]],
-  ['numerictype_1549',['NumericType',['../d2/d6e/namespaceMyBLAS.html#aeaba4d245610870af7f067c3c4a33f76',1,'MyBLAS']]],
-  ['numerictypes_1550',['NumericTypes',['../d2/d6e/namespaceMyBLAS.html#a7e69089671589599f13f62384cc61216',1,'MyBLAS::NumericTypes()'],['../d6/d18/DiffusionMatrixTests_8cpp.html#a58044bf7df36634bcf598a72249c010e',1,'NumericTypes():&#160;DiffusionMatrixTests.cpp']]]
+  ['matrixbuildargs_1573',['MatrixBuildArgs',['../d5/d65/labs_2outlab1_2Compute_8h.html#a8a8eeac2b068a38392c12cba7e91ca54',1,'Compute.h']]],
+  ['matrixconstructparams_1574',['MatrixConstructParams',['../d1/d62/labs_2outlab1_2Parser_8h.html#ae8ecb3743a637d60bbe2d2e633cb3185',1,'Parser.h']]],
+  ['matrixtype_1575',['MatrixType',['../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64',1,'TestedTypes.h']]],
+  ['matrixtypes_1576',['MatrixTypes',['../d2/da0/TestedTypes_8h.html#ab78c9feccb1c920916a4c34df36dbca9',1,'TestedTypes.h']]],
+  ['mean_1577',['mean',['../db/df1/Helpers_8h.html#abe7cd4e0d38c337e5b625527646f00f9',1,'Helpers.h']]],
+  ['microseconds_1578',['Microseconds',['../d4/d2e/Stopwatch_8h.html#a201a83ed0d59d2baf946daf42dac834f',1,'Stopwatch.h']]],
+  ['milliseconds_1579',['Milliseconds',['../d4/d2e/Stopwatch_8h.html#a1c3834b9e3853535027d58bf21bec81f',1,'Stopwatch.h']]]
 ];

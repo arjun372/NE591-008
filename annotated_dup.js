@@ -39,6 +39,8 @@ var annotated_dup =
     [ "CanvasType", "db/df1/Helpers_8h.html#de/d8a/structCanvasType", "db/df1/Helpers_8h_de/d8a/structCanvasType" ],
     [ "CommandLine", "dd/d02/classCommandLine.html", "dd/d02/classCommandLine" ],
     [ "CommandLineArgs", "d9/d41/CommandLine_8h.html#de/d26/structCommandLineArgs", "d9/d41/CommandLine_8h_de/d26/structCommandLineArgs" ],
+    [ "ConcatTypeLists", "d8/d75/namespace_3globalScope_4.html#da/d9c/structConcatTypeLists", null ],
+    [ "ConcatTypeLists<::testing::Types< Ts1... >, ::testing::Types< Ts2... > >", "d2/da0/TestedTypes_8h.html#d1/d97/structConcatTypeLists_3_1_1testing_1_1Types_3_01Ts1_8_8_8_01_4_00_01_1_1testing_1_1Types_3_01Ts2_8_8_8_01_4_01_4", "d2/da0/TestedTypes_8h_d1/d97/structConcatTypeLists_3_1_1testing_1_1Types_3_01Ts1_8_8_8_01_4_00_01_1_1testing_1_1Types_3_01Ts2_8_8_8_01_4_01_4" ],
     [ "DiffusionConstantsValidTest", "dd/d10/classDiffusionConstantsValidTest.html", "dd/d10/classDiffusionConstantsValidTest" ],
     [ "DiffusionMatrixTests", "dc/dff/classDiffusionMatrixTests.html", null ],
     [ "DiffusionParamsTest", "d5/d15/classDiffusionParamsTest.html", "d5/d15/classDiffusionParamsTest" ],
@@ -49,6 +51,7 @@ var annotated_dup =
     [ "HeaderInfo", "d9/d41/CommandLine_8h.html#d3/db0/structHeaderInfo", "d9/d41/CommandLine_8h_d3/db0/structHeaderInfo" ],
     [ "InLab1", "dd/d40/classInLab1.html", "dd/d40/classInLab1" ],
     [ "InLab10", "d9/d0e/classInLab10.html", "d9/d0e/classInLab10" ],
+    [ "InLab10MatrixTests", "d4/db5/classInLab10MatrixTests.html", "d4/db5/classInLab10MatrixTests" ],
     [ "InLab2", "d4/d63/classInLab2.html", "d4/d63/classInLab2" ],
     [ "InLab3", "d1/d1f/classInLab3.html", "d1/d1f/classInLab3" ],
     [ "InLab4", "dc/d9f/classInLab4.html", "dc/d9f/classInLab4" ],
@@ -57,6 +60,8 @@ var annotated_dup =
     [ "Input", "d4/dae/structInput.html", "d4/dae/structInput" ],
     [ "Map", "da/ddc/structMap.html", "da/ddc/structMap" ],
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h_d8/dd7/structMatrixBuildArgs" ],
+    [ "MatrixTypesImpl", "d8/d75/namespace_3globalScope_4.html#d4/d7f/structMatrixTypesImpl", null ],
+    [ "MatrixTypesImpl< MatrixType, ::testing::Types< Ts... > >", "d2/da0/TestedTypes_8h.html#d4/d0c/structMatrixTypesImpl_3_01MatrixType_00_01_1_1testing_1_1Types_3_01Ts_8_8_8_01_4_01_4", "d2/da0/TestedTypes_8h_d4/d0c/structMatrixTypesImpl_3_01MatrixType_00_01_1_1testing_1_1Types_3_01Ts_8_8_8_01_4_01_4" ],
     [ "MatrixVectorExpression", "d4/d68/classMatrixVectorExpression.html", "d4/d68/classMatrixVectorExpression" ],
     [ "MatrixVectorTests", "d3/dab/classMatrixVectorTests.html", null ],
     [ "MPIProject", "d0/df0/classMPIProject.html", "d0/df0/classMPIProject" ],
@@ -75,5 +80,6 @@ var annotated_dup =
     [ "Project2", "dd/db5/classProject2.html", "dd/db5/classProject2" ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
     [ "Stopwatch", "de/def/classStopwatch.html", "de/def/classStopwatch" ],
-    [ "ToneMap", "db/df1/Helpers_8h.html#d1/db0/structToneMap", "db/df1/Helpers_8h_d1/db0/structToneMap" ]
+    [ "ToneMap", "db/df1/Helpers_8h.html#d1/db0/structToneMap", "db/df1/Helpers_8h_d1/db0/structToneMap" ],
+    [ "TypeList", "d2/da0/TestedTypes_8h.html#db/d0b/structTypeList", null ]
 ];
