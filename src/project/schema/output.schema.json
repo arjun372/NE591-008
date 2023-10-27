@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "D": {"type": "number"},
+        "cross-section": {"type": "number"},
+        "dimensions": {
+          "type": "object",
+          "properties": {
+            "a": {"type": "number"},
+            "b": {"type": "number"}
+          },
+          "required": ["a", "b"]
+        },
+        "mesh": {
+          "type": "object",
+          "properties": {
+            "m": {"type": "integer"},
+            "n": {"type": "integer"},
+            "𝛾": {"type": "number"},
+            "𝛿": {"type": "number"}
+          },
+          "required": ["m", "n", "𝛾", "𝛿"]
+        },
+        "methods": {
+          "type": "array",
+          "items": {"type": "string", "enum": ["LUP", "point-jacobi", "gauss-seidel", "SOR", "SSOR", "SORJ"]}
+        }
+      },
+      "required": ["D", "cross-section", "dimensions", "mesh", "methods"]
+    },
+    "outputs": {
+      "type": "object",
+      "patternProperties": {
+        "^(LUP|point-jacobi|gauss-seidel|SOR|SSOR|SORJ)$": {
+          "type": "object",
+          "properties": {
+            "converged": {"type": "boolean"},
+            "iterations": {
+              "type": "object",
+              "properties": {
+                "actual": {"type": "integer"},
+                "maximum": {"type": "integer"}
+              },
+              "required": ["actual", "maximum"]
+            },
+            "iterative-error": {
+              "type": "object",
+              "properties": {
+                "actual": {"type": ["number", "null"]},
+                "maximum": {"type": "number"}
+              },
+              "required": ["actual", "maximum"]
+            },
+            "max-residual": {"type": "number"},
+            "residual": {
+              "type": "array",
+              "items": {"type": "number"}
+            },
+            "solution": {
+              "type": "array",
+              "items": {"type": "number"}
+            },
+            "wall-time-ns": {
+              "type": "object",
+              "properties": {
+                "max": {"type": "number"},
+                "mean": {"type": "number"},
+                "min": {"type": "number"},
+                "p5th": {"type": "number"},
+                "p95th": {"type": "number"},
+                "samples": {"type": "integer"},
+                "stddev": {"type": "number"},
+                "sum": {"type": "number"},
+                "variance": {"type": "number"}
+              },
+              "required": ["max", "mean", "min", "p5th", "p95th", "samples", "stddev", "sum", "variance"]
+            }
+          },
+          "required": ["converged", "iterations", "iterative-error", "max-residual", "residual", "solution", "wall-time-ns"]
+        }
+      }
+    }
+  },
+  "required": ["inputs", "outputs"]
+}
