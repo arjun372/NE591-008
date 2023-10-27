@@ -21,3 +21,8 @@ add_subdirectory(inlab7)
 add_subdirectory(outlab7)
 
 add_subdirectory(inlab8)
+
+# No such thing as inlab9
+#add_subdirectory(inlab9)
+
+add_subdirectory(inlab10)

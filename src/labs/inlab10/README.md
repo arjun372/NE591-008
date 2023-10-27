@@ -1,5 +1,5 @@
 <div style="display: none">
-\page inlab8 InLab 08: DDD Method
+\page InLab 10: Preconditioned Conjugate Gradient Method
 </div>
 
 # InLab 08: Iterative Linear Equation Solvers
@@ -22,14 +22,14 @@ File based I/O is supported using JSON files.
 
 The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
 configuration except choosing the build target, and output file. Here is a repeatable script
-to perform the build and run the `inlab8` target executable:
+to perform the build and run the `inlab10` target executable:
 
 ```bash
 # Assuming cwd is the repo root:
 #!/bin/bash
 
 ## Specify the build target
-export BUILD_TARGET=inlab8
+export BUILD_TARGET=inlab10
 
 ## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
@@ -38,8 +38,8 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/inlab8/examples/inlab8_input_1.json
-export OUTPUT_FILE=./src/labs/inlab8/examples/inlab8_output_1.json
+export INPUT_FILE=./src/labs/inlab10/examples/inlab10_input_1.json
+export OUTPUT_FILE=./src/labs/inlab10/examples/inlab10_output_1.json
 
 ## Execute
 ./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
@@ -211,8 +211,8 @@ Warning: File already exists at path, will be overwritten
                                      Inputs
 --------------------------------------------------------------------------------
 	Generate A,b,            g: No
-	Parameters JSON (for A, b),   i:  ../inlab8_input_1.json
-	Output JSON (for x),     o: ../inlab8_output_1.json
+	Parameters JSON (for A, b),   i:  ../inlab10_input_1.json
+	Output JSON (for x),     o: ../inlab10_output_1.json
 	Convergence Threshold,   𝜀: 0.0001
 	Max iterations,          k: 5000
 	Matrix order,            n: None provided, will be inferred from input JSON
@@ -297,7 +297,7 @@ Symmetric SOR Method Results
 	absolute maximum residual : 8.02e-05
 	execution time [ns]       : 465.400000 ± 60.016998
 --------------------------------------------------------------------------------
-JSON data has been written to ../inlab8_output_1.json
+JSON data has been written to ../inlab10_output_1.json
 
 Process finished with exit code 0
 ```

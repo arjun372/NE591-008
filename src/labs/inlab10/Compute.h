@@ -6,8 +6,8 @@
  * compute the sum of a series.
 */
 
-#ifndef NE591_008_INLAB8_COMPUTE_H
-#define NE591_008_INLAB8_COMPUTE_H
+#ifndef NE591_008_INLAB10_COMPUTE_H
+#define NE591_008_INLAB10_COMPUTE_H
 
 /**
 * @namespace Compute
@@ -43,4 +43,4 @@ MyBLAS::NumericType seriesSum(size_t start, size_t stop) {
    return partialSum;
 }
 }
-#endif // NE591_008_INLAB8_COMPUTE_H
+#endif // NE591_008_INLAB10_COMPUTE_H

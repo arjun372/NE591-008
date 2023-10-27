@@ -5,8 +5,8 @@
  * @brief This file contains the input and output definitions for this project.
  */
 
-#ifndef NE591_008_INLAB8_INPUTOUTPUTS_H
-#define NE591_008_INLAB8_INPUTOUTPUTS_H
+#ifndef NE591_008_INLAB10_INPUTOUTPUTS_H
+#define NE591_008_INLAB10_INPUTOUTPUTS_H
 
 #include <utility>
 #include <boost/serialization/serialization.hpp>
@@ -16,6 +16,7 @@
 #include <sstream>
 
 #include "json.hpp"
+#include "math/blas/Stats.h"
 #include "math/blas/Constants.h"
 
 /**
@@ -74,7 +75,7 @@ typedef struct Input {
     void serialize(Archive & ar, const unsigned int version) {
         ar & BOOST_SERIALIZATION_NVP(n);
     }
-} OutLab7Inputs;
+} InLab10Inputs;
 
 /**
  * @brief A structure to hold the output
@@ -115,6 +116,6 @@ typedef struct Output {
     void serialize(Archive & ar, const unsigned int version) {
         ar & BOOST_SERIALIZATION_NVP(sum);
     }
-} OutLab7Outputs;
+} InLab10Outputs;
 
-#endif // NE591_008_INLAB8_INPUTOUTPUTS_H
+#endif // NE591_008_INLAB10_INPUTOUTPUTS_H

@@ -15,6 +15,6 @@ int main(int argc, char **argv) {
         .argc = argc,
         .argv = argv,
     };
-    auto &labProject = OutLab7::getInstance(args);
+    auto &labProject = InLab10::getInstance(args);
     labProject.execute();
 }

@@ -1,13 +1,13 @@
 /**
- * @file inlab8.cpp
+ * @file inlab10.cpp
  * @author Arjun Earthperson
- * @date 10/06/2023
- * @brief This file contains the declaration for the OutLab7 class.
+ * @date 10/27/2023
+ * @brief This file contains the declaration for the InLab10 class.
  *
  */
 
-#ifndef NE591_008_INLAB8_H
-#define NE591_008_INLAB8_H
+#ifndef NE591_008_INLAB10_H
+#define NE591_008_INLAB10_H
 
 #include <boost/program_options.hpp>
 #include <iomanip>
@@ -26,47 +26,47 @@
 #include "json.hpp"
 
 /**
- * @class OutLab7
+ * @class InLab10
  * @brief This class is a child of the MPI Project class
  * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
-class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
+class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
 
   public:
     /**
-     * @brief This function is used to get the instance of the OutLab7 class.
-     * @details This function follows the Singleton design pattern. It ensures that only one instance of the OutLab7
+     * @brief This function is used to get the instance of the InLab10 class.
+     * @details This function follows the Singleton design pattern. It ensures that only one instance of the InLab10
      * class is created.
      * @param args Command line arguments
-     * @return Returns the instance of the OutLab7 class.
+     * @return Returns the instance of the InLab10 class.
      */
-    [[maybe_unused]] static OutLab7& getInstance(CommandLineArgs args) {
-        static OutLab7 instance(args);
+    [[maybe_unused]] static InLab10& getInstance(CommandLineArgs args) {
+        static InLab10 instance(args);
         return instance;
     }
 
     /**
      * @brief This function is used to delete the copy constructor.
-     * @details This function ensures that the OutLab7 class cannot be copied. This is necessary because we are
+     * @details This function ensures that the InLab10 class cannot be copied. This is necessary because we are
      * following the Singleton design pattern.
-     * @param OutLab7 const& The reference to the OutLab7 object to be copied.
+     * @param InLab10 const& The reference to the InLab10 object to be copied.
      */
-    OutLab7(OutLab7 const&) = delete;
+    InLab10(InLab10 const&) = delete;
 
     /**
      * @brief This function is used to delete the assignment operator.
-     * @details This function ensures that the OutLab7 class cannot be assigned. This is necessary because we are
+     * @details This function ensures that the InLab10 class cannot be assigned. This is necessary because we are
      * following the Singleton design pattern.
-     * @param OutLab7 const& The reference to the OutLab7 object to be assigned.
+     * @param InLab10 const& The reference to the InLab10 object to be assigned.
      */
-    void operator=(OutLab7 const&) = delete;
+    void operator=(InLab10 const&) = delete;
 
   protected:
     /**
-     * @brief Constructor for the inlab8 class
+     * @brief Constructor for the inlab10 class
      * @param args Command line arguments
      */
-    explicit OutLab7(CommandLineArgs args) : MPIProject<OutLab7Inputs, Parser, OutLab7Outputs>(buildHeaderInfo(), args) {}
+    explicit InLab10(CommandLineArgs args) : MPIProject<InLab10Inputs, Parser, InLab10Outputs>(buildHeaderInfo(), args) {}
 
   protected:
     /**
@@ -102,7 +102,7 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
      * @param size The total number of processes.
      * @return Returns true if the number of processes is not a power of 2, false otherwise.
      */
-    bool preRun(OutLab7Outputs &outputs, OutLab7Inputs &inputs, const int rank, const int size) override {
+    bool preRun(InLab10Outputs &outputs, InLab10Inputs &inputs, const int rank, const int size) override {
         if (failsPowerOf2Check(size)) {
             if (rank == 0) {
                 std::cerr << "Number of processes is not a power of 2";
@@ -122,7 +122,7 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
      * @param size The total number of processes.
      * @return Returns false to indicate that the computation was successful.
      */
-    bool run(OutLab7Outputs &outputs, OutLab7Inputs &inputs, const int rank, const int size) override {
+    bool run(InLab10Outputs &outputs, InLab10Inputs &inputs, const int rank, const int size) override {
 
         auto profiler = getProfiler([&rank, &inputs, &size, &outputs]{
 
@@ -165,7 +165,7 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
      * @param size The total number of processes.
      * @return Returns false to indicate that the post-run operations were successful.
      */
-    bool postRun(OutLab7Outputs &outputs, OutLab7Inputs &inputs, const int rank, const int size) override {
+    bool postRun(InLab10Outputs &outputs, InLab10Inputs &inputs, const int rank, const int size) override {
 
         if (rank != 0) {
             return false;
@@ -182,4 +182,4 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
     }
 };
 
-#endif // NE591_008_INLAB8_H
+#endif // NE591_008_INLAB10_H
