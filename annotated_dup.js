@@ -48,6 +48,7 @@ var annotated_dup =
     [ "FactorizeValidLUMatrixTest", "d1/dd7/classFactorizeValidLUMatrixTest.html", "d1/dd7/classFactorizeValidLUMatrixTest" ],
     [ "HeaderInfo", "d9/d41/CommandLine_8h.html#d3/db0/structHeaderInfo", "d9/d41/CommandLine_8h_d3/db0/structHeaderInfo" ],
     [ "InLab1", "dd/d40/classInLab1.html", "dd/d40/classInLab1" ],
+    [ "InLab10", "d9/d0e/classInLab10.html", "d9/d0e/classInLab10" ],
     [ "InLab2", "d4/d63/classInLab2.html", "d4/d63/classInLab2" ],
     [ "InLab3", "d1/d1f/classInLab3.html", "d1/d1f/classInLab3" ],
     [ "InLab4", "dc/d9f/classInLab4.html", "dc/d9f/classInLab4" ],

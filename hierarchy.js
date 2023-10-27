@@ -3,6 +3,9 @@ var hierarchy =
     [ "ArgsPrintMatrix", "d7/d12/structArgsPrintMatrix.html", null ],
     [ "CanvasType< T >", "db/df1/Helpers_8h.html#de/d8a/structCanvasType", null ],
     [ "CommandLine< InputType >", "dd/d02/classCommandLine.html", null ],
+    [ "CommandLine< InLab10Inputs >", "dd/d02/classCommandLine.html", [
+      [ "Parser", "d0/d40/classParser.html", null ]
+    ] ],
     [ "CommandLine< InLab6Inputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
@@ -30,7 +33,6 @@ var hierarchy =
     ] ],
     [ "CommandLine< OutLab7Inputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ],
-      [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
     [ "CommandLine< SolverInputs >", "dd/d02/classCommandLine.html", [
@@ -55,8 +57,10 @@ var hierarchy =
     [ "MatrixBuildArgs", "d5/d65/labs_2outlab1_2Compute_8h.html#d8/dd7/structMatrixBuildArgs", null ],
     [ "MatrixVectorExpression< MatrixType, VectorType, T >", "d4/d68/classMatrixVectorExpression.html", null ],
     [ "MPIProject< InputType, CommandLineParserType, OutputType >", "d0/df0/classMPIProject.html", null ],
+    [ "MPIProject< InLab10Inputs, Parser, InLab10Outputs >", "d0/df0/classMPIProject.html", [
+      [ "InLab10", "d9/d0e/classInLab10.html", null ]
+    ] ],
     [ "MPIProject< OutLab7Inputs, Parser, OutLab7Outputs >", "d0/df0/classMPIProject.html", [
-      [ "OutLab7", "d3/d49/classOutLab7.html", null ],
       [ "OutLab7", "d3/d49/classOutLab7.html", null ],
       [ "OutLab7", "d3/d49/classOutLab7.html", null ]
     ] ],

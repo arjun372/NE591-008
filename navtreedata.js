@@ -64,36 +64,21 @@ var NAVTREE =
         [ "Example", "d7/d5f/inlab1.html#autotoc_md28", null ]
       ] ]
     ] ],
-    [ "InLab 08: DDD Method", "df/de5/inlab8.html", [
-      [ "InLab 08: Iterative Linear Equation Solvers", "df/de5/inlab8.html#autotoc_md29", [
-        [ "Overview", "df/de5/inlab8.html#autotoc_md30", null ],
-        [ "Building & Usage", "df/de5/inlab8.html#autotoc_md31", [
-          [ "Parameters", "df/de5/inlab8.html#autotoc_md32", null ],
-          [ "Solver Methods", "df/de5/inlab8.html#autotoc_md33", null ],
-          [ "General options", "df/de5/inlab8.html#autotoc_md34", null ]
+    [ "10: Preconditioned Conjugate Gradient Method", "d7/d71/InLab.html", [
+      [ "InLab 08: Iterative Linear Equation Solvers", "d7/d71/InLab.html#autotoc_md29", [
+        [ "Overview", "d7/d71/InLab.html#autotoc_md30", null ],
+        [ "Building & Usage", "d7/d71/InLab.html#autotoc_md31", [
+          [ "Parameters", "d7/d71/InLab.html#autotoc_md32", null ],
+          [ "Solver Methods", "d7/d71/InLab.html#autotoc_md33", null ],
+          [ "General options", "d7/d71/InLab.html#autotoc_md34", null ]
         ] ],
-        [ "Parameters Format", "df/de5/inlab8.html#autotoc_md35", [
-          [ "Sample Parameters File", "df/de5/inlab8.html#autotoc_md36", null ]
+        [ "Parameters Format", "d7/d71/InLab.html#autotoc_md35", [
+          [ "Sample Parameters File", "d7/d71/InLab.html#autotoc_md36", null ]
         ] ],
-        [ "Output Format", "df/de5/inlab8.html#autotoc_md37", [
-          [ "Sample Outputs File", "df/de5/inlab8.html#autotoc_md38", null ]
+        [ "Output Format", "d7/d71/InLab.html#autotoc_md37", [
+          [ "Sample Outputs File", "d7/d71/InLab.html#autotoc_md38", null ]
         ] ],
-        [ "Example:", "df/de5/inlab8.html#autotoc_md39", null ]
-      ] ],
-      [ "InLab 08: Iterative Linear Equation Solvers", "df/de5/inlab8.html#autotoc_md102", [
-        [ "Overview", "df/de5/inlab8.html#autotoc_md103", null ],
-        [ "Building & Usage", "df/de5/inlab8.html#autotoc_md104", [
-          [ "Parameters", "df/de5/inlab8.html#autotoc_md105", null ],
-          [ "Solver Methods", "df/de5/inlab8.html#autotoc_md106", null ],
-          [ "General options", "df/de5/inlab8.html#autotoc_md107", null ]
-        ] ],
-        [ "Parameters Format", "df/de5/inlab8.html#autotoc_md108", [
-          [ "Sample Parameters File", "df/de5/inlab8.html#autotoc_md109", null ]
-        ] ],
-        [ "Output Format", "df/de5/inlab8.html#autotoc_md110", [
-          [ "Sample Outputs File", "df/de5/inlab8.html#autotoc_md111", null ]
-        ] ],
-        [ "Example:", "df/de5/inlab8.html#autotoc_md112", null ]
+        [ "Example:", "d7/d71/InLab.html#autotoc_md39", null ]
       ] ]
     ] ],
     [ "InLab 02: Lagrange Interpolation Polynomials I", "d1/def/inlab2.html", [
@@ -177,6 +162,23 @@ var NAVTREE =
           [ "Sample Outputs File", "d4/da6/inlab6.html#autotoc_md92", null ]
         ] ],
         [ "Example:", "d4/da6/inlab6.html#autotoc_md93", null ]
+      ] ]
+    ] ],
+    [ "InLab 08: DDD Method", "df/de5/inlab8.html", [
+      [ "InLab 08: Iterative Linear Equation Solvers", "df/de5/inlab8.html#autotoc_md102", [
+        [ "Overview", "df/de5/inlab8.html#autotoc_md103", null ],
+        [ "Building & Usage", "df/de5/inlab8.html#autotoc_md104", [
+          [ "Parameters", "df/de5/inlab8.html#autotoc_md105", null ],
+          [ "Solver Methods", "df/de5/inlab8.html#autotoc_md106", null ],
+          [ "General options", "df/de5/inlab8.html#autotoc_md107", null ]
+        ] ],
+        [ "Parameters Format", "df/de5/inlab8.html#autotoc_md108", [
+          [ "Sample Parameters File", "df/de5/inlab8.html#autotoc_md109", null ]
+        ] ],
+        [ "Output Format", "df/de5/inlab8.html#autotoc_md110", [
+          [ "Sample Outputs File", "df/de5/inlab8.html#autotoc_md111", null ]
+        ] ],
+        [ "Example:", "df/de5/inlab8.html#autotoc_md112", null ]
       ] ]
     ] ],
     [ "OutLab 01: Elementwise Ops on 2D Matrices", "d8/df8/outlab1.html", [
@@ -331,16 +333,16 @@ var NAVTREEINDEX =
 [
 "",
 "d0/d28/classMyBLAS_1_1LazyMatrix.html#a8e10f9feab285d88ccc82b7a4f653ccc",
-"d0/d40/classParser.html#ac1c4bff1db7e9e477c491938ab000e95",
-"d1/d80/BLAS_8h.html#a0e0611bf2ca130cc573d632f490f2375",
-"d3/d11/generate__point__source_8py.html#afed5fff2e0b1ca54bf0eb02504afa518",
-"d4/dae/structInput.html#aec2f325fbad8e7ef5fab61624f5e2f5c",
-"d6/dc6/LazyMatrixTests_8cpp.html#a9d89e846e20f02c0a9772fc397680559",
-"d8/df8/outlab1.html#autotoc_md113",
-"db/dde/readfile_8m.html#a6cd359da8257dba88c7b4b8c13783b7d",
-"dd/d2c/BaseVectorTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e",
-"de/de4/outlab5.html#autotoc_md154",
-"functions_vars_t.html"
+"d0/d40/classParser.html#aa3b7785bf0da0c5ae08adfbee3dd901c",
+"d1/d67/namespacegenerate__source__multi__lobe.html#a994009faebcdaa7e3a13184f7c9711b5",
+"d2/dac/classMyBLAS_1_1LazyMatrix_1_1Proxy.html",
+"d4/dae/structInput.html#aca2257bc28362ded598bfad528a18d94",
+"d6/dc6/LazyMatrixTests_8cpp.html#a5f4a7926b12f1c29974f7b723b359c32",
+"d8/deb/classInLab5.html#a627071ee1dc13ffb289e34d45ad63758",
+"db/d8a/Math_8h.html",
+"dd/d02/classCommandLine.html#aa3b7785bf0da0c5ae08adfbee3dd901c",
+"de/d4f/VectorExpressionTests_8cpp.html#aa5667e9c442eec32a65681b80152d79f",
+"functions_o.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

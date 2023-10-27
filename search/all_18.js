@@ -1,14 +1,9 @@
 var searchData=
 [
-  ['x_748',['x',['../d4/dae/structInput.html#a5fde391bbac19a319ba3a77fb510fa2b',1,'Input::x()'],['../da/ddc/structMap.html#a18895724cbfc7802d6679a0ea4b18050',1,'Map::x()'],['../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694',1,'MyLinearSolvingMethod::Solution::x()'],['../df/df1/structOutput.html#a4a50058f779064c91defebd579c8f7c2',1,'Output::x()'],['../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1',1,'x():&#160;plot_points.m']]],
-  ['x_5fsamples_749',['x_samples',['../d2/d12/outlab2_2examples_2sanity__check_8m.html#aab71f666558dbfeea548882b8b975cd2',1,'x_samples():&#160;sanity_check.m'],['../d8/d13/inlab2_2tests_2sanity__check_8m.html#aab71f666558dbfeea548882b8b975cd2',1,'x_samples():&#160;sanity_check.m']]],
-  ['x_5fsmooth_750',['x_smooth',['../d2/d12/outlab2_2examples_2sanity__check_8m.html#a804b0188faeaeccdaa42d04fec09583a',1,'x_smooth():&#160;sanity_check.m'],['../d8/d13/inlab2_2tests_2sanity__check_8m.html#a804b0188faeaeccdaa42d04fec09583a',1,'x_smooth():&#160;sanity_check.m']]],
-  ['x_5fstart_751',['x_start',['../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef',1,'CanvasType']]],
-  ['x_5fstop_752',['x_stop',['../db/df1/Helpers_8h.html#a9452d6cd24c6720c89dca7a6ef79c951',1,'CanvasType']]],
-  ['xdata_753',['xData',['../d4/dae/structInput.html#a23f5145614880c39c4993a7c2be87a75',1,'Input']]],
-  ['xlabel_754',['xlabel',['../d8/d13/inlab2_2tests_2sanity__check_8m.html#a00fe093ccc1c704788889a1b49bdf388',1,'xlabel(&apos;x&apos;):&#160;sanity_check.m'],['../dd/dd7/plot__points_8m.html#ac5722d180c45f4e2ed2c4d4fe993f09c',1,'xlabel(&apos; $x_i$&apos;, &apos;Interpreter&apos;, &apos;latex&apos;):&#160;plot_points.m'],['../d2/d12/outlab2_2examples_2sanity__check_8m.html#a00fe093ccc1c704788889a1b49bdf388',1,'xlabel(&apos;x&apos;):&#160;sanity_check.m'],['../db/dde/readfile_8m.html#ada0bd1d6564902262ef3104325d5bba8',1,'xlabel(&apos; $m$, $m=2^{n}$ for Gauss-Legendre Quadrature&apos;, &apos;Interpreter&apos;, &apos;latex&apos;):&#160;readfile.m']]],
-  ['xlim_755',['xlim',['../db/dde/readfile_8m.html#a1020e7860c80bed95aee7f5b8c4ff215',1,'readfile.m']]],
-  ['xmax_756',['xmax',['../d8/d13/inlab2_2tests_2sanity__check_8m.html#a5e4cea006e4f540c94c12e831d60c324',1,'xmax():&#160;sanity_check.m'],['../d2/d12/outlab2_2examples_2sanity__check_8m.html#a5e4cea006e4f540c94c12e831d60c324',1,'xmax():&#160;sanity_check.m']]],
-  ['xmin_757',['xmin',['../d8/d13/inlab2_2tests_2sanity__check_8m.html#ac14a529f4ec93e13725927cb25d0b1f0',1,'xmin():&#160;sanity_check.m'],['../d2/d12/outlab2_2examples_2sanity__check_8m.html#ac14a529f4ec93e13725927cb25d0b1f0',1,'xmin():&#160;sanity_check.m']]],
-  ['xticks_758',['xticks',['../db/dde/readfile_8m.html#a93c3a48cbdd646674ca38670384bb05d',1,'readfile.m']]]
+  ['wall_5ftime_5fns_748',['wall_time_ns',['../d3/d3b/namespacepostprocess.html#a1abcda5bdd4187b111ee061f6df4c6c2',1,'postprocess']]],
+  ['weights_749',['weights',['../db/d86/structOutputs.html#addb0c682b5fd4178a6b9da64b2f81bb4',1,'Outputs']]],
+  ['width_750',['width',['../db/df1/Helpers_8h.html#aec1ec16db39c0ca2ad78151ad8db7c80',1,'CanvasType']]],
+  ['writecsv_751',['writeCSV',['../d7/de4/FileParser_8h.html#ae87885d224a53e1eee2aee7ee11eb396',1,'FileParser.h']]],
+  ['writecsvmatrixnoheaders_752',['writeCSVMatrixNoHeaders',['../d7/de4/FileParser_8h.html#a3dcefb9b5c6bf2d5e28ebe848b09cad5',1,'writeCSVMatrixNoHeaders(const std::string &amp;filepath, MyBLAS::Matrix&lt; T &gt; &amp;data):&#160;FileParser.h'],['../d7/de4/FileParser_8h.html#aae0e89e11fed2832c3179eb9e152f249',1,'writeCSVMatrixNoHeaders(const std::string &amp;directory, const std::string &amp;file, MyBLAS::Matrix&lt; T &gt; &amp;data):&#160;FileParser.h']]],
+  ['writejson_753',['writeJSON',['../d7/de4/FileParser_8h.html#abb1a95d027a077ecf097a06ef4a968b6',1,'FileParser.h']]]
 ];
