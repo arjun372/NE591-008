@@ -59,9 +59,9 @@ class Parser : public CommandLine<OutLab7Inputs> {
             "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing n")(
             "output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
 
-        "source-terms-csv,s", boost::program_options::value<std::string>(), "= Path to source-terms 𝑞(𝑖,𝑗) CSV")(
-"output-results-json,o", boost::program_options::value<std::string>(), "= Path to output results JSON")(
-"output-flux-csv,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗) CSV");
+//        "source-terms-csv,s", boost::program_options::value<std::string>, "= Path to source-terms 𝑞(𝑖,𝑗) CSV")(
+//"output-results-json,o", boost::program_options::value<std::string>(), "= Path to output results JSON")(
+//"output-flux-csv,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗) CSV");
 
         values.add_options()
            ("slab-width,L", boost::program_options::value<long double>(), "= slab width [+ve R]")(
@@ -69,7 +69,7 @@ class Parser : public CommandLine<OutLab7Inputs> {
             "num-cells,I", boost::program_options::value<long double>(), "= number of cells [I ∈ ℕ]")(
             "total-cross-section,T", boost::program_options::value<long double>(), "= macroscopic total cross-section [+ve R]")(
             "scattering-cross-section,S", boost::program_options::value<long double>(), "= scattering macroscopic cross-section [+ve R]")(
-            "source-terms-csv,s", boost::program_options::value<std::string>(), "= path to source-terms 𝑞(𝑖,𝑗) CSV")
+            "source-terms-csv,s", boost::program_options::value<std::string>(), "= path to source-terms 𝑞(𝑖,𝑗) CSV");
 
     }
 

@@ -291,45 +291,45 @@ bool haveEqualRank(const MatrixType &A, const VectorType &b) {
     return A.getRows() == b.size();
 }
 
-/**
- * @brief Global function to multiply a scalar with a matrix or vector.
- * @param scalar Scalar to multiply the matrix or vector with.
- * @param matrix Matrix or vetor to be multiplied.
- * @return Resultant matrix or vector after multiplication.
- */
-template <typename T> MyBLAS::Matrix<T> operator*(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
-    return matrix * scalar;
-}
-
-/**
- * @brief Global function to add a scalar to a matrix.
- * @param scalar Scalar to add to the matrix.
- * @param matrix Matrix to be added to.
- * @return Resultant matrix after addition.
- */
-template <typename T> MyBLAS::Matrix<T> operator+(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
-    return matrix + scalar;
-}
-
-/**
- * @brief Global function to multiply a scalar with a vector.
- * @param scalar Scalar to multiply the matrix with.
- * @param matrix Vector to be multiplied.
- * @return Resultant matrix after multiplication.
- */
-template <typename T> MyBLAS::Vector<T> operator*(const T &scalar, const MyBLAS::Vector<T> &vector) {
-    return vector * scalar;
-}
-
-/**
- * @brief Global function to add a scalar to a vector.
- * @param scalar Scalar to add to the matrix.
- * @param matrix Vector to be added to.
- * @return Resultant matrix after addition.
- */
-template <typename T> MyBLAS::Vector<T> operator+(const T &scalar, const MyBLAS::Vector<T> &vector) {
-    return vector + scalar;
-}
+///**
+// * @brief Global function to multiply a scalar with a matrix or vector.
+// * @param scalar Scalar to multiply the matrix or vector with.
+// * @param matrix Matrix or vetor to be multiplied.
+// * @return Resultant matrix or vector after multiplication.
+// */
+//template <typename T> MyBLAS::Matrix<T> operator*(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
+//    return matrix * scalar;
+//}
+//
+///**
+// * @brief Global function to add a scalar to a matrix.
+// * @param scalar Scalar to add to the matrix.
+// * @param matrix Matrix to be added to.
+// * @return Resultant matrix after addition.
+// */
+//template <typename T> MyBLAS::Matrix<T> operator+(const T &scalar, const MyBLAS::Matrix<T> &matrix) {
+//    return matrix + scalar;
+//}
+//
+///**
+// * @brief Global function to multiply a scalar with a vector.
+// * @param scalar Scalar to multiply the matrix with.
+// * @param matrix Vector to be multiplied.
+// * @return Resultant matrix after multiplication.
+// */
+//template <typename T> MyBLAS::Vector<T> operator*(const T &scalar, const MyBLAS::Vector<T> &vector) {
+//    return vector * scalar;
+//}
+//
+///**
+// * @brief Global function to add a scalar to a vector.
+// * @param scalar Scalar to add to the matrix.
+// * @param matrix Vector to be added to.
+// * @return Resultant matrix after addition.
+// */
+//template <typename T> MyBLAS::Vector<T> operator+(const T &scalar, const MyBLAS::Vector<T> &vector) {
+//    return vector + scalar;
+//}
 
 /**
  * @brief Computes the inner product of two matrices.
@@ -348,6 +348,11 @@ template <template<typename> class U, typename T> U<T> innerProduct(const U<T> &
         }
     }
     return result;
+}
+
+template <template<typename> class M, template<typename> class V, typename T> T matrixWeightedInnerProduct(const V<T> &y, const V<T> &z, const M<T> &A) {
+    assert(y.size() == A.getRows() && z.size() == A.getCols());
+    return y * (A * z);
 }
 } // namespace MyBLAS
 

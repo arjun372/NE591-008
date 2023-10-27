@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <cstddef>
 #include <functional>
+#include <memory>
 
 #include "math/blas/matrix/ContainerExpression.h"
 #include "math/blas/matrix/ElementwiseExpression.h"
@@ -98,6 +99,23 @@ class LazyMatrix {
     LazyMatrix(const LazyMatrix& other) : rows_(other.rows_), cols_(other.cols_), generator_(other.generator_) {}
 
     /**
+     * @brief Constructor for the LazyMatrix class that accepts a Matrix object.
+     *
+     * @param matrix The Matrix object to initialize the LazyMatrix with.
+     */
+    // TODO:: DOCUMENT
+    explicit LazyMatrix(const MyBLAS::Matrix<DataType>& matrix)
+        : rows_(matrix.getRows()), cols_(matrix.getCols()), matrix_(std::make_shared<MyBLAS::Matrix<DataType>>(matrix)) {
+        generator_ = [matrix](size_t i, size_t j) { return matrix(i, j); };
+    }
+
+    // TODO:: DOCUMENT
+    explicit LazyMatrix(MyBLAS::Matrix<DataType>& matrix)
+        : rows_(matrix.getRows()), cols_(matrix.getCols()), matrix_(std::make_shared<MyBLAS::Matrix<DataType>>(matrix)) {
+        generator_ = [matrix](size_t i, size_t j) { return matrix(i, j); };
+    }
+
+    /**
      * @brief Copy assignment operator for the LazyMatrix class.
      *
      * @param other The LazyMatrix object to be copied.
@@ -108,6 +126,7 @@ class LazyMatrix {
             rows_ = other.rows_;
             cols_ = other.cols_;
             generator_ = other.generator_;
+            matrix_ = other.matrix_;
         }
         return *this;
     }
@@ -617,6 +636,11 @@ class LazyMatrix {
      * @brief The generator function that computes the values of the LazyMatrix.
      */
     Generator generator_;
+
+    /**
+     * @brief A shared pointer to the memory backed matrix
+     */
+    std::shared_ptr<MyBLAS::Matrix<DataType>> matrix_;
 
   protected:
     /**

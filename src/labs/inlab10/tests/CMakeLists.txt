@@ -1,5 +1,6 @@
 set(TEST_SOURCES
         main.cpp
+        InLab10Tests.cpp
 )
 
 # Create the test executable

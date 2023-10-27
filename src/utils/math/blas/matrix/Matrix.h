@@ -402,6 +402,16 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     }
 
     /**
+     * @brief Friend function to overload the operator* for scalar * matrix.
+     * @param scalar Scalar to multiply the matrix with.
+     * @param m Matrix to be multiplied.
+     * @return Resultant matrix after multiplication.
+     */
+    friend Matrix operator*(const T &scalar, const Matrix &m) {
+        return m * scalar;
+    }
+
+    /**
      * @brief Overloaded operator/ to divide the matrix by a scalar.
      * @param scalar Scalar to divide the matrix by.
      * @return Resultant matrix after division.

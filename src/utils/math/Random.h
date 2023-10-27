@@ -22,6 +22,26 @@
 namespace Random {
 
 /**
+ * @brief Generates a single random number.
+ * @tparam T The type of the random number.
+ * @param min The minimum value for the random number.
+ * @param max The maximum value for the random number.
+ * @param seed The seed for the random number generator.
+ * @return A random number.
+ */
+template <typename T> T generate_one(T min = 0, T max = 1, const size_t seed = 372) {
+    if (max < min) {
+        auto temp = max;
+        max = min;
+        min = temp;
+    }
+    std::random_device rd;
+    std::mt19937 stream(seed);
+    std::uniform_real_distribution<T> uniform(min, max);
+    return uniform(stream);
+}
+
+/**
  * @brief Generates a vector of random numbers.
  * @tparam T The type of the elements in the vector.
  * @param n The size of the vector.
@@ -30,7 +50,7 @@ namespace Random {
  * @param seed The seed for the random number generator.
  * @return A vector of random numbers.
  */
-template <typename T> MyBLAS::Vector<T> generate(const size_t n, T min = 0, T max = 1, const size_t seed = 372) {
+template <typename T> MyBLAS::Vector<T> generate_vector(const size_t n, T min = 0, T max = 1, const size_t seed = 372) {
     if (max < min) {
         auto temp = max;
         max = min;
@@ -57,7 +77,7 @@ template <typename T> MyBLAS::Vector<T> generate(const size_t n, T min = 0, T ma
  * @return A matrix of random numbers.
  */
 template <typename T>
-MyBLAS::Matrix<T> generate(const size_t rows, const size_t cols, T min = 0, T max = 1, const long long seed = 372) {
+MyBLAS::Matrix<T> generate_matrix(const size_t rows, const size_t cols, T min = 0, T max = 1, const size_t seed = 372) {
     if (max < min) {
         auto temp = max;
         max = min;
@@ -84,7 +104,7 @@ MyBLAS::Matrix<T> generate(const size_t rows, const size_t cols, T min = 0, T ma
  * @param seed The seed for the random number generator.
  * @return A binary matrix.
  */
-template <typename T> MyBLAS::Matrix<T> binary(const size_t rows, const size_t cols, const long long seed = 372) {
+template <typename T> MyBLAS::Matrix<T> binary(const size_t rows, const size_t cols, const size_t seed = 372) {
     std::random_device rd;
     std::mt19937 stream(seed);
     std::uniform_real_distribution<T> uniform(static_cast<T>(0), static_cast<T>(1));

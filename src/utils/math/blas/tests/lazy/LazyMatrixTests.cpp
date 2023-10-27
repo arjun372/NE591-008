@@ -175,6 +175,19 @@ TYPED_TEST(LazyMatrixTests, MatrixVectorMultiplicationTest) {
     }
 }
 
+TYPED_TEST(LazyMatrixTests, LazyMatrixLazyVectorMultiplicationTest) {
+    MyBLAS::LazyVector<TypeParam> v(10, [](size_t i) { return static_cast<TypeParam>(i); });
+    MyBLAS::LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
+    auto result = m * v;
+    for (size_t i = 0; i < result.size(); ++i) {
+        TypeParam expected = 0;
+        for (size_t j = 0; j < 10; ++j) {
+            expected += (static_cast<TypeParam>(i) + static_cast<TypeParam>(j)) * static_cast<TypeParam>(j);
+        }
+        EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(result[i], expected));
+    }
+}
+
 TYPED_TEST(LazyMatrixTests, MatrixVectorMultiplicationTest_ScalarMultiplication) {
     MyBLAS::Vector<TypeParam> v(10, 2);
     MyBLAS::LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i + j); });

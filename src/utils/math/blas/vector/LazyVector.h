@@ -13,11 +13,15 @@
 #include <algorithm>
 #include <cstddef>
 #include <functional>
+#include <memory>
 
+#include "Vector.h"
 #include "VectorExpression.h"
+#include "math/blas/matrix/ContainerExpression.h"
 
 namespace MyBLAS {
 
+template <typename T> class Vector;
 /**
  * @class LazyVector
  * @brief A vector that lazily computes its values.
@@ -71,6 +75,25 @@ class LazyVector {
     LazyVector(const LazyVector& other) : size_(other.size_), generator_(other.generator_) {}
 
     /**
+     * @brief Constructor for the LazyVector class that accepts a Vector object.
+     *
+     * @param vector The Vector object to initialize the LazyVector with.
+     */
+    explicit LazyVector(const MyBLAS::Vector<DataType>& vector) : size_(vector.size()), vector_(std::make_shared<MyBLAS::Vector<DataType>>(vector)) {
+        generator_ = [vector](size_t i) { return vector[i]; };
+    }
+
+    /**
+     * @brief Constructor for the LazyVector class that accepts a Vector object.
+     *
+     * @param vector The Vector object to initialize the LazyVector with.
+     */
+    explicit LazyVector(MyBLAS::Vector<DataType>& vector) : size_(vector.size()), vector_(std::make_shared<MyBLAS::Vector<DataType>>(vector)) {
+        generator_ = [vector](size_t i) { return vector[i]; };
+    }
+
+
+    /**
      * @brief Assignment operator for LazyVector.
      * @param other The LazyVector to assign from.
      * @return A reference to this LazyVector after assignment.
@@ -79,6 +102,7 @@ class LazyVector {
         if (this != &other) {
             size_ = other.size_;
             generator_ = other.generator_;
+            vector_ = other.vector_;
         }
         return *this;
     }
@@ -110,27 +134,20 @@ class LazyVector {
     }
 
     /**
-     * @brief Define the multiplication operation for LazyVector.
+     * @brief Define the inner-product/dot-product operation for LazyVector.
      * @param a The first LazyVector.
      * @param b The second LazyVector.
-     * @return The LazyVector resulting from the multiplication of 'a' and 'b'.
+     * @return The result of the inner-product/dot-product of 'a' and 'b'.
      */
-    friend LazyVector operator*(LazyVector const& a, LazyVector const& b) {
+    friend DataType operator*(LazyVector const& a, LazyVector const& b) {
+        assert(a.size() == b.size());
         auto binary_op = [](DataType const& x, DataType const& y) { return x * y; };
         VectorExpression<DataType, LazyVector, LazyVector, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyVector(a.size(), [expr](size_t i) { return expr[i]; });
-    }
-
-    /**
-     * @brief Define the division operation for LazyVector.
-     * @param a The first LazyVector.
-     * @param b The second LazyVector.
-     * @return The LazyVector resulting from the division of 'a' and 'b'.
-     */
-    friend LazyVector operator/(LazyVector const& a, LazyVector const& b) {
-        auto binary_op = [](DataType const& x, DataType const& y) { return x / y; };
-        VectorExpression<DataType, LazyVector, LazyVector, decltype(binary_op)> expr(a, b, binary_op);
-        return LazyVector(a.size(), [expr](size_t i) { return expr[i]; });
+        DataType result = 0;
+        for (size_t i = 0; i < a.size(); ++i) {
+            result += expr[i];
+        }
+        return result;
     }
 
     // Scalar operations
@@ -208,22 +225,14 @@ class LazyVector {
      * @param b The LazyVector to multiply with this LazyVector.
      * @return A reference to this LazyVector after the multiplication operation.
      */
-    LazyVector& operator*=(LazyVector const& b) {
-        auto old_gen = generator_;
-        generator_ = [old_gen, b](size_t i) { return old_gen(i) * b[i]; };
-        return *this;
-    }
+    LazyVector& operator*=(LazyVector const& b) = delete;
 
     /**
      * @brief Define the in-place division operation for LazyVector.
      * @param b The LazyVector to divide this LazyVector by.
      * @return A reference to this LazyVector after the division operation.
      */
-    LazyVector& operator/=(LazyVector const& b) {
-        auto old_gen = generator_;
-        generator_ = [old_gen, b](size_t i) { return old_gen(i) / b[i]; };
-        return *this;
-    }
+    LazyVector& operator/=(LazyVector const& b) = delete;
 
     /**
      * @brief Define the in-place scalar addition operation for LazyVector.
@@ -315,8 +324,21 @@ class LazyVector {
   private:
     size_t size_; ///< The size of the LazyVector.
     Generator generator_; ///< The generator function for computing values.
+    std::shared_ptr<MyBLAS::Vector<DataType>> vector_; ///< A shared pointer to the memory backed matrix
 };
 
+/**
+ * @brief This function template is a placeholder for vector-vector division in the MyBLAS library.
+ * @details This function is currently not implemented and is marked for deletion.
+ * It is intended to perform division of a vector with another.
+ * @tparam DataType The type of data contained in the vectors
+ * @param a A constant reference to the vector.
+ * @param b A constant reference to the other vector
+ * @return This function does not return a value as it is marked for deletion.
+ * @note This function is marked as deleted and will cause a compile error if used.
+ */
+template <template <typename> class ContainerType1, template <typename> class ContainerType2, typename T>
+ContainerType1<T> operator/(ContainerType1<T> const& a, ContainerType2<T> const& b) = delete;
 }
 
 #endif // NE591_008_LAZYVECTOR_H

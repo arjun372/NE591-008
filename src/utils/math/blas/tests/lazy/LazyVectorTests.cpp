@@ -56,25 +56,17 @@ TEST_F(LazyVectorTests, SubtractionTest) {
     }
 }
 
-// Test for multiplication operation
-TEST_F(LazyVectorTests, MultiplicationTest) {
+// Test for inner-product operation
+TEST_F(LazyVectorTests, DotProductTest) {
     LazyVector<FLOAT_TYPE> v1(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
     LazyVector<FLOAT_TYPE> v2(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i * i); });
-    auto v3 = v1 * v2;
-    for (size_t i = 0; i < v3.size(); ++i) {
-        const auto fi = static_cast<FLOAT_TYPE>(i);
-        EXPECT_TRUE(IsClose(v3[i], static_cast<FLOAT_TYPE>(fi * fi * fi)));
-    }
-}
+    auto accumulated = v1 * v2;
 
-// Test for division operation
-TEST_F(LazyVectorTests, DivisionTest) {
-    LazyVector<FLOAT_TYPE> v1(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1); });
-    LazyVector<FLOAT_TYPE> v2(10, [](size_t i) { return (static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1)); });
-    auto v3 = v1 / v2;
-    for (size_t i = 0; i < v3.size(); ++i) {
-        EXPECT_TRUE(IsClose(v3[i], static_cast<FLOAT_TYPE>((static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1)) / (static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1)))));
+    FLOAT_TYPE result = 0;
+    for (size_t i = 0; i < v1.size(); i++) {
+        result += v1[i] * v2[i];
     }
+    EXPECT_EQ(accumulated, result);
 }
 
 // Test for scalar addition operation
@@ -110,16 +102,6 @@ TEST_F(LazyVectorTests, ScalarDivisionTest) {
     auto v2 = v / 5.0;
     for (size_t i = 0; i < v2.size(); ++i) {
         EXPECT_TRUE(IsClose(v2[i], static_cast<FLOAT_TYPE>((static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1)) / 5.0)));
-    }
-}
-
-// Test for division by zero
-TEST_F(LazyVectorTests, DivisionByZeroTest) {
-    LazyVector<FLOAT_TYPE> v1(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1); });
-    LazyVector<FLOAT_TYPE> v2(10, [](size_t i) { return static_cast<FLOAT_TYPE>(0); });
-    auto v3 = v1 / v2;
-    for (size_t i = 0; i < v3.size(); ++i) {
-        EXPECT_TRUE(std::isinf(v3[i]));
     }
 }
 
@@ -176,29 +158,6 @@ TEST_F(LazyVectorTests, InPlaceSubtractionTest) {
     }
 }
 
-// Test for in-place multiplication
-TEST_F(LazyVectorTests, InPlaceMultiplicationTest) {
-    LazyVector<FLOAT_TYPE> v1(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
-    LazyVector<FLOAT_TYPE> v2(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i * i); });
-    v1 *= v2;
-    for (size_t i = 0; i < v1.size(); ++i) {
-        const auto fi = static_cast<FLOAT_TYPE>(i);
-        EXPECT_TRUE(IsClose(v1[i], static_cast<FLOAT_TYPE>(fi * fi * fi)));
-    }
-}
-
-// Test for in-place division
-TEST_F(LazyVectorTests, InPlaceDivisionTest) {
-    LazyVector<FLOAT_TYPE> v1(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1); });
-    LazyVector<FLOAT_TYPE> v2(10, [](size_t i) { return (static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1)); });
-    v1 /= v2;
-    for (size_t i = 0; i < v1.size(); ++i) {
-        const auto fi = static_cast<FLOAT_TYPE>(i);
-        const auto f1 = static_cast<FLOAT_TYPE>(1);
-        EXPECT_TRUE(IsClose(v1[i], static_cast<FLOAT_TYPE>((fi + f1) / (fi * fi + f1))));
-    }
-}
-
 // Test for element-wise addition assignment (+=)
 TEST_F(LazyVectorTests, ElementWiseAdditionAssignmentTest) {
     LazyVector<FLOAT_TYPE> v1(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
@@ -218,26 +177,6 @@ TEST_F(LazyVectorTests, ElementWiseSubtractionAssignmentTest) {
     for (size_t i = 0; i < v1.size(); ++i) {
         const auto fi = static_cast<FLOAT_TYPE>(i);
         EXPECT_TRUE(IsClose(v1[i], static_cast<FLOAT_TYPE>(fi - fi * fi)));
-    }
-}
-
-// Test for element-wise multiplication assignment (*=)
-TEST_F(LazyVectorTests, ElementWiseMultiplicationAssignmentTest) {
-    LazyVector<FLOAT_TYPE> v1(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i); });
-    LazyVector<FLOAT_TYPE> v2(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(i); });
-    v1 *= v2;
-    for (size_t i = 0; i < v1.size(); ++i) {
-        EXPECT_TRUE(IsClose(v1[i], static_cast<FLOAT_TYPE>(i * i * i)));
-    }
-}
-
-// Test for element-wise division assignment (/=)
-TEST_F(LazyVectorTests, ElementWiseDivisionAssignmentTest) {
-    LazyVector<FLOAT_TYPE> v1(10, [](size_t i) { return static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1); });
-    LazyVector<FLOAT_TYPE> v2(10, [](size_t i) { return (static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1)); });
-    v1 /= v2;
-    for (size_t i = 0; i < v1.size(); ++i) {
-        EXPECT_TRUE(IsClose(v1[i], static_cast<FLOAT_TYPE>((static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1)) / (static_cast<FLOAT_TYPE>(i) * static_cast<FLOAT_TYPE>(i) + static_cast<FLOAT_TYPE>(1)))));
     }
 }
 

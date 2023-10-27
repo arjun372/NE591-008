@@ -7,6 +7,7 @@ set(TEST_SOURCES
         matrix/BaseMatrixTests.cpp
         matrix/MatrixPerformanceTests.cpp
         vector/BaseVectorTests.cpp
+        TestedTypes.h
 )
 
 if (NOT TARGET blas_tests)

@@ -18,6 +18,8 @@
 
 namespace MyBLAS {
 
+template <typename T> class LazyVector;
+
 /**
 * @class Vector
 * @brief Class representing a vector of T values.

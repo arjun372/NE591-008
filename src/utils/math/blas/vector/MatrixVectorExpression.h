@@ -56,10 +56,7 @@ class MatrixVectorExpression {
      */
     static VectorType<T> multiplyMatrixVector(const MatrixType<T>& a, const VectorType<T>& b) {
         MatrixVectorExpression expr(a, b);
-        VectorType result = VectorType<T>(a.getRows());
-        for (size_t i = 0; i < a.getRows(); ++i) {
-            result[i] = expr(i);
-        }
+        VectorType result = VectorType<T>(a.getRows(), [expr](size_t i) { return expr(i); });
         return result;
     }
 

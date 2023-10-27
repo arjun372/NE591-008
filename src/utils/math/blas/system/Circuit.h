@@ -55,14 +55,14 @@ void Circuit(const size_t n, MyBLAS::Matrix<T> &A, MyBLAS::Vector<T> &b, MyBLAS:
    const T max_current = 5;
 
    // Generate a vector of random currents within the defined range
-   MyBLAS::Vector<T> currents = Random::generate(n, min_current, max_current, seed);
+   MyBLAS::Vector<T> currents = Random::generate_vector(n, min_current, max_current, seed);
 
    // Generate a matrix with randomly placed resistors, each with a resistance sampled from U(1, 10k) Ω
    // Start with a 2D bitmap of resistors
    MyBLAS::Matrix<T> resistors = Random::binary<T>(n, n, seed);
 
    // Then, sample resistances from the distribution
-   MyBLAS::Matrix<T> resistances = Random::generate(n, n, min_resistance, max_resistance, seed);
+   MyBLAS::Matrix<T> resistances = Random::generate_matrix(n, n, min_resistance, max_resistance, seed);
 
    // Finally, element-wise multiply these with the bitmap, assigning the resistors their magnitudes
    // @note: negative resistances are OK here as long as the currents in the previous step are also randomly sampled

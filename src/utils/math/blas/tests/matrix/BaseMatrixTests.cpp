@@ -66,12 +66,37 @@ TYPED_TEST(BaseMatrixTests, MultiplicationTest) {
     }
 }
 
-TYPED_TEST(BaseMatrixTests, ScalarMultiplicationTest) {
+TYPED_TEST(BaseMatrixTests, RightSideScalarMultiplicationTest) {
     Matrix<TypeParam> m1(2, 2, 2);
     Matrix<TypeParam> m2 = m1 * 2;
     for (size_t i = 0; i < m2.getRows(); ++i) {
         for (size_t j = 0; j < m2.getCols(); ++j) {
             EXPECT_EQ(m2[i][j], 4);
+        }
+    }
+}
+
+TYPED_TEST(BaseMatrixTests, LeftSideScalarMultiplicationTest) {
+    Matrix<TypeParam> m1(2, 2, 2);
+    Matrix<TypeParam> m2 = 2 * m1;
+    for (size_t i = 0; i < m2.getRows(); ++i) {
+        for (size_t j = 0; j < m2.getCols(); ++j) {
+            EXPECT_EQ(m2[i][j], 4);
+        }
+    }
+}
+
+TYPED_TEST(BaseMatrixTests, ScalarMultiplicationSymmetryTest) {
+    Matrix<TypeParam> m1(2, 2, 2);
+    Matrix<TypeParam> m2 = 2 * m1;
+    Matrix<TypeParam> m3 = m1 * 2;
+    // EXPECT_TRUE(m2 == m3);
+    for (size_t i = 0; i < m2.getRows(); ++i) {
+        for (size_t j = 0; j < m2.getCols(); ++j) {
+            EXPECT_TRUE(m2[i][j] == m3[i][j]);
+            EXPECT_EQ(m2[i][j], m3[i][j]);
+            EXPECT_EQ(m2[i][j], 4);
+            EXPECT_EQ(m3[i][j], 4);
         }
     }
 }
@@ -188,49 +213,4 @@ TYPED_TEST(BaseMatrixTests, NonSquareMatrixTest) {
     EXPECT_EQ(m1.getRows(), 2);
     EXPECT_EQ(m1.getCols(), 3);
 }
-
-//TYPED_TEST(BaseMatrixTests, MatrixMultiplicationDimensionMismatchTest) {
-//    Matrix<TypeParam> m1(2, 3, 1);
-//    Matrix<TypeParam> m2(2, 2, 1);
-//    EXPECT_DEATH(m1 * m2, ".*");
-//}
-//
-//TYPED_TEST(BaseMatrixTests, MatrixVectorMultiplicationDimensionMismatchTest) {
-//    Matrix<TypeParam> m1(2, 3, 1);
-//    Vector<TypeParam> v1(2, 1);
-//    EXPECT_DEATH(m1 * v1, ".*");
-//}
-//
-//TYPED_TEST(BaseMatrixTests, SubMatrixOutOfBoundsTest) {
-//    Matrix<TypeParam> m1(2, 2, 1);
-//    EXPECT_DEATH(m1.subMatrix(1, 1, 2, 2), ".*");
-//}
-//
-//TYPED_TEST(BaseMatrixTests, SetSubMatrixOutOfBoundsTest) {
-//    Matrix<TypeParam> m1(2, 2, 1);
-//    Matrix<TypeParam> m2(2, 2, 2);
-//    EXPECT_DEATH(m1.setSubMatrix(1, 1, m2), ".*");
-//}
-//
-//TYPED_TEST(BaseMatrixTests, SwapRowsOutOfBoundsTest) {
-//    Matrix<TypeParam> m1 = Matrix<TypeParam>::eye(3);
-//    EXPECT_DEATH(m1.swapRows(0, 4), ".*");
-//}
-//
-//TYPED_TEST(BaseMatrixTests, ScalarDivisionByZeroTest) {
-//    Matrix<TypeParam> m1(2, 2, 2);
-//    EXPECT_DEATH(m1 / 0, ".*");
-//}
-//
-//TYPED_TEST(BaseMatrixTests, PushBackRowSizeMismatchTest) {
-//    Matrix<TypeParam> m1(2, 2, 1);
-//    std::vector<TypeParam> row(3, 1);
-//    EXPECT_DEATH(m1.push_back(row), ".*");
-//}
-//
-//TYPED_TEST(BaseMatrixTests, OperatorIndexOutOfBoundsTest) {
-//    Matrix<TypeParam> m1(2, 2, 1);
-//    EXPECT_THROW(m1[2], std::exception);
-//}
-
 } // namespace MyBLAS
