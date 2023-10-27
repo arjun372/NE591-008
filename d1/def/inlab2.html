@@ -118,31 +118,31 @@ $(document).ready(function(){initNavTree('d1/def/inlab2.html','../../'); initRes
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md29">InLab 02: I/O Setup for Lagrange Interpolation Polynomials</a><ul><li class="level2"><a href="#autotoc_md30">Overview</a></li>
-<li class="level2"><a href="#autotoc_md31">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md32">Options</a></li>
-<li class="level3"><a href="#autotoc_md33">General options:</a></li>
+<ul><li class="level1"><a href="#autotoc_md40">InLab 02: I/O Setup for Lagrange Interpolation Polynomials</a><ul><li class="level2"><a href="#autotoc_md41">Overview</a></li>
+<li class="level2"><a href="#autotoc_md42">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md43">Options</a></li>
+<li class="level3"><a href="#autotoc_md44">General options:</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md34">Implementing your own &lt;tt&gt;f(x)&lt;/tt&gt;</a></li>
-<li class="level2"><a href="#autotoc_md35">File I/O</a></li>
-<li class="level2"><a href="#autotoc_md36">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md37">Sample Inputs File</a></li>
+<li class="level2"><a href="#autotoc_md45">Implementing your own &lt;tt&gt;f(x)&lt;/tt&gt;</a></li>
+<li class="level2"><a href="#autotoc_md46">File I/O</a></li>
+<li class="level2"><a href="#autotoc_md47">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md48">Sample Inputs File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md38">0.67</a></li>
-<li class="level2"><a href="#autotoc_md39">Inputs</a></li>
-<li class="level2"><a href="#autotoc_md40">Output Format</a><ul><li class="level3"><a href="#autotoc_md41">Sample Outputs File</a></li>
+<li class="level2"><a href="#autotoc_md49">0.67</a></li>
+<li class="level2"><a href="#autotoc_md50">Inputs</a></li>
+<li class="level2"><a href="#autotoc_md51">Output Format</a><ul><li class="level3"><a href="#autotoc_md52">Sample Outputs File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md42">Example:</a></li>
+<li class="level2"><a href="#autotoc_md53">Example:</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md29"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md40"></a>
 InLab 02: I/O Setup for Lagrange Interpolation Polynomials</h1>
 <p>This program is designed to setup the I/O requirements for performing Lagrange interpolation. It takes in a set of points and returns the interpolated values at specified evaluation points.</p>
 <p>File based I/O is supported using CSV (comma separated values) files.</p>
-<div style="display: none"></div><h2><a class="anchor" id="autotoc_md30"></a>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md41"></a>
 Overview</h2>
 <ul>
 <li><a href="../../#building--usage">Building &amp; Usage</a><ul>
@@ -159,7 +159,7 @@ Overview</h2>
 </li>
 <li><a href="../../#example">Example</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and optionally the input and output files. Here is a repeatable script to perform the build and run the <code>inlab2</code> target executable:</p>
 <div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
@@ -180,7 +180,7 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md32"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md43"></a>
 Options</h3>
 <ul>
 <li><code>-n [ --num-points ] arg</code> (optional): Number of interpolation points n.</li>
@@ -191,7 +191,7 @@ Options</h3>
 <li><code>-o [ --output-csv ] arg</code>: Path for output CSV file with five columns [i, x, <a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a>, <a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L(x)</a>, E(x)].</li>
 <li><code>-F [ --use-fx-function ]</code>: Use bundled f(x=n) function.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md33"></a>
+<h3><a class="anchor" id="autotoc_md44"></a>
 General options:</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message.</li>
@@ -199,7 +199,7 @@ General options:</h3>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double.</li>
 <li><code>-P [ --profile ]</code>: Turn on profiling for performance comparison.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md45"></a>
 Implementing your own &lt;tt&gt;f(x)&lt;/tt&gt;</h2>
 <p>When using the <code>--use-fx-function</code> flag, the code uses outputs from the <code>fill_fx</code> method, located in <a href="../../extern/function.h">extern/function.h</a>. This code is built as a static library <code>inlab2_extern</code> and linked to the <code>inlab2</code> target. When modifying this code, no additional compilation steps need to be taken.</p>
 <p>Here is a brief description of the <code>fx_fill</code> method:</p>
@@ -218,10 +218,10 @@ Implementing your own &lt;tt&gt;f(x)&lt;/tt&gt;</h2>
 </div><!-- fragment --><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; [[maybe_unused]] <span class="keywordtype">void</span> <a class="code" href="../../d3/dbe/inlab2_2extern_2function_8h.html#a492e7622c303a80b47b7e6c69f68610c">fill_fx</a>(<span class="keyword">const</span> std::vector&lt;T&gt; &amp;<a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, std::vector&lt;T&gt; &amp;fx);</div>
 <div class="ttc" id="ainlab2_2extern_2function_8h_html_a492e7622c303a80b47b7e6c69f68610c"><div class="ttname"><a href="../../d3/dbe/inlab2_2extern_2function_8h.html#a492e7622c303a80b47b7e6c69f68610c">fill_fx</a></div><div class="ttdeci">void fill_fx(const std::vector&lt; long double &gt; &amp;x, std::vector&lt; long double &gt; &amp;fx)</div><div class="ttdoc">Fill the fx vector, optionally using the values in the x vector.</div><div class="ttdef"><b>Definition:</b> function.h:26</div></div>
 <div class="ttc" id="aplot__points_8m_html_a9336ebf25087d91c818ee6e9ec29f8c1"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a></div><div class="ttdeci">Define the x values x</div><div class="ttdef"><b>Definition:</b> plot_points.m:18</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md35"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md46"></a>
 File I/O</h2>
 <p>Although data for <code>x</code> and <code><a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a></code> can be entered sequentially in interactive mode, it is recommended to use the option to read an input CSV file. The code looks for the headers <code>x</code>and <code><a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a></code>, so please use them precisely. There is a sample input CSV file under <a href="../../inputs/sample_input.csv">inputs/sample_input.csv</a>.</p>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md47"></a>
 Parameters Format</h2>
 <p>The input points can be provided in three ways:</p>
 <ol type="1">
@@ -229,18 +229,18 @@ Parameters Format</h2>
 <li>Using the <code>-i, --input-csv</code> option: The input points can be read from a CSV file with two columns <code>[x, <a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a>]</code>. The path to the CSV file should be provided as a command-line argument. For example:</li>
 </ol>
 <div class="fragment"><div class="line">./inlab2 -i input.csv -m 100 -o output.csv</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md37"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md48"></a>
 Sample Inputs File</h3>
 <p>```shell $ cat ./sample_input.csv x,<a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a> 0.8364,1.0411 -0.2296,0.7325 -1.2275,2.3859 -0.7006,0.3934 -1.0390,1.1686 -0.6570,0.3813 -0.1797,0.7948 0.0814,1.0743 -0.1277,0.8583 1.1261,1.0381 ```</p>
 <ol type="1">
 <li>Using the interactive shell mode, where the will prompt the user to enter the values one by one. For example: ```shell Enter the number of interpolation points: 2 Enter points for the interval x, sorted, and one at a time: 3.2 5.6 Enter 2 points for <a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a> for every x, one at a time: -1.0 </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md49"></a>
 0.67</h2>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md50"></a>
 Inputs</h2>
 <p>x <a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a> +3.200000000000000e+00 -1.000000000000000e+00 +5.600000000000000e+00 +6.700000000000000e-01 .... ```</p>
-<h2><a class="anchor" id="autotoc_md40"></a>
+<h2><a class="anchor" id="autotoc_md51"></a>
 Output Format</h2>
 <p>The output is written to a CSV file with five columns <code>[i, x, <a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a>, <a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L(x)</a>, E(x)]</code>, where:</p>
 <ul>
@@ -250,12 +250,12 @@ Output Format</h2>
 <li><code><a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L(x)</a></code> is the interpolated value at the evaluation point</li>
 <li><code>E(x)</code> is the error between the interpolated value and the actual value</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md41"></a>
+<h3><a class="anchor" id="autotoc_md52"></a>
 Sample Outputs File</h3>
 <ul>
 <li><code>--use-fx-function</code> set If the flag <code>--use-fx-function</code> is set, the output contains five columns <code>[i, x, <a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a>, <a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L(x)</a>, E(x)]</code>. ```shell $ cat ./outputs-with-fx-function.csv i,x(i),<a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L(x)</a>,<a class="el" href="../../db/dde/readfile_8m.html#a354711734bd3de910cd2614c0ce16a1e">f(x)</a>,E(x), 1,0.000000,0.000000,0.000000, 2,0.000000,0.000000,0.000000, 3,0.000000,0.000000,0.000000, ... ``<code> *</code>&ndash;use-fx-function<code>unset If the flag</code>&ndash;use-fx-function<code>is not set, the output contains three columns</code>[i, x, <a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L(x)</a>]<code>. </code>``shell $ cat ./outputs-without-fx-function.csv i,x(i),<a class="el" href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84">L(x)</a>, 1,0.000000,0.000000, 2,0.000000,0.000000, 3,0.000000,0.000000, ... ```</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md53"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
 <div class="fragment"><div class="line">                    ███╗   ██╗███████╗      ███████╗ █████╗  ██╗</div>

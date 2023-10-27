@@ -97,6 +97,23 @@ var namespaces_dup =
       [ "origin", "d8/d21/namespaceplot__heatmap.html#ae2a35df4575bad615296012c8c530190", null ],
       [ "q_matrix", "d8/d21/namespaceplot__heatmap.html#aa36befd72222df3a98ea9d4f9077c206", null ]
     ] ],
+    [ "postprocess", "d3/d3b/namespacepostprocess.html", [
+      [ "converged", "d3/d3b/namespacepostprocess.html#aea59063e09e9f5989f4d8d818af73366", null ],
+      [ "cross_section", "d3/d3b/namespacepostprocess.html#a814413a2c46d8f36000e74ba9de2d699", null ],
+      [ "D", "d3/d3b/namespacepostprocess.html#a4c94fff3ea954939c29fc2d4523d783e", null ],
+      [ "data", "d3/d3b/namespacepostprocess.html#a2c02466f489759782b744dc50f1c2a23", null ],
+      [ "dimensions", "d3/d3b/namespacepostprocess.html#ab7e7a0e51f927a85f6c6597a7718afde", null ],
+      [ "inputs", "d3/d3b/namespacepostprocess.html#a9e7a0a7ffecd1c4b6243cf70ef00a309", null ],
+      [ "iterations", "d3/d3b/namespacepostprocess.html#ae0a29f3d14dac5d714c65be9e85728a6", null ],
+      [ "iterative_error", "d3/d3b/namespacepostprocess.html#a4f927cc626a9c89a456725011baf76dc", null ],
+      [ "max_residual", "d3/d3b/namespacepostprocess.html#ac1e956867629857c7ab33a96861e2a4d", null ],
+      [ "mesh", "d3/d3b/namespacepostprocess.html#a5dd4d20638185211bf13ad0991577f72", null ],
+      [ "methods", "d3/d3b/namespacepostprocess.html#a58ac3565153e098168213b1775608ea3", null ],
+      [ "outputs", "d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388", null ],
+      [ "residual", "d3/d3b/namespacepostprocess.html#a4ff51b6d257c7fef16f91689c453cdaf", null ],
+      [ "solution", "d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a", null ],
+      [ "wall_time_ns", "d3/d3b/namespacepostprocess.html#a1abcda5bdd4187b111ee061f6df4c6c2", null ]
+    ] ],
     [ "process", "d8/d25/namespaceprocess.html", [
       [ "read_json_files", "d8/d25/namespaceprocess.html#adba79abf8e82706ddf1b64fca14b5b6b", null ],
       [ "data", "d8/d25/namespaceprocess.html#aa366096056d341f5955af73013ea8084", null ],

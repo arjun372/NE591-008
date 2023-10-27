@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('d7/d64/labs_2inlab1_2Compute_8h.html',
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="../../de/db3/namespaceCompute.html" title="This namespace contains methods for performing various computations.">Compute</a> methods for inlab1 in NE591-008.  
+<p><a class="el" href="../../de/db3/namespaceCompute.html" title="This namespace provides a function to compute the sum of a series.">Compute</a> methods for inlab1 in NE591-008.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
@@ -183,7 +183,7 @@ Variables</h2></td></tr>
 <tr class="separator:a6443177aead54c484cf849ebe2ddc064"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="../../de/db3/namespaceCompute.html" title="This namespace contains methods for performing various computations.">Compute</a> methods for inlab1 in NE591-008. </p>
+<div class="textblock"><p><a class="el" href="../../de/db3/namespaceCompute.html" title="This namespace provides a function to compute the sum of a series.">Compute</a> methods for inlab1 in NE591-008. </p>
 <dl class="section author"><dt>Author</dt><dd>Arjun Earthperson </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>08/30/2023 </dd></dl>
 
@@ -396,13 +396,14 @@ value</td>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a6443177aead54c484cf849ebe2ddc064">mySineVars</a>.<a class="code" href="../../df/df1/structOutput.html#acfe7f7a331c50da196e88103e46cb642">target_threshold</a> = convergence_threshold;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a6443177aead54c484cf849ebe2ddc064">mySineVars</a>.<a class="code" href="../../df/df1/structOutput.html#a4a50058f779064c91defebd579c8f7c2">x</a> = angle;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a6443177aead54c484cf849ebe2ddc064">mySineVars</a>.<a class="code" href="../../df/df1/structOutput.html#a3541126c8ceb372848970f8b4473deda">n</a> = 0;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a6443177aead54c484cf849ebe2ddc064">mySineVars</a>.<a class="code" href="../../df/df1/structOutput.html#abe5b6543a9bc3a9cc1ec1e0f41b99ea7">N</a> = iterations;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a6443177aead54c484cf849ebe2ddc064">mySineVars</a>.<a class="code" href="../../df/df1/structOutput.html#abe5b6543a9bc3a9cc1ec1e0f41b99ea7">N</a> = <a class="code" href="../../d3/d3b/namespacepostprocess.html#ae0a29f3d14dac5d714c65be9e85728a6">iterations</a>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a36cda562827f6a51f45b57740f8ea850">my_sisd_sin</a>(<a class="code" href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a6443177aead54c484cf849ebe2ddc064">mySineVars</a>);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">//    return my_naive_sin(mySineVars.x, mySineVars.current_threshold, mySineVars.target_threshold,</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">//    mySineVars.running_sum, mySineVars.n, mySineVars.N);</span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
 <div class="ttc" id="alabs_2inlab1_2Compute_8h_html_a36cda562827f6a51f45b57740f8ea850"><div class="ttname"><a href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a36cda562827f6a51f45b57740f8ea850">my_sisd_sin</a></div><div class="ttdeci">long double my_sisd_sin(TaylorSeriesVariables &amp;vars)</div><div class="ttdoc">Function to compute sine using a recursive, iterative taylor series discretization approach.</div><div class="ttdef"><b>Definition:</b> Compute.h:57</div></div>
 <div class="ttc" id="alabs_2inlab1_2Compute_8h_html_a6443177aead54c484cf849ebe2ddc064"><div class="ttname"><a href="../../d7/d64/labs_2inlab1_2Compute_8h.html#a6443177aead54c484cf849ebe2ddc064">mySineVars</a></div><div class="ttdeci">static TaylorSeriesVariables mySineVars</div><div class="ttdef"><b>Definition:</b> Compute.h:37</div></div>
+<div class="ttc" id="anamespacepostprocess_html_ae0a29f3d14dac5d714c65be9e85728a6"><div class="ttname"><a href="../../d3/d3b/namespacepostprocess.html#ae0a29f3d14dac5d714c65be9e85728a6">postprocess.iterations</a></div><div class="ttdeci">iterations</div><div class="ttdef"><b>Definition:</b> postprocess.py:21</div></div>
 <div class="ttc" id="astructOutput_html_a3541126c8ceb372848970f8b4473deda"><div class="ttname"><a href="../../df/df1/structOutput.html#a3541126c8ceb372848970f8b4473deda">Output::n</a></div><div class="ttdeci">size_t n</div><div class="ttdoc">The current iteration.</div><div class="ttdef"><b>Definition:</b> Compute.h:33</div></div>
 <div class="ttc" id="astructOutput_html_a4a50058f779064c91defebd579c8f7c2"><div class="ttname"><a href="../../df/df1/structOutput.html#a4a50058f779064c91defebd579c8f7c2">Output::x</a></div><div class="ttdeci">long double x</div><div class="ttdoc">The x value.</div><div class="ttdef"><b>Definition:</b> Compute.h:32</div></div>
 <div class="ttc" id="astructOutput_html_a6b23829ac7588e83be1b4b639e298604"><div class="ttname"><a href="../../df/df1/structOutput.html#a6b23829ac7588e83be1b4b639e298604">Output::running_sum</a></div><div class="ttdeci">long double running_sum</div><div class="ttdoc">The running sum of the series.</div><div class="ttdef"><b>Definition:</b> Compute.h:27</div></div>
@@ -411,7 +412,7 @@ value</td>
 <div class="ttc" id="astructOutput_html_abe5b6543a9bc3a9cc1ec1e0f41b99ea7"><div class="ttname"><a href="../../df/df1/structOutput.html#abe5b6543a9bc3a9cc1ec1e0f41b99ea7">Output::N</a></div><div class="ttdeci">size_t N</div><div class="ttdoc">The maximum number of iterations.</div><div class="ttdef"><b>Definition:</b> Compute.h:34</div></div>
 <div class="ttc" id="astructOutput_html_acfe7f7a331c50da196e88103e46cb642"><div class="ttname"><a href="../../df/df1/structOutput.html#acfe7f7a331c50da196e88103e46cb642">Output::target_threshold</a></div><div class="ttdeci">long double target_threshold</div><div class="ttdoc">The target threshold.</div><div class="ttdef"><b>Definition:</b> Compute.h:31</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00030">Output::current_threshold</a>, <a class="el" href="../../#l00057">my_sisd_sin()</a>, <a class="el" href="../../#l00037">mySineVars</a>, <a class="el" href="../../#l00033">Output::n</a>, <a class="el" href="../../#l00034">Output::N</a>, <a class="el" href="../../#l00029">Output::previous_factorial</a>, <a class="el" href="../../#l00027">Output::running_sum</a>, <a class="el" href="../../#l00031">Output::target_threshold</a>, and <a class="el" href="../../#l00032">Output::x</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00030">Output::current_threshold</a>, <a class="el" href="../../#l00021">postprocess::iterations</a>, <a class="el" href="../../#l00057">my_sisd_sin()</a>, <a class="el" href="../../#l00037">mySineVars</a>, <a class="el" href="../../#l00033">Output::n</a>, <a class="el" href="../../#l00034">Output::N</a>, <a class="el" href="../../#l00029">Output::previous_factorial</a>, <a class="el" href="../../#l00027">Output::running_sum</a>, <a class="el" href="../../#l00031">Output::target_threshold</a>, and <a class="el" href="../../#l00032">Output::x</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00056">InLab1::run()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">

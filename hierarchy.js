@@ -29,6 +29,8 @@ var hierarchy =
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
     [ "CommandLine< OutLab7Inputs >", "dd/d02/classCommandLine.html", [
+      [ "Parser", "d0/d40/classParser.html", null ],
+      [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
     [ "CommandLine< SolverInputs >", "dd/d02/classCommandLine.html", [
@@ -54,6 +56,8 @@ var hierarchy =
     [ "MatrixVectorExpression< MatrixType, VectorType, T >", "d4/d68/classMatrixVectorExpression.html", null ],
     [ "MPIProject< InputType, CommandLineParserType, OutputType >", "d0/df0/classMPIProject.html", null ],
     [ "MPIProject< OutLab7Inputs, Parser, OutLab7Outputs >", "d0/df0/classMPIProject.html", [
+      [ "OutLab7", "d3/d49/classOutLab7.html", null ],
+      [ "OutLab7", "d3/d49/classOutLab7.html", null ],
       [ "OutLab7", "d3/d49/classOutLab7.html", null ]
     ] ],
     [ "MyBLAS::ContainerExpression< ContainerType1, ContainerType2, T >", "d5/d49/classMyBLAS_1_1ContainerExpression.html", null ],
