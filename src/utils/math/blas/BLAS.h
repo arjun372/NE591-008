@@ -25,7 +25,7 @@ namespace MyBLAS {
  * @return true if the input matrix is a square matrix, false otherwise.
  */
 template <typename MatrixType> inline bool isSquareMatrix(const MatrixType &M) {
-    return M.getCols() == M.getRows();
+    return M.getRows() > 0 && M.getCols() == M.getRows();
 }
 
 /**
@@ -193,6 +193,95 @@ template <template<typename> class U, typename T> bool isPermutationMatrix(const
 }
 
 /**
+ * @brief Checks if the given matrix is symmetric.
+ *
+ * This function checks if the input matrix is equal to its transpose.
+ *
+ * @param A The input matrix to be checked.
+ * @param A For floating-point values, check within a given tolerance
+ * @return true if the input matrix is symmetric, false otherwise.
+ */
+template <template<typename> class M, typename T> bool isSymmetricMatrix(const M<T> &A, const T tolerance = 0) {
+
+    // Check if the matrix is square
+    if (!MyBLAS::isSquareMatrix(A)) {
+        return false;
+    }
+
+    const size_t n = A.getRows();
+    if (tolerance == 0) {
+        // Check if the matrix is equal to its transpose
+        for (size_t i = 0; i < n; i++) {
+            for (size_t j = i + 1 ; j < n; j++) {
+                if (A[i][j] != A[j][i]) {
+                    return false;
+                }
+            }
+        }
+    } else {
+        const T threshold = std::numeric_limits<T>::epsilon() * tolerance;
+        // Check if the matrix is equal to its transpose, within a margin
+        for (size_t i = 0; i < n; i++) {
+            for (size_t j = i + 1; j < n; j++) {
+                if (std::abs(A[i][j] - A[j][i]) > threshold) {
+                    return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+/**
+ * @brief Checks if the given matrix is positive definite using Cholesky decomposition.
+ *
+ * This function attempts to perform Cholesky decomposition on the input matrix. If the decomposition
+ * can be completed without encountering any non-positive elements on the diagonal, the matrix is
+ * considered positive definite.
+ *
+ * @tparam T The data type of the matrix elements.
+ * @param A The input matrix to be checked.
+ * @return true if the input matrix is positive definite, false otherwise.
+ */
+template <template<typename> class M, typename T>
+bool isPositiveDefiniteMatrix(const M<T> &A) {
+    // Check if the matrix is square
+    if (!MyBLAS::isSquareMatrix(A)) {
+        return false;
+    }
+
+    const size_t n = A.getRows();
+    M<T> L(n, n, static_cast<T>(0)); // Initialize lower triangular matrix
+
+    for (size_t i = 0; i < n; ++i) {
+        for (size_t j = 0; j <= i; ++j) {
+            T sum = 0;
+            if (j == i) { // Diagonal elements
+                for (size_t k = 0; k < j; k++) {
+                    sum += L[j][k] * L[j][k];
+                }
+                L[j][j] = A[j][j] - sum;
+                // If the diagonal element is not positive, the matrix is not positive definite
+                if (L[j][j] <= static_cast<T>(0)) {
+                    return false;
+                }
+                L[j][j] = std::sqrt(L[j][j]);
+            } else { // Off-diagonal elements
+                for (size_t k = 0; k < j; ++k) {
+                    sum += L[i][k] * L[j][k];
+                }
+                if (L[j][j] == static_cast<T>(0)) {
+                    return false; // This would imply division by zero
+                }
+                L[i][j] = (A[i][j] - sum) / L[j][j];
+            }
+        }
+    }
+    return true; // The matrix is positive definite if Cholesky decomposition is successful
+}
+
+/**
  * @brief Checks if all diagonal elements of a matrix are below a certain threshold.
  *
  * This function iterates over the diagonal elements of the input matrix A and checks if their absolute values are
@@ -291,6 +380,7 @@ bool haveEqualRank(const MatrixType &A, const VectorType &b) {
     return A.getRows() == b.size();
 }
 
+// TODO:: Figure out why this is commented out
 ///**
 // * @brief Global function to multiply a scalar with a matrix or vector.
 // * @param scalar Scalar to multiply the matrix or vector with.
@@ -311,25 +401,26 @@ bool haveEqualRank(const MatrixType &A, const VectorType &b) {
 //    return matrix + scalar;
 //}
 //
-///**
-// * @brief Global function to multiply a scalar with a vector.
-// * @param scalar Scalar to multiply the matrix with.
-// * @param matrix Vector to be multiplied.
-// * @return Resultant matrix after multiplication.
-// */
-//template <typename T> MyBLAS::Vector<T> operator*(const T &scalar, const MyBLAS::Vector<T> &vector) {
-//    return vector * scalar;
-//}
-//
-///**
-// * @brief Global function to add a scalar to a vector.
-// * @param scalar Scalar to add to the matrix.
-// * @param matrix Vector to be added to.
-// * @return Resultant matrix after addition.
-// */
-//template <typename T> MyBLAS::Vector<T> operator+(const T &scalar, const MyBLAS::Vector<T> &vector) {
-//    return vector + scalar;
-//}
+
+/**
+ * @brief Global function to multiply a scalar with a vector.
+ * @param scalar Scalar to multiply the matrix with.
+ * @param matrix Vector to be multiplied.
+ * @return Resultant matrix after multiplication.
+ */
+template <typename T> MyBLAS::Vector<T> operator*(const T &scalar, const MyBLAS::Vector<T> &vector) {
+    return vector * scalar;
+}
+
+/**
+ * @brief Global function to add a scalar to a vector.
+ * @param scalar Scalar to add to the matrix.
+ * @param matrix Vector to be added to.
+ * @return Resultant matrix after addition.
+ */
+template <typename T> MyBLAS::Vector<T> operator+(const T &scalar, const MyBLAS::Vector<T> &vector) {
+    return vector + scalar;
+}
 
 /**
  * @brief Computes the inner product of two matrices.

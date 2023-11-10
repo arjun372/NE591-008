@@ -84,9 +84,9 @@ class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
         canvas.y_stop = 0.883651184261;
         canvas.tone_map.growth_rate = 0.25;
         return {
-            .ProjectName = "NE591: InLab 08",
-            .ProjectDescription = "",
-            .SubmissionDate = "10/13/2023",
+            .ProjectName = "NE591: InLab 10",
+            .ProjectDescription = "Matrix-Vector Operations Setup",
+            .SubmissionDate = "10/27/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = drawJuliaSet<__float128>(canvas, x, y, iterations),
         };
@@ -125,33 +125,27 @@ class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
     bool run(InLab10Outputs &outputs, InLab10Inputs &inputs, const int rank, const int size) override {
 
         auto profiler = getProfiler([&rank, &inputs, &size, &outputs]{
+            // A, y
+            auto A = inputs.coefficients;
+            auto y = inputs.constants;
+            // z = Cy
+            auto z = static_cast<MyBLAS::NumericType>(2.0) * y;
+            // sum = y + z
+            auto sum = y + z;
+            // product = y^T • z
+            auto product = y * z;
+            // matrix weighted inner product = y^T • A•z
+            auto matrix_weighted_inner_product = y * (A * z);
 
-            size_t start = static_cast<size_t>(rank) * inputs.n / static_cast<size_t>(size) + 1;
-            size_t stop = static_cast<size_t>(rank + 1) * inputs.n / static_cast<size_t>(size);
-
-            outputs.sum  = Compute::seriesSum(start, stop);
-
-            int tag = 0;
-            MPI_Status status;
-            // Binary tree communication logic
-            for (int stride = 1; stride < size; stride *= 2) {
-                if (rank % (2 * stride) != 0) {
-                    // Send partial sum to the process at an interval of stride
-                    MPI_Send(&outputs.sum, 1, MPI_LONG_DOUBLE, rank - stride, tag, MPI_COMM_WORLD);
-                    break;
-                }
-                // Receive partial sum from the process at an interval of stride
-                if (rank + stride < size) {
-                    MyBLAS::NumericType received_sum;
-                    MPI_Recv(&received_sum, 1, MPI_LONG_DOUBLE, rank + stride, tag, MPI_COMM_WORLD, &status);
-                    outputs.sum += received_sum;
-                }
-            }
-        }, 10, 0, "run").run();
+            outputs.scaled_vector = z;
+            outputs.vector_sum = sum;
+            outputs.scalar_product = product;
+            outputs.matrix_inner_product = matrix_weighted_inner_product;
+        }, 10000, 0, "Matrix-Vector Operations").run();
 
         if (rank == 0) {
             outputs.summary = profiler.getSummary();
-            std::cout<<outputs.summary<<std::endl;
+            std::cout<<profiler<<std::endl;
         }
         return false;
     }
@@ -171,8 +165,7 @@ class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
             return false;
         }
 
-        // Print the final sum in the root process
-        std::cout << _uuid << "Final sum: " << outputs.sum << std::endl;
+        std::cout << outputs << std::endl;
 
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);

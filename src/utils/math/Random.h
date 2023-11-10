@@ -67,6 +67,24 @@ template <typename T> MyBLAS::Vector<T> generate_vector(const size_t n, T min = 
 }
 
 /**
+ * @brief Generates a LazyVector of random numbers.
+ * @tparam T The type of the elements in the vector.
+ * @param n The size of the vector.
+ * @param min The minimum value for the random numbers.
+ * @param max The maximum value for the random numbers.
+ * @param seed The seed for the random number generator.
+ * @return A LazyVector of random numbers.
+ */
+template <typename T> MyBLAS::LazyVector<T> generate_lazy_vector(const size_t n, T min = 0, T max = 1, const size_t seed = 372) {
+    if (max < min) {
+        std::swap(min, max);
+    }
+    auto stream = std::make_shared<std::mt19937>(seed);
+    std::uniform_real_distribution<T> uniform(min, max);
+    return MyBLAS::LazyVector<T>(n, [stream, uniform](size_t) mutable { return uniform(*stream); });
+}
+
+/**
  * @brief Generates a matrix of random numbers.
  * @tparam T The type of the elements in the matrix.
  * @param rows The number of rows in the matrix.

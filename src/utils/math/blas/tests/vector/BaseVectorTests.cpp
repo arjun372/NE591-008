@@ -134,4 +134,40 @@ TYPED_TEST(VectorTests, VectorScalarDivisionByZeroTest) {
    // EXPECT_THROW(v1 / 0, std::exception);
 }
 
+TYPED_TEST(VectorTests, InitializerListConstructorTest) {
+    Vector<TypeParam> v1({1, 2, 3});
+    EXPECT_EQ(v1.size(), 3);
+    EXPECT_EQ(v1[0], 1);
+    EXPECT_EQ(v1[1], 2);
+    EXPECT_EQ(v1[2], 3);
+}
+
+TYPED_TEST(VectorTests, InitializerListConstructorWithRowVectorTest) {
+    Vector<TypeParam> v1({1, 2, 3}, true); // true indicates a row vector
+    EXPECT_EQ(v1.size(), 3);
+    EXPECT_TRUE(v1.isRowVector()); // Assuming isRowVector() is a method that checks if the vector is a row vector
+    EXPECT_EQ(v1[0], 1);
+    EXPECT_EQ(v1[1], 2);
+    EXPECT_EQ(v1[2], 3);
+}
+
+TYPED_TEST(VectorTests, InitializerListConstructorWithEmptyListTest) {
+    Vector<TypeParam> v1({});
+    EXPECT_EQ(v1.size(), 0);
+}
+
+TYPED_TEST(VectorTests, InitializerListConstructorWithSingleElementTest) {
+    Vector<TypeParam> v1({42});
+    EXPECT_EQ(v1.size(), 1);
+    EXPECT_EQ(v1[0], 42);
+}
+
+TYPED_TEST(VectorTests, InitializerListConstructorWithDifferentValuesTest) {
+    Vector<TypeParam> v1({1, 2, 3, 4, 5});
+    EXPECT_EQ(v1.size(), 5);
+    for (size_t i = 0; i < v1.size(); ++i) {
+        EXPECT_EQ(v1[i], i + 1);
+    }
+}
+
 } // namespace MyBLAS

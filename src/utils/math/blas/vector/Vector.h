@@ -85,6 +85,13 @@ template <typename T> class Vector {
     }
 
     /**
+     * @brief Constructor that initializes the vector with an initializer list.
+     * @param initList Initializer list to initialize the vector with.
+     * @param _isRow Boolean indicating whether the vector is a row vector (default is false).
+     */
+    Vector(std::initializer_list<T> initList, bool _isRow = false) : data(initList), isRow(_isRow) {}
+
+    /**
     * @brief Constructor that initializes the vector with a LazyVector and a row/column indicator.
     * @param vector The LazyVector to initialize the vector with.
     * @param _isRow Boolean indicating whether the vector is a row vector.
@@ -123,6 +130,14 @@ template <typename T> class Vector {
      * @return Size of the vector.
      */
     [[nodiscard]] size_t size() const { return data.size(); }
+
+    /**
+     * @brief Returns whether this vector is a row vector.
+     * @return true if row vector, false otherwise
+     */
+    bool isRowVector() const {
+        return isRow;
+    }
 
     /**
      * @brief Overloaded operator[] to access individual elements of the vector.

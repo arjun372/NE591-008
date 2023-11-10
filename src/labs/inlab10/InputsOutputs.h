@@ -16,6 +16,11 @@
 #include <sstream>
 
 #include "json.hpp"
+
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
+
+#include "math/blas/Stats.h"
 #include "math/blas/Stats.h"
 #include "math/blas/Constants.h"
 
@@ -29,12 +34,32 @@ typedef struct Input {
      * @brief The default constructor for the Input struct
      */
     Input() = default;
+
     /**
-     * @brief The number of iterations for the relaxation method.
-     *
-     * This variable is initialized to 1 by default.
+     * @brief The size of the input vector and matrix.
      */
-    size_t n = 1;
+    size_t n = 0;
+
+    /**
+     * @brief The maximum number of iterations to perform, 0 by default.
+     */
+    size_t max_iterations = 0;
+
+    /**
+     * @brief The stopping criterion, i.e. threshold, 1e-4 by default.
+     */
+    long double threshold = 1e-4;
+
+    /**
+     * @brief The constants matrix A
+     */
+    MyBLAS::Matrix<MyBLAS::NumericType> coefficients{};
+
+    /**
+     * @brief The coefficients vector b
+     */
+    MyBLAS::Vector<MyBLAS::NumericType> constants{};
+
     /**
      * @brief The output file name in JSON format.
      *
@@ -51,7 +76,10 @@ typedef struct Input {
      * @return The ostream object with the Input structure outputted to it.
      */
     friend std::ostream& operator<<(std::ostream& os, const Input& input) {
-        os << "n: " << input.n<< ", outputJSON: " << input.outputJSON;
+        os << "n: " << input.n
+           << "k: " << input.max_iterations
+           << "e: " << input.threshold
+           << ", outputJSON: " << input.outputJSON;
         return os;
     }
     /**
@@ -61,7 +89,12 @@ typedef struct Input {
      */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["n"] = n;
+        jsonMap["stopping-criterion"] = threshold;
+        jsonMap["max-iterations"] = max_iterations;
+        jsonMap["coefficients"] = coefficients.getData();
+        jsonMap["constants"] = constants.getData();
     }
+
     /**
      * @brief Function to serialize the Input structure.
      *
@@ -73,7 +106,10 @@ typedef struct Input {
      */
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version) {
-        ar & BOOST_SERIALIZATION_NVP(n);
+        ar & BOOST_SERIALIZATION_NVP(threshold);
+        ar & BOOST_SERIALIZATION_NVP(max_iterations);
+        ar & BOOST_SERIALIZATION_NVP(coefficients.getData());
+        ar & BOOST_SERIALIZATION_NVP(constants.getData());
     }
 } InLab10Inputs;
 
@@ -84,11 +120,11 @@ typedef struct Input {
  */
 typedef struct Output {
     /**
-     * @brief The total sum of the given series
-     *
-     * This variable holds the total sum of the given series.
+     * @brief The computed values
      */
-    MyBLAS::NumericType sum = 0;
+    MyBLAS::NumericType scalar_product{}, matrix_inner_product{};
+    MyBLAS::Vector<MyBLAS::NumericType> scaled_vector, vector_sum;
+
     /**
      * @brief The summary of the benchmark runs
      * This structure holds the summary statistics of computation runtime, including the mean, standard deviation, etc.
@@ -100,7 +136,10 @@ typedef struct Output {
      * @param jsonMap The JSON object to which the output parameters are added.
      */
     void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["total_sum"] = sum;
+        jsonMap["Cy"] = scaled_vector.getData();
+        jsonMap["y + z"] = vector_sum.getData();
+        jsonMap["y^T•z"] = scalar_product;
+        jsonMap["y^T•(A•z)"] = matrix_inner_product;
         summary.toJSON(jsonMap["benchmark"]);
     }
     /**
@@ -114,7 +153,24 @@ typedef struct Output {
      */
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version) {
-        ar & BOOST_SERIALIZATION_NVP(sum);
+        //ar & BOOST_SERIALIZATION_NVP(sum);
+    }
+
+    /**
+     * @brief Overloaded stream insertion operator for the Output structure.
+     *
+     * This function allows the Output structure to be outputted to an ostream object in a formatted manner.
+     *
+     * @param os The ostream object where the Output structure will be outputted.
+     * @param output The Output structure that will be outputted.
+     * @return The ostream object with the Output structure outputted to it.
+     */
+    friend std::ostream& operator<<(std::ostream& os, const Output& output) {
+        os << "[    Cy   ]: " << output.scaled_vector
+           << "[  y + z  ]: " << output.vector_sum
+           << "[  y^T•z  ]: " << output.scalar_product << std::endl
+           << "[y^T•(A•z)]: " << output.matrix_inner_product << std::endl;
+        return os;
     }
 } InLab10Outputs;
 

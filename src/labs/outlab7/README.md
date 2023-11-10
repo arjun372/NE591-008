@@ -38,7 +38,7 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/outlab7/examples/outlab7_input_1.json
+export INPUT_FILE=./src/labs/outlab7/examples/outlab10_input.json
 export OUTPUT_FILE=./src/labs/outlab7/examples/outlab7_output_1.json
 
 ## Execute
@@ -211,7 +211,7 @@ Warning: File already exists at path, will be overwritten
                                      Inputs
 --------------------------------------------------------------------------------
 	Generate A,b,            g: No
-	Parameters JSON (for A, b),   i:  ../outlab7_input_1.json
+	Parameters JSON (for A, b),   i:  ../outlab10_input.json
 	Output JSON (for x),     o: ../outlab7_output_1.json
 	Convergence Threshold,   𝜀: 0.0001
 	Max iterations,          k: 5000

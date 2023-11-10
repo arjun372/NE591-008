@@ -90,7 +90,7 @@ class Profiler {
     * @return The output stream.
     */
    friend std::ostream &operator<<(std::ostream &os, const Profiler &m) {
-       os << R"(::::::::::::::::::::::::::::::: PROFILE SUMMARY ::::::::::::::::::::::::::::::::)"<<std::endl;
+       os << R"(:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::)"<<std::endl;
        os << "["<<m._stopwatches.size()<<"/"<<m._totalRuns<<"] : "<<m._description<<std::endl;
        os << R"(::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::)"<<std::endl;
        os << m._summary << std::endl;

@@ -60,18 +60,8 @@ class Parser : public CommandLine<InLab10Inputs> {
             "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing n")(
             "output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
 
-//        "source-terms-csv,s", boost::program_options::value<std::string>(), "= Path to source-terms 𝑞(𝑖,𝑗) CSV")(
-//"output-results-json,o", boost::program_options::value<std::string>(), "= Path to output results JSON")(
-//"output-flux-csv,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗) CSV");
-
-        values.add_options()
-           ("slab-width,L", boost::program_options::value<long double>(), "= slab width [+ve R]")(
-            "num-angles,N", boost::program_options::value<long double>(), "= number of angles [N ∈ ℕ]")(
-            "num-cells,I", boost::program_options::value<long double>(), "= number of cells [I ∈ ℕ]")(
-            "total-cross-section,T", boost::program_options::value<long double>(), "= macroscopic total cross-section [+ve R]")(
-            "scattering-cross-section,S", boost::program_options::value<long double>(), "= scattering macroscopic cross-section [+ve R]")(
-            "source-terms-csv,s", boost::program_options::value<std::string>(), "= path to source-terms 𝑞(𝑖,𝑗) CSV");
-
+        values.add(solverOptions);
+        values.add(fileOptions);
     }
 
     /**
@@ -85,10 +75,10 @@ class Parser : public CommandLine<InLab10Inputs> {
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        const auto inputJson = vm.count("input-json") ? vm["input-json"].as<std::string>() : "None provided";
-        std::cout << "\tInput JSON,              i: " << inputJson << "\n";
-        std::cout << "\tOutput JSON,             o: " << vm["output-json"].as<std::string>() << "\n";
-        std::cout << "\tSum Upper Limit,         n: " << std::to_string(static_cast<size_t>(vm["n"].as<long double>())) << "\n";
+        std::cout << "\tInput JSON,              i: " << vm["input-json"].as<std::string>() << std::endl;
+        std::cout << "\tOutput JSON,             o: " << vm["output-json"].as<std::string>() << std::endl;
+        std::cout << "\tStopping Criterion,      e: " << vm["stopping-criterion"].as<long double>() << std::endl;
+        std::cout << "\tMaximum Iterations,      k: " << vm["max-iterations"].as<long double>() << std::endl;
         CommandLine::printLine();
     }
 
@@ -150,10 +140,14 @@ class Parser : public CommandLine<InLab10Inputs> {
 
         std::vector<std::function<bool(long double)>> checks;
 
-        // add checks for parameter n
+        // add checks for parameters e, k
         checks.clear();
         checks.emplace_back([](long double value) { return failsNaturalNumberCheck(value); });
-        performChecksAndUpdateInput<long double>("n", inputMap, map, checks);
+        performChecksAndUpdateInput<long double>("max-iterations", inputMap, map, checks);
+
+        checks.clear();
+        checks.emplace_back([](long double value) { return failsPositiveNumberCheck(value); });
+        performChecksAndUpdateInput<long double>("stopping-criterion", inputMap, map, checks);
     }
 
     /**
@@ -163,12 +157,59 @@ class Parser : public CommandLine<InLab10Inputs> {
 
         // first, read the input file into a json map
         nlohmann::json inputMap;
-        if (values.count("input-json")) {
-            readJSON(values["input-json"].as<std::string>(), inputMap);
+        readJSON(values["input-json"].as<std::string>(), inputMap);
+
+        // read the output json path
+        // TODO:: this should be wrapped in some path validated file write checker
+        input.outputJSON = values["output-json"].as<std::string>();
+
+        // read the constants
+        MyBLAS::Vector<long double> constants = MyBLAS::Vector(std::vector<long double>(inputMap["constants"]));
+        input.constants = MyBLAS::Vector(constants);
+
+        // read the coefficient matrix
+        input.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
+
+        if (!MyBLAS::isSquareMatrix(input.coefficients)) {
+            std::cerr << "Error: Input coefficients matrix A not square, aborting.\n";
+            exit(-1);
+        } else if (!values.count("quiet")) {
+            std::cout << "Input coefficients matrix A is square.\n";
         }
 
-        input.n = static_cast<size_t>(values["n"].as<long double>());
-        input.outputJSON = values["output-json"].as<std::string>();
+        if (!MyBLAS::isSymmetricMatrix(input.coefficients)) {
+            std::cerr << "Warning: Input coefficients matrix A is not symmetric.\n";
+        } else if (!values.count("quiet")) {
+            std::cout << "Input coefficients matrix A is symmetric.\n";
+        }
+
+        if (!MyBLAS::isPositiveDefiniteMatrix(input.coefficients)) {
+            std::cerr << "Warning: Input coefficients matrix A is not positive definite.\n";
+        } else if (!values.count("quiet")) {
+            std::cout << "Input coefficients matrix A is positive definite.\n";
+        }
+
+        if (input.coefficients.getRows() != input.constants.size()) {
+            std::cerr << "Error: Input constants vector 'b' not order n, aborting.\n";
+            exit(-1);
+        }
+
+        input.n = input.coefficients.getRows();
+        input.threshold = values["stopping-criterion"].as<long double>();
+        input.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
+
+        // print the matrices since we are in verbose mode.
+        if (!values.count("quiet")) {
+            const auto precision = getCurrentPrecision();
+            printLine();
+            std::cout << "Coefficient Matrix (A):\n";
+            printLine();
+            std::cout << std::setprecision(static_cast<int>(precision)) << input.coefficients;
+            printLine();
+            std::cout << "Constants Vector (b):\n";
+            printLine();
+            std::cout << std::setprecision(static_cast<int>(precision)) << input.constants;
+        }
     }
 };
 

@@ -72,7 +72,7 @@ class LazyVector {
      * @brief Copy constructor for LazyVector.
      * @param other The LazyVector to copy from.
      */
-    LazyVector(const LazyVector& other) : size_(other.size_), generator_(other.generator_) {}
+    LazyVector(const LazyVector& other) : size_(other.size_), generator_(other.generator_), vector_(other.vector_) {}
 
     /**
      * @brief Constructor for the LazyVector class that accepts a Vector object.
@@ -80,7 +80,7 @@ class LazyVector {
      * @param vector The Vector object to initialize the LazyVector with.
      */
     explicit LazyVector(const MyBLAS::Vector<DataType>& vector) : size_(vector.size()), vector_(std::make_shared<MyBLAS::Vector<DataType>>(vector)) {
-        generator_ = [vector](size_t i) { return vector[i]; };
+        generator_ = [this](size_t i) { return (*(this->vector_))[i]; };
     }
 
     /**
@@ -89,7 +89,7 @@ class LazyVector {
      * @param vector The Vector object to initialize the LazyVector with.
      */
     explicit LazyVector(MyBLAS::Vector<DataType>& vector) : size_(vector.size()), vector_(std::make_shared<MyBLAS::Vector<DataType>>(vector)) {
-        generator_ = [vector](size_t i) { return vector[i]; };
+        generator_ = [this](size_t i) { return (*(this->vector_))[i]; };
     }
 
 
