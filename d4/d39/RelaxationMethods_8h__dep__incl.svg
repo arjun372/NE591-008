@@ -203,34 +203,34 @@ var sectionId = 'dynsection-0';
 <!-- Node22 -->
 <g id="node22" class="node">
 <title>Node22</title>
-<g id="a_node22"><a xlink:href="../../d6/db9/GaussSeidel_8h.html" target="_top" xlink:title="This file contains the implementation of the Gauss&#45;Seidel method for solving systems of linear equati...">
-<polygon fill="white" stroke="black" points="446.5,-268.5 446.5,-298.5 582.5,-298.5 582.5,-268.5 446.5,-268.5"/>
-<text text-anchor="start" x="454.5" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/utils/math/relaxation</text>
-<text text-anchor="middle" x="514.5" y="-275.5" font-family="Helvetica,sans-Serif" font-size="10.00">/GaussSeidel.h</text>
-</a>
-</g>
-</g>
-<!-- Node5&#45;&gt;Node22 -->
-<g id="edge29" class="edge">
-<title>Node5&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M485.11,-392.14C487.47,-376.65 491.34,-354.21 496.5,-335 499.83,-322.59 504.8,-308.89 508.68,-298.89"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="481.59,-392.07 483.62,-402.47 488.52,-393.07 481.59,-392.07"/>
-</g>
-<!-- Node23 -->
-<g id="node23" class="node">
-<title>Node23</title>
-<g id="a_node23"><a xlink:href="../../d3/d3e/SOR_8h.html" target="_top" xlink:title="This file contains the implementation of the Successive Over&#45;Relaxation (SOR) method for solving syst...">
+<g id="a_node22"><a xlink:href="../../d3/d3e/SOR_8h.html" target="_top" xlink:title="This file contains the implementation of the Successive Over&#45;Relaxation (SOR) method for solving syst...">
 <polygon fill="white" stroke="black" points="505.5,-335.5 505.5,-365.5 641.5,-365.5 641.5,-335.5 505.5,-335.5"/>
 <text text-anchor="start" x="513.5" y="-353.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/utils/math/relaxation</text>
 <text text-anchor="middle" x="573.5" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">/SOR.h</text>
 </a>
 </g>
 </g>
-<!-- Node5&#45;&gt;Node23 -->
-<g id="edge32" class="edge">
-<title>Node5&#45;&gt;Node23</title>
+<!-- Node5&#45;&gt;Node22 -->
+<g id="edge29" class="edge">
+<title>Node5&#45;&gt;Node22</title>
 <path fill="none" stroke="midnightblue" d="M504.31,-396.74C518.77,-387.28 537.67,-374.93 552.05,-365.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="501.99,-394.07 495.54,-402.48 505.82,-399.93 501.99,-394.07"/>
+</g>
+<!-- Node23 -->
+<g id="node23" class="node">
+<title>Node23</title>
+<g id="a_node23"><a xlink:href="../../d6/db9/GaussSeidel_8h.html" target="_top" xlink:title="This file contains the implementation of the Gauss&#45;Seidel method for solving systems of linear equati...">
+<polygon fill="white" stroke="black" points="446.5,-268.5 446.5,-298.5 582.5,-298.5 582.5,-268.5 446.5,-268.5"/>
+<text text-anchor="start" x="454.5" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/utils/math/relaxation</text>
+<text text-anchor="middle" x="514.5" y="-275.5" font-family="Helvetica,sans-Serif" font-size="10.00">/GaussSeidel.h</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node23 -->
+<g id="edge33" class="edge">
+<title>Node5&#45;&gt;Node23</title>
+<path fill="none" stroke="midnightblue" d="M485.11,-392.14C487.47,-376.65 491.34,-354.21 496.5,-335 499.83,-322.59 504.8,-308.89 508.68,-298.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="481.59,-392.07 483.62,-402.47 488.52,-393.07 481.59,-392.07"/>
 </g>
 <!-- Node24 -->
 <g id="node24" class="node">
@@ -478,23 +478,23 @@ var sectionId = 'dynsection-0';
 <path fill="none" stroke="midnightblue" d="M244.62,-270.6C205.76,-257.71 144.73,-237.47 110.32,-226.06"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="243.88,-274.04 254.47,-273.87 246.08,-267.4 243.88,-274.04"/>
 </g>
-<!-- Node22&#45;&gt;Node13 -->
+<!-- Node22&#45;&gt;Node23 -->
 <g id="edge30" class="edge">
-<title>Node22&#45;&gt;Node13</title>
+<title>Node22&#45;&gt;Node23</title>
+<path fill="none" stroke="midnightblue" d="M553.75,-327.74C545.02,-318.12 535,-307.09 527.28,-298.58"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="551.39,-330.34 560.7,-335.4 556.57,-325.64 551.39,-330.34"/>
+</g>
+<!-- Node23&#45;&gt;Node13 -->
+<g id="edge31" class="edge">
+<title>Node23&#45;&gt;Node13</title>
 <path fill="none" stroke="midnightblue" d="M556.79,-264.3C585.91,-251.76 623.26,-235.68 645.74,-226.01"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="555.07,-261.23 547.26,-268.4 557.83,-267.66 555.07,-261.23"/>
 </g>
-<!-- Node22&#45;&gt;Node18 -->
-<g id="edge31" class="edge">
-<title>Node22&#45;&gt;Node18</title>
+<!-- Node23&#45;&gt;Node18 -->
+<g id="edge32" class="edge">
+<title>Node23&#45;&gt;Node18</title>
 <path fill="none" stroke="midnightblue" d="M514.5,-258.11C514.5,-249.15 514.5,-239.32 514.5,-231.58"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="511,-258.4 514.5,-268.4 518,-258.4 511,-258.4"/>
-</g>
-<!-- Node23&#45;&gt;Node22 -->
-<g id="edge33" class="edge">
-<title>Node23&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M553.75,-327.74C545.02,-318.12 535,-307.09 527.28,-298.58"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="551.39,-330.34 560.7,-335.4 556.57,-325.64 551.39,-330.34"/>
 </g>
 <!-- Node24&#45;&gt;Node13 -->
 <g id="edge35" class="edge">

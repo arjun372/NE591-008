@@ -17,6 +17,7 @@ var annotated_dup =
       [ "LazyVectorTests", "dd/d30/classMyBLAS_1_1LazyVectorTests.html", "dd/d30/classMyBLAS_1_1LazyVectorTests" ],
       [ "BaseMatrixTests", "d5/d8a/classMyBLAS_1_1BaseMatrixTests.html", null ],
       [ "PerformanceMatrixTests", "db/d15/classMyBLAS_1_1PerformanceMatrixTests.html", null ],
+      [ "MatrixUtilityTests", "d0/d16/classMyBLAS_1_1MatrixUtilityTests.html", null ],
       [ "VectorTests", "d8/db9/classMyBLAS_1_1VectorTests.html", null ],
       [ "LazyVector", "d6/d07/classMyBLAS_1_1LazyVector.html", "d6/d07/classMyBLAS_1_1LazyVector" ],
       [ "VectorExpression", "dd/dc2/classMyBLAS_1_1VectorExpression.html", "dd/dc2/classMyBLAS_1_1VectorExpression" ]

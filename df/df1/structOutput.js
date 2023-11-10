@@ -26,6 +26,7 @@ var structOutput =
     [ "toJSON", "df/df1/structOutput.html#a0412b8fd27d6e91551671da11cd8fe93", null ],
     [ "toJSON", "df/df1/structOutput.html#a0412b8fd27d6e91551671da11cd8fe93", null ],
     [ "toJSON", "df/df1/structOutput.html#a0412b8fd27d6e91551671da11cd8fe93", null ],
+    [ "operator<<", "df/df1/structOutput.html#ae9b1e343c7e6d725fc58d57c24e13944", null ],
     [ "computed_factorial", "df/df1/structOutput.html#a481b9881c9016bb62e2472403e8c50d2", null ],
     [ "current_threshold", "df/df1/structOutput.html#ab498f7b76ca4504e996685d7fcbb5387", null ],
     [ "execution_time", "df/df1/structOutput.html#a3787bd5f7ad2ffa9e43b5d85508cd92c", null ],
@@ -36,6 +37,7 @@ var structOutput =
     [ "inputs", "df/df1/structOutput.html#acdddea93e985cb672af232fa3753b8df", null ],
     [ "inputs", "df/df1/structOutput.html#a2728991ba75ef8f6ae27b6ca462f3830", null ],
     [ "integral", "df/df1/structOutput.html#a2dae0f9ced77fb44fba44119a8de5f97", null ],
+    [ "matrix_inner_product", "df/df1/structOutput.html#a9ad5e81001e458a9b87daca3cce78b40", null ],
     [ "max_residual", "df/df1/structOutput.html#a6217468a262f7c25201add41b2709b75", null ],
     [ "mean_execution_time", "df/df1/structOutput.html#a3591a50ace0734195bc4007b98f98116", null ],
     [ "n", "df/df1/structOutput.html#a3541126c8ceb372848970f8b4473deda", null ],
@@ -45,6 +47,8 @@ var structOutput =
     [ "residual", "df/df1/structOutput.html#a034094c7d34f04c01c385ddb5f180167", null ],
     [ "running_sum", "df/df1/structOutput.html#a6b23829ac7588e83be1b4b639e298604", null ],
     [ "runs", "df/df1/structOutput.html#a861fd24e29462ff47347546f6ba98019", null ],
+    [ "scalar_product", "df/df1/structOutput.html#a7981289354328ae45caadd014467f827", null ],
+    [ "scaled_vector", "df/df1/structOutput.html#a69fcf488579c00a233f7900816079906", null ],
     [ "solution", "df/df1/structOutput.html#ac0fbf4e15509bd1a6ed3e957603d8340", null ],
     [ "solution", "df/df1/structOutput.html#ab9cdf013ea40c1ddf8d0c4b63c8e870e", null ],
     [ "solution", "df/df1/structOutput.html#aabdf40afdda6fb0c966b1dc95dba0337", null ],
@@ -53,5 +57,6 @@ var structOutput =
     [ "summary", "df/df1/structOutput.html#ad134194d897c268bd753b6936c27b59b", null ],
     [ "summary", "df/df1/structOutput.html#ae4d269e36fb9b632ffa52727e7315c89", null ],
     [ "target_threshold", "df/df1/structOutput.html#acfe7f7a331c50da196e88103e46cb642", null ],
+    [ "vector_sum", "df/df1/structOutput.html#a61de02149a6c1e06ec9b246b383e342e", null ],
     [ "x", "df/df1/structOutput.html#a4a50058f779064c91defebd579c8f7c2", null ]
 ];

@@ -143,6 +143,7 @@ var hierarchy =
       [ "MyBLAS::LazyMatrixTests< T >", "d6/d09/classMyBLAS_1_1LazyMatrixTests.html", null ],
       [ "MyBLAS::LazyVectorTests", "dd/d30/classMyBLAS_1_1LazyVectorTests.html", null ],
       [ "MyBLAS::MatrixExpressionTests", "de/d99/classMyBLAS_1_1MatrixExpressionTests.html", null ],
+      [ "MyBLAS::MatrixUtilityTests< T >", "d0/d16/classMyBLAS_1_1MatrixUtilityTests.html", null ],
       [ "MyBLAS::PerformanceMatrixTests< T >", "db/d15/classMyBLAS_1_1PerformanceMatrixTests.html", null ],
       [ "MyBLAS::VectorExpressionTests", "de/d3a/classMyBLAS_1_1VectorExpressionTests.html", null ],
       [ "MyBLAS::VectorTests< T >", "d8/db9/classMyBLAS_1_1VectorTests.html", null ]

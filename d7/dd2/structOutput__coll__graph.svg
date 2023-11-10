@@ -63,7 +63,7 @@ var sectionId = 'dynsection-0';
 <text text-anchor="middle" x="1743.5" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">Output</text>
 <polyline fill="none" stroke="black" points="1698,-60.5 1789,-60.5 "/>
 <text text-anchor="start" x="1706" y="-48.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ running_sum</text>
-<text text-anchor="start" x="1706" y="-37.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 14 more...</text>
+<text text-anchor="start" x="1706" y="-37.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 16 more...</text>
 <polyline fill="none" stroke="black" points="1698,-30.5 1789,-30.5 "/>
 <text text-anchor="start" x="1706" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ toJSON()</text>
 <text text-anchor="start" x="1706" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 25 more...</text>
@@ -89,38 +89,62 @@ var sectionId = 'dynsection-0';
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M96.75,-303.87C140.07,-250.4 221.36,-163.02 314.5,-127 443.87,-76.96 1434.2,-48.8 1685.61,-42.41"/>
-<polygon fill="none" stroke="#404040" points="1685.71,-42.4 1691.61,-38.25 1697.71,-42.1 1691.81,-46.25 1685.71,-42.4"/>
-<text text-anchor="middle" x="334.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +fluxes</text>
+<path fill="none" stroke="#404040" d="M50.71,-303.95C39.33,-254.62 30.3,-175.29 72.5,-127 121.21,-71.27 162.9,-105.86 236.5,-98 525.19,-67.16 1444.73,-46.98 1685.4,-42.13"/>
+<polygon fill="none" stroke="#404040" points="1685.66,-42.12 1691.58,-38.01 1697.66,-41.88 1691.74,-46 1685.66,-42.12"/>
+<text text-anchor="middle" x="92.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +fluxes</text>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
 <g id="a_node7"><a xlink:href="../../d4/dae/structInput.html" target="_top" xlink:title="A structure to hold the input parameters for the relaxation method.">
-<polygon fill="white" stroke="black" points="1121,-138.5 1121,-217.5 1208,-217.5 1208,-138.5 1121,-138.5"/>
-<text text-anchor="middle" x="1164.5" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">Input</text>
-<polyline fill="none" stroke="black" points="1121,-198.5 1208,-198.5 "/>
-<text text-anchor="start" x="1129" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ x</text>
-<text text-anchor="start" x="1129" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 19 more...</text>
-<polyline fill="none" stroke="black" points="1121,-168.5 1208,-168.5 "/>
-<text text-anchor="start" x="1129" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Input()</text>
-<text text-anchor="start" x="1129" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 22 more...</text>
+<polygon fill="white" stroke="black" points="1052,-138.5 1052,-217.5 1139,-217.5 1139,-138.5 1052,-138.5"/>
+<text text-anchor="middle" x="1095.5" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">Input</text>
+<polyline fill="none" stroke="black" points="1052,-198.5 1139,-198.5 "/>
+<text text-anchor="start" x="1060" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ x</text>
+<text text-anchor="start" x="1060" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 19 more...</text>
+<polyline fill="none" stroke="black" points="1052,-168.5 1139,-168.5 "/>
+<text text-anchor="start" x="1060" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Input()</text>
+<text text-anchor="start" x="1060" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 22 more...</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node7 -->
 <g id="edge9" class="edge">
 <title>Node2&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M124.52,-303.93C159.49,-281.61 205.32,-257.14 250.5,-247 343.86,-226.05 1022.95,-265.25 1111.5,-229 1114.52,-227.76 1117.48,-226.27 1120.34,-224.57"/>
-<polygon fill="none" stroke="#404040" points="1120.42,-224.52 1123.1,-217.82 1130.31,-217.72 1127.63,-224.41 1120.42,-224.52"/>
-<text text-anchor="middle" x="283" y="-272" font-family="Helvetica,sans-Serif" font-size="10.00"> +LU</text>
-<text text-anchor="middle" x="283" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00">+coefficients</text>
-<text text-anchor="middle" x="283" y="-250" font-family="Helvetica,sans-Serif" font-size="10.00">+sources</text>
+<path fill="none" stroke="#404040" d="M125.86,-303.99C129.41,-301.89 132.98,-299.88 136.5,-298 190.54,-269.19 204.88,-260.98 264.5,-247 339.6,-229.38 865.73,-193.96 1039.76,-182.6"/>
+<polygon fill="none" stroke="#404040" points="1039.94,-182.59 1045.66,-178.2 1051.91,-181.81 1046.18,-186.19 1039.94,-182.59"/>
+<text text-anchor="middle" x="297" y="-272" font-family="Helvetica,sans-Serif" font-size="10.00"> +LU</text>
+<text text-anchor="middle" x="297" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00">+coefficients</text>
+<text text-anchor="middle" x="297" y="-250" font-family="Helvetica,sans-Serif" font-size="10.00">+sources</text>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="122,-127.5 122,-228.5 283,-228.5 283,-127.5 122,-127.5"/>
+<text text-anchor="start" x="130" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyLinearSolvingMethod</text>
+<text text-anchor="start" x="130" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Solution&lt; MyBLAS::Numeric</text>
+<text text-anchor="middle" x="202.5" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">Type &gt;</text>
+<polyline fill="none" stroke="black" points="122,-187.5 283,-187.5 "/>
+<text text-anchor="start" x="130" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ method</text>
+<text text-anchor="start" x="130" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="122,-157.5 283,-157.5 "/>
+<text text-anchor="start" x="130" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Solution()</text>
+<text text-anchor="start" x="130" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node1 -->
+<g id="edge2" class="edge">
+<title>Node3&#45;&gt;Node1</title>
+<path fill="none" stroke="#404040" d="M225.11,-127.11C232.76,-115.61 242.49,-104.77 254.5,-98 317.86,-62.27 1419.38,-45.32 1685.82,-41.74"/>
+<polygon fill="none" stroke="#404040" points="1685.87,-41.74 1691.82,-37.66 1697.87,-41.58 1691.93,-45.66 1685.87,-41.74"/>
+<text text-anchor="middle" x="280" y="-101" font-family="Helvetica,sans-Serif" font-size="10.00"> +solution</text>
+</g>
+<!-- Node4 -->
+<g id="node4" class="node">
+<title>Node4</title>
+<g id="a_node4"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="145.5,-304 145.5,-394 291.5,-394 291.5,-304 145.5,-304"/>
 <text text-anchor="start" x="153.5" y="-382" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector&lt; MyBLAS</text>
 <text text-anchor="middle" x="218.5" y="-371" font-family="Helvetica,sans-Serif" font-size="10.00">::NumericType &gt;</text>
@@ -129,47 +153,26 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="153.5" y="-341" font-family="Helvetica,sans-Serif" font-size="10.00">and 1 more...</text>
 <polyline fill="none" stroke="black" points="145.5,-334 291.5,-334 "/>
 <text text-anchor="start" x="153.5" y="-322" font-family="Helvetica,sans-Serif" font-size="10.00">+ Vector()</text>
-<text text-anchor="start" x="153.5" y="-311" font-family="Helvetica,sans-Serif" font-size="10.00">and 22 more...</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node1 -->
-<g id="edge2" class="edge">
-<title>Node3&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M250.81,-303.74C267.86,-283.48 290.42,-260.94 315.5,-247 557.88,-112.29 1449.2,-56.5 1685.62,-43.89"/>
-<polygon fill="none" stroke="#404040" points="1685.69,-43.88 1691.47,-39.57 1697.67,-43.25 1691.89,-47.56 1685.69,-43.88"/>
-<text text-anchor="middle" x="815" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +residual</text>
-</g>
-<!-- Node3&#45;&gt;Node7 -->
-<g id="edge10" class="edge">
-<title>Node3&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M277.72,-303.83C310.58,-282.09 353.26,-258.19 395.5,-247 472.43,-226.63 1037.92,-259.31 1111.5,-229 1114.52,-227.76 1117.47,-226.25 1120.34,-224.56"/>
-<polygon fill="none" stroke="#404040" points="1120.42,-224.5 1123.09,-217.8 1130.3,-217.69 1127.63,-224.39 1120.42,-224.5"/>
-<text text-anchor="middle" x="447" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +diffusionConstants</text>
-</g>
-<!-- Node4 -->
-<g id="node4" class="node">
-<title>Node4</title>
-<g id="a_node4"><a xlink:href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="942,-127.5 942,-228.5 1103,-228.5 1103,-127.5 942,-127.5"/>
-<text text-anchor="start" x="950" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyLinearSolvingMethod</text>
-<text text-anchor="start" x="950" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Solution&lt; MyBLAS::Numeric</text>
-<text text-anchor="middle" x="1022.5" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">Type &gt;</text>
-<polyline fill="none" stroke="black" points="942,-187.5 1103,-187.5 "/>
-<text text-anchor="start" x="950" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ method</text>
-<text text-anchor="start" x="950" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="942,-157.5 1103,-157.5 "/>
-<text text-anchor="start" x="950" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Solution()</text>
-<text text-anchor="start" x="950" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<text text-anchor="start" x="153.5" y="-311" font-family="Helvetica,sans-Serif" font-size="10.00">and 24 more...</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node1 -->
 <g id="edge3" class="edge">
 <title>Node4&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M1103.16,-130.04C1105.94,-128.95 1108.73,-127.93 1111.5,-127 1314.9,-58.79 1572.4,-44.57 1685.63,-41.68"/>
-<polygon fill="none" stroke="#404040" points="1685.74,-41.68 1691.65,-37.54 1697.74,-41.4 1691.83,-45.54 1685.74,-41.68"/>
-<text text-anchor="middle" x="1238" y="-101" font-family="Helvetica,sans-Serif" font-size="10.00"> +solution</text>
+<path fill="none" stroke="#404040" d="M278.36,-303.84C287.71,-296.2 297.07,-288.1 305.5,-280 319.37,-266.68 316.88,-256.68 333.5,-247 569.93,-109.34 1450.34,-55.78 1685.46,-43.76"/>
+<polygon fill="none" stroke="#404040" points="1685.79,-43.74 1691.58,-39.44 1697.78,-43.13 1691.99,-47.43 1685.79,-43.74"/>
+<text text-anchor="middle" x="817.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +residual</text>
+<text text-anchor="middle" x="817.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">+scaled_vector</text>
+<text text-anchor="middle" x="817.5" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">+vector_sum</text>
+</g>
+<!-- Node4&#45;&gt;Node7 -->
+<g id="edge10" class="edge">
+<title>Node4&#45;&gt;Node7</title>
+<path fill="none" stroke="#404040" d="M289.8,-303.93C293.4,-301.89 296.98,-299.91 300.5,-298 346.83,-272.92 356.75,-261.14 407.5,-247 635.64,-183.45 920.81,-177.47 1039.57,-178.06"/>
+<polygon fill="none" stroke="#404040" points="1039.88,-178.07 1045.91,-174.11 1051.88,-178.15 1045.85,-182.11 1039.88,-178.07"/>
+<text text-anchor="middle" x="457.5" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +constants</text>
+<text text-anchor="middle" x="457.5" y="-255.5" font-family="Helvetica,sans-Serif" font-size="10.00">+diffusionConstants</text>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -183,7 +186,7 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="1784.5" y="-341" font-family="Helvetica,sans-Serif" font-size="10.00">and 1 more...</text>
 <polyline fill="none" stroke="black" points="1776.5,-334 1902.5,-334 "/>
 <text text-anchor="start" x="1784.5" y="-322" font-family="Helvetica,sans-Serif" font-size="10.00">+ Vector()</text>
-<text text-anchor="start" x="1784.5" y="-311" font-family="Helvetica,sans-Serif" font-size="10.00">and 22 more...</text>
+<text text-anchor="start" x="1784.5" y="-311" font-family="Helvetica,sans-Serif" font-size="10.00">and 24 more...</text>
 </a>
 </g>
 </g>
@@ -198,8 +201,8 @@ var sectionId = 'dynsection-0';
 <!-- Node5&#45;&gt;Node7 -->
 <g id="edge11" class="edge">
 <title>Node5&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M1780.65,-303.85C1776.32,-301.64 1771.92,-299.65 1767.5,-298 1697.98,-272.03 1665.34,-317.84 1601.5,-280 1586.12,-270.88 1593.62,-256.53 1578.5,-247 1519.78,-209.98 1319.01,-190.39 1220.26,-182.8"/>
-<polygon fill="none" stroke="#404040" points="1220.13,-182.79 1213.85,-186.33 1208.17,-181.89 1214.45,-178.35 1220.13,-182.79"/>
+<path fill="none" stroke="#404040" d="M1780.65,-303.85C1776.32,-301.64 1771.92,-299.65 1767.5,-298 1697.98,-272.03 1665.34,-317.84 1601.5,-280 1586.12,-270.88 1593.73,-256.36 1578.5,-247 1507.9,-203.62 1262.96,-186.82 1151.51,-181.32"/>
+<polygon fill="none" stroke="#404040" points="1151.22,-181.31 1145.03,-185.02 1139.23,-180.73 1145.42,-177.02 1151.22,-181.31"/>
 <text text-anchor="middle" x="1644" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +constants</text>
 <text text-anchor="middle" x="1644" y="-255.5" font-family="Helvetica,sans-Serif" font-size="10.00">+known_solution</text>
 </g>
@@ -227,18 +230,19 @@ var sectionId = 'dynsection-0';
 <text text-anchor="middle" x="1816.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +fluxes</text>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
-<g id="edge12" class="edge">
+<g id="edge13" class="edge">
 <title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M1926.17,-303.84C1921.31,-301.63 1916.4,-299.65 1911.5,-298 1836.55,-272.79 1808.15,-308.77 1734.5,-280 1711.73,-271.11 1713.15,-256.2 1690.5,-247 1606.14,-212.71 1338.14,-190.82 1220.63,-182.63"/>
-<polygon fill="none" stroke="#404040" points="1220.37,-182.61 1214.11,-186.19 1208.4,-181.79 1214.66,-178.21 1220.37,-182.61"/>
-<text text-anchor="middle" x="1759" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +sources</text>
+<path fill="none" stroke="#404040" d="M1926.17,-303.84C1921.31,-301.63 1916.4,-299.65 1911.5,-298 1836.55,-272.79 1808.15,-308.77 1734.5,-280 1711.73,-271.11 1713.21,-256.04 1690.5,-247 1593.15,-208.27 1280.31,-188.38 1151.61,-181.66"/>
+<polygon fill="none" stroke="#404040" points="1151.36,-181.65 1145.17,-185.34 1139.38,-181.04 1145.58,-177.35 1151.36,-181.65"/>
+<text text-anchor="middle" x="1768.5" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +coefficients</text>
+<text text-anchor="middle" x="1768.5" y="-255.5" font-family="Helvetica,sans-Serif" font-size="10.00">+sources</text>
 </g>
 <!-- Node7&#45;&gt;Node1 -->
 <g id="edge6" class="edge">
 <title>Node7&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M1208.02,-166.78C1311.15,-142.55 1570.4,-81.66 1686.14,-54.47"/>
-<polygon fill="none" stroke="#404040" points="1686.2,-54.46 1691.12,-49.19 1697.88,-51.72 1692.95,-56.98 1686.2,-54.46"/>
-<text text-anchor="middle" x="1510.5" y="-101" font-family="Helvetica,sans-Serif" font-size="10.00"> +inputs</text>
+<path fill="none" stroke="#404040" d="M1139.02,-167.87C1252.56,-144.04 1557.77,-79.98 1685.76,-53.12"/>
+<polygon fill="none" stroke="#404040" points="1685.84,-53.1 1690.89,-47.95 1697.58,-50.64 1692.53,-55.78 1685.84,-53.1"/>
+<text text-anchor="middle" x="1479.5" y="-101" font-family="Helvetica,sans-Serif" font-size="10.00"> +inputs</text>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
@@ -260,9 +264,9 @@ var sectionId = 'dynsection-0';
 <!-- Node8&#45;&gt;Node7 -->
 <g id="edge7" class="edge">
 <title>Node8&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M471.33,-298.34C501.45,-278.49 538.6,-257.8 575.5,-247 689.88,-213.51 1001.5,-274.85 1111.5,-229 1114.52,-227.74 1117.46,-226.23 1120.32,-224.53"/>
-<polygon fill="none" stroke="#404040" points="1120.41,-224.47 1123.07,-217.76 1130.28,-217.64 1127.62,-224.34 1120.41,-224.47"/>
-<text text-anchor="middle" x="620.5" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +diffusionParams</text>
+<path fill="none" stroke="#404040" d="M477.84,-298.26C508.79,-279.27 546.12,-259.26 582.5,-247 742.36,-193.11 943.7,-181.69 1039.67,-179.43"/>
+<polygon fill="none" stroke="#404040" points="1039.67,-179.43 1045.59,-175.31 1051.67,-179.18 1045.75,-183.31 1039.67,-179.43"/>
+<text text-anchor="middle" x="627.5" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +diffusionParams</text>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
@@ -283,9 +287,9 @@ var sectionId = 'dynsection-0';
 <!-- Node9&#45;&gt;Node7 -->
 <g id="edge8" class="edge">
 <title>Node9&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M636.12,-303.86C663.22,-282.56 698.51,-259.06 734.5,-247 814.03,-220.36 1034.31,-261.82 1111.5,-229 1114.51,-227.72 1117.45,-226.19 1120.3,-224.48"/>
-<polygon fill="none" stroke="#404040" points="1120.39,-224.41 1123.03,-217.7 1130.24,-217.55 1127.6,-224.26 1120.39,-224.41"/>
-<text text-anchor="middle" x="773.5" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +solverParams</text>
+<path fill="none" stroke="#404040" d="M640.81,-303.89C668.29,-283.66 703.06,-261.1 737.5,-247 838.99,-205.45 967.18,-188.99 1039.37,-182.69"/>
+<polygon fill="none" stroke="#404040" points="1039.8,-182.66 1045.45,-178.18 1051.76,-181.67 1046.11,-186.15 1039.8,-182.66"/>
+<text text-anchor="middle" x="776.5" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +solverParams</text>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
@@ -301,11 +305,11 @@ var sectionId = 'dynsection-0';
 </g>
 </g>
 <!-- Node10&#45;&gt;Node7 -->
-<g id="edge13" class="edge">
+<g id="edge12" class="edge">
 <title>Node10&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M770.22,-320.2C792.59,-296.15 828.44,-262.81 867.5,-247 968.3,-206.2 1011.99,-272.84 1111.5,-229 1114.34,-227.75 1117.11,-226.28 1119.82,-224.65"/>
-<polygon fill="none" stroke="#404040" points="1120.03,-224.51 1122.66,-217.79 1129.87,-217.64 1127.24,-224.35 1120.03,-224.51"/>
-<text text-anchor="middle" x="908.5" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +integral_types</text>
+<path fill="none" stroke="#404040" d="M772.15,-320.31C794.55,-297.65 828.95,-266.29 864.5,-247 920.39,-216.67 991.42,-198.38 1039.86,-188.52"/>
+<polygon fill="none" stroke="#404040" points="1039.89,-188.52 1045.01,-183.43 1051.67,-186.2 1046.55,-191.28 1039.89,-188.52"/>
+<text text-anchor="middle" x="905.5" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +integral_types</text>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
@@ -323,10 +327,10 @@ var sectionId = 'dynsection-0';
 <!-- Node11&#45;&gt;Node7 -->
 <g id="edge14" class="edge">
 <title>Node11&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M925.96,-320.43C938.13,-296.87 959,-264.14 987.5,-247 1035.23,-218.31 1061.36,-253.23 1111.5,-229 1114.09,-227.75 1116.65,-226.32 1119.14,-224.76"/>
-<polygon fill="none" stroke="#404040" points="1119.28,-224.66 1121.86,-217.93 1129.07,-217.71 1126.49,-224.45 1119.28,-224.66"/>
-<text text-anchor="middle" x="1010" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +fxData</text>
-<text text-anchor="middle" x="1010" y="-255.5" font-family="Helvetica,sans-Serif" font-size="10.00">+xData</text>
+<path fill="none" stroke="#404040" d="M926.13,-320.12C937.09,-298.24 954.61,-268.06 976.5,-247 995.13,-229.08 1019.38,-214.12 1041.12,-202.84"/>
+<polygon fill="none" stroke="#404040" points="1041.16,-202.82 1044.73,-196.55 1051.89,-197.44 1048.32,-203.7 1041.16,-202.82"/>
+<text text-anchor="middle" x="999" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +fxData</text>
+<text text-anchor="middle" x="999" y="-255.5" font-family="Helvetica,sans-Serif" font-size="10.00">+xData</text>
 </g>
 <!-- Node12 -->
 <g id="node12" class="node">
@@ -344,10 +348,10 @@ var sectionId = 'dynsection-0';
 <!-- Node12&#45;&gt;Node7 -->
 <g id="edge15" class="edge">
 <title>Node12&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M1034.14,-320.35C1032.25,-298.02 1033.53,-267.11 1050.5,-247 1068.73,-225.4 1086.99,-243.08 1111.5,-229 1113.68,-227.74 1115.85,-226.38 1117.99,-224.94"/>
-<polygon fill="none" stroke="#404040" points="1118.12,-224.84 1120.53,-218.04 1127.73,-217.65 1125.32,-224.45 1118.12,-224.84"/>
-<text text-anchor="middle" x="1104.5" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +fluxOutputDirectory</text>
-<text text-anchor="middle" x="1104.5" y="-255.5" font-family="Helvetica,sans-Serif" font-size="10.00">+outputJSON</text>
+<path fill="none" stroke="#404040" d="M1029.83,-320.42C1024.78,-299.53 1021.07,-270.51 1030.5,-247 1033.76,-238.87 1038.51,-231.16 1043.97,-224.06"/>
+<polygon fill="none" stroke="#404040" points="1044.07,-223.94 1044.88,-216.77 1051.8,-214.76 1051,-221.93 1044.07,-223.94"/>
+<text text-anchor="middle" x="1084.5" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +fluxOutputDirectory</text>
+<text text-anchor="middle" x="1084.5" y="-255.5" font-family="Helvetica,sans-Serif" font-size="10.00">+outputJSON</text>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">
@@ -385,9 +389,9 @@ var sectionId = 'dynsection-0';
 <!-- Node14&#45;&gt;Node7 -->
 <g id="edge17" class="edge">
 <title>Node14&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M1161.15,-320.47C1161.73,-296 1162.59,-259.6 1163.3,-229.85"/>
-<polygon fill="none" stroke="#404040" points="1163.3,-229.56 1159.45,-223.46 1163.59,-217.56 1167.44,-223.65 1163.3,-229.56"/>
-<text text-anchor="middle" x="1208.5" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +solver_methods</text>
+<path fill="none" stroke="#404040" d="M1157.12,-320.21C1153.96,-299.48 1148.24,-270.74 1138.5,-247 1135.95,-240.78 1132.84,-234.5 1129.47,-228.39"/>
+<polygon fill="none" stroke="#404040" points="1129.24,-228.01 1122.76,-224.85 1123.18,-217.65 1129.67,-220.81 1129.24,-228.01"/>
+<text text-anchor="middle" x="1194.5" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +solver_methods</text>
 </g>
 <!-- Node15 -->
 <g id="node15" class="node">
@@ -407,9 +411,9 @@ var sectionId = 'dynsection-0';
 <!-- Node15&#45;&gt;Node7 -->
 <g id="edge18" class="edge">
 <title>Node15&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M1306.15,-309.31C1293.18,-289.5 1275.96,-265.69 1257.5,-247 1245.85,-235.21 1232,-223.93 1218.59,-214.06"/>
-<polygon fill="none" stroke="#404040" points="1218.22,-213.79 1211.01,-213.55 1208.46,-206.8 1215.67,-207.04 1218.22,-213.79"/>
-<text text-anchor="middle" x="1303" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +input</text>
+<path fill="none" stroke="#404040" d="M1303.02,-309.38C1287.49,-288.87 1266.45,-264.38 1243.5,-247 1215.44,-225.75 1179.67,-209.09 1150.33,-197.58"/>
+<polygon fill="none" stroke="#404040" points="1150.24,-197.54 1143.2,-199.14 1139.02,-193.27 1146.05,-191.67 1150.24,-197.54"/>
+<text text-anchor="middle" x="1297" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +input</text>
 </g>
 <!-- Node16 -->
 <g id="node16" class="node">
@@ -428,8 +432,8 @@ var sectionId = 'dynsection-0';
 <!-- Node16&#45;&gt;Node7 -->
 <g id="edge19" class="edge">
 <title>Node16&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M1445.88,-314.87C1436.46,-309.17 1426.72,-303.37 1417.5,-298 1377.09,-274.49 1367.54,-267.46 1325.5,-247 1290.75,-230.09 1250.73,-213.18 1219.28,-200.45"/>
-<polygon fill="none" stroke="#404040" points="1219.24,-200.43 1212.18,-201.9 1208.11,-195.95 1215.17,-194.48 1219.24,-200.43"/>
+<path fill="none" stroke="#404040" d="M1446.44,-314.93C1436.87,-309.17 1426.94,-303.33 1417.5,-298 1374.74,-273.87 1364.96,-265.54 1319.5,-247 1263.54,-224.17 1197,-204.92 1151.07,-192.79"/>
+<polygon fill="none" stroke="#404040" points="1150.88,-192.74 1144.06,-195.1 1139.27,-189.71 1146.08,-187.36 1150.88,-192.74"/>
 <text text-anchor="middle" x="1414" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +methods</text>
 </g>
 <!-- Node17 -->
@@ -449,8 +453,8 @@ var sectionId = 'dynsection-0';
 <!-- Node17&#45;&gt;Node7 -->
 <g id="edge20" class="edge">
 <title>Node17&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M1616.38,-314.97C1604.69,-308.93 1592.35,-302.97 1580.5,-298 1556,-287.72 1548.43,-289.19 1523.5,-280 1488.18,-266.98 1481.24,-258.8 1445.5,-247 1368.9,-221.72 1277.74,-201.38 1220.48,-189.74"/>
-<polygon fill="none" stroke="#404040" points="1220.21,-189.69 1213.54,-192.43 1208.44,-187.32 1215.11,-184.58 1220.21,-189.69"/>
+<path fill="none" stroke="#404040" d="M1616.38,-314.97C1604.69,-308.93 1592.35,-302.97 1580.5,-298 1556,-287.72 1548.43,-289.19 1523.5,-280 1488.18,-266.98 1481.5,-257.98 1445.5,-247 1343.71,-215.95 1220.78,-195.94 1151.02,-186.14"/>
+<polygon fill="none" stroke="#404040" points="1150.93,-186.13 1144.44,-189.27 1139.04,-184.48 1145.53,-181.34 1150.93,-186.13"/>
 <text text-anchor="middle" x="1551" y="-261" font-family="Helvetica,sans-Serif" font-size="10.00"> +methods</text>
 </g>
 <!-- Node18 -->
