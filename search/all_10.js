@@ -27,7 +27,7 @@ var searchData=
   ['outlab_2004_3a_20lu_20_2d_20linear_20equations_20solver_20ii_515',['OutLab 04: LU - Linear Equations Solver II',['../d5/d26/outlab4.html',1,'']]],
   ['outlab_2005_3a_20lup_20_2d_20linear_20equations_20solver_20ii_516',['OutLab 05: LUP - Linear Equations Solver II',['../de/de4/outlab5.html',1,'']]],
   ['outlab_2006_3a_20iterative_20linear_20equation_20solvers_517',['OutLab 06: Iterative Linear Equation Solvers',['../dd/dfb/outlab6.html',1,'']]],
-  ['outlab_2007_3a_20iterative_20linear_20equation_20solvers_518',['OutLab 07: Iterative Linear Equation Solvers',['../da/d4d/outlab7.html',1,'']]],
+  ['outlab_2007_3a_20series_20sum_20using_20mpi_20spanning_20tree_20protocol_518',['OutLab 07: Series Sum using MPI Spanning Tree Protocol',['../da/d4d/outlab7.html',1,'']]],
   ['outlab1_519',['OutLab1',['../dd/df3/classOutLab1.html#a45f1a95bd729fa58f8976f0b93a4dfb5',1,'OutLab1::OutLab1()'],['../dd/df3/classOutLab1.html',1,'OutLab1']]],
   ['outlab1_2eh_520',['outlab1.h',['../d3/deb/outlab1_8h.html',1,'']]],
   ['outlab2_2eh_521',['outlab2.h',['../d9/d34/outlab2_8h.html',1,'']]],

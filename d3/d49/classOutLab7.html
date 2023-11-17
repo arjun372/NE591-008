@@ -587,7 +587,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                        {</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="../../db/df1/Helpers_8h.html#de/d8a/structCanvasType">Canvas</a> canvas;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">const</span> __float128 <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> = 0.13;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">const</span> __float128 <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> = -0.66;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">const</span> __float128 <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a> = -0.68;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d3/d3b/namespacepostprocess.html#ae0a29f3d14dac5d714c65be9e85728a6">iterations</a> = 80;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        canvas.<a class="code" href="../../db/df1/Helpers_8h.html#acc09cd65412ac3acbe3a3b875068f9ef">x_start</a> = -0.007514104707;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        canvas.<a class="code" href="../../db/df1/Helpers_8h.html#a9452d6cd24c6720c89dca7a6ef79c951">x_stop</a> = 0.075446744304;</div>
@@ -596,8 +596,8 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        canvas.<a class="code" href="../../db/df1/Helpers_8h.html#aa0f947244ab147889e71377d50ee1f0a">tone_map</a>.growth_rate = 0.25;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> {</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            .ProjectName = <span class="stringliteral">&quot;NE591: OutLab 07&quot;</span>,</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            .ProjectDescription = <span class="stringliteral">&quot;&quot;</span>,</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            .SubmissionDate = <span class="stringliteral">&quot;10/13/2023&quot;</span>,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            .ProjectDescription = <span class="stringliteral">&quot;Series Sum using MPI Spanning Tree Protocol&quot;</span>,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            .SubmissionDate = <span class="stringliteral">&quot;10/06/2023&quot;</span>,</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            .StudentName = <span class="stringliteral">&quot;Arjun Earthperson&quot;</span>,</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            .HeaderArt = drawJuliaSet&lt;__float128&gt;(canvas, <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>, <a class="code" href="../../d3/d3b/namespacepostprocess.html#ae0a29f3d14dac5d714c65be9e85728a6">iterations</a>),</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        };</div>
@@ -1570,11 +1570,11 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                    <a class="code" href="../../d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388">outputs</a>.sum += received_sum;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                }</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            }</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }, 10, 0, <span class="stringliteral">&quot;run&quot;</span>).<a class="code" href="../../d3/d49/classOutLab7.html#a67f71920b39fda9e520c16923c4958bc">run</a>();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }, 10, 0, <span class="stringliteral">&quot;series sum&quot;</span>).<a class="code" href="../../d3/d49/classOutLab7.html#a67f71920b39fda9e520c16923c4958bc">run</a>();</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">if</span> (rank == 0) {</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="../../d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388">outputs</a>.summary = profiler.getSummary();</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            std::cout&lt;&lt;<a class="code" href="../../d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388">outputs</a>.summary&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            std::cout&lt;&lt;profiler&lt;&lt;std::endl;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        }</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>

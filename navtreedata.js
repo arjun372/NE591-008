@@ -274,14 +274,14 @@ var NAVTREE =
         [ "Example:", "dd/dfb/outlab6.html#autotoc_md172", null ]
       ] ]
     ] ],
-    [ "OutLab 07: Iterative Linear Equation Solvers", "da/d4d/outlab7.html", [
+    [ "OutLab 07: Series Sum using MPI Spanning Tree Protocol", "da/d4d/outlab7.html", [
       [ "OutLab 07: Iterative Linear Equation Solvers", "da/d4d/outlab7.html#autotoc_md173", [
         [ "Overview", "da/d4d/outlab7.html#autotoc_md174", null ],
         [ "Building & Usage", "da/d4d/outlab7.html#autotoc_md175", [
           [ "Parameters", "da/d4d/outlab7.html#autotoc_md176", null ],
-          [ "Solver Methods", "da/d4d/outlab7.html#autotoc_md177", null ],
-          [ "General options", "da/d4d/outlab7.html#autotoc_md178", null ]
+          [ "General options", "da/d4d/outlab7.html#autotoc_md177", null ]
         ] ],
+        [ "Performance Benchmarking", "da/d4d/outlab7.html#autotoc_md178", null ],
         [ "Parameters Format", "da/d4d/outlab7.html#autotoc_md179", [
           [ "Sample Parameters File", "da/d4d/outlab7.html#autotoc_md180", null ]
         ] ],
