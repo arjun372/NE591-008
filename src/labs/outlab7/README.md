@@ -27,31 +27,50 @@ to perform the build and run the `outlab7` target executable:
 ```bash
 #!/bin/bash
 
-# Start by logging in
+# Start by logging in to the login node. We will use this node to compile our sources.
 ssh login.hpc.ncsu.edu
 
-# Then, start an interactive session
-bsub -Is -n 16 -R "span[hosts=1]" -W 30 bash
-
-## Specify the build target
+## Specify environment parameters
 export BUILD_TARGET=outlab7
+export BUILD_DIR=/tmp/$GROUP/$USER/earthperson_$BUILD_TARGET
+export REPO_DIR=NE591-008-Monorepo
+export REPO_URL=https://github.com/arjun372/$REPO_DIR.git
 
-# Create a working directory, in this case we call it earthperson_$BUILD_TARGET to avoid naming conflicts
-mkdir -p /share/$GROUP/$USER/earthperson_$BUILD_TARGET
+# Create a working directory in the $TMP directory
+# We need to do this since the persistent /share/ directory is extremely slow for our use.
+# Once we are done compiling, we can move the built executables and input files to the persistent share directory.
 
-# Go into that directory.
-cd /share/$GROUP/$USER/earthperson_$BUILD_TARGET
+## Create a tmp build directory and go into it
+mkdir -p $BUILD_DIR && cd $BUILD_DIR
+
+## copy the files over. The easiest way (by far) is to just clone the git repo and cd into it.
+git clone --recursive $REPO_URL && cd $REPO_DIR
 
 # Load the build modules
 module load openmpi-gcc/openmpi4.1.0-gcc10.2.0 cmake/3.24.1
-
-# Begin by copying the files over using rsync, scp, sftp, etc...
-# Then, assuming the repo root is the current directory:
 
 ## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
 cmake .. -DCMAKE_BUILD_TYPE=Release && \
 make -j$(nproc) $BUILD_TARGET && cd ../
+
+# in this case we call it earthperson_$BUILD_TARGET to avoid naming conflicts
+mkdir -p /share/$GROUP/$USER/earthperson_$BUILD_TARGET
+
+# Go into that directory.
+cd /share/$GROUP/$USER/earthperson_$BUILD_TARGET
+
+
+
+# Begin by copying the files over using rsync, scp, sftp, etc...
+# The easiest way by far is to just clone this repo:
+
+# Then, assuming the repo root is the current directory:
+
+
+
+# Then, start an interactive session
+bsub -Is -n 16 -R "span[hosts=1]" -W 30 bash
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory

@@ -7,9 +7,9 @@ file(COPY "input" DESTINATION ${CMAKE_BINARY_DIR}/)
 set(LIB_SRC hello_world.cpp)
 
 # Find MPI
-set(MPI_C_COMPILER /usr/lib64/openmpi/bin/mpicc)
-set(MPI_CXX_COMPILER /usr/lib64/openmpi/bin/mpicxx)
-find_package(MPI REQUIRED)
+#set(MPI_C_COMPILER /usr/lib64/openmpi/bin/mpicc)
+#set(MPI_CXX_COMPILER /usr/lib64/openmpi/bin/mpicxx)
+#find_package(MPI REQUIRED)
 
 # Include MPI includes
 #include_directories(${MPI_INCLUDE_PATH})

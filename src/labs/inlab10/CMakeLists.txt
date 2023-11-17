@@ -12,9 +12,9 @@ set(LIB_SRC inlab10.h
 )
 
 # Find MPI
-set(MPI_C_COMPILER /usr/lib64/openmpi/bin/mpicc)
-set(MPI_CXX_COMPILER /usr/lib64/openmpi/bin/mpicxx)
-find_package(MPI REQUIRED)
+#set(MPI_C_COMPILER /usr/lib64/openmpi/bin/mpicc)
+#set(MPI_CXX_COMPILER /usr/lib64/openmpi/bin/mpicxx)
+#find_package(MPI REQUIRED)
 
 # Create the inlab10_lib library target
 add_library(inlab10_lib STATIC ${LIB_SRC})

@@ -14,9 +14,9 @@ set(LIB_SRC outlab7.h
 )
 
 # Find MPI
-set(MPI_C_COMPILER /usr/lib64/openmpi/bin/mpicc)
-set(MPI_CXX_COMPILER /usr/lib64/openmpi/bin/mpicxx)
-find_package(MPI REQUIRED)
+#set(MPI_C_COMPILER /usr/lib64/openmpi/bin/mpicc)
+#set(MPI_CXX_COMPILER /usr/lib64/openmpi/bin/mpicxx)
+#find_package(MPI REQUIRED)
 
 # Create the outlab7_lib library target
 add_library(outlab7_lib STATIC ${LIB_SRC})

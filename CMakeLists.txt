@@ -1,6 +1,12 @@
 # vim: set foldmarker={{{,}}} foldlevel=0 foldmethod=marker:
 cmake_minimum_required(VERSION 3.14)
 
+set(CMAKE_C_COMPILER /usr/local/apps/openmpi/4.1.0-gcc10.2.0/bin/mpicc)
+set(CMAKE_CXX_COMPILER /usr/local/apps/openmpi/4.1.0-gcc10.2.0/bin/mpicxx)
+set(MPI_C_COMPILER /usr/local/apps/openmpi/4.1.0-gcc10.2.0/bin/mpicc)
+set(MPI_CXX_COMPILER /usr/local/apps/openmpi/4.1.0-gcc10.2.0/bin/mpicxx)
+find_package(MPI REQUIRED)
+
 project(ne591_008)
 include(helpers.cmake) # Include helper methods
 set(CMAKE_DISABLE_SOURCE_CHANGES ON) # In-source build prevention.
@@ -13,6 +19,7 @@ option(PORTABLE "Build without CPU specific optimizations" OFF)
 option(ENABLE_PGO "Enable Profile-Guided Optimization (PGO)" OFF)
 option(ENABLE_LTO "Enable Link-Time Optimization (LTO)" ON)
 option(ENABLE_CODE_QUALITY_CHECKS "Enable extra compile-time warnings" ON)
+option(REQUIRE_MPI "Enable and require the use of MPI" ON)
 ######################### Options ################################################## }}}
 
 ######################### Compiler Config ########################################## {{{
@@ -28,7 +35,7 @@ if (ENABLE_CODE_QUALITY_CHECKS)
     -Wshadow -Wformat -Wuninitialized -Wcast-align -Wconversion
     -Wlogical-op -Wduplicated-cond
     -Wduplicated-branches -Wnull-dereference -Wmisleading-indentation)
-endif ()
+endif()
 # Ignore -Wuseless-cast -Wdouble-promotion
 ######################## Global CXX Flags ########################### }}}
 
