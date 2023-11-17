@@ -158,31 +158,50 @@ Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>Hazel</code> or <code>login.hpc.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>outlab7</code> target executable:</p>
 <div class="fragment"><div class="line">#!/bin/bash</div>
 <div class="line"> </div>
-<div class="line"># Start by logging in</div>
+<div class="line"># Start by logging in to the login node. We will use this node to compile our sources.</div>
 <div class="line">ssh login.hpc.ncsu.edu</div>
 <div class="line"> </div>
-<div class="line"># Then, start an interactive session</div>
-<div class="line">bsub -Is -n 16 -R &quot;span[hosts=1]&quot; -W 30 bash</div>
-<div class="line"> </div>
-<div class="line">## Specify the build target</div>
+<div class="line">## Specify environment parameters</div>
 <div class="line">export BUILD_TARGET=outlab7</div>
+<div class="line">export BUILD_DIR=/tmp/$GROUP/$USER/earthperson_$BUILD_TARGET</div>
+<div class="line">export REPO_DIR=NE591-008-Monorepo</div>
+<div class="line">export REPO_URL=https://github.com/arjun372/$REPO_DIR.git</div>
 <div class="line"> </div>
-<div class="line"># Create a working directory, in this case we call it earthperson_$BUILD_TARGET to avoid naming conflicts</div>
-<div class="line">mkdir -p /share/$GROUP/$USER/earthperson_$BUILD_TARGET</div>
+<div class="line"># Create a working directory in the $TMP directory</div>
+<div class="line"># We need to do this since the persistent /share/ directory is extremely slow for our use.</div>
+<div class="line"># Once we are done compiling, we can move the built executables and input files to the persistent share directory.</div>
 <div class="line"> </div>
-<div class="line"># Go into that directory.</div>
-<div class="line">cd /share/$GROUP/$USER/earthperson_$BUILD_TARGET</div>
+<div class="line">## Create a tmp build directory and go into it</div>
+<div class="line">mkdir -p $BUILD_DIR &amp;&amp; cd $BUILD_DIR</div>
+<div class="line"> </div>
+<div class="line">## copy the files over. The easiest way (by far) is to just clone the git repo and cd into it.</div>
+<div class="line">git clone --recursive $REPO_URL &amp;&amp; cd $REPO_DIR</div>
 <div class="line"> </div>
 <div class="line"># Load the build modules</div>
 <div class="line">module load openmpi-gcc/openmpi4.1.0-gcc10.2.0 cmake/3.24.1</div>
-<div class="line"> </div>
-<div class="line"># Begin by copying the files over using rsync, scp, sftp, etc...</div>
-<div class="line"># Then, assuming the repo root is the current directory:</div>
 <div class="line"> </div>
 <div class="line">## Create the build directory, configure and compile the $BUILD_TARGET</div>
 <div class="line">mkdir -p build &amp;&amp; cd build &amp;&amp; \</div>
 <div class="line">cmake .. -DCMAKE_BUILD_TYPE=Release &amp;&amp; \</div>
 <div class="line">make -j$(nproc) $BUILD_TARGET &amp;&amp; cd ../</div>
+<div class="line"> </div>
+<div class="line"># in this case we call it earthperson_$BUILD_TARGET to avoid naming conflicts</div>
+<div class="line">mkdir -p /share/$GROUP/$USER/earthperson_$BUILD_TARGET</div>
+<div class="line"> </div>
+<div class="line"># Go into that directory.</div>
+<div class="line">cd /share/$GROUP/$USER/earthperson_$BUILD_TARGET</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"># Begin by copying the files over using rsync, scp, sftp, etc...</div>
+<div class="line"># The easiest way by far is to just clone this repo:</div>
+<div class="line"> </div>
+<div class="line"># Then, assuming the repo root is the current directory:</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"># Then, start an interactive session</div>
+<div class="line">bsub -Is -n 16 -R &quot;span[hosts=1]&quot; -W 30 bash</div>
 <div class="line"> </div>
 <div class="line">## Specify the input and output files.</div>
 <div class="line">## NOTE: This path is relative to the repo root directory</div>
