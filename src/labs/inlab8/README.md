@@ -38,8 +38,8 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/inlab8/examples/inlab8_input_1.json
-export OUTPUT_FILE=./src/labs/inlab8/examples/inlab8_output_1.json
+export INPUT_FILE=./src/labs/inlab8/examples/inlab8_example_input.json
+export OUTPUT_FILE=./src/labs/inlab8/examples/inlab8_example_output.json
 
 ## Execute
 ./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE

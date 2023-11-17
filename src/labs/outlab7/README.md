@@ -1,5 +1,5 @@
 <div style="display: none">
-\page outlab7 OutLab 07: Iterative Linear Equation Solvers
+\page outlab7 OutLab 07: Series Sum using MPI Spanning Tree Protocol
 </div>
 
 # OutLab 07: Iterative Linear Equation Solvers
@@ -20,16 +20,33 @@ File based I/O is supported using JSON files.
 
 ## Building & Usage
 
-The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
+The code has been built and tested on the `Hazel` or `login.hpc.ncsu.edu` servers. It requires no additional
 configuration except choosing the build target, and output file. Here is a repeatable script
 to perform the build and run the `outlab7` target executable:
 
 ```bash
-# Assuming cwd is the repo root:
 #!/bin/bash
+
+# Start by logging in
+ssh login.hpc.ncsu.edu
+
+# Then, start an interactive session
+bsub -Is -n 16 -R "span[hosts=1]" -W 30 bash
 
 ## Specify the build target
 export BUILD_TARGET=outlab7
+
+# Create a working directory, in this case we call it earthperson_$BUILD_TARGET to avoid naming conflicts
+mkdir -p /share/$GROUP/$USER/earthperson_$BUILD_TARGET
+
+# Go into that directory.
+cd /share/$GROUP/$USER/earthperson_$BUILD_TARGET
+
+# Load the build modules
+module load openmpi-gcc/openmpi4.1.0-gcc10.2.0 cmake/3.24.1
+
+# Begin by copying the files over using rsync, scp, sftp, etc...
+# Then, assuming the repo root is the current directory:
 
 ## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
@@ -38,38 +55,29 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/outlab7/examples/outlab10_input.json
-export OUTPUT_FILE=./src/labs/outlab7/examples/outlab7_output_1.json
+export INPUT_FILE=./src/labs/outlab7/examples/outlab7_input_example.json
+export OUTPUT_FILE=./src/labs/outlab7/examples/outlab7_output_example.json
 
 ## Execute
-./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
+mpirun ./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
 ```
 
 ### Parameters
 
-- `-t [ --threshold ] arg     `: iterative convergence threshold [𝜀 > 0]
-- `-k [ --max-iterations ] arg`: maximum number of iterations [n ∈ ℕ]
-- `-n [ --order ] arg`: order of the square matrix [n ∈ ℕ]
-- `-i [ --input-json ] arg`: input JSON containing A, and b
-- `-o [ --output-json ] arg`: path for the output JSON
-- `-w [ --relaxation-factor ] arg`: SOR weight, typical ω ∈ [0,2]
-- `-g [ --generate ]`: Generate A,b ignoring input-json
-
-### Solver Methods
-
-- `--use-LUP`: Use LUP factorization
-- `--use-point-jacobi`: Use the Point-Jacobi method
-- `--use-gauss-seidel`: Use the Gauss-Seidel method
-- `--use-SOR`: Use the SOR method
-- `--use-SORJ`: Use the SOR Jacobi method
-- `--use-SSOR`: [DISABLED] Use the symmetric SOR method
+- `-n arg`: Sum upper limit [n ∈ ℕ].
+- `-i [ --input-json ] arg`: Input JSON containing n.
+- `-o [ --output-json ] arg`: Path for the output JSON.
 
 ### General options
 
-- `-h [ --help ]`: Show this help message
-- `-q [ --quiet ]`: Reduce verbosity
-- `-p [ --precision ] arg (=15)`: Number of digits to represent long double
-- `-P [ --profile ]`: Turn on performance profiling
+- `-h [ --help ]`: Show this help message.
+- `-q [ --quiet ]`: Reduce verbosity.
+- `-p [ --precision ] arg (=15)`: Number of digits to represent long double (default: 6, maximum: 19, current: 15).
+
+## Performance Benchmarking
+- `-R [ --bench-runs ] arg (=1)`: <R> runs to perform
+- `-T [ --bench-timeout ] arg (=0)`: Timeout after <T> seconds [0=never]
+- `-B [ --bench ]`: Run performance benchmarks
 
 ## Parameters Format
 
@@ -79,13 +87,7 @@ The expected input json file requires the following fields:
 
 ```json
 {
-   "coefficients": [
-      [ 36.1, -9.00, -9.00,  0.00],
-      [-9.00,  36.1,  0.00, -9.00],
-      [-9.00,  0.00,  36.1, -9.00],
-      [ 0.00, -9.00, -9.00,  36.1]
-   ],
-   "constants": [1.00, 1.00, 1.00, 1.00]
+   "n": 1e8
 }
 ```
 
@@ -98,74 +100,22 @@ The output is written to a JSON file as well.
 ```json
 {
    "inputs": {
-      "coefficients": [
-         [
-            36.1,
-            -9.0,
-            -9.0,
-            0.0
-         ],
-         [
-            -9.0,
-            36.1,
-            0.0,
-            -9.0
-         ],
-         [
-            -9.0,
-            0.0,
-            36.1,
-            -9.0
-         ],
-         [
-            0.0,
-            -9.0,
-            -9.0,
-            36.1
-         ]
-      ],
-      "constants": [
-         1.0,
-         1.0,
-         1.0,
-         1.0
-      ],
-      "known-solution": [],
-      "max-iterations": 5000,
-      "methods": [
-         "gauss-seidel"
-      ],
-      "order": 4,
-      "relaxation-factor": 1.08,
-      "threshold": 0.0001
+      "n": 100000000
    },
    "outputs": {
-      "gauss-seidel": {
-         "converged": true,
-         "iterations": {
-            "actual": 6,
-            "maximum": 5000
-         },
-         "iterative-error": {
-            "actual": 3.6891402111559554e-05,
-            "maximum": 0.0001
-         },
-         "l2-error": 0.0,
-         "max-residual": 0.00026517572756905696,
-         "solution": [
-            0.05523884269588214,
-            0.05524374428049525,
-            0.05524374428049525,
-            0.055246188283903444
-         ],
-         "wall-time-ns": {
-            "mean": 488.4,
-            "samples": 52.437009830843714,
-            "std": 52.437009830843714
-         }
+      "benchmark": {
+         "max": 322451552.0,
+         "mean": 260817058.0,
+         "min": 241098530.0,
+         "p5th": 241155891.95,
+         "p95th": 320252851.1,
+         "samples": 10,
+         "stddev": 29848429.197442453,
+         "sum": 2608170580.0,
+         "variance": 890928725554735.2
       },
+      "total_sum": 2.0131691999274186
    }
-}
 }
 ```
 
@@ -174,130 +124,50 @@ The output is written to a JSON file as well.
 The following is an example of the program's output:
 
 ```shell
-NE591: OutLab 07: Solving a system of linear equations using iterative methods
+NE591: OutLab 07: Series Sum using MPI Spanning Tree Protocol
 Arjun Earthperson
 10/06/2023
 --------------------------------------------------------------------------------
-compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so
+using 128-bit floats
+compiler: GNU 8.5.0
+boost:  
 --------------------------------------------------------------------------------
 Parameters:
-  -t [ --threshold ] arg         = convergence threshold [𝜀 > 0]
-  -k [ --max-iterations ] arg    = maximum iterations [n ∈ ℕ]
-  -w [ --relaxation-factor ] arg = SOR weight, typical ω ∈ [0,2]
-  -n [ --order ] arg             = order of the square matrix [n ∈ ℕ]
-  -i [ --input-json ] arg        = input JSON containing A, and b
-  -g [ --generate ]              = Generate A,b ignoring input-json
-  -o [ --output-json ] arg       = path for the output JSON
+  -n arg                           = sum upper limit [n ∈ ℕ]
+  -i [ --input-json ] arg          = input JSON containing n
+  -o [ --output-json ] arg         = path for the output JSON
 
-Solver Methods:
-  --use-LUP                      = Use LUP factorization
-  --use-point-jacobi             = Use the Point-Jacobi method
-  --use-gauss-seidel             = Use the Gauss-Seidel method
-  --use-SOR                      = Use the SOR method
-  --use-SORJ                     = Use the SOR Jacobi method
-  --use-SSOR                     = [DISABLED] Use the symmetric SOR method
+Performance Benchmarking:
+  -R [ --bench-runs ] arg (=1)     = <R> runs to perform
+  -T [ --bench-timeout ] arg (=0)  = Timeout after <T> seconds [0=never]
+  -B [ --bench ]                   = Run performance benchmarks
 
 General options:
-  -h [ --help ]                  = Show this help message
-  -q [ --quiet ]                 = Reduce verbosity
-  -p [ --precision ] arg (=15)   = Number of digits to represent long double
-  -P [ --profile ]               = Turn on performance profiling
+  -h [ --help ]                    = Show this help message
+  -q [ --quiet ]                   = Reduce verbosity
+  -p [ --precision ] arg (=15)     = Number of digits to represent long double
 
 --------------------------------------------------------------------------------
-			Precision in digits:  default: 6, maximum: 19, current: 2
---------------------------------------------------------------------------------
-Warning: File already exists at path, will be overwritten 
+			Precision in digits:  default: 6, maximum: 19, current: 15
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
-	Generate A,b,            g: No
-	Parameters JSON (for A, b),   i:  ../outlab10_input.json
-	Output JSON (for x),     o: ../outlab7_output_1.json
-	Convergence Threshold,   𝜀: 0.0001
-	Max iterations,          k: 5000
-	Matrix order,            n: None provided, will be inferred from input JSON
-	SOR weight,              ω: 1.080000
-	Use LUP factorization     : Yes
-	Use Gauss-Seidel          : Yes
-	Use Point-Jacobi          : Yes
-	Use SOR                   : Yes
-	Use Point-Jacobi with SOR : Yes
-	Use symmetric SOR         : Yes
+	Input JSON,              i: ./outlab7_input_example.json
+	Output JSON,             o: ./outlab7_output_example.json
+	Sum Upper Limit,         n: 100000000
 --------------------------------------------------------------------------------
-Reading matrix order (n) from input matrix dimensions: 4
---------------------------------------------------------------------------------
-Coefficient Matrix (A):
---------------------------------------------------------------------------------
-    3.61e+01   -9.00e+00   -9.00e+00    0.00e+00
-   -9.00e+00    3.61e+01    0.00e+00   -9.00e+00
-   -9.00e+00    0.00e+00    3.61e+01   -9.00e+00
-    0.00e+00   -9.00e+00   -9.00e+00    3.61e+01
---------------------------------------------------------------------------------
-Constants Vector (b):
---------------------------------------------------------------------------------
-    1.00e+00    1.00e+00    1.00e+00    1.00e+00
---------------------------------------------------------------------------------
-LUP Factorization Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 0
-	converged                 : Yes
-	iterative error           : nan
-	relative error            : 0.00e+00
-	absolute maximum residual : 2.17e-19
-	execution time [ns]       : 1185.600000 ± 716.407593
---------------------------------------------------------------------------------
-Point Jacobi Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 10
-	converged                 : Yes
-	iterative error           : 5.26e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 9.50e-04
-	execution time [ns]       : 511.400000 ± 97.897089
---------------------------------------------------------------------------------
-SOR Point Jacobi Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 9
-	converged                 : Yes
-	iterative error           : 5.36e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 8.96e-04
-	execution time [ns]       : 413.900000 ± 14.159449
---------------------------------------------------------------------------------
-Gauss-Seidel Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 6
-	converged                 : Yes
-	iterative error           : 3.69e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 2.65e-04
-	execution time [ns]       : 481.000000 ± 56.723893
---------------------------------------------------------------------------------
-SOR Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 4
-	converged                 : Yes
-	iterative error           : 3.89e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 3.52e-06
-	execution time [ns]       : 350.100000 ± 14.645477
---------------------------------------------------------------------------------
-Symmetric SOR Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 3
-	converged                 : Yes
-	iterative error           : 5.62e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 8.02e-05
-	execution time [ns]       : 465.400000 ± 60.016998
---------------------------------------------------------------------------------
-JSON data has been written to ../outlab7_output_1.json
+
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[10/10] : series sum
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 3.24e+09 :::::::: VARIANCE: 5.58e+15 :::::::: MEDIAN: 3.06e+08 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {2.41e+08, 4.73e+08} : (3.24e+08 ± 7.47e+07) : [2.48e+08, 4.51e+08] :::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+[4bcb2c377817][0]: Final sum: 2.013169199927419e+00
+
+JSON data has been written to ./outlab7_output_example.json
 
 Process finished with exit code 0
 ```

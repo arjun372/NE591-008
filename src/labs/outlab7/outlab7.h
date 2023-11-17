@@ -76,7 +76,7 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
     static HeaderInfo buildHeaderInfo() {
         Canvas canvas;
         const __float128 x = 0.13;
-        const __float128 y = -0.66;
+        const __float128 y = -0.68;
         const size_t iterations = 80;
         canvas.x_start = -0.007514104707;
         canvas.x_stop = 0.075446744304;
@@ -85,8 +85,8 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
         canvas.tone_map.growth_rate = 0.25;
         return {
             .ProjectName = "NE591: OutLab 07",
-            .ProjectDescription = "",
-            .SubmissionDate = "10/13/2023",
+            .ProjectDescription = "Series Sum using MPI Spanning Tree Protocol",
+            .SubmissionDate = "10/06/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = drawJuliaSet<__float128>(canvas, x, y, iterations),
         };
@@ -147,11 +147,11 @@ class OutLab7 : public MPIProject<OutLab7Inputs, Parser, OutLab7Outputs> {
                     outputs.sum += received_sum;
                 }
             }
-        }, 10, 0, "run").run();
+        }, 10, 0, "series sum").run();
 
         if (rank == 0) {
             outputs.summary = profiler.getSummary();
-            std::cout<<outputs.summary<<std::endl;
+            std::cout<<profiler<<std::endl;
         }
         return false;
     }

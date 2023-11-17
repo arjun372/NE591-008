@@ -269,7 +269,7 @@ Currently supported inlab, outlab build targets include:
   </tr>
   <tr>
     <td>10</td>
-    <td></td>
+    <td><code>✅ inlab10</code>  <code>✅ inlab10_tests</code></td>
     <td></td>
   </tr>
   <tr>
