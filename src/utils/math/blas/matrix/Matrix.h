@@ -4,7 +4,7 @@
 * @author Arjun Earthperson
 * @date 09/22/2023
 * @details This file contains the declaration of the MyBLAS::Matrix class, which represents a matrix of T type values.
-*/
+ */
 
 #ifndef NE591_008_MATRIX_H
 #define NE591_008_MATRIX_H
@@ -13,6 +13,7 @@
 #include <cassert>
 #include <iostream>
 #include <vector>
+#include <unordered_set>
 
 #include "math/blas/Constants.h"
 #include "math/blas/vector/Vector.h"
@@ -30,86 +31,122 @@ template <typename T = MyBLAS::NumericType> class Matrix {
 
   protected:
     std::vector<std::vector<T>> data; ///< 2D vector representing the matrix data.
-    static size_t totalMemoryUsage; ////< Static member to track memory usage
-
-    /**
-     * @brief Helper function to update memory usage.
-     * @param size The size of memory to update.
-     * @param increase Flag to indicate whether to increase or decrease memory usage.
-     */
-    static void updateMemoryUsage(size_t size, bool increase) {
-        if (increase) {
-            totalMemoryUsage += size;
-        } else {
-            totalMemoryUsage -= size;
-        }
-    }
 
   public:
+
+    static size_t _max_instances;
+    static std::unordered_set<Matrix<T>*> instances; // Static set to track all instances.
+
+    // TODO:: Document
+    static size_t getTotalBytes(bool allocated = false) {
+        size_t totalBytes = 0;
+        for (const Matrix<T>* instance : instances) {
+            totalBytes += instance->getAllocatedBytes(allocated);
+        }
+        return totalBytes;
+    }
+
+
+    static size_t estimateMaximumBytes(bool allocated = false) {
+        size_t totalBytes = 0;
+        for (const Matrix<T>* instance : instances) {
+            totalBytes += instance->getAllocatedBytes(allocated);
+        }
+        return totalBytes;
+    }
+
+    // TODO:: Document
+    [[nodiscard]] size_t getAllocatedBytes(bool actual = false) const {
+        auto nRows = actual ? data.size() : data.capacity();
+        auto nCols = actual ? data[0].size() : data[0].capacity();
+
+        assert(nRows >= getRows());
+        assert(nCols >= getCols());
+
+        size_t byteCount = 0;
+
+        // count all the elements
+        byteCount += (nRows * nCols) * (sizeof(T) > 0.0 ? sizeof(T) : 1);
+
+        // Memory used by this object itself.
+        byteCount += sizeof(*this);
+
+        return byteCount;
+    }
+
     /**
      * @brief Default constructor. Initializes an empty matrix.
      */
-    Matrix() = default;
+    Matrix() {
+        instances.insert(this);
+    }
 
     /**
-     * @brief Destructor that updates memory usage.
+     * @brief Default destructor.
      */
     ~Matrix() {
-        updateMemoryUsage(data.size() * (data.empty() ? 0 : data[0].size()) * sizeof(T), false);
+        const auto nInstances = instances.size();
+        if (nInstances > _max_instances) {
+            _max_instances = nInstances;
+        }
+        instances.erase(this);
     }
-
-    /**
-     * @brief Resets the total memory usage counter to zero.
-     * @details This function is intended for use in unit tests to ensure a clean state.
-     */
-    static void resetMemoryUsage() {
-        totalMemoryUsage = 0;
-    }
-
-    /**
-     * @brief Static function to get current memory usage.
-     * @return The current memory usage of all matrix instances.
-     */
-    static size_t getCurrentMemoryUsage() {
-        return totalMemoryUsage;
-    }
-
-     /**
-     * @brief Overloaded new operator to track memory allocation.
-     * @param size The size of the object to allocate.
-     * @return Pointer to the allocated memory.
-     * @throws std::bad_alloc If memory allocation fails.
-      */
-     static void* operator new(size_t size) {
-        void* ptr = ::operator new(size);
-        updateMemoryUsage(size, true);
-        return ptr;
-     }
-
-     /**
-     * @brief Overloaded delete operator to track memory deallocation.
-     * @param ptr Pointer to the memory to deallocate.
-     * @param size The size of the object being deallocated.
-      */
-     static void operator delete(void* ptr, size_t size) {
-        ::operator delete(ptr);
-        updateMemoryUsage(size, false);
-     }
 
     /**
      * @brief Constructor that initializes the matrix with a given 2D vector.
      * @param _data 2D vector to initialize the matrix with.
      */
     explicit Matrix(std::vector<std::vector<T>> &_data) : data(_data) {
-        updateMemoryUsage(calculateMemoryForData(_data), true);
+        instances.insert(this);
+    }
+
+    /**
+     * @brief Const Constructor that initializes the matrix with a given 2D vector.
+     * @param _data 2D vector to initialize the matrix with.
+     */
+    explicit Matrix(const std::vector<std::vector<T>> &_data) : data(_data) {
+        instances.insert(this);
     }
 
     /**
      * @brief Constructor that initializes the matrix with a given 2D vector.
      * @param _data 2D vector to initialize the matrix with.
      */
-    explicit Matrix(std::vector<std::vector<T>> _data) : data(_data) {
-        updateMemoryUsage(calculateMemoryForData(data), true);
+    explicit Matrix(std::vector<std::vector<T>>&& _data) : data(std::move(_data)) {
+        instances.insert(this);
+    }
+
+    /**
+     * @brief Move constructor.
+     * @param other The matrix to move from.
+     */
+    Matrix(Matrix&& other) noexcept : data(std::move(other.data)) {
+        instances.insert(this);
+        instances.erase(&other); // Remove the moved-from instance from the tracking set.
+    }
+
+    /**
+     * @brief Copy constructor.
+     * @param other The matrix to copy from.
+     */
+    Matrix(const Matrix& other) : data(other.data) {
+        instances.insert(this);
+    }
+
+    /**
+     * @brief Constructor that initializes the matrix with another matrix of a different type.
+     * @param other The matrix to initialize from.
+     */
+    template <typename U>
+    explicit Matrix(const Matrix<U>& other) {
+        const size_t rows = other.getRows(), cols = other.getCols();
+        data = std::vector<std::vector<T>>(rows, std::vector<T>(cols));
+        for (size_t i = 0; i < rows; ++i) {
+            for (size_t j = 0; j < cols; ++j) {
+                data[i][j] = static_cast<T>(other[i][j]);
+            }
+        }
+        instances.insert(this);
     }
 
     /**
@@ -127,6 +164,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
                 data[i][j] = matrix[i][j];
             }
         }
+        instances.insert(this);
     }
 
     /**
@@ -137,7 +175,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      */
     Matrix(size_t _rows, size_t _cols, const T _initial = 0)
         : data(_rows, std::vector<T>(_cols, _initial)) {
-        updateMemoryUsage(_rows * _cols * sizeof(T), true);
+        instances.insert(this);
     }
 
     /**
@@ -156,6 +194,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
             }
             ++i;
         }
+        instances.insert(this);
     }
 
     /**
@@ -170,10 +209,39 @@ template <typename T = MyBLAS::NumericType> class Matrix {
                 data[i][j] = func(i, j);
             }
         }
+        instances.insert(this);
     }
 
-    
-     /**
+    /**
+     * @brief Copy assignment operator. Used to assign one Matrix to another after their initial construction.
+     * @param other The matrix to copy from.
+     */
+    Matrix& operator=(const Matrix& other) {
+        if (this != &other) {
+            data = other.data;
+            // Update the instances set
+            // No need to update the instances set because 'this' already exists
+        }
+        return *this;
+    }
+
+    /**
+     * @brief Move assignment operator. This operator is used to transfer the ownership of resources from one Matrix
+     * to another without copying the data
+     * @param other The matrix to copy from.
+     */
+    Matrix& operator=(Matrix&& other) noexcept {
+        if (this != &other) {
+            data = std::move(other.data);
+            // No need to update the instances set because 'this' already exists
+            // don't erase the moved-from object from the instances set since we are only moving the content, not the
+            // instance. Clear the data since we use instance.data to compute allocated memory
+            other.data.clear();
+        }
+        return *this;
+    }
+
+    /**
      * @brief Overloaded operator() to access individual elements of the matrix.
      * @param row Row index of the element to access.
      * @param col Column index of the element to access.
@@ -183,7 +251,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         assert(row < getRows() && col < getCols());
         return data[row][col];
     }
-    
+
     /**
      * @brief Overloaded operator() const to access individual elements of the matrix.
      * @param row Row index of the element to access.
@@ -196,7 +264,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     }
 
 
-     /**
+    /**
      * @brief Overloaded operator[] to access individual rows of the matrix.
      * @param rowNum Index of the row to access.
      * @return Reference to the row at the given index.
@@ -206,7 +274,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         return data[rowNum];
     }
 
-     /**
+    /**
      * @brief Overloaded operator[] to access individual rows of the matrix (const version).
      * @param rowNum Index of the row to access.
      * @return Const reference to the row at the given index.
@@ -239,7 +307,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     [[nodiscard]]  /**
      * @brief Getter for the number of rows in the matrix.
      * @return Number of rows in the matrix.
-     */
+                   */
     inline size_t getRows() const {
         return data.size();
     }
@@ -247,7 +315,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     [[nodiscard]]  /**
      * @brief Getter for the number of columns in the matrix.
      * @return Number of columns in the matrix.
-     */
+                   */
     inline size_t getCols() const {
         return data.empty() ? 0 : data[0].size();
     }
@@ -650,9 +718,9 @@ template <typename T, typename T2> static MyBLAS::Vector<T> cast(const MyBLAS::V
     return output;
 }
 
-// Initialize static member
+// Initialize the static member variable
 template <typename T>
-size_t Matrix<T>::totalMemoryUsage = 0;
+std::unordered_set<Matrix<T>*> Matrix<T>::instances;
 } // namespace MyBLAS
 
 #endif // NE591_008_MATRIX_H

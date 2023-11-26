@@ -6,6 +6,7 @@ set(TEST_SOURCES
         expression/VectorExpressionTests.cpp
         matrix/BaseMatrixTests.cpp
         matrix/MatrixPerformanceTests.cpp
+        matrix/MatrixMemoryAllocationTests.cpp
         vector/BaseVectorTests.cpp
         TestedTypes.h
         matrix/MatrixUtilityTests.cpp

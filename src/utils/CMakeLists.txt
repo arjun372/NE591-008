@@ -9,6 +9,7 @@ set(UTILS_LIB_HEADERS
 
         CommandLine.h
         Project.h
+        ResourceMonitor.h
         mpi/MPIProject.h
 
         math/blas/BLAS.h

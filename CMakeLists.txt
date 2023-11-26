@@ -1,10 +1,5 @@
 # vim: set foldmarker={{{,}}} foldlevel=0 foldmethod=marker:
 cmake_minimum_required(VERSION 3.14)
-
-set(CMAKE_C_COMPILER /usr/local/apps/openmpi/4.1.0-gcc10.2.0/bin/mpicc)
-set(CMAKE_CXX_COMPILER /usr/local/apps/openmpi/4.1.0-gcc10.2.0/bin/mpicxx)
-set(MPI_C_COMPILER /usr/local/apps/openmpi/4.1.0-gcc10.2.0/bin/mpicc)
-set(MPI_CXX_COMPILER /usr/local/apps/openmpi/4.1.0-gcc10.2.0/bin/mpicxx)
 find_package(MPI REQUIRED)
 
 project(ne591_008)
@@ -120,10 +115,3 @@ configure_file(
         "${PROJECT_BINARY_DIR}/include/project-config.h"
 )
 ########################### Runtime Configs ######################################## }}}
-
-
-
-
-#set(PROJECT_CXX_FLAGS_DEBUG -Wall -Wextra -Werror -Wsign-compare -Wmissing-field-initializers -Wnon-virtual-dtor -Wno-old-style-cast -Wno-cast-function-type -Wno-unused-parameter -Wno-unused-function)
-#list(APPEND PROJECT_CXX_FLAGS ${PROJECT_CXX_FLAGS_DEBUG})
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -Wsign-compare -Wmissing-field-initializers -Wnon-virtual-dtor -Wno-old-style-cast -Wno-cast-function-type -Wno-unused-parameter -Wno-unused-function -Wshadow -Wformat -Wuninitialized -Wcast-align -Wconversion -Wlogical-op -Wuseless-cast -Wdouble-promotion -Wduplicated-cond -Wduplicated-branches -Wnull-dereference -Wmisleading-indentation")

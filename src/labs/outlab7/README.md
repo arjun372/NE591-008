@@ -61,13 +61,9 @@ mkdir -p /share/$GROUP/$USER/earthperson_$BUILD_TARGET
 cd /share/$GROUP/$USER/earthperson_$BUILD_TARGET
 
 
-
 # Begin by copying the files over using rsync, scp, sftp, etc...
 # The easiest way by far is to just clone this repo:
-
 # Then, assuming the repo root is the current directory:
-
-
 
 # Then, start an interactive session
 bsub -Is -n 16 -R "span[hosts=1]" -W 30 bash

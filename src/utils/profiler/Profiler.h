@@ -109,9 +109,9 @@ class Profiler {
 
  private:
    FunctionType _function; ///< The function to be profiled.
-   size_t _totalRuns; ///< The number of times the function should be run for profiling.
-   long double _timeout; ///< The maximum time allowed for the function to run.
-   bool _timedOut; ///< Whether the function timed out during profiling.
+   size_t _totalRuns{}; ///< The number of times the function should be run for profiling.
+   long double _timeout{}; ///< The maximum time allowed for the function to run.
+   bool _timedOut{}; ///< Whether the function timed out during profiling.
    std::string _description; ///< A description of the function being profiled.
    std::vector<Stopwatch<Nanoseconds>> _stopwatches; ///< A vector of stopwatches to time each run of the function.
    MyBLAS::Stats::Summary<long double> _summary; ///< The summary of the profiling.
