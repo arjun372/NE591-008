@@ -30,6 +30,20 @@ template <typename T = MyBLAS::NumericType> class Matrix {
 
   protected:
     std::vector<std::vector<T>> data; ///< 2D vector representing the matrix data.
+    static size_t totalMemoryUsage; ////< Static member to track memory usage
+
+    /**
+     * @brief Helper function to update memory usage.
+     * @param size The size of memory to update.
+     * @param increase Flag to indicate whether to increase or decrease memory usage.
+     */
+    static void updateMemoryUsage(size_t size, bool increase) {
+        if (increase) {
+            totalMemoryUsage += size;
+        } else {
+            totalMemoryUsage -= size;
+        }
+    }
 
   public:
     /**
@@ -38,21 +52,65 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     Matrix() = default;
 
     /**
-     * @brief Default  destructor.
+     * @brief Destructor that updates memory usage.
      */
-     ~Matrix() = default;
+    ~Matrix() {
+        updateMemoryUsage(data.size() * (data.empty() ? 0 : data[0].size()) * sizeof(T), false);
+    }
+
+    /**
+     * @brief Resets the total memory usage counter to zero.
+     * @details This function is intended for use in unit tests to ensure a clean state.
+     */
+    static void resetMemoryUsage() {
+        totalMemoryUsage = 0;
+    }
+
+    /**
+     * @brief Static function to get current memory usage.
+     * @return The current memory usage of all matrix instances.
+     */
+    static size_t getCurrentMemoryUsage() {
+        return totalMemoryUsage;
+    }
+
+     /**
+     * @brief Overloaded new operator to track memory allocation.
+     * @param size The size of the object to allocate.
+     * @return Pointer to the allocated memory.
+     * @throws std::bad_alloc If memory allocation fails.
+      */
+     static void* operator new(size_t size) {
+        void* ptr = ::operator new(size);
+        updateMemoryUsage(size, true);
+        return ptr;
+     }
+
+     /**
+     * @brief Overloaded delete operator to track memory deallocation.
+     * @param ptr Pointer to the memory to deallocate.
+     * @param size The size of the object being deallocated.
+      */
+     static void operator delete(void* ptr, size_t size) {
+        ::operator delete(ptr);
+        updateMemoryUsage(size, false);
+     }
 
     /**
      * @brief Constructor that initializes the matrix with a given 2D vector.
      * @param _data 2D vector to initialize the matrix with.
      */
-    explicit Matrix(std::vector<std::vector<T>> &_data) : data(_data) {}
+    explicit Matrix(std::vector<std::vector<T>> &_data) : data(_data) {
+        updateMemoryUsage(calculateMemoryForData(_data), true);
+    }
 
     /**
      * @brief Constructor that initializes the matrix with a given 2D vector.
      * @param _data 2D vector to initialize the matrix with.
      */
-    explicit Matrix(std::vector<std::vector<T>> _data) : data(_data) {}
+    explicit Matrix(std::vector<std::vector<T>> _data) : data(_data) {
+        updateMemoryUsage(calculateMemoryForData(data), true);
+    }
 
     /**
      * @brief Constructor that initializes the matrix with another matrix.
@@ -78,7 +136,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param _initial Initial value for all elements in the matrix.
      */
     Matrix(size_t _rows, size_t _cols, const T _initial = 0)
-        : data(_rows, std::vector<T>(_cols, _initial)) {}
+        : data(_rows, std::vector<T>(_cols, _initial)) {
+        updateMemoryUsage(_rows * _cols * sizeof(T), true);
+    }
 
     /**
      * @brief Constructor that initializes the matrix with a given initializer list.
@@ -589,6 +649,10 @@ template <typename T, typename T2> static MyBLAS::Vector<T> cast(const MyBLAS::V
     }
     return output;
 }
+
+// Initialize static member
+template <typename T>
+size_t Matrix<T>::totalMemoryUsage = 0;
 } // namespace MyBLAS
 
 #endif // NE591_008_MATRIX_H
