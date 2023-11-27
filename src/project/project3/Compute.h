@@ -95,11 +95,12 @@ void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
     auto inMemoryA = MyBLAS::Matrix<MyBLAS::NumericType>(inputs.diffusionCoefficients);
 
     auto profiler = Profiler([&]() {
-        outputs.solution = outputs.solution = MyBLAS::LUP::applyLUP(inMemoryA, b);
+        outputs.solution = MyBLAS::LUP::applyLUP(inMemoryA, b);
     }, inputs.numRuns, inputs.timeout, "LUP");
 
     outputs.summary = profiler.run().getSummary();
     outputs.summary.runs = profiler.getTotalRuns();
+
     std::cout<<std::endl<<profiler;
 
     // post-process

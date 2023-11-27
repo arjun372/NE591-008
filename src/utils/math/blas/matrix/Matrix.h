@@ -38,6 +38,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     // TODO:: Document
     [[nodiscard]] size_t getAllocatedBytes(bool actual = false) const {
         auto nRows = actual ? data.size() : data.capacity();
+        if (data.size() == 0) {
+            return 0;
+        }
         auto nCols = actual ? data[0].size() : data[0].capacity();
 
         assert(nRows >= getRows());

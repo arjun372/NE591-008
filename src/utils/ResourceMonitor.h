@@ -25,6 +25,7 @@ class ResourceMonitor {
  private:
    static std::unordered_set<T*> instances; ///< Set to keep track of instances.
    static size_t maxInstancesEver;          ///< Record of the maximum instances ever.
+   static size_t maxBytesEver;              ///< Record of the maximum bytes ever.
 
    /**
     * @brief Private constructor for the Singleton pattern.
@@ -43,16 +44,6 @@ class ResourceMonitor {
    ResourceMonitor& operator=(const ResourceMonitor&) = delete;
 
    /**
-    * @brief Method to access the singleton instance of the ResourceMonitor.
-    *
-    * @return Reference to the singleton instance of the ResourceMonitor.
-    */
-   static ResourceMonitor& getInstance() {
-       static ResourceMonitor instance; // Guaranteed to be destroyed and instantiated on first use.
-       return instance;
-   }
-
-   /**
     * @brief Method to register a new instance.
     *
     * Inserts the instance into the set and updates the maximum instances ever if necessary.
@@ -62,6 +53,7 @@ class ResourceMonitor {
    static void registerInstance(T* instance) {
        instances.insert(instance);
        maxInstancesEver = std::max(maxInstancesEver, instances.size());
+       maxBytesEver = std::max(maxBytesEver, getTotalBytes());
    }
 
    /**
@@ -72,6 +64,7 @@ class ResourceMonitor {
     * @param instance Pointer to the instance to unregister.
     */
    static void unregisterInstance(T* instance) {
+       maxBytesEver = std::max(maxBytesEver, getTotalBytes());
        instances.erase(instance);
    }
 
@@ -126,7 +119,7 @@ class ResourceMonitor {
            size_t instanceBytes = instance->getAllocatedBytes(allocated);
            maxBytesPerInstance = std::max(maxBytesPerInstance, instanceBytes);
        }
-       return maxBytesPerInstance * getMaxInstancesEver();
+       return std::max(maxBytesEver, maxBytesPerInstance * getMaxInstancesEver());
    }
 
    /**
@@ -166,5 +159,8 @@ std::unordered_set<T*> ResourceMonitor<T>::instances;
 
 template <typename T>
 size_t ResourceMonitor<T>::maxInstancesEver = 0;
+template <typename T>
+size_t ResourceMonitor<T>::maxBytesEver = 0;
+
 
 #endif //NE591_008_RESOURCE_MONITOR_H

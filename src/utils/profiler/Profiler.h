@@ -91,7 +91,7 @@ class Profiler {
     */
    friend std::ostream &operator<<(std::ostream &os, const Profiler &m) {
        os << R"(:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::)"<<std::endl;
-       os << "["<<m._stopwatches.size()<<"/"<<m._totalRuns<<"] : "<<m._description<<std::endl;
+       os << "["<<m._stopwatches.size()<<"/"<<m._totalRuns<<"] : "<<m._description<<m._summary.memory<<std::endl;
        os << R"(::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::)"<<std::endl;
        os << m._summary << std::endl;
        os << R"(::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::)"<<std::endl;
@@ -102,9 +102,18 @@ class Profiler {
     * @brief Gets the summary of the profiling.
     * @return The summary of the profiling.
     */
-   const MyBLAS::Stats::Summary<long double> &getSummary() {
+   const MyBLAS::Stats::Summary<long double> &getSummary(bool allocated = false) {
        _summary.runs = _stopwatches.size();
+       _summary.memory = getMemoryUsage(_summary.runs, allocated);
        return _summary;
+   }
+
+   //TODO::DOCUMENT
+   MyBLAS::Stats::Memory getMemoryUsage(size_t runs = 1, bool allocated = false) {
+       MyBLAS::Stats::Memory stats;
+       stats._matrix = ResourceMonitor<MyBLAS::Matrix<MyBLAS::NumericType>>::getTotalBytes(allocated);
+       stats._vector = ResourceMonitor<MyBLAS::Vector<MyBLAS::NumericType>>::getTotalBytes(allocated);
+       return stats;
    }
 
  private:

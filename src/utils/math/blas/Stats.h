@@ -25,6 +25,39 @@
 namespace MyBLAS::Stats {
 
 /**
+ * @struct Memory
+ * @brief A structure to hold the summary statistics of memory allocations for tracked variables
+ * @tparam T The type of the elements in the vector or matrix.
+ */
+struct Memory {
+    // TODO:: DOCUMENT
+    size_t _matrix = 0;
+    size_t _vector = 0;
+    size_t _lazy_matrix = 0;
+    size_t _lazy_vector = 0;
+
+    // TODO:: DOCUMENT
+    [[nodiscard]] size_t _total() const {
+        return _matrix + _vector + _lazy_matrix + _lazy_vector;
+    }
+
+    /**
+     * @brief Overloaded stream insertion operator to print the summary statistics.
+     * @param os The output stream.
+     * @param summary The summary statistics to print.
+     * @return The output stream.
+     */
+    friend std::ostream &operator<<(std::ostream &os, const Memory &stats) {
+        os << " :::: TOTAL BYTES: "<<stats._total();
+        return os;
+    }
+
+    void toJSON(nlohmann::json &jsonMap) const {
+        jsonMap["bytes"] = _total();
+    }
+};
+
+/**
  * @struct Summary
  * @brief A structure to hold the summary statistics of a vector or matrix.
  * @tparam T The type of the elements in the vector or matrix.
@@ -41,6 +74,8 @@ struct Summary {
     T p5th = std::numeric_limits<T>::quiet_NaN(); ///< The 5th percentile.
     T p95th = std::numeric_limits<T>::quiet_NaN(); ///< The 95th percentile.
     size_t runs{};
+
+    MyBLAS::Stats::Memory memory{};
 
     /**
      * @brief Overloaded stream insertion operator to print the summary statistics.
@@ -71,6 +106,7 @@ struct Summary {
         jsonMap["p5th"] = p5th;
         jsonMap["p95th"] = p95th;
         jsonMap["samples"] = runs;
+        memory.toJSON(jsonMap);
     }
 };
 
