@@ -11,6 +11,7 @@
 
 #include <cmath>
 
+#include "math/blas/Ops.h"
 #include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
 
@@ -41,6 +42,34 @@ template <typename MatrixType> inline bool isEmptyMatrix(const MatrixType &M) {
 }
 
 /**
+ * @brief Checks if the given vector is empty.
+ *
+ * This function checks if the input vector has no items.
+ *
+ * @param V The input vector to be checked.
+ * @return true if the input vector is empty, false otherwise.
+ */
+template <typename VectorType> inline bool isEmptyVector(const VectorType &V) {
+    return V.size() == 0;
+}
+
+/**
+ * @brief Checks if the given vector is purely a zero vector.
+ *
+ * @param V The input vector to be checked.
+ * @return true if the input vector has only zero values, false otherwise.
+ */
+template <template<typename> class U, typename T> bool isBinaryVector(const U<T> &V) {
+    const size_t items = V.size();
+    for (size_t i = 0; i < items; i++) {
+        if (V[i] != 0 && V[i] != 1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+/**
  * @brief Checks if the given matrix is a binary matrix.
  *
  * This function checks if all elements of the input matrix are either 0 or 1.
@@ -49,7 +78,6 @@ template <typename MatrixType> inline bool isEmptyMatrix(const MatrixType &M) {
  * @return true if the input matrix is a binary matrix, false otherwise.
  */
 template <template<typename> class U, typename T> bool isBinaryMatrix(const U<T> &M) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "U must be a MyBLAS::Matrix type");
     const size_t rows = M.getRows();
     const size_t cols = M.getCols();
     for (size_t i = 0; i < rows; i++) {
@@ -60,6 +88,36 @@ template <template<typename> class U, typename T> bool isBinaryMatrix(const U<T>
         }
     }
     return true;
+}
+
+/**
+ * @brief Checks if the given vector is a zero vector.
+ *
+ * This function checks if all elements of the input vector are 0.
+ *
+ * @param V The input vector to be checked.
+ * @return true if the input vector is a zero vector, false otherwise.
+ */
+template <template<typename> class U, typename T> bool isZeroVector(const U<T> &V) {
+    const size_t items = V.size();
+    for (size_t i = 0; i < items; i++) {
+        if (V[i] != 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+/**
+ * @brief Checks if the given vector is a unit vector.
+ *
+ * This function checks if all elements of the input vector are 1.
+ *
+ * @param V The input vector to be checked.
+ * @return true if the input vector is a unit vector, false otherwise.
+ */
+template <template<typename> class U, typename T> bool isUnitVector(const U<T> &V) {
+    return norm(V) == norm(V/norm(V));
 }
 
 /**

@@ -101,7 +101,6 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      */
     Matrix(Matrix&& other) noexcept : data(std::move(other.data)) {
         ResourceMonitor<Matrix<T>>::registerInstance(this);
-        ResourceMonitor<Matrix<T>>::unregisterInstance(&other);
         // Remove the moved-from instance from the tracking set.
     }
 

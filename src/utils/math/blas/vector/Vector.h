@@ -9,12 +9,14 @@
 #ifndef NE591_008_VECTOR_H
 #define NE591_008_VECTOR_H
 
-#include "LazyVector.h" // Include LazyVector for constructor and conversion from LazyVector
 #include <cassert>
 #include <functional>
 #include <iomanip>
 #include <iostream>
 #include <vector>
+
+#include "ResourceMonitor.h"
+#include "LazyVector.h" // Include LazyVector for constructor and conversion from LazyVector
 
 namespace MyBLAS {
 
@@ -33,36 +35,72 @@ template <typename T> class Vector {
     bool isRow;          ///< Boolean indicating whether the vector is a row vector.
 
   public:
+
+    // TODO:: DOCUMENT
+    [[nodiscard]] size_t getAllocatedBytes(bool actual = false) const {
+        auto nItems = actual ? data.size() : data.capacity();
+
+        assert(nItems >= size());
+
+        size_t byteCount = 0;
+
+        // count all the elements
+        byteCount += nItems * (sizeof(T) > 0.0 ? sizeof(T) : 1);
+
+        // Memory used by this object itself.
+        byteCount += sizeof(*this);
+
+        return byteCount;
+    }
+
     /**
      * @brief Default constructor. Initializes an empty column vector.
      */
-    Vector() : isRow(false) {}
+    Vector() : isRow(false) {
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
+
+    ~Vector() {
+        ResourceMonitor<Vector<T>>::unregisterInstance(this);
+    }
+
+    Vector(const Vector& other) : data(other.data), isRow(other.isRow) {
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
 
     /**
      * @brief Constructor that initializes the vector with a given vector and row/column indicator.
      * @param _data Vector to initialize the vector with.
      * @param _isRow Boolean indicating whether the vector is a row vector.
      */
-    explicit Vector(std::vector<T> &_data, bool _isRow) : data(_data), isRow(_isRow) {}
+    explicit Vector(std::vector<T> &_data, bool _isRow) : data(_data), isRow(_isRow) {
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
 
     /**
      * @brief Constructor that initializes the vector with a given vector and row/column indicator.
      * @param _data Vector to initialize the vector with.
      * @param _isRow Boolean indicating whether the vector is a row vector.
      */
-    explicit Vector(std::vector<T> _data, bool _isRow) : data(std::move(_data)), isRow(_isRow) {}
+    explicit Vector(std::vector<T> _data, bool _isRow) : data(std::move(_data)), isRow(_isRow) {
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
 
     /**
      * @brief Constructor that initializes the vector with a given vector. The vector is assumed to be a column vector.
      * @param _data Vector to initialize the vector with.
      */
-    explicit Vector(std::vector<T> &_data) : data(_data), isRow(false) {}
+    explicit Vector(std::vector<T> &_data) : data(_data), isRow(false) {
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
 
     /**
      * @brief Constructor that initializes the vector with a given vector. The vector is assumed to be a column vector.
      * @param _data Vector to initialize the vector with.
      */
-    explicit Vector(std::vector<T> _data) : data(_data), isRow(false) {}
+    explicit Vector(std::vector<T> _data) : data(_data), isRow(false) {
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
 
     /**
      * @brief Parameterized constructor that initializes the vector with a given size, initial value, and row/column
@@ -71,7 +109,9 @@ template <typename T> class Vector {
      * @param initial Initial value for all elements in the vector.
      * @param _isRow Boolean indicating whether the vector is a row vector.
      */
-    explicit Vector(size_t size, const T initial = 0, bool _isRow = false) : data(size, initial), isRow(_isRow) {}
+    explicit Vector(size_t size, const T initial = 0, bool _isRow = false) : data(size, initial), isRow(_isRow) {
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
 
     /**
      * @brief Constructor that initializes the vector with a given size and a lambda function.
@@ -82,6 +122,7 @@ template <typename T> class Vector {
         for (size_t i = 0; i < size; i++) {
             data[i] = func(i);
         }
+        ResourceMonitor<Vector<T>>::registerInstance(this);
     }
 
     /**
@@ -89,7 +130,9 @@ template <typename T> class Vector {
      * @param initList Initializer list to initialize the vector with.
      * @param _isRow Boolean indicating whether the vector is a row vector (default is false).
      */
-    Vector(std::initializer_list<T> initList, bool _isRow = false) : data(initList), isRow(_isRow) {}
+    Vector(std::initializer_list<T> initList, bool _isRow = false) : data(initList), isRow(_isRow) {
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
 
     /**
     * @brief Constructor that initializes the vector with a LazyVector and a row/column indicator.
@@ -100,6 +143,7 @@ template <typename T> class Vector {
         for (size_t i = 0; i < vector.size(); i++) {
             data[i] = vector[i];
         }
+        ResourceMonitor<Vector<T>>::registerInstance(this);
     }
 
     /**
@@ -111,6 +155,49 @@ template <typename T> class Vector {
         for (size_t i = 0; i < vector.size(); i++) {
             data[i] = vector[i];
         }
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
+
+    // Constructor that initializes the vector with another vector of a different type.
+    template <typename U>
+    explicit Vector(const Vector<U>& other) {
+        data.resize(other.size());
+        for (size_t i = 0; i < other.size(); ++i) {
+            data[i] = static_cast<T>(other[i]);
+        }
+        isRow = other.isRowVector(); // Assuming Vector<U> has a method isRowVector()
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
+
+    // Constructor that initializes the vector with another vector or a compatible type.
+    template <class VectorType>
+    explicit Vector(VectorType vector) {
+        data.resize(vector.size());
+        for (size_t i = 0; i < vector.size(); ++i) {
+            data[i] = vector[i];
+        }
+        isRow = vector.isRowVector(); // Assuming VectorType has a method isRowVector()
+        ResourceMonitor<Vector<T>>::registerInstance(this);
+    }
+
+    // Copy assignment operator
+    Vector& operator=(const Vector& other) {
+        if (this != &other) {
+            data = other.data;
+            isRow = other.isRow;
+        }
+        return *this;
+    }
+
+    // Move assignment operator
+    Vector& operator=(Vector&& other) noexcept {
+        if (this != &other) {
+            data = std::move(other.data);
+            isRow = other.isRow;
+            // Since we've moved from 'other', we may want to reset its state as appropriate
+            other.isRow = false; // or true, depending on what you consider a default state
+        }
+        return *this;
     }
 
     /**
@@ -135,7 +222,7 @@ template <typename T> class Vector {
      * @brief Returns whether this vector is a row vector.
      * @return true if row vector, false otherwise
      */
-    bool isRowVector() const {
+    [[nodiscard]] bool isRowVector() const {
         return isRow;
     }
 

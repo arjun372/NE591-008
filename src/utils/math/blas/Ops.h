@@ -9,6 +9,8 @@
 #ifndef NE591_008_OPS_H
 #define NE591_008_OPS_H
 
+#include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 

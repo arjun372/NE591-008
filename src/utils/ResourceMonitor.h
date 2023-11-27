@@ -5,6 +5,9 @@
 * @date 10/20/2023
 */
 
+#ifndef NE591_008_RESOURCE_MONITOR_H
+#define NE591_008_RESOURCE_MONITOR_H
+
 #include <unordered_set>
 #include <algorithm>
 #include <cstddef>
@@ -163,3 +166,5 @@ std::unordered_set<T*> ResourceMonitor<T>::instances;
 
 template <typename T>
 size_t ResourceMonitor<T>::maxInstancesEver = 0;
+
+#endif //NE591_008_RESOURCE_MONITOR_H

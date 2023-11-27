@@ -517,9 +517,9 @@ TYPED_TEST(BaseMatrixTests, InstanceTrackingOnMoveConstruction) {
     Matrix<TypeParam> m1(2, 2, 1);
     size_t initialCount = ResourceMonitor<Matrix<TypeParam>>::getCurrentInstanceCount();
     Matrix<TypeParam> m2(std::move(m1));
-    EXPECT_EQ(ResourceMonitor<Matrix<TypeParam>>::getCurrentInstanceCount(), initialCount);
+    EXPECT_EQ(ResourceMonitor<Matrix<TypeParam>>::getCurrentInstanceCount(), initialCount + 1);
     EXPECT_TRUE(ResourceMonitor<Matrix<TypeParam>>::find(&m2) != ResourceMonitor<Matrix<TypeParam>>::end());
-    EXPECT_TRUE(ResourceMonitor<Matrix<TypeParam>>::find(&m1) == ResourceMonitor<Matrix<TypeParam>>::end());
+    EXPECT_TRUE(ResourceMonitor<Matrix<TypeParam>>::find(&m1) != ResourceMonitor<Matrix<TypeParam>>::end());
 }
 
 // Test to verify that a matrix assigned via copy assignment is in instances
