@@ -15,6 +15,7 @@
 #include <vector>
 #include <unordered_set>
 
+#include "ResourceMonitor.h"
 #include "math/blas/Constants.h"
 #include "math/blas/vector/Vector.h"
 
@@ -34,27 +35,6 @@ template <typename T = MyBLAS::NumericType> class Matrix {
 
   public:
 
-    static size_t _max_instances;
-    static std::unordered_set<Matrix<T>*> instances; // Static set to track all instances.
-
-    // TODO:: Document
-    static size_t getTotalBytes(bool allocated = false) {
-        size_t totalBytes = 0;
-        for (const Matrix<T>* instance : instances) {
-            totalBytes += instance->getAllocatedBytes(allocated);
-        }
-        return totalBytes;
-    }
-
-
-    static size_t estimateMaximumBytes(bool allocated = false) {
-        size_t totalBytes = 0;
-        for (const Matrix<T>* instance : instances) {
-            totalBytes += instance->getAllocatedBytes(allocated);
-        }
-        return totalBytes;
-    }
-
     // TODO:: Document
     [[nodiscard]] size_t getAllocatedBytes(bool actual = false) const {
         auto nRows = actual ? data.size() : data.capacity();
@@ -68,6 +48,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         // count all the elements
         byteCount += (nRows * nCols) * (sizeof(T) > 0.0 ? sizeof(T) : 1);
 
+        // count all the row containers
+        byteCount += nRows * sizeof(std::vector<T>);
+
         // Memory used by this object itself.
         byteCount += sizeof(*this);
 
@@ -78,18 +61,14 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @brief Default constructor. Initializes an empty matrix.
      */
     Matrix() {
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
      * @brief Default destructor.
      */
     ~Matrix() {
-        const auto nInstances = instances.size();
-        if (nInstances > _max_instances) {
-            _max_instances = nInstances;
-        }
-        instances.erase(this);
+        ResourceMonitor<Matrix<T>>::unregisterInstance(this);
     }
 
     /**
@@ -97,7 +76,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param _data 2D vector to initialize the matrix with.
      */
     explicit Matrix(std::vector<std::vector<T>> &_data) : data(_data) {
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
@@ -105,7 +84,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param _data 2D vector to initialize the matrix with.
      */
     explicit Matrix(const std::vector<std::vector<T>> &_data) : data(_data) {
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
@@ -113,7 +92,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param _data 2D vector to initialize the matrix with.
      */
     explicit Matrix(std::vector<std::vector<T>>&& _data) : data(std::move(_data)) {
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
@@ -121,8 +100,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param other The matrix to move from.
      */
     Matrix(Matrix&& other) noexcept : data(std::move(other.data)) {
-        instances.insert(this);
-        instances.erase(&other); // Remove the moved-from instance from the tracking set.
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
+        ResourceMonitor<Matrix<T>>::unregisterInstance(&other);
+        // Remove the moved-from instance from the tracking set.
     }
 
     /**
@@ -130,7 +110,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param other The matrix to copy from.
      */
     Matrix(const Matrix& other) : data(other.data) {
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
@@ -146,7 +126,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
                 data[i][j] = static_cast<T>(other[i][j]);
             }
         }
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
@@ -164,7 +144,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
                 data[i][j] = matrix[i][j];
             }
         }
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
@@ -175,7 +155,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      */
     Matrix(size_t _rows, size_t _cols, const T _initial = 0)
         : data(_rows, std::vector<T>(_cols, _initial)) {
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
@@ -194,7 +174,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
             }
             ++i;
         }
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
@@ -209,7 +189,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
                 data[i][j] = func(i, j);
             }
         }
-        instances.insert(this);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
 
     /**
@@ -717,10 +697,6 @@ template <typename T, typename T2> static MyBLAS::Vector<T> cast(const MyBLAS::V
     }
     return output;
 }
-
-// Initialize the static member variable
-template <typename T>
-std::unordered_set<Matrix<T>*> Matrix<T>::instances;
 } // namespace MyBLAS
 
 #endif // NE591_008_MATRIX_H

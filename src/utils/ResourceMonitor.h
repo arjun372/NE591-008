@@ -20,15 +20,13 @@
 template <typename T>
 class ResourceMonitor {
  private:
-   std::unordered_set<T*> instances; ///< Set to keep track of instances.
-   size_t maxInstancesEver;          ///< Record of the maximum instances ever.
+   static std::unordered_set<T*> instances; ///< Set to keep track of instances.
+   static size_t maxInstancesEver;          ///< Record of the maximum instances ever.
 
    /**
     * @brief Private constructor for the Singleton pattern.
-    *
-    * Initializes the maximum instances ever to zero.
     */
-   ResourceMonitor() : maxInstancesEver(0) {}
+   ResourceMonitor() = default;
 
  public:
    /**
@@ -58,7 +56,7 @@ class ResourceMonitor {
     *
     * @param instance Pointer to the instance to register.
     */
-   void registerInstance(T* instance) {
+   static void registerInstance(T* instance) {
        instances.insert(instance);
        maxInstancesEver = std::max(maxInstancesEver, instances.size());
    }
@@ -70,7 +68,7 @@ class ResourceMonitor {
     *
     * @param instance Pointer to the instance to unregister.
     */
-   void unregisterInstance(T* instance) {
+   static void unregisterInstance(T* instance) {
        instances.erase(instance);
    }
 
@@ -79,7 +77,7 @@ class ResourceMonitor {
     *
     * @return The current number of instances of type T.
     */
-   [[nodiscard]] size_t getCurrentInstanceCount() const {
+   [[nodiscard]] static size_t getCurrentInstanceCount() {
        return instances.size();
    }
 
@@ -88,7 +86,80 @@ class ResourceMonitor {
     *
     * @return The maximum number of instances of type T that have ever existed at the same time.
     */
-   [[nodiscard]] size_t getMaxInstancesEver() const {
+   [[nodiscard]] static size_t getMaxInstancesEver() {
        return maxInstancesEver;
    }
+
+   /**
+     * @brief Calculates the total memory allocated by all instances.
+     *
+     * This static method sums up the memory allocated by each instance of type T.
+     * Each instance must implement a method getAllocatedBytes that returns
+     * the amount of memory it has allocated.
+     *
+     * @param allocated If true, calculates the actual memory allocated; otherwise, estimates the memory.
+     * @return The total memory allocated by all instances of type T.
+    */
+   static size_t getTotalBytes(bool allocated = false) {
+       size_t totalBytes = 0;
+       for (const T* instance : instances) {
+           totalBytes += instance->getAllocatedBytes(allocated);
+       }
+       return totalBytes;
+   }
+
+   /**
+     * @brief Estimates the maximum memory that could be allocated by all instances.
+     *
+     * This static method finds the instance with the highest allocated bytes and multiplies it
+     * by the maximum number of instances ever to estimate the maximum memory usage.
+     *
+     * @param allocated If true, calculates the actual memory allocated; otherwise, estimates the memory used.
+     * @return The estimated maximum memory that could be allocated by all instances of type T.
+    */
+   static size_t estimateMaximumBytes(bool allocated = false) {
+       size_t maxBytesPerInstance = 0;
+       for (const T* instance : instances) {
+           size_t instanceBytes = instance->getAllocatedBytes(allocated);
+           maxBytesPerInstance = std::max(maxBytesPerInstance, instanceBytes);
+       }
+       return maxBytesPerInstance * getMaxInstancesEver();
+   }
+
+   /**
+     * @brief Finds an instance in the set of tracked instances.
+     *
+     * This method searches for the given instance in the set and returns an iterator to it
+     * if found, or to the end of the set otherwise.
+     *
+     * @param instance The instance to search for.
+     * @return An iterator to the instance if found, or to the end of the set otherwise.
+    */
+   static typename std::unordered_set<T*>::const_iterator find(const T* instance) {
+       return instances.find(const_cast<T*>(instance));
+   }
+
+   /**
+     * @brief Provides access to the begin iterator of the set of instances.
+     *
+     * @return A const_iterator to the beginning of the set of instances.
+    */
+   static typename std::unordered_set<T*>::const_iterator begin() {
+       return instances.begin();
+   }
+
+   /**
+     * @brief Provides access to the end iterator of the set of instances.
+     *
+     * @return A const_iterator to the end of the set of instances.
+    */
+   static typename std::unordered_set<T*>::const_iterator end() {
+       return instances.end();
+   }
 };
+
+template <typename T>
+std::unordered_set<T*> ResourceMonitor<T>::instances;
+
+template <typename T>
+size_t ResourceMonitor<T>::maxInstancesEver = 0;
