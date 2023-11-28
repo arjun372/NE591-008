@@ -4,6 +4,7 @@ var classResourceMonitor =
     [ "ResourceMonitor", "d1/d7c/classResourceMonitor.html#a130be7d23eab88aafc277b74dc971c90", null ],
     [ "checkAndUpdateMaxSize", "d1/d7c/classResourceMonitor.html#a304b258e50eaa71d4c6cd0407dafb88b", null ],
     [ "clear", "d1/d7c/classResourceMonitor.html#ae0be727b6122b1dfebf4c2271eb23e6b", null ],
+    [ "getCurrentInstanceCount", "d1/d7c/classResourceMonitor.html#a6da6ba310147d6f8edede5121d1b19db", null ],
     [ "getInstance", "d1/d7c/classResourceMonitor.html#a4e572f2c35afb976d175dc9d44444d53", null ],
     [ "getMaxBytesEver", "d1/d7c/classResourceMonitor.html#af6e5f906cf2e70e4fc8b7fdedc85a32f", null ],
     [ "operator=", "d1/d7c/classResourceMonitor.html#a19d88de90e448ff324fb1ce82e8dbfc0", null ],

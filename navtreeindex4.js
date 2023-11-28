@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"d2/d6e/namespaceMyBLAS.html#a6ae2bf6751779ac28fa5f53bf3f9ea97":[16,0,6,174],
 "d2/d6e/namespaceMyBLAS.html#a6b103aca5e5fab29f3d0954b77946dc0":[16,0,6,32],
 "d2/d6e/namespaceMyBLAS.html#a6cbf637de6d5dcecc5fb1d1f6a7c5ef7":[16,0,6,160],
 "d2/d6e/namespaceMyBLAS.html#a6da5b793dac7a590b42b55db0a32dd6f":[16,0,6,119],
@@ -239,6 +240,7 @@ var NAVTREEINDEX4 =
 "d3/d70/labs_2inlab1_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[18,0,0,0,0,3,0],
 "d3/d8d/classMyBLAS_1_1PerformanceVectorTests.html":[17,0,0,18],
 "d3/da2/classMyBLAS_1_1MatrixMemoryAllocationTests.html":[17,0,0,13],
+"d3/da2/classMyBLAS_1_1MatrixMemoryAllocationTests.html#a021ce610256673ed6f489463200c7c55":[17,0,0,13,1],
 "d3/da2/classMyBLAS_1_1MatrixMemoryAllocationTests.html#a3afe4680ed35c48a12836c67592578cd":[17,0,0,13,0],
 "d3/dab/classMatrixVectorTests.html":[17,0,32],
 "d3/db1/Matrix_8h.html":[18,0,0,2,0,0,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "d3/db1/Matrix_8h.html#aa3501265c4bb7f37e8e949d37244473a":[18,0,0,2,0,0,0,3,4],
 "d3/db1/Matrix_8h.html#af710039e87de86c8b4ac8a9e139efbcb":[18,0,0,2,0,0,0,3,1],
 "d3/dbe/inlab2_2extern_2function_8h.html":[18,0,0,0,2,0,0],
-"d3/dbe/inlab2_2extern_2function_8h.html#a492e7622c303a80b47b7e6c69f68610c":[18,0,0,0,2,0,0,0],
-"d3/dde/Circuit_8h.html":[18,0,0,2,0,0,1,0],
-"d3/dde/Circuit_8h.html#a487070ac751d33afa7f9fceaef312ea0":[18,0,0,2,0,0,1,0,0]
+"d3/dbe/inlab2_2extern_2function_8h.html#a492e7622c303a80b47b7e6c69f68610c":[18,0,0,0,2,0,0,0]
 };

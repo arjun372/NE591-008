@@ -19,13 +19,14 @@ var searchData=
   ['_5foutputs_17',['_outputs',['../d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87',1,'MPIProject::_outputs()'],['../db/d91/classProject.html#a08d7234d71ef49cc92e37256062ba20b',1,'Project::_outputs()']]],
   ['_5fparams_18',['_params',['../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416',1,'MyPhysics::Diffusion::Matrix']]],
   ['_5frank_19',['_rank',['../d0/df0/classMPIProject.html#a0bf8c76a278bd516cbe31725c0f63b04',1,'MPIProject']]],
-  ['_5fsize_20',['_size',['../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a',1,'MPIProject::_size()'],['../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a',1,'MyPhysics::Diffusion::Matrix::_size()']]],
-  ['_5fsources_21',['_sources',['../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a0f0e5713021e6d07e7d7188c20874096',1,'MyPhysics::Diffusion::Params']]],
-  ['_5fstopwatches_22',['_stopwatches',['../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330',1,'Profiler']]],
-  ['_5fsummary_23',['_summary',['../dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a',1,'Profiler']]],
-  ['_5ftimedout_24',['_timedOut',['../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b',1,'Profiler']]],
-  ['_5ftimeout_25',['_timeout',['../dd/d0e/classProfiler.html#a208c75b7df8f654bb9ddb7a994c0adb7',1,'Profiler']]],
-  ['_5ftotalruns_26',['_totalRuns',['../dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9',1,'Profiler']]],
-  ['_5fuuid_27',['_uuid',['../d0/df0/classMPIProject.html#a3397717bb7c69ce098e0e37d21449f54',1,'MPIProject']]],
-  ['_5fvectorresources_28',['_vectorResources',['../dd/d0e/classProfiler.html#a194c168cbe17c896b7b96bde2fe9e2ce',1,'Profiler']]]
+  ['_5fresources_20',['_resources',['../d3/da2/classMyBLAS_1_1MatrixMemoryAllocationTests.html#a021ce610256673ed6f489463200c7c55',1,'MyBLAS::MatrixMemoryAllocationTests::_resources()'],['../da/d69/classMyBLAS_1_1VectorMemoryAllocationTests.html#aad84f1ad752b43cd52842201700f9193',1,'MyBLAS::VectorMemoryAllocationTests::_resources()']]],
+  ['_5fsize_21',['_size',['../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a',1,'MPIProject::_size()'],['../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a2632f681737490169cd3b99126a33c4a',1,'MyPhysics::Diffusion::Matrix::_size()']]],
+  ['_5fsources_22',['_sources',['../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a0f0e5713021e6d07e7d7188c20874096',1,'MyPhysics::Diffusion::Params']]],
+  ['_5fstopwatches_23',['_stopwatches',['../dd/d0e/classProfiler.html#a803d99c3f902b246decb040c6172b330',1,'Profiler']]],
+  ['_5fsummary_24',['_summary',['../dd/d0e/classProfiler.html#a624219a2a8424b27a8c370325c5ba50a',1,'Profiler']]],
+  ['_5ftimedout_25',['_timedOut',['../dd/d0e/classProfiler.html#af4f85b3d18b80013d7a3e99cce2f597b',1,'Profiler']]],
+  ['_5ftimeout_26',['_timeout',['../dd/d0e/classProfiler.html#a208c75b7df8f654bb9ddb7a994c0adb7',1,'Profiler']]],
+  ['_5ftotalruns_27',['_totalRuns',['../dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9',1,'Profiler']]],
+  ['_5fuuid_28',['_uuid',['../d0/df0/classMPIProject.html#a3397717bb7c69ce098e0e37d21449f54',1,'MPIProject']]],
+  ['_5fvectorresources_29',['_vectorResources',['../dd/d0e/classProfiler.html#a194c168cbe17c896b7b96bde2fe9e2ce',1,'Profiler']]]
 ];

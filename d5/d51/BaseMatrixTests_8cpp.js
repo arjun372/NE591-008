@@ -1,6 +1,6 @@
 var BaseMatrixTests_8cpp =
 [
-    [ "BaseMatrixTests", "d5/d8a/classMyBLAS_1_1BaseMatrixTests.html", null ],
+    [ "BaseMatrixTests", "d5/d8a/classMyBLAS_1_1BaseMatrixTests.html", "d5/d8a/classMyBLAS_1_1BaseMatrixTests" ],
     [ "FLOAT_TYPE", "d5/d51/BaseMatrixTests_8cpp.html#a41cf4177f569cb6b87ec5c90c0165769", null ],
     [ "TOLERANCE", "d5/d51/BaseMatrixTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e", null ],
     [ "NumericTypes", "d5/d51/BaseMatrixTests_8cpp.html#a339c143809c9befe3275e4debb3187df", null ],
