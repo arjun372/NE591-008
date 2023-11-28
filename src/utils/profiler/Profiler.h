@@ -19,12 +19,16 @@
 #include "Stopwatch.h"
 #include "json.hpp"
 #include "math/blas/Stats.h"
+#include "math/blas/vector/Vector.h"
+#include "math/blas/matrix/Matrix.h"
+#include "physics/diffusion/DiffusionMatrix.h"
+#include "ResourceMonitor.h"
 
 /**
-* @brief A template class to profile the execution time of a function.
-* @tparam FunctionType The type of the function to be profiled.
-*/
-template <typename FunctionType>
+ * @brief A template class to profile the execution time of a function.
+ * @tparam FunctionType The type of the function to be profiled.
+ */
+template<class FunctionType = std::function<void()>>
 class Profiler {
  public:
 
@@ -63,6 +67,7 @@ class Profiler {
     */
    Profiler &run() {
        resetRuns();
+       _summary.maxBytes = checkMemoryUsage();
        if (_timeout > 0) {
            _timedOut = runWithTimeout();
        } else {
@@ -91,7 +96,7 @@ class Profiler {
     */
    friend std::ostream &operator<<(std::ostream &os, const Profiler &m) {
        os << R"(:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::)"<<std::endl;
-       os << "["<<m._stopwatches.size()<<"/"<<m._totalRuns<<"] : "<<m._description<<m._summary.memory<<std::endl;
+       os << "["<<m._stopwatches.size()<<"/"<<m._totalRuns<<"] : "<<m._description<<std::endl;
        os << R"(::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::)"<<std::endl;
        os << m._summary << std::endl;
        os << R"(::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::)"<<std::endl;
@@ -104,16 +109,8 @@ class Profiler {
     */
    const MyBLAS::Stats::Summary<long double> &getSummary(bool allocated = false) {
        _summary.runs = _stopwatches.size();
-       _summary.memory = getMemoryUsage(_summary.runs, allocated);
+       //_summary.memory = getMemoryUsage(_summary.runs, allocated);
        return _summary;
-   }
-
-   //TODO::DOCUMENT
-   MyBLAS::Stats::Memory getMemoryUsage(size_t runs = 1, bool allocated = false) {
-       MyBLAS::Stats::Memory stats;
-       stats._matrix = ResourceMonitor<MyBLAS::Matrix<MyBLAS::NumericType>>::getTotalBytes(allocated);
-       stats._vector = ResourceMonitor<MyBLAS::Vector<MyBLAS::NumericType>>::getTotalBytes(allocated);
-       return stats;
    }
 
  private:
@@ -124,6 +121,10 @@ class Profiler {
    std::string _description; ///< A description of the function being profiled.
    std::vector<Stopwatch<Nanoseconds>> _stopwatches; ///< A vector of stopwatches to time each run of the function.
    MyBLAS::Stats::Summary<long double> _summary; ///< The summary of the profiling.
+
+   ResourceMonitor<MyBLAS::Matrix<MyBLAS::NumericType>>* _matrixResources = &ResourceMonitor<MyBLAS::Matrix<MyBLAS::NumericType>>::getInstance();
+   ResourceMonitor<MyBLAS::Vector<MyBLAS::NumericType>>* _vectorResources = &ResourceMonitor<MyBLAS::Vector<MyBLAS::NumericType>>::getInstance();
+   ResourceMonitor<MyPhysics::Diffusion::Matrix<MyBLAS::NumericType>>* _lazyMatrixResources = &ResourceMonitor<MyPhysics::Diffusion::Matrix<MyBLAS::NumericType>>::getInstance();
 
    /**
     * @brief Runs the function for profiling without a timeout.
@@ -171,12 +172,33 @@ class Profiler {
        _summary = MyBLAS::Stats::Summary<long double>();
    }
 
+   size_t preRunMemoryCheck() {
+       _matrixResources->clear();
+       _vectorResources->clear();
+       _lazyMatrixResources->clear();
+       return _matrixResources->getMaxBytesEver() +
+              _vectorResources->getMaxBytesEver() +
+              _lazyMatrixResources->getMaxBytesEver();
+   }
+
+   size_t checkMemoryUsage() {
+       preRunMemoryCheck();
+       _function();
+       return postRunMemoryCheck();
+   }
+
+   size_t postRunMemoryCheck() {
+       return _matrixResources->getMaxBytesEver() +
+              _vectorResources->getMaxBytesEver() +
+              _lazyMatrixResources->getMaxBytesEver();
+   }
    /**
     * @brief Summarizes the results of the profiling.
     * @param summary The summary to store the results in.
     * @param stopwatches The stopwatches used to time each run of the function.
     */
    static void summarize(MyBLAS::Stats::Summary<long double> &summary, const std::vector<Stopwatch<Nanoseconds>> &stopwatches) {
+
        // Create an array of durations
        MyBLAS::Vector<long double> durations(stopwatches.size());
        std::transform(stopwatches.begin(), stopwatches.end(), durations.getData().begin(), [](const Stopwatch<Nanoseconds>& stopwatch) { return stopwatch.duration().count(); });

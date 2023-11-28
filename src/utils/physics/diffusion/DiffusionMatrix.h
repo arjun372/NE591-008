@@ -54,7 +54,17 @@ class Matrix : public MyBLAS::LazyMatrix<T> {
     /**
      * @brief Default constructor.
      */
-    explicit Matrix() = default;
+    Matrix() {
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
+    }
+
+    /**
+     * @brief Default destructor
+     */
+    ~Matrix() {
+        ResourceMonitor<Matrix<T>>::unregisterInstance(this);
+    }
+
     /**
      * @brief Constructor that takes diffusion parameters.
      * @param params The diffusion parameters.
@@ -66,6 +76,7 @@ class Matrix : public MyBLAS::LazyMatrix<T> {
         this->setGenerator([this](size_t i, size_t j) {
             return generate(i, j, _constants);
         });
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
     /**
      * @brief Copy constructor.
@@ -78,7 +89,28 @@ class Matrix : public MyBLAS::LazyMatrix<T> {
         this->setGenerator([this](size_t i, size_t j) {
             return generate(i, j, _constants);
         });
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
+
+    /**
+     * @brief Move constructor.
+     * @param other The matrix to move from. It will be left in an unusable state.
+     */
+    Matrix(Matrix<T> &&other) noexcept : MyBLAS::LazyMatrix<T>(std::move(other)), _params(std::move(other._params)), _constants(std::move(other._constants)) {
+        _size = other._size;
+        other._size = 0;
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
+    }
+
+    /**
+     * @brief Returns the number of allocated bytes for the matrix.
+     * @param actual If true, calculates the actual allocated memory, otherwise returns the size of the object.
+     * @return The number of allocated bytes.
+     */
+    [[nodiscard]] size_t getAllocatedBytes(bool actual = false) const {
+        return sizeof(*this);
+    }
+
     /**
      * @brief Copy assignment operator.
      * @param other The matrix to copy.
@@ -94,6 +126,7 @@ class Matrix : public MyBLAS::LazyMatrix<T> {
             this->setGenerator([this](size_t i, size_t j) {
                 return generate(i, j, _constants);
             });
+            ResourceMonitor<Matrix<T>>::registerInstance(this);
         }
         return *this;
     }
@@ -128,6 +161,7 @@ class Matrix : public MyBLAS::LazyMatrix<T> {
         this->setRows(_size);
         this->setCols(_size);
         this->setGenerator(generator);
+        ResourceMonitor<Matrix<T>>::registerInstance(this);
     }
     /**
      * @brief Returns the diffusion parameters.

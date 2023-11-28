@@ -102,9 +102,7 @@ typedef struct Output {
         jsonMap["residual"] = residual.getData();
         jsonMap["max-residual"] = max_residual();
 
-        // if LUP is used
-        // jsonMap["l2-error"] = getSolutionError();
-
+        jsonMap["max-bytes"] = summary.maxBytes;
         summary.toJSON(jsonMap["wall-time-ns"]);
     }
 } SolverOutputs;

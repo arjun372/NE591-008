@@ -64,8 +64,8 @@ class Project3 : public Project<SolverInputs, Parser, SolverOutputs> {
         std::cout << "Julia set at (" << x << "," << y << "), " << iterations << " iterations\n";
         return {
             .ProjectName = "NE591: Project Milestone 3",
-            .ProjectDescription = "Iterative, Lazy-Evaluated, Serial Diffusion Equation Solver",
-            .SubmissionDate = "10/13/2023",
+            .ProjectDescription = "Performance Evaluation of Direct vs Iterative, Lazy-Evaluated, Serial Diffusion Equation Solvers",
+            .SubmissionDate = "10/20/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = " ",
         };

@@ -15,9 +15,9 @@
 #include <vector>
 #include <unordered_set>
 
-#include "ResourceMonitor.h"
 #include "math/blas/Constants.h"
 #include "math/blas/vector/Vector.h"
+#include "profiler/ResourceMonitor.h"
 
 namespace MyBLAS {
 
@@ -38,7 +38,7 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     // TODO:: Document
     [[nodiscard]] size_t getAllocatedBytes(bool actual = false) const {
         auto nRows = actual ? data.size() : data.capacity();
-        if (data.size() == 0) {
+        if (data.empty()) {
             return 0;
         }
         auto nCols = actual ? data[0].size() : data[0].capacity();

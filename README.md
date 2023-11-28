@@ -199,16 +199,16 @@ Currently supported project build targets include:
     <td><code>✅ project2</code>  <code>✅ project2_tests</code> <code>✅ physics_diffusion_tests</code><code>✅ blas_tests</code></td>
   </tr>
   <tr>
-    <td>2</td>
-    <td><code>🚧 project3</code>  <code>🚧 project3_tests</code></td>
+    <td>3</td>
+    <td><code>✅ project3</code>  <code>✅ project3_tests</code><code>✅ blas_tests</code></td>
   </tr>
-   <tr>
+  <tr>
     <td>4</td>
-    <td></td>
+    <td><code>🚧 project4</code>  <code>🚧 project4_tests</code><code>🚧 blas_tests</code></td>
   </tr>
-   <tr>
+  <tr>
     <td>5</td>
-    <td></td>
+    <td><code>🚧 project5</code>  <code>🚧 project5_tests</code><code>🚧 blas_tests</code></td>
   </tr>
 </table>
 

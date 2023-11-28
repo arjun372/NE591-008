@@ -3,13 +3,14 @@ set(UTILS_LIB_HEADERS
         FileParser.h
         Helpers.h
         json.hpp
-        profiler/Profiler.h
         Stopwatch.h
+
+        profiler/Profiler.h
         profiler/ProfilerHelper.h
+        profiler/ResourceMonitor.h
 
         CommandLine.h
         Project.h
-        ResourceMonitor.h
         mpi/MPIProject.h
 
         math/blas/BLAS.h

@@ -53,8 +53,44 @@ class LazyMatrix {
      * @param cols The number of columns in the matrix.
      * @param generator The generator function used to compute the values of the matrix.
      */
-    LazyMatrix(size_t rows, size_t cols, Generator generator)
-        : rows_(rows), cols_(cols), generator_(std::move(generator)) {}
+    explicit LazyMatrix(size_t rows = 0, size_t cols = 0, Generator generator = nullptr)
+        : rows_(rows), cols_(cols), generator_(std::move(generator)) {
+        ResourceMonitor<LazyMatrix<DataType>>::registerInstance(this);
+    }
+
+    /**
+     * @brief Constructor for the LazyMatrix class that accepts a Matrix object.
+     *
+     * @param matrix The Matrix object to initialize the LazyMatrix with.
+     * The generator function is set to access the elements of the given matrix.
+     */
+    explicit LazyMatrix(const MyBLAS::Matrix<DataType>& matrix)
+        : rows_(matrix.getRows()), cols_(matrix.getCols()), matrix_(std::make_shared<MyBLAS::Matrix<DataType>>(matrix)) {
+        generator_ = [matrix](size_t i, size_t j) { return matrix(i, j); };
+        ResourceMonitor<LazyMatrix<DataType>>::registerInstance(this);
+    }
+
+    /**
+     * @brief Constructor for the LazyMatrix class that accepts a non-const reference to a Matrix object.
+     *
+     * @param matrix The Matrix object to initialize the LazyMatrix with.
+     * The generator function is set to access the elements of the given matrix.
+     */
+    explicit LazyMatrix(MyBLAS::Matrix<DataType>& matrix)
+        : rows_(matrix.getRows()), cols_(matrix.getCols()), matrix_(std::make_shared<MyBLAS::Matrix<DataType>>(matrix)) {
+        generator_ = [matrix](size_t i, size_t j) { return matrix(i, j); };
+        ResourceMonitor<LazyMatrix<DataType>>::registerInstance(this);
+    }
+
+    [[nodiscard]] virtual /**
+     * @brief Returns the number of bytes allocated by the LazyMatrix.
+     *
+     * @param actual If true, calculates the actual allocated bytes, otherwise returns the size of the LazyMatrix object.
+     * @return The number of bytes allocated by the LazyMatrix.
+     */
+    size_t getAllocatedBytes(bool actual = false) const {
+        return sizeof(*this);
+    }
 
     /**
      * @brief Returns the number of rows in the matrix.
@@ -82,37 +118,33 @@ class LazyMatrix {
     }
 
     /**
-     * @brief Default constructor for the LazyMatrix class.
-     */
-    LazyMatrix() = default;
-
-    /**
      * @brief Destructor for the LazyMatrix class.
      */
-    virtual ~LazyMatrix() = default;
+    virtual ~LazyMatrix() {
+        ResourceMonitor<LazyMatrix<DataType>>::unregisterInstance(this);
+    }
 
     /**
      * @brief Copy constructor for the LazyMatrix class.
      *
      * @param other The LazyMatrix object to be copied.
      */
-    LazyMatrix(const LazyMatrix& other) : rows_(other.rows_), cols_(other.cols_), generator_(other.generator_) {}
-
-    /**
-     * @brief Constructor for the LazyMatrix class that accepts a Matrix object.
-     *
-     * @param matrix The Matrix object to initialize the LazyMatrix with.
-     */
-    // TODO:: DOCUMENT
-    explicit LazyMatrix(const MyBLAS::Matrix<DataType>& matrix)
-        : rows_(matrix.getRows()), cols_(matrix.getCols()), matrix_(std::make_shared<MyBLAS::Matrix<DataType>>(matrix)) {
-        generator_ = [matrix](size_t i, size_t j) { return matrix(i, j); };
+    LazyMatrix(const LazyMatrix& other) : rows_(other.rows_), cols_(other.cols_), generator_(other.generator_) {
+        ResourceMonitor<LazyMatrix<DataType>>::registerInstance(this);
     }
 
-    // TODO:: DOCUMENT
-    explicit LazyMatrix(MyBLAS::Matrix<DataType>& matrix)
-        : rows_(matrix.getRows()), cols_(matrix.getCols()), matrix_(std::make_shared<MyBLAS::Matrix<DataType>>(matrix)) {
-        generator_ = [matrix](size_t i, size_t j) { return matrix(i, j); };
+    /**
+     * @brief Move constructor for the LazyMatrix class.
+     *
+     * @param other The LazyMatrix object to be copied.
+     */
+    LazyMatrix(const LazyMatrix&& other) noexcept
+        : rows_(other.rows_), cols_(other.cols_), generator_(std::move(other.generator_)), matrix_(std::move(other.matrix_)) {
+        other.rows_ = 0;
+        other.cols_ = 0;
+        other.generator_ = nullptr;
+        other.matrix_ = nullptr;
+        ResourceMonitor<LazyMatrix<DataType>>::registerInstance(this);
     }
 
     /**
@@ -127,6 +159,7 @@ class LazyMatrix {
             cols_ = other.cols_;
             generator_ = other.generator_;
             matrix_ = other.matrix_;
+            ResourceMonitor<LazyMatrix<DataType>>::registerInstance(this);
         }
         return *this;
     }
@@ -625,12 +658,12 @@ class LazyMatrix {
     /**
      * @brief The number of rows in the LazyMatrix.
      */
-    size_t rows_;
+    size_t rows_{};
 
     /**
      * @brief The number of columns in the LazyMatrix.
      */
-    size_t cols_;
+    size_t cols_{};
 
     /**
      * @brief The generator function that computes the values of the LazyMatrix.

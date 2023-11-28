@@ -15,8 +15,8 @@
 #include <iostream>
 #include <vector>
 
-#include "ResourceMonitor.h"
 #include "LazyVector.h" // Include LazyVector for constructor and conversion from LazyVector
+#include "profiler/ResourceMonitor.h"
 
 namespace MyBLAS {
 
@@ -57,13 +57,15 @@ template <typename T> class Vector {
      * @brief Default constructor. Initializes an empty column vector.
      */
     Vector() : isRow(false) {
-        ResourceMonitor<Vector<T>>::registerInstance(this);
+        // ResourceMonitor<Vector<T>>::registerInstance(this);
     }
 
+    // TODO:: DOCUMENT
     ~Vector() {
         ResourceMonitor<Vector<T>>::unregisterInstance(this);
     }
 
+    // TODO:: DOCUMENT
     Vector(const Vector& other) : data(other.data), isRow(other.isRow) {
         ResourceMonitor<Vector<T>>::registerInstance(this);
     }

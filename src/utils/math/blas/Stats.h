@@ -17,45 +17,12 @@
 #include "BLAS.h"
 #include "matrix/Matrix.h"
 #include "vector/Vector.h"
-
+#include "json.hpp"
 /**
  * @namespace MyBLAS::Stats
  * @brief A namespace for statistical functions and structures.
  */
 namespace MyBLAS::Stats {
-
-/**
- * @struct Memory
- * @brief A structure to hold the summary statistics of memory allocations for tracked variables
- * @tparam T The type of the elements in the vector or matrix.
- */
-struct Memory {
-    // TODO:: DOCUMENT
-    size_t _matrix = 0;
-    size_t _vector = 0;
-    size_t _lazy_matrix = 0;
-    size_t _lazy_vector = 0;
-
-    // TODO:: DOCUMENT
-    [[nodiscard]] size_t _total() const {
-        return _matrix + _vector + _lazy_matrix + _lazy_vector;
-    }
-
-    /**
-     * @brief Overloaded stream insertion operator to print the summary statistics.
-     * @param os The output stream.
-     * @param summary The summary statistics to print.
-     * @return The output stream.
-     */
-    friend std::ostream &operator<<(std::ostream &os, const Memory &stats) {
-        os << " :::: TOTAL BYTES: "<<stats._total();
-        return os;
-    }
-
-    void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["bytes"] = _total();
-    }
-};
 
 /**
  * @struct Summary
@@ -74,8 +41,7 @@ struct Summary {
     T p5th = std::numeric_limits<T>::quiet_NaN(); ///< The 5th percentile.
     T p95th = std::numeric_limits<T>::quiet_NaN(); ///< The 95th percentile.
     size_t runs{};
-
-    MyBLAS::Stats::Memory memory{};
+    size_t maxBytes = std::numeric_limits<size_t>::quiet_NaN();
 
     /**
      * @brief Overloaded stream insertion operator to print the summary statistics.
@@ -92,21 +58,16 @@ struct Summary {
         os << ":::::: {" << summary.min << ", " << summary.max << "} ";
         os << ": (" << summary.mean << " ± " << summary.stddev << ") : [";
         os << summary.p5th << ", "<< summary.p95th << "] :::::";
+        os << "\n:::::: Estimated maximum allocated memory [bytes]: "<<summary.maxBytes<<" ::::::::::::::::::::::::";
         os << std::setprecision(static_cast<int>(precision));
         return os;
     }
 
     void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["min"] = min;
-        jsonMap["max"] = max;
-        jsonMap["sum"] = sum;
         jsonMap["mean"] = mean;
-        jsonMap["variance"] = variance;
-        jsonMap["stddev"] = stddev;
         jsonMap["p5th"] = p5th;
         jsonMap["p95th"] = p95th;
         jsonMap["samples"] = runs;
-        memory.toJSON(jsonMap);
     }
 };
 

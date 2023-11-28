@@ -1,0 +1,140 @@
+{
+  "inputs": {
+    "D": 0.07,
+    "cross-section": 0.0033,
+    "dimensions": {
+      "a": 100.0,
+      "b": 100.0
+    },
+    "mesh": {
+      "m": 8,
+      "n": 8,
+      "𝛾": 11.11111111111111,
+      "𝛿": 11.11111111111111
+    },
+    "methods": [
+      "LUP",
+      "point-jacobi",
+      "gauss-seidel",
+      "SOR",
+      "SSOR",
+      "SORJ"
+    ]
+  },
+  "outputs": {
+    "LUP": {
+      "converged": true,
+      "iterations": {
+        "actual": 0,
+        "maximum": 5000
+      },
+      "iterative-error": {
+        "actual": null,
+        "maximum": 0.0001
+      },
+      "max-bytes": 541024,
+      "max-residual": 2.168404344971009e-19,
+      "wall-time-ns": {
+        "mean": 214819.78,
+        "p5th": 200883.4,
+        "p95th": 252214.2,
+        "samples": 100
+      }
+    },
+    "SOR": {
+      "converged": true,
+      "iterations": {
+        "actual": 10,
+        "maximum": 5000
+      },
+      "iterative-error": {
+        "actual": 3.427448434469596e-05,
+        "maximum": 0.0001
+      },
+      "max-bytes": 1088,
+      "max-residual": 2.7946351820974594e-08,
+      "wall-time-ns": {
+        "mean": 638965.12,
+        "p5th": 634948.1,
+        "p95th": 663438.4,
+        "samples": 100
+      }
+    },
+    "SORJ": {
+      "converged": true,
+      "iterations": {
+        "actual": 17,
+        "maximum": 5000
+      },
+      "iterative-error": {
+        "actual": 7.041131997955095e-05,
+        "maximum": 0.0001
+      },
+      "max-bytes": 1088,
+      "max-residual": 9.184095499289099e-08,
+      "wall-time-ns": {
+        "mean": 1034320.32,
+        "p5th": 1022379.05,
+        "p95th": 1069471.65,
+        "samples": 100
+      }
+    },
+    "SSOR": {
+      "converged": true,
+      "iterations": {
+        "actual": 6,
+        "maximum": 5000
+      },
+      "iterative-error": {
+        "actual": 6.0446239878096773e-05,
+        "maximum": 0.0001
+      },
+      "max-bytes": 1088,
+      "max-residual": 7.368166758583289e-09,
+      "wall-time-ns": {
+        "mean": 826648.78,
+        "p5th": 808537.8,
+        "p95th": 862954.2,
+        "samples": 100
+      }
+    },
+    "gauss-seidel": {
+      "converged": true,
+      "iterations": {
+        "actual": 10,
+        "maximum": 5000
+      },
+      "iterative-error": {
+        "actual": 5.0813515109656945e-05,
+        "maximum": 0.0001
+      },
+      "max-bytes": 1088,
+      "max-residual": 2.0316814221506735e-08,
+      "wall-time-ns": {
+        "mean": 673889.37,
+        "p5th": 634187.75,
+        "p95th": 833459.0,
+        "samples": 100
+      }
+    },
+    "point-jacobi": {
+      "converged": true,
+      "iterations": {
+        "actual": 15,
+        "maximum": 5000
+      },
+      "iterative-error": {
+        "actual": 6.647013082353365e-05,
+        "maximum": 0.0001
+      },
+      "max-bytes": 1088,
+      "max-residual": 7.922922168489224e-08,
+      "wall-time-ns": {
+        "mean": 982494.63,
+        "p5th": 903919.95,
+        "p95th": 1326008.35,
+        "samples": 100
+      }
+    }
+  }
+}

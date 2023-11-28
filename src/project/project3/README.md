@@ -1,8 +1,7 @@
-# Project Milestone 3: Iterative, Lazy-Evaluated, Serial Diffusion Equation Solver
+# Project Milestone 3: Performance Evaluation of Direct vs Iterative, Lazy-Evaluated, Serial Diffusion Equation Solvers
 
-Serial 2D, one speed, time-independent, neutron diffusion equation solver. Matrix equation solved using 5 iterative 
-solvers and 1 direct solver (LU factorization) with pivoting. File I/O is performed using a combination of `CSV` and 
-`JSON` files.
+`project3` builds on `project2`, implementing a new memory-profiler. Benchmark results and analysis are listed in the 
+`analysis` folder.
 
 ## Table of Contents
 
@@ -183,7 +182,7 @@ terminal.
       "relaxation-factor": 1.08,
       "methods": [
          "LUP",
-         "SOR",
+         "SOR"
       ]
    }
    ```
@@ -288,12 +287,13 @@ Both output files are optional, but if not supplied, outputs will be written to 
 The following is an example of the program's output:
 
 ```shell
-NE591: Project Milestone 3: Iterative, Lazy-Evaluated, Serial Diffusion Equation Solver
+NE591: Project Milestone 3: Performance Evaluation of Direct vs Iterative, Lazy-Evaluated, Serial Diffusion Equation Solvers
 Arjun Earthperson
-10/13/2023
+10/20/2023
 --------------------------------------------------------------------------------
 using 128-bit floats
-compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so
+compiler: GNU 8.5.0
+boost:  
 --------------------------------------------------------------------------------
 Parameters:
   -a arg                             = Length of 1st dimension (+ve real)
@@ -332,15 +332,15 @@ General options:
                                      double
 
 --------------------------------------------------------------------------------
-        Precision in digits:  default: 6, maximum: 19, current: 15
+			Precision in digits:  default: 6, maximum: 19, current: 15
 --------------------------------------------------------------------------------
-Provided path is a directory: ../project3_example_fluxes
+Provided path is a directory: ../project3_4x4
 Would you like to use the LUP factorization method? [YES/no]: y
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
 	Input JSON,     i: ../project3_example_input_parameters.json
-	Output JSON,    o: ../project3_example_output.json
+	Output JSON,    o: ../project3_4x4.json
 	----
 	Convergence Threshold,                  𝜀: 0.0001
 	Max iterations,                         k: 5000
@@ -359,50 +359,126 @@ Would you like to use the LUP factorization method? [YES/no]: y
 	Diffusion coefficient,                  D: 0.07
 	Macroscopic removal cross-section,     Σₐ: 0.0033
 --------------------------------------------------------------------------------
+WARNING: Source terms matrix rows != m, overriding m to 5
+WARNING: Source terms matrix columns != n, overriding n to 5
+--------------------------------------------------------------------------------
                               Intermediates
 --------------------------------------------------------------------------------
-	Mesh spacing in the 1st dimension,     𝛿: 25
-	Mesh spacing in the 2nd dimension,     𝛾: 25
+	Mesh spacing in the 1st dimension,     𝛿: 16.6666666666667
+	Mesh spacing in the 2nd dimension,     𝛾: 16.6666666666667
 --------------------------------------------------------------------------------
 Source terms 𝑞(𝑖,𝑗):
 --------------------------------------------------------------------------------
-    1.100000000000000e+00    1.200000000000000e+00    1.300000000000000e+00
-    2.100000000000000e+00    2.200000000000000e+00    2.300000000000000e+00
-    3.100000000000000e+00    3.200000000000000e+00    3.300000000000000e+00
+    0.000000000000000e+00    0.000000000000000e+00    0.000000000000000e+00    0.000000000000000e+00    0.000000000000000e+00
+    0.000000000000000e+00    1.000000000000000e+00    0.000000000000000e+00    1.000000000000000e+00    0.000000000000000e+00
+    0.000000000000000e+00    0.000000000000000e+00    0.000000000000000e+00    0.000000000000000e+00    0.000000000000000e+00
+    0.000000000000000e+00    1.000000000000000e+00    0.000000000000000e+00    1.000000000000000e+00    0.000000000000000e+00
+    0.000000000000000e+00    0.000000000000000e+00    0.000000000000000e+00    0.000000000000000e+00    0.000000000000000e+00
 --------------------------------------------------------------------------------
-::::::::::::::::::::::::::::::: PROFILE SUMMARY ::::::::::::::::::::::::::::::::
-[5/5] : LUP
+
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[100/100] : LUP
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::: SUM: 1.30e+05 :::::::: VARIANCE: 6.94e+07 :::::::: MEDIAN: 2.25e+04 :::::
+:::::: SUM: 7.66e+06 :::::::: VARIANCE: 1.14e+07 :::::::: MEDIAN: 7.58e+04 :::::
 :::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
-:::::: {1.96e+04, 4.23e+04} : (2.60e+04 ± 8.33e+03) : [1.99e+04, 3.88e+04] :::::
+:::::: {7.47e+04, 9.91e+04} : (7.66e+04 ± 3.38e+03) : [7.51e+04, 7.89e+04] :::::
+:::::: Estimated maximum allocated memory [bytes]: 86752 ::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 --------------------------------------------------------------------------------
 LUP Factorization Results
 --------------------------------------------------------------------------------
-	order                     : 9
+	order                     : 25
 	total iterations          : 0
 	converged                 : Yes
 	iterative error           : nan
-	absolute maximum residual : 2.168404344971009e-19
---------------------------------------------------------------------------------
-::::::::::::::::::::::::::::::: PROFILE SUMMARY ::::::::::::::::::::::::::::::::
-[5/5] : SOR
+	absolute maximum residual : 1.626303258728257e-19
+
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[100/100] : Point Jacobi
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::: SUM: 2.53e+05 :::::::: VARIANCE: 8.48e+04 :::::::: MEDIAN: 5.06e+04 :::::
+:::::: SUM: 2.37e+07 :::::::: VARIANCE: 4.29e+10 :::::::: MEDIAN: 9.51e+04 :::::
 :::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
-:::::: {5.03e+04, 5.12e+04} : (5.07e+04 ± 2.91e+02) : [5.03e+04, 5.11e+04] :::::
+:::::: {9.49e+04, 5.58e+05} : (2.37e+05 ± 2.07e+05) : [9.49e+04, 5.45e+05] :::::
+:::::: Estimated maximum allocated memory [bytes]: 464 ::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+--------------------------------------------------------------------------------
+Point Jacobi Method Results
+--------------------------------------------------------------------------------
+	order                     : 25
+	total iterations          : 10
+	converged                 : Yes
+	iterative error           : 3.831722021940073e-05
+	absolute maximum residual : 7.781501987961140e-08
+
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[100/100] : SORJ
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 1.13e+07 :::::::: VARIANCE: 3.88e+07 :::::::: MEDIAN: 1.12e+05 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {1.12e+05, 1.57e+05} : (1.13e+05 ± 6.23e+03) : [1.12e+05, 1.12e+05] :::::
+:::::: Estimated maximum allocated memory [bytes]: 464 ::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+--------------------------------------------------------------------------------
+SOR Point Jacobi Method Results
+--------------------------------------------------------------------------------
+	order                     : 25
+	total iterations          : 12
+	converged                 : Yes
+	iterative error           : 2.731521636766889e-05
+	absolute maximum residual : 4.263614777215710e-08
+
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[100/100] : Gauss Seidel
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 7.01e+06 :::::::: VARIANCE: 2.76e+07 :::::::: MEDIAN: 6.96e+04 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {6.95e+04, 1.22e+05} : (7.01e+04 ± 5.25e+03) : [6.95e+04, 6.96e+04] :::::
+:::::: Estimated maximum allocated memory [bytes]: 464 ::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+--------------------------------------------------------------------------------
+Gauss-Seidel Method Results
+--------------------------------------------------------------------------------
+	order                     : 25
+	total iterations          : 7
+	converged                 : Yes
+	iterative error           : 2.011894422645126e-05
+	absolute maximum residual : 3.761859416455708e-09
+
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[100/100] : SOR
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 7.99e+06 :::::::: VARIANCE: 8.10e+07 :::::::: MEDIAN: 7.83e+04 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {7.82e+04, 1.38e+05} : (7.99e+04 ± 9.00e+03) : [7.82e+04, 7.84e+04] :::::
+:::::: Estimated maximum allocated memory [bytes]: 464 ::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 --------------------------------------------------------------------------------
 SOR Method Results
 --------------------------------------------------------------------------------
-	order                     : 9
+	order                     : 25
+	total iterations          : 8
+	converged                 : Yes
+	iterative error           : 8.566771904100693e-05
+	absolute maximum residual : 3.872281957573891e-08
+
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[100/100] : SSOR
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 1.41e+07 :::::::: VARIANCE: 8.64e+07 :::::::: MEDIAN: 1.39e+05 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {1.39e+05, 2.02e+05} : (1.41e+05 ± 9.30e+03) : [1.39e+05, 1.53e+05] :::::
+:::::: Estimated maximum allocated memory [bytes]: 464 ::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+--------------------------------------------------------------------------------
+Symmetric SOR Method Results
+--------------------------------------------------------------------------------
+	order                     : 25
 	total iterations          : 7
 	converged                 : Yes
-	iterative error           : 9.925586527559588e-05
-	absolute maximum residual : 2.241588572204044e-08
+	iterative error           : 1.114527235192123e-05
+	absolute maximum residual : 1.318599388423596e-09
 --------------------------------------------------------------------------------
-JSON data has been written to ../project3_example_output.json
+JSON data has been written to ../project3_4x4.json
 
 Process finished with exit code 0
 ```
