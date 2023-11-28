@@ -1,41 +1,52 @@
 <map id="src/utils/profiler/Profiler.h" name="src/utils/profiler/Profiler.h">
-<area shape="rect" id="node1" title="This file contains the Profiler class which is used to profile the execution time of a function." alt="" coords="1375,5,1498,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,79,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="1469,490,1556,517"/>
-<area shape="rect" id="node4" title=" " alt="" coords="297,408,371,435"/>
-<area shape="rect" id="node5" title=" " alt="" coords="1521,408,1601,435"/>
-<area shape="rect" id="node6" title=" " alt="" coords="1917,95,1989,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="1412,244,1472,271"/>
-<area shape="rect" id="node8" href="$d0/d7d/CheckBounds_8h.html" title="This file contains the declaration of functions for checking the validity of input parameters." alt="" coords="734,95,857,121"/>
-<area shape="rect" id="node15" title=" " alt="" coords="1395,326,1473,353"/>
-<area shape="rect" id="node23" href="$d4/d2e/Stopwatch_8h.html" title="This file contains the Stopwatch class which is a utility for measuring time durations in various uni..." alt="" coords="2217,95,2320,121"/>
-<area shape="rect" id="node25" href="$dc/d09/Stats_8h.html" title="This file contains the declaration of statistical functions and structures for vectors and matrices." alt="" coords="1757,95,1893,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="1171,326,1371,353"/>
-<area shape="rect" id="node10" title=" " alt="" coords="189,408,247,435"/>
-<area shape="rect" id="node11" href="$d9/d41/CommandLine_8h.html" title="This file contains the definition of the CommandLine class and the HeaderInfo struct." alt="" coords="1163,169,1291,196"/>
-<area shape="rect" id="node12" href="$db/df1/Helpers_8h.html" title="This file contains helper functions and structures used throughout the program." alt="" coords="673,244,757,271"/>
-<area shape="rect" id="node14" title=" " alt="" coords="1089,326,1147,353"/>
-<area shape="rect" id="node21" title=" " alt="" coords="1163,244,1286,271"/>
-<area shape="rect" id="node22" href="$de/df7/ProfilerHelper_8h.html" title="This file contains helper functions for handling command line options and initializing the profiler." alt="" coords="884,244,1088,271"/>
-<area shape="rect" id="node13" title=" " alt="" coords="639,326,714,353"/>
-<area shape="rect" id="node16" href="$db/d8a/Math_8h.html" title="This file contains the declaration of various mathematical functions." alt="" coords="408,326,513,353"/>
-<area shape="rect" id="node19" title=" " alt="" coords="739,319,889,360"/>
-<area shape="rect" id="node20" title=" " alt="" coords="913,319,1064,360"/>
-<area shape="rect" id="node17" title=" " alt="" coords="1433,408,1496,435"/>
-<area shape="rect" id="node18" title=" " alt="" coords="411,408,511,435"/>
-<area shape="rect" id="node24" title=" " alt="" coords="2409,169,2475,196"/>
-<area shape="rect" id="node26" title=" " alt="" coords="2177,490,2262,517"/>
-<area shape="rect" id="node27" title=" " alt="" coords="1575,169,1650,196"/>
-<area shape="rect" id="node28" title=" " alt="" coords="1675,169,1751,196"/>
-<area shape="rect" id="node29" title=" " alt="" coords="2257,408,2320,435"/>
-<area shape="rect" id="node30" href="$d1/d80/BLAS_8h.html" title=" " alt="" coords="1827,169,1895,196"/>
-<area shape="rect" id="node31" href="$d3/db1/Matrix_8h.html" title="Header file for the MyBLAS::Matrix class." alt="" coords="1970,244,2162,271"/>
-<area shape="rect" id="node34" href="$d6/dbe/Vector_8h.html" title="Header file for the MyBLAS::Vector class." alt="" coords="1751,326,1939,353"/>
-<area shape="rect" id="node32" title=" " alt="" coords="2017,408,2086,435"/>
-<area shape="rect" id="node33" href="$d1/d45/Constants_8h.html" title="MyBLAS Constants definition." alt="" coords="1963,326,2131,353"/>
-<area shape="rect" id="node35" href="$de/dcb/LazyVector_8h.html" title="Header file for the LazyVector class." alt="" coords="1793,408,1897,435"/>
-<area shape="rect" id="node36" title=" " alt="" coords="1885,572,1956,599"/>
-<area shape="rect" id="node37" title=" " alt="" coords="1806,490,1883,517"/>
-<area shape="rect" id="node38" href="$d6/d9f/VectorExpression_8h.html" title="Header file for the MyBLAS::VectorExpression class." alt="" coords="1958,490,2105,517"/>
-<area shape="rect" id="node39" href="$d6/db1/ContainerExpression_8h.html" title="Header file for the ContainerExpression class." alt="" coords="1580,483,1781,524"/>
+<area shape="rect" id="node1" title="This file contains the Profiler class which is used to profile the execution time of a function." alt="" coords="1470,5,1593,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,102,79,129"/>
+<area shape="rect" id="node3" title=" " alt="" coords="2497,594,2584,621"/>
+<area shape="rect" id="node4" title=" " alt="" coords="247,512,322,539"/>
+<area shape="rect" id="node5" title=" " alt="" coords="1247,512,1327,539"/>
+<area shape="rect" id="node6" title=" " alt="" coords="1925,341,1997,367"/>
+<area shape="rect" id="node7" title=" " alt="" coords="256,259,316,285"/>
+<area shape="rect" id="node8" href="$d0/d7d/CheckBounds_8h.html" title="This file contains the declaration of functions for checking the validity of input parameters." alt="" coords="1114,102,1237,129"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1395,341,1473,367"/>
+<area shape="rect" id="node23" href="$d4/d2e/Stopwatch_8h.html" title="This file contains the Stopwatch class which is a utility for measuring time durations in various uni..." alt="" coords="1480,102,1583,129"/>
+<area shape="rect" id="node25" href="$dc/d09/Stats_8h.html" title="This file contains the declaration of statistical functions and structures for vectors and matrices." alt="" coords="2073,102,2209,129"/>
+<area shape="rect" id="node32" href="$d3/db1/Matrix_8h.html" title="Header file for the MyBLAS::Matrix class." alt="" coords="2175,341,2367,367"/>
+<area shape="rect" id="node36" href="$d6/dbe/Vector_8h.html" title="Header file for the MyBLAS::Vector class." alt="" coords="1783,430,1971,457"/>
+<area shape="rect" id="node42" href="$dc/dc5/ResourceMonitor_8h.html" title="Header file for the ResourceMonitor class." alt="" coords="1913,512,2107,539"/>
+<area shape="rect" id="node44" href="$dd/dfb/DiffusionMatrix_8h.html" title="This file defines the Matrix class within the MyPhysics::Diffusion namespace. The Matrix class is a t..." alt="" coords="3325,95,3519,136"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1121,341,1321,367"/>
+<area shape="rect" id="node10" title=" " alt="" coords="565,430,623,457"/>
+<area shape="rect" id="node11" href="$d9/d41/CommandLine_8h.html" title="This file contains the definition of the CommandLine class and the HeaderInfo struct." alt="" coords="750,184,878,211"/>
+<area shape="rect" id="node12" href="$db/df1/Helpers_8h.html" title="This file contains helper functions and structures used throughout the program." alt="" coords="772,259,856,285"/>
+<area shape="rect" id="node14" title=" " alt="" coords="306,341,365,367"/>
+<area shape="rect" id="node21" title=" " alt="" coords="625,259,747,285"/>
+<area shape="rect" id="node22" href="$de/df7/ProfilerHelper_8h.html" title="This file contains helper functions for handling command line options and initializing the profiler." alt="" coords="1073,259,1277,285"/>
+<area shape="rect" id="node13" title=" " alt="" coords="621,341,695,367"/>
+<area shape="rect" id="node16" href="$db/d8a/Math_8h.html" title="This file contains the declaration of various mathematical functions." alt="" coords="440,341,545,367"/>
+<area shape="rect" id="node19" title=" " alt="" coords="720,333,871,375"/>
+<area shape="rect" id="node20" title=" " alt="" coords="895,333,1045,375"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1593,430,1656,457"/>
+<area shape="rect" id="node18" title=" " alt="" coords="441,430,541,457"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1479,184,1546,211"/>
+<area shape="rect" id="node26" title=" " alt="" coords="2385,594,2470,621"/>
+<area shape="rect" id="node27" title=" " alt="" coords="2229,184,2303,211"/>
+<area shape="rect" id="node28" title=" " alt="" coords="3623,341,3699,367"/>
+<area shape="rect" id="node29" title=" " alt="" coords="2183,512,2245,539"/>
+<area shape="rect" id="node30" href="$d1/d80/BLAS_8h.html" title=" " alt="" coords="2056,184,2124,211"/>
+<area shape="rect" id="node31" href="$d4/d8a/Ops_8h.html" title="This file contains the definition of the L2Norm function, which calculates the L2 norm (Euclidean dis..." alt="" coords="1925,259,2053,285"/>
+<area shape="rect" id="node33" title=" " alt="" coords="2270,512,2339,539"/>
+<area shape="rect" id="node34" title=" " alt="" coords="1749,594,1863,621"/>
+<area shape="rect" id="node35" href="$d1/d45/Constants_8h.html" title="MyBLAS Constants definition." alt="" coords="2070,430,2238,457"/>
+<area shape="rect" id="node37" href="$de/dcb/LazyVector_8h.html" title="Header file for the LazyVector class." alt="" coords="2633,512,2737,539"/>
+<area shape="rect" id="node38" title=" " alt="" coords="3037,676,3108,703"/>
+<area shape="rect" id="node39" title=" " alt="" coords="3307,594,3385,621"/>
+<area shape="rect" id="node40" href="$d6/d9f/VectorExpression_8h.html" title="Header file for the MyBLAS::VectorExpression class." alt="" coords="2611,594,2758,621"/>
+<area shape="rect" id="node41" href="$d6/db1/ContainerExpression_8h.html" title="Header file for the ContainerExpression class." alt="" coords="2833,587,3035,628"/>
+<area shape="rect" id="node43" title=" " alt="" coords="1948,594,2072,621"/>
+<area shape="rect" id="node45" href="$d8/d5c/DiffusionConstants_8h.html" title="This file contains the Constants struct which is used to store and compute various constants related ..." alt="" coords="3463,184,3621,211"/>
+<area shape="rect" id="node46" href="$da/db6/DiffusionParams_8h.html" title="This file contains the definition of the Params struct which encapsulates the parameters required for..." alt="" coords="3352,259,3492,285"/>
+<area shape="rect" id="node48" href="$d8/d5a/LazyMatrix_8h.html" title="Header file for the LazyMatrix class." alt="" coords="2840,259,3063,285"/>
+<area shape="rect" id="node47" title=" " alt="" coords="3460,341,3547,367"/>
+<area shape="rect" id="node49" href="$df/df0/ElementwiseExpression_8h.html" title="This file defines a class for performing element&#45;wise operations on two containers." alt="" coords="2667,423,2889,464"/>
+<area shape="rect" id="node50" href="$d2/dc6/MatrixVectorExpression_8h.html" title="Header file for the MatrixVectorExpression class." alt="" coords="3014,423,3233,464"/>
 </map>

@@ -1,6 +1,8 @@
 var classMyBLAS_1_1Vector =
 [
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a2ecdf41f2b9a3508d29ac94c7780171b", null ],
+    [ "~Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a76c2cd11d09d5d8d4aa4cdc3f6f543e1", null ],
+    [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a107f324d609ace5d9c7d9fef06d72707", null ],
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#ab4fda5ada886486260a2260d32115fba", null ],
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a74f36428f124e327fd1a6c70543c5b13", null ],
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#aefda1bef8067d699a5ae21e6ae89abbc", null ],
@@ -10,6 +12,9 @@ var classMyBLAS_1_1Vector =
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a6ff6c6d3230a973f29e77dc91fe93494", null ],
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#ae564aeb86235e4a16cdc582b8f9485a8", null ],
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a54277307ead3f4a8b7aacc2bbc7f5ea5", null ],
+    [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a70d66e9a5a96c887cd1997200266071d", null ],
+    [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a84f1ac917ea76f8e193eed73ab8948a0", null ],
+    [ "getAllocatedBytes", "d4/d4d/classMyBLAS_1_1Vector.html#af334706a0e924605e5ace234b4a1b6e9", null ],
     [ "getData", "d4/d4d/classMyBLAS_1_1Vector.html#a4815b8707e1545ce5ed6242c5f4e3b1b", null ],
     [ "getData", "d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab", null ],
     [ "isRowVector", "d4/d4d/classMyBLAS_1_1Vector.html#a822ed03dc8fc51fc0629d7ab6c511078", null ],
@@ -21,6 +26,8 @@ var classMyBLAS_1_1Vector =
     [ "operator-", "d4/d4d/classMyBLAS_1_1Vector.html#aa6aeb882447a3c3e4d40100105d1f63f", null ],
     [ "operator-", "d4/d4d/classMyBLAS_1_1Vector.html#a9e54f2dc43b69e744ffcb71e66c9e991", null ],
     [ "operator/", "d4/d4d/classMyBLAS_1_1Vector.html#a0b450731724044d52e3f412ed786dba8", null ],
+    [ "operator=", "d4/d4d/classMyBLAS_1_1Vector.html#a7b95d0663d04d89960ceb2384dfd4c04", null ],
+    [ "operator=", "d4/d4d/classMyBLAS_1_1Vector.html#a4639c5fbfcb4f0cd031b929430b8ba17", null ],
     [ "operator==", "d4/d4d/classMyBLAS_1_1Vector.html#af3d7364f95df6f7c9188c5b64a757454", null ],
     [ "operator[]", "d4/d4d/classMyBLAS_1_1Vector.html#aa204ab2d8cb40332331e628e490c6d51", null ],
     [ "operator[]", "d4/d4d/classMyBLAS_1_1Vector.html#afbb02df342fc0ae1566d90aa3c256089", null ],

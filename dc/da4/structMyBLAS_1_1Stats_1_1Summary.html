@@ -171,6 +171,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:aee9f5a2d05716d811ef08b8ca66f12ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7af63373da847d2147bb521bfd1bd6b3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a7af63373da847d2147bb521bfd1bd6b3">runs</a> {}</td></tr>
 <tr class="separator:a7af63373da847d2147bb521bfd1bd6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77dedd799e2b2887233590271011e8e0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a77dedd799e2b2887233590271011e8e0">maxBytes</a> = std::numeric_limits&lt;size_t&gt;::quiet_NaN()</td></tr>
+<tr class="separator:a77dedd799e2b2887233590271011e8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -215,28 +217,18 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                             {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        jsonMap[<span class="stringliteral">&quot;min&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aa41dcac3470d01f9e3f9cd352d92caf3">min</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        jsonMap[<span class="stringliteral">&quot;max&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a1ba8eed98cdbcafe5f20ea23cc6893d1">max</a>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        jsonMap[<span class="stringliteral">&quot;sum&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a434963de3fd9ce7eb5d7663fe426f0df">sum</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        jsonMap[<span class="stringliteral">&quot;mean&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a3c292e59a4f2e9ed837c237e555b0f57">mean</a>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        jsonMap[<span class="stringliteral">&quot;variance&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a24b861cb93d7b14e8e7d7bfc86cb95e2">variance</a>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        jsonMap[<span class="stringliteral">&quot;stddev&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#abef558a26a60bb3f19a1d3b1fe7deb2c">stddev</a>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        jsonMap[<span class="stringliteral">&quot;p5th&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#adb5daae316a47beab01dbf8eead160ae">p5th</a>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        jsonMap[<span class="stringliteral">&quot;p95th&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aee9f5a2d05716d811ef08b8ca66f12ae">p95th</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        jsonMap[<span class="stringliteral">&quot;samples&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a7af63373da847d2147bb521bfd1bd6b3">runs</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a1ba8eed98cdbcafe5f20ea23cc6893d1"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a1ba8eed98cdbcafe5f20ea23cc6893d1">MyBLAS::Stats::Summary::max</a></div><div class="ttdeci">T max</div><div class="ttdoc">The maximum value.</div><div class="ttdef"><b>Definition:</b> Stats.h:35</div></div>
-<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a24b861cb93d7b14e8e7d7bfc86cb95e2"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a24b861cb93d7b14e8e7d7bfc86cb95e2">MyBLAS::Stats::Summary::variance</a></div><div class="ttdeci">T variance</div><div class="ttdoc">The variance.</div><div class="ttdef"><b>Definition:</b> Stats.h:38</div></div>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                             {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        jsonMap[<span class="stringliteral">&quot;mean&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a3c292e59a4f2e9ed837c237e555b0f57">mean</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        jsonMap[<span class="stringliteral">&quot;p5th&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#adb5daae316a47beab01dbf8eead160ae">p5th</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        jsonMap[<span class="stringliteral">&quot;p95th&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aee9f5a2d05716d811ef08b8ca66f12ae">p95th</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        jsonMap[<span class="stringliteral">&quot;samples&quot;</span>] = <a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a7af63373da847d2147bb521bfd1bd6b3">runs</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a3c292e59a4f2e9ed837c237e555b0f57"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a3c292e59a4f2e9ed837c237e555b0f57">MyBLAS::Stats::Summary::mean</a></div><div class="ttdeci">T mean</div><div class="ttdoc">The mean value.</div><div class="ttdef"><b>Definition:</b> Stats.h:37</div></div>
-<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a434963de3fd9ce7eb5d7663fe426f0df"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a434963de3fd9ce7eb5d7663fe426f0df">MyBLAS::Stats::Summary::sum</a></div><div class="ttdeci">T sum</div><div class="ttdoc">The sum of all values.</div><div class="ttdef"><b>Definition:</b> Stats.h:36</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a7af63373da847d2147bb521bfd1bd6b3"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a7af63373da847d2147bb521bfd1bd6b3">MyBLAS::Stats::Summary::runs</a></div><div class="ttdeci">size_t runs</div><div class="ttdef"><b>Definition:</b> Stats.h:43</div></div>
-<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_aa41dcac3470d01f9e3f9cd352d92caf3"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aa41dcac3470d01f9e3f9cd352d92caf3">MyBLAS::Stats::Summary::min</a></div><div class="ttdeci">T min</div><div class="ttdoc">The minimum value.</div><div class="ttdef"><b>Definition:</b> Stats.h:34</div></div>
-<div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_abef558a26a60bb3f19a1d3b1fe7deb2c"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#abef558a26a60bb3f19a1d3b1fe7deb2c">MyBLAS::Stats::Summary::stddev</a></div><div class="ttdeci">T stddev</div><div class="ttdoc">The standard deviation.</div><div class="ttdef"><b>Definition:</b> Stats.h:39</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_adb5daae316a47beab01dbf8eead160ae"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#adb5daae316a47beab01dbf8eead160ae">MyBLAS::Stats::Summary::p5th</a></div><div class="ttdeci">T p5th</div><div class="ttdoc">The 5th percentile.</div><div class="ttdef"><b>Definition:</b> Stats.h:41</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_aee9f5a2d05716d811ef08b8ca66f12ae"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#aee9f5a2d05716d811ef08b8ca66f12ae">MyBLAS::Stats::Summary::p95th</a></div><div class="ttdeci">T p95th</div><div class="ttdoc">The 95th percentile.</div><div class="ttdef"><b>Definition:</b> Stats.h:42</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00035">MyBLAS::Stats::Summary&lt; T &gt;::max</a>, <a class="el" href="../../#l00037">MyBLAS::Stats::Summary&lt; T &gt;::mean</a>, <a class="el" href="../../#l00034">MyBLAS::Stats::Summary&lt; T &gt;::min</a>, <a class="el" href="../../#l00041">MyBLAS::Stats::Summary&lt; T &gt;::p5th</a>, <a class="el" href="../../#l00042">MyBLAS::Stats::Summary&lt; T &gt;::p95th</a>, <a class="el" href="../../#l00043">MyBLAS::Stats::Summary&lt; T &gt;::runs</a>, <a class="el" href="../../#l00039">MyBLAS::Stats::Summary&lt; T &gt;::stddev</a>, <a class="el" href="../../#l00036">MyBLAS::Stats::Summary&lt; T &gt;::sum</a>, and <a class="el" href="../../#l00038">MyBLAS::Stats::Summary&lt; T &gt;::variance</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00037">MyBLAS::Stats::Summary&lt; T &gt;::mean</a>, <a class="el" href="../../#l00041">MyBLAS::Stats::Summary&lt; T &gt;::p5th</a>, <a class="el" href="../../#l00042">MyBLAS::Stats::Summary&lt; T &gt;::p95th</a>, and <a class="el" href="../../#l00043">MyBLAS::Stats::Summary&lt; T &gt;::runs</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00138">Output::toJSON()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -244,7 +236,7 @@ template&lt;typename T &gt; </div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary_a96a66f2ddbad3de15b434c6582bd2011_icgraph.svg" width="519" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary_a96a66f2ddbad3de15b434c6582bd2011_icgraph.svg" width="519" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -296,18 +288,19 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The output stream. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                                                          {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">auto</span> precision = std::cout.precision() ;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(2 + <span class="keyword">static_cast&lt;</span>std::streamsize<span class="keyword">&gt;</span>(10));</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        os &lt;&lt; std::setprecision(2) &lt;&lt; std::setw(width) &lt;&lt; std::setfill(<span class="charliteral">&#39; &#39;</span>) &lt;&lt; std::scientific;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: SUM: &quot;</span>&lt;&lt;summary.sum&lt;&lt;<span class="stringliteral">&quot; :::::::: VARIANCE: &quot;</span>&lt;&lt;summary.variance&lt;&lt;<span class="stringliteral">&quot; :::::::: MEDIAN: &quot;</span>&lt;&lt;summary.median&lt;&lt;<span class="stringliteral">&quot; :::::\n&quot;</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::\n&quot;</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: {&quot;</span> &lt;&lt; summary.min &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; summary.max &lt;&lt; <span class="stringliteral">&quot;} &quot;</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;: (&quot;</span> &lt;&lt; summary.mean &lt;&lt; <span class="stringliteral">&quot; ± &quot;</span> &lt;&lt; summary.stddev &lt;&lt; <span class="stringliteral">&quot;) : [&quot;</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        os &lt;&lt; summary.p5th &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>&lt;&lt; summary.p95th &lt;&lt; <span class="stringliteral">&quot;] :::::&quot;</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        os &lt;&lt; std::setprecision(static_cast&lt;int&gt;(precision));</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                                                          {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">auto</span> precision = std::cout.precision() ;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(2 + <span class="keyword">static_cast&lt;</span>std::streamsize<span class="keyword">&gt;</span>(10));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        os &lt;&lt; std::setprecision(2) &lt;&lt; std::setw(width) &lt;&lt; std::setfill(<span class="charliteral">&#39; &#39;</span>) &lt;&lt; std::scientific;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: SUM: &quot;</span>&lt;&lt;summary.sum&lt;&lt;<span class="stringliteral">&quot; :::::::: VARIANCE: &quot;</span>&lt;&lt;summary.variance&lt;&lt;<span class="stringliteral">&quot; :::::::: MEDIAN: &quot;</span>&lt;&lt;summary.median&lt;&lt;<span class="stringliteral">&quot; :::::\n&quot;</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::\n&quot;</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: {&quot;</span> &lt;&lt; summary.min &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; summary.max &lt;&lt; <span class="stringliteral">&quot;} &quot;</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;: (&quot;</span> &lt;&lt; summary.mean &lt;&lt; <span class="stringliteral">&quot; ± &quot;</span> &lt;&lt; summary.stddev &lt;&lt; <span class="stringliteral">&quot;) : [&quot;</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        os &lt;&lt; summary.p5th &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>&lt;&lt; summary.p95th &lt;&lt; <span class="stringliteral">&quot;] :::::&quot;</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;\n:::::: Estimated maximum allocated memory [bytes]: &quot;</span>&lt;&lt;summary.maxBytes&lt;&lt;<span class="stringliteral">&quot; ::::::::::::::::::::::::&quot;</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        os &lt;&lt; std::setprecision(static_cast&lt;int&gt;(precision));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -328,7 +321,25 @@ template&lt;typename T &gt; </div>
 
 <p>The maximum value. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00064">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00200">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
+
+</div>
+</div>
+<a id="a77dedd799e2b2887233590271011e8e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77dedd799e2b2887233590271011e8e0">&#9670;&nbsp;</a></span>maxBytes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html">MyBLAS::Stats::Summary</a>&lt; T &gt;::maxBytes = std::numeric_limits&lt;size_t&gt;::quiet_NaN()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="../../#l00068">Profiler&lt; FunctionType &gt;::run()</a>, and <a class="el" href="../../#l00092">Output::toJSON()</a>.</p>
 
 </div>
 </div>
@@ -348,7 +359,7 @@ template&lt;typename T &gt; </div>
 
 <p>The mean value. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00064">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00200">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
 
 </div>
 </div>
@@ -368,7 +379,7 @@ template&lt;typename T &gt; </div>
 
 <p>The median value. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00200">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 
 </div>
 </div>
@@ -388,7 +399,7 @@ template&lt;typename T &gt; </div>
 
 <p>The minimum value. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00064">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00200">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 
 </div>
 </div>
@@ -408,7 +419,7 @@ template&lt;typename T &gt; </div>
 
 <p>The 5th percentile. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00064">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00200">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
 
 </div>
 </div>
@@ -428,7 +439,7 @@ template&lt;typename T &gt; </div>
 
 <p>The 95th percentile. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00064">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00200">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
 
 </div>
 </div>
@@ -446,7 +457,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00105">Profiler&lt; FunctionType &gt;::getSummary()</a>, and <a class="el" href="../../#l00064">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00110">Profiler&lt; FunctionType &gt;::getSummary()</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
 
 </div>
 </div>
@@ -466,7 +477,7 @@ template&lt;typename T &gt; </div>
 
 <p>The standard deviation. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00064">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00200">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 
 </div>
 </div>
@@ -486,7 +497,7 @@ template&lt;typename T &gt; </div>
 
 <p>The sum of all values. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00064">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00200">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 
 </div>
 </div>
@@ -506,7 +517,7 @@ template&lt;typename T &gt; </div>
 
 <p>The variance. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00170">Profiler&lt; FunctionType &gt;::summarize()</a>, and <a class="el" href="../../#l00064">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00200">Profiler&lt; FunctionType &gt;::summarize()</a>.</p>
 
 </div>
 </div>

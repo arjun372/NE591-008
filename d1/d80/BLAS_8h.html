@@ -121,6 +121,7 @@ $(document).ready(function(){initNavTree('d1/d80/BLAS_8h.html','../../'); initRe
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../">math/blas/Ops.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/matrix/Matrix.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/vector/Vector.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -158,10 +159,26 @@ Functions</h2></td></tr>
 <tr class="memitem:a1f0325293f4b4969ac4a450ba3db1f87"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a1f0325293f4b4969ac4a450ba3db1f87">MyBLAS::isEmptyMatrix</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a> &amp;M)</td></tr>
 <tr class="memdesc:a1f0325293f4b4969ac4a450ba3db1f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given matrix is empty.  <a href="../../d2/d6e/namespaceMyBLAS.html#a1f0325293f4b4969ac4a450ba3db1f87">More...</a><br /></td></tr>
 <tr class="separator:a1f0325293f4b4969ac4a450ba3db1f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5abae26b4eff150bba339ee7b9292eec"><td class="memTemplParams" colspan="2">template&lt;typename VectorType &gt; </td></tr>
+<tr class="memitem:a5abae26b4eff150bba339ee7b9292eec"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a5abae26b4eff150bba339ee7b9292eec">MyBLAS::isEmptyVector</a> (const VectorType &amp;V)</td></tr>
+<tr class="memdesc:a5abae26b4eff150bba339ee7b9292eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given vector is empty.  <a href="../../d2/d6e/namespaceMyBLAS.html#a5abae26b4eff150bba339ee7b9292eec">More...</a><br /></td></tr>
+<tr class="separator:a5abae26b4eff150bba339ee7b9292eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0445f24897fdfd6e5600fcdd56eb84fc"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class U, typename T &gt; </td></tr>
+<tr class="memitem:a0445f24897fdfd6e5600fcdd56eb84fc"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a0445f24897fdfd6e5600fcdd56eb84fc">MyBLAS::isBinaryVector</a> (const U&lt; T &gt; &amp;V)</td></tr>
+<tr class="memdesc:a0445f24897fdfd6e5600fcdd56eb84fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given vector is purely a zero vector.  <a href="../../d2/d6e/namespaceMyBLAS.html#a0445f24897fdfd6e5600fcdd56eb84fc">More...</a><br /></td></tr>
+<tr class="separator:a0445f24897fdfd6e5600fcdd56eb84fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbdd307de10f4c17b700b5dde0fadc77"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class U, typename T &gt; </td></tr>
 <tr class="memitem:afbdd307de10f4c17b700b5dde0fadc77"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#afbdd307de10f4c17b700b5dde0fadc77">MyBLAS::isBinaryMatrix</a> (const U&lt; T &gt; &amp;M)</td></tr>
 <tr class="memdesc:afbdd307de10f4c17b700b5dde0fadc77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given matrix is a binary matrix.  <a href="../../d2/d6e/namespaceMyBLAS.html#afbdd307de10f4c17b700b5dde0fadc77">More...</a><br /></td></tr>
 <tr class="separator:afbdd307de10f4c17b700b5dde0fadc77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0368e8763ad9af14a726e94dc9ebe46"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class U, typename T &gt; </td></tr>
+<tr class="memitem:ac0368e8763ad9af14a726e94dc9ebe46"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#ac0368e8763ad9af14a726e94dc9ebe46">MyBLAS::isZeroVector</a> (const U&lt; T &gt; &amp;V)</td></tr>
+<tr class="memdesc:ac0368e8763ad9af14a726e94dc9ebe46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given vector is a zero vector.  <a href="../../d2/d6e/namespaceMyBLAS.html#ac0368e8763ad9af14a726e94dc9ebe46">More...</a><br /></td></tr>
+<tr class="separator:ac0368e8763ad9af14a726e94dc9ebe46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d22f1b64bcd3b2dbd1546df0fa691f"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class U, typename T &gt; </td></tr>
+<tr class="memitem:a76d22f1b64bcd3b2dbd1546df0fa691f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a76d22f1b64bcd3b2dbd1546df0fa691f">MyBLAS::isUnitVector</a> (const U&lt; T &gt; &amp;V)</td></tr>
+<tr class="memdesc:a76d22f1b64bcd3b2dbd1546df0fa691f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given vector is a unit vector.  <a href="../../d2/d6e/namespaceMyBLAS.html#a76d22f1b64bcd3b2dbd1546df0fa691f">More...</a><br /></td></tr>
+<tr class="separator:a76d22f1b64bcd3b2dbd1546df0fa691f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada02d6a37edcab7294168e9b005871a1"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class U, typename T &gt; </td></tr>
 <tr class="memitem:ada02d6a37edcab7294168e9b005871a1"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#ada02d6a37edcab7294168e9b005871a1">MyBLAS::isUpperTriangularMatrix</a> (const U&lt; T &gt; &amp;M)</td></tr>
 <tr class="memdesc:ada02d6a37edcab7294168e9b005871a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given matrix is a valid upper triangular matrix.  <a href="../../d2/d6e/namespaceMyBLAS.html#ada02d6a37edcab7294168e9b005871a1">More...</a><br /></td></tr>

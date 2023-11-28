@@ -37,6 +37,7 @@ var hierarchy =
     ] ],
     [ "CommandLine< SolverInputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ],
+      [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
     [ "CommandLine< TaylorSeriesInputs >", "dd/d02/classCommandLine.html", [
@@ -122,11 +123,16 @@ var hierarchy =
     ] ],
     [ "Project< SolverInputs, Parser, SolverOutputs >", "db/d91/classProject.html", [
       [ "Project1", "d8/ddb/classProject1.html", null ],
-      [ "Project2", "dd/db5/classProject2.html", null ]
+      [ "Project2", "dd/db5/classProject2.html", null ],
+      [ "Project3", "dd/dfb/classProject3.html", null ]
     ] ],
     [ "Project< TaylorSeriesInputs, Parser, TaylorSeriesVariables >", "db/d91/classProject.html", [
       [ "InLab1", "dd/d40/classInLab1.html", null ]
     ] ],
+    [ "ResourceMonitor< T >", "d1/d7c/classResourceMonitor.html", null ],
+    [ "ResourceMonitor< MyBLAS::Matrix< MyBLAS::NumericType > >", "d1/d7c/classResourceMonitor.html", null ],
+    [ "ResourceMonitor< MyBLAS::Vector< MyBLAS::NumericType > >", "d1/d7c/classResourceMonitor.html", null ],
+    [ "ResourceMonitor< MyPhysics::Diffusion::Matrix< MyBLAS::NumericType > >", "d1/d7c/classResourceMonitor.html", null ],
     [ "MyLinearSolvingMethod::Solution< long double >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
     [ "MyLinearSolvingMethod::Solution< MyBLAS::NumericType >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
@@ -143,10 +149,14 @@ var hierarchy =
       [ "MyBLAS::LazyMatrixTests< T >", "d6/d09/classMyBLAS_1_1LazyMatrixTests.html", null ],
       [ "MyBLAS::LazyVectorTests", "dd/d30/classMyBLAS_1_1LazyVectorTests.html", null ],
       [ "MyBLAS::MatrixExpressionTests", "de/d99/classMyBLAS_1_1MatrixExpressionTests.html", null ],
+      [ "MyBLAS::MatrixMemoryAllocationTests< T >", "d3/da2/classMyBLAS_1_1MatrixMemoryAllocationTests.html", null ],
       [ "MyBLAS::MatrixUtilityTests< T >", "d0/d16/classMyBLAS_1_1MatrixUtilityTests.html", null ],
       [ "MyBLAS::PerformanceMatrixTests< T >", "db/d15/classMyBLAS_1_1PerformanceMatrixTests.html", null ],
+      [ "MyBLAS::PerformanceVectorTests< T >", "d3/d8d/classMyBLAS_1_1PerformanceVectorTests.html", null ],
       [ "MyBLAS::VectorExpressionTests", "de/d3a/classMyBLAS_1_1VectorExpressionTests.html", null ],
-      [ "MyBLAS::VectorTests< T >", "d8/db9/classMyBLAS_1_1VectorTests.html", null ]
+      [ "MyBLAS::VectorMemoryAllocationTests< T >", "da/d69/classMyBLAS_1_1VectorMemoryAllocationTests.html", null ],
+      [ "MyBLAS::VectorTests< T >", "d8/db9/classMyBLAS_1_1VectorTests.html", null ],
+      [ "MyBLAS::VectorUtilityTests< T >", "dd/dfd/classMyBLAS_1_1VectorUtilityTests.html", null ]
     ] ],
     [ "testing::TestWithParam", null, [
       [ "DiffusionConstantsValidTest", "dd/d10/classDiffusionConstantsValidTest.html", null ],

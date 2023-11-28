@@ -331,19 +331,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d0/d40/classParser.html#a6a94f5e16b2081e769567d3790b6d8ec",
-"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae4a483d842ff598f6f4234f118044914",
-"d2/d6e/namespaceMyBLAS.html#a54e4656d322c843fb239547df942f8ae",
-"d4/d0d/labs_2outlab4_2tests_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627",
-"d5/db6/namespaceMyBLAS_1_1LUP.html#acbc3001786a9bc09a661660f1ccd2e0d",
-"d7/da1/project_2project1_2Compute_8h.html#a5c27829d7bc2f4441c23f858e41cf9f7",
-"d9/d83/outlab2.html#autotoc_md119",
-"db/df1/Helpers_8h.html#a0bd7444ed4f75d9a9b3a9c3c711b4dca",
-"dd/d6d/Random_8h.html#adfa5e70492a249fd39898582a640e5fb",
-"df/d63/classMyBLAS_1_1ElementwiseExpression.html#a6508c3cd687f2d6146d1bb387f80a8a2",
-"globals_func_t.html",
-""
+"",
+"d0/d28/classMyBLAS_1_1LazyMatrix.html#a10612274f42e86073cec8a1f12dd3e4f",
+"d0/d40/classParser.html#a7001590923e6bfdf380448136b8e65bd",
+"d1/d18/namespaceMyFactorizationMethod.html#ab56ef0cc2766cd82b4d99b3f435b81e8a955b50bedc9cd0142e46720f012c613d",
+"d2/d6e/namespaceMyBLAS.html#a6b103aca5e5fab29f3d0954b77946dc0",
+"d3/deb/outlab1_8h.html",
+"d5/d51/BaseMatrixTests_8cpp.html#abf0961eeec911430161f2f90666563bd",
+"d7/d5d/project_2project3_2Parser_8h.html",
+"d8/df8/outlab1.html#autotoc_md115",
+"db/d91/classProject.html#a1bb61af5e341b555e01de0b756409db0",
+"dd/d0e/classProfiler.html#a10312016d6c53981c53a204750a3adc9",
+"de/d20/InLab10Tests_8cpp.html#aca787eb8772666a1111444db5a7ee945",
+"dir_c3996f20fc08db5640b10fd068ebb3c9.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

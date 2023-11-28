@@ -1,11 +1,14 @@
 var classMyPhysics_1_1Diffusion_1_1Matrix =
 [
     [ "Generator", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0bb00450e102d52f4cb0312421875422", null ],
-    [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a0de933e50d49f85f09816a46070d34bc", null ],
+    [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ad1272bef899d7f075699d9a3e1da80c8", null ],
+    [ "~Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aa8dfbe865729b2ec843f102028d2bd45", null ],
     [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#af5145d5be9fc1a44756b6c47c29a3585", null ],
     [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a90c86cba30338740d4ebc96a20cc82d4", null ],
+    [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7c806dad69103fddb15f03184965b50d", null ],
     [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a528f85b7a4f0f69e4b91f24186abe236", null ],
     [ "generate", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec", null ],
+    [ "getAllocatedBytes", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a6a57e0a2ae8c0918ae7c89d03df32085", null ],
     [ "getCols", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a381d3fcf07fad9ad13ee145b083b93a7", null ],
     [ "getConstants", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a50e80b5eaaf02cb9e18596369b888fc7", null ],
     [ "getParams", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ad956ebcbbd8c1e20955d417306ca581c", null ],
