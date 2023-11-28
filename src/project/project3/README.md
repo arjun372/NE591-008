@@ -1,7 +1,7 @@
 # Project Milestone 3: Performance Evaluation of Direct vs Iterative, Lazy-Evaluated, Serial Diffusion Equation Solvers
 
 `project3` builds on `project2`, implementing a new memory-profiler. Benchmark results and analysis are listed in the 
-`analysis` folder.
+`analysis` folder. Checkout the associated [python notebook for analysis results](analysis/Project_Milestone_3_Analysis.ipynb).
 
 ## Table of Contents
 
