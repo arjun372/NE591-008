@@ -37,31 +37,31 @@ var NAVTREE =
           [ "EOS", "index.html#autotoc_md8", null ],
           [ "Hazel", "index.html#autotoc_md9", null ]
         ] ],
-        [ "Class Project", "index.html#autotoc_md10", null ],
-        [ "InLabs and OutLabs", "index.html#autotoc_md11", null ],
-        [ "Optional CMake Arguments", "index.html#autotoc_md12", null ]
+        [ "Class Project", "index.html#autotoc_md12", null ],
+        [ "InLabs and OutLabs", "index.html#autotoc_md14", null ],
+        [ "Optional CMake Arguments", "index.html#autotoc_md15", null ]
       ] ],
-      [ "Docker Usage Guide", "index.html#autotoc_md13", [
-        [ "Why Docker?", "index.html#autotoc_md14", null ],
-        [ "Building the Docker Image", "index.html#autotoc_md15", null ],
-        [ "Running the Docker Container", "index.html#autotoc_md16", null ],
-        [ "Building and Running Tests", "index.html#autotoc_md17", null ]
+      [ "Docker Usage Guide", "index.html#autotoc_md16", [
+        [ "Why Docker?", "index.html#autotoc_md17", null ],
+        [ "Building the Docker Image", "index.html#autotoc_md18", null ],
+        [ "Running the Docker Container", "index.html#autotoc_md19", null ],
+        [ "Building and Running Tests", "index.html#autotoc_md20", null ]
       ] ],
-      [ "Development - JetBrains Clion Support", "index.html#autotoc_md18", [
-        [ "Prerequisites", "index.html#autotoc_md19", null ],
-        [ "Clion Docker Toolchain", "index.html#autotoc_md20", [
-          [ "Instructions", "index.html#autotoc_md21", null ]
+      [ "Development - JetBrains Clion Support", "index.html#autotoc_md21", [
+        [ "Prerequisites", "index.html#autotoc_md22", null ],
+        [ "Clion Docker Toolchain", "index.html#autotoc_md23", [
+          [ "Instructions", "index.html#autotoc_md24", null ]
         ] ],
-        [ "Troubleshooting", "index.html#autotoc_md22", null ],
-        [ "Clion Remote Debugging via SSH", "index.html#autotoc_md23", null ]
+        [ "Troubleshooting", "index.html#autotoc_md25", null ],
+        [ "Clion Remote Debugging via SSH", "index.html#autotoc_md26", null ]
       ] ],
-      [ "License", "index.html#autotoc_md24", null ],
-      [ "FAQs", "index.html#autotoc_md25", null ]
+      [ "License", "index.html#autotoc_md27", null ],
+      [ "FAQs", "index.html#autotoc_md28", null ]
     ] ],
     [ "InLab 01: Taylor series approximation of sin(x)", "d7/d5f/inlab1.html", [
-      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md26", [
-        [ "Usage", "d7/d5f/inlab1.html#autotoc_md27", null ],
-        [ "Example", "d7/d5f/inlab1.html#autotoc_md28", null ]
+      [ "InLab 01: Iterative Taylor series approximation of sin(x)", "d7/d5f/inlab1.html#autotoc_md10", [
+        [ "Usage", "d7/d5f/inlab1.html#autotoc_md11", null ],
+        [ "Example", "d7/d5f/inlab1.html#autotoc_md13", null ]
       ] ]
     ] ],
     [ "10: Preconditioned Conjugate Gradient Method", "d7/d71/InLab.html", [
@@ -165,29 +165,29 @@ var NAVTREE =
       ] ]
     ] ],
     [ "InLab 08: DDD Method", "df/de5/inlab8.html", [
-      [ "InLab 08: Iterative Linear Equation Solvers", "df/de5/inlab8.html#autotoc_md102", [
-        [ "Overview", "df/de5/inlab8.html#autotoc_md103", null ],
-        [ "Building & Usage", "df/de5/inlab8.html#autotoc_md104", [
-          [ "Parameters", "df/de5/inlab8.html#autotoc_md105", null ],
-          [ "Solver Methods", "df/de5/inlab8.html#autotoc_md106", null ],
-          [ "General options", "df/de5/inlab8.html#autotoc_md107", null ]
+      [ "InLab 08: Iterative Linear Equation Solvers", "df/de5/inlab8.html#autotoc_md107", [
+        [ "Overview", "df/de5/inlab8.html#autotoc_md108", null ],
+        [ "Building & Usage", "df/de5/inlab8.html#autotoc_md109", [
+          [ "Parameters", "df/de5/inlab8.html#autotoc_md110", null ],
+          [ "Solver Methods", "df/de5/inlab8.html#autotoc_md111", null ],
+          [ "General options", "df/de5/inlab8.html#autotoc_md112", null ]
         ] ],
-        [ "Parameters Format", "df/de5/inlab8.html#autotoc_md108", [
-          [ "Sample Parameters File", "df/de5/inlab8.html#autotoc_md109", null ]
+        [ "Parameters Format", "df/de5/inlab8.html#autotoc_md113", [
+          [ "Sample Parameters File", "df/de5/inlab8.html#autotoc_md114", null ]
         ] ],
-        [ "Output Format", "df/de5/inlab8.html#autotoc_md110", [
-          [ "Sample Outputs File", "df/de5/inlab8.html#autotoc_md111", null ]
+        [ "Output Format", "df/de5/inlab8.html#autotoc_md115", [
+          [ "Sample Outputs File", "df/de5/inlab8.html#autotoc_md116", null ]
         ] ],
-        [ "Example:", "df/de5/inlab8.html#autotoc_md112", null ]
+        [ "Example:", "df/de5/inlab8.html#autotoc_md117", null ]
       ] ]
     ] ],
     [ "OutLab 01: Elementwise Ops on 2D Matrices", "d8/df8/outlab1.html", [
-      [ "OutLab 01: Non-vectorized, elementwise (mul, add) operations on 2D matrices", "d8/df8/outlab1.html#autotoc_md113", [
-        [ "Usage", "d8/df8/outlab1.html#autotoc_md114", [
-          [ "Parameters", "d8/df8/outlab1.html#autotoc_md115", null ],
-          [ "General options", "d8/df8/outlab1.html#autotoc_md116", null ]
+      [ "OutLab 01: Non-vectorized, elementwise (mul, add) operations on 2D matrices", "d8/df8/outlab1.html#autotoc_md102", [
+        [ "Usage", "d8/df8/outlab1.html#autotoc_md103", [
+          [ "Parameters", "d8/df8/outlab1.html#autotoc_md104", null ],
+          [ "General options", "d8/df8/outlab1.html#autotoc_md105", null ]
         ] ],
-        [ "Example", "d8/df8/outlab1.html#autotoc_md117", null ]
+        [ "Example", "d8/df8/outlab1.html#autotoc_md106", null ]
       ] ]
     ] ],
     [ "OutLab 02: Lagrange Interpolation Polynomials II", "d9/d83/outlab2.html", [
@@ -331,19 +331,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d0/d28/classMyBLAS_1_1LazyMatrix.html#a10612274f42e86073cec8a1f12dd3e4f",
-"d0/d40/classParser.html#a7001590923e6bfdf380448136b8e65bd",
-"d1/d18/namespaceMyFactorizationMethod.html#ab56ef0cc2766cd82b4d99b3f435b81e8a955b50bedc9cd0142e46720f012c613d",
-"d2/d6e/namespaceMyBLAS.html#a6ae2bf6751779ac28fa5f53bf3f9ea97",
-"d3/dde/Circuit_8h.html",
-"d5/d51/BaseMatrixTests_8cpp.html#ab963fba1e4a19ec02953e3e9b16401d5",
-"d7/d44/labs_2inlab8_2Parser_8h.html",
-"d8/df8/outlab1.html",
-"db/d8a/Math_8h.html#a65264d3fe16d8278498a14fc821b438a",
-"dd/d06/utils_2math_2blas_2tests_2main_8cpp.html",
-"de/d20/InLab10Tests_8cpp.html#a5492282efa03991888e9c620609ced2f",
-"dir_b68a48aa2a0ac34a16e8d1585cdaec99.html"
+"annotated.html",
+"d0/d40/classParser.html#a659132cb89992c80bbae4be657575ae3",
+"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a70aada3cccddb39f7c507b527aa3f0b9",
+"d2/d6e/namespaceMyBLAS.html#a1e932e7ad0b8cf67992dbad097d61eb4",
+"d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388",
+"d4/dfb/LUP_8h.html#a38b6c971c41b735e5acbd728ab652ac8",
+"d6/d52/MatrixUtilityTests_8cpp.html#a926b77b3d2e5b954208b3f45253e1f95",
+"d8/d5c/DiffusionConstants_8h.html",
+"da/de9/postprocess_8py.html#a814413a2c46d8f36000e74ba9de2d699",
+"dc/da0/LazyVectorTests_8cpp.html#a1fc23428823dc3621f3f25deccddff28",
+"dd/df3/classOutLab1.html#a748bf752c84f1333d905f6d30fcd2e45",
+"df/df1/structOutput.html#aa9ff06a07a6a0bff3dff15a6f2367d03",
+"namespacemembers_enum.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
