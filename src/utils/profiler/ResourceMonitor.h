@@ -8,7 +8,6 @@
 #ifndef NE591_008_RESOURCE_MONITOR_H
 #define NE591_008_RESOURCE_MONITOR_H
 
-#include "math/blas/matrix/Matrix.h"
 #include <algorithm>
 #include <cstddef>
 #include <unordered_set>
@@ -35,16 +34,6 @@ class ResourceMonitor {
 
    }
 
-   /**
-    * @brief Deleted copy constructor to prevent copying.
-    */
-   ResourceMonitor(const ResourceMonitor&) = delete;
-
-   /**
-    * @brief Deleted assignment operator to prevent copying.
-    */
-   ResourceMonitor& operator=(const ResourceMonitor&) = delete;
-
    void checkAndUpdateMaxSize(T* instance) {
        if (instance == nullptr) {
            return;
@@ -66,6 +55,16 @@ class ResourceMonitor {
    }
 
  public:
+
+   /**
+    * @brief Deleted assignment operator to prevent copying.
+    */
+   ResourceMonitor& operator=(const ResourceMonitor&) = delete;
+
+   /**
+    * @brief Deleted copy constructor to prevent copying.
+    */
+   ResourceMonitor(const ResourceMonitor&) = delete;
 
    /**
     * @brief Method to register a new instance.
@@ -108,6 +107,10 @@ class ResourceMonitor {
            sum += pair.second;
        }
        return sum;
+   }
+
+   [[nodiscard]] static size_t getCurrentInstanceCount() {
+       return getInstance().maxInstanceSizes.size();
    }
 
 };
