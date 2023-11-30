@@ -17,6 +17,7 @@
 #include "math/factorization/LU.h"
 
 #include "math/factorization/LUP.h"
+#include "math/relaxation/SOR.h"
 #include "math/relaxation/SORPJ.h"
 #include "math/relaxation/SSOR.h"
 

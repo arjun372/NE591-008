@@ -50,8 +50,11 @@ class InLab5 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVecto
      */
     HeaderInfo buildHeaderInfo() override {
         Canvas canvas;
-        printJuliaSet<__float128>(canvas, -0.8, 0.156, 300); //"o█■"
-        std::cout << "\t\t\tJulia set at (-0.8, 0.156), 300 iterations\n";
+        auto x = -0.8;
+        auto y = 0.156;
+        size_t iterations = 500;
+        canvas.tone_map.growth_rate = 0.05;
+        printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
         return {
             .ProjectName = "InLab 05",
             .ProjectDescription = "Linear equations with permutation matrix, forward, back substitution",

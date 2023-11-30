@@ -59,7 +59,6 @@ class Project1 : public Project<SolverInputs, Parser, SolverOutputs> {
         canvas.y_start = 0.825578589953;
         canvas.y_stop = 0.883651184261;
         printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
-        std::cout << "Julia set at (" << x << "," << y << "), " << iterations << " iterations\n";
         return {
             .ProjectName = "NE591: Project Milestone 1",
             .ProjectDescription = "Serial Neutron Diffusion Code",

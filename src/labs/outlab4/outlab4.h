@@ -52,8 +52,11 @@ class OutLab4 : public Project<MyBLAS::InputMatrices, Parser, MyBLAS::OutputVect
      */
     HeaderInfo buildHeaderInfo() override {
         Canvas canvas;
-        printJuliaSet<__float128>(canvas, -0.9, 0.26, 200);
-        std::cout << "\t\t\tJulia set at (-0.9, 0.26), 200 iterations\n";
+        auto x = -0.9;
+        auto y = 0.26;
+        size_t iterations = 50;
+        canvas.tone_map.growth_rate = 0.15;
+        printJuliaSet<__float128>(canvas, x, y, iterations);
         return {
             .ProjectName = "NE591: OutLab 04",
             .ProjectDescription = "Solving a system of linear equations using LU factorization",

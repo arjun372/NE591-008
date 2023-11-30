@@ -53,15 +53,13 @@ class OutLab5 : public Project<InputMatrices, Parser, Results> {
         Canvas canvas;
         auto x = -0.03;
         auto y = 0.77;
-        auto iterations = 337;
+        size_t iterations = 200;
         canvas.x_start = -0.396934597844;
         canvas.x_stop = -0.085211129213;
         canvas.y_start = 0.414181225609;
         canvas.y_stop = 0.632387653651;
-
-        canvas.tone_map.growth_rate = 0.25;
+        canvas.tone_map.growth_rate = 0.20;
         printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
-        std::cout << "Julia set at (" << x << "," << y << "), " << iterations << " iterations\n";
         return {
             .ProjectName = "NE591: OutLab 05",
             .ProjectDescription = "Solving a system of linear equations using LUP factorization",

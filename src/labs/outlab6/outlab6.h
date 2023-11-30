@@ -51,14 +51,13 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
         Canvas canvas;
         auto x = 0.13;
         auto y = -0.66;
-        auto iterations = 80;
+        size_t iterations = 80;
         canvas.x_start = -0.007514104707;
         canvas.x_stop = 0.075446744304;
         canvas.y_start = 0.825578589953;
         canvas.y_stop = 0.883651184261;
         canvas.tone_map.growth_rate = 0.25;
-        printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
-        std::cout << "Julia set at (" << x << "," << y << "), " << iterations << " iterations\n";
+        printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■";
         return {
             .ProjectName = "NE591: OutLab 06",
             .ProjectDescription = "Solving a system of linear equations using iterative methods",
