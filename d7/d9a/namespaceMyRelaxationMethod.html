@@ -128,11 +128,12 @@ $(document).ready(function(){initNavTree('d7/d9a/namespaceMyRelaxationMethod.htm
 Enumerations</h2></td></tr>
 <tr class="memitem:a07e854c35b6efce3f4b060202060a824"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824">Type</a> { <br />
 &#160;&#160;<a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a6b2d48132c7667a1997527e4c522ac94">METHOD_POINT_JACOBI</a>
+, <a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a3d790542b8bae9d19f7cdb877313b14d">METHOD_SORPJ</a>
 , <a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a6324f5e2cda367efbc5bce42529662b3">METHOD_GAUSS_SEIDEL</a>
-, <a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824acba5909cbce3a65b695ad21ac991fd9f">METHOD_SOR</a>
-, <a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6">METHOD_SSOR</a>
+, <a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824afc093a99f6f7e2e3e59eb9df2fb6d006">METHOD_SYMMETRIC_GAUSS_SEIDEL</a>
 , <br />
-&#160;&#160;<a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a527205340d6358cb7b2e01fa88c6ac30">METHOD_SORJ</a>
+&#160;&#160;<a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824acba5909cbce3a65b695ad21ac991fd9f">METHOD_SOR</a>
+, <a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6">METHOD_SSOR</a>
 <br />
  }</td></tr>
 <tr class="memdesc:a07e854c35b6efce3f4b060202060a824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for different types of relaxation methods.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824">More...</a><br /></td></tr>
@@ -140,14 +141,6 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1b6a833ea067f34c45415750d85b51fa"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
-<tr class="memitem:a1b6a833ea067f34c45415750d85b51fa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1b6a833ea067f34c45415750d85b51fa">applyGaussSeidel</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance)</td></tr>
-<tr class="memdesc:a1b6a833ea067f34c45415750d85b51fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the Gauss-Seidel method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1b6a833ea067f34c45415750d85b51fa">More...</a><br /></td></tr>
-<tr class="separator:a1b6a833ea067f34c45415750d85b51fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ad90cacb42ba2b27223feb0d56320b9"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
-<tr class="memitem:a1ad90cacb42ba2b27223feb0d56320b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1ad90cacb42ba2b27223feb0d56320b9">applyPointJacobi</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1)</td></tr>
-<tr class="memdesc:a1ad90cacb42ba2b27223feb0d56320b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the Point Jacobi method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1ad90cacb42ba2b27223feb0d56320b9">More...</a><br /></td></tr>
-<tr class="separator:a1ad90cacb42ba2b27223feb0d56320b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0af60a901ffd01d1bb403ecee40ba6c3"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3">TypeKey</a> (<a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824">MyRelaxationMethod::Type</a> value)</td></tr>
 <tr class="memdesc:a0af60a901ffd01d1bb403ecee40ba6c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the key of a relaxation method type.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3">More...</a><br /></td></tr>
 <tr class="separator:a0af60a901ffd01d1bb403ecee40ba6c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,14 +156,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a985bd80ba02c84e9d1ca2e434a32bd3f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a985bd80ba02c84e9d1ca2e434a32bd3f">passesPreChecks</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a> &amp;A, const VectorType &amp;b)</td></tr>
 <tr class="memdesc:a985bd80ba02c84e9d1ca2e434a32bd3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to perform pre-checks on the coefficient matrix and the right-hand side vector.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a985bd80ba02c84e9d1ca2e434a32bd3f">More...</a><br /></td></tr>
 <tr class="separator:a985bd80ba02c84e9d1ca2e434a32bd3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52bbc804a62498444281f3b3ac5c2c74"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
-<tr class="memitem:a52bbc804a62498444281f3b3ac5c2c74"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a52bbc804a62498444281f3b3ac5c2c74">applySOR</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor)</td></tr>
-<tr class="memdesc:a52bbc804a62498444281f3b3ac5c2c74"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the Successive Over-Relaxation (SOR) method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a52bbc804a62498444281f3b3ac5c2c74">More...</a><br /></td></tr>
-<tr class="separator:a52bbc804a62498444281f3b3ac5c2c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ce139c8c66799c77605e84daa52c54c"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
-<tr class="memitem:a6ce139c8c66799c77605e84daa52c54c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a6ce139c8c66799c77605e84daa52c54c">applySSOR</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor)</td></tr>
-<tr class="memdesc:a6ce139c8c66799c77605e84daa52c54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the Symmetric Successive Over-Relaxation (SSOR) method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a6ce139c8c66799c77605e84daa52c54c">More...</a><br /></td></tr>
-<tr class="separator:a6ce139c8c66799c77605e84daa52c54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a466c5086e62207f987ff9c14a580c166"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
+<tr class="memitem:a466c5086e62207f987ff9c14a580c166"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a466c5086e62207f987ff9c14a580c166">applySOR</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1)</td></tr>
+<tr class="memdesc:a466c5086e62207f987ff9c14a580c166"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the Successive Over-Relaxation (SOR) method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a466c5086e62207f987ff9c14a580c166">More...</a><br /></td></tr>
+<tr class="separator:a466c5086e62207f987ff9c14a580c166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ad90cacb42ba2b27223feb0d56320b9"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
+<tr class="memitem:a1ad90cacb42ba2b27223feb0d56320b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1ad90cacb42ba2b27223feb0d56320b9">applyPointJacobi</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1)</td></tr>
+<tr class="memdesc:a1ad90cacb42ba2b27223feb0d56320b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the Point Jacobi method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1ad90cacb42ba2b27223feb0d56320b9">More...</a><br /></td></tr>
+<tr class="separator:a1ad90cacb42ba2b27223feb0d56320b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ddcb6dcdcbb05bd579beb163e5c8346"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
+<tr class="memitem:a7ddcb6dcdcbb05bd579beb163e5c8346"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a7ddcb6dcdcbb05bd579beb163e5c8346">applySSOR</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1)</td></tr>
+<tr class="memdesc:a7ddcb6dcdcbb05bd579beb163e5c8346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the Symmetric Successive Over-Relaxation (SSOR) method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a7ddcb6dcdcbb05bd579beb163e5c8346">More...</a><br /></td></tr>
+<tr class="separator:a7ddcb6dcdcbb05bd579beb163e5c8346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This namespace contains implementations of various relaxation methods for solving systems of linear equations. </p>
@@ -191,20 +188,23 @@ Functions</h2></td></tr>
 <p>This enum represents the different types of relaxation methods that can be used in the program. The methods include Point Jacobi, Gauss Seidel, SOR, and SSOR. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a07e854c35b6efce3f4b060202060a824a6b2d48132c7667a1997527e4c522ac94"></a>METHOD_POINT_JACOBI&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a07e854c35b6efce3f4b060202060a824a3d790542b8bae9d19f7cdb877313b14d"></a>METHOD_SORPJ&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a07e854c35b6efce3f4b060202060a824a6324f5e2cda367efbc5bce42529662b3"></a>METHOD_GAUSS_SEIDEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a07e854c35b6efce3f4b060202060a824afc093a99f6f7e2e3e59eb9df2fb6d006"></a>METHOD_SYMMETRIC_GAUSS_SEIDEL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a07e854c35b6efce3f4b060202060a824acba5909cbce3a65b695ad21ac991fd9f"></a>METHOD_SOR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6"></a>METHOD_SSOR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a07e854c35b6efce3f4b060202060a824a527205340d6358cb7b2e01fa88c6ac30"></a>METHOD_SORJ&#160;</td><td class="fielddoc"></td></tr>
 </table>
 <div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;          {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f">METHOD_POINT_JACOBI</a>,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">METHOD_GAUSS_SEIDEL</a>,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3">METHOD_SOR</a>,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6">METHOD_SSOR</a>,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a527205340d6358cb7b2e01fa88c6ac30">METHOD_SORJ</a>,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
-<div class="ttc" id="anamespaceMyRelaxationMethod_html_a07e854c35b6efce3f4b060202060a824a527205340d6358cb7b2e01fa88c6ac30"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a527205340d6358cb7b2e01fa88c6ac30">MyRelaxationMethod::METHOD_SORJ</a></div><div class="ttdeci">@ METHOD_SORJ</div><div class="ttdef"><b>Definition:</b> RelaxationMethods.h:25</div></div>
-<div class="ttc" id="anamespaceMyRelaxationMethod_html_a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6">MyRelaxationMethod::METHOD_SSOR</a></div><div class="ttdeci">@ METHOD_SSOR</div><div class="ttdef"><b>Definition:</b> RelaxationMethods.h:24</div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a3d790542b8bae9d19f7cdb877313b14d">METHOD_SORPJ</a>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">METHOD_GAUSS_SEIDEL</a>,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824afc093a99f6f7e2e3e59eb9df2fb6d006">METHOD_SYMMETRIC_GAUSS_SEIDEL</a>,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3">METHOD_SOR</a>,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6">METHOD_SSOR</a>,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="ttc" id="anamespaceMyRelaxationMethod_html_a07e854c35b6efce3f4b060202060a824a3d790542b8bae9d19f7cdb877313b14d"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a3d790542b8bae9d19f7cdb877313b14d">MyRelaxationMethod::METHOD_SORPJ</a></div><div class="ttdeci">@ METHOD_SORPJ</div><div class="ttdef"><b>Definition:</b> RelaxationMethods.h:22</div></div>
+<div class="ttc" id="anamespaceMyRelaxationMethod_html_a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6">MyRelaxationMethod::METHOD_SSOR</a></div><div class="ttdeci">@ METHOD_SSOR</div><div class="ttdef"><b>Definition:</b> RelaxationMethods.h:26</div></div>
+<div class="ttc" id="anamespaceMyRelaxationMethod_html_a07e854c35b6efce3f4b060202060a824afc093a99f6f7e2e3e59eb9df2fb6d006"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824afc093a99f6f7e2e3e59eb9df2fb6d006">MyRelaxationMethod::METHOD_SYMMETRIC_GAUSS_SEIDEL</a></div><div class="ttdeci">@ METHOD_SYMMETRIC_GAUSS_SEIDEL</div><div class="ttdef"><b>Definition:</b> RelaxationMethods.h:24</div></div>
 <div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f">METHOD_POINT_JACOBI</a></div><div class="ttdeci">@ METHOD_POINT_JACOBI</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:22</div></div>
 <div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a6bb49f0205aab0f75df371e0b3b744b3">METHOD_SOR</a></div><div class="ttdeci">@ METHOD_SOR</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:22</div></div>
 <div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">METHOD_GAUSS_SEIDEL</a></div><div class="ttdeci">@ METHOD_GAUSS_SEIDEL</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:22</div></div>
@@ -212,91 +212,6 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a1b6a833ea067f34c45415750d85b51fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b6a833ea067f34c45415750d85b51fa">&#9670;&nbsp;</a></span>applyGaussSeidel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt;T&gt; MyRelaxationMethod::applyGaussSeidel </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const VectorType&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t&#160;</td>
-          <td class="paramname"><em>max_iterations</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T&#160;</td>
-          <td class="paramname"><em>tolerance</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function applies the Gauss-Seidel method to solve a system of linear equations. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The data type of the elements in the matrix and vectors (e.g., double, float). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">A</td><td>The matrix of coefficients in the system of equations. </td></tr>
-    <tr><td class="paramname">b</td><td>The vector of constants in the system of equations. </td></tr>
-    <tr><td class="paramname">max_iterations</td><td>The maximum number of iterations to perform. </td></tr>
-    <tr><td class="paramname">tolerance</td><td>The tolerance for convergence. The method stops when the error is less than this value. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A Solution object containing the solution vector, the number of iterations performed, whether the method converged, and the final error. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                                                                                    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">const</span> T relaxation_factor = 1;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a52bbc804a62498444281f3b3ac5c2c74">applySOR</a>(A, b, max_iterations, tolerance, relaxation_factor);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="ttc" id="anamespaceMyRelaxationMethod_html_a52bbc804a62498444281f3b3ac5c2c74"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a52bbc804a62498444281f3b3ac5c2c74">MyRelaxationMethod::applySOR</a></div><div class="ttdeci">MyLinearSolvingMethod::Solution&lt; T &gt; applySOR(const MatrixType&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor)</div><div class="ttdoc">This function applies the Successive Over-Relaxation (SOR) method to solve a system of linear equatio...</div><div class="ttdef"><b>Definition:</b> SOR.h:36</div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00036">applySOR()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>.</p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a1b6a833ea067f34c45415750d85b51fa_cgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a1b6a833ea067f34c45415750d85b51fa_icgraph.svg" width="424" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
 <a id="a1ad90cacb42ba2b27223feb0d56320b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ad90cacb42ba2b27223feb0d56320b9">&#9670;&nbsp;</a></span>applyPointJacobi()</h2>
 
@@ -365,34 +280,33 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
 <dl class="section note"><dt>Note</dt><dd>This function only works with square matrices. If a non-square matrix is provided, the function will return immediately with an empty solution. </dd>
 <dd>
 The function uses the L2 norm to check for convergence. If the system does not converge within the specified number of iterations, the function will return the current solution and set the 'converged' flag to false. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                                                                   {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = A.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>();                  <span class="comment">// Get the number of rows in the matrix A</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution&lt;T&gt;</a> results(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>); <span class="comment">// Initialize the results object with the size of the matrix</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> T tolerance_squared = <a class="code" href="../../de/d4d/namespaceMyMath.html#af3e9a9de7b922fdfb6e3d2988b1212ff">std::pow</a>(tolerance, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(2)); <span class="comment">// Calculate the square of the tolerance</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    T iterative_error_squared = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a403bf760cf802cddf8dd73e5d3e46a05">std::numeric_limits&lt;T&gt;::max</a>(); <span class="comment">// Initialize the squared error as the maximum</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    VectorType&lt;T&gt; new_x(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, 0); <span class="comment">// Initialize a new vector for the updated solution</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// Start the Point-Jacobi iteration</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">for</span> (results.iterations = 0; results.iterations &lt; max_iterations; (results.iterations)++) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">// Update the solution vector with the new values for this iteration step</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        results.x = new_x;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">// For each row in the matrix</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = 0; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>++) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="comment">// subtract the contribution from the diagonal term, since it should not be counted.</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            T <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a> = -(A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="comment">// For each column in the matrix, add the product of the matrix element and corresponding element in the</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="comment">// solution vector to the sum</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a> += A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] * results.x[col];</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                                                                   {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = A.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>();                  <span class="comment">// Get the number of rows in the matrix A</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution&lt;T&gt;</a> results(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>); <span class="comment">// Initialize the results object with the size of the matrix</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">const</span> T tolerance_squared = <a class="code" href="../../de/d4d/namespaceMyMath.html#af3e9a9de7b922fdfb6e3d2988b1212ff">std::pow</a>(tolerance, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(2)); <span class="comment">// Calculate the square of the tolerance</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    T iterative_error_squared = <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a403bf760cf802cddf8dd73e5d3e46a05">std::numeric_limits&lt;T&gt;::max</a>(); <span class="comment">// Initialize the squared error as the maximum</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    VectorType&lt;T&gt; new_x(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>, 0); <span class="comment">// Initialize a new vector for the updated solution</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// Start the Point-Jacobi iteration</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">for</span> (results.iterations = 0; results.iterations &lt; max_iterations; (results.iterations)++) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// Update the solution vector with the new values for this iteration step</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        results.x = new_x;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// For each row in the matrix</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">//        #pragma omp parallel for reduction(+:iterative_error_squared) default(none) shared(A, b, results, new_x)</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = 0; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>++) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="comment">// subtract the contribution from the diagonal term, since it should not be counted.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            T <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a> = -(A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="comment">// For each column in the matrix, add the product of the matrix element and corresponding element in the</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="comment">// solution vector to the sum</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a> += A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] * results.x[col];</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="comment">// Update the solution vector with the new value</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            new_x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] = (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) - relaxation_factor) * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] + (relaxation_factor / A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]) * (b[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] - <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a>);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
@@ -414,35 +328,35 @@ The function uses the L2 norm to check for convergence. If the system does not c
 <div class="ttc" id="ainlab2_2tests_2sanity__check_8m_html_aaf3e08bd5df22a84e842a1ee58631684"><div class="ttname"><a href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a></div><div class="ttdeci">Number of points to sample n</div><div class="ttdef"><b>Definition:</b> sanity_check.m:15</div></div>
 <div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_a403bf760cf802cddf8dd73e5d3e46a05"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a403bf760cf802cddf8dd73e5d3e46a05">MyBLAS::Stats::max</a></div><div class="ttdeci">T max(const Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the maximum value in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:96</div></div>
 <div class="ttc" id="anamespaceMyBLAS_1_1Stats_html_aaa0d2e3d22af2b7894169b7c90ba6146"><div class="ttname"><a href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">MyBLAS::Stats::sum</a></div><div class="ttdeci">T sum(const MyBLAS::Vector&lt; T &gt; &amp;v)</div><div class="ttdoc">Function to find the sum of all elements in a vector.</div><div class="ttdef"><b>Definition:</b> Stats.h:141</div></div>
-<div class="ttc" id="anamespaceMyBLAS_html_ac6dacb7fc104126e5fa62e02f0ec1446"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446">MyBLAS::L2</a></div><div class="ttdeci">T L2(const VectorType&lt; T &gt; &amp;a, const VectorType&lt; T &gt; &amp;b, const size_t n)</div><div class="ttdoc">Calculates the L2 norm (Euclidean distance) between two containers.</div><div class="ttdef"><b>Definition:</b> Ops.h:39</div></div>
+<div class="ttc" id="anamespaceMyBLAS_html_ac6dacb7fc104126e5fa62e02f0ec1446"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446">MyBLAS::L2</a></div><div class="ttdeci">T L2(const VectorType&lt; T &gt; &amp;a, const VectorType&lt; T &gt; &amp;b, const size_t n)</div><div class="ttdoc">Calculates the L2 norm of the distance (Euclidean distance) between two containers.</div><div class="ttdef"><b>Definition:</b> Ops.h:39</div></div>
 <div class="ttc" id="anamespaceMyMath_html_af3e9a9de7b922fdfb6e3d2988b1212ff"><div class="ttname"><a href="../../de/d4d/namespaceMyMath.html#af3e9a9de7b922fdfb6e3d2988b1212ff">MyMath::pow</a></div><div class="ttdeci">T pow(T base, int exponent)</div><div class="ttdoc">A template function to calculate the power of a base number.</div><div class="ttdef"><b>Definition:</b> Math.h:62</div></div>
 <div class="ttc" id="anamespaceprocess_html_a642508a3f698c3dc98a03f79a3b625d3"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">process.row</a></div><div class="ttdeci">row</div><div class="ttdef"><b>Definition:</b> process.py:24</div></div>
 <div class="ttc" id="astructMyLinearSolvingMethod_1_1Solution_html"><div class="ttname"><a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a></div><div class="ttdoc">Structure that represents the solution of the linear solver.</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:68</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00076">MyLinearSolvingMethod::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00293">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00077">MyLinearSolvingMethod::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00078">MyLinearSolvingMethod::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00039">MyBLAS::L2()</a>, <a class="el" href="../../#l00096">MyBLAS::Stats::max()</a>, <a class="el" href="../../#l00015">n</a>, <a class="el" href="../../#l00062">MyMath::pow()</a>, <a class="el" href="../../#l00024">process::row</a>, <a class="el" href="../../#l00141">MyBLAS::Stats::sum()</a>, and <a class="el" href="../../#l00080">MyLinearSolvingMethod::Solution&lt; T &gt;::x</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, and <a class="el" href="../../#l00030">Compute::usingPointJacobi()</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00174">Compute::usingJacobiSOR()</a>, and <a class="el" href="../../#l00030">Compute::usingPointJacobi()</a>.</p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a1ad90cacb42ba2b27223feb0d56320b9_cgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a1ad90cacb42ba2b27223feb0d56320b9_icgraph.svg" width="570" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a52bbc804a62498444281f3b3ac5c2c74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52bbc804a62498444281f3b3ac5c2c74">&#9670;&nbsp;</a></span>applySOR()</h2>
+<a id="a466c5086e62207f987ff9c14a580c166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a466c5086e62207f987ff9c14a580c166">&#9670;&nbsp;</a></span>applySOR()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -477,7 +391,7 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const T&#160;</td>
-          <td class="paramname"><em>relaxation_factor</em>&#160;</td>
+          <td class="paramname"><em>relaxation_factor</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -505,7 +419,7 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A Solution object containing the solution vector, the number of iterations performed, whether the method converged, and the final error. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                                                                                                       {</div>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                                                                                                           {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = A.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>();                  <span class="comment">// Get the number of rows in the matrix A</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution&lt;T&gt;</a> results(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>); <span class="comment">// Initialize the results object with the size of the matrix</span></div>
@@ -520,59 +434,56 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// For each row in the matrix</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = 0; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>++) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="comment">// subtract the contribution from the diagonal term, since it should not be counted.</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            T <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a> = -(A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="comment">// For each column in the matrix, add the product of the matrix element and corresponding element in the</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="comment">// solution vector to the sum</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a> += A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] * results.x[col];</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="comment">// Update the solution vector with the new value, including the relaxation factor</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] = (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) - relaxation_factor) * old_x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] + (relaxation_factor / A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]) * (b[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] - <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="comment">// subtract the contribution from the diagonal term, since it should not be counted.</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            T <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a> = -(A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] * results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="comment">// For each column in the matrix, add the product of the matrix element and corresponding element in the</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="comment">// solution vector to the sum</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col &lt; <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>; col++) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a> += A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][col] * results.x[col];</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="comment">// Update the solution vector with the new value, including the relaxation factor</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            results.x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] = (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) - relaxation_factor) * old_x[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] + (relaxation_factor / A[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>][<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>]) * (b[<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>] - <a class="code" href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146">sum</a>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">// Calculate the L2 norm of the difference between the new and old solution vectors</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        iterative_error_squared = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446">MyBLAS::L2</a>(results.x, old_x, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// Calculate the L2 norm of the difference between the new and old solution vectors</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        iterative_error_squared = <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446">MyBLAS::L2</a>(results.x, old_x, <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span> (iterative_error_squared &lt; tolerance_squared) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            results.converged = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Calculate the final error as the square root of the squared error</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    results.iterative_error = std::sqrt(iterative_error_squared);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> results;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span> (iterative_error_squared &lt; tolerance_squared) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            results.converged = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// Calculate the final error as the square root of the squared error</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    results.iterative_error = std::sqrt(iterative_error_squared);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> results;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00076">MyLinearSolvingMethod::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00293">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00077">MyLinearSolvingMethod::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00078">MyLinearSolvingMethod::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00039">MyBLAS::L2()</a>, <a class="el" href="../../#l00096">MyBLAS::Stats::max()</a>, <a class="el" href="../../#l00015">n</a>, <a class="el" href="../../#l00062">MyMath::pow()</a>, <a class="el" href="../../#l00024">process::row</a>, <a class="el" href="../../#l00141">MyBLAS::Stats::sum()</a>, and <a class="el" href="../../#l00080">MyLinearSolvingMethod::Solution&lt; T &gt;::x</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00035">applyGaussSeidel()</a>, and <a class="el" href="../../#l00139">Compute::usingSOR()</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00103">Compute::usingGaussSeidel()</a>, and <a class="el" href="../../#l00138">Compute::usingSOR()</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a52bbc804a62498444281f3b3ac5c2c74_cgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a466c5086e62207f987ff9c14a580c166_cgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a52bbc804a62498444281f3b3ac5c2c74_icgraph.svg" width="634" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a466c5086e62207f987ff9c14a580c166_icgraph.svg" width="424" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a6ce139c8c66799c77605e84daa52c54c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ce139c8c66799c77605e84daa52c54c">&#9670;&nbsp;</a></span>applySSOR()</h2>
+<a id="a7ddcb6dcdcbb05bd579beb163e5c8346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ddcb6dcdcbb05bd579beb163e5c8346">&#9670;&nbsp;</a></span>applySSOR()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -607,7 +518,7 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const T&#160;</td>
-          <td class="paramname"><em>relaxation_factor</em>&#160;</td>
+          <td class="paramname"><em>relaxation_factor</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -635,7 +546,7 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A Solution object containing the solution vector, the number of iterations performed, whether the method converged, and the final error. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                                                        {</div>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                                                            {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a> = A.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">getRows</a>();                  <span class="comment">// Get the number of rows in the matrix A</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution&lt;T&gt;</a> results(<a class="code" href="../../d8/d13/inlab2_2tests_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>); <span class="comment">// Initialize the results object with the size of the matrix</span></div>
@@ -689,21 +600,21 @@ template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00076">MyLinearSolvingMethod::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00293">MyBLAS::Matrix&lt; T &gt;::getRows()</a>, <a class="el" href="../../#l00077">MyLinearSolvingMethod::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00078">MyLinearSolvingMethod::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00039">MyBLAS::L2()</a>, <a class="el" href="../../#l00096">MyBLAS::Stats::max()</a>, <a class="el" href="../../#l00015">n</a>, <a class="el" href="../../#l00062">MyMath::pow()</a>, <a class="el" href="../../#l00024">process::row</a>, <a class="el" href="../../#l00141">MyBLAS::Stats::sum()</a>, and <a class="el" href="../../#l00080">MyLinearSolvingMethod::Solution&lt; T &gt;::x</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00229">Compute::usingSymmetricGaussSeidel()</a>, and <a class="el" href="../../#l00210">Compute::usingSymmetricSOR()</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a6ce139c8c66799c77605e84daa52c54c_cgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a7ddcb6dcdcbb05bd579beb163e5c8346_cgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a6ce139c8c66799c77605e84daa52c54c_icgraph.svg" width="443" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a7ddcb6dcdcbb05bd579beb163e5c8346_icgraph.svg" width="607" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -761,20 +672,20 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The approximate optimal relaxation factor. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                                                                                          {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">const</span> T dx = 1 / (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(meshX) - 1);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">const</span> T dy = 1 / (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(meshY) - 1);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> T rho = std::cos(M_PIl * dx) + std::cos(M_PIl * dy);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> T factor = 2 / (1 + std::sqrt(1 - <a class="code" href="../../de/d4d/namespaceMyMath.html#af3e9a9de7b922fdfb6e3d2988b1212ff">std::pow</a>(rho, 2)));</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> factor;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                                                                                          {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">const</span> T dx = 1 / (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(meshX) - 1);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> T dy = 1 / (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(meshY) - 1);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> T rho = std::cos(M_PIl * dx) + std::cos(M_PIl * dy);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> T factor = 2 / (1 + std::sqrt(1 - <a class="code" href="../../de/d4d/namespaceMyMath.html#af3e9a9de7b922fdfb6e3d2988b1212ff">std::pow</a>(rho, 2)));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> factor;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00062">MyMath::pow()</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_abde81298190b57f3cce6fe5ca0d18dce_cgraph.svg" width="563" height="67"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -822,9 +733,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The approximate optimal relaxation factor. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                                                                       {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> approximateOptimalRelaxationFactor&lt;T&gt;(meshXY, meshXY);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                                                                       {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> approximateOptimalRelaxationFactor&lt;T&gt;(meshXY, meshXY);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -872,29 +783,29 @@ template&lt;typename MatrixType , typename VectorType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if all pre-checks pass, false otherwise. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                                               {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a1f0325293f4b4969ac4a450ba3db1f87">MyBLAS::isEmptyMatrix</a>(A)) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed pre-check: coefficient matrix is empty.\n&quot;</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f">MyBLAS::isSquareMatrix</a>(A)) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed pre-check: coefficient matrix is non-square.\n&quot;</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a56e77d4aef50489830f5ce0ef7bcf7a4">MyBLAS::noZerosInDiagonal</a>(A)) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed pre-check: coefficient matrix diagonal contains 0.\n&quot;</span>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a4ae8cb61e3457065790607979b939564">MyBLAS::isDiagonallyDominant</a>(A)) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Warning: coefficient matrix is not diagonally dominant, may not converge\n&quot;</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                                               {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a1f0325293f4b4969ac4a450ba3db1f87">MyBLAS::isEmptyMatrix</a>(A)) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed pre-check: coefficient matrix is empty.\n&quot;</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f">MyBLAS::isSquareMatrix</a>(A)) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed pre-check: coefficient matrix is non-square.\n&quot;</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a56e77d4aef50489830f5ce0ef7bcf7a4">MyBLAS::noZerosInDiagonal</a>(A)) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Failed pre-check: coefficient matrix diagonal contains 0.\n&quot;</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d6e/namespaceMyBLAS.html#a4ae8cb61e3457065790607979b939564">MyBLAS::isDiagonallyDominant</a>(A)) {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Warning: coefficient matrix is not diagonally dominant, may not converge\n&quot;</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
 <div class="ttc" id="anamespaceMyBLAS_html_a0b887e323f8337bd87ef20dff8af5c1f"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f">MyBLAS::isSquareMatrix</a></div><div class="ttdeci">bool isSquareMatrix(const MatrixType &amp;M)</div><div class="ttdoc">Checks if the given matrix is a square matrix.</div><div class="ttdef"><b>Definition:</b> BLAS.h:28</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_a1f0325293f4b4969ac4a450ba3db1f87"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a1f0325293f4b4969ac4a450ba3db1f87">MyBLAS::isEmptyMatrix</a></div><div class="ttdeci">bool isEmptyMatrix(const MatrixType &amp;M)</div><div class="ttdoc">Checks if the given matrix is empty.</div><div class="ttdef"><b>Definition:</b> BLAS.h:40</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_a4ae8cb61e3457065790607979b939564"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#a4ae8cb61e3457065790607979b939564">MyBLAS::isDiagonallyDominant</a></div><div class="ttdeci">bool isDiagonallyDominant(const U&lt; T &gt; &amp;A)</div><div class="ttdoc">Checks if the given matrix is diagonally dominant.</div><div class="ttdef"><b>Definition:</b> BLAS.h:399</div></div>
@@ -902,21 +813,21 @@ template&lt;typename MatrixType , typename VectorType &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00399">MyBLAS::isDiagonallyDominant()</a>, <a class="el" href="../../#l00040">MyBLAS::isEmptyMatrix()</a>, <a class="el" href="../../#l00028">MyBLAS::isSquareMatrix()</a>, and <a class="el" href="../../#l00385">MyBLAS::noZerosInDiagonal()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00104">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00175">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00122">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00139">Compute::usingSOR()</a>, and <a class="el" href="../../#l00211">Compute::usingSymmetricSOR()</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="reference">Referenced by <a class="el" href="../../#l00103">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00174">Compute::usingJacobiSOR()</a>, <a class="el" href="../../#l00121">Compute::usingPointJacobi()</a>, <a class="el" href="../../#l00138">Compute::usingSOR()</a>, <a class="el" href="../../#l00229">Compute::usingSymmetricGaussSeidel()</a>, and <a class="el" href="../../#l00210">Compute::usingSymmetricSOR()</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a985bd80ba02c84e9d1ca2e434a32bd3f_cgraph.svg" width="100%" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a985bd80ba02c84e9d1ca2e434a32bd3f_icgraph.svg" width="596" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a985bd80ba02c84e9d1ca2e434a32bd3f_icgraph.svg" width="608" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -947,17 +858,17 @@ template&lt;typename MatrixType , typename VectorType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The key of the relaxation method type as a string. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                                  {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *relaxationMethodTypeKeys[] = {<span class="stringliteral">&quot;point-jacobi&quot;</span>, <span class="stringliteral">&quot;gauss-seidel&quot;</span>, <span class="stringliteral">&quot;SOR&quot;</span>, <span class="stringliteral">&quot;SSOR&quot;</span>, <span class="stringliteral">&quot;SORJ&quot;</span>};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> relaxationMethodTypeKeys[<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(value)];</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                                  {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *relaxationMethodTypeKeys[] = {<span class="stringliteral">&quot;point-jacobi&quot;</span>, <span class="stringliteral">&quot;SORPJ&quot;</span>, <span class="stringliteral">&quot;gauss-seidel&quot;</span>, <span class="stringliteral">&quot;symmetric-gauss-seidel&quot;</span>, <span class="stringliteral">&quot;SOR&quot;</span>, <span class="stringliteral">&quot;SSOR&quot;</span>};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> relaxationMethodTypeKeys[<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(value)];</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="../../#l00092">InLab6::run()</a>, <a class="el" href="../../#l00094">OutLab6::run()</a>, <a class="el" href="../../#l00094">Project2::run()</a>, <a class="el" href="../../#l00094">Project3::run()</a>, and <a class="el" href="../../#l00037">MyLinearSolvingMethod::TypeKey()</a>.</p>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d9a/namespaceMyRelaxationMethod_a0af60a901ffd01d1bb403ecee40ba6c3_icgraph.svg" width="399" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>

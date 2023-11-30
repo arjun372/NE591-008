@@ -8,6 +8,7 @@ var searchData=
   ['mylinearsolvingmethod_976',['MyLinearSolvingMethod',['../de/d18/namespaceMyLinearSolvingMethod.html',1,'']]],
   ['mymath_977',['MyMath',['../de/d4d/namespaceMyMath.html',1,'']]],
   ['myrelaxationmethod_978',['MyRelaxationMethod',['../d7/d9a/namespaceMyRelaxationMethod.html',1,'']]],
-  ['stats_979',['Stats',['../dd/df5/namespaceMyBLAS_1_1Stats.html',1,'MyBLAS']]],
-  ['system_980',['System',['../d5/d7a/namespaceMyBLAS_1_1System.html',1,'MyBLAS']]]
+  ['myrelaxationmethods_979',['MyRelaxationMethods',['../d5/d2c/namespaceMyRelaxationMethods.html',1,'']]],
+  ['stats_980',['Stats',['../dd/df5/namespaceMyBLAS_1_1Stats.html',1,'MyBLAS']]],
+  ['system_981',['System',['../d5/d7a/namespaceMyBLAS_1_1System.html',1,'MyBLAS']]]
 ];

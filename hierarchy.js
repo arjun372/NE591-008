@@ -156,7 +156,8 @@ var hierarchy =
       [ "MyBLAS::VectorExpressionTests", "de/d3a/classMyBLAS_1_1VectorExpressionTests.html", null ],
       [ "MyBLAS::VectorMemoryAllocationTests< T >", "da/d69/classMyBLAS_1_1VectorMemoryAllocationTests.html", null ],
       [ "MyBLAS::VectorTests< T >", "d8/db9/classMyBLAS_1_1VectorTests.html", null ],
-      [ "MyBLAS::VectorUtilityTests< T >", "dd/dfd/classMyBLAS_1_1VectorUtilityTests.html", null ]
+      [ "MyBLAS::VectorUtilityTests< T >", "dd/dfd/classMyBLAS_1_1VectorUtilityTests.html", null ],
+      [ "MyRelaxationMethods::PointJacobiTests< T >", "d3/d0a/classMyRelaxationMethods_1_1PointJacobiTests.html", null ]
     ] ],
     [ "testing::TestWithParam", null, [
       [ "DiffusionConstantsValidTest", "dd/d10/classDiffusionConstantsValidTest.html", null ],

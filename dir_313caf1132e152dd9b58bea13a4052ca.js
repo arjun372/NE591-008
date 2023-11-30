@@ -11,6 +11,5 @@ var dir_313caf1132e152dd9b58bea13a4052ca =
     [ "Project.h", "d2/dff/Project_8h.html", [
       [ "Project", "db/d91/classProject.html", "db/d91/classProject" ]
     ] ],
-    [ "Stopwatch.h", "d4/d2e/Stopwatch_8h.html", "d4/d2e/Stopwatch_8h" ],
     [ "utils_stub.cpp", "db/d6c/utils__stub_8cpp.html", null ]
 ];

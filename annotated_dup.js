@@ -40,6 +40,9 @@ var annotated_dup =
         [ "Params", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params" ]
       ] ]
     ] ],
+    [ "MyRelaxationMethods", "d5/d2c/namespaceMyRelaxationMethods.html", [
+      [ "PointJacobiTests", "d3/d0a/classMyRelaxationMethods_1_1PointJacobiTests.html", null ]
+    ] ],
     [ "ArgsPrintMatrix", "d7/d12/structArgsPrintMatrix.html", "d7/d12/structArgsPrintMatrix" ],
     [ "CanvasType", "db/df1/Helpers_8h.html#de/d8a/structCanvasType", "db/df1/Helpers_8h_de/d8a/structCanvasType" ],
     [ "CommandLine", "dd/d02/classCommandLine.html", "dd/d02/classCommandLine" ],
