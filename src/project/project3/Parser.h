@@ -48,7 +48,8 @@ class Parser : public CommandLine<SolverInputs> {
         methods.add_options()
             ("use-LUP", "= Use LUP factorization")
             ("use-point-jacobi","= Use the Point-Jacobi method")
-            ("use-SORJ", "= Use the SOR Jacobi method")
+            ("use-SORPJ", "= Use the SOR Jacobi method")
+            ("use-symmetric-gauss-seidel", "= Use the symmetric Gauss-Seidel method")
             ("use-gauss-seidel", "= Use the Gauss-Seidel method")
             ("use-SOR", "= Use the SOR method")
             ("use-SSOR", "= Use the symmetric SOR method")(
@@ -83,11 +84,15 @@ class Parser : public CommandLine<SolverInputs> {
         std::cout << "\tMax iterations,                         k: " << static_cast<size_t>(vm["max-iterations"].as<MyBLAS::NumericType>())<< "\n";
         std::cout << "\tSOR weight,                             ω: "<< (vm.count("relaxation-factor") ? std::to_string(vm["relaxation-factor"].as<MyBLAS::NumericType>()) : "N/A") << "\n";
         std::cout << "\tUse LUP factorization                    : " << (vm["use-LUP"].as<bool>() ? "Yes" : "No") << "\n";
-        std::cout << "\tUse Gauss-Seidel                         : " << (vm["use-gauss-seidel"].as<bool>() ? "Yes" : "No") << "\n";
+
         std::cout << "\tUse Point-Jacobi                         : " << (vm["use-point-jacobi"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse Point-Jacobi with SOR                : " << (vm["use-SORPJ"].as<bool>() ? "Yes" : "No") << "\n";
+
+        std::cout << "\tUse Gauss-Seidel                         : " << (vm["use-gauss-seidel"].as<bool>() ? "Yes" : "No") << "\n";
+        std::cout << "\tUse symmetric Gauss-Seidel               : " << (vm["use-symmetric-gauss-seidel"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\tUse SOR                                  : " << (vm["use-SOR"].as<bool>() ? "Yes" : "No") << "\n";
-        std::cout << "\tUse Point-Jacobi with SOR                : " << (vm["use-SORJ"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\tUse symmetric SOR                        : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
+
         std::cout << "\t----\n";
         std::cout << "\t1st dimension length,                   a: " << vm["a"].as<MyBLAS::NumericType>() << "\n";
         std::cout << "\t2nd dimension length,                   b: " << vm["b"].as<MyBLAS::NumericType>() << "\n";
@@ -254,16 +259,22 @@ class Parser : public CommandLine<SolverInputs> {
             promptAndSetFlags("use-point-jacobi", "Point Jacobi method", map);
         }
 
-        if(contains(methods, "SORJ")) {
-            replace(map, "use-SORJ", asYesOrNo("yes"));
+        if(contains(methods, "SORPJ")) {
+            replace(map, "use-SORPJ", asYesOrNo("yes"));
         } else {
-            promptAndSetFlags("use-SORJ", "SOR Jacobi method", map);
+            promptAndSetFlags("use-SORPJ", "SOR Jacobi method", map);
         }
 
         if(contains(methods, "gauss-seidel")) {
             replace(map, "use-gauss-seidel", asYesOrNo("yes"));
         } else {
             promptAndSetFlags("use-gauss-seidel", "Gauss-Seidel method", map);
+        }
+
+        if(contains(methods, "symmetric-gauss-seidel")) {
+            replace(map, "use-symmetric-gauss-seidel", asYesOrNo("yes"));
+        } else {
+            promptAndSetFlags("use-symmetric-gauss-seidel", "symmetric Gauss-Seidel method", map);
         }
 
         if(contains(methods, "SOR")) {
@@ -278,7 +289,9 @@ class Parser : public CommandLine<SolverInputs> {
             promptAndSetFlags("use-SSOR", "symmetric SOR method", map);
         }
 
-        if (map["use-SOR"].as<bool>() || map["use-SORJ"].as<bool>() || map["use-SSOR"].as<bool>()) {
+        if (map["use-SORPJ"].as<bool>()  ||
+            map["use-SOR"].as<bool>()    ||
+            map["use-SSOR"].as<bool>()) {
             checks.clear();
             performChecksAndUpdateInput<MyBLAS::NumericType>("relaxation-factor", inputMap, map, checks);
         }
@@ -340,16 +353,20 @@ class Parser : public CommandLine<SolverInputs> {
             input.methods.insert(MyRelaxationMethod::Type::METHOD_POINT_JACOBI);
         }
 
+        if (map["use-SORPJ"].as<bool>()) {
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_SORPJ);
+        }
+
         if (map["use-gauss-seidel"].as<bool>()) {
             input.methods.insert(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL);
         }
 
-        if (map["use-SOR"].as<bool>()) {
-            input.methods.insert(MyRelaxationMethod::Type::METHOD_SOR);
+        if (map["use-symmetric-gauss-seidel"].as<bool>()) {
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_SYMMETRIC_GAUSS_SEIDEL);
         }
 
-        if (map["use-SORJ"].as<bool>()) {
-            input.methods.insert(MyRelaxationMethod::Type::METHOD_SORJ);
+        if (map["use-SOR"].as<bool>()) {
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_SOR);
         }
 
         if (map["use-SSOR"].as<bool>()) {

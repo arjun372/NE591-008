@@ -33,7 +33,7 @@
 #include "math/blas/vector/Vector.h"
 
 #include "../../CommandLine.h"
-#include "../../Stopwatch.h"
+#include "utils/profiler/Stopwatch.h"
 
 /**
  * @namespace MyBLAS
@@ -65,6 +65,7 @@ static void doolittleFactorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const
         for (size_t k = i; k < n; k++) {
             T sum = 0;
             // Calculate the sum of the product of the corresponding elements of L and U
+//            #pragma omp parallel for default(none) shared(i, k, L, U) reduction(+:sum)
             for (size_t j = 0; j < i; j++) {
                 sum += (L[i][j] * U[j][k]);
             }
@@ -79,6 +80,7 @@ static void doolittleFactorize(MyBLAS::Matrix<T> &L, MyBLAS::Matrix<T> &U, const
         for (size_t k = i + 1; k < n; k++) {
             T sum = 0;
             // Calculate the sum of the product of the corresponding elements of L and U
+//            #pragma omp parallel for default(none) shared(i, k, L, U) reduction(+:sum)
             for (size_t j = 0; j < i; j++) {
                 sum += (L[k][j] * U[j][i]);
             }

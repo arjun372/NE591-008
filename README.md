@@ -420,7 +420,7 @@ background with port 22 exposed:
 
 ```bash
 docker build --target=ssh-debugger -t ne591:ssh-debugger .
-docker run --name=eos-ssh-debugger -d -p 2222:22 -it ne591:ssh-debugger
+docker run --privileged --name=eos-ssh-debugger -d -p 2222:22 -it ne591:ssh-debugger
 ```
 
 Then, you can connect to the running container using SSH. Clion provides native support for debugging remotely. Follow

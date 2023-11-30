@@ -17,6 +17,27 @@ option(ENABLE_CODE_QUALITY_CHECKS "Enable extra compile-time warnings" ON)
 option(REQUIRE_MPI "Enable and require the use of MPI" ON)
 ######################### Options ################################################## }}}
 
+# Check for OpenMP support
+find_package(OpenMP)
+
+if(OpenMP_CXX_FOUND)
+    message(STATUS "OpenMP found")
+    add_compile_options(${OpenMP_CXX_FLAGS})
+    # If OpenMP GPU offloading support is required, check for a specific version
+    if(OpenMP_CXX_VERSION VERSION_GREATER_EQUAL "4.5")
+        message(STATUS "OpenMP 4.5 or later found, GPU offloading is supported")
+        # Add OpenMP flags to the compile options
+        add_compile_options(${OpenMP_CXX_FLAGS})
+        # Link the OpenMP libraries to your targets as needed
+        # For example:
+        # target_link_libraries(your_target_name PRIVATE OpenMP::OpenMP_CXX)
+    else()
+        message(STATUS "OpenMP version is less than 4.5, GPU offloading may not be supported")
+    endif()
+else()
+    message(STATUS "OpenMP not found")
+endif()
+
 ######################### Compiler Config ########################################## {{{
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)   # Needed for Clang Tooling.
 set(CMAKE_CXX_STANDARD 17)              # Default to C++17

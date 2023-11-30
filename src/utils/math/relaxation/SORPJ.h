@@ -5,9 +5,10 @@
  * @brief This file contains the implementation of the Point Jacobi method for solving systems of linear equations.
  */
 
-#ifndef NE591_008_POINTJACOBI_H
-#define NE591_008_POINTJACOBI_H
+#ifndef NE591_008_SORPJ_H
+#define NE591_008_SORPJ_H
 
+#include <omp.h>
 #include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
 #include <cstddef>
@@ -69,8 +70,8 @@ MyLinearSolvingMethod::Solution<T> applyPointJacobi(const MatrixType<T> &A, cons
         results.x = new_x;
 
         // For each row in the matrix
+//        #pragma omp parallel for reduction(+:iterative_error_squared) default(none) shared(A, b, results, new_x)
         for (size_t row = 0; row < n; row++) {
-
             // subtract the contribution from the diagonal term, since it should not be counted.
             T sum = -(A[row][row] * results.x[row]);
 
@@ -79,7 +80,6 @@ MyLinearSolvingMethod::Solution<T> applyPointJacobi(const MatrixType<T> &A, cons
             for (size_t col = 0; col < n; col++) {
                 sum += A[row][col] * results.x[col];
             }
-
             // Update the solution vector with the new value
             new_x[row] = (static_cast<T>(1) - relaxation_factor) * results.x[row] + (relaxation_factor / A[row][row]) * (b[row] - sum);
         }
@@ -98,4 +98,4 @@ MyLinearSolvingMethod::Solution<T> applyPointJacobi(const MatrixType<T> &A, cons
     return results;
 }
 } // namespace MyRelaxationMethod
-#endif // NE591_008_POINTJACOBI_H
+#endif // NE591_008_SORPJ_H

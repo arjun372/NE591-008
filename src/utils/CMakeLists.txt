@@ -3,11 +3,11 @@ set(UTILS_LIB_HEADERS
         FileParser.h
         Helpers.h
         json.hpp
-        Stopwatch.h
 
         profiler/Profiler.h
         profiler/ProfilerHelper.h
         profiler/ResourceMonitor.h
+        profiler/Stopwatch.h
 
         CommandLine.h
         Project.h
@@ -35,8 +35,7 @@ set(UTILS_LIB_HEADERS
         math/Random.h
         math/RootFinder.h
 
-        math/relaxation/PointJacobi.h
-        math/relaxation/GaussSeidel.h
+        math/relaxation/SORPJ.h
         math/relaxation/SOR.h
         math/relaxation/SSOR.h
         math/relaxation/RelaxationMethods.h
@@ -62,6 +61,7 @@ endif ()
 
 # Link utils against Boost libraries
 target_link_libraries(utils Boost::program_options Boost::serialization)
+target_link_libraries(utils OpenMP::OpenMP_CXX)
 
 add_subdirectory(physics)
 add_subdirectory(math)

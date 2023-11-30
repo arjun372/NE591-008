@@ -29,14 +29,15 @@
 #include <cmath>
 #include <iostream>
 
+#include <omp.h>
 #include "LU.h"
 #include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
 
 #include "../../CommandLine.h"
-#include "../../Stopwatch.h"
 #include "Factorize.h"
 #include "math/LinearSolver.h"
+#include "utils/profiler/Stopwatch.h"
 
 /**
  * @namespace MyBLAS
@@ -72,9 +73,12 @@ MatrixType<T> dooLittleFactorizeLUP(MatrixType<T> &L, MatrixType<T> &U, const Ma
         // Find the pivot row
         T max_val = 0;
         size_t pivot_row = i;
+//        #pragma omp parallel for default(none) shared(pivotedA, i, max_val, pivot_row)
         for (size_t j = i; j < n; j++) {
-            if (fabsl(pivotedA[j][i]) > max_val) {
-                max_val = std::abs(pivotedA[j][i]);
+            const auto absoluteVal = std::abs(pivotedA[j][i]);
+//            #pragma omp critical
+            if (absoluteVal > max_val) {
+                max_val = absoluteVal;
                 pivot_row = j;
             }
         }

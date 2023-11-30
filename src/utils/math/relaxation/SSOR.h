@@ -38,7 +38,7 @@ namespace MyRelaxationMethod {
 template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
 MyLinearSolvingMethod::Solution<T> applySSOR(const MatrixType<T> &A, const VectorType<T> &b,
                                              const size_t max_iterations, const T tolerance,
-                                             const T relaxation_factor) {
+                                             const T relaxation_factor = 1) {
 
     const size_t n = A.getRows();                  // Get the number of rows in the matrix A
     MyLinearSolvingMethod::Solution<T> results(n); // Initialize the results object with the size of the matrix

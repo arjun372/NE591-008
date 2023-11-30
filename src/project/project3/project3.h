@@ -145,10 +145,10 @@ class Project3 : public Project<SolverInputs, Parser, SolverOutputs> {
             printResults(runResults);
         }
 
-        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORJ)) {
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORPJ)) {
             SolverOutputs runResults(inputs);
             Compute::usingJacobiSOR(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORJ)]);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORPJ)]);
             Parser::printLine();
             std::cout << "SOR Point Jacobi Method Results" << std::endl;
             Parser::printLine();
@@ -162,6 +162,16 @@ class Project3 : public Project<SolverInputs, Parser, SolverOutputs> {
                 results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)]);
             Parser::printLine();
             std::cout << "Gauss-Seidel Method Results" << std::endl;
+            Parser::printLine();
+            printResults(runResults);
+        }
+
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SYMMETRIC_GAUSS_SEIDEL)) {
+            SolverOutputs runResults(inputs);
+            Compute::usingSymmetricGaussSeidel(runResults, inputs);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SYMMETRIC_GAUSS_SEIDEL)]);
+            Parser::printLine();
+            std::cout << "Symmetric Gauss-Seidel Method Results" << std::endl;
             Parser::printLine();
             printResults(runResults);
         }
@@ -190,7 +200,6 @@ class Project3 : public Project<SolverInputs, Parser, SolverOutputs> {
 
         // write output data
         if (values.count("output-results-json")) {
-            //outputs.toJSON(results["outputs"]);
             writeJSON(values["output-results-json"].as<std::string>(), results);
         }
 };

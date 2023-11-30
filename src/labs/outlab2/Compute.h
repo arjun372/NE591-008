@@ -12,7 +12,7 @@
 #include <iostream>
 
 #include "CommandLine.h"
-#include "Stopwatch.h"
+#include "utils/profiler/Stopwatch.h"
 
 /**
  * @brief This function computes the Lagrange polynomials for a given set of data points.

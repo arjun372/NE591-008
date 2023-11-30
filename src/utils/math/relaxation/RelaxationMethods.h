@@ -19,10 +19,11 @@ namespace MyRelaxationMethod {
  */
 enum Type {
     METHOD_POINT_JACOBI,
+    METHOD_SORPJ,
     METHOD_GAUSS_SEIDEL,
+    METHOD_SYMMETRIC_GAUSS_SEIDEL,
     METHOD_SOR,
     METHOD_SSOR,
-    METHOD_SORJ,
 };
 
 /**
@@ -34,7 +35,7 @@ enum Type {
  * @return The key of the relaxation method type as a string.
  */
 const char *TypeKey(MyRelaxationMethod::Type value) {
-    static const char *relaxationMethodTypeKeys[] = {"point-jacobi", "gauss-seidel", "SOR", "SSOR", "SORJ"};
+    static const char *relaxationMethodTypeKeys[] = {"point-jacobi", "SORPJ", "gauss-seidel", "symmetric-gauss-seidel", "SOR", "SSOR"};
     return relaxationMethodTypeKeys[static_cast<int>(value)];
 }
 

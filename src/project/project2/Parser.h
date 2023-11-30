@@ -349,7 +349,7 @@ class Parser : public CommandLine<SolverInputs> {
         }
 
         if (map["use-SORJ"].as<bool>()) {
-            input.methods.insert(MyRelaxationMethod::Type::METHOD_SORJ);
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_SORPJ);
         }
 
         if (map["use-SSOR"].as<bool>()) {

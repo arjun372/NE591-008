@@ -16,7 +16,7 @@
 
 #include "CommandLine.h"
 #include "InputsOutputs.h"
-#include "Stopwatch.h"
+#include "utils/profiler/Stopwatch.h"
 
 /**
  * @namespace MyBLAS

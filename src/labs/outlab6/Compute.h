@@ -17,8 +17,7 @@
 #include "math/factorization/LU.h"
 
 #include "math/factorization/LUP.h"
-#include "math/relaxation/GaussSeidel.h"
-#include "math/relaxation/PointJacobi.h"
+#include "math/relaxation/SORPJ.h"
 #include "math/relaxation/SSOR.h"
 
 /**
@@ -119,7 +118,7 @@ void usingGaussSeidel(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
         for (outputs.runs = 0; outputs.runs < maxRuns; outputs.runs++) {
             timer.restart();
             {
-               outputs.solution = MyRelaxationMethod::applyGaussSeidel(A, b, max_iterations, threshold);
+               outputs.solution = MyRelaxationMethod::applySOR(A, b, max_iterations, threshold);
             }
             timer.click();
             runTimes[outputs.runs] = (timer.duration().count());

@@ -19,7 +19,7 @@
 namespace MyBLAS {
 
 /**
- * @brief Calculates the L2 norm (Euclidean distance) between two containers.
+ * @brief Calculates the L2 norm of the distance (Euclidean distance) between two containers.
  *
  * For real numbers, the L2 norm is defined as sqrt(sum(v[i] * v[i])).
  * For complex numbers, the L2 norm is defined as sqrt(sum(v[i] * conj(v[i]))).
@@ -33,7 +33,7 @@ namespace MyBLAS {
  * @param b The second container.
  * @param n The size of the containers. This function assumes that both containers have the same size.
  *
- * @return The L2 norm (Euclidean distance) between the two containers.
+ * @return The L2 norm of the distnce (Euclidean distance) between the two containers.
  */
 template <template<typename> class VectorType, typename T>
 inline T L2(const VectorType<T> &a, const VectorType<T> &b, const size_t n) {

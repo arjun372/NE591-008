@@ -14,7 +14,7 @@
 #include "math/blas/matrix/Matrix.h"
 #include "math/factorization/LU.h"
 
-#include "math/relaxation/PointJacobi.h"
+#include "math/relaxation/SORPJ.h"
 
 /**
  * @namespace Compute

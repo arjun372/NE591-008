@@ -121,10 +121,10 @@ class OutLab6 : public Project<OutLab6Inputs, Parser, OutLab6Outputs> {
             printResults(runResults);
         }
 
-        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORJ)) {
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORPJ)) {
             OutLab6Outputs runResults(inputs);
             Compute::usingJacobiSOR(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORJ)]);
+            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORPJ)]);
             Parser::printLine();
             std::cout << "SOR Point Jacobi Method Results" << std::endl;
             Parser::printLine();

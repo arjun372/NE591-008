@@ -16,8 +16,7 @@
 #include "math/blas/vector/MatrixVectorExpression.h"
 #include "math/factorization/LU.h"
 #include "math/factorization/LUP.h"
-#include "math/relaxation/GaussSeidel.h"
-#include "math/relaxation/PointJacobi.h"
+#include "math/relaxation/SORPJ.h"
 #include "math/relaxation/SSOR.h"
 
 /**
@@ -167,7 +166,7 @@ void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
     }
 
     auto profiler = Profiler([&]() {
-        outputs.solution = MyRelaxationMethod::applyGaussSeidel(A, b, max_iterations, threshold);
+        outputs.solution = MyRelaxationMethod::applySOR(A, b, max_iterations, threshold);
     }, inputs.numRuns, inputs.timeout, "Gauss Seidel");
 
     outputs.summary = profiler.run().getSummary();

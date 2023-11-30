@@ -34,7 +34,7 @@ namespace MyRelaxationMethod {
  */
 template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
 MyLinearSolvingMethod::Solution<T> applySOR(const MatrixType<T> &A, const VectorType<T> &b,
-                                            const size_t max_iterations, const T tolerance, const T relaxation_factor) {
+                                            const size_t max_iterations, const T tolerance, const T relaxation_factor = 1) {
 
     const size_t n = A.getRows();                  // Get the number of rows in the matrix A
     MyLinearSolvingMethod::Solution<T> results(n); // Initialize the results object with the size of the matrix
@@ -49,16 +49,13 @@ MyLinearSolvingMethod::Solution<T> applySOR(const MatrixType<T> &A, const Vector
 
         // For each row in the matrix
         for (size_t row = 0; row < n; row++) {
-
             // subtract the contribution from the diagonal term, since it should not be counted.
             T sum = -(A[row][row] * results.x[row]);
-
             // For each column in the matrix, add the product of the matrix element and corresponding element in the
             // solution vector to the sum
             for (size_t col = 0; col < n; col++) {
                 sum += A[row][col] * results.x[col];
             }
-
             // Update the solution vector with the new value, including the relaxation factor
             results.x[row] = (static_cast<T>(1) - relaxation_factor) * old_x[row] + (relaxation_factor / A[row][row]) * (b[row] - sum);
         }

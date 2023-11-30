@@ -252,7 +252,7 @@ class Parser : public CommandLine<OutLab6Inputs> {
         }
 
         if (values["use-SORJ"].as<bool>()) {
-            input.methods.insert(MyRelaxationMethod::Type::METHOD_SORJ);
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_SORPJ);
         }
 
         if (values["use-SSOR"].as<bool>()) {
