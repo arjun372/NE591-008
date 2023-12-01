@@ -9,11 +9,11 @@
 #ifndef NE591_008_SSOR_H
 #define NE591_008_SSOR_H
 
-#include "math/LinearSolver.h"
 #include "math/blas/BLAS.h"
-#include "math/blas/matrix/Matrix.h"
 #include "math/blas/Ops.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
+#include "utils/math/blas/solver/LinearSolver.h"
 
 /**
  * @namespace MyRelaxationMethod
@@ -36,12 +36,12 @@ namespace MyRelaxationMethod {
  * converged, and the final error.
  */
 template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
-MyLinearSolvingMethod::Solution<T> applySSOR(const MatrixType<T> &A, const VectorType<T> &b,
+MyBLAS::Solver::Solution<T> applySSOR(const MatrixType<T> &A, const VectorType<T> &b,
                                              const size_t max_iterations, const T tolerance,
                                              const T relaxation_factor = 1) {
 
     const size_t n = A.getRows();                  // Get the number of rows in the matrix A
-    MyLinearSolvingMethod::Solution<T> results(n); // Initialize the results object with the size of the matrix
+    MyBLAS::Solver::Solution<T> results(n); // Initialize the results object with the size of the matrix
 
     const T tolerance_squared = std::pow(tolerance, static_cast<T>(2)); // Calculate the square of the tolerance
     T iterative_error_squared = std::numeric_limits<T>::max(); // Initialize the squared error as the maximum possible value

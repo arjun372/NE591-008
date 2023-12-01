@@ -14,10 +14,10 @@
 #include <ostream>
 #include <vector>
 
-#include "BLAS.h"
-#include "matrix/Matrix.h"
-#include "vector/Vector.h"
-#include "json.hpp"
+#include "utils/json.hpp"
+#include "utils/math/blas/BLAS.h"
+#include "utils/math/blas/matrix/Matrix.h"
+#include "utils/math/blas/vector/Vector.h"
 /**
  * @namespace MyBLAS::Stats
  * @brief A namespace for statistical functions and structures.

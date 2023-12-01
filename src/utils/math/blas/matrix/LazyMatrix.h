@@ -529,6 +529,33 @@ class LazyMatrix {
         return *this;
     }
 
+
+    /**
+     * @brief Returns a LazyVector representing the matrix in row-major order.
+     * @return A LazyVector with elements in row-major order.
+     */
+    LazyVector<DataType> asRowVector() const {
+        size_t totalElements = rows_ * cols_;
+        return LazyVector<DataType>(totalElements, [this](size_t idx) {
+            size_t row = idx / cols_; // Integer division to find the row index
+            size_t col = idx % cols_; // Modulo operation to find the column index
+            return this->operator()(row, col);
+        });
+    }
+
+    /**
+     * @brief Returns a LazyVector representing the matrix in column-major order.
+     * @return A LazyVector with elements in column-major order.
+     */
+    LazyVector<DataType> asColumnVector() const {
+        size_t totalElements = rows_ * cols_;
+        return LazyVector<DataType>(totalElements, [this](size_t idx) {
+            size_t row = idx % rows_; // Modulo operation to find the row index
+            size_t col = idx / rows_; // Integer division to find the column index
+            return this->operator()(row, col);
+        });
+    }
+
     /**
      * @brief Function to compare two LazyMatrix objects for element-wise equality.
      * @details This function generates a new LazyMatrix of boolean values, where each element represents the equality of the corresponding elements in the input matrices.

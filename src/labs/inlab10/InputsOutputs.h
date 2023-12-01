@@ -20,9 +20,8 @@
 #include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
 
-#include "math/blas/Stats.h"
-#include "math/blas/Stats.h"
 #include "math/blas/Constants.h"
+#include "utils/math/Stats.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.

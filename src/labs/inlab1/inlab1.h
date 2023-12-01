@@ -20,8 +20,8 @@
 #include "CommandLine.h"
 #include "Helpers.h"
 #include "Project.h"
+#include "utils/Stopwatch.h"
 #include "utils/profiler/Profiler.h"
-#include "utils/profiler/Stopwatch.h"
 
 /**
  * @brief Struct to hold variables for Taylor Series.

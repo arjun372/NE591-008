@@ -162,6 +162,28 @@ TYPED_TEST(LazyMatrixTests, ScalarDivisionTest) {
     }
 }
 
+TYPED_TEST(LazyMatrixTests, AsRowVectorTest) {
+    LazyMatrix<TypeParam> m(3, 8, [](size_t i, size_t j) { return static_cast<TypeParam>(i * 3 + j); });
+    auto rowVector = m.asRowVector();
+    for (size_t i = 0; i < m.getRows(); ++i) {
+        for (size_t j = 0; j < m.getCols(); ++j) {
+            size_t idx = i * m.getCols() + j;
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(rowVector[idx], static_cast<TypeParam>(i * 3 + j)));
+        }
+    }
+}
+
+TYPED_TEST(LazyMatrixTests, AsColumnVectorTest) {
+    LazyMatrix<TypeParam> m(3, 8, [](size_t i, size_t j) { return static_cast<TypeParam>(i * 3 + j); });
+    auto colVector = m.asColumnVector();
+    for (size_t i = 0; i < m.getRows(); ++i) {
+        for (size_t j = 0; j < m.getCols(); ++j) {
+            size_t idx = j * m.getRows() + i;
+            EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(colVector[idx], static_cast<TypeParam>(i * 3 + j)));
+        }
+    }
+}
+
 TYPED_TEST(LazyMatrixTests, MatrixVectorMultiplicationTest) {
     MyBLAS::Vector<TypeParam> v(10, [](size_t i) { return static_cast<TypeParam>(i); });
     MyBLAS::LazyMatrix<TypeParam> m(10, 10, [](size_t i, size_t j) { return static_cast<TypeParam>(i) + static_cast<TypeParam>(j); });
@@ -218,7 +240,4 @@ TYPED_TEST(LazyMatrixTests, MatrixVectorMultiplicationTest_IdentityMatrix) {
         EXPECT_TRUE(LazyMatrixTests<TypeParam>::IsClose(result[i], static_cast<TypeParam>(i)));
     }
 }
-
-
-
 } //namespace MyBLAS

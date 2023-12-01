@@ -11,11 +11,11 @@
 #include <utility>
 
 #include "json.hpp"
-#include "math/LinearSolver.h"
 #include "math/blas/BLAS.h"
-#include "math/blas/matrix/Matrix.h"
 #include "math/blas/Ops.h"
+#include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
+#include "utils/math/blas/solver/LinearSolver.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.
@@ -26,8 +26,8 @@
 typedef struct Input {
     Input() = default;
 
-    std::set<MyLinearSolvingMethod::Type> methods = {};
-    MyLinearSolvingMethod::Parameters<long double> input;
+    std::set<MyBLAS::Solver::Type> methods = {};
+    MyBLAS::Solver::Parameters<long double> input;
     MyBLAS::Vector<long double> known_solution;
 
     /**
@@ -46,7 +46,7 @@ typedef struct Input {
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
             std::transform(methods.begin(), methods.end(), std::back_inserter(result),
-                           [](MyLinearSolvingMethod::Type method) { return MyLinearSolvingMethod::TypeKey(method); });
+                           [](MyBLAS::Solver::Type method) { return MyBLAS::Solver::TypeKey(method); });
             return result;
         }();
     }
@@ -62,7 +62,7 @@ typedef struct Output {
 
     Output() = default;
     OutLab6Inputs inputs;
-    MyLinearSolvingMethod::Solution<long double> solution;
+    MyBLAS::Solver::Solution<long double> solution;
 
     long double mean_execution_time = std::numeric_limits<long double>::quiet_NaN();
     long double stddev_execution_time = std::numeric_limits<long double>::quiet_NaN();

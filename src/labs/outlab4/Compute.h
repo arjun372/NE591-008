@@ -33,7 +33,7 @@
 
 #include "CommandLine.h"
 #include "InputsOutputs.h"
-#include "utils/profiler/Stopwatch.h"
+#include "utils/Stopwatch.h"
 
 /**
  * @namespace MyBLAS

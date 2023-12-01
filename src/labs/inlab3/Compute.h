@@ -12,7 +12,7 @@
 
 #include "CommandLine.h"
 #include "InputsOutputs.h"
-#include "utils/profiler/Stopwatch.h"
+#include "utils/Stopwatch.h"
 
 /**
  * @brief Computes the Lagrange polynomial for a given interpolation point xi.

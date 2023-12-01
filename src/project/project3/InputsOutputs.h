@@ -13,13 +13,13 @@
 
 #include "Project.h"
 #include "json.hpp"
-#include "math/LinearSolver.h"
 #include "math/blas/BLAS.h"
 #include "math/blas/matrix/Matrix.h"
-#include "math/blas/Stats.h"
 #include "math/blas/vector/Vector.h"
 #include "physics/diffusion/DiffusionMatrix.h"
 #include "physics/diffusion/DiffusionParams.h"
+#include "utils/math/Stats.h"
+#include "utils/math/blas/solver/LinearSolver.h"
 
 /**
  * @struct Input
@@ -27,9 +27,9 @@
  */
 typedef struct Input {
     Input() = default;
-    std::set<MyLinearSolvingMethod::Type> methods = {};
+    std::set<MyBLAS::Solver::Type> methods = {};
 
-    MyLinearSolvingMethod::Parameters<MyBLAS::NumericType> solverParams;
+    MyBLAS::Solver::Parameters<MyBLAS::NumericType> solverParams;
 
     MyBLAS::Matrix<MyBLAS::NumericType> sources = MyBLAS::Matrix<MyBLAS::NumericType>();
 
@@ -58,7 +58,7 @@ typedef struct Input {
         jsonMap["methods"] = [this]() -> std::vector<std::string> {
             std::vector<std::string> result;
             std::transform(methods.begin(), methods.end(), std::back_inserter(result),
-                           [](MyLinearSolvingMethod::Type method) { return MyLinearSolvingMethod::TypeKey(method); });
+                           [](MyBLAS::Solver::Type method) { return MyBLAS::Solver::TypeKey(method); });
             return result;
         }();
     }
@@ -73,7 +73,7 @@ typedef struct Output {
     Output() = default;
     explicit Output(SolverInputs inputMatrices) { inputs = std::move(inputMatrices); };
     SolverInputs inputs;
-    MyLinearSolvingMethod::Solution<MyBLAS::NumericType> solution;
+    MyBLAS::Solver::Solution<MyBLAS::NumericType> solution;
 
     MyBLAS::Vector<MyBLAS::NumericType> residual;
     MyBLAS::Matrix<MyBLAS::NumericType> fluxes;

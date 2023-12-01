@@ -9,6 +9,7 @@
 #ifndef NE591_008_RELAXATIONMETHODS_H
 #define NE591_008_RELAXATIONMETHODS_H
 
+#include "BLAS.h"
 namespace MyRelaxationMethod {
 
 /**

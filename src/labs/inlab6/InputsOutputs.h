@@ -11,11 +11,11 @@
 #include <utility>
 
 #include "json.hpp"
-#include "math/LinearSolver.h"
 #include "math/blas/BLAS.h"
 #include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
 #include "math/relaxation/RelaxationMethods.h"
+#include "utils/math/blas/solver/LinearSolver.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.
@@ -64,7 +64,7 @@ typedef struct Output {
 
     Output() = default;
     InLab6Inputs inputs;
-    MyLinearSolvingMethod::Solution<long double> solution;
+    MyBLAS::Solver::Solution<long double> solution;
     long double execution_time = 0;
 
     /**

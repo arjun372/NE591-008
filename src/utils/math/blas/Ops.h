@@ -9,6 +9,7 @@
 #ifndef NE591_008_OPS_H
 #define NE591_008_OPS_H
 
+#include <omp.h>
 #include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
 #include <boost/numeric/ublas/io.hpp>
@@ -33,12 +34,13 @@ namespace MyBLAS {
  * @param b The second container.
  * @param n The size of the containers. This function assumes that both containers have the same size.
  *
- * @return The L2 norm of the distnce (Euclidean distance) between the two containers.
+ * @return The L2 norm of the distance (Euclidean distance) between the two containers.
  */
 template <template<typename> class VectorType, typename T>
 inline T L2(const VectorType<T> &a, const VectorType<T> &b, const size_t n) {
     T norm = 0;
     const T two = static_cast<T>(2);
+//    #pragma omp parallel for reduction(+:norm)
     for (size_t i = 0; i < n; i++) {
         const auto difference = a[i] - b[i];
         const auto squared = std::pow(difference, two);

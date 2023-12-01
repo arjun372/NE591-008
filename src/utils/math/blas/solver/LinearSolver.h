@@ -10,14 +10,14 @@
 
 #include "math/factorization/Factorize.h"
 #include "math/relaxation/RelaxationMethods.h"
-#include "blas/Stats.h"
+#include "utils/math/Stats.h"
 
 #include <variant>
 
 /**
  * @brief Namespace containing the definition of the LinearSolver class and its associated methods.
  */
-namespace MyLinearSolvingMethod {
+namespace MyBLAS::Solver {
 
 /**
  * @brief A variant type that can hold either a factorization method or a relaxation method.
@@ -49,19 +49,6 @@ const char *TypeKey(const Type &value) {
 }
 
 /**
- * @brief Structure that represents the input to the linear solver.
- * @tparam T The type of the elements in the matrix/vector.
- */
-template <typename T> struct Parameters {
-    size_t n = std::numeric_limits<size_t>::quiet_NaN(); ////< Size of the matrix/vector
-    T threshold = std::numeric_limits<T>::quiet_NaN();   ////< The convergence threshold
-    T relaxation_factor = std::numeric_limits<T>::quiet_NaN(); ////< The relaxation factor, also known as the optimal weight or omega, ω
-    size_t max_iterations = std::numeric_limits<size_t>::quiet_NaN(); ////< Maximum number of iterations to perform
-    MyBLAS::Matrix<T> coefficients{}; ///< Coefficient matrix A
-    MyBLAS::Vector<T> constants{};    ///< Vector of constants b.
-};
-
-/**
  * @brief Structure that represents the solution of the linear solver.
  * @tparam T The type of the elements in the matrix/vector.
  */
@@ -72,7 +59,7 @@ template <typename T> struct Solution {
     explicit Solution<T>(size_t size) { x = MyBLAS::Vector<T>(size, 0); }
 
     Solution() = default;
-    MyLinearSolvingMethod::Type method;
+    MyBLAS::Solver::Type method;
     bool converged = false;
     size_t iterations = std::numeric_limits<size_t>::quiet_NaN();
     T iterative_error = std::numeric_limits<T>::quiet_NaN();
@@ -86,6 +73,6 @@ template <typename T> struct Solution {
     }
 };
 
-} // namespace MyLinearSolvingMethod
+} // namespace MyBLAS::Solver
 
 #endif // NE591_008_LINEARSOLVER_H

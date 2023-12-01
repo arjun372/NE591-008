@@ -36,8 +36,8 @@
 
 #include "../../CommandLine.h"
 #include "Factorize.h"
-#include "math/LinearSolver.h"
-#include "utils/profiler/Stopwatch.h"
+#include "utils/Stopwatch.h"
+#include "utils/math/blas/solver/LinearSolver.h"
 
 /**
  * @namespace MyBLAS
@@ -278,7 +278,7 @@ MyFactorizationMethod::Parameters<T> factorize(const MatrixType<T> &A) {
  * It is the responsibility of the caller to ensure this.
  */
 template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
-MyLinearSolvingMethod::Solution<T> applyLUP(const MatrixType<T> &A, const VectorType<T> &b,
+MyBLAS::Solver::Solution<T> applyLUP(const MatrixType<T> &A, const VectorType<T> &b,
                                             const T tolerance = 0) {
 
     const size_t n = A.getRows(); // Get the number of rows in the matrix A
@@ -286,7 +286,7 @@ MyLinearSolvingMethod::Solution<T> applyLUP(const MatrixType<T> &A, const Vector
     MyFactorizationMethod::Parameters<T> parameters(n);
     parameters.P = dooLittleFactorizeLUP(parameters.L, parameters.U, A);
 
-    MyLinearSolvingMethod::Solution<T> results(n); // Initialize the results object with the size of the matrix
+    MyBLAS::Solver::Solution<T> results(n); // Initialize the results object with the size of the matrix
 
     const auto Pb = parameters.P * b;
 

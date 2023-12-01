@@ -26,9 +26,9 @@
 
 #include "math/blas/BLAS.h"
 #include "math/blas/matrix/Matrix.h"
-#include "math/blas/Stats.h"
 #include "math/blas/vector/Vector.h"
 #include "math/factorization/LU.h"
+#include "utils/math/Stats.h"
 
 /**
  * @class OutLab4

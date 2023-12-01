@@ -16,13 +16,13 @@
 #include <utility>
 
 #include "CheckBounds.h"
+#include "ResourceMonitor.h"
 #include "Stopwatch.h"
 #include "json.hpp"
-#include "math/blas/Stats.h"
-#include "math/blas/vector/Vector.h"
 #include "math/blas/matrix/Matrix.h"
+#include "math/blas/vector/Vector.h"
 #include "physics/diffusion/DiffusionMatrix.h"
-#include "ResourceMonitor.h"
+#include "utils/math/Stats.h"
 
 /**
  * @brief A template class to profile the execution time of a function.

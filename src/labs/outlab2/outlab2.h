@@ -8,7 +8,7 @@
 
 #include "Compute.h"
 #include "Parser.h"
-#include "utils/profiler/Stopwatch.h"
+#include "utils/Stopwatch.h"
 
 typedef std::map<std::string, std::vector<std::string>> Dictionary;
 

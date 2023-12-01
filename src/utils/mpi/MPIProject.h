@@ -8,9 +8,10 @@
 #ifndef NE591_008_MPIPROJECT_H
 #define NE591_008_MPIPROJECT_H
 
+#include <mpi.h>
 #include "CommandLine.h"
 #include "Project.h"
-#include "utils/profiler/Profiler.h"
+#include "profiler/Profiler.h"
 #include <boost/program_options.hpp>
 #include <utility>
 

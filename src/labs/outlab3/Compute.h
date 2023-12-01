@@ -16,7 +16,7 @@
 #include "CommandLine.h"
 #include "extern/function.h"
 #include "math/RootFinder.h"
-#include "utils/profiler/Stopwatch.h"
+#include "utils/Stopwatch.h"
 
 /**
  * @brief This function computes the integral of a user-defined function using the trapezoidal rule.
