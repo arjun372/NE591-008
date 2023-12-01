@@ -125,8 +125,8 @@ $(document).ready(function(){initNavTree('dc/dba/SORPJ_8h.html','../../'); initR
 <code>#include &quot;<a class="el" href="../../">math/blas/vector/Vector.h</a>&quot;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/Ops.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">math/LinearSolver.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/relaxation/RelaxationMethods.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">utils/math/blas/solver/LinearSolver.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for SORPJ.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -154,10 +154,13 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1ad90cacb42ba2b27223feb0d56320b9"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
-<tr class="memitem:a1ad90cacb42ba2b27223feb0d56320b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1ad90cacb42ba2b27223feb0d56320b9">MyRelaxationMethod::applyPointJacobi</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1)</td></tr>
-<tr class="memdesc:a1ad90cacb42ba2b27223feb0d56320b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the Point Jacobi method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1ad90cacb42ba2b27223feb0d56320b9">More...</a><br /></td></tr>
-<tr class="separator:a1ad90cacb42ba2b27223feb0d56320b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37b1fd2ee5b2724d52808f9490c1c5a8"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
+<tr class="memitem:a37b1fd2ee5b2724d52808f9490c1c5a8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">MyBLAS::Solver::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a37b1fd2ee5b2724d52808f9490c1c5a8">MyRelaxationMethod::applyPointJacobi</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1, const size_t threads=1)</td></tr>
+<tr class="memdesc:a37b1fd2ee5b2724d52808f9490c1c5a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the Point Jacobi method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a37b1fd2ee5b2724d52808f9490c1c5a8">More...</a><br /></td></tr>
+<tr class="separator:a37b1fd2ee5b2724d52808f9490c1c5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a072ad3ac7e1dcda8fdc4a24f93732b32"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
+<tr class="memitem:a072ad3ac7e1dcda8fdc4a24f93732b32"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">MyBLAS::Solver::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a072ad3ac7e1dcda8fdc4a24f93732b32">MyRelaxationMethod::applyParallelPointJacobi</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1)</td></tr>
+<tr class="separator:a072ad3ac7e1dcda8fdc4a24f93732b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -3,6 +3,7 @@ var namespaces_dup =
     [ "Compute", "de/db3/namespaceCompute.html", [
       [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
       [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
+      [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
       [ "naive_fill_diffusion_vector", "de/db3/namespaceCompute.html#a2e42f8e64f9c1d4a071b0d5c9db96fad", null ],
       [ "seriesSum", "de/db3/namespaceCompute.html#a89e0e08fa4ab3cc310cb9a7b8cd816c9", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a242d211ce9bbd59a9619238689816210", null ],
@@ -18,6 +19,7 @@ var namespaces_dup =
       [ "usingSOR", "de/db3/namespaceCompute.html#acfa0341940d2764e69d254afdc2cbb23", null ],
       [ "usingSOR", "de/db3/namespaceCompute.html#a26fcd23146e3ca00ed9eefc59c89c07a", null ],
       [ "usingSymmetricGaussSeidel", "de/db3/namespaceCompute.html#af9b2fed99d9965f94cb5cfab410419a0", null ],
+      [ "usingSymmetricPointJacobi", "de/db3/namespaceCompute.html#a7b96146686ad6d986e8b14020dfb08e7", null ],
       [ "usingSymmetricSOR", "de/db3/namespaceCompute.html#a8e44d7f0aba871333c4358567a913117", null ],
       [ "usingSymmetricSOR", "de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560", null ],
       [ "usingSymmetricSOR", "de/db3/namespaceCompute.html#a5a35addbdcdba218c82923bdc3ef7d93", null ]
@@ -62,7 +64,6 @@ var namespaces_dup =
     ] ],
     [ "MyBLAS", "d2/d6e/namespaceMyBLAS.html", "d2/d6e/namespaceMyBLAS" ],
     [ "MyFactorizationMethod", "d1/d18/namespaceMyFactorizationMethod.html", "d1/d18/namespaceMyFactorizationMethod" ],
-    [ "MyLinearSolvingMethod", "de/d18/namespaceMyLinearSolvingMethod.html", "de/d18/namespaceMyLinearSolvingMethod" ],
     [ "MyMath", "de/d4d/namespaceMyMath.html", [
       [ "abs", "de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a", null ],
       [ "isfinite", "de/d4d/namespaceMyMath.html#a52ed3b9bbd57490ed3dac1c78fe4832b", null ],
@@ -82,15 +83,17 @@ var namespaces_dup =
         [ "METHOD_SOR", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824acba5909cbce3a65b695ad21ac991fd9f", null ],
         [ "METHOD_SSOR", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6", null ]
       ] ],
-      [ "applyPointJacobi", "d7/d9a/namespaceMyRelaxationMethod.html#a1ad90cacb42ba2b27223feb0d56320b9", null ],
-      [ "applySOR", "d7/d9a/namespaceMyRelaxationMethod.html#a466c5086e62207f987ff9c14a580c166", null ],
-      [ "applySSOR", "d7/d9a/namespaceMyRelaxationMethod.html#a7ddcb6dcdcbb05bd579beb163e5c8346", null ],
+      [ "applyP2SOR", "d7/d9a/namespaceMyRelaxationMethod.html#ac76943650285426073d6d4965cbb6834", null ],
+      [ "applyParallelPointJacobi", "d7/d9a/namespaceMyRelaxationMethod.html#a072ad3ac7e1dcda8fdc4a24f93732b32", null ],
+      [ "applyPointJacobi", "d7/d9a/namespaceMyRelaxationMethod.html#a37b1fd2ee5b2724d52808f9490c1c5a8", null ],
+      [ "applyPSOR", "d7/d9a/namespaceMyRelaxationMethod.html#a243ad9b544328fb7b499b467e67ddd9c", null ],
+      [ "applySOR", "d7/d9a/namespaceMyRelaxationMethod.html#ad2e36f3b7182792a610cf67003b39f52", null ],
+      [ "applySSOR", "d7/d9a/namespaceMyRelaxationMethod.html#ac37edae4aec371352810b2f552647be4", null ],
       [ "approximateOptimalRelaxationFactor", "d7/d9a/namespaceMyRelaxationMethod.html#abde81298190b57f3cce6fe5ca0d18dce", null ],
       [ "approximateOptimalRelaxationFactor", "d7/d9a/namespaceMyRelaxationMethod.html#a43248690df292a11426f82c5d6e0df07", null ],
       [ "passesPreChecks", "d7/d9a/namespaceMyRelaxationMethod.html#a985bd80ba02c84e9d1ca2e434a32bd3f", null ],
       [ "TypeKey", "d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3", null ]
     ] ],
-    [ "MyRelaxationMethods", "d5/d2c/namespaceMyRelaxationMethods.html", "d5/d2c/namespaceMyRelaxationMethods" ],
     [ "plot_heatmap", "d8/d21/namespaceplot__heatmap.html", [
       [ "cmap", "d8/d21/namespaceplot__heatmap.html#a861c753822ff0918f5650aad21c0c7d4", null ],
       [ "dpi", "d8/d21/namespaceplot__heatmap.html#a2e3d9ef88343f1153af283513b5391d0", null ],

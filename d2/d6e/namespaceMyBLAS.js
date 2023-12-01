@@ -6,13 +6,14 @@ var namespaceMyBLAS =
       [ "recursiveLUFactorize", "db/d2e/namespaceMyBLAS_1_1LU.html#a56aef4d1166cb1303cd968090fed78f8", null ]
     ] ],
     [ "LUP", "d5/db6/namespaceMyBLAS_1_1LUP.html", [
-      [ "applyLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#acbc3001786a9bc09a661660f1ccd2e0d", null ],
+      [ "applyLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#ac803dfb6b419afbd84ade6475e608e1f", null ],
       [ "dooLittleFactorizeLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#a8944cf7f291594494e1140ff6b0b0fc6", null ],
       [ "factorize", "d5/db6/namespaceMyBLAS_1_1LUP.html#a38b6c971c41b735e5acbd728ab652ac8", null ],
       [ "factorize", "d5/db6/namespaceMyBLAS_1_1LUP.html#adb672b0ddbe668b9469123427767624d", null ],
       [ "factorizeLUwithPartialPivoting", "d5/db6/namespaceMyBLAS_1_1LUP.html#aa19e5cc823ea14b1a77e48797363376d", null ],
       [ "recursiveFactorizeLUP", "d5/db6/namespaceMyBLAS_1_1LUP.html#a48eb37045c402e55ca4e086164f2911e", null ]
     ] ],
+    [ "Solver", "db/d8c/namespaceMyBLAS_1_1Solver.html", "db/d8c/namespaceMyBLAS_1_1Solver" ],
     [ "Stats", "dd/df5/namespaceMyBLAS_1_1Stats.html", "dd/df5/namespaceMyBLAS_1_1Stats" ],
     [ "System", "d5/d7a/namespaceMyBLAS_1_1System.html", [
       [ "Circuit", "d5/d7a/namespaceMyBLAS_1_1System.html#a487070ac751d33afa7f9fceaef312ea0", null ]
@@ -163,6 +164,8 @@ var namespaceMyBLAS =
     [ "TYPED_TEST", "d2/d6e/namespaceMyBLAS.html#af9b3f87d1804726f4c31cdcc142fd7f8", null ],
     [ "TYPED_TEST", "d2/d6e/namespaceMyBLAS.html#afc4aa998ce25e62d718a7a10b5b3907b", null ],
     [ "TYPED_TEST", "d2/d6e/namespaceMyBLAS.html#ae563b9c96b407b4b98b0af83ca158ef6", null ],
+    [ "TYPED_TEST", "d2/d6e/namespaceMyBLAS.html#a65bff3d79e29590a9301b9218acb328a", null ],
+    [ "TYPED_TEST", "d2/d6e/namespaceMyBLAS.html#a59aba7e9d8dcc57eaa0a1bf40f24422a", null ],
     [ "TYPED_TEST", "d2/d6e/namespaceMyBLAS.html#a694e8575e91577853906be6fad9fef2e", null ],
     [ "TYPED_TEST", "d2/d6e/namespaceMyBLAS.html#a7d6b4b118097958f2ba2f48b3aba7187", null ],
     [ "TYPED_TEST", "d2/d6e/namespaceMyBLAS.html#a94d6ab29a23d25f6fbda34a4836cccbb", null ],
