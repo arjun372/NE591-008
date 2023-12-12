@@ -115,7 +115,8 @@ $(document).ready(function(){initNavTree('de/d83/structMyLinearSolvingMethod_1_1
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Data Fields</a>  </div>
+<a href="#pub-attribs">Data Fields</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">MyLinearSolvingMethod::Solution&lt; T &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
@@ -146,6 +147,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a023bea4aba1167ced20d3170250003c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a935d299aeab719ef51430e7959e2e826"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a935d299aeab719ef51430e7959e2e826">getMaxResidual</a> (<a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; T &gt; a, <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; b) const</td></tr>
 <tr class="separator:a935d299aeab719ef51430e7959e2e826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ba48cfd2d4eb0961698b9b46525bbee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a9ba48cfd2d4eb0961698b9b46525bbee">toJSON</a> (nlohmann::json &amp;jsonMap) const</td></tr>
+<tr class="memdesc:a9ba48cfd2d4eb0961698b9b46525bbee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the output parameters to a JSON object.  <a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a9ba48cfd2d4eb0961698b9b46525bbee">More...</a><br /></td></tr>
+<tr class="separator:a9ba48cfd2d4eb0961698b9b46525bbee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -159,6 +163,12 @@ Data Fields</h2></td></tr>
 <tr class="separator:aa2d381e0172a798a090ba28d2b98e1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a96b815e353db4bc8a8d9c295f39694"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">x</a> {}</td></tr>
 <tr class="separator:a8a96b815e353db4bc8a8d9c295f39694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a2201ecd14bc5cbc3dba443b09f3d82d3"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a2201ecd14bc5cbc3dba443b09f3d82d3">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">Solution</a> &amp;solution)</td></tr>
+<tr class="memdesc:a2201ecd14bc5cbc3dba443b09f3d82d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded stream insertion operator to print the summary statistics.  <a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a2201ecd14bc5cbc3dba443b09f3d82d3">More...</a><br /></td></tr>
+<tr class="separator:a2201ecd14bc5cbc3dba443b09f3d82d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -342,6 +352,115 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00018">x</a>.</p>
 
+</div>
+</div>
+<a id="a9ba48cfd2d4eb0961698b9b46525bbee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ba48cfd2d4eb0961698b9b46525bbee">&#9670;&nbsp;</a></span>toJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>jsonMap</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the output parameters to a JSON object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jsonMap</td><td>The JSON object to which the output parameters are added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                             {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        jsonMap[<span class="stringliteral">&quot;converged&quot;</span>] = <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a85ffe0e67560af6adf3104ba8420aea0">converged</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a51d73b44250aac54f072355540c7a7e5">iterations</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#aa2d381e0172a798a090ba28d2b98e1c6">iterative_error</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        jsonMap[<span class="stringliteral">&quot;solution&quot;</span>] = <a class="code" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a8a96b815e353db4bc8a8d9c295f39694">x</a>.getData();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+<div class="ttc" id="astructMyLinearSolvingMethod_1_1Solution_html_a51d73b44250aac54f072355540c7a7e5"><div class="ttname"><a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a51d73b44250aac54f072355540c7a7e5">MyLinearSolvingMethod::Solution::iterations</a></div><div class="ttdeci">size_t iterations</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:77</div></div>
+<div class="ttc" id="astructMyLinearSolvingMethod_1_1Solution_html_a85ffe0e67560af6adf3104ba8420aea0"><div class="ttname"><a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#a85ffe0e67560af6adf3104ba8420aea0">MyLinearSolvingMethod::Solution::converged</a></div><div class="ttdeci">bool converged</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:76</div></div>
+<div class="ttc" id="astructMyLinearSolvingMethod_1_1Solution_html_aa2d381e0172a798a090ba28d2b98e1c6"><div class="ttname"><a href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html#aa2d381e0172a798a090ba28d2b98e1c6">MyLinearSolvingMethod::Solution::iterative_error</a></div><div class="ttdeci">T iterative_error</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:78</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00020">postprocess::converged</a>, <a class="el" href="../../#l00021">postprocess::iterations</a>, <a class="el" href="../../#l00022">postprocess::iterative_error</a>, and <a class="el" href="../../#l00018">x</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a2201ecd14bc5cbc3dba443b09f3d82d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2201ecd14bc5cbc3dba443b09f3d82d3">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">Solution</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overloaded stream insertion operator to print the summary statistics. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>The output stream. </td></tr>
+    <tr><td class="paramname">summary</td><td>The summary statistics to print. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The output stream. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                                                            {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">auto</span> precision = std::cout.precision() ;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keyword">const</span> std::string key = <a class="code" href="../../de/d18/namespaceMyLinearSolvingMethod.html#a25f7aaeb3d2609d97ed31986b369e03e">MyLinearSolvingMethod::TypeKey</a>(<a class="code" href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">solution</a>.method);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(2 + <span class="keyword">static_cast&lt;</span>std::streamsize<span class="keyword">&gt;</span>(10));</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        os &lt;&lt; std::setprecision(2) &lt;&lt; std::setw(width) &lt;&lt; std::setfill(<span class="charliteral">&#39; &#39;</span>) &lt;&lt; std::scientific;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: Converged       : &quot;</span> &lt;&lt; (<a class="code" href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">solution</a>.converged ? <span class="stringliteral">&quot;Yes&quot;</span> : <span class="stringliteral">&quot;No&quot;</span>)&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: Iterations      : &quot;</span> &lt;&lt; <a class="code" href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">solution</a>.iterations&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: Iterative Error : &quot;</span> &lt;&lt; <a class="code" href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">solution</a>.iterative_error&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        os &lt;&lt; std::setprecision(static_cast&lt;int&gt;(precision));</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="ttc" id="anamespaceMyLinearSolvingMethod_html_a25f7aaeb3d2609d97ed31986b369e03e"><div class="ttname"><a href="../../de/d18/namespaceMyLinearSolvingMethod.html#a25f7aaeb3d2609d97ed31986b369e03e">MyLinearSolvingMethod::TypeKey</a></div><div class="ttdeci">const char * TypeKey(const Type &amp;value)</div><div class="ttdoc">Function that returns the key of the type of the given value.</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:37</div></div>
+<div class="ttc" id="anamespacepostprocess_html_a31f3d978d6d674dbfa1d7a5ec9aefb2a"><div class="ttname"><a href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">postprocess.solution</a></div><div class="ttdeci">solution</div><div class="ttdef"><b>Definition:</b> postprocess.py:25</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>

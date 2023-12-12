@@ -17,6 +17,7 @@ var classMyBLAS_1_1Matrix =
     [ "getCols", "d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864", null ],
     [ "getData", "d0/d27/classMyBLAS_1_1Matrix.html#a38e35fa655be23a033337c5322c942c3", null ],
     [ "getData", "d0/d27/classMyBLAS_1_1Matrix.html#a23654643cd581a49d01f7575d4eabbbd", null ],
+    [ "getMutableData", "d0/d27/classMyBLAS_1_1Matrix.html#abc9e03f643ceb8bbce9ace68f237456d", null ],
     [ "getRows", "d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249", null ],
     [ "operator()", "d0/d27/classMyBLAS_1_1Matrix.html#abe64427fc8df7514e27ab486ae3ebdde", null ],
     [ "operator()", "d0/d27/classMyBLAS_1_1Matrix.html#aeaff60c335ac1d524a30b2fab4a0c2f8", null ],

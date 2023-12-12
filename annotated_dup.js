@@ -71,6 +71,8 @@ var annotated_dup =
     [ "MatrixVectorTests", "d3/dab/classMatrixVectorTests.html", null ],
     [ "MPIProject", "d0/df0/classMPIProject.html", "d0/df0/classMPIProject" ],
     [ "OutLab1", "dd/df3/classOutLab1.html", "dd/df3/classOutLab1" ],
+    [ "OutLab10", "d7/d1f/classOutLab10.html", "d7/d1f/classOutLab10" ],
+    [ "OutLab10MatrixTests", "d8/dd0/classOutLab10MatrixTests.html", "d8/dd0/classOutLab10MatrixTests" ],
     [ "OutLab3", "da/df0/classOutLab3.html", "da/df0/classOutLab3" ],
     [ "OutLab4", "d8/d5b/classOutLab4.html", "d8/d5b/classOutLab4" ],
     [ "OutLab5", "d3/d1d/classOutLab5.html", "d3/d1d/classOutLab5" ],

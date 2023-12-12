@@ -5,6 +5,7 @@ var namespaces_dup =
       [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
       [ "naive_fill_diffusion_vector", "de/db3/namespaceCompute.html#a2e42f8e64f9c1d4a071b0d5c9db96fad", null ],
       [ "seriesSum", "de/db3/namespaceCompute.html#a89e0e08fa4ab3cc310cb9a7b8cd816c9", null ],
+      [ "usingConjugateGradient", "de/db3/namespaceCompute.html#a89c7abd89e30a9e6279b5e53081b2661", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a242d211ce9bbd59a9619238689816210", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a017b511b9ab24d2388a864d6cb14c1cc", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a0b405b6556f147fd5af6a277cccb5e65", null ],
@@ -15,7 +16,7 @@ var namespaces_dup =
       [ "usingPointJacobi", "de/db3/namespaceCompute.html#a0aa73a107ee5ea0767e15b7caddeecc7", null ],
       [ "usingPointJacobi", "de/db3/namespaceCompute.html#a0741aa46b479eae78cfad76bdf7cb091", null ],
       [ "usingSOR", "de/db3/namespaceCompute.html#a9536e66c070e83d32645dc9e34f4169b", null ],
-      [ "usingSOR", "de/db3/namespaceCompute.html#acfa0341940d2764e69d254afdc2cbb23", null ],
+      [ "usingSOR", "de/db3/namespaceCompute.html#acc65d891a271875002feed91306902d0", null ],
       [ "usingSOR", "de/db3/namespaceCompute.html#a26fcd23146e3ca00ed9eefc59c89c07a", null ],
       [ "usingSymmetricSOR", "de/db3/namespaceCompute.html#a8e44d7f0aba871333c4358567a913117", null ],
       [ "usingSymmetricSOR", "de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560", null ],
@@ -78,16 +79,23 @@ var namespaces_dup =
         [ "METHOD_GAUSS_SEIDEL", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a6324f5e2cda367efbc5bce42529662b3", null ],
         [ "METHOD_SOR", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824acba5909cbce3a65b695ad21ac991fd9f", null ],
         [ "METHOD_SSOR", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a9c03a093c33bec9ae780465335a3f1f6", null ],
-        [ "METHOD_SORJ", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a527205340d6358cb7b2e01fa88c6ac30", null ]
+        [ "METHOD_SORJ", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a527205340d6358cb7b2e01fa88c6ac30", null ],
+        [ "METHOD_CONJUGATE_GRADIENT", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a2166864a369febca409f74a24a408740", null ]
       ] ],
+      [ "applyConjugateGradient", "d7/d9a/namespaceMyRelaxationMethod.html#ab675d09bf5655c0886d09d36a6a431ee", null ],
       [ "applyGaussSeidel", "d7/d9a/namespaceMyRelaxationMethod.html#a1b6a833ea067f34c45415750d85b51fa", null ],
       [ "applyPointJacobi", "d7/d9a/namespaceMyRelaxationMethod.html#a1ad90cacb42ba2b27223feb0d56320b9", null ],
       [ "applySOR", "d7/d9a/namespaceMyRelaxationMethod.html#a52bbc804a62498444281f3b3ac5c2c74", null ],
       [ "applySSOR", "d7/d9a/namespaceMyRelaxationMethod.html#a6ce139c8c66799c77605e84daa52c54c", null ],
       [ "approximateOptimalRelaxationFactor", "d7/d9a/namespaceMyRelaxationMethod.html#abde81298190b57f3cce6fe5ca0d18dce", null ],
       [ "approximateOptimalRelaxationFactor", "d7/d9a/namespaceMyRelaxationMethod.html#a43248690df292a11426f82c5d6e0df07", null ],
+      [ "dot_product", "d7/d9a/namespaceMyRelaxationMethod.html#a0e2803f819bb15c1b6ac3276ebe4d813", null ],
+      [ "matrix_vector_multiply", "d7/d9a/namespaceMyRelaxationMethod.html#a88ea8f05d9f19935ea8045cee9494dab", null ],
       [ "passesPreChecks", "d7/d9a/namespaceMyRelaxationMethod.html#a985bd80ba02c84e9d1ca2e434a32bd3f", null ],
-      [ "TypeKey", "d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3", null ]
+      [ "scalar_vector_multiply", "d7/d9a/namespaceMyRelaxationMethod.html#a8a82764731693628d306f1973aa72eb0", null ],
+      [ "TypeKey", "d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3", null ],
+      [ "vector_add", "d7/d9a/namespaceMyRelaxationMethod.html#af4d3a51fad3e5d81f83a6b44570e26e3", null ],
+      [ "vector_subtract", "d7/d9a/namespaceMyRelaxationMethod.html#a17bf0512eeecf1312496138e01e2a8a5", null ]
     ] ],
     [ "plot_heatmap", "d8/d21/namespaceplot__heatmap.html", [
       [ "cmap", "d8/d21/namespaceplot__heatmap.html#a861c753822ff0918f5650aad21c0c7d4", null ],
