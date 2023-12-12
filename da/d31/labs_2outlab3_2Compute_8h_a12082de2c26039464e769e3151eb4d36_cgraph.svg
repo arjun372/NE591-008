@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 647;
+var viewWidth = 683;
 var viewHeight = 104;
 var sectionId = 'dynsection-7';
 </script>
@@ -54,7 +54,7 @@ var sectionId = 'dynsection-7';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>getGaussLegendreNode</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-100 643,-100 643,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-100 679,-100 679,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
@@ -134,31 +134,46 @@ var sectionId = 'dynsection-7';
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="../../de/d4d/namespaceMyMath.html#a5f2b6e445ba885637efd0db1a7708919" target="_top" xlink:title="A template specialization function to calculate the power of a __float128 base number.">
-<polygon fill="white" stroke="black" points="556,-38.5 556,-57.5 639,-57.5 639,-38.5 556,-38.5"/>
-<text text-anchor="middle" x="597.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyMath::pow</text>
+<polygon fill="white" stroke="black" points="574,-38.5 574,-57.5 657,-57.5 657,-38.5 574,-38.5"/>
+<text text-anchor="middle" x="615.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyMath::pow</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge5" class="edge">
 <title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M495.55,-48C511.24,-48 529.37,-48 545.9,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="545.95,-51.5 555.95,-48 545.95,-44.5 545.95,-51.5"/>
+<path fill="none" stroke="midnightblue" d="M495.66,-48C516.38,-48 541.77,-48 563.76,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="563.91,-51.5 573.91,-48 563.91,-44.5 563.91,-51.5"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="../../de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a" target="_top" xlink:title="A template function to calculate the absolute value of a number.">
-<polygon fill="white" stroke="black" points="414,-0.5 414,-19.5 494,-19.5 494,-0.5 414,-0.5"/>
-<text text-anchor="middle" x="454" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyMath::abs</text>
+<g id="a_node7"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9" target="_top" xlink:title="Function to find the absolute value of each element in a vector.">
+<polygon fill="white" stroke="black" points="398.5,-0.5 398.5,-19.5 509.5,-19.5 509.5,-0.5 398.5,-0.5"/>
+<text text-anchor="middle" x="454" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::abs</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge7" class="edge">
 <title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M351.08,-10C369.13,-10 387.47,-10 403.52,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="403.72,-13.5 413.72,-10 403.72,-6.5 403.72,-13.5"/>
+<path fill="none" stroke="midnightblue" d="M351.08,-10C363.58,-10 376.22,-10 388.14,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="388.41,-13.5 398.41,-10 388.41,-6.5 388.41,-13.5"/>
+</g>
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#aae30f8178e4a34d332317c61e77c147a" target="_top" xlink:title="Getter for the size of the vector.">
+<polygon fill="white" stroke="black" points="556,-0.5 556,-19.5 675,-19.5 675,-0.5 556,-0.5"/>
+<text text-anchor="middle" x="615.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
+</a>
+</g>
+</g>
+<!-- Node7&#45;&gt;Node8 -->
+<g id="edge8" class="edge">
+<title>Node7&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M509.89,-10C521.51,-10 533.9,-10 545.95,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="545.97,-13.5 555.97,-10 545.97,-6.5 545.97,-13.5"/>
 </g>
 </g>
 </svg>

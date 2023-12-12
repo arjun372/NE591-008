@@ -1,6 +1,6 @@
 var LUP_8h =
 [
-    [ "applyLUP", "d4/dfb/LUP_8h.html#ac803dfb6b419afbd84ade6475e608e1f", null ],
+    [ "applyLUP", "d4/dfb/LUP_8h.html#acbc3001786a9bc09a661660f1ccd2e0d", null ],
     [ "dooLittleFactorizeLUP", "d4/dfb/LUP_8h.html#a8944cf7f291594494e1140ff6b0b0fc6", null ],
     [ "factorize", "d4/dfb/LUP_8h.html#a38b6c971c41b735e5acbd728ab652ac8", null ],
     [ "factorize", "d4/dfb/LUP_8h.html#adb672b0ddbe668b9469123427767624d", null ],

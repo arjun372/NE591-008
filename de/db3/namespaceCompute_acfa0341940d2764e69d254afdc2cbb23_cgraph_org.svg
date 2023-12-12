@@ -5,10 +5,10 @@
  -->
 <!-- Title: Compute::usingSOR Pages: 1 -->
 <svg width="1040pt" height="445pt"
- viewBox="0.00 0.00 1040.00 444.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 440.5)">
+ viewBox="0.00 0.00 1040.00 445.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 441)">
 <title>Compute::usingSOR</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-440.5 1036,-440.5 1036,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-441 1036,-441 1036,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#ad2e36f3b7182792a610cf67003b39f52" target="_top" xlink:title="This function applies the Successive Over&#45;Relaxation (SOR) method to solve a system of linear equatio...">
+<g id="a_node2"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a52bbc804a62498444281f3b3ac5c2c74" target="_top" xlink:title="This function applies the Successive Over&#45;Relaxation (SOR) method to solve a system of linear equatio...">
 <polygon fill="white" stroke="black" points="149,-153 149,-183 270,-183 270,-153 149,-153"/>
 <text text-anchor="start" x="157" y="-171" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
 <text text-anchor="middle" x="209.5" y="-160" font-family="Helvetica,sans-Serif" font-size="10.00">::applySOR</text>
@@ -83,17 +83,17 @@
 <g id="node15" class="node">
 <title>Node15</title>
 <g id="a_node15"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a985bd80ba02c84e9d1ca2e434a32bd3f" target="_top" xlink:title="Function to perform pre&#45;checks on the coefficient matrix and the right&#45;hand side vector.">
-<polygon fill="white" stroke="black" points="149,-324 149,-354 270,-354 270,-324 149,-324"/>
-<text text-anchor="start" x="157" y="-342" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="209.5" y="-331" font-family="Helvetica,sans-Serif" font-size="10.00">::passesPreChecks</text>
+<polygon fill="white" stroke="black" points="149,-336 149,-366 270,-366 270,-336 149,-336"/>
+<text text-anchor="start" x="157" y="-354" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="209.5" y="-343" font-family="Helvetica,sans-Serif" font-size="10.00">::passesPreChecks</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node15 -->
 <g id="edge18" class="edge">
 <title>Node1&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M63.8,-114.76C85.92,-149.04 160.5,-264.61 193.07,-315.09"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="190.28,-317.21 198.64,-323.72 196.16,-313.42 190.28,-317.21"/>
+<path fill="none" stroke="midnightblue" d="M63.42,-114.64C85.23,-150.17 161.51,-274.44 193.84,-327.11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="190.95,-329.1 199.16,-335.79 196.92,-325.44 190.95,-329.1"/>
 </g>
 <!-- Node23 -->
 <g id="node23" class="node">
@@ -105,7 +105,7 @@
 </g>
 </g>
 <!-- Node1&#45;&gt;Node23 -->
-<g id="edge32" class="edge">
+<g id="edge33" class="edge">
 <title>Node1&#45;&gt;Node23</title>
 <path fill="none" stroke="midnightblue" d="M66.48,-95.46C81.92,-79.55 115.13,-47.55 149,-29 152.96,-26.83 157.2,-24.87 161.54,-23.09"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="162.94,-26.3 171.08,-19.52 160.49,-19.75 162.94,-26.3"/>
@@ -114,21 +114,21 @@
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249" target="_top" xlink:title="Getter for the number of rows in the matrix.">
-<polygon fill="white" stroke="black" points="714,-291.5 714,-310.5 857,-310.5 857,-291.5 714,-291.5"/>
-<text text-anchor="middle" x="785.5" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Matrix::getRows</text>
+<polygon fill="white" stroke="black" points="714,-379.5 714,-398.5 857,-398.5 857,-379.5 714,-379.5"/>
+<text text-anchor="middle" x="785.5" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Matrix::getRows</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M270.03,-181.79C383.11,-208 627.12,-264.53 733.35,-289.15"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="732.66,-292.58 743.19,-291.43 734.24,-285.76 732.66,-292.58"/>
+<path fill="none" stroke="midnightblue" d="M248.1,-183.1C265.67,-190.12 286.88,-198.54 306,-206 471.87,-270.72 670.93,-346.12 749.84,-375.93"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="748.7,-379.24 759.29,-379.5 751.17,-372.69 748.7,-379.24"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446" target="_top" xlink:title="Calculates the L2 norm of the distance (Euclidean distance) between two containers.">
+<g id="a_node4"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446" target="_top" xlink:title="Calculates the L2 norm (Euclidean distance) between two containers.">
 <polygon fill="white" stroke="black" points="355,-101.5 355,-120.5 429,-120.5 429,-101.5 355,-101.5"/>
 <text text-anchor="middle" x="392" y="-108.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::L2</text>
 </a>
@@ -137,8 +137,8 @@
 <!-- Node2&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node2&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M246.62,-152.94C268.56,-143.92 294.49,-133.55 306,-130 318.43,-126.17 332.1,-122.76 344.78,-119.93"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="345.65,-123.33 354.69,-117.79 344.17,-116.48 345.65,-123.33"/>
+<path fill="none" stroke="midnightblue" d="M252.64,-152.85C269.2,-147.05 288.43,-140.51 306,-135 318.7,-131.02 332.56,-126.98 345.33,-123.37"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="346.61,-126.65 355.3,-120.59 344.73,-119.91 346.61,-126.65"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
@@ -159,31 +159,31 @@
 <g id="node9" class="node">
 <title>Node9</title>
 <g id="a_node9"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#aaa0d2e3d22af2b7894169b7c90ba6146" target="_top" xlink:title="Function to find the sum of all elements in a vector.">
-<polygon fill="white" stroke="black" points="728,-177.5 728,-196.5 843,-196.5 843,-177.5 728,-177.5"/>
-<text text-anchor="middle" x="785.5" y="-184.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::sum</text>
+<polygon fill="white" stroke="black" points="728,-139.5 728,-158.5 843,-158.5 843,-139.5 728,-139.5"/>
+<text text-anchor="middle" x="785.5" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::sum</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node9 -->
 <g id="edge14" class="edge">
 <title>Node2&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M270.03,-169.97C377.8,-173.54 604.5,-181.04 717.5,-184.78"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="717.64,-188.29 727.75,-185.12 717.87,-181.29 717.64,-188.29"/>
+<path fill="none" stroke="midnightblue" d="M270.03,-166.03C377.8,-162.46 604.5,-154.96 717.5,-151.22"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="717.87,-154.71 727.75,-150.88 717.64,-147.71 717.87,-154.71"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
 <g id="a_node11"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a403bf760cf802cddf8dd73e5d3e46a05" target="_top" xlink:title="Function to find the maximum value in a vector.">
-<polygon fill="white" stroke="black" points="334,-139.5 334,-158.5 450,-158.5 450,-139.5 334,-139.5"/>
-<text text-anchor="middle" x="392" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::max</text>
+<polygon fill="white" stroke="black" points="334,-177.5 334,-196.5 450,-196.5 450,-177.5 334,-177.5"/>
+<text text-anchor="middle" x="392" y="-184.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::max</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node11 -->
 <g id="edge11" class="edge">
 <title>Node2&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M270.1,-161.73C287.27,-159.92 306.12,-157.93 323.72,-156.08"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="324.33,-159.54 333.91,-155.01 323.6,-152.58 324.33,-159.54"/>
+<path fill="none" stroke="midnightblue" d="M270.1,-174.27C287.27,-176.08 306.12,-178.07 323.72,-179.92"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="323.6,-183.42 333.91,-180.99 324.33,-176.46 323.6,-183.42"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -216,22 +216,22 @@
 <g id="node8" class="node">
 <title>Node8</title>
 <g id="a_node8"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#aae30f8178e4a34d332317c61e77c147a" target="_top" xlink:title="Getter for the size of the vector.">
-<polygon fill="white" stroke="black" points="726,-101.5 726,-120.5 845,-120.5 845,-101.5 726,-101.5"/>
-<text text-anchor="middle" x="785.5" y="-108.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
+<polygon fill="white" stroke="black" points="903,-120.5 903,-139.5 1022,-139.5 1022,-120.5 903,-120.5"/>
+<text text-anchor="middle" x="962.5" y="-127.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node8 -->
 <g id="edge7" class="edge">
 <title>Node5&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M640.96,-111C663.22,-111 690.76,-111 715.74,-111"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="715.9,-114.5 725.9,-111 715.9,-107.5 715.9,-114.5"/>
+<path fill="none" stroke="midnightblue" d="M640.61,-113.27C703.05,-116.53 818.56,-122.55 892.63,-126.41"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="892.63,-129.91 902.8,-126.94 892.99,-122.92 892.63,-129.91"/>
 </g>
 <!-- Node5&#45;&gt;Node9 -->
 <g id="edge8" class="edge">
 <title>Node5&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M620.75,-120.63C653.85,-134.05 714.02,-158.43 751.48,-173.62"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="750.36,-176.94 760.95,-177.45 752.99,-170.45 750.36,-176.94"/>
+<path fill="none" stroke="midnightblue" d="M640.96,-119.91C666.8,-125.15 699.74,-131.82 727.55,-137.46"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="727.04,-140.93 737.54,-139.48 728.43,-134.07 727.04,-140.93"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
@@ -252,164 +252,170 @@
 <g id="node10" class="node">
 <title>Node10</title>
 <g id="a_node10"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab" target="_top" xlink:title="Getter for the vector data.">
-<polygon fill="white" stroke="black" points="893,-158.5 893,-177.5 1032,-177.5 1032,-158.5 893,-158.5"/>
-<text text-anchor="middle" x="962.5" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::getData</text>
+<polygon fill="white" stroke="black" points="893,-167.5 893,-186.5 1032,-186.5 1032,-167.5 893,-167.5"/>
+<text text-anchor="middle" x="962.5" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::getData</text>
 </a>
 </g>
 </g>
 <!-- Node9&#45;&gt;Node10 -->
 <g id="edge9" class="edge">
 <title>Node9&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M843.32,-180.83C855.88,-179.47 869.42,-178 882.68,-176.56"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="883.19,-180.02 892.75,-175.46 882.43,-173.06 883.19,-180.02"/>
+<path fill="none" stroke="midnightblue" d="M843.32,-158.09C858.86,-160.58 875.87,-163.3 892.03,-165.88"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="891.53,-169.35 901.96,-167.47 892.64,-162.44 891.53,-169.35"/>
 </g>
 <!-- Node11&#45;&gt;Node10 -->
 <g id="edge12" class="edge">
 <title>Node11&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M450.11,-150.91C552.2,-154.32 766.13,-161.47 882.32,-165.35"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="882.46,-168.86 892.57,-165.7 882.69,-161.86 882.46,-168.86"/>
+<path fill="none" stroke="midnightblue" d="M450.11,-186C552.2,-184.2 766.13,-180.44 882.32,-178.39"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="882.63,-181.89 892.57,-178.21 882.51,-174.89 882.63,-181.89"/>
 </g>
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
 <g id="a_node16"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a4ae8cb61e3457065790607979b939564" target="_top" xlink:title="Checks if the given matrix is diagonally dominant.">
-<polygon fill="white" stroke="black" points="306,-329.5 306,-348.5 478,-348.5 478,-329.5 306,-329.5"/>
-<text text-anchor="middle" x="392" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isDiagonallyDominant</text>
+<polygon fill="white" stroke="black" points="306,-341.5 306,-360.5 478,-360.5 478,-341.5 306,-341.5"/>
+<text text-anchor="middle" x="392" y="-348.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isDiagonallyDominant</text>
 </a>
 </g>
 </g>
 <!-- Node15&#45;&gt;Node16 -->
 <g id="edge19" class="edge">
 <title>Node15&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M270.1,-339C278.37,-339 287.02,-339 295.74,-339"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="295.99,-342.5 305.99,-339 295.99,-335.5 295.99,-342.5"/>
+<path fill="none" stroke="midnightblue" d="M270.1,-351C278.37,-351 287.02,-351 295.74,-351"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="295.99,-354.5 305.99,-351 295.99,-347.5 295.99,-354.5"/>
 </g>
 <!-- Node18 -->
 <g id="node18" class="node">
 <title>Node18</title>
 <g id="a_node18"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f" target="_top" xlink:title="Checks if the given matrix is a square matrix.">
-<polygon fill="white" stroke="black" points="527.5,-329.5 527.5,-348.5 664.5,-348.5 664.5,-329.5 527.5,-329.5"/>
-<text text-anchor="middle" x="596" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isSquareMatrix</text>
+<polygon fill="white" stroke="black" points="527.5,-379.5 527.5,-398.5 664.5,-398.5 664.5,-379.5 527.5,-379.5"/>
+<text text-anchor="middle" x="596" y="-386.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isSquareMatrix</text>
 </a>
 </g>
 </g>
 <!-- Node15&#45;&gt;Node18 -->
-<g id="edge28" class="edge">
+<g id="edge29" class="edge">
 <title>Node15&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M270.09,-352.73C281.93,-354.92 294.31,-356.85 306,-358 382.08,-365.49 401.8,-364.15 478,-358 497.47,-356.43 518.59,-353.41 537.46,-350.23"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="538.14,-353.67 547.4,-348.51 536.94,-346.77 538.14,-353.67"/>
+<path fill="none" stroke="midnightblue" d="M270.16,-364.12C281.99,-366.36 294.35,-368.47 306,-370 377.13,-379.37 458.75,-384.2 517.06,-386.64"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="517.18,-390.14 527.31,-387.05 517.46,-383.15 517.18,-390.14"/>
 </g>
 <!-- Node20 -->
 <g id="node20" class="node">
 <title>Node20</title>
 <g id="a_node20"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a1f0325293f4b4969ac4a450ba3db1f87" target="_top" xlink:title="Checks if the given matrix is empty.">
-<polygon fill="white" stroke="black" points="529,-291.5 529,-310.5 663,-310.5 663,-291.5 529,-291.5"/>
-<text text-anchor="middle" x="596" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isEmptyMatrix</text>
+<polygon fill="white" stroke="black" points="529,-417.5 529,-436.5 663,-436.5 663,-417.5 529,-417.5"/>
+<text text-anchor="middle" x="596" y="-424.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isEmptyMatrix</text>
 </a>
 </g>
 </g>
 <!-- Node15&#45;&gt;Node20 -->
-<g id="edge25" class="edge">
+<g id="edge26" class="edge">
 <title>Node15&#45;&gt;Node20</title>
-<path fill="none" stroke="midnightblue" d="M270.16,-325.88C281.99,-323.64 294.35,-321.53 306,-320 377.72,-310.55 460.1,-305.72 518.51,-303.3"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="518.91,-306.79 528.76,-302.89 518.63,-299.8 518.91,-306.79"/>
+<path fill="none" stroke="midnightblue" d="M240.72,-366.16C259.14,-374.77 283.42,-384.99 306,-391 376.63,-409.81 459.66,-418.86 518.55,-423.17"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="518.67,-426.69 528.89,-423.89 519.16,-419.7 518.67,-426.69"/>
 </g>
 <!-- Node21 -->
 <g id="node21" class="node">
 <title>Node21</title>
 <g id="a_node21"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a56e77d4aef50489830f5ce0ef7bcf7a4" target="_top" xlink:title="Checks if there are no zeros in the diagonal of a matrix.">
-<polygon fill="white" stroke="black" points="314.5,-408.5 314.5,-427.5 469.5,-427.5 469.5,-408.5 314.5,-408.5"/>
-<text text-anchor="middle" x="392" y="-415.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::noZerosInDiagonal</text>
+<polygon fill="white" stroke="black" points="314.5,-303.5 314.5,-322.5 469.5,-322.5 469.5,-303.5 314.5,-303.5"/>
+<text text-anchor="middle" x="392" y="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::noZerosInDiagonal</text>
 </a>
 </g>
 </g>
 <!-- Node15&#45;&gt;Node21 -->
-<g id="edge29" class="edge">
+<g id="edge30" class="edge">
 <title>Node15&#45;&gt;Node21</title>
-<path fill="none" stroke="midnightblue" d="M234.98,-354.03C253.9,-365.22 280.99,-380.34 306,-391 318.71,-396.42 332.89,-401.34 345.97,-405.46"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="345.13,-408.86 355.71,-408.44 347.18,-402.17 345.13,-408.86"/>
+<path fill="none" stroke="midnightblue" d="M270.1,-338.45C291.28,-333.99 315.02,-329 335.81,-324.62"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="336.69,-328.01 345.76,-322.52 335.25,-321.16 336.69,-328.01"/>
 </g>
 <!-- Node16&#45;&gt;Node9 -->
-<g id="edge24" class="edge">
+<g id="edge25" class="edge">
 <title>Node16&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M412.01,-329.3C435.61,-317.43 477.26,-297.06 514,-282 594.48,-249.01 691.12,-216.8 744.36,-199.67"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="745.65,-202.93 754.1,-196.55 743.51,-196.27 745.65,-202.93"/>
+<path fill="none" stroke="midnightblue" d="M457.44,-341.38C464.65,-338.93 471.67,-335.85 478,-332 499.29,-319.04 492.61,-301.8 514,-289 577.88,-250.79 614.12,-293.21 678,-255 699.39,-242.2 696.66,-229.91 714,-212 730.32,-195.14 750.4,-177.47 764.95,-165.15"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="767.39,-167.66 772.8,-158.55 762.89,-162.3 767.39,-167.66"/>
 </g>
 <!-- Node17 -->
 <g id="node17" class="node">
 <title>Node17</title>
-<g id="a_node17"><a xlink:href="../../de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a" target="_top" xlink:title="A template function to calculate the absolute value of a number.">
-<polygon fill="white" stroke="black" points="745.5,-389.5 745.5,-408.5 825.5,-408.5 825.5,-389.5 745.5,-389.5"/>
-<text text-anchor="middle" x="785.5" y="-396.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyMath::abs</text>
+<g id="a_node17"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9" target="_top" xlink:title="Function to find the absolute value of each element in a vector.">
+<polygon fill="white" stroke="black" points="730,-221.5 730,-240.5 841,-240.5 841,-221.5 730,-221.5"/>
+<text text-anchor="middle" x="785.5" y="-228.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::abs</text>
 </a>
 </g>
 </g>
 <!-- Node16&#45;&gt;Node17 -->
 <g id="edge20" class="edge">
 <title>Node16&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M453.31,-348.53C472.68,-351.58 494.25,-354.95 514,-358 591.18,-369.91 680.79,-383.43 735.03,-391.58"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="734.66,-395.07 745.07,-393.09 735.7,-388.14 734.66,-395.07"/>
+<path fill="none" stroke="midnightblue" d="M462.81,-341.5C521.49,-332.18 606.94,-315.46 678,-289 708.25,-277.74 740.46,-259.16 761.44,-246.07"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="763.4,-248.97 769.97,-240.66 759.65,-243.06 763.4,-248.97"/>
 </g>
 <!-- Node16&#45;&gt;Node18 -->
-<g id="edge21" class="edge">
+<g id="edge22" class="edge">
 <title>Node16&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M478.08,-339C491.1,-339 504.48,-339 517.32,-339"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="517.49,-342.5 527.49,-339 517.49,-335.5 517.49,-342.5"/>
+<path fill="none" stroke="midnightblue" d="M443.71,-360.54C471.21,-365.71 505.38,-372.14 534.28,-377.58"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="533.79,-381.05 544.27,-379.46 535.09,-374.17 533.79,-381.05"/>
+</g>
+<!-- Node17&#45;&gt;Node8 -->
+<g id="edge21" class="edge">
+<title>Node17&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M798.73,-221.33C817.99,-206.41 856.89,-177.47 893,-158 903.04,-152.59 914.36,-147.56 924.86,-143.3"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="926.19,-146.54 934.22,-139.62 923.63,-140.02 926.19,-146.54"/>
 </g>
 <!-- Node18&#45;&gt;Node3 -->
-<g id="edge23" class="edge">
+<g id="edge24" class="edge">
 <title>Node18&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M644.31,-329.41C669.61,-324.28 700.95,-317.93 727.57,-312.54"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="728.42,-315.94 737.53,-310.52 727.03,-309.08 728.42,-315.94"/>
+<path fill="none" stroke="midnightblue" d="M664.69,-389C677.27,-389 690.53,-389 703.47,-389"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="703.75,-392.5 713.75,-389 703.75,-385.5 703.75,-392.5"/>
 </g>
 <!-- Node19 -->
 <g id="node19" class="node">
 <title>Node19</title>
 <g id="a_node19"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864" target="_top" xlink:title="Getter for the number of columns in the matrix.">
-<polygon fill="white" stroke="black" points="717,-329.5 717,-348.5 854,-348.5 854,-329.5 717,-329.5"/>
-<text text-anchor="middle" x="785.5" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Matrix::getCols</text>
+<polygon fill="white" stroke="black" points="717,-417.5 717,-436.5 854,-436.5 854,-417.5 717,-417.5"/>
+<text text-anchor="middle" x="785.5" y="-424.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Matrix::getCols</text>
 </a>
 </g>
 </g>
 <!-- Node18&#45;&gt;Node19 -->
-<g id="edge22" class="edge">
+<g id="edge23" class="edge">
 <title>Node18&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M664.69,-339C678.37,-339 692.84,-339 706.83,-339"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="706.91,-342.5 716.91,-339 706.91,-335.5 706.91,-342.5"/>
+<path fill="none" stroke="midnightblue" d="M644.31,-398.59C669.61,-403.72 700.95,-410.07 727.57,-415.46"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="727.03,-418.92 737.53,-417.48 728.42,-412.06 727.03,-418.92"/>
 </g>
 <!-- Node20&#45;&gt;Node3 -->
-<g id="edge27" class="edge">
+<g id="edge28" class="edge">
 <title>Node20&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M663.11,-301C676.21,-301 690.11,-301 703.64,-301"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="703.9,-304.5 713.9,-301 703.9,-297.5 703.9,-304.5"/>
+<path fill="none" stroke="midnightblue" d="M644.31,-417.41C669.61,-412.28 700.95,-405.93 727.57,-400.54"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="728.42,-403.94 737.53,-398.52 727.03,-397.08 728.42,-403.94"/>
 </g>
 <!-- Node20&#45;&gt;Node19 -->
-<g id="edge26" class="edge">
+<g id="edge27" class="edge">
 <title>Node20&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M644.31,-310.59C669.61,-315.72 700.95,-322.07 727.57,-327.46"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="727.03,-330.92 737.53,-329.48 728.42,-324.06 727.03,-330.92"/>
+<path fill="none" stroke="midnightblue" d="M663.11,-427C677.1,-427 692.01,-427 706.4,-427"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="706.77,-430.5 716.77,-427 706.77,-423.5 706.77,-430.5"/>
 </g>
 <!-- Node22 -->
 <g id="node22" class="node">
 <title>Node22</title>
 <g id="a_node22"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a6b103aca5e5fab29f3d0954b77946dc0" target="_top" xlink:title="Checks if all diagonal elements of a matrix are below a certain threshold.">
-<polygon fill="white" stroke="black" points="514,-406 514,-436 678,-436 678,-406 514,-406"/>
-<text text-anchor="start" x="522" y="-424" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::allDiagonalElements</text>
-<text text-anchor="middle" x="596" y="-413" font-family="Helvetica,sans-Serif" font-size="10.00">BelowThreshold</text>
+<polygon fill="white" stroke="black" points="514,-216 514,-246 678,-246 678,-216 514,-216"/>
+<text text-anchor="start" x="522" y="-234" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::allDiagonalElements</text>
+<text text-anchor="middle" x="596" y="-223" font-family="Helvetica,sans-Serif" font-size="10.00">BelowThreshold</text>
 </a>
 </g>
 </g>
 <!-- Node21&#45;&gt;Node22 -->
-<g id="edge30" class="edge">
+<g id="edge31" class="edge">
 <title>Node21&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M469.66,-419.14C480.68,-419.3 492.11,-419.47 503.39,-419.64"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="503.64,-423.14 513.69,-419.79 503.74,-416.14 503.64,-423.14"/>
+<path fill="none" stroke="midnightblue" d="M414.28,-303.46C438.34,-292.77 478.76,-275.09 514,-261 523.6,-257.16 533.91,-253.21 543.84,-249.49"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="545.07,-252.77 553.22,-246.01 542.63,-246.21 545.07,-252.77"/>
 </g>
 <!-- Node22&#45;&gt;Node17 -->
-<g id="edge31" class="edge">
+<g id="edge32" class="edge">
 <title>Node22&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M678.15,-411.48C697.68,-409.19 717.94,-406.81 735.48,-404.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="735.94,-408.22 745.47,-403.58 735.13,-401.27 735.94,-408.22"/>
+<path fill="none" stroke="midnightblue" d="M678.15,-231C692.11,-231 706.45,-231 719.9,-231"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="719.99,-234.5 729.99,-231 719.99,-227.5 719.99,-234.5"/>
 </g>
 </g>
 </svg>

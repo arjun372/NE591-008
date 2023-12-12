@@ -38,7 +38,6 @@ var hierarchy =
     [ "CommandLine< SolverInputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ],
-      [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
     [ "CommandLine< TaylorSeriesInputs >", "dd/d02/classCommandLine.html", [
@@ -79,19 +78,18 @@ var hierarchy =
     [ "MyBLAS::LazyVector< DataType >", "d6/d07/classMyBLAS_1_1LazyVector.html", null ],
     [ "MyBLAS::Matrix< T >", "d0/d27/classMyBLAS_1_1Matrix.html", null ],
     [ "MyBLAS::Output", "d9/d29/structMyBLAS_1_1Output.html", null ],
-    [ "MyBLAS::Solver::Solution< T >", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html", null ],
-    [ "MyBLAS::Solver::TemplatedParameters< MatrixType, VectorType, T >", "d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html", [
-      [ "MyBLAS::Solver::Parameters< MyBLAS::NumericType >", "d4/d9d/structMyBLAS_1_1Solver_1_1Parameters.html", null ],
-      [ "MyBLAS::Solver::Parameters< long double >", "d4/d9d/structMyBLAS_1_1Solver_1_1Parameters.html", null ]
-    ] ],
     [ "MyBLAS::Stats::Summary< T >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
     [ "MyBLAS::Vector< T >", "d4/d4d/classMyBLAS_1_1Vector.html", null ],
     [ "MyBLAS::VectorExpression< DataType, Op1, Op2, BinaryOp >", "dd/dc2/classMyBLAS_1_1VectorExpression.html", null ],
     [ "MyFactorizationMethod::Parameters< T >", "de/dbb/structMyFactorizationMethod_1_1Parameters.html", null ],
+    [ "MyLinearSolvingMethod::Parameters< T >", "de/d18/namespaceMyLinearSolvingMethod.html#d8/d53/structMyLinearSolvingMethod_1_1Parameters", null ],
+    [ "MyLinearSolvingMethod::Solution< T >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
     [ "MyPhysics::Diffusion::Constants< T >", "da/dff/structMyPhysics_1_1Diffusion_1_1Constants.html", null ],
     [ "MyPhysics::Diffusion::Params< FloatType >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "Output", "df/df1/structOutput.html", null ],
     [ "Outputs", "db/d86/structOutputs.html", null ],
+    [ "MyLinearSolvingMethod::Parameters< long double >", "de/d18/namespaceMyLinearSolvingMethod.html#de/d18/namespaceMyLinearSolvingMethod", null ],
+    [ "MyLinearSolvingMethod::Parameters< MyBLAS::NumericType >", "de/d18/namespaceMyLinearSolvingMethod.html#de/d18/namespaceMyLinearSolvingMethod", null ],
     [ "MyPhysics::Diffusion::Params< FLOAT_TYPE >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "MyPhysics::Diffusion::Params< MyBLAS::NumericType >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "MyPhysics::Diffusion::Params< T >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
@@ -126,8 +124,7 @@ var hierarchy =
     [ "Project< SolverInputs, Parser, SolverOutputs >", "db/d91/classProject.html", [
       [ "Project1", "d8/ddb/classProject1.html", null ],
       [ "Project2", "dd/db5/classProject2.html", null ],
-      [ "Project3", "dd/dfb/classProject3.html", null ],
-      [ "Project4", "d2/dfd/classProject4.html", null ]
+      [ "Project3", "dd/dfb/classProject3.html", null ]
     ] ],
     [ "Project< TaylorSeriesInputs, Parser, TaylorSeriesVariables >", "db/d91/classProject.html", [
       [ "InLab1", "dd/d40/classInLab1.html", null ]
@@ -136,23 +133,16 @@ var hierarchy =
     [ "ResourceMonitor< MyBLAS::Matrix< MyBLAS::NumericType > >", "d1/d7c/classResourceMonitor.html", null ],
     [ "ResourceMonitor< MyBLAS::Vector< MyBLAS::NumericType > >", "d1/d7c/classResourceMonitor.html", null ],
     [ "ResourceMonitor< MyPhysics::Diffusion::Matrix< MyBLAS::NumericType > >", "d1/d7c/classResourceMonitor.html", null ],
-    [ "MyBLAS::Solver::Solution< long double >", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html", null ],
-    [ "MyBLAS::Solver::Solution< MyBLAS::NumericType >", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html", null ],
+    [ "MyLinearSolvingMethod::Solution< long double >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
+    [ "MyLinearSolvingMethod::Solution< MyBLAS::NumericType >", "de/d83/structMyLinearSolvingMethod_1_1Solution.html", null ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
     [ "Stopwatch< D >", "de/def/classStopwatch.html", null ],
     [ "Stopwatch< Nanoseconds >", "de/def/classStopwatch.html", null ],
     [ "MyBLAS::Stats::Summary< long double >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
     [ "MyBLAS::Stats::Summary< MyBLAS::NumericType >", "dc/da4/structMyBLAS_1_1Stats_1_1Summary.html", null ],
-    [ "MyBLAS::Solver::TemplatedParameters< MyBLAS::LazyMatrix, MyBLAS::LazyVector, T >", "d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html", [
-      [ "MyBLAS::Solver::LazyParameters< T >", "d8/d7f/structMyBLAS_1_1Solver_1_1LazyParameters.html", null ]
-    ] ],
-    [ "MyBLAS::Solver::TemplatedParameters< MyBLAS::Matrix, MyBLAS::Vector, T >", "d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html", [
-      [ "MyBLAS::Solver::Parameters< T >", "d4/d9d/structMyBLAS_1_1Solver_1_1Parameters.html", null ]
-    ] ],
     [ "testing::Test", null, [
       [ "DiffusionMatrixTests< T >", "dc/dff/classDiffusionMatrixTests.html", null ],
       [ "DiffusionParamsTest", "d5/d15/classDiffusionParamsTest.html", null ],
-      [ "FluxCalculationTests< T >", "dd/d23/classFluxCalculationTests.html", null ],
       [ "InLab10MatrixTests< T >", "d4/db5/classInLab10MatrixTests.html", null ],
       [ "MatrixVectorTests< T >", "d3/dab/classMatrixVectorTests.html", null ],
       [ "MyBLAS::BaseMatrixTests< T >", "d5/d8a/classMyBLAS_1_1BaseMatrixTests.html", null ],

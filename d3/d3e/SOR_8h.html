@@ -123,11 +123,11 @@ $(document).ready(function(){initNavTree('d3/d3e/SOR_8h.html','../../'); initRes
 
 <p>This file contains the implementation of the Successive Over-Relaxation (SOR) method for solving systems of linear equations.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../">math/blas/BLAS.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">math/blas/Ops.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../">math/LinearSolver.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">math/blas/BLAS.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/matrix/Matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">math/blas/Ops.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/vector/Vector.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">utils/math/blas/solver/LinearSolver.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for SOR.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('d3/d3e/SOR_8h.html','../../'); initRes
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d4f/SOR_8h__dep__incl.svg" width="434" height="410"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d4f/SOR_8h__dep__incl.svg" width="638" height="499"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -155,16 +155,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad2e36f3b7182792a610cf67003b39f52"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
-<tr class="memitem:ad2e36f3b7182792a610cf67003b39f52"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">MyBLAS::Solver::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#ad2e36f3b7182792a610cf67003b39f52">MyRelaxationMethod::applySOR</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1)</td></tr>
-<tr class="memdesc:ad2e36f3b7182792a610cf67003b39f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the Successive Over-Relaxation (SOR) method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#ad2e36f3b7182792a610cf67003b39f52">More...</a><br /></td></tr>
-<tr class="separator:ad2e36f3b7182792a610cf67003b39f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a243ad9b544328fb7b499b467e67ddd9c"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
-<tr class="memitem:a243ad9b544328fb7b499b467e67ddd9c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">MyBLAS::Solver::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a243ad9b544328fb7b499b467e67ddd9c">MyRelaxationMethod::applyPSOR</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1)</td></tr>
-<tr class="separator:a243ad9b544328fb7b499b467e67ddd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac76943650285426073d6d4965cbb6834"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
-<tr class="memitem:ac76943650285426073d6d4965cbb6834"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">MyBLAS::Solver::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#ac76943650285426073d6d4965cbb6834">MyRelaxationMethod::applyP2SOR</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor=1)</td></tr>
-<tr class="separator:ac76943650285426073d6d4965cbb6834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52bbc804a62498444281f3b3ac5c2c74"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
+<tr class="memitem:a52bbc804a62498444281f3b3ac5c2c74"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a52bbc804a62498444281f3b3ac5c2c74">MyRelaxationMethod::applySOR</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const size_t max_iterations, const T tolerance, const T relaxation_factor)</td></tr>
+<tr class="memdesc:a52bbc804a62498444281f3b3ac5c2c74"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the Successive Over-Relaxation (SOR) method to solve a system of linear equations.  <a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a52bbc804a62498444281f3b3ac5c2c74">More...</a><br /></td></tr>
+<tr class="separator:a52bbc804a62498444281f3b3ac5c2c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the implementation of the Successive Over-Relaxation (SOR) method for solving systems of linear equations. </p>

@@ -424,21 +424,21 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The received data. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                                      {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        MPI_Status status;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordtype">int</span> length;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        MPI_Probe(MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &amp;status);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        MPI_Get_count(&amp;status, MPI_CHAR, &amp;length);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordtype">char</span>* buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(length)];</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        MPI_Recv(buffer, length, MPI_CHAR, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        std::string received_str(buffer);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keyword">delete</span>[] buffer;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        std::istringstream iss(received_str);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        boost::archive::text_iarchive ia(iss);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        DataType received;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        ia &gt;&gt; received;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">return</span> received;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                                      {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        MPI_Status status;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordtype">int</span> length;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        MPI_Probe(MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &amp;status);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        MPI_Get_count(&amp;status, MPI_CHAR, &amp;length);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordtype">char</span>* buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(length)];</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        MPI_Recv(buffer, length, MPI_CHAR, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        std::string received_str(buffer);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keyword">delete</span>[] buffer;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        std::istringstream iss(received_str);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        boost::archive::text_iarchive ia(iss);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        DataType received;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        ia &gt;&gt; received;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">return</span> received;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -490,14 +490,14 @@ Static Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                                                                   {</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        std::ostringstream oss;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        boost::archive::text_oarchive oa(oss);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        oa &lt;&lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        std::string serialized = oss.str();</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> length = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(serialized.size()) + 1;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        MPI_Send(serialized.c_str(), length, MPI_CHAR, rank, 0, MPI_COMM_WORLD);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                                                                   {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        std::ostringstream oss;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        boost::archive::text_oarchive oa(oss);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        oa &lt;&lt; <a class="code" href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        std::string serialized = oss.str();</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> length = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(serialized.size()) + 1;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        MPI_Send(serialized.c_str(), length, MPI_CHAR, rank, 0, MPI_COMM_WORLD);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
 <div class="ttc" id="areadfile_8m_html_a0d456e3b30ae0a83ca2f097a1a1669f5"><div class="ttname"><a href="../../db/dde/readfile_8m.html#a0d456e3b30ae0a83ca2f097a1a1669f5">data</a></div><div class="ttdeci">Read the table from the CSV file data</div><div class="ttdef"><b>Definition:</b> readfile.m:9</div></div>
 </div><!-- fragment -->
 </div>
@@ -631,29 +631,29 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Executes the project. It calls the preRun, run, and postRun methods, and then finalizes MPI. </p>
-<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                   {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/df0/classMPIProject.html#a7f3be9ef6f36a9f268450127ebe32693">preRun</a>(this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87">_outputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0e8fef716b4108b73af66792e32ab24a">_inputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0bf8c76a278bd516cbe31725c0f63b04">_rank</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a">_size</a>)) {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">goto</span> quit;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/df0/classMPIProject.html#aeaf915cc5b3bfb50f98a25645580da15">run</a>(this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87">_outputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0e8fef716b4108b73af66792e32ab24a">_inputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0bf8c76a278bd516cbe31725c0f63b04">_rank</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a">_size</a>)) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">goto</span> quit;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/df0/classMPIProject.html#a01b7f56dd495562d937e86689e7fb855">postRun</a>(this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87">_outputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0e8fef716b4108b73af66792e32ab24a">_inputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0bf8c76a278bd516cbe31725c0f63b04">_rank</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a">_size</a>)) {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">goto</span> quit;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    quit:</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <a class="code" href="../../d0/df0/classMPIProject.html#aaad8af6f437a15ef6f0d839066d089ed">finalize</a>();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
-<div class="ttc" id="aclassMPIProject_html_a01b7f56dd495562d937e86689e7fb855"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a01b7f56dd495562d937e86689e7fb855">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::postRun</a></div><div class="ttdeci">virtual bool postRun(OutLab7Outputs &amp;output, OutLab7Inputs &amp;input, const int rank, const int size)</div><div class="ttdoc">A virtual method that is called after the run method. It can be overridden in derived classes.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:168</div></div>
-<div class="ttc" id="aclassMPIProject_html_a0bf8c76a278bd516cbe31725c0f63b04"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a0bf8c76a278bd516cbe31725c0f63b04">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_rank</a></div><div class="ttdeci">int _rank</div><div class="ttdoc">The rank of the current process in the MPI_COMM_WORLD communicator.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:58</div></div>
-<div class="ttc" id="aclassMPIProject_html_a0e8fef716b4108b73af66792e32ab24a"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a0e8fef716b4108b73af66792e32ab24a">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_inputs</a></div><div class="ttdeci">OutLab7Inputs _inputs</div><div class="ttdoc">The inputs for the project.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:70</div></div>
-<div class="ttc" id="aclassMPIProject_html_a7f3be9ef6f36a9f268450127ebe32693"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a7f3be9ef6f36a9f268450127ebe32693">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::preRun</a></div><div class="ttdeci">virtual bool preRun(OutLab7Outputs &amp;output, OutLab7Inputs &amp;input, const int rank, const int size)</div><div class="ttdoc">A virtual method that is called before the run method. It can be overridden in derived classes.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:150</div></div>
-<div class="ttc" id="aclassMPIProject_html_aa503cbbf07efdf457999cc05793aff87"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_outputs</a></div><div class="ttdeci">OutLab7Outputs _outputs</div><div class="ttdoc">The outputs of the project.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:74</div></div>
-<div class="ttc" id="aclassMPIProject_html_aaad8af6f437a15ef6f0d839066d089ed"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#aaad8af6f437a15ef6f0d839066d089ed">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::finalize</a></div><div class="ttdeci">void finalize()</div><div class="ttdoc">Finalizes MPI.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:139</div></div>
-<div class="ttc" id="aclassMPIProject_html_ac7bd936bdf6bdab20d0cfebd2892218a"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_size</a></div><div class="ttdeci">int _size</div><div class="ttdoc">The total number of processes in the MPI_COMM_WORLD communicator.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:62</div></div>
-<div class="ttc" id="aclassMPIProject_html_aeaf915cc5b3bfb50f98a25645580da15"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#aeaf915cc5b3bfb50f98a25645580da15">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::run</a></div><div class="ttdeci">virtual bool run(OutLab7Outputs &amp;output, OutLab7Inputs &amp;input, const int rank, const int size)</div><div class="ttdoc">A virtual method that is called to run the project. It can be overridden in derived classes.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:159</div></div>
+<div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                   {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/df0/classMPIProject.html#a7f3be9ef6f36a9f268450127ebe32693">preRun</a>(this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87">_outputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0e8fef716b4108b73af66792e32ab24a">_inputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0bf8c76a278bd516cbe31725c0f63b04">_rank</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a">_size</a>)) {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">goto</span> quit;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/df0/classMPIProject.html#aeaf915cc5b3bfb50f98a25645580da15">run</a>(this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87">_outputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0e8fef716b4108b73af66792e32ab24a">_inputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0bf8c76a278bd516cbe31725c0f63b04">_rank</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a">_size</a>)) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">goto</span> quit;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/df0/classMPIProject.html#a01b7f56dd495562d937e86689e7fb855">postRun</a>(this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87">_outputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0e8fef716b4108b73af66792e32ab24a">_inputs</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#a0bf8c76a278bd516cbe31725c0f63b04">_rank</a>, this-&gt;<a class="code" href="../../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a">_size</a>)) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">goto</span> quit;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    quit:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="../../d0/df0/classMPIProject.html#aaad8af6f437a15ef6f0d839066d089ed">finalize</a>();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
+<div class="ttc" id="aclassMPIProject_html_a01b7f56dd495562d937e86689e7fb855"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a01b7f56dd495562d937e86689e7fb855">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::postRun</a></div><div class="ttdeci">virtual bool postRun(OutLab7Outputs &amp;output, OutLab7Inputs &amp;input, const int rank, const int size)</div><div class="ttdoc">A virtual method that is called after the run method. It can be overridden in derived classes.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:167</div></div>
+<div class="ttc" id="aclassMPIProject_html_a0bf8c76a278bd516cbe31725c0f63b04"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a0bf8c76a278bd516cbe31725c0f63b04">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_rank</a></div><div class="ttdeci">int _rank</div><div class="ttdoc">The rank of the current process in the MPI_COMM_WORLD communicator.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:57</div></div>
+<div class="ttc" id="aclassMPIProject_html_a0e8fef716b4108b73af66792e32ab24a"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a0e8fef716b4108b73af66792e32ab24a">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_inputs</a></div><div class="ttdeci">OutLab7Inputs _inputs</div><div class="ttdoc">The inputs for the project.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:69</div></div>
+<div class="ttc" id="aclassMPIProject_html_a7f3be9ef6f36a9f268450127ebe32693"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a7f3be9ef6f36a9f268450127ebe32693">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::preRun</a></div><div class="ttdeci">virtual bool preRun(OutLab7Outputs &amp;output, OutLab7Inputs &amp;input, const int rank, const int size)</div><div class="ttdoc">A virtual method that is called before the run method. It can be overridden in derived classes.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:149</div></div>
+<div class="ttc" id="aclassMPIProject_html_aa503cbbf07efdf457999cc05793aff87"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#aa503cbbf07efdf457999cc05793aff87">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_outputs</a></div><div class="ttdeci">OutLab7Outputs _outputs</div><div class="ttdoc">The outputs of the project.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:73</div></div>
+<div class="ttc" id="aclassMPIProject_html_aaad8af6f437a15ef6f0d839066d089ed"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#aaad8af6f437a15ef6f0d839066d089ed">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::finalize</a></div><div class="ttdeci">void finalize()</div><div class="ttdoc">Finalizes MPI.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:138</div></div>
+<div class="ttc" id="aclassMPIProject_html_ac7bd936bdf6bdab20d0cfebd2892218a"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#ac7bd936bdf6bdab20d0cfebd2892218a">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_size</a></div><div class="ttdeci">int _size</div><div class="ttdoc">The total number of processes in the MPI_COMM_WORLD communicator.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:61</div></div>
+<div class="ttc" id="aclassMPIProject_html_aeaf915cc5b3bfb50f98a25645580da15"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#aeaf915cc5b3bfb50f98a25645580da15">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::run</a></div><div class="ttdeci">virtual bool run(OutLab7Outputs &amp;output, OutLab7Inputs &amp;input, const int rank, const int size)</div><div class="ttdoc">A virtual method that is called to run the project. It can be overridden in derived classes.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:158</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -681,9 +681,9 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Finalizes MPI. </p>
-<div class="fragment"><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                    {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        MPI_Finalize();</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                    {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        MPI_Finalize();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -744,22 +744,22 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The inputs for the project. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                                                                                        {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="comment">// receive from main</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">if</span> (rank != 0) {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">return</span> blockingReceive&lt;InputType&gt;();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// send to all but main</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        InputType <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">auto</span> terminal = CommandLineParserType(header, args);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a> = terminal.getInputs();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 1; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; size; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="../../d0/df0/classMPIProject.html#a63c4b9dc5d8b0fdf4e75471de06686ef">blockingSend</a>(<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>, <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="ttc" id="aclassMPIProject_html_a63c4b9dc5d8b0fdf4e75471de06686ef"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a63c4b9dc5d8b0fdf4e75471de06686ef">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::blockingSend</a></div><div class="ttdeci">static void blockingSend(const DataType &amp;data, const int rank)</div><div class="ttdoc">Sends data to a process with a given rank.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:179</div></div>
+<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                                                                                        {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="comment">// receive from main</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span> (rank != 0) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">return</span> blockingReceive&lt;InputType&gt;();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">// send to all but main</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        InputType <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">auto</span> terminal = CommandLineParserType(header, args);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a> = terminal.getInputs();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 1; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; size; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>++) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <a class="code" href="../../d0/df0/classMPIProject.html#a63c4b9dc5d8b0fdf4e75471de06686ef">blockingSend</a>(<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>, <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+<div class="ttc" id="aclassMPIProject_html_a63c4b9dc5d8b0fdf4e75471de06686ef"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a63c4b9dc5d8b0fdf4e75471de06686ef">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::blockingSend</a></div><div class="ttdeci">static void blockingSend(const DataType &amp;data, const int rank)</div><div class="ttdoc">Sends data to a process with a given rank.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:178</div></div>
 <div class="ttc" id="anamespaceprocess_html_a28a68c9ef07157605b034da333fdcfc1"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">process.inputs</a></div><div class="ttdeci">inputs</div><div class="ttdef"><b>Definition:</b> process.py:19</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 </div><!-- fragment -->
@@ -917,9 +917,9 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../dd/d0e/classProfiler.html" title="A template class to profile the execution time of a function.">Profiler</a> object. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                                                                                                     {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html">Profiler</a>(func, samples, timeout, description);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                                                                                     {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dd/d0e/classProfiler.html">Profiler</a>(func, samples, timeout, description);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
 <div class="ttc" id="aclassProfiler_html"><div class="ttname"><a href="../../dd/d0e/classProfiler.html">Profiler</a></div><div class="ttdoc">A template class to profile the execution time of a function.</div><div class="ttdef"><b>Definition:</b> Profiler.h:32</div></div>
 </div><!-- fragment -->
 </div>
@@ -949,13 +949,13 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Gets the name of the processor that the current process is running on. </p>
 <dl class="section return"><dt>Returns</dt><dd>The name of the processor. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                                {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordtype">char</span> <a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>[MPI_MAX_PROCESSOR_NAME];</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordtype">int</span> resultlen;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        MPI_Get_processor_name(<a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>, &amp;resultlen);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">return</span> std::string{<a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(resultlen)};</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div>
-<div class="ttc" id="aclassMPIProject_html_a98c5ee04f7c6246e1f2c2fba16faf274"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::hostname</a></div><div class="ttdeci">static std::string hostname()</div><div class="ttdoc">Gets the name of the processor that the current process is running on.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:215</div></div>
+<div class="fragment"><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                                {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordtype">char</span> <a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>[MPI_MAX_PROCESSOR_NAME];</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordtype">int</span> resultlen;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        MPI_Get_processor_name(<a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>, &amp;resultlen);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span> std::string{<a class="code" href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">hostname</a>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(resultlen)};</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="ttc" id="aclassMPIProject_html_a98c5ee04f7c6246e1f2c2fba16faf274"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::hostname</a></div><div class="ttdeci">static std::string hostname()</div><div class="ttdoc">Gets the name of the processor that the current process is running on.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:214</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1102,10 +1102,10 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
 <div class="ttc" id="aFileParser_8h_html_abb1a95d027a077ecf097a06ef4a968b6"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#abb1a95d027a077ecf097a06ef4a968b6">writeJSON</a></div><div class="ttdeci">static void writeJSON(const std::string &amp;filepath, nlohmann::json &amp;data)</div><div class="ttdoc">Writes the given JSON data to a file at the specified file path.</div><div class="ttdef"><b>Definition:</b> FileParser.h:348</div></div>
-<div class="ttc" id="aclassMPIProject_html_a3397717bb7c69ce098e0e37d21449f54"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a3397717bb7c69ce098e0e37d21449f54">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_uuid</a></div><div class="ttdeci">std::string _uuid</div><div class="ttdoc">A unique identifier for the current process.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:66</div></div>
+<div class="ttc" id="aclassMPIProject_html_a3397717bb7c69ce098e0e37d21449f54"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a3397717bb7c69ce098e0e37d21449f54">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_uuid</a></div><div class="ttdeci">std::string _uuid</div><div class="ttdoc">A unique identifier for the current process.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:65</div></div>
 <div class="ttc" id="anamespacepostprocess_html_a7130aba1044e5cbe5ade190adb3df388"><div class="ttname"><a href="../../d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388">postprocess.outputs</a></div><div class="ttdeci">outputs</div><div class="ttdef"><b>Definition:</b> postprocess.py:9</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00066">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_uuid</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, and <a class="el" href="../../#l00348">writeJSON()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00065">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_uuid</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, and <a class="el" href="../../#l00348">writeJSON()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -1192,7 +1192,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00066">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_uuid</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, and <a class="el" href="../../#l00348">writeJSON()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00065">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::_uuid</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, and <a class="el" href="../../#l00348">writeJSON()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -1459,12 +1459,12 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        }</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
-<div class="ttc" id="aclassMPIProject_html_a7c599946be2214c428bc9a238348469c"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a7c599946be2214c428bc9a238348469c">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::getProfiler</a></div><div class="ttdeci">auto getProfiler(Func func, size_t samples, long double timeout=0, std::string description=&quot;&quot;)</div><div class="ttdoc">Creates a Profiler object with the given function, number of samples, timeout, and description.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:111</div></div>
+<div class="ttc" id="aclassMPIProject_html_a7c599946be2214c428bc9a238348469c"><div class="ttname"><a href="../../d0/df0/classMPIProject.html#a7c599946be2214c428bc9a238348469c">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::getProfiler</a></div><div class="ttdeci">auto getProfiler(Func func, size_t samples, long double timeout=0, std::string description=&quot;&quot;)</div><div class="ttdoc">Creates a Profiler object with the given function, number of samples, timeout, and description.</div><div class="ttdef"><b>Definition:</b> MPIProject.h:110</div></div>
 <div class="ttc" id="aclassOutLab7_html_a67f71920b39fda9e520c16923c4958bc"><div class="ttname"><a href="../../d3/d49/classOutLab7.html#a67f71920b39fda9e520c16923c4958bc">OutLab7::run</a></div><div class="ttdeci">bool run(OutLab7Outputs &amp;outputs, OutLab7Inputs &amp;inputs, const int rank, const int size) override</div><div class="ttdoc">This function is used to perform the main computation.</div><div class="ttdef"><b>Definition:</b> inlab8.h:125</div></div>
 <div class="ttc" id="anamespaceCompute_html_a89e0e08fa4ab3cc310cb9a7b8cd816c9"><div class="ttname"><a href="../../de/db3/namespaceCompute.html#a89e0e08fa4ab3cc310cb9a7b8cd816c9">Compute::seriesSum</a></div><div class="ttdeci">MyBLAS::NumericType seriesSum(size_t start, size_t stop)</div><div class="ttdoc">Computes the sum of a series from a start to a stop index.</div><div class="ttdef"><b>Definition:</b> Compute.h:29</div></div>
 <div class="ttc" id="anamespaceMyBLAS_html_aeaba4d245610870af7f067c3c4a33f76"><div class="ttname"><a href="../../d2/d6e/namespaceMyBLAS.html#aeaba4d245610870af7f067c3c4a33f76">MyBLAS::NumericType</a></div><div class="ttdeci">long double NumericType</div><div class="ttdef"><b>Definition:</b> Constants.h:14</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00111">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::getProfiler()</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, and <a class="el" href="../../#l00029">Compute::seriesSum()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00110">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::getProfiler()</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, and <a class="el" href="../../#l00029">Compute::seriesSum()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00125">run()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -1579,7 +1579,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00111">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::getProfiler()</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, <a class="el" href="../../#l00125">run()</a>, and <a class="el" href="../../#l00029">Compute::seriesSum()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00110">MPIProject&lt; OutLab7Inputs, Parser, OutLab7Outputs &gt;::getProfiler()</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, <a class="el" href="../../#l00125">run()</a>, and <a class="el" href="../../#l00029">Compute::seriesSum()</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">

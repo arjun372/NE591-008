@@ -9,8 +9,6 @@ var classMyBLAS_1_1LazyMatrix =
     [ "~LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a3b5a009f1d3f082e39a0179b573ab0f1", null ],
     [ "LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a540639684dc86f0205f91bc084910715", null ],
     [ "LazyMatrix", "d0/d28/classMyBLAS_1_1LazyMatrix.html#ab083c1a6e276bb8115207c1b711c3574", null ],
-    [ "asColumnVector", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a32be4af4b1c1829f6bc12b4e9126c10f", null ],
-    [ "asRowVector", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a49c2487c7a721433bb9f40810cca1606", null ],
     [ "getAllocatedBytes", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a5446fd4e2355b43e3ae22c0f22252046", null ],
     [ "getCols", "d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0", null ],
     [ "getRows", "d0/d28/classMyBLAS_1_1LazyMatrix.html#a19df35bdca989adb5f016678ba149695", null ],

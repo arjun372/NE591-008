@@ -22,45 +22,60 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="../../de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a" target="_top" xlink:title="A template function to calculate the absolute value of a number.">
-<polygon fill="white" stroke="black" points="198,-38.5 198,-57.5 278,-57.5 278,-38.5 198,-38.5"/>
-<text text-anchor="middle" x="238" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyMath::abs</text>
+<g id="a_node2"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#afeaf3b7bba0ff1b952b35d0effc0bca9" target="_top" xlink:title="Function to find the absolute value of each element in a vector.">
+<polygon fill="white" stroke="black" points="182.5,-38.5 182.5,-57.5 293.5,-57.5 293.5,-38.5 182.5,-38.5"/>
+<text text-anchor="middle" x="238" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::abs</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M144.46,-37.28C159.04,-38.97 174.07,-40.71 187.67,-42.29"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="187.43,-45.78 197.76,-43.45 188.23,-38.83 187.43,-45.78"/>
+<path fill="none" stroke="midnightblue" d="M144.46,-37.28C153.61,-38.34 162.95,-39.42 171.99,-40.47"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="171.72,-43.96 182.06,-41.63 172.53,-37.01 171.72,-43.96"/>
 </g>
-<!-- Node3 -->
-<g id="node3" class="node">
-<title>Node3</title>
-<g id="a_node3"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a403bf760cf802cddf8dd73e5d3e46a05" target="_top" xlink:title="Function to find the maximum value in a vector.">
+<!-- Node4 -->
+<g id="node4" class="node">
+<title>Node4</title>
+<g id="a_node4"><a xlink:href="../../dd/df5/namespaceMyBLAS_1_1Stats.html#a403bf760cf802cddf8dd73e5d3e46a05" target="_top" xlink:title="Function to find the maximum value in a vector.">
 <polygon fill="white" stroke="black" points="180,-0.5 180,-19.5 296,-19.5 296,-0.5 180,-0.5"/>
 <text text-anchor="middle" x="238" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Stats::max</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node3 -->
-<g id="edge2" class="edge">
-<title>Node1&#45;&gt;Node3</title>
+<!-- Node1&#45;&gt;Node4 -->
+<g id="edge3" class="edge">
+<title>Node1&#45;&gt;Node4</title>
 <path fill="none" stroke="midnightblue" d="M144.46,-20.72C152.8,-19.75 161.3,-18.77 169.58,-17.81"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="170.04,-21.28 179.57,-16.65 169.23,-14.33 170.04,-21.28"/>
 </g>
-<!-- Node4 -->
-<g id="node4" class="node">
-<title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab" target="_top" xlink:title="Getter for the vector data.">
+<!-- Node3 -->
+<g id="node3" class="node">
+<title>Node3</title>
+<g id="a_node3"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#aae30f8178e4a34d332317c61e77c147a" target="_top" xlink:title="Getter for the size of the vector.">
+<polygon fill="white" stroke="black" points="342,-38.5 342,-57.5 461,-57.5 461,-38.5 342,-38.5"/>
+<text text-anchor="middle" x="401.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
+</a>
+</g>
+</g>
+<!-- Node2&#45;&gt;Node3 -->
+<g id="edge2" class="edge">
+<title>Node2&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M293.68,-48C305.88,-48 318.97,-48 331.66,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="331.73,-51.5 341.73,-48 331.73,-44.5 331.73,-51.5"/>
+</g>
+<!-- Node5 -->
+<g id="node5" class="node">
+<title>Node5</title>
+<g id="a_node5"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab" target="_top" xlink:title="Getter for the vector data.">
 <polygon fill="white" stroke="black" points="332,-0.5 332,-19.5 471,-19.5 471,-0.5 332,-0.5"/>
 <text text-anchor="middle" x="401.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::getData</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node4 -->
-<g id="edge3" class="edge">
-<title>Node3&#45;&gt;Node4</title>
+<!-- Node4&#45;&gt;Node5 -->
+<g id="edge4" class="edge">
+<title>Node4&#45;&gt;Node5</title>
 <path fill="none" stroke="midnightblue" d="M296.39,-10C304.67,-10 313.3,-10 321.9,-10"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="321.96,-13.5 331.96,-10 321.96,-6.5 321.96,-13.5"/>
 </g>
