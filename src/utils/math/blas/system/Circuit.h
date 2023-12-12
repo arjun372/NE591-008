@@ -47,8 +47,8 @@ void Circuit(const size_t n, MyBLAS::Matrix<T> &A, MyBLAS::Vector<T> &b, MyBLAS:
 {
 
    // Define the range of resistance values from 1Ω to 10 kΩ
-   const T min_resistance = 1;
-   const T max_resistance = 10e3;
+   const T min_resistance = 0.0333;
+   const T max_resistance = 0.3;
 
    // Define the range of current values from -5 Amps to 5 Amps
    const T min_current = -5;
