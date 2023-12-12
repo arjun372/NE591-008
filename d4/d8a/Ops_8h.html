@@ -123,7 +123,8 @@ $(document).ready(function(){initNavTree('d4/d8a/Ops_8h.html','../../'); initRes
 
 <p>This file contains the definition of the L2Norm function, which calculates the L2 norm (Euclidean distance) between two containers.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../">math/blas/matrix/Matrix.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;omp.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../">math/blas/matrix/Matrix.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/vector/Vector.h</a>&quot;</code><br />
 <code>#include &lt;boost/numeric/ublas/io.hpp&gt;</code><br />
 <code>#include &lt;boost/numeric/ublas/matrix.hpp&gt;</code><br />
@@ -157,7 +158,7 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ac6dacb7fc104126e5fa62e02f0ec1446"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
 <tr class="memitem:ac6dacb7fc104126e5fa62e02f0ec1446"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446">MyBLAS::L2</a> (const VectorType&lt; T &gt; &amp;a, const VectorType&lt; T &gt; &amp;b, const size_t <a class="el" href="../../d2/d12/outlab2_2examples_2sanity__check_8m.html#aaf3e08bd5df22a84e842a1ee58631684">n</a>)</td></tr>
-<tr class="memdesc:ac6dacb7fc104126e5fa62e02f0ec1446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the L2 norm (Euclidean distance) between two containers.  <a href="../../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446">More...</a><br /></td></tr>
+<tr class="memdesc:ac6dacb7fc104126e5fa62e02f0ec1446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the L2 norm of the distance (Euclidean distance) between two containers.  <a href="../../d2/d6e/namespaceMyBLAS.html#ac6dacb7fc104126e5fa62e02f0ec1446">More...</a><br /></td></tr>
 <tr class="separator:ac6dacb7fc104126e5fa62e02f0ec1446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a13a3c077ee693c0297e4c68cbcc521"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4a13a3c077ee693c0297e4c68cbcc521"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d6e/namespaceMyBLAS.html#a4a13a3c077ee693c0297e4c68cbcc521">MyBLAS::L2</a> (const <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; &amp;a, const <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; &amp;b)</td></tr>

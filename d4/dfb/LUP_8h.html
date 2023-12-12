@@ -125,13 +125,14 @@ $(document).ready(function(){initNavTree('d4/dfb/LUP_8h.html','../../'); initRes
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;omp.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../">LU.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/matrix/Matrix.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/vector/Vector.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">../../CommandLine.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">../../Stopwatch.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">Factorize.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">math/LinearSolver.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">utils/Stopwatch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">utils/math/blas/solver/LinearSolver.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for LUP.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -181,10 +182,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a38b6c971c41b735e5acbd728ab652ac8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/dbb/structMyFactorizationMethod_1_1Parameters.html">MyFactorizationMethod::Parameters</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#a38b6c971c41b735e5acbd728ab652ac8">MyBLAS::LUP::factorize</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A)</td></tr>
 <tr class="memdesc:a38b6c971c41b735e5acbd728ab652ac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function performs <a class="el" href="../../db/d2e/namespaceMyBLAS_1_1LU.html">LU</a> factorization on a given matrix A and stores the results in matrices L and U. The function uses the Doolittle's method for <a class="el" href="../../db/d2e/namespaceMyBLAS_1_1LU.html">LU</a> factorization and is a part of the <a class="el" href="../../d2/d6e/namespaceMyBLAS.html" title="Namespace containing linear algebra functions and classes.">MyBLAS</a> library.  <a href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#a38b6c971c41b735e5acbd728ab652ac8">More...</a><br /></td></tr>
 <tr class="separator:a38b6c971c41b735e5acbd728ab652ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbc3001786a9bc09a661660f1ccd2e0d"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
-<tr class="memitem:acbc3001786a9bc09a661660f1ccd2e0d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d83/structMyLinearSolvingMethod_1_1Solution.html">MyLinearSolvingMethod::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#acbc3001786a9bc09a661660f1ccd2e0d">MyBLAS::LUP::applyLUP</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const T tolerance=0)</td></tr>
-<tr class="memdesc:acbc3001786a9bc09a661660f1ccd2e0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function solves a system of linear equations Ax = b using <a class="el" href="../../db/d2e/namespaceMyBLAS_1_1LU.html">LU</a> factorization with partial pivoting.  <a href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#acbc3001786a9bc09a661660f1ccd2e0d">More...</a><br /></td></tr>
-<tr class="separator:acbc3001786a9bc09a661660f1ccd2e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac803dfb6b419afbd84ade6475e608e1f"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
+<tr class="memitem:ac803dfb6b419afbd84ade6475e608e1f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">MyBLAS::Solver::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#ac803dfb6b419afbd84ade6475e608e1f">MyBLAS::LUP::applyLUP</a> (const <a class="el" href="../../d2/da0/TestedTypes_8h.html#affb5374ff70bb1ed2e4dc12f952e9f64">MatrixType</a>&lt; T &gt; &amp;A, const VectorType&lt; T &gt; &amp;b, const T tolerance=0)</td></tr>
+<tr class="memdesc:ac803dfb6b419afbd84ade6475e608e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function solves a system of linear equations Ax = b using <a class="el" href="../../db/d2e/namespaceMyBLAS_1_1LU.html">LU</a> factorization with partial pivoting.  <a href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#ac803dfb6b419afbd84ade6475e608e1f">More...</a><br /></td></tr>
+<tr class="separator:ac803dfb6b419afbd84ade6475e608e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>LU factorization with pivoting. </p>

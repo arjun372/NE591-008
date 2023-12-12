@@ -7,5 +7,6 @@ var project_2project3_2Compute_8h =
     [ "usingLUP", "d8/d8f/project_2project3_2Compute_8h.html#ab494ff4a6113d5d6ab7b0783b9245942", null ],
     [ "usingPointJacobi", "d8/d8f/project_2project3_2Compute_8h.html#a0741aa46b479eae78cfad76bdf7cb091", null ],
     [ "usingSOR", "d8/d8f/project_2project3_2Compute_8h.html#a26fcd23146e3ca00ed9eefc59c89c07a", null ],
+    [ "usingSymmetricGaussSeidel", "d8/d8f/project_2project3_2Compute_8h.html#af9b2fed99d9965f94cb5cfab410419a0", null ],
     [ "usingSymmetricSOR", "d8/d8f/project_2project3_2Compute_8h.html#a5a35addbdcdba218c82923bdc3ef7d93", null ]
 ];

@@ -357,7 +357,9 @@ InLabs and OutLabs</h2>
 <tr>
 <td>8 </td><td></td><td></td></tr>
 <tr>
-<td>10 </td><td><code>✅ inlab10</code> <code>✅ inlab10_tests</code> </td><td><code>✅ outlab10</code> <code>✅ outlab10_tests</code>  </td></tr>
+<td>9 </td><td></td><td></td></tr>
+<tr>
+<td>10 </td><td><code>✅ inlab10</code> <code>✅ inlab10_tests</code> </td><td></td></tr>
 <tr>
 <td>11 </td><td></td><td></td></tr>
 <tr>
@@ -467,7 +469,7 @@ Troubleshooting</h2>
 Clion Remote Debugging via SSH</h2>
 <p>The Dockerfile sets up SSH for root access in the <code>ssh-debugger</code> stage. This allows you to connect to the running container using SSH and debug the code. To do this, you need to build the SSH target and run the container in the background with port 22 exposed:</p>
 <div class="fragment"><div class="line">docker build --target=ssh-debugger -t ne591:ssh-debugger .</div>
-<div class="line">docker run --name=eos-ssh-debugger -d -p 2222:22 -it ne591:ssh-debugger</div>
+<div class="line">docker run --privileged --name=eos-ssh-debugger -d -p 2222:22 -it ne591:ssh-debugger</div>
 </div><!-- fragment --><p>Then, you can connect to the running container using SSH. Clion provides native support for debugging remotely. Follow <a href="https://www.jetbrains.com/help/clion/remote-projects-support.html">these instructions</a> to set it up.</p>
 <div class="fragment"><div class="line">ssh root@localhost</div>
 </div><!-- fragment --><p>The password for the root user is "debugger".</p>

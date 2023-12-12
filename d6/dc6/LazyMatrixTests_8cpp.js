@@ -5,6 +5,8 @@ var LazyMatrixTests_8cpp =
     [ "TOLERANCE", "d6/dc6/LazyMatrixTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e", null ],
     [ "FloatTypes", "d6/dc6/LazyMatrixTests_8cpp.html#a77419c470c01c828d6e194a94b763c65", null ],
     [ "TYPED_TEST", "d6/dc6/LazyMatrixTests_8cpp.html#ae563b9c96b407b4b98b0af83ca158ef6", null ],
+    [ "TYPED_TEST", "d6/dc6/LazyMatrixTests_8cpp.html#a65bff3d79e29590a9301b9218acb328a", null ],
+    [ "TYPED_TEST", "d6/dc6/LazyMatrixTests_8cpp.html#a59aba7e9d8dcc57eaa0a1bf40f24422a", null ],
     [ "TYPED_TEST", "d6/dc6/LazyMatrixTests_8cpp.html#a694e8575e91577853906be6fad9fef2e", null ],
     [ "TYPED_TEST", "d6/dc6/LazyMatrixTests_8cpp.html#a7d6b4b118097958f2ba2f48b3aba7187", null ],
     [ "TYPED_TEST", "d6/dc6/LazyMatrixTests_8cpp.html#a94d6ab29a23d25f6fbda34a4836cccbb", null ],

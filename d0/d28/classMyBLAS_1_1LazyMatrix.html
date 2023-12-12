@@ -227,6 +227,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9828bc07ec4f254c120e993b6a2471fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">LazyMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a9828bc07ec4f254c120e993b6a2471fb">operator/=</a> (DataType scalar)</td></tr>
 <tr class="memdesc:a9828bc07ec4f254c120e993b6a2471fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the division assignment operator for dividing the current matrix by a scalar.  <a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a9828bc07ec4f254c120e993b6a2471fb">More...</a><br /></td></tr>
 <tr class="separator:a9828bc07ec4f254c120e993b6a2471fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c2487c7a721433bb9f40810cca1606"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html">LazyVector</a>&lt; DataType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a49c2487c7a721433bb9f40810cca1606">asRowVector</a> () const</td></tr>
+<tr class="memdesc:a49c2487c7a721433bb9f40810cca1606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html" title="A vector that lazily computes its values.">LazyVector</a> representing the matrix in row-major order.  <a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a49c2487c7a721433bb9f40810cca1606">More...</a><br /></td></tr>
+<tr class="separator:a49c2487c7a721433bb9f40810cca1606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32be4af4b1c1829f6bc12b4e9126c10f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html">LazyVector</a>&lt; DataType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a32be4af4b1c1829f6bc12b4e9126c10f">asColumnVector</a> () const</td></tr>
+<tr class="memdesc:a32be4af4b1c1829f6bc12b4e9126c10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html" title="A vector that lazily computes its values.">LazyVector</a> representing the matrix in column-major order.  <a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a32be4af4b1c1829f6bc12b4e9126c10f">More...</a><br /></td></tr>
+<tr class="separator:a32be4af4b1c1829f6bc12b4e9126c10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48e41bc0e326e076c1681f8991c98ae6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dac/classMyBLAS_1_1LazyMatrix_1_1Proxy.html">Proxy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a48e41bc0e326e076c1681f8991c98ae6">operator[]</a> (size_t row)</td></tr>
 <tr class="memdesc:a48e41bc0e326e076c1681f8991c98ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the [] operator for non-const access to a row of the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>.  <a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a48e41bc0e326e076c1681f8991c98ae6">More...</a><br /></td></tr>
 <tr class="separator:a48e41bc0e326e076c1681f8991c98ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -403,9 +409,9 @@ template&lt;typename DataType &gt; </div>
 <div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        : <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a>(rows), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a>(cols), <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>(std::move(generator)) {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="../../d1/d7c/classResourceMonitor.html">ResourceMonitor&lt;LazyMatrix&lt;DataType&gt;</a>&gt;::registerInstance(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a3054cd9b972d3919c2a5be3caae5ff78"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">MyBLAS::LazyMatrix::generator_</a></div><div class="ttdeci">Generator generator_</div><div class="ttdoc">The generator function that computes the values of the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:671</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a65f38861fe066e8e077f0aed9519d33f"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">MyBLAS::LazyMatrix::rows_</a></div><div class="ttdeci">size_t rows_</div><div class="ttdoc">The number of rows in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:661</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a8b15617e180289ea3dcfddea93712010"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">MyBLAS::LazyMatrix::cols_</a></div><div class="ttdeci">size_t cols_</div><div class="ttdoc">The number of columns in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:666</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a3054cd9b972d3919c2a5be3caae5ff78"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">MyBLAS::LazyMatrix::generator_</a></div><div class="ttdeci">Generator generator_</div><div class="ttdoc">The generator function that computes the values of the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:698</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a65f38861fe066e8e077f0aed9519d33f"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">MyBLAS::LazyMatrix::rows_</a></div><div class="ttdeci">size_t rows_</div><div class="ttdoc">The number of rows in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:688</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a8b15617e180289ea3dcfddea93712010"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">MyBLAS::LazyMatrix::cols_</a></div><div class="ttdeci">size_t cols_</div><div class="ttdoc">The number of columns in the LazyMatrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:693</div></div>
 <div class="ttc" id="aclassResourceMonitor_html"><div class="ttname"><a href="../../d1/d7c/classResourceMonitor.html">ResourceMonitor</a></div><div class="ttdoc">Singleton class that monitors resource instances.</div><div class="ttdef"><b>Definition:</b> ResourceMonitor.h:25</div></div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="../../#l00412">MyBLAS::LazyMatrix&lt; DataType &gt;::operator*()</a>, <a class="el" href="../../#l00390">MyBLAS::LazyMatrix&lt; DataType &gt;::operator+()</a>, <a class="el" href="../../#l00401">MyBLAS::LazyMatrix&lt; DataType &gt;::operator-()</a>, and <a class="el" href="../../#l00423">MyBLAS::LazyMatrix&lt; DataType &gt;::operator/()</a>.</p>
@@ -457,13 +463,13 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = [matrix](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { <span class="keywordflow">return</span> matrix(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j); };</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="../../d1/d7c/classResourceMonitor.html">ResourceMonitor&lt;LazyMatrix&lt;DataType&gt;</a>&gt;::registerInstance(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a1a9bea38a8a7b30495fb7b285f178599"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a1a9bea38a8a7b30495fb7b285f178599">MyBLAS::LazyMatrix::matrix_</a></div><div class="ttdeci">std::shared_ptr&lt; MyBLAS::Matrix&lt; DataType &gt; &gt; matrix_</div><div class="ttdoc">A shared pointer to the memory backed matrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:676</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a1a9bea38a8a7b30495fb7b285f178599"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a1a9bea38a8a7b30495fb7b285f178599">MyBLAS::LazyMatrix::matrix_</a></div><div class="ttdeci">std::shared_ptr&lt; MyBLAS::Matrix&lt; DataType &gt; &gt; matrix_</div><div class="ttdoc">A shared pointer to the memory backed matrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:703</div></div>
 <div class="ttc" id="aclassMyBLAS_1_1Matrix_html"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a></div><div class="ttdoc">Class representing a matrix of T type values.</div><div class="ttdef"><b>Definition:</b> Matrix.h:25</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a0772df3e76eadc9035e847316de0d249"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">MyBLAS::Matrix::getRows</a></div><div class="ttdeci">size_t getRows() const</div><div class="ttdoc">Getter for the number of rows in the matrix.</div><div class="ttdef"><b>Definition:</b> Matrix.h:299</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a720cd9095d330d43de367bfbffffb864"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">MyBLAS::Matrix::getCols</a></div><div class="ttdeci">size_t getCols() const</div><div class="ttdoc">Getter for the number of columns in the matrix.</div><div class="ttdef"><b>Definition:</b> Matrix.h:307</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a0772df3e76eadc9035e847316de0d249"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249">MyBLAS::Matrix::getRows</a></div><div class="ttdeci">size_t getRows() const</div><div class="ttdoc">Getter for the number of rows in the matrix.</div><div class="ttdef"><b>Definition:</b> Matrix.h:293</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a720cd9095d330d43de367bfbffffb864"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864">MyBLAS::Matrix::getCols</a></div><div class="ttdeci">size_t getCols() const</div><div class="ttdoc">Getter for the number of columns in the matrix.</div><div class="ttdef"><b>Definition:</b> Matrix.h:301</div></div>
 <div class="ttc" id="aplot__points_8m_html_a935c85605fab3c75bc210ceb6ed7a905"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a></div><div class="ttdeci">Calculate the nth derivative for i</div><div class="ttdef"><b>Definition:</b> plot_points.m:23</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -505,7 +511,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="../../d1/d7c/classResourceMonitor.html">ResourceMonitor&lt;LazyMatrix&lt;DataType&gt;</a>&gt;::registerInstance(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -624,6 +630,114 @@ template&lt;typename DataType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a32be4af4b1c1829f6bc12b4e9126c10f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32be4af4b1c1829f6bc12b4e9126c10f">&#9670;&nbsp;</a></span>asColumnVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html">LazyVector</a>&lt;DataType&gt; <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">MyBLAS::LazyMatrix</a>&lt; DataType &gt;::asColumnVector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html" title="A vector that lazily computes its values.">LazyVector</a> representing the matrix in column-major order. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html" title="A vector that lazily computes its values.">LazyVector</a> with elements in column-major order. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                                                {</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        <span class="keywordtype">size_t</span> totalElements = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a> * <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a>;</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        <span class="keywordflow">return</span> LazyVector&lt;DataType&gt;(totalElements, [<span class="keyword">this</span>](<span class="keywordtype">size_t</span> idx) {</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;            <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = idx % <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a>; <span class="comment">// Modulo operation to find the row index</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;            <span class="keywordtype">size_t</span> col = idx / <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a>; <span class="comment">// Integer division to find the column index</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;            <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a02e772e260576b39c43c25bacb0180e7">operator()</a>(row, col);</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        });</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_a02e772e260576b39c43c25bacb0180e7"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a02e772e260576b39c43c25bacb0180e7">MyBLAS::LazyMatrix::operator()</a></div><div class="ttdeci">virtual DataType operator()(size_t row, size_t col) const</div><div class="ttdoc">Computes and returns the value at the specified row and column.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:116</div></div>
+<div class="ttc" id="anamespaceprocess_html_a642508a3f698c3dc98a03f79a3b625d3"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">process.row</a></div><div class="ttdeci">row</div><div class="ttdef"><b>Definition:</b> process.py:24</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00693">MyBLAS::LazyMatrix&lt; DataType &gt;::cols_</a>, <a class="el" href="../../#l00116">MyBLAS::LazyMatrix&lt; DataType &gt;::operator()()</a>, <a class="el" href="../../#l00024">process::row</a>, and <a class="el" href="../../#l00688">MyBLAS::LazyMatrix&lt; DataType &gt;::rows_</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_a32be4af4b1c1829f6bc12b4e9126c10f_cgraph.svg" width="371" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a49c2487c7a721433bb9f40810cca1606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c2487c7a721433bb9f40810cca1606">&#9670;&nbsp;</a></span>asRowVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html">LazyVector</a>&lt;DataType&gt; <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html">MyBLAS::LazyMatrix</a>&lt; DataType &gt;::asRowVector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html" title="A vector that lazily computes its values.">LazyVector</a> representing the matrix in row-major order. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../d6/d07/classMyBLAS_1_1LazyVector.html" title="A vector that lazily computes its values.">LazyVector</a> with elements in row-major order. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;                                             {</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        <span class="keywordtype">size_t</span> totalElements = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a> * <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a>;</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        <span class="keywordflow">return</span> LazyVector&lt;DataType&gt;(totalElements, [<span class="keyword">this</span>](<span class="keywordtype">size_t</span> idx) {</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;            <span class="keywordtype">size_t</span> <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a> = idx / <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a>; <span class="comment">// Integer division to find the row index</span></div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;            <span class="keywordtype">size_t</span> col = idx % <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a>; <span class="comment">// Modulo operation to find the column index</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;            <span class="keywordflow">return</span> this-&gt;<a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a02e772e260576b39c43c25bacb0180e7">operator()</a>(row, col);</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        });</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00693">MyBLAS::LazyMatrix&lt; DataType &gt;::cols_</a>, <a class="el" href="../../#l00116">MyBLAS::LazyMatrix&lt; DataType &gt;::operator()()</a>, <a class="el" href="../../#l00024">process::row</a>, and <a class="el" href="../../#l00688">MyBLAS::LazyMatrix&lt; DataType &gt;::rows_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00034">FluxCalculationTests&lt; T &gt;::getSources()</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_a49c2487c7a721433bb9f40810cca1606_cgraph.svg" width="371" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_a49c2487c7a721433bb9f40810cca1606_icgraph.svg" width="371" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a5446fd4e2355b43e3ae22c0f22252046"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5446fd4e2355b43e3ae22c0f22252046">&#9670;&nbsp;</a></span>getAllocatedBytes()</h2>
 
@@ -697,14 +811,14 @@ template&lt;typename DataType &gt; </div>
 <p>Reimplemented in <a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a381d3fcf07fad9ad13ee145b083b93a7">MyPhysics::Diffusion::Matrix&lt; T &gt;</a>.</p>
 <div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00666">MyBLAS::LazyMatrix&lt; DataType &gt;::cols_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00693">MyBLAS::LazyMatrix&lt; DataType &gt;::cols_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00412">MyBLAS::LazyMatrix&lt; DataType &gt;::operator*()</a>, <a class="el" href="../../#l00390">MyBLAS::LazyMatrix&lt; DataType &gt;::operator+()</a>, <a class="el" href="../../#l00401">MyBLAS::LazyMatrix&lt; DataType &gt;::operator-()</a>, <a class="el" href="../../#l00423">MyBLAS::LazyMatrix&lt; DataType &gt;::operator/()</a>, and <a class="el" href="../../#l00045">MyBLAS::TYPED_TEST()</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_adf8f185e46b07c34f43bfefe18a1a6b0_icgraph.svg" width="380" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -742,14 +856,14 @@ template&lt;typename DataType &gt; </div>
 <p>Reimplemented in <a class="el" href="../../d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a8b96736a2af9a33b25d0c0395658abb4">MyPhysics::Diffusion::Matrix&lt; T &gt;</a>.</p>
 <div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00661">MyBLAS::LazyMatrix&lt; DataType &gt;::rows_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00688">MyBLAS::LazyMatrix&lt; DataType &gt;::rows_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00412">MyBLAS::LazyMatrix&lt; DataType &gt;::operator*()</a>, <a class="el" href="../../#l00390">MyBLAS::LazyMatrix&lt; DataType &gt;::operator+()</a>, <a class="el" href="../../#l00401">MyBLAS::LazyMatrix&lt; DataType &gt;::operator-()</a>, <a class="el" href="../../#l00423">MyBLAS::LazyMatrix&lt; DataType &gt;::operator/()</a>, and <a class="el" href="../../#l00045">MyBLAS::TYPED_TEST()</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_a19df35bdca989adb5f016678ba149695_icgraph.svg" width="380" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -804,9 +918,18 @@ template&lt;typename DataType &gt; </div>
 <div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                                                              {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a>(<a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>, col);</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="ttc" id="anamespaceprocess_html_a642508a3f698c3dc98a03f79a3b625d3"><div class="ttname"><a href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">process.row</a></div><div class="ttdeci">row</div><div class="ttdef"><b>Definition:</b> process.py:24</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00024">process::row</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00024">process::row</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00550">MyBLAS::LazyMatrix&lt; DataType &gt;::asColumnVector()</a>, and <a class="el" href="../../#l00537">MyBLAS::LazyMatrix&lt; DataType &gt;::asRowVector()</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_a02e772e260576b39c43c25bacb0180e7_icgraph.svg" width="575" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -858,11 +981,11 @@ template&lt;typename DataType &gt; </div>
 <div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_adf8f185e46b07c34f43bfefe18a1a6b0"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#adf8f185e46b07c34f43bfefe18a1a6b0">MyBLAS::LazyMatrix::getCols</a></div><div class="ttdeci">virtual size_t getCols() const</div><div class="ttdoc">Returns the number of columns in the matrix.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:107</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00107">MyBLAS::LazyMatrix&lt; DataType &gt;::getCols()</a>, <a class="el" href="../../#l00100">MyBLAS::LazyMatrix&lt; DataType &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00056">MyBLAS::LazyMatrix&lt; DataType &gt;::LazyMatrix()</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_ae4a483d842ff598f6f4234f118044914_cgraph.svg" width="371" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -909,7 +1032,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -953,7 +1076,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -1002,11 +1125,11 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00107">MyBLAS::LazyMatrix&lt; DataType &gt;::getCols()</a>, <a class="el" href="../../#l00100">MyBLAS::LazyMatrix&lt; DataType &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00056">MyBLAS::LazyMatrix&lt; DataType &gt;::LazyMatrix()</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_a000d0939d78306f706ef9524b42e5015_cgraph.svg" width="371" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1053,7 +1176,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -1097,7 +1220,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -1133,11 +1256,11 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00107">MyBLAS::LazyMatrix&lt; DataType &gt;::getCols()</a>, <a class="el" href="../../#l00100">MyBLAS::LazyMatrix&lt; DataType &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00056">MyBLAS::LazyMatrix&lt; DataType &gt;::LazyMatrix()</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_ac4a2b11f5e7e0fb16a70f504c369b02b_cgraph.svg" width="371" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1189,11 +1312,11 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00107">MyBLAS::LazyMatrix&lt; DataType &gt;::getCols()</a>, <a class="el" href="../../#l00100">MyBLAS::LazyMatrix&lt; DataType &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00056">MyBLAS::LazyMatrix&lt; DataType &gt;::LazyMatrix()</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_abba647e70bf0ae25143fe3757c04afec_cgraph.svg" width="371" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1240,7 +1363,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -1284,7 +1407,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -1333,11 +1456,11 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00107">MyBLAS::LazyMatrix&lt; DataType &gt;::getCols()</a>, <a class="el" href="../../#l00100">MyBLAS::LazyMatrix&lt; DataType &gt;::getRows()</a>, <a class="el" href="../../#l00023">i</a>, and <a class="el" href="../../#l00056">MyBLAS::LazyMatrix&lt; DataType &gt;::LazyMatrix()</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d28/classMyBLAS_1_1LazyMatrix_a260afed49ef3a293e64ffb8272ba07f1_cgraph.svg" width="371" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1384,7 +1507,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -1428,7 +1551,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, and <a class="el" href="../../#l00023">i</a>.</p>
 
 </div>
 </div>
@@ -1477,7 +1600,7 @@ template&lt;typename DataType &gt; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00666">MyBLAS::LazyMatrix&lt; DataType &gt;::cols_</a>, <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, <a class="el" href="../../#l00676">MyBLAS::LazyMatrix&lt; DataType &gt;::matrix_</a>, and <a class="el" href="../../#l00661">MyBLAS::LazyMatrix&lt; DataType &gt;::rows_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00693">MyBLAS::LazyMatrix&lt; DataType &gt;::cols_</a>, <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>, <a class="el" href="../../#l00703">MyBLAS::LazyMatrix&lt; DataType &gt;::matrix_</a>, and <a class="el" href="../../#l00688">MyBLAS::LazyMatrix&lt; DataType &gt;::rows_</a>.</p>
 
 </div>
 </div>
@@ -1515,9 +1638,9 @@ template&lt;typename DataType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../d2/dac/classMyBLAS_1_1LazyMatrix_1_1Proxy.html" title="A helper class to provide a proxy for non-const access to a row of the LazyMatrix.">Proxy</a> object representing the row at the given index. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                                 {</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;        <span class="keywordflow">return</span> Proxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;                                 {</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        <span class="keywordflow">return</span> Proxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00024">process::row</a>.</p>
 
@@ -1557,9 +1680,9 @@ template&lt;typename DataType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../dc/d52/classMyBLAS_1_1LazyMatrix_1_1ConstProxy.html" title="A helper class to provide a proxy for const access to a row of the LazyMatrix.">ConstProxy</a> object representing the row at the given index. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;                                            {</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;        <span class="keywordflow">return</span> ConstProxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;                                            {</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        <span class="keywordflow">return</span> ConstProxy(*<span class="keyword">this</span>, <a class="code" href="../../d8/d25/namespaceprocess.html#a642508a3f698c3dc98a03f79a3b625d3">row</a>);</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00024">process::row</a>.</p>
 
@@ -1598,9 +1721,9 @@ template&lt;typename DataType &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a> = cols; }</div>
+<div class="fragment"><div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a8b15617e180289ea3dcfddea93712010">cols_</a> = cols; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00666">MyBLAS::LazyMatrix&lt; DataType &gt;::cols_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00693">MyBLAS::LazyMatrix&lt; DataType &gt;::cols_</a>.</p>
 
 </div>
 </div>
@@ -1637,9 +1760,9 @@ template&lt;typename DataType &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = generator; }</div>
+<div class="fragment"><div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a3054cd9b972d3919c2a5be3caae5ff78">generator_</a> = generator; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00671">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00698">MyBLAS::LazyMatrix&lt; DataType &gt;::generator_</a>.</p>
 
 </div>
 </div>
@@ -1676,9 +1799,9 @@ template&lt;typename DataType &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a> = rows; }</div>
+<div class="fragment"><div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;{ <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a65f38861fe066e8e077f0aed9519d33f">rows_</a> = rows; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00661">MyBLAS::LazyMatrix&lt; DataType &gt;::rows_</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00688">MyBLAS::LazyMatrix&lt; DataType &gt;::rows_</a>.</p>
 
 </div>
 </div>
@@ -1728,21 +1851,21 @@ template&lt;typename DataType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A boolean value indicating whether all elements in the two input matrices are equal. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                                                                           {</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        <span class="keywordflow">if</span> (a.getRows() != b.getRows() || a.getCols() != b.getCols()) {</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        }</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        <span class="keyword">auto</span> eq = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#afbbfe200eb7a019b6a9120cc6488c7fc">equal</a>(a, b);</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; eq.getRows(); ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; eq.getCols(); ++j) {</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                <span class="keywordflow">if</span> (!eq(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j)) {</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                }</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;            }</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        }</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_afbbfe200eb7a019b6a9120cc6488c7fc"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#afbbfe200eb7a019b6a9120cc6488c7fc">MyBLAS::LazyMatrix::equal</a></div><div class="ttdeci">friend LazyMatrix&lt; bool &gt; equal(LazyMatrix const &amp;a, LazyMatrix const &amp;b)</div><div class="ttdoc">Function to compare two LazyMatrix objects for element-wise equality.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:539</div></div>
+<div class="fragment"><div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;                                                                           {</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="keywordflow">if</span> (a.getRows() != b.getRows() || a.getCols() != b.getCols()) {</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        }</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;        <span class="keyword">auto</span> eq = <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#afbbfe200eb7a019b6a9120cc6488c7fc">equal</a>(a, b);</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> = 0; <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a> &lt; eq.getRows(); ++<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>) {</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; eq.getCols(); ++j) {</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                <span class="keywordflow">if</span> (!eq(<a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, j)) {</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                }</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;            }</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        }</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    }</div>
+<div class="ttc" id="aclassMyBLAS_1_1LazyMatrix_html_afbbfe200eb7a019b6a9120cc6488c7fc"><div class="ttname"><a href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#afbbfe200eb7a019b6a9120cc6488c7fc">MyBLAS::LazyMatrix::equal</a></div><div class="ttdeci">friend LazyMatrix&lt; bool &gt; equal(LazyMatrix const &amp;a, LazyMatrix const &amp;b)</div><div class="ttdoc">Function to compare two LazyMatrix objects for element-wise equality.</div><div class="ttdef"><b>Definition:</b> LazyMatrix.h:566</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1791,11 +1914,11 @@ template&lt;typename DataType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a> of boolean values, where each element represents the equality of the corresponding elements in the input matrices. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;                                                                            {</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;        <span class="keyword">auto</span> binary_op = [](DataType <span class="keyword">const</span>&amp; <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, DataType <span class="keyword">const</span>&amp; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>) { <span class="keywordflow">return</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> == <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>; };</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        ElementwiseExpression&lt;bool, <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a532028f28b49d17f75857e0cc120aa0d">LazyMatrix</a>, <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a532028f28b49d17f75857e0cc120aa0d">LazyMatrix</a>, decltype(binary_op)&gt; expr(a, b, binary_op);</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        <span class="keywordflow">return</span> LazyMatrix&lt;bool&gt;(a.getRows(), a.getCols(), [expr](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { return expr(i, j); });</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                                                                            {</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        <span class="keyword">auto</span> binary_op = [](DataType <span class="keyword">const</span>&amp; <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a>, DataType <span class="keyword">const</span>&amp; <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>) { <span class="keywordflow">return</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a> == <a class="code" href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a>; };</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        ElementwiseExpression&lt;bool, <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a532028f28b49d17f75857e0cc120aa0d">LazyMatrix</a>, <a class="code" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html#a532028f28b49d17f75857e0cc120aa0d">LazyMatrix</a>, decltype(binary_op)&gt; expr(a, b, binary_op);</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        <span class="keywordflow">return</span> LazyMatrix&lt;bool&gt;(a.getRows(), a.getCols(), [expr](<span class="keywordtype">size_t</span> <a class="code" href="../../dd/dd7/plot__points_8m.html#a935c85605fab3c75bc210ceb6ed7a905">i</a>, <span class="keywordtype">size_t</span> j) { return expr(i, j); });</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    }</div>
 <div class="ttc" id="aplot__points_8m_html_a9336ebf25087d91c818ee6e9ec29f8c1"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#a9336ebf25087d91c818ee6e9ec29f8c1">x</a></div><div class="ttdeci">Define the x values x</div><div class="ttdef"><b>Definition:</b> plot_points.m:18</div></div>
 <div class="ttc" id="aplot__points_8m_html_aa50a6be4a15b9249a6bc48981be8fb3d"><div class="ttname"><a href="../../dd/dd7/plot__points_8m.html#aa50a6be4a15b9249a6bc48981be8fb3d">y</a></div><div class="ttdeci">Calculate the function values y</div><div class="ttdef"><b>Definition:</b> plot_points.m:20</div></div>
 </div><!-- fragment -->
@@ -2810,7 +2933,7 @@ template&lt;typename DataType &gt; </div>
 
 <p>The number of columns in the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00107">MyBLAS::LazyMatrix&lt; DataType &gt;::getCols()</a>, <a class="el" href="../../#l00156">MyBLAS::LazyMatrix&lt; DataType &gt;::operator=()</a>, and <a class="el" href="../../#l00689">MyBLAS::LazyMatrix&lt; DataType &gt;::setCols()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00550">MyBLAS::LazyMatrix&lt; DataType &gt;::asColumnVector()</a>, <a class="el" href="../../#l00537">MyBLAS::LazyMatrix&lt; DataType &gt;::asRowVector()</a>, <a class="el" href="../../#l00107">MyBLAS::LazyMatrix&lt; DataType &gt;::getCols()</a>, <a class="el" href="../../#l00156">MyBLAS::LazyMatrix&lt; DataType &gt;::operator=()</a>, and <a class="el" href="../../#l00716">MyBLAS::LazyMatrix&lt; DataType &gt;::setCols()</a>.</p>
 
 </div>
 </div>
@@ -2838,7 +2961,7 @@ template&lt;typename DataType &gt; </div>
 
 <p>The generator function that computes the values of the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00067">MyBLAS::LazyMatrix&lt; DataType &gt;::LazyMatrix()</a>, <a class="el" href="../../#l00116">MyBLAS::LazyMatrix&lt; DataType &gt;::operator()()</a>, <a class="el" href="../../#l00466">MyBLAS::LazyMatrix&lt; DataType &gt;::operator*=()</a>, <a class="el" href="../../#l00442">MyBLAS::LazyMatrix&lt; DataType &gt;::operator+=()</a>, <a class="el" href="../../#l00454">MyBLAS::LazyMatrix&lt; DataType &gt;::operator-=()</a>, <a class="el" href="../../#l00478">MyBLAS::LazyMatrix&lt; DataType &gt;::operator/=()</a>, <a class="el" href="../../#l00156">MyBLAS::LazyMatrix&lt; DataType &gt;::operator=()</a>, and <a class="el" href="../../#l00695">MyBLAS::LazyMatrix&lt; DataType &gt;::setGenerator()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00067">MyBLAS::LazyMatrix&lt; DataType &gt;::LazyMatrix()</a>, <a class="el" href="../../#l00116">MyBLAS::LazyMatrix&lt; DataType &gt;::operator()()</a>, <a class="el" href="../../#l00466">MyBLAS::LazyMatrix&lt; DataType &gt;::operator*=()</a>, <a class="el" href="../../#l00442">MyBLAS::LazyMatrix&lt; DataType &gt;::operator+=()</a>, <a class="el" href="../../#l00454">MyBLAS::LazyMatrix&lt; DataType &gt;::operator-=()</a>, <a class="el" href="../../#l00478">MyBLAS::LazyMatrix&lt; DataType &gt;::operator/=()</a>, <a class="el" href="../../#l00156">MyBLAS::LazyMatrix&lt; DataType &gt;::operator=()</a>, and <a class="el" href="../../#l00722">MyBLAS::LazyMatrix&lt; DataType &gt;::setGenerator()</a>.</p>
 
 </div>
 </div>
@@ -2894,7 +3017,7 @@ template&lt;typename DataType &gt; </div>
 
 <p>The number of rows in the <a class="el" href="../../d0/d28/classMyBLAS_1_1LazyMatrix.html" title="A matrix that lazily computes its values.">LazyMatrix</a>. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00100">MyBLAS::LazyMatrix&lt; DataType &gt;::getRows()</a>, <a class="el" href="../../#l00156">MyBLAS::LazyMatrix&lt; DataType &gt;::operator=()</a>, and <a class="el" href="../../#l00683">MyBLAS::LazyMatrix&lt; DataType &gt;::setRows()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00550">MyBLAS::LazyMatrix&lt; DataType &gt;::asColumnVector()</a>, <a class="el" href="../../#l00537">MyBLAS::LazyMatrix&lt; DataType &gt;::asRowVector()</a>, <a class="el" href="../../#l00100">MyBLAS::LazyMatrix&lt; DataType &gt;::getRows()</a>, <a class="el" href="../../#l00156">MyBLAS::LazyMatrix&lt; DataType &gt;::operator=()</a>, and <a class="el" href="../../#l00710">MyBLAS::LazyMatrix&lt; DataType &gt;::setRows()</a>.</p>
 
 </div>
 </div>

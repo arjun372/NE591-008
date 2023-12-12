@@ -7,6 +7,8 @@ var classMyPhysics_1_1Diffusion_1_1Matrix =
     [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a90c86cba30338740d4ebc96a20cc82d4", null ],
     [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a7c806dad69103fddb15f03184965b50d", null ],
     [ "Matrix", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a528f85b7a4f0f69e4b91f24186abe236", null ],
+    [ "asColumnVector", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a32be4af4b1c1829f6bc12b4e9126c10f", null ],
+    [ "asRowVector", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a49c2487c7a721433bb9f40810cca1606", null ],
     [ "generate", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec", null ],
     [ "getAllocatedBytes", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a6a57e0a2ae8c0918ae7c89d03df32085", null ],
     [ "getCols", "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a381d3fcf07fad9ad13ee145b083b93a7", null ],
