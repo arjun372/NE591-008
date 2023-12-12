@@ -118,27 +118,27 @@ $(document).ready(function(){initNavTree('dd/dfb/outlab6.html','../../'); initRe
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md161">OutLab 06: Iterative Linear Equation Solvers</a><ul><li class="level2"><a href="#autotoc_md162">Overview</a></li>
-<li class="level2"><a href="#autotoc_md163">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md164">Parameters</a></li>
-<li class="level3"><a href="#autotoc_md165">Solver Methods</a></li>
-<li class="level3"><a href="#autotoc_md166">General options</a></li>
+<ul><li class="level1"><a href="#autotoc_md172">OutLab 06: Iterative Linear Equation Solvers</a><ul><li class="level2"><a href="#autotoc_md173">Overview</a></li>
+<li class="level2"><a href="#autotoc_md174">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md175">Parameters</a></li>
+<li class="level3"><a href="#autotoc_md176">Solver Methods</a></li>
+<li class="level3"><a href="#autotoc_md177">General options</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md167">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md168">Sample Parameters File</a></li>
+<li class="level2"><a href="#autotoc_md178">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md179">Sample Parameters File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md169">Output Format</a><ul><li class="level3"><a href="#autotoc_md170">Sample Outputs File</a></li>
+<li class="level2"><a href="#autotoc_md180">Output Format</a><ul><li class="level3"><a href="#autotoc_md181">Sample Outputs File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md171">Example:</a></li>
+<li class="level2"><a href="#autotoc_md182">Example:</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md161"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md172"></a>
 OutLab 06: Iterative Linear Equation Solvers</h1>
 <p>File based I/O is supported using JSON files.</p>
-<div style="display: none"></div><h2><a class="anchor" id="autotoc_md162"></a>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md173"></a>
 Overview</h2>
 <ol type="1">
 <li><a href="../../#building--usage">Building &amp; Usage</a><ul>
@@ -153,7 +153,7 @@ Overview</h2>
 </li>
 <li><a href="../../#example">Example</a></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md163"></a>
+<h2><a class="anchor" id="autotoc_md174"></a>
 Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>outlab6</code> target executable:</p>
 <div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
@@ -174,7 +174,7 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md164"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md175"></a>
 Parameters</h3>
 <ul>
 <li><code>-t [ --threshold ] arg</code>: iterative convergence threshold [𝜀 &gt; 0]</li>
@@ -185,7 +185,7 @@ Parameters</h3>
 <li><code>-w [ --relaxation-factor ] arg</code>: SOR weight, typical ω ∈ [0,2]</li>
 <li><code>-g [ --generate ]</code>: Generate A,b ignoring input-json</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md165"></a>
+<h3><a class="anchor" id="autotoc_md176"></a>
 Solver Methods</h3>
 <ul>
 <li><code>--use-LUP</code>: Use LUP factorization</li>
@@ -195,7 +195,7 @@ Solver Methods</h3>
 <li><code>--use-SORJ</code>: Use the SOR Jacobi method</li>
 <li><code>--use-SSOR</code>: [DISABLED] Use the symmetric SOR method</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md166"></a>
+<h3><a class="anchor" id="autotoc_md177"></a>
 General options</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message</li>
@@ -203,10 +203,10 @@ General options</h3>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
 <li><code>-P [ --profile ]</code>: Turn on performance profiling</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md167"></a>
+<h2><a class="anchor" id="autotoc_md178"></a>
 Parameters Format</h2>
 <p>The expected input json file requires the following fields:</p>
-<h3><a class="anchor" id="autotoc_md168"></a>
+<h3><a class="anchor" id="autotoc_md179"></a>
 Sample Parameters File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;coefficients&quot;: [</div>
@@ -217,10 +217,10 @@ Sample Parameters File</h3>
 <div class="line">   ],</div>
 <div class="line">   &quot;constants&quot;: [1.00, 1.00, 1.00, 1.00]</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md169"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md180"></a>
 Output Format</h2>
 <p>The output is written to a JSON file as well.</p>
-<h3><a class="anchor" id="autotoc_md170"></a>
+<h3><a class="anchor" id="autotoc_md181"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;inputs&quot;: {</div>
@@ -293,7 +293,7 @@ Sample Outputs File</h3>
 <div class="line">   }</div>
 <div class="line">}</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md171"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md182"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
 <div class="fragment"><div class="line">NE591: OutLab 06: Solving a system of linear equations using iterative methods</div>
