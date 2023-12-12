@@ -108,26 +108,26 @@ var NAVTREE =
           [ "General options", "d5/d15/inlab3.html#autotoc_md57", null ]
         ] ],
         [ "Implementing your own <tt>f(x)</tt>", "d5/d15/inlab3.html#autotoc_md58", null ],
-        [ "Output Format", "d5/d15/inlab3.html#autotoc_md69", [
-          [ "Sample Outputs File", "d5/d15/inlab3.html#autotoc_md70", null ]
+        [ "Output Format", "d5/d15/inlab3.html#autotoc_md59", [
+          [ "Sample Outputs File", "d5/d15/inlab3.html#autotoc_md60", null ]
         ] ],
-        [ "Example:", "d5/d15/inlab3.html#autotoc_md71", null ]
+        [ "Example:", "d5/d15/inlab3.html#autotoc_md61", null ]
       ] ]
     ] ],
     [ "InLab 04: LU - Linear Equations Solver I", "d3/d5a/inlab4.html", [
-      [ "InLab 04: System of Linear Equations Solver", "d3/d5a/inlab4.html#autotoc_md59", [
-        [ "Overview", "d3/d5a/inlab4.html#autotoc_md60", null ],
-        [ "Building & Usage", "d3/d5a/inlab4.html#autotoc_md61", [
-          [ "Parameters", "d3/d5a/inlab4.html#autotoc_md62", null ],
-          [ "General options", "d3/d5a/inlab4.html#autotoc_md63", null ]
+      [ "InLab 04: System of Linear Equations Solver", "d3/d5a/inlab4.html#autotoc_md62", [
+        [ "Overview", "d3/d5a/inlab4.html#autotoc_md63", null ],
+        [ "Building & Usage", "d3/d5a/inlab4.html#autotoc_md64", [
+          [ "Parameters", "d3/d5a/inlab4.html#autotoc_md65", null ],
+          [ "General options", "d3/d5a/inlab4.html#autotoc_md66", null ]
         ] ],
-        [ "Parameters Format", "d3/d5a/inlab4.html#autotoc_md64", [
-          [ "Sample Parameters File", "d3/d5a/inlab4.html#autotoc_md65", null ]
+        [ "Parameters Format", "d3/d5a/inlab4.html#autotoc_md67", [
+          [ "Sample Parameters File", "d3/d5a/inlab4.html#autotoc_md68", null ]
         ] ],
-        [ "Output Format", "d3/d5a/inlab4.html#autotoc_md66", [
-          [ "Sample Outputs File", "d3/d5a/inlab4.html#autotoc_md67", null ]
+        [ "Output Format", "d3/d5a/inlab4.html#autotoc_md69", [
+          [ "Sample Outputs File", "d3/d5a/inlab4.html#autotoc_md70", null ]
         ] ],
-        [ "Example:", "d3/d5a/inlab4.html#autotoc_md68", null ]
+        [ "Example:", "d3/d5a/inlab4.html#autotoc_md71", null ]
       ] ]
     ] ],
     [ "InLab 05: LUP - Linear Equations Solver I", "d8/df4/inlab5.html", [
@@ -257,37 +257,37 @@ var NAVTREE =
       ] ]
     ] ],
     [ "OutLab 06: Iterative Linear Equation Solvers", "dd/dfb/outlab6.html", [
-      [ "OutLab 06: Iterative Linear Equation Solvers", "dd/dfb/outlab6.html#autotoc_md172", [
-        [ "Overview", "dd/dfb/outlab6.html#autotoc_md173", null ],
-        [ "Building & Usage", "dd/dfb/outlab6.html#autotoc_md174", [
-          [ "Parameters", "dd/dfb/outlab6.html#autotoc_md175", null ],
-          [ "Solver Methods", "dd/dfb/outlab6.html#autotoc_md176", null ],
-          [ "General options", "dd/dfb/outlab6.html#autotoc_md177", null ]
+      [ "OutLab 06: Iterative Linear Equation Solvers", "dd/dfb/outlab6.html#autotoc_md161", [
+        [ "Overview", "dd/dfb/outlab6.html#autotoc_md162", null ],
+        [ "Building & Usage", "dd/dfb/outlab6.html#autotoc_md163", [
+          [ "Parameters", "dd/dfb/outlab6.html#autotoc_md164", null ],
+          [ "Solver Methods", "dd/dfb/outlab6.html#autotoc_md165", null ],
+          [ "General options", "dd/dfb/outlab6.html#autotoc_md166", null ]
         ] ],
-        [ "Parameters Format", "dd/dfb/outlab6.html#autotoc_md178", [
-          [ "Sample Parameters File", "dd/dfb/outlab6.html#autotoc_md179", null ]
+        [ "Parameters Format", "dd/dfb/outlab6.html#autotoc_md167", [
+          [ "Sample Parameters File", "dd/dfb/outlab6.html#autotoc_md168", null ]
         ] ],
-        [ "Output Format", "dd/dfb/outlab6.html#autotoc_md180", [
-          [ "Sample Outputs File", "dd/dfb/outlab6.html#autotoc_md181", null ]
+        [ "Output Format", "dd/dfb/outlab6.html#autotoc_md169", [
+          [ "Sample Outputs File", "dd/dfb/outlab6.html#autotoc_md170", null ]
         ] ],
-        [ "Example:", "dd/dfb/outlab6.html#autotoc_md182", null ]
+        [ "Example:", "dd/dfb/outlab6.html#autotoc_md171", null ]
       ] ]
     ] ],
     [ "OutLab 07: Series Sum using MPI Spanning Tree Protocol", "da/d4d/outlab7.html", [
-      [ "OutLab 07: Iterative Linear Equation Solvers", "da/d4d/outlab7.html#autotoc_md161", [
-        [ "Overview", "da/d4d/outlab7.html#autotoc_md162", null ],
-        [ "Building & Usage", "da/d4d/outlab7.html#autotoc_md163", [
-          [ "Parameters", "da/d4d/outlab7.html#autotoc_md164", null ],
-          [ "General options", "da/d4d/outlab7.html#autotoc_md165", null ]
+      [ "OutLab 07: Iterative Linear Equation Solvers", "da/d4d/outlab7.html#autotoc_md172", [
+        [ "Overview", "da/d4d/outlab7.html#autotoc_md173", null ],
+        [ "Building & Usage", "da/d4d/outlab7.html#autotoc_md174", [
+          [ "Parameters", "da/d4d/outlab7.html#autotoc_md175", null ],
+          [ "General options", "da/d4d/outlab7.html#autotoc_md176", null ]
         ] ],
-        [ "Performance Benchmarking", "da/d4d/outlab7.html#autotoc_md166", null ],
-        [ "Parameters Format", "da/d4d/outlab7.html#autotoc_md167", [
-          [ "Sample Parameters File", "da/d4d/outlab7.html#autotoc_md168", null ]
+        [ "Performance Benchmarking", "da/d4d/outlab7.html#autotoc_md177", null ],
+        [ "Parameters Format", "da/d4d/outlab7.html#autotoc_md178", [
+          [ "Sample Parameters File", "da/d4d/outlab7.html#autotoc_md179", null ]
         ] ],
-        [ "Output Format", "da/d4d/outlab7.html#autotoc_md169", [
-          [ "Sample Outputs File", "da/d4d/outlab7.html#autotoc_md170", null ]
+        [ "Output Format", "da/d4d/outlab7.html#autotoc_md180", [
+          [ "Sample Outputs File", "da/d4d/outlab7.html#autotoc_md181", null ]
         ] ],
-        [ "Example:", "da/d4d/outlab7.html#autotoc_md171", null ]
+        [ "Example:", "da/d4d/outlab7.html#autotoc_md182", null ]
       ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [
@@ -330,19 +330,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d0/d40/classParser.html#a659132cb89992c80bbae4be657575ae3",
-"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a70aada3cccddb39f7c507b527aa3f0b9",
-"d2/d6e/namespaceMyBLAS.html#a1e932e7ad0b8cf67992dbad097d61eb4",
-"d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388",
-"d4/dfb/LUP_8h.html#a38b6c971c41b735e5acbd728ab652ac8",
-"d6/d52/MatrixUtilityTests_8cpp.html#a926b77b3d2e5b954208b3f45253e1f95",
-"d8/d5d/outlab7_8h.html",
-"da/de9/postprocess_8py.html#a9e7a0a7ffecd1c4b6243cf70ef00a309",
-"dc/da0/LazyVectorTests_8cpp.html#a30c17564229ec2e37dfea9c6c9ad643e",
-"dd/df3/classOutLab1.html#a930c3207c99d9ddeb684c1fb371fa80e",
-"df/df1/structOutput.html#aa9ff06a07a6a0bff3dff15a6f2367d03",
-"namespacemembers_eval.html"
+"",
+"d0/d28/classMyBLAS_1_1LazyMatrix.html#a10612274f42e86073cec8a1f12dd3e4f",
+"d0/d40/classParser.html#a7001590923e6bfdf380448136b8e65bd",
+"d1/d18/namespaceMyFactorizationMethod.html#ab56ef0cc2766cd82b4d99b3f435b81e8a955b50bedc9cd0142e46720f012c613d",
+"d2/d6e/namespaceMyBLAS.html#a6ae2bf6751779ac28fa5f53bf3f9ea97",
+"d3/dde/Circuit_8h.html",
+"d5/d51/BaseMatrixTests_8cpp.html#ab963fba1e4a19ec02953e3e9b16401d5",
+"d7/d44/labs_2inlab8_2Parser_8h.html",
+"d8/df8/outlab1.html#autotoc_md112",
+"db/d8a/Math_8h.html#af3e9a9de7b922fdfb6e3d2988b1212ff",
+"dd/d06/utils_2math_2blas_2tests_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627",
+"de/d20/InLab10Tests_8cpp.html#a551570b39ffb5a2fa144de869a3f7693",
+"dir_bba0a22db3bde2dd0107ccce2327cf4c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
