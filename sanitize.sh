@@ -21,6 +21,8 @@ mkdir -p $dest_dir
 rsync -av --progress $src_dir $dest_dir \
     --exclude venv \
     --exclude docs \
+    --exclude external/boost-cmake \
+    --exclude external/doxygen-awesome-css \
     --exclude 'cmake-build-*' \
     --exclude .git \
     --exclude .github \
