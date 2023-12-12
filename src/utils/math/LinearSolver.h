@@ -84,6 +84,36 @@ template <typename T> struct Solution {
     [[nodiscard]] T getMaxResidual(MyBLAS::Matrix<T> a, MyBLAS::Vector<T> b) const {
         return MyBLAS::Stats::max<T>(MyBLAS::Stats::abs(b - getResidual(a)));
     }
+
+    /**
+     * @brief Converts the output parameters to a JSON object.
+     *
+     * @param jsonMap The JSON object to which the output parameters are added.
+     */
+    void toJSON(nlohmann::json &jsonMap) const {
+        jsonMap["converged"] = converged;
+        jsonMap["iterations"]["actual"] = iterations;
+        jsonMap["iterative-error"]["actual"] = iterative_error;
+        jsonMap["solution"] = x.getData();
+    }
+
+    /**
+     * @brief Overloaded stream insertion operator to print the summary statistics.
+     * @param os The output stream.
+     * @param summary The summary statistics to print.
+     * @return The output stream.
+     */
+    friend std::ostream &operator<<(std::ostream &os, const Solution &solution) {
+        auto precision = std::cout.precision() ;
+        const std::string key = MyLinearSolvingMethod::TypeKey(solution.method);
+        const auto width = static_cast<int>(2 + static_cast<std::streamsize>(10));
+        os << std::setprecision(2) << std::setw(width) << std::setfill(' ') << std::scientific;
+        os << ":::::: Converged       : " << (solution.converged ? "Yes" : "No")<<std::endl;
+        os << ":::::: Iterations      : " << solution.iterations<<std::endl;
+        os << ":::::: Iterative Error : " << solution.iterative_error<<std::endl;
+        os << std::setprecision(static_cast<int>(precision));
+        return os;
+    }
 };
 
 } // namespace MyLinearSolvingMethod

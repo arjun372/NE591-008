@@ -35,6 +35,7 @@ set(UTILS_LIB_HEADERS
         math/Random.h
         math/RootFinder.h
 
+        math/relaxation/ConjugateGradient.h
         math/relaxation/PointJacobi.h
         math/relaxation/GaussSeidel.h
         math/relaxation/SOR.h

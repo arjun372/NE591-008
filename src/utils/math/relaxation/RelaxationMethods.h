@@ -23,6 +23,7 @@ enum Type {
     METHOD_SOR,
     METHOD_SSOR,
     METHOD_SORJ,
+    METHOD_CONJUGATE_GRADIENT,
 };
 
 /**
@@ -34,7 +35,7 @@ enum Type {
  * @return The key of the relaxation method type as a string.
  */
 const char *TypeKey(MyRelaxationMethod::Type value) {
-    static const char *relaxationMethodTypeKeys[] = {"point-jacobi", "gauss-seidel", "SOR", "SSOR", "SORJ"};
+    static const char *relaxationMethodTypeKeys[] = {"point-jacobi", "gauss-seidel", "SOR", "SSOR", "SORJ", "CG"};
     return relaxationMethodTypeKeys[static_cast<int>(value)];
 }
 
