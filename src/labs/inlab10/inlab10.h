@@ -14,13 +14,12 @@
 #include <iostream>
 #include <numeric>
 #include <variant>
-#include <mpi.h>
 
 #include "InputsOutputs.h"
 #include "Parser.h"
 
 #include "CommandLine.h"
-#include "utils/mpi/MPIProject.h"
+#include "Project.h"
 
 #include "Compute.h"
 #include "json.hpp"
@@ -30,7 +29,7 @@
  * @brief This class is a child of the MPI Project class
  * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
-class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
+class InLab10 : public Project<InLab10Inputs, Parser, InLab10Outputs> {
 
   public:
     /**
@@ -66,14 +65,14 @@ class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
      * @brief Constructor for the inlab10 class
      * @param args Command line arguments
      */
-    explicit InLab10(CommandLineArgs args) : MPIProject<InLab10Inputs, Parser, InLab10Outputs>(buildHeaderInfo(), args) {}
+    explicit InLab10(CommandLineArgs args) : Project(args) {}
 
   protected:
     /**
      * @brief This function builds the header information for the project.
      * @return HeaderInfo object containing project information
      */
-    static HeaderInfo buildHeaderInfo() {
+    HeaderInfo buildHeaderInfo() override {
         Canvas canvas;
         const __float128 x = 0.13;
         const __float128 y = -0.66;
@@ -93,26 +92,6 @@ class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
     }
 
     /**
-     * @brief Used to check if the number of processes is a power of 2 before running the main computation.
-     * @details If the number of processes is not a power of 2, an error message is printed and the function returns
-     * true to indicate an error.
-     * @param outputs The outputs of the computation.
-     * @param inputs The inputs to the computation.
-     * @param rank The rank of the current process.
-     * @param size The total number of processes.
-     * @return Returns true if the number of processes is not a power of 2, false otherwise.
-     */
-    bool preRun(InLab10Outputs &outputs, InLab10Inputs &inputs, const int rank, const int size) override {
-        if (failsPowerOf2Check(size)) {
-            if (rank == 0) {
-                std::cerr << "Number of processes is not a power of 2";
-            }
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * @brief This function is used to perform the main computation.
      * @details The computation is divided among the processes. Each process computes a partial sum and then the partial
      * sums are combined using a binary tree communication logic.
@@ -122,9 +101,9 @@ class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
      * @param size The total number of processes.
      * @return Returns false to indicate that the computation was successful.
      */
-    bool run(InLab10Outputs &outputs, InLab10Inputs &inputs, const int rank, const int size) override {
+    void run(InLab10Outputs &outputs, InLab10Inputs &inputs, boost::program_options::variables_map &values) override {
 
-        auto profiler = getProfiler([&rank, &inputs, &size, &outputs]{
+        auto profiler = getProfiler([&inputs, &outputs]{
             // A, y
             auto A = inputs.coefficients;
             auto y = inputs.constants;
@@ -143,27 +122,9 @@ class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
             outputs.matrix_inner_product = matrix_weighted_inner_product;
         }, 10000, 0, "Matrix-Vector Operations").run();
 
-        if (rank == 0) {
-            outputs.summary = profiler.getSummary();
-            std::cout<<profiler<<std::endl;
-        }
-        return false;
-    }
 
-    /**
-     * @brief This function is used to perform operations after the main computation.
-     * @details The final sum is printed in the root process and the inputs and outputs are written to a JSON file.
-     * @param outputs The outputs of the computation.
-     * @param inputs The inputs to the computation.
-     * @param rank The rank of the current process.
-     * @param size The total number of processes.
-     * @return Returns false to indicate that the post-run operations were successful.
-     */
-    bool postRun(InLab10Outputs &outputs, InLab10Inputs &inputs, const int rank, const int size) override {
-
-        if (rank != 0) {
-            return false;
-        }
+        outputs.summary = profiler.getSummary();
+        std::cout<<profiler<<std::endl;
 
         std::cout << outputs << std::endl;
 
@@ -171,7 +132,6 @@ class InLab10 : public MPIProject<InLab10Inputs, Parser, InLab10Outputs> {
         inputs.toJSON(results["inputs"]);
         outputs.toJSON(results["outputs"]);
         writeJSON(inputs.outputJSON, results);
-        return false;
     }
 };
 
