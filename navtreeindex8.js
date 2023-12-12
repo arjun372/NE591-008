@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"da/de9/postprocess_8py.html#a814413a2c46d8f36000e74ba9de2d699":[18,0,0,1,3,5,1],
 "da/de9/postprocess_8py.html#a9e7a0a7ffecd1c4b6243cf70ef00a309":[18,0,0,1,3,5,5],
 "da/de9/postprocess_8py.html#ab7e7a0e51f927a85f6c6597a7718afde":[18,0,0,1,3,5,4],
 "da/de9/postprocess_8py.html#ac1e956867629857c7ab33a96861e2a4d":[18,0,0,1,3,5,8],
@@ -184,15 +183,15 @@ var NAVTREEINDEX8 =
 "dc/d09/Stats_8h.html#ac06efe71c44675ea021ddeb404d730dc":[18,0,0,2,0,0,7,6],
 "dc/d09/Stats_8h.html#afeaf3b7bba0ff1b952b35d0effc0bca9":[18,0,0,2,0,0,7,2],
 "dc/d1d/outlab3.html":[11],
-"dc/d1d/outlab3.html#autotoc_md133":[11,0],
-"dc/d1d/outlab3.html#autotoc_md134":[11,0,0],
-"dc/d1d/outlab3.html#autotoc_md135":[11,0,1],
-"dc/d1d/outlab3.html#autotoc_md136":[11,0,1,0],
-"dc/d1d/outlab3.html#autotoc_md137":[11,0,1,1],
-"dc/d1d/outlab3.html#autotoc_md138":[11,0,2],
-"dc/d1d/outlab3.html#autotoc_md139":[11,0,3],
-"dc/d1d/outlab3.html#autotoc_md140":[11,0,3,0],
-"dc/d1d/outlab3.html#autotoc_md141":[11,0,4],
+"dc/d1d/outlab3.html#autotoc_md132":[11,0],
+"dc/d1d/outlab3.html#autotoc_md133":[11,0,0],
+"dc/d1d/outlab3.html#autotoc_md134":[11,0,1],
+"dc/d1d/outlab3.html#autotoc_md135":[11,0,1,0],
+"dc/d1d/outlab3.html#autotoc_md136":[11,0,1,1],
+"dc/d1d/outlab3.html#autotoc_md137":[11,0,2],
+"dc/d1d/outlab3.html#autotoc_md138":[11,0,3],
+"dc/d1d/outlab3.html#autotoc_md139":[11,0,3,0],
+"dc/d1d/outlab3.html#autotoc_md140":[11,0,4],
 "dc/d21/labs_2outlab6_2Compute_8h.html":[18,0,0,0,14,2],
 "dc/d21/labs_2outlab6_2Compute_8h.html#a017b511b9ab24d2388a864d6cb14c1cc":[18,0,0,0,14,2,0],
 "dc/d21/labs_2outlab6_2Compute_8h.html#a0aa73a107ee5ea0767e15b7caddeecc7":[18,0,0,0,14,2,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "dc/d9f/classInLab4.html#ae9d3f16686924888296e233c37f7dbdd":[17,0,23,1],
 "dc/da0/LazyVectorTests_8cpp.html":[18,0,0,2,0,0,2,1,1],
 "dc/da0/LazyVectorTests_8cpp.html#a072ea27f42280862efbb003342702111":[18,0,0,2,0,0,2,1,1,9],
-"dc/da0/LazyVectorTests_8cpp.html#a1f91d75eff329b319fc29aef8ab67623":[18,0,0,2,0,0,2,1,1,23]
+"dc/da0/LazyVectorTests_8cpp.html#a1f91d75eff329b319fc29aef8ab67623":[18,0,0,2,0,0,2,1,1,23],
+"dc/da0/LazyVectorTests_8cpp.html#a1fc23428823dc3621f3f25deccddff28":[18,0,0,2,0,0,2,1,1,3]
 };

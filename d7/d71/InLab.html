@@ -120,17 +120,16 @@ $(document).ready(function(){initNavTree('d7/d71/InLab.html','../../'); initResi
 <div class="toc"><h3>Table of Contents</h3>
 <ul><li class="level1"><a href="#autotoc_md29">InLab 08: Iterative Linear Equation Solvers</a><ul><li class="level2"><a href="#autotoc_md30">Overview</a></li>
 <li class="level2"><a href="#autotoc_md31">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md32">Parameters</a></li>
-<li class="level3"><a href="#autotoc_md33">Solver Methods</a></li>
-<li class="level3"><a href="#autotoc_md34">General options</a></li>
+<li class="level3"><a href="#autotoc_md33">General options</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md35">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md36">Sample Parameters File</a></li>
+<li class="level2"><a href="#autotoc_md34">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md35">Sample Parameters File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md37">Output Format</a><ul><li class="level3"><a href="#autotoc_md38">Sample Outputs File</a></li>
+<li class="level2"><a href="#autotoc_md36">Output Format</a><ul><li class="level3"><a href="#autotoc_md37">Sample Outputs File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md39">Example:</a></li>
+<li class="level2"><a href="#autotoc_md38">Example:</a></li>
 </ul>
 </li>
 </ul>
@@ -169,8 +168,8 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Specify the input and output files.</div>
 <div class="line">## NOTE: This path is relative to the repo root directory</div>
-<div class="line">export INPUT_FILE=./src/labs/inlab10/examples/inlab10_input_1.json</div>
-<div class="line">export OUTPUT_FILE=./src/labs/inlab10/examples/inlab10_output_1.json</div>
+<div class="line">export INPUT_FILE=./src/labs/inlab10/examples/inlab10_input.json</div>
+<div class="line">export OUTPUT_FILE=./src/labs/inlab10/examples/inlab10_output.json</div>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE</div>
@@ -179,23 +178,10 @@ Parameters</h3>
 <ul>
 <li><code>-t [ --threshold ] arg</code>: iterative convergence threshold [𝜀 &gt; 0]</li>
 <li><code>-k [ --max-iterations ] arg</code>: maximum number of iterations [n ∈ ℕ]</li>
-<li><code>-n [ --order ] arg</code>: order of the square matrix [n ∈ ℕ]</li>
 <li><code>-i [ --input-json ] arg</code>: input JSON containing A, and b</li>
 <li><code>-o [ --output-json ] arg</code>: path for the output JSON</li>
-<li><code>-w [ --relaxation-factor ] arg</code>: SOR weight, typical ω ∈ [0,2]</li>
-<li><code>-g [ --generate ]</code>: Generate A,b ignoring input-json</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md33"></a>
-Solver Methods</h3>
-<ul>
-<li><code>--use-LUP</code>: Use LUP factorization</li>
-<li><code>--use-point-jacobi</code>: Use the Point-Jacobi method</li>
-<li><code>--use-gauss-seidel</code>: Use the Gauss-Seidel method</li>
-<li><code>--use-SOR</code>: Use the SOR method</li>
-<li><code>--use-SORJ</code>: Use the SOR Jacobi method</li>
-<li><code>--use-SSOR</code>: [DISABLED] Use the symmetric SOR method</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md34"></a>
 General options</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message</li>
@@ -203,12 +189,14 @@ General options</h3>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
 <li><code>-P [ --profile ]</code>: Turn on performance profiling</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Parameters Format</h2>
 <p>The expected input json file requires the following fields:</p>
-<h3><a class="anchor" id="autotoc_md36"></a>
+<h3><a class="anchor" id="autotoc_md35"></a>
 Sample Parameters File</h3>
 <div class="fragment"><div class="line">{</div>
+<div class="line">   &quot;max-iterations&quot;: 500,</div>
+<div class="line">   &quot;stopping-criterion&quot;: 1e-8,</div>
 <div class="line">   &quot;coefficients&quot;: [</div>
 <div class="line">      [ 36.1, -9.00, -9.00,  0.00],</div>
 <div class="line">      [-9.00,  36.1,  0.00, -9.00],</div>
@@ -217,10 +205,10 @@ Sample Parameters File</h3>
 <div class="line">   ],</div>
 <div class="line">   &quot;constants&quot;: [1.00, 1.00, 1.00, 1.00]</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md37"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md36"></a>
 Output Format</h2>
 <p>The output is written to a JSON file as well.</p>
-<h3><a class="anchor" id="autotoc_md38"></a>
+<h3><a class="anchor" id="autotoc_md37"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;inputs&quot;: {</div>
@@ -256,170 +244,104 @@ Sample Outputs File</h3>
 <div class="line">         1.0,</div>
 <div class="line">         1.0</div>
 <div class="line">      ],</div>
-<div class="line">      &quot;known-solution&quot;: [],</div>
-<div class="line">      &quot;max-iterations&quot;: 5000,</div>
-<div class="line">      &quot;methods&quot;: [</div>
-<div class="line">         &quot;gauss-seidel&quot;</div>
-<div class="line">      ],</div>
-<div class="line">      &quot;order&quot;: 4,</div>
-<div class="line">      &quot;relaxation-factor&quot;: 1.08,</div>
-<div class="line">      &quot;threshold&quot;: 0.0001</div>
+<div class="line">      &quot;max-iterations&quot;: 500,</div>
+<div class="line">      &quot;n&quot;: 4,</div>
+<div class="line">      &quot;stopping-criterion&quot;: 1e-08</div>
 <div class="line">   },</div>
 <div class="line">   &quot;outputs&quot;: {</div>
-<div class="line">      &quot;gauss-seidel&quot;: {</div>
-<div class="line">         &quot;converged&quot;: true,</div>
-<div class="line">         &quot;iterations&quot;: {</div>
-<div class="line">            &quot;actual&quot;: 6,</div>
-<div class="line">            &quot;maximum&quot;: 5000</div>
-<div class="line">         },</div>
-<div class="line">         &quot;iterative-error&quot;: {</div>
-<div class="line">            &quot;actual&quot;: 3.6891402111559554e-05,</div>
-<div class="line">            &quot;maximum&quot;: 0.0001</div>
-<div class="line">         },</div>
-<div class="line">         &quot;l2-error&quot;: 0.0,</div>
-<div class="line">         &quot;max-residual&quot;: 0.00026517572756905696,</div>
-<div class="line">         &quot;solution&quot;: [</div>
-<div class="line">            0.05523884269588214,</div>
-<div class="line">            0.05524374428049525,</div>
-<div class="line">            0.05524374428049525,</div>
-<div class="line">            0.055246188283903444</div>
-<div class="line">         ],</div>
-<div class="line">         &quot;wall-time-ns&quot;: {</div>
-<div class="line">            &quot;mean&quot;: 488.4,</div>
-<div class="line">            &quot;samples&quot;: 52.437009830843714,</div>
-<div class="line">            &quot;std&quot;: 52.437009830843714</div>
-<div class="line">         }</div>
+<div class="line">      &quot;Cy&quot;: [</div>
+<div class="line">         2.0,</div>
+<div class="line">         2.0,</div>
+<div class="line">         2.0,</div>
+<div class="line">         2.0</div>
+<div class="line">      ],</div>
+<div class="line">      &quot;benchmark&quot;: {</div>
+<div class="line">         &quot;mean&quot;: 2821.2421,</div>
+<div class="line">         &quot;p5th&quot;: 2757.0,</div>
+<div class="line">         &quot;p95th&quot;: 2793.0,</div>
+<div class="line">         &quot;samples&quot;: 10000</div>
 <div class="line">      },</div>
+<div class="line">      &quot;y + z&quot;: [</div>
+<div class="line">         3.0,</div>
+<div class="line">         3.0,</div>
+<div class="line">         3.0,</div>
+<div class="line">         3.0</div>
+<div class="line">      ],</div>
+<div class="line">      &quot;y^T•(A•z)&quot;: 144.8,</div>
+<div class="line">      &quot;y^T•z&quot;: 8.0</div>
 <div class="line">   }</div>
 <div class="line">}</div>
-<div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md39"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md38"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
-<div class="fragment"><div class="line">NE591: InLab 08: Solving a system of linear equations using iterative methods</div>
+<div class="fragment"><div class="line">NE591: InLab 10: Matrix-Vector Operations Setup</div>
 <div class="line">Arjun Earthperson</div>
-<div class="line">10/06/2023</div>
+<div class="line">10/27/2023</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so</div>
+<div class="line">using 128-bit floats</div>
+<div class="line">compiler: GNU 8.5.0</div>
+<div class="line">boost: 106600 /usr/lib64/libboost_program_options.so;/usr/lib64/libboost_serialization.so</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">Parameters:</div>
-<div class="line">  -t [ --threshold ] arg         = convergence threshold [𝜀 &gt; 0]</div>
-<div class="line">  -k [ --max-iterations ] arg    = maximum iterations [n ∈ ℕ]</div>
-<div class="line">  -w [ --relaxation-factor ] arg = SOR weight, typical ω ∈ [0,2]</div>
-<div class="line">  -n [ --order ] arg             = order of the square matrix [n ∈ ℕ]</div>
-<div class="line">  -i [ --input-json ] arg        = input JSON containing A, and b</div>
-<div class="line">  -g [ --generate ]              = Generate A,b ignoring input-json</div>
-<div class="line">  -o [ --output-json ] arg       = path for the output JSON</div>
 <div class="line"> </div>
-<div class="line">Solver Methods:</div>
-<div class="line">  --use-LUP                      = Use LUP factorization</div>
-<div class="line">  --use-point-jacobi             = Use the Point-Jacobi method</div>
-<div class="line">  --use-gauss-seidel             = Use the Gauss-Seidel method</div>
-<div class="line">  --use-SOR                      = Use the SOR method</div>
-<div class="line">  --use-SORJ                     = Use the SOR Jacobi method</div>
-<div class="line">  --use-SSOR                     = [DISABLED] Use the symmetric SOR method</div>
+<div class="line">Solver Options:</div>
+<div class="line">  -e [ --stopping-criterion ]      = stopping criterion [+ve R]</div>
+<div class="line">  -k [ --max-iterations ]          = maximum iterations [k ∈ ℕ]</div>
+<div class="line"> </div>
+<div class="line">File I/O Options:</div>
+<div class="line">  -i [ --input-json ] arg          = input JSON containing n</div>
+<div class="line">  -o [ --output-json ] arg         = path for the output JSON</div>
+<div class="line"> </div>
+<div class="line">Performance Benchmarking:</div>
+<div class="line">  -R [ --bench-runs ] arg (=1)     = &lt;R&gt; runs to perform</div>
+<div class="line">  -T [ --bench-timeout ] arg (=0)  = Timeout after &lt;T&gt; seconds [0=never]</div>
+<div class="line">  -B [ --bench ]                   = Run performance benchmarks</div>
 <div class="line"> </div>
 <div class="line">General options:</div>
-<div class="line">  -h [ --help ]                  = Show this help message</div>
-<div class="line">  -q [ --quiet ]                 = Reduce verbosity</div>
-<div class="line">  -p [ --precision ] arg (=15)   = Number of digits to represent long double</div>
-<div class="line">  -P [ --profile ]               = Turn on performance profiling</div>
+<div class="line">  -h [ --help ]                    = Show this help message</div>
+<div class="line">  -q [ --quiet ]                   = Reduce verbosity</div>
+<div class="line">  -p [ --precision ] arg (=15)     = Number of digits to represent long double</div>
 <div class="line"> </div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">            Precision in digits:  default: 6, maximum: 19, current: 2</div>
+<div class="line">            Precision in digits:  default: 6, maximum: 19, current: 15</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">Warning: File already exists at path, will be overwritten </div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">                                     Inputs</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    Generate A,b,            g: No</div>
-<div class="line">    Parameters JSON (for A, b),   i:  ../inlab10_input_1.json</div>
-<div class="line">    Output JSON (for x),     o: ../inlab10_output_1.json</div>
-<div class="line">    Convergence Threshold,   𝜀: 0.0001</div>
-<div class="line">    Max iterations,          k: 5000</div>
-<div class="line">    Matrix order,            n: None provided, will be inferred from input JSON</div>
-<div class="line">    SOR weight,              ω: 1.080000</div>
-<div class="line">    Use LUP factorization     : Yes</div>
-<div class="line">    Use Gauss-Seidel          : Yes</div>
-<div class="line">    Use Point-Jacobi          : Yes</div>
-<div class="line">    Use SOR                   : Yes</div>
-<div class="line">    Use Point-Jacobi with SOR : Yes</div>
-<div class="line">    Use symmetric SOR         : Yes</div>
+<div class="line">    Input JSON,              i: ../outlab10_input.json</div>
+<div class="line">    Output JSON,             o: ../outlab10_output.json</div>
+<div class="line">    Stopping Criterion,      e: 1e-08</div>
+<div class="line">    Maximum Iterations,      k: 500</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">Reading matrix order (n) from input matrix dimensions: 4</div>
+<div class="line">Input coefficients matrix A is square.</div>
+<div class="line">Input coefficients matrix A is symmetric.</div>
+<div class="line">Input coefficients matrix A is positive definite.</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">Coefficient Matrix (A):</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    3.61e+01   -9.00e+00   -9.00e+00    0.00e+00</div>
-<div class="line">   -9.00e+00    3.61e+01    0.00e+00   -9.00e+00</div>
-<div class="line">   -9.00e+00    0.00e+00    3.61e+01   -9.00e+00</div>
-<div class="line">    0.00e+00   -9.00e+00   -9.00e+00    3.61e+01</div>
+<div class="line">    3.610000000000000e+01   -9.000000000000000e+00   -9.000000000000000e+00    0.000000000000000e+00</div>
+<div class="line">   -9.000000000000000e+00    3.610000000000000e+01    0.000000000000000e+00   -9.000000000000000e+00</div>
+<div class="line">   -9.000000000000000e+00    0.000000000000000e+00    3.610000000000000e+01   -9.000000000000000e+00</div>
+<div class="line">    0.000000000000000e+00   -9.000000000000000e+00   -9.000000000000000e+00    3.610000000000000e+01</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">Constants Vector (b):</div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    1.00e+00    1.00e+00    1.00e+00    1.00e+00</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">LUP Factorization Results</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    order                     : 4</div>
-<div class="line">    total iterations          : 0</div>
-<div class="line">    converged                 : Yes</div>
-<div class="line">    iterative error           : nan</div>
-<div class="line">    relative error            : 0.00e+00</div>
-<div class="line">    absolute maximum residual : 2.17e-19</div>
-<div class="line">    execution time [ns]       : 1185.600000 ± 716.407593</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">Point Jacobi Method Results</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    order                     : 4</div>
-<div class="line">    total iterations          : 10</div>
-<div class="line">    converged                 : Yes</div>
-<div class="line">    iterative error           : 5.26e-05</div>
-<div class="line">    relative error            : 0.00e+00</div>
-<div class="line">    absolute maximum residual : 9.50e-04</div>
-<div class="line">    execution time [ns]       : 511.400000 ± 97.897089</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">SOR Point Jacobi Method Results</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    order                     : 4</div>
-<div class="line">    total iterations          : 9</div>
-<div class="line">    converged                 : Yes</div>
-<div class="line">    iterative error           : 5.36e-05</div>
-<div class="line">    relative error            : 0.00e+00</div>
-<div class="line">    absolute maximum residual : 8.96e-04</div>
-<div class="line">    execution time [ns]       : 413.900000 ± 14.159449</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">Gauss-Seidel Method Results</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    order                     : 4</div>
-<div class="line">    total iterations          : 6</div>
-<div class="line">    converged                 : Yes</div>
-<div class="line">    iterative error           : 3.69e-05</div>
-<div class="line">    relative error            : 0.00e+00</div>
-<div class="line">    absolute maximum residual : 2.65e-04</div>
-<div class="line">    execution time [ns]       : 481.000000 ± 56.723893</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">SOR Method Results</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    order                     : 4</div>
-<div class="line">    total iterations          : 4</div>
-<div class="line">    converged                 : Yes</div>
-<div class="line">    iterative error           : 3.89e-05</div>
-<div class="line">    relative error            : 0.00e+00</div>
-<div class="line">    absolute maximum residual : 3.52e-06</div>
-<div class="line">    execution time [ns]       : 350.100000 ± 14.645477</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">Symmetric SOR Method Results</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">    order                     : 4</div>
-<div class="line">    total iterations          : 3</div>
-<div class="line">    converged                 : Yes</div>
-<div class="line">    iterative error           : 5.62e-05</div>
-<div class="line">    relative error            : 0.00e+00</div>
-<div class="line">    absolute maximum residual : 8.02e-05</div>
-<div class="line">    execution time [ns]       : 465.400000 ± 60.016998</div>
-<div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">JSON data has been written to ../inlab10_output_1.json</div>
+<div class="line">    1.000000000000000e+00    1.000000000000000e+00    1.000000000000000e+00    1.000000000000000e+00</div>
+<div class="line">:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::</div>
+<div class="line">[10000/10000] : Matrix-Vector Operations</div>
+<div class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="line">:::::: SUM: 2.82e+07 :::::::: VARIANCE: 1.04e+06 :::::::: MEDIAN: 2.77e+03 :::::</div>
+<div class="line">:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::</div>
+<div class="line">:::::: {2.74e+03, 3.98e+04} : (2.82e+03 ± 1.02e+03) : [2.76e+03, 2.79e+03] :::::</div>
+<div class="line">:::::: Estimated maximum allocated memory [bytes]: 760 ::::::::::::::::::::::::</div>
+<div class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="line"> </div>
+<div class="line">[    Cy   ]:     2.000000000000000e+00    2.000000000000000e+00    2.000000000000000e+00    2.000000000000000e+00</div>
+<div class="line">[  y + z  ]:     3.000000000000000e+00    3.000000000000000e+00    3.000000000000000e+00    3.000000000000000e+00</div>
+<div class="line">[  y^T•z  ]: 8.000000000000000e+00</div>
+<div class="line">[y^T•(A•z)]: 1.448000000000000e+02</div>
+<div class="line"> </div>
+<div class="line">JSON data has been written to ../outlab10_output.json</div>
 <div class="line"> </div>
 <div class="line">Process finished with exit code 0</div>
 </div><!-- fragment --> </div></div><!-- contents -->
