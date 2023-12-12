@@ -88,7 +88,18 @@ endif ()
 
 ########################### Dependencies ########################################### {{{
 # Include BOOST
-add_subdirectory(external/boost-cmake)
+set(BOOST_MIN_VERSION "1.66.0" COMPONENTS program_options serialization) # COMPONENTS program_options
+SET(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_MULTITHREADED ON)
+SET(Boost_USE_STATIC_RUNTIME OFF)
+find_package(Boost ${BOOST_MIN_VERSION} REQUIRED)
+message(STATUS "Boost Include directory: ${Boost_INCLUDE_DIR}")
+message(STATUS "Boost Library directories: ${Boost_LIBRARY_DIRS}")
+list(APPEND LIBS ${Boost_LIBRARIES})
+list(APPEND LIBS ${CMAKE_DL_LIBS})
+message(STATUS "Libraries: ${LIBS}")
+include_directories(SYSTEM "${Boost_INCLUDE_DIR}")
+
 ########################### Dependencies ########################################### }}}
 
 ########################### Includes ############################################### {{{
