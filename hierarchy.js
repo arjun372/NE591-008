@@ -62,9 +62,6 @@ var hierarchy =
     [ "MatrixTypesImpl< MatrixType, ::testing::Types< Ts... > >", "d2/da0/TestedTypes_8h.html#d4/d0c/structMatrixTypesImpl_3_01MatrixType_00_01_1_1testing_1_1Types_3_01Ts_8_8_8_01_4_01_4", null ],
     [ "MatrixVectorExpression< MatrixType, VectorType, T >", "d4/d68/classMatrixVectorExpression.html", null ],
     [ "MPIProject< InputType, CommandLineParserType, OutputType >", "d0/df0/classMPIProject.html", null ],
-    [ "MPIProject< InLab10Inputs, Parser, InLab10Outputs >", "d0/df0/classMPIProject.html", [
-      [ "InLab10", "d9/d0e/classInLab10.html", null ]
-    ] ],
     [ "MPIProject< OutLab7Inputs, Parser, OutLab7Outputs >", "d0/df0/classMPIProject.html", [
       [ "OutLab7", "d3/d49/classOutLab7.html", null ],
       [ "OutLab7", "d3/d49/classOutLab7.html", null ]
@@ -95,6 +92,9 @@ var hierarchy =
     [ "MyPhysics::Diffusion::Params< T >", "d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html", null ],
     [ "Profiler< FunctionType >", "dd/d0e/classProfiler.html", null ],
     [ "Project< InputType, CommandLineParserType, OutputType >", "db/d91/classProject.html", null ],
+    [ "Project< InLab10Inputs, Parser, InLab10Outputs >", "db/d91/classProject.html", [
+      [ "InLab10", "d9/d0e/classInLab10.html", null ]
+    ] ],
     [ "Project< InLab6Inputs, Parser, InLab6Outputs >", "db/d91/classProject.html", [
       [ "InLab6", "d1/d8c/classInLab6.html", null ]
     ] ],
