@@ -38,8 +38,8 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/inlab10/examples/inlab10_input_1.json
-export OUTPUT_FILE=./src/labs/inlab10/examples/inlab10_output_1.json
+export INPUT_FILE=./src/labs/inlab10/examples/inlab10_input.json
+export OUTPUT_FILE=./src/labs/inlab10/examples/inlab10_output.json
 
 ## Execute
 ./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
@@ -49,20 +49,8 @@ export OUTPUT_FILE=./src/labs/inlab10/examples/inlab10_output_1.json
 
 - `-t [ --threshold ] arg     `: iterative convergence threshold [𝜀 > 0]
 - `-k [ --max-iterations ] arg`: maximum number of iterations [n ∈ ℕ]
-- `-n [ --order ] arg`: order of the square matrix [n ∈ ℕ]
 - `-i [ --input-json ] arg`: input JSON containing A, and b
 - `-o [ --output-json ] arg`: path for the output JSON
-- `-w [ --relaxation-factor ] arg`: SOR weight, typical ω ∈ [0,2]
-- `-g [ --generate ]`: Generate A,b ignoring input-json
-
-### Solver Methods
-
-- `--use-LUP`: Use LUP factorization
-- `--use-point-jacobi`: Use the Point-Jacobi method
-- `--use-gauss-seidel`: Use the Gauss-Seidel method
-- `--use-SOR`: Use the SOR method
-- `--use-SORJ`: Use the SOR Jacobi method
-- `--use-SSOR`: [DISABLED] Use the symmetric SOR method
 
 ### General options
 
@@ -79,6 +67,8 @@ The expected input json file requires the following fields:
 
 ```json
 {
+   "max-iterations": 500,
+   "stopping-criterion": 1e-8,
    "coefficients": [
       [ 36.1, -9.00, -9.00,  0.00],
       [-9.00,  36.1,  0.00, -9.00],
@@ -130,42 +120,32 @@ The output is written to a JSON file as well.
          1.0,
          1.0
       ],
-      "known-solution": [],
-      "max-iterations": 5000,
-      "methods": [
-         "gauss-seidel"
-      ],
-      "order": 4,
-      "relaxation-factor": 1.08,
-      "threshold": 0.0001
+      "max-iterations": 500,
+      "n": 4,
+      "stopping-criterion": 1e-08
    },
    "outputs": {
-      "gauss-seidel": {
-         "converged": true,
-         "iterations": {
-            "actual": 6,
-            "maximum": 5000
-         },
-         "iterative-error": {
-            "actual": 3.6891402111559554e-05,
-            "maximum": 0.0001
-         },
-         "l2-error": 0.0,
-         "max-residual": 0.00026517572756905696,
-         "solution": [
-            0.05523884269588214,
-            0.05524374428049525,
-            0.05524374428049525,
-            0.055246188283903444
-         ],
-         "wall-time-ns": {
-            "mean": 488.4,
-            "samples": 52.437009830843714,
-            "std": 52.437009830843714
-         }
+      "Cy": [
+         2.0,
+         2.0,
+         2.0,
+         2.0
+      ],
+      "benchmark": {
+         "mean": 2821.2421,
+         "p5th": 2757.0,
+         "p95th": 2793.0,
+         "samples": 10000
       },
+      "y + z": [
+         3.0,
+         3.0,
+         3.0,
+         3.0
+      ],
+      "y^T•(A•z)": 144.8,
+      "y^T•z": 8.0
    }
-}
 }
 ```
 
@@ -174,130 +154,74 @@ The output is written to a JSON file as well.
 The following is an example of the program's output:
 
 ```shell
-NE591: InLab 08: Solving a system of linear equations using iterative methods
+NE591: InLab 10: Matrix-Vector Operations Setup
 Arjun Earthperson
-10/06/2023
+10/27/2023
 --------------------------------------------------------------------------------
-compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so
+using 128-bit floats
+compiler: GNU 8.5.0
+boost: 106600 /usr/lib64/libboost_program_options.so;/usr/lib64/libboost_serialization.so
 --------------------------------------------------------------------------------
 Parameters:
-  -t [ --threshold ] arg         = convergence threshold [𝜀 > 0]
-  -k [ --max-iterations ] arg    = maximum iterations [n ∈ ℕ]
-  -w [ --relaxation-factor ] arg = SOR weight, typical ω ∈ [0,2]
-  -n [ --order ] arg             = order of the square matrix [n ∈ ℕ]
-  -i [ --input-json ] arg        = input JSON containing A, and b
-  -g [ --generate ]              = Generate A,b ignoring input-json
-  -o [ --output-json ] arg       = path for the output JSON
 
-Solver Methods:
-  --use-LUP                      = Use LUP factorization
-  --use-point-jacobi             = Use the Point-Jacobi method
-  --use-gauss-seidel             = Use the Gauss-Seidel method
-  --use-SOR                      = Use the SOR method
-  --use-SORJ                     = Use the SOR Jacobi method
-  --use-SSOR                     = [DISABLED] Use the symmetric SOR method
+Solver Options:
+  -e [ --stopping-criterion ]      = stopping criterion [+ve R]
+  -k [ --max-iterations ]          = maximum iterations [k ∈ ℕ]
+
+File I/O Options:
+  -i [ --input-json ] arg          = input JSON containing n
+  -o [ --output-json ] arg         = path for the output JSON
+
+Performance Benchmarking:
+  -R [ --bench-runs ] arg (=1)     = <R> runs to perform
+  -T [ --bench-timeout ] arg (=0)  = Timeout after <T> seconds [0=never]
+  -B [ --bench ]                   = Run performance benchmarks
 
 General options:
-  -h [ --help ]                  = Show this help message
-  -q [ --quiet ]                 = Reduce verbosity
-  -p [ --precision ] arg (=15)   = Number of digits to represent long double
-  -P [ --profile ]               = Turn on performance profiling
+  -h [ --help ]                    = Show this help message
+  -q [ --quiet ]                   = Reduce verbosity
+  -p [ --precision ] arg (=15)     = Number of digits to represent long double
 
 --------------------------------------------------------------------------------
-			Precision in digits:  default: 6, maximum: 19, current: 2
+			Precision in digits:  default: 6, maximum: 19, current: 15
 --------------------------------------------------------------------------------
-Warning: File already exists at path, will be overwritten 
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
-	Generate A,b,            g: No
-	Parameters JSON (for A, b),   i:  ../inlab10_input_1.json
-	Output JSON (for x),     o: ../inlab10_output_1.json
-	Convergence Threshold,   𝜀: 0.0001
-	Max iterations,          k: 5000
-	Matrix order,            n: None provided, will be inferred from input JSON
-	SOR weight,              ω: 1.080000
-	Use LUP factorization     : Yes
-	Use Gauss-Seidel          : Yes
-	Use Point-Jacobi          : Yes
-	Use SOR                   : Yes
-	Use Point-Jacobi with SOR : Yes
-	Use symmetric SOR         : Yes
+	Input JSON,              i: ../outlab10_input.json
+	Output JSON,             o: ../outlab10_output.json
+	Stopping Criterion,      e: 1e-08
+	Maximum Iterations,      k: 500
 --------------------------------------------------------------------------------
-Reading matrix order (n) from input matrix dimensions: 4
+Input coefficients matrix A is square.
+Input coefficients matrix A is symmetric.
+Input coefficients matrix A is positive definite.
 --------------------------------------------------------------------------------
 Coefficient Matrix (A):
 --------------------------------------------------------------------------------
-    3.61e+01   -9.00e+00   -9.00e+00    0.00e+00
-   -9.00e+00    3.61e+01    0.00e+00   -9.00e+00
-   -9.00e+00    0.00e+00    3.61e+01   -9.00e+00
-    0.00e+00   -9.00e+00   -9.00e+00    3.61e+01
+    3.610000000000000e+01   -9.000000000000000e+00   -9.000000000000000e+00    0.000000000000000e+00
+   -9.000000000000000e+00    3.610000000000000e+01    0.000000000000000e+00   -9.000000000000000e+00
+   -9.000000000000000e+00    0.000000000000000e+00    3.610000000000000e+01   -9.000000000000000e+00
+    0.000000000000000e+00   -9.000000000000000e+00   -9.000000000000000e+00    3.610000000000000e+01
 --------------------------------------------------------------------------------
 Constants Vector (b):
 --------------------------------------------------------------------------------
-    1.00e+00    1.00e+00    1.00e+00    1.00e+00
---------------------------------------------------------------------------------
-LUP Factorization Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 0
-	converged                 : Yes
-	iterative error           : nan
-	relative error            : 0.00e+00
-	absolute maximum residual : 2.17e-19
-	execution time [ns]       : 1185.600000 ± 716.407593
---------------------------------------------------------------------------------
-Point Jacobi Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 10
-	converged                 : Yes
-	iterative error           : 5.26e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 9.50e-04
-	execution time [ns]       : 511.400000 ± 97.897089
---------------------------------------------------------------------------------
-SOR Point Jacobi Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 9
-	converged                 : Yes
-	iterative error           : 5.36e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 8.96e-04
-	execution time [ns]       : 413.900000 ± 14.159449
---------------------------------------------------------------------------------
-Gauss-Seidel Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 6
-	converged                 : Yes
-	iterative error           : 3.69e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 2.65e-04
-	execution time [ns]       : 481.000000 ± 56.723893
---------------------------------------------------------------------------------
-SOR Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 4
-	converged                 : Yes
-	iterative error           : 3.89e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 3.52e-06
-	execution time [ns]       : 350.100000 ± 14.645477
---------------------------------------------------------------------------------
-Symmetric SOR Method Results
---------------------------------------------------------------------------------
-	order                     : 4
-	total iterations          : 3
-	converged                 : Yes
-	iterative error           : 5.62e-05
-	relative error            : 0.00e+00
-	absolute maximum residual : 8.02e-05
-	execution time [ns]       : 465.400000 ± 60.016998
---------------------------------------------------------------------------------
-JSON data has been written to ../inlab10_output_1.json
+    1.000000000000000e+00    1.000000000000000e+00    1.000000000000000e+00    1.000000000000000e+00
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[10000/10000] : Matrix-Vector Operations
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 2.82e+07 :::::::: VARIANCE: 1.04e+06 :::::::: MEDIAN: 2.77e+03 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {2.74e+03, 3.98e+04} : (2.82e+03 ± 1.02e+03) : [2.76e+03, 2.79e+03] :::::
+:::::: Estimated maximum allocated memory [bytes]: 760 ::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+[    Cy   ]:     2.000000000000000e+00    2.000000000000000e+00    2.000000000000000e+00    2.000000000000000e+00
+[  y + z  ]:     3.000000000000000e+00    3.000000000000000e+00    3.000000000000000e+00    3.000000000000000e+00
+[  y^T•z  ]: 8.000000000000000e+00
+[y^T•(A•z)]: 1.448000000000000e+02
+
+JSON data has been written to ../outlab10_output.json
 
 Process finished with exit code 0
 ```
