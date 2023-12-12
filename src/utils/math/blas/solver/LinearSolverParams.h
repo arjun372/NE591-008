@@ -47,50 +47,49 @@ namespace MyBLAS::Solver {
 template <template <typename> class MatrixType, template <typename> class VectorType, typename T>
 struct TemplatedParameters {
 
-  private:
+  public:
     /**
      * @brief Size of the matrix/vector.
      *
      * This value represents the size of the matrix/vector.
      */
-    size_t _n = std::numeric_limits<size_t>::quiet_NaN();
+    size_t n = std::numeric_limits<size_t>::quiet_NaN();
 
     /**
      * @brief The convergence threshold.
      *
      * This value represents the convergence threshold for the solver.
      */
-    T _threshold = std::numeric_limits<T>::quiet_NaN();
+    T threshold = std::numeric_limits<T>::quiet_NaN();
 
     /**
      * @brief The relaxation factor.
      *
      * This value represents the relaxation factor for the solver.
      */
-    T _relaxation_factor = std::numeric_limits<T>::quiet_NaN();
+    T relaxation_factor = std::numeric_limits<T>::quiet_NaN();
 
     /**
      * @brief Maximum number of iterations to perform.
      *
      * This value represents the maximum number of iterations to perform.
      */
-    size_t _max_iterations = std::numeric_limits<size_t>::quiet_NaN();
+    size_t max_iterations = std::numeric_limits<size_t>::quiet_NaN();
 
     /**
      * @brief Coefficient matrix A.
      *
      * This matrix holds the coefficients for the problem.
      */
-    MatrixType<T> _coefficients;
+    MatrixType<T> coefficients;
 
     /**
      * @brief Vector of constants b.
      *
      * This vector holds the constants for the problem.
      */
-    VectorType<T> _constants;
+    VectorType<T> constants;
 
-  public:
     /**
      * @brief Default constructor for TemplatedParameters.
      */
@@ -106,10 +105,10 @@ struct TemplatedParameters {
      * @param coefficients The coefficient matrix.
      * @param constants The vector of constants.
      */
-    TemplatedParameters(size_t n, T threshold, T relaxation_factor, size_t max_iterations,
-                        const MatrixType<T>& coefficients, const VectorType<T>& constants)
-        : _n(n), _threshold(threshold), _relaxation_factor(relaxation_factor),
-          _max_iterations(max_iterations), _coefficients(coefficients), _constants(constants) {}
+    TemplatedParameters(size_t _n, T _threshold, T _relaxation_factor, size_t _max_iterations,
+                        const MatrixType<T>& _coefficients, const VectorType<T>& _constants)
+        : n(_n), threshold(_threshold), relaxation_factor(_relaxation_factor),
+          max_iterations(_max_iterations), coefficients(_coefficients), constants(_constants) {}
 
     /**
      * @brief Set the size of the matrix/vector.
@@ -119,11 +118,11 @@ struct TemplatedParameters {
      *
      * @throw std::invalid_argument if the provided value is zero.
      */
-    TemplatedParameters& setSize(size_t n) {
-        if (n == 0) {
+    TemplatedParameters& setSize(size_t _n) {
+        if (_n == 0) {
             throw std::invalid_argument("Invalid value for n. It should be a positive number.");
         }
-        _n = n;
+        n = _n;
         return *this;
     }
 
@@ -135,11 +134,11 @@ struct TemplatedParameters {
      *
      * @throw std::invalid_argument if the provided value is non-positive or not finite.
      */
-    TemplatedParameters& setThreshold(T threshold) {
-        if (threshold <= 0 || !std::isfinite(threshold)) {
+    TemplatedParameters& setThreshold(T _threshold) {
+        if (_threshold <= 0 || !std::isfinite(_threshold)) {
             throw std::invalid_argument("Invalid value for threshold. It should be a positive finite number.");
         }
-        _threshold = threshold;
+        threshold = _threshold;
         return *this;
     }
 
@@ -151,11 +150,11 @@ struct TemplatedParameters {
      *
      * @throw std::invalid_argument if the provided value is non-positive or not finite.
      */
-    TemplatedParameters& setRelaxationFactor(T relaxation_factor) {
-        if (relaxation_factor <= 0 || !std::isfinite(relaxation_factor)) {
+    TemplatedParameters& setRelaxationFactor(T _relaxation_factor) {
+        if (_relaxation_factor <= 0 || !std::isfinite(_relaxation_factor)) {
             throw std::invalid_argument("Invalid value for relaxation factor. It should be a positive finite number.");
         }
-        _relaxation_factor = relaxation_factor;
+        relaxation_factor = _relaxation_factor;
         return *this;
     }
 
@@ -167,11 +166,11 @@ struct TemplatedParameters {
      *
      * @throw std::invalid_argument if the provided value is zero.
      */
-    TemplatedParameters& setMaxIterations(size_t max_iterations) {
-        if (max_iterations == 0) {
+    TemplatedParameters& setMaxIterations(size_t _max_iterations) {
+        if (_max_iterations == 0) {
             throw std::invalid_argument("Invalid value for max_iterations. It should be a positive number.");
         }
-        _max_iterations = max_iterations;
+        max_iterations = _max_iterations;
         return *this;
     }
 
@@ -183,11 +182,11 @@ struct TemplatedParameters {
      *
      * @throw std::invalid_argument if the dimensions of the coefficients matrix do not match with the size.
      */
-    TemplatedParameters& setCoefficients(const MatrixType<T>& coefficients) {
-        if (coefficients.getRows() != _n || coefficients.getCols() != _n) {
+    TemplatedParameters& setCoefficients(const MatrixType<T>& _coefficients) {
+        if (_coefficients.getRows() != n || _coefficients.getCols() != n) {
             throw std::invalid_argument("Invalid dimensions for the coefficients matrix. It should be square and match with the size.");
         }
-        _coefficients = coefficients;
+        coefficients = _coefficients;
         return *this;
     }
 
@@ -199,11 +198,11 @@ struct TemplatedParameters {
      *
      * @throw std::invalid_argument if the size of the constants vector does not match with the size.
      */
-    TemplatedParameters& setConstants(const VectorType<T>& constants) {
-        if (constants.getSize() != _n) {
+    TemplatedParameters& setConstants(const VectorType<T>& _constants) {
+        if (_constants.getSize() != n) {
             throw std::invalid_argument("Invalid size for the constants vector. It should match with the size.");
         }
-        _constants = constants;
+        constants = _constants;
         return *this;
     }
 
@@ -212,42 +211,42 @@ struct TemplatedParameters {
      *
      * @return The size of the matrix/vector.
      */
-    [[nodiscard]] size_t getSize() const { return _n; }
+    [[nodiscard]] size_t getSize() const { return n; }
 
     /**
      * @brief Get the convergence threshold.
      *
      * @return The convergence threshold.
      */
-    [[nodiscard]] T getThreshold() const { return _threshold; }
+    [[nodiscard]] T getThreshold() const { return threshold; }
 
     /**
      * @brief Get the relaxation factor.
      *
      * @return The relaxation factor.
      */
-    [[nodiscard]] T getRelaxationFactor() const { return _relaxation_factor; }
+    [[nodiscard]] T getRelaxationFactor() const { return relaxation_factor; }
 
     /**
      * @brief Get the maximum number of iterations to perform.
      *
      * @return The maximum number of iterations to perform.
      */
-    [[nodiscard]] size_t getMaxIterations() const { return _max_iterations; }
+    [[nodiscard]] size_t getMaxIterations() const { return max_iterations; }
 
     /**
      * @brief Get the coefficient matrix.
      *
      * @return The coefficient matrix.
      */
-    const MatrixType<T>& getCoefficients() const { return _coefficients; }
+    const MatrixType<T>& getCoefficients() const { return coefficients; }
 
     /**
      * @brief Get the vector of constants.
      *
      * @return The vector of constants.
      */
-    const VectorType<T>& getConstants() const { return _constants; }
+    const VectorType<T>& getConstants() const { return constants; }
 };
 
 /**

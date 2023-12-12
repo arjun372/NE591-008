@@ -18,6 +18,7 @@
 #include "math/factorization/LUP.h"
 #include "math/relaxation/SORPJ.h"
 #include "math/relaxation/SSOR.h"
+#include "relaxation/SOR.h"
 
 /**
  * @namespace Compute
@@ -122,8 +123,8 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
     inputs.diffusionCoefficients = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto A = inputs.diffusionCoefficients;
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting Point jacobi calculation\n";
@@ -157,8 +158,8 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
 void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
     auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting Gauss Seidel calculation\n";
@@ -192,9 +193,9 @@ void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
 void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
     auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
-    const MyBLAS::NumericType omega = inputs.solverParams.relaxation_factor;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
+    const MyBLAS::NumericType omega = inputs.solverParams.getRelaxationFactor();
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting SOR calculation\n";
@@ -228,9 +229,9 @@ void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
 void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
     auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
-    const MyBLAS::NumericType omega = inputs.solverParams.relaxation_factor;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
+    const MyBLAS::NumericType omega = inputs.solverParams.getRelaxationFactor();
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting SOR point jacobi calculation\n";
         return;
@@ -263,9 +264,9 @@ void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
 void usingSymmetricSOR(SolverOutputs &outputs, SolverInputs &inputs) {
     auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
-    const MyBLAS::NumericType omega = inputs.solverParams.relaxation_factor;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
+    const MyBLAS::NumericType omega = inputs.solverParams.getRelaxationFactor();
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting symmetric SOR calculation\n";

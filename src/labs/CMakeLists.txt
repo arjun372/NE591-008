@@ -17,10 +17,10 @@ add_subdirectory(outlab5)
 add_subdirectory(inlab6)
 add_subdirectory(outlab6)
 
-add_subdirectory(inlab7)
-add_subdirectory(outlab7)
+#add_subdirectory(inlab7)
+#add_subdirectory(outlab7)
 
-add_subdirectory(inlab8)
+#add_subdirectory(inlab8)
 
 # No such thing as inlab9
 #add_subdirectory(inlab9)

@@ -15,7 +15,8 @@
 #include "math/blas/Ops.h"
 #include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
-#include "utils/math/blas/solver/LinearSolver.h"
+#include "solver/LinearSolverParams.h"
+#include "solver/LinearSolver.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.

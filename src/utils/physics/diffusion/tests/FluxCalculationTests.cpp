@@ -38,30 +38,6 @@ class FluxCalculationTests : public ::testing::Test {
     }
 };
 
-TYPED_TEST(FluxCalculationTests, ConstructorTest) {
-    auto diffusionParams = MyPhysics::Diffusion::Params<TypeParam>()
-                 .setA(100)
-                 .setB(100)
-                 .setDiffusionCoefficient(0.033f)
-                 .setMacroscopicRemovalCrossSection(0.77f)
-                 .setM(9)
-                 .setN(9);
-
-    auto solverParams = MyBLAS::Solver::LazyParameters<TypeParam>()
-        .setMaxIterations(5000)
-        .setThreshold(1.0e-6f);
-
-    const auto A = Matrix<TypeParam>(params);
-    const auto b = this->getSources(params);
-
-    MyBLAS::Solver::Solution<TypeParam> solution = MyRelaxationMethod::applyPointJacobi(A, b, solverParams.getMaxIterations(), solverParams.getThreshold());
-
-    EXPECT_EQ(matrix.getParams().getA(), 1.0);
-    EXPECT_EQ(matrix.getParams().getB(), 1.0);
-    EXPECT_EQ(matrix.getParams().getM(), 10);
-    EXPECT_EQ(matrix.getParams().getN(), 10);
-}
-
 /**
 * @brief Test case for testing the copy constructor of the DiffusionMatrix class.
 * It checks if the copy constructor correctly duplicates the matrix with the same parameters.

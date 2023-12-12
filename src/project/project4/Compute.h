@@ -18,6 +18,7 @@
 #include "math/factorization/LUP.h"
 #include "math/relaxation/SORPJ.h"
 #include "math/relaxation/SSOR.h"
+#include "relaxation/SOR.h"
 
 /**
  * @namespace Compute
@@ -123,8 +124,8 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
     inputs.diffusionCoefficients = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto A = inputs.diffusionCoefficients;
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting Point jacobi calculation\n";
@@ -151,42 +152,6 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
 }
 
 /**
- * @brief Solves a linear system using the symmetric Point Jacobi method.
- * @param outputs The output data structure to store the solution and execution time.
- * @param inputs The input data structure containing the system to solve.
- */
-void usingSymmetricPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
-    inputs.diffusionCoefficients = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
-    auto A = inputs.diffusionCoefficients;
-    auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
-
-    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
-        std::cerr << "Aborting symmetric Point jacobi calculation\n";
-        return;
-    }
-
-    auto profiler = Profiler([&]() {
-        outputs.solution = MyRelaxationMethod::applySymmetricPointJacobi(A, b, max_iterations, threshold);
-    }, inputs.numRuns, inputs.timeout, "Symmetric Point Jacobi");
-
-    outputs.summary = profiler.run().getSummary();
-    outputs.summary.runs = profiler.getTotalRuns();
-    std::cout<<std::endl<<profiler;
-
-    // post-process
-    {
-        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<MyBLAS::NumericType>>(outputs);
-        auto b_prime = A * outputs.solution.x;
-        outputs.residual = b - b_prime;
-        if (!inputs.fluxOutputDirectory.empty()) {
-            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "symmetric-point-jacobi.csv", outputs.fluxes);
-        }
-    }
-}
-
-/**
  * @brief Solves a linear system using the Gauss-Seidel method.
  * @param outputs The output data structure to store the solution and execution time.
  * @param inputs The input data structure containing the system to solve.
@@ -194,8 +159,8 @@ void usingSymmetricPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
 void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
     auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting Gauss Seidel calculation\n";
@@ -229,9 +194,9 @@ void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
 void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
     auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
-    const MyBLAS::NumericType omega = inputs.solverParams.relaxation_factor;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
+    const MyBLAS::NumericType omega = inputs.solverParams.getRelaxationFactor();
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting SOR calculation\n";
@@ -265,9 +230,9 @@ void usingSOR(SolverOutputs &outputs, SolverInputs &inputs) {
 void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
     auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
-    const MyBLAS::NumericType omega = inputs.solverParams.relaxation_factor;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
+    const MyBLAS::NumericType omega = inputs.solverParams.getRelaxationFactor();
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting SOR point jacobi calculation\n";
         return;
@@ -300,9 +265,9 @@ void usingJacobiSOR(SolverOutputs &outputs, SolverInputs &inputs) {
 void usingSymmetricSOR(SolverOutputs &outputs, SolverInputs &inputs) {
     auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
-    const size_t max_iterations = inputs.solverParams.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.solverParams.threshold;
-    const MyBLAS::NumericType omega = inputs.solverParams.relaxation_factor;
+    const size_t max_iterations = inputs.solverParams.getMaxIterations();
+    const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
+    const MyBLAS::NumericType omega = inputs.solverParams.getRelaxationFactor();
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting symmetric SOR calculation\n";

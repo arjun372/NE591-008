@@ -18,6 +18,7 @@
 #include "math/blas/vector/Vector.h"
 #include "physics/diffusion/DiffusionMatrix.h"
 #include "physics/diffusion/DiffusionParams.h"
+#include "solver/LinearSolverParams.h"
 #include "utils/math/Stats.h"
 #include "utils/math/blas/solver/LinearSolver.h"
 
@@ -92,10 +93,10 @@ typedef struct Output {
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["converged"] = solution.converged;
 
-        jsonMap["iterations"]["maximum"] = inputs.solverParams.max_iterations;
+        jsonMap["iterations"]["maximum"] = inputs.solverParams.getMaxIterations();
         jsonMap["iterations"]["actual"] = solution.iterations;
 
-        jsonMap["iterative-error"]["maximum"] = inputs.solverParams.threshold;
+        jsonMap["iterative-error"]["maximum"] = inputs.solverParams.getThreshold();
         jsonMap["iterative-error"]["actual"] = solution.iterative_error;
 
         jsonMap["solution"] = solution.x.getData();
