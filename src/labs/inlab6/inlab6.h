@@ -51,7 +51,7 @@ class InLab6 : public Project<InLab6Inputs, Parser, InLab6Outputs> {
         Canvas canvas;
         auto x = -0.292;
         auto y = -0.66;
-        auto iterations = 200;
+        size_t iterations = 200;
         canvas.x_start = -0.007514104707;
         canvas.x_stop = 0.075446744304;
         canvas.y_start = 0.825578589953;
