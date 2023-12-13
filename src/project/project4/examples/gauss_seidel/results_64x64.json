@@ -1,0 +1,100 @@
+{
+  "inputs": {
+    "D": 1.0,
+    "cross-section": 0.1,
+    "dimensions": {
+      "a": 10.0,
+      "b": 10.0
+    },
+    "mesh": {
+      "m": 64,
+      "n": 64,
+      "𝛾": 0.15384615384615385,
+      "𝛿": 0.15384615384615385
+    },
+    "methods": [
+      "point-jacobi",
+      "gauss-seidel"
+    ]
+  },
+  "outputs": {
+    "gauss-seidel": {
+      "1": {
+        "converged": true,
+        "iterations": {
+          "actual": 369,
+          "maximum": 5000
+        },
+        "iterative-error": {
+          "actual": 9.9732302217603e-05,
+          "maximum": 0.0001
+        },
+        "max-bytes": 0,
+        "max-residual": null,
+        "wall-time-ns": {
+          "mean": 138050149601.0,
+          "p5th": 138050149601.0,
+          "p95th": 138050149601.0,
+          "samples": 1
+        }
+      },
+      "16": {
+        "converged": true,
+        "iterations": {
+          "actual": 369,
+          "maximum": 5000
+        },
+        "iterative-error": {
+          "actual": 9.985032035599992e-05,
+          "maximum": 0.0001
+        },
+        "max-bytes": 0,
+        "max-residual": null,
+        "wall-time-ns": {
+          "mean": 14651252265.0,
+          "p5th": 14651252265.0,
+          "p95th": 14651252265.0,
+          "samples": 1
+        }
+      },
+      "4": {
+        "converged": true,
+        "iterations": {
+          "actual": 369,
+          "maximum": 5000
+        },
+        "iterative-error": {
+          "actual": 9.989315960667251e-05,
+          "maximum": 0.0001
+        },
+        "max-bytes": 0,
+        "max-residual": null,
+        "wall-time-ns": {
+          "mean": 34747150590.0,
+          "p5th": 34747150590.0,
+          "p95th": 34747150590.0,
+          "samples": 1
+        }
+      },
+      "8": {
+        "converged": true,
+        "iterations": {
+          "actual": 369,
+          "maximum": 5000
+        },
+        "iterative-error": {
+          "actual": 9.987804252036721e-05,
+          "maximum": 0.0001
+        },
+        "max-bytes": 0,
+        "max-residual": null,
+        "wall-time-ns": {
+          "mean": 18415985626.0,
+          "p5th": 18415985626.0,
+          "p95th": 18415985626.0,
+          "samples": 1
+        }
+      }
+    }
+  }
+}

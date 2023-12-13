@@ -118,45 +118,24 @@ class Project4 : public Project<SolverInputs, Parser, SolverOutputs> {
 
         /**
          * @brief This section of the function handles the computation using different methods.
-         * @details The methods include LUP Factorization, Point Jacobi, Gauss-Seidel, SOR, SOR Point Jacobi, and SSOR.
+         * @details The methods include  Point Jacobi and Gauss-Seidel.
          */
 
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);
 
-//        if (inputs.methods.count(MyFactorizationMethod::Type::METHOD_LUP)) {
-//            SolverOutputs runResults(inputs);
-//            Compute::usingLUP(runResults, inputs);
-//            runResults.toJSON(results["outputs"][MyFactorizationMethod::TypeKey(MyFactorizationMethod::Type::METHOD_LUP)]);
-//            Parser::printLine();
-//            std::cout << "LUP Factorization Results" << std::endl;
-//            Parser::printLine();
-//            printResults(runResults);
-//        }
-
-
-        const std::vector<size_t> MAX_THREADS = {1, 4, 8, 16};
-//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
-//            for(auto threads : MAX_THREADS) {
-//                SolverOutputs runResults(inputs);
-//                Compute::usingPointJacobi(runResults, inputs, threads);
-//                runResults.toJSON(results["outputs"][std::to_string(threads)]);
-//                Parser::printLine();
-//                std::cout << "[N = "<<threads<<"]: Point Jacobi Method Results" << std::endl;
-//                Parser::printLine();
-//                printResults(runResults);
-//            }
-//        }
-
-//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORPJ)) {
-//            SolverOutputs runResults(inputs);
-//            Compute::usingJacobiSOR(runResults, inputs);
-//            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORPJ)]);
-//            Parser::printLine();
-//            std::cout << "SOR Point Jacobi Method Results" << std::endl;
-//            Parser::printLine();
-//            printResults(runResults);
-//        }
+        const std::vector<size_t> MAX_THREADS = {16, 8, 5, 1};
+        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
+            for(auto threads : MAX_THREADS) {
+                SolverOutputs runResults(inputs);
+                Compute::usingPointJacobi(runResults, inputs, threads);
+                runResults.toJSON(results["outputs"][std::to_string(threads)]);
+                Parser::printLine();
+                std::cout << "[N = "<<threads<<"]: Point Jacobi Method Results" << std::endl;
+                Parser::printLine();
+                printResults(runResults);
+            }
+        }
 
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)) {
             for(auto threads : MAX_THREADS) {
@@ -169,26 +148,6 @@ class Project4 : public Project<SolverInputs, Parser, SolverOutputs> {
                 printResults(runResults);
             }
         }
-//
-//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SOR)) {
-//            SolverOutputs runResults(inputs);
-//            Compute::usingSOR(runResults, inputs);
-//            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SOR)]);
-//            Parser::printLine();
-//            std::cout << "SOR Method Results" << std::endl;
-//            Parser::printLine();
-//            printResults(runResults);
-//        }
-//
-//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SSOR)) {
-//            SolverOutputs runResults(inputs);
-//            Compute::usingSymmetricSOR(runResults, inputs);
-//            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SSOR)]);
-//            Parser::printLine();
-//            std::cout << "Symmetric SOR Method Results" << std::endl;
-//            Parser::printLine();
-//            printResults(runResults);
-//        }
 
         Parser::printLine();
 

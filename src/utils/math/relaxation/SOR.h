@@ -148,6 +148,7 @@ MyBLAS::Solver::Solution<T> applySORBlockParallel(const MatrixType<T> &A, const 
     // Start the iteration
     for (results.iterations = 0; results.iterations < max_iterations; ++(results.iterations)) {
 
+        //std::cout<<results.iterations<<" of "<<max_iterations<<" :: "<<iterative_error_squared<<" : "<<tolerance_squared<<std::endl;
         VectorType<T> old_x = results.x; // Save the old solution vector
 
         // If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop
