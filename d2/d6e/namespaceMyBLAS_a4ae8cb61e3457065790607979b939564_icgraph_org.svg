@@ -49,18 +49,18 @@
 <path fill="none" stroke="midnightblue" d="M489.81,-136C478.37,-136 466.94,-136 456.21,-136"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="489.85,-139.5 499.85,-136 489.85,-132.5 489.85,-139.5"/>
 </g>
-<!-- Node15 -->
-<g id="node15" class="node">
-<title>Node15</title>
-<g id="a_node15"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#afc64a1cc2e3756fccfc41bc258f84787" target="_top" xlink:title=" ">
+<!-- Node14 -->
+<g id="node14" class="node">
+<title>Node14</title>
+<g id="a_node14"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#afc64a1cc2e3756fccfc41bc258f84787" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="333.5,-82.5 333.5,-101.5 457.5,-101.5 457.5,-82.5 333.5,-82.5"/>
 <text text-anchor="middle" x="395.5" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node15 -->
-<g id="edge15" class="edge">
-<title>Node1&#45;&gt;Node15</title>
+<!-- Node1&#45;&gt;Node14 -->
+<g id="edge14" class="edge">
+<title>Node1&#45;&gt;Node14</title>
 <path fill="none" stroke="midnightblue" d="M534.12,-124.12C503.76,-117.04 465.71,-108.16 437.32,-101.53"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="533.56,-127.59 544.1,-126.45 535.16,-120.77 533.56,-127.59"/>
 </g>
@@ -109,132 +109,117 @@
 <path fill="none" stroke="midnightblue" d="M324.86,-149.89C300.57,-154.74 273.88,-160.06 251.77,-164.47"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="325.63,-153.31 334.75,-147.92 324.26,-146.44 325.63,-153.31"/>
 </g>
+<!-- Node10 -->
+<g id="node10" class="node">
+<title>Node10</title>
+<g id="a_node10"><a xlink:href="../../de/db3/namespaceCompute.html#a0741aa46b479eae78cfad76bdf7cb091" target="_top" xlink:title="Solves a linear system using the Point Jacobi method.">
+<polygon fill="white" stroke="black" points="129.5,-126.5 129.5,-145.5 276.5,-145.5 276.5,-126.5 129.5,-126.5"/>
+<text text-anchor="middle" x="203" y="-133.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingPointJacobi</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node10 -->
+<g id="edge9" class="edge">
+<title>Node4&#45;&gt;Node10</title>
+<path fill="none" stroke="midnightblue" d="M324.63,-136C308.98,-136 292.34,-136 276.59,-136"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="324.75,-139.5 334.75,-136 324.75,-132.5 324.75,-139.5"/>
+</g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="../../de/db3/namespaceCompute.html#a0741aa46b479eae78cfad76bdf7cb091" target="_top" xlink:title="Solves a linear system using the Point Jacobi method.">
-<polygon fill="white" stroke="black" points="129.5,-126.5 129.5,-145.5 276.5,-145.5 276.5,-126.5 129.5,-126.5"/>
-<text text-anchor="middle" x="203" y="-133.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingPointJacobi</text>
+<g id="a_node11"><a xlink:href="../../de/db3/namespaceCompute.html#acfa0341940d2764e69d254afdc2cbb23" target="_top" xlink:title="Solves a linear system using the Successive Over&#45;Relaxation (SOR) method.">
+<polygon fill="white" stroke="black" points="146.5,-88.5 146.5,-107.5 259.5,-107.5 259.5,-88.5 146.5,-88.5"/>
+<text text-anchor="middle" x="203" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingSOR</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node11 -->
 <g id="edge10" class="edge">
 <title>Node4&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M324.63,-136C308.98,-136 292.34,-136 276.59,-136"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="324.75,-139.5 334.75,-136 324.75,-132.5 324.75,-139.5"/>
+<path fill="none" stroke="midnightblue" d="M324.86,-122.11C300.57,-117.26 273.88,-111.94 251.77,-107.53"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="324.26,-125.56 334.75,-124.08 325.63,-118.69 324.26,-125.56"/>
 </g>
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="../../de/db3/namespaceCompute.html#acfa0341940d2764e69d254afdc2cbb23" target="_top" xlink:title="Solves a linear system using the Successive Over&#45;Relaxation (SOR) method.">
-<polygon fill="white" stroke="black" points="146.5,-88.5 146.5,-107.5 259.5,-107.5 259.5,-88.5 146.5,-88.5"/>
-<text text-anchor="middle" x="203" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingSOR</text>
-</a>
-</g>
-</g>
-<!-- Node4&#45;&gt;Node12 -->
-<g id="edge11" class="edge">
-<title>Node4&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M324.86,-122.11C300.57,-117.26 273.88,-111.94 251.77,-107.53"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="324.26,-125.56 334.75,-124.08 325.63,-118.69 324.26,-125.56"/>
-</g>
-<!-- Node13 -->
-<g id="node13" class="node">
-<title>Node13</title>
-<g id="a_node13"><a xlink:href="../../de/db3/namespaceCompute.html#af9b2fed99d9965f94cb5cfab410419a0" target="_top" xlink:title="Solves a linear system using the Symmetric Gauss&#45;Seidel method.">
+<g id="a_node12"><a xlink:href="../../de/db3/namespaceCompute.html#af9b2fed99d9965f94cb5cfab410419a0" target="_top" xlink:title="Solves a linear system using the Symmetric Gauss&#45;Seidel method.">
 <polygon fill="white" stroke="black" points="115,-39 115,-69 291,-69 291,-39 115,-39"/>
 <text text-anchor="start" x="123" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingSymmetricGauss</text>
 <text text-anchor="middle" x="203" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">Seidel</text>
 </a>
 </g>
 </g>
-<!-- Node4&#45;&gt;Node13 -->
-<g id="edge12" class="edge">
-<title>Node4&#45;&gt;Node13</title>
+<!-- Node4&#45;&gt;Node12 -->
+<g id="edge11" class="edge">
+<title>Node4&#45;&gt;Node12</title>
 <path fill="none" stroke="midnightblue" d="M337.68,-116.75C333.99,-114.96 330.4,-113.04 327,-111 308.65,-99.98 309.75,-89.32 291,-79 284.12,-75.21 276.6,-71.95 268.97,-69.15"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="336.42,-120.03 346.98,-120.96 339.31,-113.65 336.42,-120.03"/>
 </g>
-<!-- Node14 -->
-<g id="node14" class="node">
-<title>Node14</title>
-<g id="a_node14"><a xlink:href="../../de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560" target="_top" xlink:title="Solves a linear system using the Symmetric SOR method.">
+<!-- Node13 -->
+<g id="node13" class="node">
+<title>Node13</title>
+<g id="a_node13"><a xlink:href="../../de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560" target="_top" xlink:title="Solves a linear system using the Symmetric SOR method.">
 <polygon fill="white" stroke="black" points="119.5,-0.5 119.5,-19.5 286.5,-19.5 286.5,-0.5 119.5,-0.5"/>
 <text text-anchor="middle" x="203" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingSymmetricSOR</text>
 </a>
 </g>
 </g>
-<!-- Node4&#45;&gt;Node14 -->
-<g id="edge14" class="edge">
-<title>Node4&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M332.28,-115.42C330.43,-114.04 328.66,-112.57 327,-111 298.04,-83.7 321.8,-54.21 291,-29 286.33,-25.18 281.07,-22.08 275.5,-19.58"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="330.55,-118.47 340.86,-120.91 334.33,-112.57 330.55,-118.47"/>
+<!-- Node4&#45;&gt;Node13 -->
+<g id="edge13" class="edge">
+<title>Node4&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M332.29,-115.41C330.44,-114.03 328.67,-112.56 327,-111 298.27,-84.04 321.4,-55.05 291,-30 285.74,-25.66 279.71,-22.23 273.35,-19.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="330.57,-118.46 340.88,-120.89 334.33,-112.56 330.57,-118.46"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
 <g id="a_node7"><a xlink:href="../../d0/d4c/classOutLab6.html#a901a1283fd029c9174f8469ac5cb3ad8" target="_top" xlink:title="This function runs the computation.">
-<polygon fill="white" stroke="black" points="0,-202.5 0,-221.5 79,-221.5 79,-202.5 0,-202.5"/>
-<text text-anchor="middle" x="39.5" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab6::run</text>
+<polygon fill="white" stroke="black" points="0,-183.5 0,-202.5 79,-202.5 79,-183.5 0,-183.5"/>
+<text text-anchor="middle" x="39.5" y="-190.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab6::run</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M146.8,-185.75C136.23,-188.09 125.26,-190.57 115,-193 102.53,-195.95 88.94,-199.36 76.81,-202.47"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="147.76,-189.13 156.78,-183.56 146.26,-182.29 147.76,-189.13"/>
+<path fill="none" stroke="midnightblue" d="M121.11,-183.52C106.55,-185.23 92,-186.94 79.34,-188.43"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="121.64,-186.98 131.16,-182.33 120.82,-180.03 121.64,-186.98"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
 <g id="a_node8"><a xlink:href="../../dd/db5/classProject2.html#a0990db917f6a27a4e1cb9ac885698524" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="0.5,-164.5 0.5,-183.5 78.5,-183.5 78.5,-164.5 0.5,-164.5"/>
-<text text-anchor="middle" x="39.5" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project2::run</text>
+<polygon fill="white" stroke="black" points="0.5,-145.5 0.5,-164.5 78.5,-164.5 78.5,-145.5 0.5,-145.5"/>
+<text text-anchor="middle" x="39.5" y="-152.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project2::run</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node8 -->
 <g id="edge7" class="edge">
 <title>Node6&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M121.01,-174C106.31,-174 91.63,-174 78.9,-174"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="121.16,-177.5 131.16,-174 121.16,-170.5 121.16,-177.5"/>
+<path fill="none" stroke="midnightblue" d="M121.01,-164.47C106.31,-162.74 91.63,-161.01 78.9,-159.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="120.82,-167.97 131.16,-165.67 121.64,-161.02 120.82,-167.97"/>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
 <g id="a_node9"><a xlink:href="../../dd/dfb/classProject3.html#a8bcff99aaba60e7d5e5be3cb7552d163" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="0.5,-66.5 0.5,-85.5 78.5,-85.5 78.5,-66.5 0.5,-66.5"/>
-<text text-anchor="middle" x="39.5" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project3::run</text>
+<polygon fill="white" stroke="black" points="0.5,-85.5 0.5,-104.5 78.5,-104.5 78.5,-85.5 0.5,-85.5"/>
+<text text-anchor="middle" x="39.5" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project3::run</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node9 -->
 <g id="edge8" class="edge">
 <title>Node6&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M127.51,-160.97C123.17,-159.22 118.97,-157.24 115,-155 114.49,-154.71 69.3,-106.66 49.56,-85.65"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="126.59,-164.36 137.18,-164.43 128.95,-157.77 126.59,-164.36"/>
+<path fill="none" stroke="midnightblue" d="M130.91,-161.38C125.42,-159.54 120.05,-157.42 115,-155 88.34,-142.24 62.73,-118.21 49.61,-104.76"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="130.3,-164.86 140.89,-164.43 132.35,-158.16 130.3,-164.86"/>
 </g>
-<!-- Node10 -->
-<g id="node10" class="node">
-<title>Node10</title>
-<g id="a_node10"><a xlink:href="../../d2/dfd/classProject4.html#a3779e87d22c7d4949f3c01bae1d08ab9" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="0.5,-126.5 0.5,-145.5 78.5,-145.5 78.5,-126.5 0.5,-126.5"/>
-<text text-anchor="middle" x="39.5" y="-133.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project4::run</text>
-</a>
-</g>
-</g>
-<!-- Node6&#45;&gt;Node10 -->
-<g id="edge9" class="edge">
-<title>Node6&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M146.8,-162.25C136.23,-159.91 125.26,-157.43 115,-155 102.53,-152.05 88.94,-148.64 76.81,-145.53"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="146.26,-165.71 156.78,-164.44 147.76,-158.87 146.26,-165.71"/>
-</g>
-<!-- Node13&#45;&gt;Node9 -->
-<g id="edge13" class="edge">
-<title>Node13&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M104.63,-67.26C95.5,-68.51 86.67,-69.71 78.63,-70.81"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="105.2,-70.72 114.63,-65.9 104.25,-63.78 105.2,-70.72"/>
+<!-- Node12&#45;&gt;Node9 -->
+<g id="edge12" class="edge">
+<title>Node12&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M133.03,-71.51C114.2,-76.29 94.5,-81.29 78.14,-85.45"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="133.95,-74.89 142.78,-69.03 132.23,-68.1 133.95,-74.89"/>
 </g>
 </g>
 </svg>
