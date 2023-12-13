@@ -60,7 +60,7 @@ class Parser : public CommandLine<OutLab10Inputs> {
         fileOptions.add_options()(
             "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing A, and b")(
             "generate,g", "= Generate A,b ignoring input-json")(
-            "output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
+            "output-json,o", boost::program_options::value<std::string>()->default_value("/dev/stdout"), "= path for the output JSON");
 
         values.add(solverOptions);
         values.add(fileOptions);

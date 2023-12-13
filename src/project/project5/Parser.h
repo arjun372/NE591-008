@@ -41,7 +41,7 @@ class Parser : public CommandLine<SolverInputs> {
         files.add_options()(
             "input-parameter-json,i", boost::program_options::value<std::string>(), "= Path to input parameter JSON")(
             "source-terms-csv,s", boost::program_options::value<std::string>(), "= Path to source-terms 𝑞(𝑖,𝑗) CSV")(
-            "output-results-json,o", boost::program_options::value<std::string>(), "= Path to output results JSON")(
+            "output-results-json,o", boost::program_options::value<std::string>()->default_value("/dev/stdout"), "= Path to output results JSON")(
             "flux-output-dir,f", boost::program_options::value<std::string>(), "= Path to computed flux 𝜙(𝑖,𝑗)");
 
         boost::program_options::options_description methods("Solver Options");

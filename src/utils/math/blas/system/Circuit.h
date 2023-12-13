@@ -76,10 +76,16 @@ void Circuit(const size_t n, MyBLAS::Matrix<T> &A, MyBLAS::Vector<T> &b, MyBLAS:
    // benchmarks since we need the extent of dominance to be invariant. Otherwise, matrix size will affect convergence.
    const T dominance = max_resistance / min_resistance;
    MyBLAS::makeDiagonallyDominant(resistances, dominance);
+   MyBLAS::makePositiveDefinite(resistances);
 
    // If the resistance matrix is not diagonally dominant, print a warning message
    if (!isDiagonallyDominant(resistances)) {
        std::cerr << "Warning: Could not make resistance matrix diagonally dominant\n";
+   }
+
+   // If the resistance matrix is not positive definite, print a warning message
+   if (!isPositiveDefiniteMatrix(resistances)) {
+       std::cerr << "Warning: Could not make resistance matrix positive definite";
    }
 
    // Compute the voltage vector as the product of the resistance matrix and the current vector

@@ -37,10 +37,10 @@ namespace MyBLAS {
  * @return The L2 norm of the distance (Euclidean distance) between the two containers.
  */
 template <template<typename> class VectorType, typename T>
-inline T L2(const VectorType<T> &a, const VectorType<T> &b, const size_t n) {
+inline T L2(const VectorType<T> &a, const VectorType<T> &b, const size_t n, const size_t threads = 1) {
     T norm = 0;
     const T two = static_cast<T>(2);
-//    #pragma omp parallel for reduction(+:norm)
+    #pragma omp parallel for num_threads(threads) reduction(+:norm)
     for (size_t i = 0; i < n; i++) {
         const auto difference = a[i] - b[i];
         const auto squared = std::pow(difference, two);
@@ -158,6 +158,46 @@ template <typename T> void makeDiagonallyDominant(MyBLAS::Matrix<T> &A, const T 
             const T sign = (leadingDiagonalMagnitude == A[row][row]) ? 1 : -1; // retain the sign
             A[row][row] = sign * (nonDiagonalSum + dominance_offset);
         }
+    }
+}
+
+/**
+ * @brief Makes the given matrix positive-definite
+ *
+ * @param A The input matrix to be modified.
+ */
+template <typename T>
+void makePositiveDefinite(MyBLAS::Matrix<T> &A) {
+    const size_t n = A.getRows(); // Assuming A is a square matrix
+
+    // Ensure symmetry
+    for (size_t i = 0; i < n; ++i) {
+        for (size_t j = i + 1; j < n; ++j) {
+            T symValue = (A[i][j] + A[j][i]) / 2;
+            A[i][j] = symValue;
+            A[j][i] = symValue;
+        }
+    }
+
+    // Make diagonally dominant
+    makeDiagonallyDominant(A);
+
+    // Add a positive value to the diagonal elements
+    T maxNonDiagonalSum = 0;
+    for (size_t i = 0; i < n; ++i) {
+        T nonDiagonalSum = 0;
+        for (size_t j = 0; j < n; ++j) {
+            if (i != j) {
+                nonDiagonalSum += std::abs(A[i][j]);
+            }
+        }
+        maxNonDiagonalSum = std::max(maxNonDiagonalSum, nonDiagonalSum);
+    }
+
+    // Choose k such that k > maxNonDiagonalSum to ensure positive definiteness
+    T k = maxNonDiagonalSum + 1;
+    for (size_t i = 0; i < n; ++i) {
+        A[i][i] += k;
     }
 }
 } // namespace MyBLAS
