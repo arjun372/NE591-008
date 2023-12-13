@@ -87,7 +87,7 @@ class Parser : public CommandLine<OutLab10Inputs> {
                   << "\n";
         std::cout << "\tMatrix order,            n: "
                   << (vm.count("order") ? std::to_string(static_cast<size_t>(vm["order"].as<long double>()))
-                                        : "None provided, will be inferred from input JSON");
+                                        : "None provided, will be inferred from input JSON")<<std::endl;
         CommandLine::printLine();
     }
 

@@ -78,9 +78,9 @@ The output is written to a JSON file as well.
    "outputs": {
       "CG": {
          "benchmark": {
-            "mean": 1482.32,
-            "p5th": 1120.9,
-            "p95th": 1308.8,
+            "mean": 1182.59,
+            "p5th": 1128.95,
+            "p95th": 1263.05,
             "samples": 100
          },
          "solution": {
@@ -92,18 +92,18 @@ The output is written to a JSON file as well.
                "actual": 2.4977230927471127e-05
             },
             "solution": [
-               0.0,
-               0.0,
-               0.0,
-               0.0
+               -5.385178074966759,
+               -14.635218217703212,
+               -8.88641949834886,
+               -7.156266304068222
             ]
          }
       },
       "SOR": {
          "benchmark": {
-            "mean": 2334.67,
-            "p5th": 1895.95,
-            "p95th": 1987.15,
+            "mean": 2193.56,
+            "p5th": 1891.95,
+            "p95th": 2021.35,
             "samples": 100
          },
          "solution": {
@@ -178,7 +178,8 @@ Enter a value for order:4
 	Output JSON (for x),     o: ../results_n_4.json
 	Convergence Threshold,   𝜀: 0.0001
 	Max iterations,          k: 5000
-	Matrix order,            n: 4--------------------------------------------------------------------------------
+	Matrix order,            n: 4
+--------------------------------------------------------------------------------
 Input coefficients matrix A is square.
 Warning: Input coefficients matrix A is not symmetric.
 Input coefficients matrix A is diagonally dominant.

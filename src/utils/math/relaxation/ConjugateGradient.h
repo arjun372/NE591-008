@@ -75,6 +75,7 @@ MyBLAS::Solver::Solution<T> applyConjugateGradient(const MatrixType<T> &A, const
 
     results.iterative_error = iterative_error;
     results.iterations = iterations;
+    results.x = x;
     return results;
 }
 
