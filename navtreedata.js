@@ -343,21 +343,21 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d0/d27/classMyBLAS_1_1Matrix.html#a5029a33f8e290f79960bfd0e75227f64",
-"d0/d40/classParser.html#a6a94f5e16b2081e769567d3790b6d8ec",
-"d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a7e30138a2615089fb8f240ecd642459a",
-"d2/d12/outlab2_2examples_2sanity__check_8m.html#aab71f666558dbfeea548882b8b975cd2",
-"d2/da0/TestedTypes_8h.html#a58044bf7df36634bcf598a72249c010e",
-"d4/d9d/structMyBLAS_1_1Solver_1_1Parameters.html#a47ae0adcf814b7838eb47caf2d94dcab",
-"d5/dd9/labs_2inlab3_2Compute_8h.html#ae164366952566cd01a8361d871afa49c",
-"d7/d5f/inlab1.html#autotoc_md27",
-"d8/ddb/classProject1.html#a41a4716fc32985fae5d32da6434b5516",
-"da/df0/classOutLab3.html#a3c1d452f2dbab887ce82a17d14f02331",
-"dc/da0/LazyVectorTests_8cpp.html#a54f6f42fed704b07181106f737df7dd3",
-"dd/dd7/plot__points_8m.html#ae289586beef0b1d566bdddb1986044cd",
-"df/df1/structOutput.html#a3541126c8ceb372848970f8b4473deda",
-"globals_p.html"
+"annotated.html",
+"d0/d40/classParser.html#a5208129b497bfdf7c8ecceeb70e4bba8",
+"d0/d6c/namespaceInLab04.html#ab3a3cbc5744e288d945d91f6febfca15",
+"d1/d8c/classInLab6.html#a748bf752c84f1333d905f6d30fcd2e45",
+"d2/d6e/namespaceMyBLAS.html#aeed4de64a78e0b7da3315730dfa2cec8",
+"d4/d63/classInLab2.html#a2ccb315fa492215574b147c09a4a6c0d",
+"d5/d7a/namespaceMyBLAS_1_1System.html",
+"d7/d12/structArgsPrintMatrix.html#a0cb8c9b297d5dd202cc3257b62d54287",
+"d8/d7f/structMyBLAS_1_1Solver_1_1LazyParameters.html#a47ae0adcf814b7838eb47caf2d94dcab",
+"da/dc5/ConjugateGradient_8h.html",
+"dc/d4f/labs_2outlab5_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627",
+"dd/dd7/plot__points_8m.html#a0cd3bfc5646d7eae584eaab7f2040715",
+"df/de5/inlab8.html#autotoc_md102",
+"functions_x.html",
+""
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
