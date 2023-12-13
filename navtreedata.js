@@ -343,21 +343,21 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"d0/d27/classMyBLAS_1_1Matrix.html#aeaff60c335ac1d524a30b2fab4a0c2f8",
-"d0/d40/classParser.html#a6b685f98b9861029ccf6ec651df9a9a8",
-"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#a48e41bc0e326e076c1681f8991c98ae6",
-"",
-"d2/da0/TestedTypes_8h.html#a58044bf7df36634bcf598a72249c010e",
-"d4/d9d/structMyBLAS_1_1Solver_1_1Parameters.html#a47ae0adcf814b7838eb47caf2d94dcab",
-"d5/dd9/labs_2inlab3_2Compute_8h.html#ae164366952566cd01a8361d871afa49c",
-"d7/d5f/inlab1.html#autotoc_md27",
-"d8/ddb/classProject1.html#a41a4716fc32985fae5d32da6434b5516",
-"da/df0/classOutLab3.html#a3c1d452f2dbab887ce82a17d14f02331",
-"dc/da0/LazyVectorTests_8cpp.html#a54f6f42fed704b07181106f737df7dd3",
-"dd/dd7/plot__points_8m.html#ae289586beef0b1d566bdddb1986044cd",
-"df/df1/structOutput.html#a3541126c8ceb372848970f8b4473deda",
-"globals_p.html"
+"annotated.html",
+"d0/d40/classParser.html#a5208129b497bfdf7c8ecceeb70e4bba8",
+"d0/d6c/namespaceInLab04.html#ab3a3cbc5744e288d945d91f6febfca15",
+"d1/d8c/classInLab6.html#a748bf752c84f1333d905f6d30fcd2e45",
+"d2/d6e/namespaceMyBLAS.html#aeb27bc65f3c73983722faf98067cc24e",
+"d4/d63/classInLab2.html#a2873dd0aa78848433775442dda988e79",
+"d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a120c91aa89bf5c4ca05edbd47eda09e4",
+"d6/de6/outlab3_8h.html",
+"d8/d7f/structMyBLAS_1_1Solver_1_1LazyParameters.html#a99a0e2ef9a8118253196de724105c819",
+"da/ddc/structMap.html",
+"dc/d5d/RootFinder_8h.html",
+"dd/dd7/plot__points_8m.html#a2b7c65517d292bc5d04fcab26088cf34",
+"df/de5/inlab8.html#autotoc_md110",
+"globals_e.html",
+""
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

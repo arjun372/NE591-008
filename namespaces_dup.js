@@ -107,13 +107,8 @@ var namespaces_dup =
       [ "applySSOR", "d7/d9a/namespaceMyRelaxationMethod.html#ac37edae4aec371352810b2f552647be4", null ],
       [ "approximateOptimalRelaxationFactor", "d7/d9a/namespaceMyRelaxationMethod.html#abde81298190b57f3cce6fe5ca0d18dce", null ],
       [ "approximateOptimalRelaxationFactor", "d7/d9a/namespaceMyRelaxationMethod.html#a43248690df292a11426f82c5d6e0df07", null ],
-      [ "dot_product", "d7/d9a/namespaceMyRelaxationMethod.html#a0e2803f819bb15c1b6ac3276ebe4d813", null ],
-      [ "matrix_vector_multiply", "d7/d9a/namespaceMyRelaxationMethod.html#a88ea8f05d9f19935ea8045cee9494dab", null ],
       [ "passesPreChecks", "d7/d9a/namespaceMyRelaxationMethod.html#a985bd80ba02c84e9d1ca2e434a32bd3f", null ],
-      [ "scalar_vector_multiply", "d7/d9a/namespaceMyRelaxationMethod.html#a8a82764731693628d306f1973aa72eb0", null ],
-      [ "TypeKey", "d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3", null ],
-      [ "vector_add", "d7/d9a/namespaceMyRelaxationMethod.html#af4d3a51fad3e5d81f83a6b44570e26e3", null ],
-      [ "vector_subtract", "d7/d9a/namespaceMyRelaxationMethod.html#a17bf0512eeecf1312496138e01e2a8a5", null ]
+      [ "TypeKey", "d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3", null ]
     ] ],
     [ "plot_heatmap", "d8/d21/namespaceplot__heatmap.html", [
       [ "cmap", "d8/d21/namespaceplot__heatmap.html#a861c753822ff0918f5650aad21c0c7d4", null ],

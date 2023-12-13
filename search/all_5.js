@@ -37,8 +37,7 @@ var searchData=
   ['doolittlefactorize_162',['doolittleFactorize',['../db/d2e/namespaceMyBLAS_1_1LU.html#a53e15f639ac089ddc18e9e9340489efc',1,'MyBLAS::LU']]],
   ['doolittlefactorizelu_163',['doolittleFactorizeLU',['../d2/d6e/namespaceMyBLAS.html#a278b70718fc6b42c7d239434849c2837',1,'MyBLAS']]],
   ['doolittlefactorizelup_164',['dooLittleFactorizeLUP',['../d5/db6/namespaceMyBLAS_1_1LUP.html#a8944cf7f291594494e1140ff6b0b0fc6',1,'MyBLAS::LUP::dooLittleFactorizeLUP()'],['../d6/d82/labs_2outlab5_2Compute_8h.html#a42561c10d9c1157e9f1dcd9e940061a2',1,'dooLittleFactorizeLUP():&#160;Compute.h']]],
-  ['dot_5fproduct_165',['dot_product',['../d7/d9a/namespaceMyRelaxationMethod.html#a0e2803f819bb15c1b6ac3276ebe4d813',1,'MyRelaxationMethod']]],
-  ['dpi_166',['dpi',['../d8/d21/namespaceplot__heatmap.html#a2e3d9ef88343f1153af283513b5391d0',1,'plot_heatmap']]],
-  ['drawjuliaset_167',['drawJuliaSet',['../db/df1/Helpers_8h.html#a0bd7444ed4f75d9a9b3a9c3c711b4dca',1,'Helpers.h']]],
-  ['duration_168',['duration',['../de/def/classStopwatch.html#ac5fd84825ff7ae966d1963a20e9cf47b',1,'Stopwatch::duration(const TimePointType &amp;stop, const TimePointType &amp;start)'],['../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785',1,'Stopwatch::duration() const']]]
+  ['dpi_165',['dpi',['../d8/d21/namespaceplot__heatmap.html#a2e3d9ef88343f1153af283513b5391d0',1,'plot_heatmap']]],
+  ['drawjuliaset_166',['drawJuliaSet',['../db/df1/Helpers_8h.html#a0bd7444ed4f75d9a9b3a9c3c711b4dca',1,'Helpers.h']]],
+  ['duration_167',['duration',['../de/def/classStopwatch.html#ac5fd84825ff7ae966d1963a20e9cf47b',1,'Stopwatch::duration(const TimePointType &amp;stop, const TimePointType &amp;start)'],['../de/def/classStopwatch.html#ad9367e879debc8822feb6dedae52a785',1,'Stopwatch::duration() const']]]
 ];
