@@ -88,6 +88,7 @@ var annotated_dup =
     [ "Project2", "dd/db5/classProject2.html", "dd/db5/classProject2" ],
     [ "Project3", "dd/dfb/classProject3.html", "dd/dfb/classProject3" ],
     [ "Project4", "d2/dfd/classProject4.html", "d2/dfd/classProject4" ],
+    [ "Project5", "d5/dd8/classProject5.html", "d5/dd8/classProject5" ],
     [ "ResourceMonitor", "d1/d7c/classResourceMonitor.html", "d1/d7c/classResourceMonitor" ],
     [ "SolverInputs", "d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs", null ],
     [ "Stopwatch", "de/def/classStopwatch.html", "de/def/classStopwatch" ],
