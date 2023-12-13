@@ -354,15 +354,6 @@ template <typename T> class Vector {
         return result;
     }
 
-    static Vector<T> elementwiseMultiply(const MyBLAS::Vector<T>& lhs, const MyBLAS::Vector<T>& rhs) {
-        assert(lhs.size() == rhs.size());
-        MyBLAS::Vector<T> result(lhs.size());
-        for (size_t i = 0; i < lhs.size(); i++) {
-            result[i] = lhs[i] * rhs[i];
-        }
-        return result;
-    }
-
     /**
      * @brief Overloaded operator- to subtract a scalar from a vector.
      * @param scalar Scalar to subtract from the vector.
@@ -389,6 +380,22 @@ template <typename T> class Vector {
         }
         os << '\n';
         return os;
+    }
+
+    /**
+     * @brief Computes the element-wise product of two vectors.
+     * @param A First Vector
+     * @param B First Second
+     * @return A new vector with the results.
+     */
+    static Vector<T> elementwiseProduct(const Vector<T> &A, const Vector<T> &B) {
+        assert(A.size() == B.size());
+        const auto size = A.size();
+        MyBLAS::Vector<T> result(size);
+        for (size_t i = 0; i < size; i++) {
+            result[i] = A[i] * B[i];
+        }
+        return result;
     }
 };
 

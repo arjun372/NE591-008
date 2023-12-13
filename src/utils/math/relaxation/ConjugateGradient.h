@@ -39,7 +39,7 @@ MyBLAS::Solver::Solution<T> applyConjugateGradient(const MatrixType<T> &A, const
     MyBLAS::Solver::Solution<T> results(n); // Initialize the results object with the size of the matrix
 
     T iterative_error_squared = std::numeric_limits<T>::max(); // Initialize the squared error as the maximum
-    const T tolerance_squared = std::pow(tolerance, 2); // we will compare the squares since this saves us many sqrt ops
+    const T tolerance_squared = std::pow(tolerance, static_cast<T>(2)); // we will compare the squares since this saves us many sqrt ops
 
     VectorType<T> x(n, 0);          // Initialize guess
     VectorType<T> r = b - (A * x);  // Initial residual
@@ -103,7 +103,7 @@ MyBLAS::Solver::Solution<T> applyJacobiPreconditionedConjugateGradient(const Mat
         M_inv[i] = static_cast<T>(1) / A(i, i); // Assuming A(i, i) is never zero
     }
 
-    VectorType<T> z = VectorType<T>::elementwiseMultiply(r, M_inv); // Apply preconditioner: z = M^-1 * r
+    VectorType<T> z = VectorType<T>::elementwiseProduct(r, M_inv); // Apply preconditioner: z = M^-1 * r
     VectorType<T> p = z;         // Initial search direction
 
     for (size_t iterations = 0; iterations < max_iterations; iterations++) {
@@ -124,7 +124,7 @@ MyBLAS::Solver::Solution<T> applyJacobiPreconditionedConjugateGradient(const Mat
         r = r - alpha * Ap; // Update the residual
 
         // Apply the preconditioner to the new residual
-        z = VectorType<T>::elementwiseMultiply(r, M_inv);
+        z = VectorType<T>::elementwiseProduct(r, M_inv);
 
         iterative_error_squared = z * r; // Calculate the square of the L2 norm of the preconditioned residual
         if (iterative_error_squared < tolerance_squared) {

@@ -112,12 +112,12 @@ TYPED_TEST(MatrixUtilityTests, HaveEqualRankTest) {
     EXPECT_FALSE(haveEqualRank(matrix, nonEqualRankVector));
 }
 
-// Test for innerProduct
-TYPED_TEST(MatrixUtilityTests, InnerProductTest) {
+// Test for elementwise Product
+TYPED_TEST(MatrixUtilityTests, ElemenwiseProductTest) {
     Matrix<TypeParam> matrixA({{1, 2}, {3, 4}});
     Matrix<TypeParam> matrixB({{5, 6}, {7, 8}});
-    Matrix<TypeParam> expectedInnerProduct({{5, 12}, {21, 32}});
-    EXPECT_EQ(innerProduct(matrixA, matrixB), expectedInnerProduct);
+    Matrix<TypeParam> expectedInnerProduct({{3, 8}, {35, 48}});
+    EXPECT_EQ(MyBLAS::Matrix<TypeParam>::elementwiseProduct(matrixA, matrixB), expectedInnerProduct);
 }
 
 // Test for matrixWeightedInnerProduct

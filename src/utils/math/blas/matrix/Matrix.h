@@ -603,6 +603,25 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         }
         return os;
     }
+
+    /**
+     * @brief Computes the element-wise product of two matrices.
+     * @param A First Vector
+     * @param B First Second
+     * @return A new vector with the results.
+     */
+    static Matrix<T> elementwiseProduct(const Matrix<T> &A, const Matrix<T> &B) {
+        assert(A.getRows() == B.getRows());
+        assert(A.getCols() == B.getCols());
+        const size_t a_rows = A.getRows(), b_cols = B.getCols();
+        MyBLAS::Matrix<T> result(a_rows, b_cols);
+        for (size_t row = 0; row < a_rows; row++) {
+            for (size_t col = 0; col < b_cols; col++) {
+                result[row][col] = A[row][col] * B[row][col];
+            }
+        }
+        return result;
+    }
 };
 
 /**

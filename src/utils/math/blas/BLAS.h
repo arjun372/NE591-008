@@ -480,25 +480,6 @@ template <typename T> MyBLAS::Vector<T> operator+(const T &scalar, const MyBLAS:
     return vector + scalar;
 }
 
-/**
- * @brief Computes the inner product of two matrices.
- * @param rhs Matrix to compute the inner product with.
- * @return The inner product of the two matrices.
- */
-template <template<typename> class U, typename T> U<T> innerProduct(const U<T> &A, const U<T> &B) {
-    static_assert(std::is_same<U<T>, MyBLAS::Matrix<T>>::value, "T must be a MyBLAS::Matrix type");
-    assert(A.getRows() == B.getRows());
-    assert(A.getCols() == B.getCols());
-    const size_t a_rows = A.getRows(), b_cols = B.getCols();
-    MyBLAS::Matrix<T> result(a_rows, b_cols);
-    for (size_t row = 0; row < a_rows; row++) {
-        for (size_t col = 0; col < b_cols; col++) {
-            result[row][col] = A[row][col] * B[row][col];
-        }
-    }
-    return result;
-}
-
 template <template<typename> class M, template<typename> class V, typename T> T matrixWeightedInnerProduct(const V<T> &y, const V<T> &z, const M<T> &A) {
     assert(y.size() == A.getRows() && z.size() == A.getCols());
     return y * (A * z);

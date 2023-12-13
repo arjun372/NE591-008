@@ -67,7 +67,7 @@ void Circuit(const size_t n, MyBLAS::Matrix<T> &A, MyBLAS::Vector<T> &b, MyBLAS:
    // Finally, element-wise multiply these with the bitmap, assigning the resistors their magnitudes
    // @note: negative resistances are OK here as long as the currents in the previous step are also randomly sampled
    // In general, when applying Kirchoff's rules, direction of current flow is not know apriori.
-   resistances = MyBLAS::innerProduct(resistances, resistors);
+   resistances = MyBLAS::Matrix<T>::elementwiseProduct(resistances, resistors);
 
    // Make the resistance matrix (barely) diagonally dominant
    // We just increase the dominance by +1 integer value. It doesn't matter what the magnitude is, as long as it is
