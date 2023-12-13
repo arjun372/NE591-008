@@ -354,6 +354,15 @@ template <typename T> class Vector {
         return result;
     }
 
+    static Vector<T> elementwiseMultiply(const MyBLAS::Vector<T>& lhs, const MyBLAS::Vector<T>& rhs) {
+        assert(lhs.size() == rhs.size());
+        MyBLAS::Vector<T> result(lhs.size());
+        for (size_t i = 0; i < lhs.size(); i++) {
+            result[i] = lhs[i] * rhs[i];
+        }
+        return result;
+    }
+
     /**
      * @brief Overloaded operator- to subtract a scalar from a vector.
      * @param scalar Scalar to subtract from the vector.
@@ -382,6 +391,7 @@ template <typename T> class Vector {
         return os;
     }
 };
+
 } // namespace MyBLAS
 
 #endif // NE591_008_VECTOR_H
