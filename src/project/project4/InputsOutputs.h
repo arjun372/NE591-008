@@ -99,8 +99,8 @@ typedef struct Output {
         jsonMap["iterative-error"]["maximum"] = inputs.solverParams.getThreshold();
         jsonMap["iterative-error"]["actual"] = solution.iterative_error;
 
-        jsonMap["solution"] = solution.x.getData();
-        jsonMap["residual"] = residual.getData();
+        //jsonMap["solution"] = solution.x.getData();
+        //jsonMap["residual"] = residual.getData();
         jsonMap["max-residual"] = max_residual();
 
         jsonMap["max-bytes"] = summary.maxBytes;

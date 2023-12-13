@@ -65,13 +65,17 @@ MyBLAS::Solver::Solution<T> applyPointJacobi(const MatrixType<T> &A, const Vecto
 
     // Start the Point-Jacobi iteration
     for (results.iterations = 0; results.iterations < max_iterations; (results.iterations)++) {
-
+//        std::cout<<results.iterations<<" of "<<max_iterations<<" :: "<<iterative_error_squared<<" : "<<tolerance_squared<<std::endl;
         // Update the solution vector with the new values for this iteration step
         results.x = new_x;
 
-        // For each row in the matrix
-//        #pragma omp parallel for reduction(+:iterative_error_squared) default(none) shared(A, b, results, new_x)
-        #pragma omp parallel for num_threads(threads)
+        // If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop
+        if (iterative_error_squared < tolerance_squared) {
+            results.converged = true;
+            break;
+        }
+
+        #pragma omp parallel for num_threads(threads) default(none) shared(results, new_x, A, b)
         for (size_t row = 0; row < n; row++) {
             // subtract the contribution from the diagonal term, since it should not be counted.
             T sum = -(A[row][row] * results.x[row]);
@@ -86,71 +90,6 @@ MyBLAS::Solver::Solution<T> applyPointJacobi(const MatrixType<T> &A, const Vecto
         }
 
         iterative_error_squared = MyBLAS::L2(new_x, results.x, n);
-
-        // If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop
-        if (iterative_error_squared < tolerance_squared) {
-            results.converged = true;
-            break;
-        }
-    }
-
-    // Calculate the final error as the square root of the squared error
-    results.iterative_error = std::sqrt(iterative_error_squared);
-    return results;
-}
-
-template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
-MyBLAS::Solver::Solution<T> applyParallelPointJacobi(const MatrixType<T> &A, const VectorType<T> &b,
-                                                            const size_t max_iterations, const T tolerance,
-                                                            const T relaxation_factor = 1) {
-
-    const size_t n = A.getRows();                  // Get the number of rows in the matrix A
-    MyBLAS::Solver::Solution<T> results(n); // Initialize the results object with the size of the matrix
-
-    const T tolerance_squared = std::pow(tolerance, static_cast<T>(2)); // Calculate the square of the tolerance
-    T iterative_error_squared = std::numeric_limits<T>::max(); // Initialize the squared error as the maximum
-
-    VectorType<T> new_x(n, 0); // Initialize a new vector for the updated solution
-    VectorType<T> x(n, 0); // Initialize the current solution vector
-
-    // Start the Point-Jacobi iteration
-    for (results.iterations = 0; results.iterations < max_iterations; (results.iterations)++) {
-
-        // Update the solution vector with the new values for this iteration step
-        results.x = new_x;
-
-        // Initialize the squared error for this iteration
-        T iterative_error_squared_iter = 0;
-
-        // For each row in the matrix
-        #pragma omp parallel for reduction(+:iterative_error_squared_iter)
-        for (size_t row = 0; row < n; row++) {
-            // subtract the contribution from the diagonal term, since it should not be counted.
-            T sum = -(A[row][row] * results.x[row]);
-
-            // For each column in the matrix, add the product of the matrix element and corresponding element in the
-            // solution vector to the sum
-            for (size_t col = 0; col < n; col++) {
-                sum += A[row][col] * results.x[col];
-            }
-            // Update the solution vector with the new value
-            new_x[row] = (static_cast<T>(1) - relaxation_factor) * results.x[row] + (relaxation_factor / A[row][row]) * (b[row] - sum);
-
-            // Compute the new value and store it in new_x
-            new_x[row] = (b[row] - sum) / A[row][row];
-            // Calculate the difference between the new and old values for the convergence check
-            T difference = new_x[row] - x[row];
-            iterative_error_squared += difference * difference;
-        }
-
-        // Combine the squared error from all threads
-        iterative_error_squared = iterative_error_squared_iter;
-
-        // If the squared error is less than the squared tolerance, set the convergence flag to true and break the loop
-        if (iterative_error_squared < tolerance_squared) {
-            results.converged = true;
-            break;
-        }
     }
 
     // Calculate the final error as the square root of the squared error

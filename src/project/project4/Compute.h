@@ -120,21 +120,21 @@ void usingLUP(SolverOutputs &outputs, SolverInputs &inputs) {
  * @param outputs The output data structure to store the solution and execution time.
  * @param inputs The input data structure containing the system to solve.
  */
-void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
+void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs, size_t threads = 1) {
     inputs.diffusionCoefficients = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto A = inputs.diffusionCoefficients;
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
     const size_t max_iterations = inputs.solverParams.getMaxIterations();
     const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
-
-    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
-        std::cerr << "Aborting Point jacobi calculation\n";
-        return;
-    }
+    const MyBLAS::NumericType omega = 1.0;
+//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+//        std::cerr << "Aborting Point jacobi calculation\n";
+//        return;
+//    }
 
     auto profiler = Profiler([&]() {
-        outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold);
-    }, inputs.numRuns, inputs.timeout, "Point Jacobi");
+        outputs.solution = MyRelaxationMethod::applyPointJacobi(A, b, max_iterations, threshold, omega, threads);
+    }, 1, inputs.timeout, "Point Jacobi");
 
     outputs.summary = profiler.run().getSummary();
     outputs.summary.runs = profiler.getTotalRuns();
@@ -142,12 +142,12 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
 
     // post-process
     {
-        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<MyBLAS::NumericType>>(outputs);
-        auto b_prime = A * outputs.solution.x;
-        outputs.residual = b - b_prime;
-        if (!inputs.fluxOutputDirectory.empty()) {
-            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "point-jacobi.csv", outputs.fluxes);
-        }
+        //outputs.fluxes = fill_fluxes<MyBLAS::Matrix<MyBLAS::NumericType>>(outputs);
+        //auto b_prime = A * outputs.solution.x;
+        //outputs.residual = b - b_prime;
+//        if (!inputs.fluxOutputDirectory.empty()) {
+//            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "point-jacobi.csv", outputs.fluxes);
+//        }
     }
 }
 
@@ -156,34 +156,34 @@ void usingPointJacobi(SolverOutputs &outputs, SolverInputs &inputs) {
  * @param outputs The output data structure to store the solution and execution time.
  * @param inputs The input data structure containing the system to solve.
  */
-void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs) {
+void usingGaussSeidel(SolverOutputs &outputs, SolverInputs &inputs, size_t threads = 1) {
     auto A = MyPhysics::Diffusion::Matrix(inputs.diffusionParams);
     auto b = naive_fill_diffusion_vector<MyBLAS::NumericType>(inputs);
     const size_t max_iterations = inputs.solverParams.getMaxIterations();
     const MyBLAS::NumericType threshold = inputs.solverParams.getThreshold();
 
-    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
-        std::cerr << "Aborting Gauss Seidel calculation\n";
-        return;
-    }
+    const MyBLAS::NumericType omega = 1.0;
+//    if (!MyRelaxationMethod::passesPreChecks(A, b)) {
+//        std::cerr << "Aborting Gauss Seidel calculation\n";
+//        return;
+//    }
 
     auto profiler = Profiler([&]() {
-        outputs.solution = MyRelaxationMethod::applySOR(A, b, max_iterations, threshold);
-    }, inputs.numRuns, inputs.timeout, "Gauss Seidel");
+        outputs.solution = MyRelaxationMethod::applySORBlockParallel(A, b, max_iterations, threshold, omega, threads);
+    }, 1, inputs.timeout, "Gauss Seidel");
 
     outputs.summary = profiler.run().getSummary();
     outputs.summary.runs = profiler.getTotalRuns();
     std::cout<<std::endl<<profiler;
-
     // post-process
-    {
-        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<MyBLAS::NumericType>>(outputs);
-        auto b_prime = MatrixVectorExpression<MyPhysics::Diffusion::Matrix, MyBLAS::Vector, MyBLAS::NumericType>::multiplyMatrixVector(A, outputs.solution.x);
-        outputs.residual = b - b_prime;
-        if (!inputs.fluxOutputDirectory.empty()) {
-            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "gauss-seidel.csv", outputs.fluxes);
-        }
-    }
+//    {
+//        outputs.fluxes = fill_fluxes<MyBLAS::Matrix<MyBLAS::NumericType>>(outputs);
+//        auto b_prime = MatrixVectorExpression<MyPhysics::Diffusion::Matrix, MyBLAS::Vector, MyBLAS::NumericType>::multiplyMatrixVector(A, outputs.solution.x);
+//        outputs.residual = b - b_prime;
+//        if (!inputs.fluxOutputDirectory.empty()) {
+//            writeCSVMatrixNoHeaders(inputs.fluxOutputDirectory, "gauss-seidel.csv", outputs.fluxes);
+//        }
+//    }
 }
 
 /**

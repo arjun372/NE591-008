@@ -62,8 +62,8 @@ class Project4 : public Project<SolverInputs, Parser, SolverOutputs> {
         canvas.y_stop = 0.883651184261;
         printJuliaSet<__float128>(canvas, x, y, iterations); //"o█■"
         return {
-            .ProjectName = "NE591: Project Milestone 3",
-            .ProjectDescription = "Performance Evaluation of Direct vs Iterative, Lazy-Evaluated, Serial Diffusion Equation Solvers",
+            .ProjectName = "NE591: Project Milestone 4",
+            .ProjectDescription = "Performance Evaluation of Parallel vs Serial Point Jacobi Solvers",
             .SubmissionDate = "10/20/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = " ",
@@ -124,66 +124,71 @@ class Project4 : public Project<SolverInputs, Parser, SolverOutputs> {
         nlohmann::json results;
         inputs.toJSON(results["inputs"]);
 
-        if (inputs.methods.count(MyFactorizationMethod::Type::METHOD_LUP)) {
-            SolverOutputs runResults(inputs);
-            Compute::usingLUP(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyFactorizationMethod::TypeKey(MyFactorizationMethod::Type::METHOD_LUP)]);
-            Parser::printLine();
-            std::cout << "LUP Factorization Results" << std::endl;
-            Parser::printLine();
-            printResults(runResults);
-        }
+//        if (inputs.methods.count(MyFactorizationMethod::Type::METHOD_LUP)) {
+//            SolverOutputs runResults(inputs);
+//            Compute::usingLUP(runResults, inputs);
+//            runResults.toJSON(results["outputs"][MyFactorizationMethod::TypeKey(MyFactorizationMethod::Type::METHOD_LUP)]);
+//            Parser::printLine();
+//            std::cout << "LUP Factorization Results" << std::endl;
+//            Parser::printLine();
+//            printResults(runResults);
+//        }
 
-        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
-            SolverOutputs runResults(inputs);
-            Compute::usingPointJacobi(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)]);
-            Parser::printLine();
-            std::cout << "Point Jacobi Method Results" << std::endl;
-            Parser::printLine();
-            printResults(runResults);
-        }
 
-        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORPJ)) {
-            SolverOutputs runResults(inputs);
-            Compute::usingJacobiSOR(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORPJ)]);
-            Parser::printLine();
-            std::cout << "SOR Point Jacobi Method Results" << std::endl;
-            Parser::printLine();
-            printResults(runResults);
-        }
+        const std::vector<size_t> MAX_THREADS = {1, 4, 8, 16};
+//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {
+//            for(auto threads : MAX_THREADS) {
+//                SolverOutputs runResults(inputs);
+//                Compute::usingPointJacobi(runResults, inputs, threads);
+//                runResults.toJSON(results["outputs"][std::to_string(threads)]);
+//                Parser::printLine();
+//                std::cout << "[N = "<<threads<<"]: Point Jacobi Method Results" << std::endl;
+//                Parser::printLine();
+//                printResults(runResults);
+//            }
+//        }
+
+//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORPJ)) {
+//            SolverOutputs runResults(inputs);
+//            Compute::usingJacobiSOR(runResults, inputs);
+//            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORPJ)]);
+//            Parser::printLine();
+//            std::cout << "SOR Point Jacobi Method Results" << std::endl;
+//            Parser::printLine();
+//            printResults(runResults);
+//        }
 
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)) {
-            SolverOutputs runResults(inputs);
-            Compute::usingGaussSeidel(runResults, inputs);
-            runResults.toJSON(
-                results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)]);
-            Parser::printLine();
-            std::cout << "Gauss-Seidel Method Results" << std::endl;
-            Parser::printLine();
-            printResults(runResults);
+            for(auto threads : MAX_THREADS) {
+                SolverOutputs runResults(inputs);
+                Compute::usingGaussSeidel(runResults, inputs, threads);
+                runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL)][std::to_string(threads)]);
+                Parser::printLine();
+                std::cout << "[N = "<<threads<<"]: Gauss Seidel Method Results" << std::endl;
+                Parser::printLine();
+                printResults(runResults);
+            }
         }
-
-        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SOR)) {
-            SolverOutputs runResults(inputs);
-            Compute::usingSOR(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SOR)]);
-            Parser::printLine();
-            std::cout << "SOR Method Results" << std::endl;
-            Parser::printLine();
-            printResults(runResults);
-        }
-
-        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SSOR)) {
-            SolverOutputs runResults(inputs);
-            Compute::usingSymmetricSOR(runResults, inputs);
-            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SSOR)]);
-            Parser::printLine();
-            std::cout << "Symmetric SOR Method Results" << std::endl;
-            Parser::printLine();
-            printResults(runResults);
-        }
+//
+//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SOR)) {
+//            SolverOutputs runResults(inputs);
+//            Compute::usingSOR(runResults, inputs);
+//            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SOR)]);
+//            Parser::printLine();
+//            std::cout << "SOR Method Results" << std::endl;
+//            Parser::printLine();
+//            printResults(runResults);
+//        }
+//
+//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SSOR)) {
+//            SolverOutputs runResults(inputs);
+//            Compute::usingSymmetricSOR(runResults, inputs);
+//            runResults.toJSON(results["outputs"][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SSOR)]);
+//            Parser::printLine();
+//            std::cout << "Symmetric SOR Method Results" << std::endl;
+//            Parser::printLine();
+//            printResults(runResults);
+//        }
 
         Parser::printLine();
 

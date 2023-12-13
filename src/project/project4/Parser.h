@@ -82,12 +82,12 @@ class Parser : public CommandLine<SolverInputs> {
         std::cout << "\tConvergence Threshold,                  𝜀: " << vm["threshold"].as<MyBLAS::NumericType>() << "\n";
         std::cout << "\tMax iterations,                         k: " << static_cast<size_t>(vm["max-iterations"].as<MyBLAS::NumericType>())<< "\n";
         std::cout << "\tSOR weight,                             ω: "<< (vm.count("relaxation-factor") ? std::to_string(vm["relaxation-factor"].as<MyBLAS::NumericType>()) : "N/A") << "\n";
-        std::cout << "\tUse LUP factorization                    : " << (vm["use-LUP"].as<bool>() ? "Yes" : "No") << "\n";
+//        std::cout << "\tUse LUP factorization                    : " << (vm["use-LUP"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\tUse Gauss-Seidel                         : " << (vm["use-gauss-seidel"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\tUse Point-Jacobi                         : " << (vm["use-point-jacobi"].as<bool>() ? "Yes" : "No") << "\n";
-        std::cout << "\tUse SOR                                  : " << (vm["use-SOR"].as<bool>() ? "Yes" : "No") << "\n";
-        std::cout << "\tUse Point-Jacobi with SOR                : " << (vm["use-SORJ"].as<bool>() ? "Yes" : "No") << "\n";
-        std::cout << "\tUse symmetric SOR                        : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
+//        std::cout << "\tUse SOR                                  : " << (vm["use-SOR"].as<bool>() ? "Yes" : "No") << "\n";
+//        std::cout << "\tUse Point-Jacobi with SOR                : " << (vm["use-SORJ"].as<bool>() ? "Yes" : "No") << "\n";
+//        std::cout << "\tUse symmetric SOR                        : " << (vm["use-SSOR"].as<bool>() ? "Yes" : "No") << "\n";
         std::cout << "\t----\n";
         std::cout << "\t1st dimension length,                   a: " << vm["a"].as<MyBLAS::NumericType>() << "\n";
         std::cout << "\t2nd dimension length,                   b: " << vm["b"].as<MyBLAS::NumericType>() << "\n";
@@ -242,46 +242,46 @@ class Parser : public CommandLine<SolverInputs> {
         performChecksAndUpdateInput<MyBLAS::NumericType>("max-iterations", inputMap, map, checks);
 
         auto methods = std::vector<std::string>(inputMap["methods"]);
-        if(contains(methods, "LUP")) {
-            replace(map, "use-LUP", asYesOrNo("yes"));
-        } else {
-            promptAndSetFlags("use-LUP", "LUP factorization method", map);
-        }
-
+//        if(contains(methods, "LUP")) {
+//            replace(map, "use-LUP", asYesOrNo("yes"));
+//        } else {
+//            promptAndSetFlags("use-LUP", "LUP factorization method", map);
+//        }
+//
         if(contains(methods, "point-jacobi")) {
             replace(map, "use-point-jacobi", asYesOrNo("yes"));
         } else {
             promptAndSetFlags("use-point-jacobi", "Point Jacobi method", map);
         }
-
-        if(contains(methods, "SORJ")) {
-            replace(map, "use-SORJ", asYesOrNo("yes"));
-        } else {
-            promptAndSetFlags("use-SORJ", "SOR Jacobi method", map);
-        }
-
+//
+//        if(contains(methods, "SORJ")) {
+//            replace(map, "use-SORJ", asYesOrNo("yes"));
+//        } else {
+//            promptAndSetFlags("use-SORJ", "SOR Jacobi method", map);
+//        }
+//
         if(contains(methods, "gauss-seidel")) {
             replace(map, "use-gauss-seidel", asYesOrNo("yes"));
         } else {
             promptAndSetFlags("use-gauss-seidel", "Gauss-Seidel method", map);
         }
-
-        if(contains(methods, "SOR")) {
-            replace(map, "use-SOR", asYesOrNo("yes"));
-        } else {
-            promptAndSetFlags("use-SOR", "SOR method", map);
-        }
-
-        if(contains(methods, "SSOR")) {
-            replace(map, "use-SSOR", asYesOrNo("yes"));
-        } else {
-            promptAndSetFlags("use-SSOR", "symmetric SOR method", map);
-        }
-
-        if (map["use-SOR"].as<bool>() || map["use-SORJ"].as<bool>() || map["use-SSOR"].as<bool>()) {
-            checks.clear();
-            performChecksAndUpdateInput<MyBLAS::NumericType>("relaxation-factor", inputMap, map, checks);
-        }
+//
+//        if(contains(methods, "SOR")) {
+//            replace(map, "use-SOR", asYesOrNo("yes"));
+//        } else {
+//            promptAndSetFlags("use-SOR", "SOR method", map);
+//        }
+//
+//        if(contains(methods, "SSOR")) {
+//            replace(map, "use-SSOR", asYesOrNo("yes"));
+//        } else {
+//            promptAndSetFlags("use-SSOR", "symmetric SOR method", map);
+//        }
+//
+//        if (map["use-SOR"].as<bool>() || map["use-SORJ"].as<bool>() || map["use-SSOR"].as<bool>()) {
+//            checks.clear();
+//            performChecksAndUpdateInput<MyBLAS::NumericType>("relaxation-factor", inputMap, map, checks);
+//        }
     }
 
     /**
@@ -332,9 +332,9 @@ class Parser : public CommandLine<SolverInputs> {
         input.solverParams.max_iterations = static_cast<size_t>(map["max-iterations"].as<MyBLAS::NumericType>());
         input.solverParams.n = input.diffusionParams.getM() * input.diffusionParams.getN();
 
-        if (map["use-LUP"].as<bool>()) {
-            input.methods.insert(MyFactorizationMethod::Type::METHOD_LUP);
-        }
+//        if (map["use-LUP"].as<bool>()) {
+//            input.methods.insert(MyFactorizationMethod::Type::METHOD_LUP);
+//        }
 
         if (map["use-point-jacobi"].as<bool>()) {
             input.methods.insert(MyRelaxationMethod::Type::METHOD_POINT_JACOBI);
@@ -343,18 +343,18 @@ class Parser : public CommandLine<SolverInputs> {
         if (map["use-gauss-seidel"].as<bool>()) {
             input.methods.insert(MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL);
         }
-
-        if (map["use-SOR"].as<bool>()) {
-            input.methods.insert(MyRelaxationMethod::Type::METHOD_SOR);
-        }
-
-        if (map["use-SORJ"].as<bool>()) {
-            input.methods.insert(MyRelaxationMethod::Type::METHOD_SORPJ);
-        }
-
-        if (map["use-SSOR"].as<bool>()) {
-            input.methods.insert(MyRelaxationMethod::Type::METHOD_SSOR);
-        }
+//
+//        if (map["use-SOR"].as<bool>()) {
+//            input.methods.insert(MyRelaxationMethod::Type::METHOD_SOR);
+//        }
+//
+//        if (map["use-SORJ"].as<bool>()) {
+//            input.methods.insert(MyRelaxationMethod::Type::METHOD_SORPJ);
+//        }
+//
+//        if (map["use-SSOR"].as<bool>()) {
+//            input.methods.insert(MyRelaxationMethod::Type::METHOD_SSOR);
+//        }
 
         if (map.count("relaxation-factor")) {
             input.solverParams.relaxation_factor = map["relaxation-factor"].as<MyBLAS::NumericType>();
@@ -376,9 +376,9 @@ class Parser : public CommandLine<SolverInputs> {
             std::cout << "\tMesh spacing in the 1st dimension,     𝛿: " << input.diffusionParams.getDelta() << "\n";
             std::cout << "\tMesh spacing in the 2nd dimension,     𝛾: " << input.diffusionParams.getGamma() << "\n";
             CommandLine::printLine();
-            std::cout << "Source terms 𝑞(𝑖,𝑗):\n";
+            //std::cout << "Source terms 𝑞(𝑖,𝑗):\n";
             CommandLine::printLine();
-            std::cout << input.sources;
+            //std::cout << input.sources;
             CommandLine::printLine();
         }
     }

@@ -183,7 +183,7 @@ class Profiler {
 
    size_t checkMemoryUsage() {
        preRunMemoryCheck();
-       _function();
+       //_function();
        return postRunMemoryCheck();
    }
 

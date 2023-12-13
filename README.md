@@ -204,11 +204,11 @@ Currently supported project build targets include:
   </tr>
   <tr>
     <td>4</td>
-    <td><code>🚧 project4</code>  <code>🚧 project4_tests</code><code>🚧 blas_tests</code></td>
+    <td><code>✅ project4</code>  <code>✅ project4_tests</code></td>
   </tr>
   <tr>
     <td>5</td>
-    <td><code>🚧 project5</code>  <code>🚧 project5_tests</code><code>🚧 blas_tests</code></td>
+    <td><code>✅ project5</code>  <code>✅ project5_tests</code></td>
   </tr>
 </table>
 
