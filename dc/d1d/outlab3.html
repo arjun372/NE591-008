@@ -118,24 +118,24 @@ $(document).ready(function(){initNavTree('dc/d1d/outlab3.html','../../'); initRe
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md132">OutLab 03: Numerical Integration using Composite Newton-Cotes &amp; Gauss-Legendre Quadratures</a><ul><li class="level2"><a href="#autotoc_md133">Overview</a></li>
-<li class="level2"><a href="#autotoc_md134">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md135">Parameters</a></li>
-<li class="level3"><a href="#autotoc_md136">General options</a></li>
+<ul><li class="level1"><a href="#autotoc_md141">OutLab 03: Numerical Integration using Composite Newton-Cotes &amp; Gauss-Legendre Quadratures</a><ul><li class="level2"><a href="#autotoc_md142">Overview</a></li>
+<li class="level2"><a href="#autotoc_md143">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md144">Parameters</a></li>
+<li class="level3"><a href="#autotoc_md145">General options</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md137">Implementing your own &lt;tt&gt;f(x)&lt;/tt&gt;</a></li>
-<li class="level2"><a href="#autotoc_md138">Output Format</a><ul><li class="level3"><a href="#autotoc_md139">Sample Outputs File</a></li>
+<li class="level2"><a href="#autotoc_md146">Implementing your own &lt;tt&gt;f(x)&lt;/tt&gt;</a></li>
+<li class="level2"><a href="#autotoc_md147">Output Format</a><ul><li class="level3"><a href="#autotoc_md148">Sample Outputs File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md140">Example:</a></li>
+<li class="level2"><a href="#autotoc_md149">Example:</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md132"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md141"></a>
 OutLab 03: Numerical Integration using Composite Newton-Cotes &amp; Gauss-Legendre Quadratures</h1>
 <p>Supports numerical integration using Gauss-Legendre Quadratures, and the composite trapezoidal and Simpson's rules. Implements Netwon-Raphson's root finding method to compute nodes and weights for any degree. File based I/O is supported using JSON files.</p>
-<div style="display: none"></div><h2><a class="anchor" id="autotoc_md133"></a>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md142"></a>
 Overview</h2>
 <ol type="1">
 <li><a href="../../#building--usage">Building &amp; Usage</a><ul>
@@ -150,7 +150,7 @@ Overview</h2>
 </li>
 <li><a href="../../#example">Example</a></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md134"></a>
+<h2><a class="anchor" id="autotoc_md143"></a>
 Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>outlab3</code> target executable:</p>
 <div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
@@ -170,7 +170,7 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -o $OUTPUT_FILE</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md135"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md144"></a>
 Parameters</h3>
 <ul>
 <li><code>-a [ --start ] arg</code>: Starting value <code>a</code> for the integration interval <code>[a,b]</code></li>
@@ -182,7 +182,7 @@ Parameters</h3>
 <li><code>-n [ --num-quadrature-points ] arg (=1)</code>: Number of (n) Gauss-Legendre Quadrature points</li>
 <li><code>-o [ --output-json ] arg</code>: Path for the output JSON file</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md136"></a>
+<h3><a class="anchor" id="autotoc_md145"></a>
 General options</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message</li>
@@ -190,7 +190,7 @@ General options</h3>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
 <li><code>-P [ --profile ]</code>: Turn on profiling for performance comparison</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md137"></a>
+<h2><a class="anchor" id="autotoc_md146"></a>
 Implementing your own &lt;tt&gt;f(x)&lt;/tt&gt;</h2>
 <p>You can modify the <code>user_defined_fx</code> method located in <a href="../../extern/function.h">extern/function.h</a>. This code is built as a static library <code>outlab3_extern</code> and linked to the <code>outlab3</code> target. After modifying this code, no additional compilation steps need to be taken. For example, the current implementation returns <code>sin(x)</code>.</p>
 <p>Here is a brief description of the <code>user_defined_fx</code> method:</p>
@@ -206,10 +206,10 @@ Implementing your own &lt;tt&gt;f(x)&lt;/tt&gt;</h2>
 <div class="line">    const T fx = std::sin(x);</div>
 <div class="line">    return fx;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md138"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md147"></a>
 Output Format</h2>
 <p>The output is written to a JSON file.</p>
-<h3><a class="anchor" id="autotoc_md139"></a>
+<h3><a class="anchor" id="autotoc_md148"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;inputs&quot;: {</div>
@@ -257,7 +257,7 @@ Sample Outputs File</h3>
 <div class="line">      }</div>
 <div class="line">   }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md140"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md149"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
 <div class="fragment"><div class="line">./bin/outlab3 -o output_test.json -m 1000 -a 0 -b 3.141592653589793 --use-simpsons true</div>

@@ -59,71 +59,77 @@ var sectionId = 'dynsection-17';
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Checks if the given matrix is diagonally dominant.">
-<polygon fill="#bfbfbf" stroke="black" points="500,-126.5 500,-145.5 672,-145.5 672,-126.5 500,-126.5"/>
-<text text-anchor="middle" x="586" y="-133.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isDiagonallyDominant</text>
+<polygon fill="#bfbfbf" stroke="black" points="500,-152.5 500,-171.5 672,-171.5 672,-152.5 500,-152.5"/>
+<text text-anchor="middle" x="586" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isDiagonallyDominant</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a487070ac751d33afa7f9fceaef312ea0" target="_top" xlink:title="This function generates a circuit with random resistances and currents, and computes the correspondin...">
-<polygon fill="white" stroke="black" points="327,-205.5 327,-224.5 464,-224.5 464,-205.5 327,-205.5"/>
-<text text-anchor="middle" x="395.5" y="-212.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::System::Circuit</text>
+<g id="a_node2"><a xlink:href="../../d0/d40/classParser.html#a57359ba31d7b2ba138ff175ae1406021" target="_top" xlink:title="Builds the inputs.">
+<polygon fill="white" stroke="black" points="149.5,-240.5 149.5,-259.5 256.5,-259.5 256.5,-240.5 149.5,-240.5"/>
+<text text-anchor="middle" x="203" y="-247.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M552.69,-149.54C514.71,-165.46 452.62,-191.48 419.32,-205.44"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="554.39,-152.62 562.26,-145.53 551.69,-146.17 554.39,-152.62"/>
+<path fill="none" stroke="midnightblue" d="M560.09,-176.66C536.26,-189.96 498.88,-208.99 464,-219 394.09,-239.06 310,-246.16 256.77,-248.66"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="561.86,-179.68 568.83,-171.7 558.41,-173.59 561.86,-179.68"/>
+</g>
+<!-- Node3 -->
+<g id="node3" class="node">
+<title>Node3</title>
+<g id="a_node3"><a xlink:href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a487070ac751d33afa7f9fceaef312ea0" target="_top" xlink:title="This function generates a circuit with random resistances and currents, and computes the correspondin...">
+<polygon fill="white" stroke="black" points="327,-190.5 327,-209.5 464,-209.5 464,-190.5 327,-190.5"/>
+<text text-anchor="middle" x="395.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::System::Circuit</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node3 -->
+<g id="edge2" class="edge">
+<title>Node1&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M527.41,-173.61C500.6,-179.01 469.1,-185.36 443.72,-190.48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="528.32,-177 537.43,-171.59 526.94,-170.13 528.32,-177"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a985bd80ba02c84e9d1ca2e434a32bd3f" target="_top" xlink:title="Function to perform pre&#45;checks on the coefficient matrix and the right&#45;hand side vector.">
-<polygon fill="white" stroke="black" points="335,-121 335,-151 456,-151 456,-121 335,-121"/>
-<text text-anchor="start" x="343" y="-139" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="395.5" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">::passesPreChecks</text>
+<polygon fill="white" stroke="black" points="335,-125 335,-155 456,-155 456,-125 335,-125"/>
+<text text-anchor="start" x="343" y="-143" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="395.5" y="-132" font-family="Helvetica,sans-Serif" font-size="10.00">::passesPreChecks</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
-<g id="edge3" class="edge">
+<g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M489.81,-136C478.37,-136 466.94,-136 456.21,-136"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="489.85,-139.5 499.85,-136 489.85,-132.5 489.85,-139.5"/>
+<path fill="none" stroke="midnightblue" d="M493.29,-151.3C480.63,-149.82 467.91,-148.33 456.05,-146.95"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="493.08,-154.8 503.42,-152.48 493.89,-147.84 493.08,-154.8"/>
 </g>
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
 <g id="a_node14"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#afc64a1cc2e3756fccfc41bc258f84787" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="333.5,-82.5 333.5,-101.5 457.5,-101.5 457.5,-82.5 333.5,-82.5"/>
-<text text-anchor="middle" x="395.5" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
+<polygon fill="white" stroke="black" points="333.5,-86.5 333.5,-105.5 457.5,-105.5 457.5,-86.5 333.5,-86.5"/>
+<text text-anchor="middle" x="395.5" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node14 -->
-<g id="edge14" class="edge">
+<g id="edge15" class="edge">
 <title>Node1&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M534.12,-124.12C503.76,-117.04 465.71,-108.16 437.32,-101.53"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="533.56,-127.59 544.1,-126.45 535.16,-120.77 533.56,-127.59"/>
+<path fill="none" stroke="midnightblue" d="M552.12,-148.73C527.92,-139.16 494.13,-126.17 464,-116 453.23,-112.36 441.38,-108.73 430.65,-105.58"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="550.96,-152.04 561.54,-152.48 553.54,-145.53 550.96,-152.04"/>
 </g>
-<!-- Node3 -->
-<g id="node3" class="node">
-<title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d0/d40/classParser.html#ab783bbc55d63563ece4a83a4a1c8f683" target="_top" xlink:title="Builds the input matrices for the MyBLAS library from a JSON file.">
-<polygon fill="white" stroke="black" points="149.5,-240.5 149.5,-259.5 256.5,-259.5 256.5,-240.5 149.5,-240.5"/>
-<text text-anchor="middle" x="203" y="-247.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node3 -->
-<g id="edge2" class="edge">
-<title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M332.65,-226.36C307.82,-230.93 279.52,-236.13 255.79,-240.48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="333.49,-229.77 342.7,-224.52 332.23,-222.88 333.49,-229.77"/>
+<!-- Node3&#45;&gt;Node2 -->
+<g id="edge3" class="edge">
+<title>Node3&#45;&gt;Node2</title>
+<path fill="none" stroke="midnightblue" d="M355.14,-212.56C335.9,-218.5 312.34,-225.48 291,-231 277.98,-234.37 263.76,-237.64 250.66,-240.49"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="356.27,-215.87 364.78,-209.56 354.19,-209.19 356.27,-215.87"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -135,10 +141,10 @@ var sectionId = 'dynsection-17';
 </g>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 <title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M362.93,-156.52C343,-168.67 316.31,-183.49 291,-193 281.01,-196.75 270.09,-199.86 259.46,-202.4"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="364.93,-159.4 371.59,-151.15 361.24,-153.45 364.93,-159.4"/>
+<path fill="none" stroke="midnightblue" d="M360.48,-160.25C340.76,-171.26 315.12,-184.36 291,-193 280.52,-196.76 269.06,-199.9 257.99,-202.48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="362.41,-163.18 369.38,-155.2 358.96,-157.09 362.41,-163.18"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
@@ -150,10 +156,10 @@ var sectionId = 'dynsection-17';
 </g>
 </g>
 <!-- Node4&#45;&gt;Node6 -->
-<g id="edge5" class="edge">
+<g id="edge6" class="edge">
 <title>Node4&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M324.86,-149.89C300.57,-154.74 273.88,-160.06 251.77,-164.47"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="325.63,-153.31 334.75,-147.92 324.26,-146.44 325.63,-153.31"/>
+<path fill="none" stroke="midnightblue" d="M324.7,-152.46C302.48,-156.42 278.28,-160.74 257.41,-164.47"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="325.52,-155.87 334.75,-150.66 324.29,-148.98 325.52,-155.87"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
@@ -165,25 +171,25 @@ var sectionId = 'dynsection-17';
 </g>
 </g>
 <!-- Node4&#45;&gt;Node10 -->
-<g id="edge9" class="edge">
+<g id="edge10" class="edge">
 <title>Node4&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M324.63,-136C308.98,-136 292.34,-136 276.59,-136"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="324.75,-139.5 334.75,-136 324.75,-132.5 324.75,-139.5"/>
+<path fill="none" stroke="midnightblue" d="M324.63,-138.53C308.98,-138.2 292.34,-137.85 276.59,-137.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="324.68,-142.03 334.75,-138.75 324.82,-135.04 324.68,-142.03"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="../../de/db3/namespaceCompute.html#acfa0341940d2764e69d254afdc2cbb23" target="_top" xlink:title="Solves a linear system using the Successive Over&#45;Relaxation (SOR) method.">
+<g id="a_node11"><a xlink:href="../../de/db3/namespaceCompute.html#a26fcd23146e3ca00ed9eefc59c89c07a" target="_top" xlink:title="Solves a linear system using the Successive Over&#45;Relaxation (SOR) method.">
 <polygon fill="white" stroke="black" points="146.5,-88.5 146.5,-107.5 259.5,-107.5 259.5,-88.5 146.5,-88.5"/>
 <text text-anchor="middle" x="203" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingSOR</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node11 -->
-<g id="edge10" class="edge">
+<g id="edge11" class="edge">
 <title>Node4&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M324.86,-122.11C300.57,-117.26 273.88,-111.94 251.77,-107.53"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="324.26,-125.56 334.75,-124.08 325.63,-118.69 324.26,-125.56"/>
+<path fill="none" stroke="midnightblue" d="M324.97,-124.51C313.62,-121.99 301.98,-119.42 291,-117 276.96,-113.91 261.64,-110.55 247.82,-107.54"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="324.33,-127.96 334.85,-126.71 325.85,-121.12 324.33,-127.96"/>
 </g>
 <!-- Node12 -->
 <g id="node12" class="node">
@@ -196,10 +202,10 @@ var sectionId = 'dynsection-17';
 </g>
 </g>
 <!-- Node4&#45;&gt;Node12 -->
-<g id="edge11" class="edge">
+<g id="edge12" class="edge">
 <title>Node4&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M337.68,-116.75C333.99,-114.96 330.4,-113.04 327,-111 308.65,-99.98 309.75,-89.32 291,-79 284.12,-75.21 276.6,-71.95 268.97,-69.15"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="336.42,-120.03 346.98,-120.96 339.31,-113.65 336.42,-120.03"/>
+<path fill="none" stroke="midnightblue" d="M336.86,-120.64C333.44,-118.88 330.13,-117.01 327,-115 307.95,-102.79 310.49,-90.49 291,-79 284.5,-75.17 277.38,-71.9 270.1,-69.11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="335.53,-123.88 346.06,-124.98 338.51,-117.55 335.53,-123.88"/>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">
@@ -211,10 +217,10 @@ var sectionId = 'dynsection-17';
 </g>
 </g>
 <!-- Node4&#45;&gt;Node13 -->
-<g id="edge13" class="edge">
+<g id="edge14" class="edge">
 <title>Node4&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M332.29,-115.41C330.44,-114.03 328.67,-112.56 327,-111 298.27,-84.04 321.4,-55.05 291,-30 285.74,-25.66 279.71,-22.23 273.35,-19.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="330.57,-118.46 340.88,-120.89 334.33,-112.56 330.57,-118.46"/>
+<path fill="none" stroke="midnightblue" d="M332.26,-119.45C330.41,-118.06 328.65,-116.58 327,-115 297.33,-86.66 322.43,-56.37 291,-30 285.89,-25.72 280.05,-22.31 273.86,-19.6"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="330.51,-122.48 340.81,-124.96 334.3,-116.6 330.51,-122.48"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
@@ -226,7 +232,7 @@ var sectionId = 'dynsection-17';
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
-<g id="edge6" class="edge">
+<g id="edge7" class="edge">
 <title>Node6&#45;&gt;Node7</title>
 <path fill="none" stroke="midnightblue" d="M121.11,-183.52C106.55,-185.23 92,-186.94 79.34,-188.43"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="121.64,-186.98 131.16,-182.33 120.82,-180.03 121.64,-186.98"/>
@@ -241,7 +247,7 @@ var sectionId = 'dynsection-17';
 </g>
 </g>
 <!-- Node6&#45;&gt;Node8 -->
-<g id="edge7" class="edge">
+<g id="edge8" class="edge">
 <title>Node6&#45;&gt;Node8</title>
 <path fill="none" stroke="midnightblue" d="M121.01,-164.47C106.31,-162.74 91.63,-161.01 78.9,-159.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="120.82,-167.97 131.16,-165.67 121.64,-161.02 120.82,-167.97"/>
@@ -256,13 +262,13 @@ var sectionId = 'dynsection-17';
 </g>
 </g>
 <!-- Node6&#45;&gt;Node9 -->
-<g id="edge8" class="edge">
+<g id="edge9" class="edge">
 <title>Node6&#45;&gt;Node9</title>
 <path fill="none" stroke="midnightblue" d="M130.91,-161.38C125.42,-159.54 120.05,-157.42 115,-155 88.34,-142.24 62.73,-118.21 49.61,-104.76"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="130.3,-164.86 140.89,-164.43 132.35,-158.16 130.3,-164.86"/>
 </g>
 <!-- Node12&#45;&gt;Node9 -->
-<g id="edge12" class="edge">
+<g id="edge13" class="edge">
 <title>Node12&#45;&gt;Node9</title>
 <path fill="none" stroke="midnightblue" d="M133.03,-71.51C114.2,-76.29 94.5,-81.29 78.14,-85.45"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="133.95,-74.89 142.78,-69.03 132.23,-68.1 133.95,-74.89"/>

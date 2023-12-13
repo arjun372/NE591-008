@@ -28,6 +28,9 @@ var hierarchy =
       [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
+    [ "CommandLine< OutLab10Inputs >", "dd/d02/classCommandLine.html", [
+      [ "Parser", "d0/d40/classParser.html", null ]
+    ] ],
     [ "CommandLine< OutLab6Inputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
@@ -121,6 +124,9 @@ var hierarchy =
       [ "InLab3", "d1/d1f/classInLab3.html", null ],
       [ "OutLab3", "da/df0/classOutLab3.html", null ]
     ] ],
+    [ "Project< OutLab10Inputs, Parser, OutLab10Outputs >", "db/d91/classProject.html", [
+      [ "OutLab10", "d7/d1f/classOutLab10.html", null ]
+    ] ],
     [ "Project< OutLab6Inputs, Parser, OutLab6Outputs >", "db/d91/classProject.html", [
       [ "OutLab6", "d0/d4c/classOutLab6.html", null ]
     ] ],
@@ -168,7 +174,8 @@ var hierarchy =
       [ "MyBLAS::VectorExpressionTests", "de/d3a/classMyBLAS_1_1VectorExpressionTests.html", null ],
       [ "MyBLAS::VectorMemoryAllocationTests< T >", "da/d69/classMyBLAS_1_1VectorMemoryAllocationTests.html", null ],
       [ "MyBLAS::VectorTests< T >", "d8/db9/classMyBLAS_1_1VectorTests.html", null ],
-      [ "MyBLAS::VectorUtilityTests< T >", "dd/dfd/classMyBLAS_1_1VectorUtilityTests.html", null ]
+      [ "MyBLAS::VectorUtilityTests< T >", "dd/dfd/classMyBLAS_1_1VectorUtilityTests.html", null ],
+      [ "OutLab10MatrixTests< T >", "d8/dd0/classOutLab10MatrixTests.html", null ]
     ] ],
     [ "testing::TestWithParam", null, [
       [ "DiffusionConstantsValidTest", "dd/d10/classDiffusionConstantsValidTest.html", null ],

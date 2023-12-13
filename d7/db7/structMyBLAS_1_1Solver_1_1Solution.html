@@ -115,7 +115,8 @@ $(document).ready(function(){initNavTree('d7/db7/structMyBLAS_1_1Solver_1_1Solut
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Data Fields</a>  </div>
+<a href="#pub-attribs">Data Fields</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">MyBLAS::Solver::Solution&lt; T &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
@@ -146,6 +147,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0679e2b19295772346221e6d3b936052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabefa64c1aa71a7672183a4646ddee47"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#aabefa64c1aa71a7672183a4646ddee47">getMaxResidual</a> (<a class="el" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix</a>&lt; T &gt; a, <a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt; b) const</td></tr>
 <tr class="separator:aabefa64c1aa71a7672183a4646ddee47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a409465b26bb97d0ed8b74049953a6611"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a409465b26bb97d0ed8b74049953a6611">toJSON</a> (nlohmann::json &amp;jsonMap) const</td></tr>
+<tr class="memdesc:a409465b26bb97d0ed8b74049953a6611"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the output parameters to a JSON object.  <a href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a409465b26bb97d0ed8b74049953a6611">More...</a><br /></td></tr>
+<tr class="separator:a409465b26bb97d0ed8b74049953a6611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -159,6 +163,12 @@ Data Fields</h2></td></tr>
 <tr class="separator:ac2086623ddff910f66c2f3c5452f9bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5135fbce498115d80f6560a9cd4f60b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d4d/classMyBLAS_1_1Vector.html">MyBLAS::Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ab5135fbce498115d80f6560a9cd4f60b">x</a> {}</td></tr>
 <tr class="separator:ab5135fbce498115d80f6560a9cd4f60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a2201ecd14bc5cbc3dba443b09f3d82d3"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a2201ecd14bc5cbc3dba443b09f3d82d3">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">Solution</a> &amp;solution)</td></tr>
+<tr class="memdesc:a2201ecd14bc5cbc3dba443b09f3d82d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded stream insertion operator to print the summary statistics.  <a href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a2201ecd14bc5cbc3dba443b09f3d82d3">More...</a><br /></td></tr>
+<tr class="separator:a2201ecd14bc5cbc3dba443b09f3d82d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -200,7 +210,7 @@ template&lt;typename T &gt; </div>
 <div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{ <a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ab5135fbce498115d80f6560a9cd4f60b">x</a> = initial; }</div>
 <div class="ttc" id="astructMyBLAS_1_1Solver_1_1Solution_html_ab5135fbce498115d80f6560a9cd4f60b"><div class="ttname"><a href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ab5135fbce498115d80f6560a9cd4f60b">MyBLAS::Solver::Solution::x</a></div><div class="ttdeci">MyBLAS::Vector&lt; T &gt; x</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:67</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00068">MyFactorizationMethod::TypeKey()</a>, and <a class="el" href="../../#l00038">MyRelaxationMethod::TypeKey()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00068">MyFactorizationMethod::TypeKey()</a>, and <a class="el" href="../../#l00039">MyRelaxationMethod::TypeKey()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -354,6 +364,115 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a409465b26bb97d0ed8b74049953a6611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a409465b26bb97d0ed8b74049953a6611">&#9670;&nbsp;</a></span>toJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">MyBLAS::Solver::Solution</a>&lt; T &gt;::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>jsonMap</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the output parameters to a JSON object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jsonMap</td><td>The JSON object to which the output parameters are added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                             {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        jsonMap[<span class="stringliteral">&quot;converged&quot;</span>] = <a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a0eed004d383f51db2aa8819bcda97e9b">converged</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a032bbb91e561d18f6e5508c25f5b4eb4">iterations</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ac2086623ddff910f66c2f3c5452f9bec">iterative_error</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        jsonMap[<span class="stringliteral">&quot;solution&quot;</span>] = <a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ab5135fbce498115d80f6560a9cd4f60b">x</a>.getData();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="ttc" id="astructMyBLAS_1_1Solver_1_1Solution_html_a032bbb91e561d18f6e5508c25f5b4eb4"><div class="ttname"><a href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a032bbb91e561d18f6e5508c25f5b4eb4">MyBLAS::Solver::Solution::iterations</a></div><div class="ttdeci">size_t iterations</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:64</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Solver_1_1Solution_html_a0eed004d383f51db2aa8819bcda97e9b"><div class="ttname"><a href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a0eed004d383f51db2aa8819bcda97e9b">MyBLAS::Solver::Solution::converged</a></div><div class="ttdeci">bool converged</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:63</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Solver_1_1Solution_html_ac2086623ddff910f66c2f3c5452f9bec"><div class="ttname"><a href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ac2086623ddff910f66c2f3c5452f9bec">MyBLAS::Solver::Solution::iterative_error</a></div><div class="ttdeci">T iterative_error</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:65</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00020">postprocess::converged</a>, <a class="el" href="../../#l00021">postprocess::iterations</a>, <a class="el" href="../../#l00022">postprocess::iterative_error</a>, and <a class="el" href="../../#l00018">x</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a2201ecd14bc5cbc3dba443b09f3d82d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2201ecd14bc5cbc3dba443b09f3d82d3">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">Solution</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overloaded stream insertion operator to print the summary statistics. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>The output stream. </td></tr>
+    <tr><td class="paramname">summary</td><td>The summary statistics to print. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The output stream. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                                                            {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">auto</span> precision = std::cout.precision() ;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">const</span> std::string key = <a class="code" href="../../db/d8c/namespaceMyBLAS_1_1Solver.html#aa2a2cebe934b73b2c235dfcbdecb965d">Solver::TypeKey</a>(<a class="code" href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">solution</a>.method);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(2 + <span class="keyword">static_cast&lt;</span>std::streamsize<span class="keyword">&gt;</span>(10));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        os &lt;&lt; std::setprecision(2) &lt;&lt; std::setw(width) &lt;&lt; std::setfill(<span class="charliteral">&#39; &#39;</span>) &lt;&lt; std::scientific;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: Converged       : &quot;</span> &lt;&lt; (<a class="code" href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">solution</a>.converged ? <span class="stringliteral">&quot;Yes&quot;</span> : <span class="stringliteral">&quot;No&quot;</span>)&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: Iterations      : &quot;</span> &lt;&lt; <a class="code" href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">solution</a>.iterations&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;:::::: Iterative Error : &quot;</span> &lt;&lt; <a class="code" href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">solution</a>.iterative_error&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        os &lt;&lt; std::setprecision(static_cast&lt;int&gt;(precision));</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="ttc" id="anamespaceMyBLAS_1_1Solver_html_aa2a2cebe934b73b2c235dfcbdecb965d"><div class="ttname"><a href="../../db/d8c/namespaceMyBLAS_1_1Solver.html#aa2a2cebe934b73b2c235dfcbdecb965d">MyBLAS::Solver::TypeKey</a></div><div class="ttdeci">const char * TypeKey(const Type &amp;value)</div><div class="ttdoc">Function that returns the key of the type of the given value.</div><div class="ttdef"><b>Definition:</b> LinearSolver.h:37</div></div>
+<div class="ttc" id="anamespacepostprocess_html_a31f3d978d6d674dbfa1d7a5ec9aefb2a"><div class="ttname"><a href="../../d3/d3b/namespacepostprocess.html#a31f3d978d6d674dbfa1d7a5ec9aefb2a">postprocess.solution</a></div><div class="ttdeci">solution</div><div class="ttdef"><b>Definition:</b> postprocess.py:25</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <h2 class="groupheader">Field Documentation</h2>
 <a id="a0eed004d383f51db2aa8819bcda97e9b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0eed004d383f51db2aa8819bcda97e9b">&#9670;&nbsp;</a></span>converged</h2>
@@ -369,7 +488,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00243">MyRelaxationMethod::applyP2SOR()</a>, <a class="el" href="../../#l00054">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00187">MyRelaxationMethod::applyPSOR()</a>, <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00138">MyRelaxationMethod::applySORBlockParallel()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySORSerial()</a>, and <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00036">MyRelaxationMethod::applyConjugateGradient()</a>, <a class="el" href="../../#l00243">MyRelaxationMethod::applyP2SOR()</a>, <a class="el" href="../../#l00054">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00187">MyRelaxationMethod::applyPSOR()</a>, <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00138">MyRelaxationMethod::applySORBlockParallel()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySORSerial()</a>, and <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>.</p>
 
 </div>
 </div>
@@ -387,7 +506,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00243">MyRelaxationMethod::applyP2SOR()</a>, <a class="el" href="../../#l00054">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00187">MyRelaxationMethod::applyPSOR()</a>, <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00138">MyRelaxationMethod::applySORBlockParallel()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySORSerial()</a>, and <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00036">MyRelaxationMethod::applyConjugateGradient()</a>, <a class="el" href="../../#l00243">MyRelaxationMethod::applyP2SOR()</a>, <a class="el" href="../../#l00054">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00187">MyRelaxationMethod::applyPSOR()</a>, <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00138">MyRelaxationMethod::applySORBlockParallel()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySORSerial()</a>, and <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>.</p>
 
 </div>
 </div>
@@ -405,7 +524,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00243">MyRelaxationMethod::applyP2SOR()</a>, <a class="el" href="../../#l00054">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00187">MyRelaxationMethod::applyPSOR()</a>, <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00138">MyRelaxationMethod::applySORBlockParallel()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySORSerial()</a>, and <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00036">MyRelaxationMethod::applyConjugateGradient()</a>, <a class="el" href="../../#l00243">MyRelaxationMethod::applyP2SOR()</a>, <a class="el" href="../../#l00054">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00187">MyRelaxationMethod::applyPSOR()</a>, <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00138">MyRelaxationMethod::applySORBlockParallel()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySORSerial()</a>, and <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>.</p>
 
 </div>
 </div>
@@ -439,7 +558,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00281">MyBLAS::LUP::applyLUP()</a>, <a class="el" href="../../#l00243">MyRelaxationMethod::applyP2SOR()</a>, <a class="el" href="../../#l00054">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00187">MyRelaxationMethod::applyPSOR()</a>, <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00138">MyRelaxationMethod::applySORBlockParallel()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySORSerial()</a>, and <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00036">MyRelaxationMethod::applyConjugateGradient()</a>, <a class="el" href="../../#l00281">MyBLAS::LUP::applyLUP()</a>, <a class="el" href="../../#l00243">MyRelaxationMethod::applyP2SOR()</a>, <a class="el" href="../../#l00054">MyRelaxationMethod::applyPointJacobi()</a>, <a class="el" href="../../#l00187">MyRelaxationMethod::applyPSOR()</a>, <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00138">MyRelaxationMethod::applySORBlockParallel()</a>, <a class="el" href="../../#l00036">MyRelaxationMethod::applySORSerial()</a>, and <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>.</p>
 
 </div>
 </div>
