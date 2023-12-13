@@ -20,9 +20,9 @@
 #include "math/blas/matrix/Matrix.h"
 #include "math/blas/vector/Vector.h"
 
-#include "math/LinearSolver.h"
+#include "blas/solver/LinearSolver.h"
 #include "math/blas/Constants.h"
-#include "math/blas/Stats.h"
+#include "solver/LinearSolverParams.h"
 
 /**
  * @brief A structure to hold the input parameters for the relaxation method.
@@ -30,86 +30,28 @@
  * This structure contains a size_t variable 'n' and a string 'outputJSON'.
  */
 typedef struct Input {
-    /**
-     * @brief The default constructor for the Input struct
-     */
-    Input() = default;
+    std::set<MyBLAS::Solver::Type> methods = {};
+    MyBLAS::Solver::Parameters<long double> input;
+    MyBLAS::Vector<long double> known_solution;
 
-    /**
-     * @brief The size of the input vector and matrix.
-     */
-    size_t n = 0;
-
-    /**
-     * @brief The maximum number of iterations to perform, 0 by default.
-     */
-    size_t max_iterations = 0;
-
-    /**
-     * @brief The stopping criterion, i.e. threshold, 1e-4 by default.
-     */
-    long double threshold = 1e-4;
-
-    /**
-     * @brief The constants matrix A
-     */
-    MyBLAS::Matrix<MyBLAS::NumericType> coefficients{};
-
-    /**
-     * @brief The coefficients vector b
-     */
-    MyBLAS::Vector<MyBLAS::NumericType> constants{};
-
-    /**
-     * @brief The output file name in JSON format.
-     *
-     * This string variable holds the name of the output file where the results will be stored in JSON format.
-     */
-    std::string outputJSON;
-    /**
-     * @brief Overloaded stream insertion operator for the Input structure.
-     *
-     * This function allows the Input structure to be outputted to an ostream object in a formatted manner.
-     *
-     * @param os The ostream object where the Input structure will be outputted.
-     * @param input The Input structure that will be outputted.
-     * @return The ostream object with the Input structure outputted to it.
-     */
-    friend std::ostream& operator<<(std::ostream& os, const Input& input) {
-        os << "n: " << input.n
-           << "k: " << input.max_iterations
-           << "e: " << input.threshold
-           << ", outputJSON: " << input.outputJSON;
-        return os;
-    }
     /**
      * @brief Converts the input parameters to a JSON object.
      *
      * @param jsonMap The JSON object to which the input parameters are added.
      */
     void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["n"] = n;
-        jsonMap["stopping-criterion"] = threshold;
-        jsonMap["max-iterations"] = max_iterations;
-        jsonMap["coefficients"] = coefficients.getData();
-        jsonMap["constants"] = constants.getData();
-    }
-
-    /**
-     * @brief Function to serialize the Input structure.
-     *
-     * This function uses the Boost library to serialize the Input structure, allowing it to be saved to a file or
-     * sent over a network.
-     *
-     * @param ar The archive where the serialized data will be stored.
-     * @param version The version of the serialization library.
-     */
-    template<class Archive>
-    void serialize(Archive & ar, const unsigned int version) {
-        ar & BOOST_SERIALIZATION_NVP(threshold);
-        ar & BOOST_SERIALIZATION_NVP(max_iterations);
-        ar & BOOST_SERIALIZATION_NVP(coefficients.getData());
-        ar & BOOST_SERIALIZATION_NVP(constants.getData());
+        jsonMap["threshold"] = input.threshold;
+        jsonMap["order"] = input.n;
+        jsonMap["max-iterations"] = input.max_iterations;
+        jsonMap["coefficients"] = input.coefficients.getData();
+        jsonMap["constants"] = input.constants.getData();
+        jsonMap["known-solution"] = known_solution.getData();
+        jsonMap["methods"] = [this]() -> std::vector<std::string> {
+            std::vector<std::string> result;
+            std::transform(methods.begin(), methods.end(), std::back_inserter(result),
+                           [](MyBLAS::Solver::Type method) { return MyBLAS::Solver::TypeKey(method); });
+            return result;
+        }();
     }
 } OutLab10Inputs;
 
@@ -123,7 +65,7 @@ typedef struct Output {
      * @brief The computed values
      */
 
-    MyLinearSolvingMethod::Solution<long double> solution;
+    MyBLAS::Solver::Solution<long double> solution;
     /**
      * @brief The summary of the benchmark runs
      * This structure holds the summary statistics of computation runtime, including the mean, standard deviation, etc.

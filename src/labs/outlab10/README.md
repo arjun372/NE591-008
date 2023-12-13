@@ -1,8 +1,8 @@
 <div style="display: none">
-\page OutLab 10: Preconditioned Conjugate Gradient Method
+\page OutLab 10: Conjugate Gradient Method
 </div>
 
-OutLab 10: Preconditioned Conjugate Gradient Method
+OutLab 10: Conjugate Gradient Method
 
 File based I/O is supported using JSON files.
 
@@ -38,16 +38,16 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export INPUT_FILE=./src/labs/outlab10/examples/outlab10_input.json
 export OUTPUT_FILE=./src/labs/outlab10/examples/outlab10_output.json
 
 ## Execute
-./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE
+./build/bin/$BUILD_TARGET -g -o $OUTPUT_FILE
 ```
 
 ### Parameters
 
 - `-t [ --threshold ] arg     `: iterative convergence threshold [𝜀 > 0]
+- `-g [ --generate ]`: Generate A,b ignoring input-json
 - `-k [ --max-iterations ] arg`: maximum number of iterations [n ∈ ℕ]
 - `-i [ --input-json ] arg`: input JSON containing A, and b
 - `-o [ --output-json ] arg`: path for the output JSON
@@ -65,19 +65,7 @@ The expected input json file requires the following fields:
 
 ### Sample Parameters File
 
-```json
-{
-   "max-iterations": 500,
-   "stopping-criterion": 1e-8,
-   "coefficients": [
-      [ 36.1, -9.00, -9.00,  0.00],
-      [-9.00,  36.1,  0.00, -9.00],
-      [-9.00,  0.00,  36.1, -9.00],
-      [ 0.00, -9.00, -9.00,  36.1]
-   ],
-   "constants": [1.00, 1.00, 1.00, 1.00]
-}
-```
+No input file is needed. You can generate a random matrix using the `-g` or `--generate` flag.
 
 ## Output Format
 
@@ -87,64 +75,53 @@ The output is written to a JSON file as well.
 
 ```json
 {
-   "inputs": {
-      "coefficients": [
-         [
-            36.1,
-            -9.0,
-            -9.0,
-            0.0
-         ],
-         [
-            -9.0,
-            36.1,
-            0.0,
-            -9.0
-         ],
-         [
-            -9.0,
-            0.0,
-            36.1,
-            -9.0
-         ],
-         [
-            0.0,
-            -9.0,
-            -9.0,
-            36.1
-         ]
-      ],
-      "constants": [
-         1.0,
-         1.0,
-         1.0,
-         1.0
-      ],
-      "max-iterations": 500,
-      "n": 4,
-      "stopping-criterion": 1e-08
-   },
    "outputs": {
-      "Cy": [
-         2.0,
-         2.0,
-         2.0,
-         2.0
-      ],
-      "benchmark": {
-         "mean": 2821.2421,
-         "p5th": 2757.0,
-         "p95th": 2793.0,
-         "samples": 10000
+      "CG": {
+         "benchmark": {
+            "mean": 1482.32,
+            "p5th": 1120.9,
+            "p95th": 1308.8,
+            "samples": 100
+         },
+         "solution": {
+            "converged": true,
+            "iterations": {
+               "actual": 2
+            },
+            "iterative-error": {
+               "actual": 2.4977230927471127e-05
+            },
+            "solution": [
+               0.0,
+               0.0,
+               0.0,
+               0.0
+            ]
+         }
       },
-      "y + z": [
-         3.0,
-         3.0,
-         3.0,
-         3.0
-      ],
-      "y^T•(A•z)": 144.8,
-      "y^T•z": 8.0
+      "SOR": {
+         "benchmark": {
+            "mean": 2334.67,
+            "p5th": 1895.95,
+            "p95th": 1987.15,
+            "samples": 100
+         },
+         "solution": {
+            "converged": true,
+            "iterations": {
+               "actual": 4
+            },
+            "iterative-error": {
+               "actual": 9.662710781447525e-05
+            },
+            "solution": [
+               4.689765580182186,
+               -4.505558137202693,
+               1.0297059892341907,
+               2.960941254070212
+            ]
+         }
+      }
    }
 }
 ```
@@ -154,7 +131,7 @@ The output is written to a JSON file as well.
 The following is an example of the program's output:
 
 ```shell
-NE591: OutLab 10: Matrix-Vector Operations Setup
+NE591: OutLab 10: Conjugate Gradient Method
 Arjun Earthperson
 10/27/2023
 --------------------------------------------------------------------------------
@@ -165,11 +142,13 @@ boost: 106600 /usr/lib64/libboost_program_options.so;/usr/lib64/libboost_seriali
 Parameters:
 
 Solver Options:
-  -e [ --stopping-criterion ]      = stopping criterion [+ve R]
-  -k [ --max-iterations ]          = maximum iterations [k ∈ ℕ]
+  -t [ --threshold ] arg           = convergence threshold [𝜀 > 0]
+  -k [ --max-iterations ] arg      = maximum iterations [n ∈ ℕ]
+  -n [ --order ] arg               = order of the square matrix [n ∈ ℕ]
 
 File I/O Options:
-  -i [ --input-json ] arg          = input JSON containing n
+  -i [ --input-json ] arg          = input JSON containing A, and b
+  -g [ --generate ]                = Generate A,b ignoring input-json
   -o [ --output-json ] arg         = path for the output JSON
 
 Performance Benchmarking:
@@ -185,43 +164,54 @@ General options:
 --------------------------------------------------------------------------------
 			Precision in digits:  default: 6, maximum: 19, current: 15
 --------------------------------------------------------------------------------
+Error: No output JSON filepath provided.
+
+Enter output file path (file extension is .json): ../results_n_4.json
+../results_n_4.json
+Enter a value for order:4
+4
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
-	Input JSON,              i: ../outlab10_input.json
-	Output JSON,             o: ../outlab10_output.json
-	Stopping Criterion,      e: 1e-08
-	Maximum Iterations,      k: 500
---------------------------------------------------------------------------------
+	Generate A,b,            g: Yes
+	Input JSON (for A, b),   i: [IGNORED] None provided
+	Output JSON (for x),     o: ../results_n_4.json
+	Convergence Threshold,   𝜀: 0.0001
+	Max iterations,          k: 5000
+	Matrix order,            n: 4--------------------------------------------------------------------------------
 Input coefficients matrix A is square.
-Input coefficients matrix A is symmetric.
+Warning: Input coefficients matrix A is not symmetric.
+Input coefficients matrix A is diagonally dominant.
 Input coefficients matrix A is positive definite.
---------------------------------------------------------------------------------
-Coefficient Matrix (A):
---------------------------------------------------------------------------------
-    3.610000000000000e+01   -9.000000000000000e+00   -9.000000000000000e+00    0.000000000000000e+00
-   -9.000000000000000e+00    3.610000000000000e+01    0.000000000000000e+00   -9.000000000000000e+00
-   -9.000000000000000e+00    0.000000000000000e+00    3.610000000000000e+01   -9.000000000000000e+00
-    0.000000000000000e+00   -9.000000000000000e+00   -9.000000000000000e+00    3.610000000000000e+01
---------------------------------------------------------------------------------
-Constants Vector (b):
---------------------------------------------------------------------------------
-    1.000000000000000e+00    1.000000000000000e+00    1.000000000000000e+00    1.000000000000000e+00
 :::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
-[10000/10000] : Matrix-Vector Operations
+[100/100] : CG Method
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::: SUM: 2.82e+07 :::::::: VARIANCE: 1.04e+06 :::::::: MEDIAN: 2.77e+03 :::::
+:::::: SUM: 1.48e+05 :::::::: VARIANCE: 9.30e+06 :::::::: MEDIAN: 1.14e+03 :::::
 :::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
-:::::: {2.74e+03, 3.98e+04} : (2.82e+03 ± 1.02e+03) : [2.76e+03, 2.79e+03] :::::
-:::::: Estimated maximum allocated memory [bytes]: 760 ::::::::::::::::::::::::
+:::::: {1.11e+03, 3.17e+04} : (1.48e+03 ± 3.05e+03) : [1.12e+03, 1.31e+03] :::::
+:::::: Estimated maximum allocated memory [bytes]: 0 ::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-[    Cy   ]:     2.000000000000000e+00    2.000000000000000e+00    2.000000000000000e+00    2.000000000000000e+00
-[  y + z  ]:     3.000000000000000e+00    3.000000000000000e+00    3.000000000000000e+00    3.000000000000000e+00
-[  y^T•z  ]: 8.000000000000000e+00
-[y^T•(A•z)]: 1.448000000000000e+02
+:::::: Converged       : Yes
+:::::: Iterations      : 2
+:::::: Iterative Error : 2.50e-05
 
-JSON data has been written to ../outlab10_output.json
+--------------------------------------------------------------------------------
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[100/100] : SOR Method
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 2.33e+05 :::::::: VARIANCE: 1.58e+07 :::::::: MEDIAN: 1.92e+03 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {1.89e+03, 4.19e+04} : (2.33e+03 ± 3.98e+03) : [1.90e+03, 1.99e+03] :::::
+:::::: Estimated maximum allocated memory [bytes]: 0 ::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::: Converged       : Yes
+:::::: Iterations      : 4
+:::::: Iterative Error : 9.66e-05
+
+--------------------------------------------------------------------------------
+JSON data has been written to ../results_n_4.json
 
 Process finished with exit code 0
 ```

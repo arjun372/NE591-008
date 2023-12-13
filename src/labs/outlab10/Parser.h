@@ -52,12 +52,14 @@ class Parser : public CommandLine<OutLab10Inputs> {
 
         boost::program_options::options_description solverOptions("Solver Options");
         solverOptions.add_options()
-            ("stopping-criterion,e", "= stopping criterion [+ve R]")
-            ("max-iterations,k", "= maximum iterations [k ∈ ℕ]");
+            ("threshold,t", boost::program_options::value<long double>(), "= convergence threshold [𝜀 > 0]")(
+                "max-iterations,k", boost::program_options::value<long double>(), "= maximum iterations [n ∈ ℕ]")(
+                "order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]");
 
         boost::program_options::options_description fileOptions("File I/O Options");
         fileOptions.add_options()(
-            "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing n")(
+            "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing A, and b")(
+            "generate,g", "= Generate A,b ignoring input-json")(
             "output-json,o", boost::program_options::value<std::string>(), "= path for the output JSON");
 
         values.add(solverOptions);
@@ -75,10 +77,17 @@ class Parser : public CommandLine<OutLab10Inputs> {
         CommandLine::printLine();
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
-        std::cout << "\tInput JSON,              i: " << vm["input-json"].as<std::string>() << std::endl;
-        std::cout << "\tOutput JSON,             o: " << vm["output-json"].as<std::string>() << std::endl;
-        std::cout << "\tStopping Criterion,      e: " << vm["stopping-criterion"].as<long double>() << std::endl;
-        std::cout << "\tMaximum Iterations,      k: " << vm["max-iterations"].as<long double>() << std::endl;
+        const bool gen = vm.count("generate");
+        const auto inputJson = vm.count("input-json") ? vm["input-json"].as<std::string>() : "None provided";
+        std::cout << "\tGenerate A,b,            g: " << (gen ? "Yes" : "No") << "\n";
+        std::cout << "\tInput JSON (for A, b),   i: " << (gen ? "[IGNORED] " : " ") << inputJson << "\n";
+        std::cout << "\tOutput JSON (for x),     o: " << vm["output-json"].as<std::string>() << "\n";
+        std::cout << "\tConvergence Threshold,   𝜀: " << vm["threshold"].as<long double>() << "\n";
+        std::cout << "\tMax iterations,          k: " << static_cast<size_t>(vm["max-iterations"].as<long double>())
+                  << "\n";
+        std::cout << "\tMatrix order,            n: "
+                  << (vm.count("order") ? std::to_string(static_cast<size_t>(vm["order"].as<long double>()))
+                                        : "None provided, will be inferred from input JSON");
         CommandLine::printLine();
     }
 
@@ -98,18 +107,21 @@ class Parser : public CommandLine<OutLab10Inputs> {
 
         std::string input;
 
-        // Check if input file path is provided
-        if (!map.count("input-json") || map["input-json"].empty() ||
-            !doesFileExist(map["input-json"].as<std::string>())) {
-            while (!map.count("input-json") || map["input-json"].empty() ||
-                   !doesFileExist(map["input-json"].as<std::string>())) {
-                std::cerr << "Error: No input JSON filepath provided.\n" << std::endl;
-                std::cout << "Enter input file path (file extension is .json): ";
-                std::cin >> input;
-                try {
-                    replace(map, "input-json", input);
-                } catch (const std::exception &) {
-                    continue;
+        // only if not generating already
+        if (!map.count("generate")) {
+            // Check if input file path is provided
+            if (!map.count("input-json") || map["input-json"].empty() ||
+                !doesFileExist(map["input-json"].as<std::string>())) {
+                while (!map.count("input-json") || map["input-json"].empty() ||
+                       !doesFileExist(map["input-json"].as<std::string>())) {
+                    std::cerr << "Error: No input JSON filepath provided.\n" << std::endl;
+                    std::cout << "Enter input file path (file extension is .json): ";
+                    std::cin >> input;
+                    try {
+                        replace(map, "input-json", input);
+                    } catch (const std::exception &) {
+                        continue;
+                    }
                 }
             }
         }
@@ -140,14 +152,21 @@ class Parser : public CommandLine<OutLab10Inputs> {
 
         std::vector<std::function<bool(long double)>> checks;
 
-        // add checks for parameters e, k
-        checks.clear();
-        checks.emplace_back([](long double value) { return failsNaturalNumberCheck(value); });
-        performChecksAndUpdateInput<long double>("max-iterations", inputMap, map, checks);
-
+        // add checks for parameters 𝜀 and k
         checks.clear();
         checks.emplace_back([](long double value) { return failsPositiveNumberCheck(value); });
-        performChecksAndUpdateInput<long double>("stopping-criterion", inputMap, map, checks);
+        performChecksAndUpdateInput<long double>("threshold", inputMap, map, checks);
+
+        checks.emplace_back([](long double value) { return failsWholeNumberCheck(value); });
+        performChecksAndUpdateInput<long double>("max-iterations", inputMap, map, checks);
+
+        if (map.count("order")) {
+            performChecksAndUpdateInput<long double>("order", inputMap, map, checks);
+        } else if (map.count("generate")) {
+            checks.clear();
+            checks.emplace_back([](long double value) { return failsNaturalNumberCheck(value); });
+            performChecksAndUpdateInput<long double>("order", inputMap, map, checks);
+        }
     }
 
     /**
@@ -157,65 +176,85 @@ class Parser : public CommandLine<OutLab10Inputs> {
 
         // first, read the input file into a json map
         nlohmann::json inputMap;
-        readJSON(values["input-json"].as<std::string>(), inputMap);
+        if (values.count("input-json")) {
+            readJSON(values["input-json"].as<std::string>(), inputMap);
+        }
+        const bool generate = values.count("generate");
+        if (generate) {
+            if (!values.count("order")) {
+                std::cerr << "Error: User did not provide matrix order n, aborting\n";
+                exit(-1);
+            }
+            auto n = static_cast<size_t>(values["order"].as<long double>());
+            input.input.n = n;
+            MyBLAS::System::Circuit(n, input.input.coefficients, input.input.constants, input.known_solution);
+        } else {
+            // read the constants
+            input.input.constants = MyBLAS::Vector(MyBLAS::Vector(std::vector<long double>(inputMap["constants"])));
+            // read the coefficient matrix
+            input.input.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
+        }
 
-        // read the output json path
-        // TODO:: this should be wrapped in some path validated file write checker
-        input.outputJSON = values["output-json"].as<std::string>();
-
-        // read the constants
-        MyBLAS::Vector<long double> constants = MyBLAS::Vector(std::vector<long double>(inputMap["constants"]));
-        input.constants = MyBLAS::Vector(constants);
-
-        // read the coefficient matrix
-        input.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
-
-        if (!MyBLAS::isSquareMatrix(input.coefficients)) {
+        if (!MyBLAS::isSquareMatrix(input.input.coefficients)) {
             std::cerr << "Error: Input coefficients matrix A not square, aborting.\n";
             exit(-1);
+        }
+
+        if (input.input.coefficients.getRows() != input.input.constants.size()) {
+            std::cerr << "Error: Input constants vector not order n, aborting.\n";
+            exit(-1);
+        }
+
+        if (!generate) {
+            // set input order n
+            const auto orderFromInputMatrixDimensions = input.input.coefficients.getRows();
+            if (!values.count("order")) {
+                std::cout << "Reading matrix order (n) from input matrix dimensions: " << orderFromInputMatrixDimensions
+                          << "\n";
+                input.input.n = orderFromInputMatrixDimensions;
+            } else { // user provided some value for n, validate against input dimensions
+                const auto orderFromUser = static_cast<size_t>(values["order"].as<long double>());
+                input.input.n =
+                    orderFromUser > orderFromInputMatrixDimensions ? orderFromInputMatrixDimensions : orderFromUser;
+                if (orderFromUser > orderFromInputMatrixDimensions) {
+                    std::cerr << "Warning: Matrix order (n) is larger than input matrix, defaulting to lower value\n";
+                }
+            }
+        }
+
+        input.input.threshold = values["threshold"].as<long double>();
+        input.input.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
+
+        if (!MyBLAS::isSquareMatrix(input.input.coefficients)) {
+            std::cerr << "Warning: Input coefficients matrix A not square.\n";
         } else if (!values.count("quiet")) {
             std::cout << "Input coefficients matrix A is square.\n";
         }
 
-        if (!MyBLAS::isSymmetricMatrix(input.coefficients)) {
+        if (!MyBLAS::isSymmetricMatrix(input.input.coefficients)) {
             std::cerr << "Warning: Input coefficients matrix A is not symmetric.\n";
         } else if (!values.count("quiet")) {
             std::cout << "Input coefficients matrix A is symmetric.\n";
         }
 
-        if (!MyBLAS::isDiagonallyDominant(input.coefficients)) {
+        if (!MyBLAS::isDiagonallyDominant(input.input.coefficients)) {
             std::cerr << "Warning: Input coefficients matrix A is not diagonally dominant.\n";
         } else if (!values.count("quiet")) {
             std::cout << "Input coefficients matrix A is diagonally dominant.\n";
         }
 
-        if (!MyBLAS::isPositiveDefiniteMatrix(input.coefficients)) {
+        if (!MyBLAS::isPositiveDefiniteMatrix(input.input.coefficients)) {
             std::cerr << "Warning: Input coefficients matrix A is not positive definite.\n";
         } else if (!values.count("quiet")) {
             std::cout << "Input coefficients matrix A is positive definite.\n";
         }
 
-        if (input.coefficients.getRows() != input.constants.size()) {
+        if (input.input.coefficients.getRows() != input.input.constants.size()) {
             std::cerr << "Error: Input constants vector 'b' not order n, aborting.\n";
             exit(-1);
         }
 
-        input.n = input.coefficients.getRows();
-        input.threshold = values["stopping-criterion"].as<long double>();
-        input.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
-
-        // print the matrices since we are in verbose mode.
-        if (!values.count("quiet")) {
-            const auto precision = getCurrentPrecision();
-            printLine();
-            std::cout << "Coefficient Matrix (A):\n";
-            printLine();
-            std::cout << std::setprecision(static_cast<int>(precision)) << input.coefficients;
-            printLine();
-            std::cout << "Constants Vector (b):\n";
-            printLine();
-            std::cout << std::setprecision(static_cast<int>(precision)) << input.constants;
-        }
+        input.input.n = input.input.coefficients.getRows();
     }
 };
 

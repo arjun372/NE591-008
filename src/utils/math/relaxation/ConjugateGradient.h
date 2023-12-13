@@ -19,8 +19,8 @@
 
 #include "math/blas/Ops.h"
 
-#include "math/LinearSolver.h"
 #include "math/relaxation/RelaxationMethods.h"
+#include "blas/solver/LinearSolver.h"
 
 /**
  * @namespace MyRelaxationMethod
@@ -32,44 +32,51 @@ namespace MyRelaxationMethod {
 #include <limits>
 #include <stdexcept>
 
-//template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
-//MyLinearSolvingMethod::Solution<T> applyConjugateGradient(const MatrixType<T> &A, const VectorType<T> &b, const size_t max_iterations, const T tolerance) {
-//
-//    const size_t n = A.getRows();                  // Get the number of rows in the matrix A
-//    MyLinearSolvingMethod::Solution<T> results(n); // Initialize the results object with the size of the matrix
-//
-//    const T tolerance_squared = std::pow(tolerance, static_cast<T>(2)); // Calculate the square of the tolerance
-//    T iterative_error_squared = std::numeric_limits<T>::max(); // Initialize the squared error as the maximum
-//
-//    VectorType<T> new_x(n, 0); // Initialize a new vector for the updated solution
-//
-//    VectorType<T> residual_vector = b - (A * results.x); // Initial residual
-//    VectorType<T> search_direction = residual_vector;    // Initial search direction
-//    T old_residual = residual_vector * residual_vector;  // Dot product of residual with itself
-//    T new_residual = 0, alpha = 0;
-//
-//    for (results.iterations = 0; results.iterations < max_iterations; ++(results.iterations)) {
-//        VectorType<T> Ap = A * search_direction;
-//        alpha = old_residual / (search_direction * Ap);
-//        results.x = results.x + (search_direction * alpha); // Update the solution vector
-//        residual_vector = residual_vector - (Ap * alpha);   // Update the residual
-//
-//        new_residual = residual_vector * residual_vector;   // New dot product of residual with itself
-//
-//        iterative_error_squared = MyBLAS::L2(new_x, results.x, n);
-//
-//        if (new_residual < tolerance_squared) {
-//            results.converged = true;
-//            break; // Convergence achieved
-//        }
-//
-//        p = r + (new_residual / old_residual) * p;       // Update the search direction
-//        old_residual = new_residual;                     // Update the dot product for the next iteration
-//    }
-//
-//    results.iterative_error = std::sqrt(new_residual); // Final error is the L2 norm of the residual
-//    return results;
-//}
+template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
+MyBLAS::Solver::Solution<T> applyConjugateGradient(const MatrixType<T> &A, const VectorType<T> &b, const size_t max_iterations, const T tolerance) {
+
+    const size_t n = A.getRows();                  // Get the number of rows in the matrix A
+    MyBLAS::Solver::Solution<T> results(n); // Initialize the results object with the size of the matrix
+
+    T iterative_error = std::numeric_limits<T>::max(); // Initialize the squared error as the maximum
+
+    VectorType<T> x(n, -10);                         // Initialize guess
+    VectorType<T> b_prime = (A * results.x);
+    VectorType<T> r = b - b_prime;                 // Initial residual
+    VectorType<T> p = r;                          // Initial search direction
+
+    // these are all loop local
+    size_t iterations;
+    T r_dot, pAp, alpha, r_dot_1, betaK;
+    VectorType<T> Ap, alphaP, betaKp, alphaAp;
+    for (iterations = 0; iterations < max_iterations; iterations++) {
+        r_dot = r * r;
+        Ap = A * p;
+        pAp = p * Ap;
+        alpha = r_dot / pAp;
+        alphaP = alpha * p;
+
+        x = x + alphaP;
+
+        alphaAp = alpha * Ap;
+        iterative_error = MyBLAS::L2(r, alphaAp);
+        if(iterative_error < tolerance) {
+            results.converged = true;
+            break;
+        }
+
+        r = r - alphaAp;
+
+        r_dot_1 = r * r;
+        betaK = r_dot_1 / r_dot;
+        betaKp = betaK * p;
+        p = r + betaKp;
+    }
+
+    results.iterative_error = iterative_error;
+    results.iterations = iterations;
+    return results;
+}
 
 // Function prototypes
 //double dot_product(const std::vector<double>& v1, const std::vector<double>& v2);
@@ -168,53 +175,53 @@ std::vector<T> scalar_vector_multiply(const std::vector<T>& v, T alpha) {
     return result;
 }
 
-template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
-MyLinearSolvingMethod::Solution<T> applyConjugateGradient(MatrixType<T> &A, VectorType<T> &b, const size_t max_iterations, const T tolerance) {
-
-    std::vector<T> x(b.size());
-    std::vector<std::vector<T>> matrix(b.size());
-
-    for(size_t row = 0; row < A.getRows(); row++) {
-        matrix[row] = A[row];
-    }
-    std::vector<T> result(b.size(), -10);
-
-    std::vector<T> r = vector_subtract(b.getData(), matrix_vector_multiply(A.getData(), x));
-    std::vector<T> p = r;
-    T rsold = dot_product(r, r);
-
-    std::size_t i;
-    for (i = 0; i < max_iterations; ++i) {
-        std::vector<T> Ap = matrix_vector_multiply(A.getData(), p);
-        T alpha = rsold / dot_product(p, Ap);
-        x = vector_add(x, p, alpha);
-        r = vector_subtract(r, scalar_vector_multiply(Ap, alpha));
-        T rsnew = dot_product(r, r);
-
-        if (sqrt(rsnew) < tolerance)
-            break;
-
-        p = vector_add(r, p, rsnew / rsold);
-        rsold = rsnew;
-    }
-    MyLinearSolvingMethod::Solution<T> solution;
-    solution.iterative_error = sqrt(dot_product(r, r));
-    solution.iterations = i;
-    solution.converged = i < max_iterations;
-    solution.x = VectorType<T>(p.size(), 0);
-    for(size_t idx = 0; idx < p.size(); idx++) {
-        x[idx] = p[idx];
-    }
-    return solution;
-}
 //template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
-//MyLinearSolvingMethod::Solution<T> applyConjugateGradient(const MatrixType<T> &A, const VectorType<T> &b, const size_t max_iterations, const T tolerance) {
+//MyBLAS::Solver::Solution<T> applyConjugateGradient(MatrixType<T> &A, VectorType<T> &b, const size_t max_iterations, const T tolerance) {
+//
+//    std::vector<T> x(b.size());
+//    std::vector<std::vector<T>> matrix(b.size());
+//    MyBLAS::Solver::Solution<T> solution;
+//
+//    for(size_t row = 0; row < A.getRows(); row++) {
+//        matrix[row] = A[row];
+//    }
+//    std::vector<T> result(b.size(), -10);
+//
+//    std::vector<T> r = vector_subtract(b.getData(), matrix_vector_multiply(A.getData(), x));
+//    std::vector<T> p = r;
+//    T rsold = dot_product(r, r);
+//
+//    for (solution.iterations = 0; solution.iterations < max_iterations; ++(solution.iterations)) {
+//        std::cout<<rsold<<": "<<solution.iterations<<" of "<<max_iterations<<std::endl;
+//        std::vector<T> Ap = matrix_vector_multiply(A.getData(), p);
+//        T alpha = rsold / dot_product(p, Ap);
+//        x = vector_add(x, p, alpha);
+//        r = vector_subtract(r, scalar_vector_multiply(Ap, alpha));
+//        T rsnew = dot_product(r, r);
+//
+//        if (sqrt(static_cast<T>(rsnew)) < tolerance) {
+//            solution.converged = true;
+//            break;
+//        }
+//        p = vector_add(r, p, rsnew / rsold);
+//        rsold = rsnew;
+//    }
+//
+//    solution.iterative_error = sqrt(static_cast<T>(dot_product(r, r)));
+//    solution.x = VectorType<T>(p.size(), 0);
+//    for(size_t idx = 0; idx < p.size(); idx++) {
+//        x[idx] = p[idx];
+//    }
+//    return solution;
+//}
+//template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
+//MyBLAS::Solver::Solution<T> applyConjugateGradient(const MatrixType<T> &A, const VectorType<T> &b, const size_t max_iterations, const T tolerance) {
 //    const size_t n = A.getRows(); // Assuming A is a square matrix
 //    if (A.getCols() != n) {
 //        throw std::invalid_argument("Matrix A must be square.");
 //    }
 //
-//    MyLinearSolvingMethod::Solution<T> results(n); // Initialize the results object with the size of the matrix
+//    MyBLAS::Solver::Solution<T> results(n); // Initialize the results object with the size of the matrix
 //
 //    VectorType<T> r = b - A * results.x; // Initial residual
 //    VectorType<T> p = r;                 // Initial search direction

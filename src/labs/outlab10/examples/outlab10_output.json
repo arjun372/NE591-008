@@ -1,61 +1,50 @@
 {
-  "inputs": {
-    "coefficients": [
-      [
-        36.1,
-        -9.0,
-        -9.0,
-        0.0
-      ],
-      [
-        -9.0,
-        36.1,
-        0.0,
-        -9.0
-      ],
-      [
-        -9.0,
-        0.0,
-        36.1,
-        -9.0
-      ],
-      [
-        0.0,
-        -9.0,
-        -9.0,
-        36.1
-      ]
-    ],
-    "constants": [
-      1.0,
-      1.0,
-      1.0,
-      1.0
-    ],
-    "max-iterations": 500,
-    "n": 4,
-    "stopping-criterion": 1e-08
-  },
   "outputs": {
-    "Cy": [
-      2.0,
-      2.0,
-      2.0,
-      2.0
-    ],
-    "benchmark": {
-      "mean": 2821.2421,
-      "p5th": 2757.0,
-      "p95th": 2793.0,
-      "samples": 10000
+    "CG": {
+      "benchmark": {
+        "mean": 1482.32,
+        "p5th": 1120.9,
+        "p95th": 1308.8,
+        "samples": 100
+      },
+      "solution": {
+        "converged": true,
+        "iterations": {
+          "actual": 2
+        },
+        "iterative-error": {
+          "actual": 2.4977230927471127e-05
+        },
+        "solution": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
     },
-    "y + z": [
-      3.0,
-      3.0,
-      3.0,
-      3.0
-    ],
-    "y^T•(A•z)": 144.8,
-    "y^T•z": 8.0
+    "SOR": {
+      "benchmark": {
+        "mean": 2334.67,
+        "p5th": 1895.95,
+        "p95th": 1987.15,
+        "samples": 100
+      },
+      "solution": {
+        "converged": true,
+        "iterations": {
+          "actual": 4
+        },
+        "iterative-error": {
+          "actual": 9.662710781447525e-05
+        },
+        "solution": [
+          4.689765580182186,
+          -4.505558137202693,
+          1.0297059892341907,
+          2.960941254070212
+        ]
+      }
+    }
   }
 }

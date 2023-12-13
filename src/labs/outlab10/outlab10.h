@@ -121,15 +121,15 @@ class OutLab10 : public Project<OutLab10Inputs, Parser, OutLab10Outputs> {
         Parser::printLine();
 
         OutLab10Outputs sorResults;
-        Compute::usingSOR(cgResults, inputs);
-        cgResults.toJSON(results["outputs"]["SOR"]);
+        Compute::usingSOR(sorResults, inputs);
+        sorResults.toJSON(results["outputs"]["SOR"]);
         Parser::printLine();
 
         writeJSON(values["output-json"].as<std::string>(), results);
 
         inputs.toJSON(results["inputs"]);
         outputs.toJSON(results["outputs"]);
-        writeJSON(inputs.outputJSON, results);
+//        writeJSON(inputs.outputJSON, results);
     }
 };
 

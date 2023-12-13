@@ -92,7 +92,7 @@ template <typename T> struct Solution {
      */
     friend std::ostream &operator<<(std::ostream &os, const Solution &solution) {
         auto precision = std::cout.precision() ;
-        const std::string key = MyLinearSolvingMethod::TypeKey(solution.method);
+        const std::string key = Solver::TypeKey(solution.method);
         const auto width = static_cast<int>(2 + static_cast<std::streamsize>(10));
         os << std::setprecision(2) << std::setw(width) << std::setfill(' ') << std::scientific;
         os << ":::::: Converged       : " << (solution.converged ? "Yes" : "No")<<std::endl;
