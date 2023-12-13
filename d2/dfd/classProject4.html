@@ -894,7 +894,7 @@ The solution vector 𝜙 will contain the scalar fluxes at each node 𝑖, 𝑗,
 
 6. Output the results: Write the scalar fluxes 𝜙(𝑖,𝑗) for 𝑖 = 1, … , 𝑚 and 𝑗 = 1, … , 𝑛 to an output file.
 </pre><p>This section of the function handles the computation using different methods.</p>
-<p>The methods include LUP Factorization, Point Jacobi, Gauss-Seidel, SOR, SOR Point Jacobi, and SSOR.</p>
+<p>The methods include Point Jacobi and Gauss-Seidel.</p>
 
 <p>Reimplemented from <a class="el" href="../../db/d91/classProject.html#a4640723b4d363a0987576b8de578ede7">Project&lt; SolverInputs, Parser, SolverOutputs &gt;</a>.</p>
 <div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                                                                                              {</div>
@@ -925,101 +925,62 @@ The solution vector 𝜙 will contain the scalar fluxes at each node 𝑖, 𝑗,
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">        /**</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">         * @brief This section of the function handles the computation using different methods.</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">         * @details The methods include LUP Factorization, Point Jacobi, Gauss-Seidel, SOR, SOR Point Jacobi, and SSOR.</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">         * @details The methods include  Point Jacobi and Gauss-Seidel.</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">         */</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        nlohmann::json results;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.toJSON(results[<span class="stringliteral">&quot;inputs&quot;</span>]);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">//        if (inputs.methods.count(MyFactorizationMethod::Type::METHOD_LUP)) {</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">//            SolverOutputs runResults(inputs);</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">//            Compute::usingLUP(runResults, inputs);</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">//            runResults.toJSON(results[&quot;outputs&quot;][MyFactorizationMethod::TypeKey(MyFactorizationMethod::Type::METHOD_LUP)]);</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">//            Parser::printLine();</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">//            std::cout &lt;&lt; &quot;LUP Factorization Results&quot; &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">//            Parser::printLine();</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">//            printResults(runResults);</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">//        }</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keyword">const</span> std::vector&lt;size_t&gt; MAX_THREADS = {1, 4, 8, 16};</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_POINT_JACOBI)) {</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">//            for(auto threads : MAX_THREADS) {</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">//                SolverOutputs runResults(inputs);</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">//                Compute::usingPointJacobi(runResults, inputs, threads);</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">//                runResults.toJSON(results[&quot;outputs&quot;][std::to_string(threads)]);</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">//                Parser::printLine();</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">//                std::cout &lt;&lt; &quot;[N = &quot;&lt;&lt;threads&lt;&lt;&quot;]: Point Jacobi Method Results&quot; &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">//                Parser::printLine();</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">//                printResults(runResults);</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">//            }</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">//        }</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SORPJ)) {</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">//            SolverOutputs runResults(inputs);</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">//            Compute::usingJacobiSOR(runResults, inputs);</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">//            runResults.toJSON(results[&quot;outputs&quot;][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SORPJ)]);</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">//            Parser::printLine();</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">//            std::cout &lt;&lt; &quot;SOR Point Jacobi Method Results&quot; &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">//            Parser::printLine();</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">//            printResults(runResults);</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">//        }</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.methods.count(<a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL</a>)) {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">auto</span> threads : MAX_THREADS) {</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                <a class="code" href="../../df/df1/structOutput.html">SolverOutputs</a> runResults(<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <a class="code" href="../../de/db3/namespaceCompute.html#a242d211ce9bbd59a9619238689816210">Compute::usingGaussSeidel</a>(runResults, <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>, threads);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                runResults.toJSON(results[<span class="stringliteral">&quot;outputs&quot;</span>][<a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3">MyRelaxationMethod::TypeKey</a>(<a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL</a>)][std::to_string(threads)]);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                <a class="code" href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">Parser::printLine</a>();</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;[N = &quot;</span>&lt;&lt;threads&lt;&lt;<span class="stringliteral">&quot;]: Gauss Seidel Method Results&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                <a class="code" href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">Parser::printLine</a>();</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <a class="code" href="../../d2/dfd/classProject4.html#a1c7d185befd8a1c10e3f46619fac1e78">printResults</a>(runResults);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SOR)) {</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">//            SolverOutputs runResults(inputs);</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">//            Compute::usingSOR(runResults, inputs);</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">//            runResults.toJSON(results[&quot;outputs&quot;][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SOR)]);</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">//            Parser::printLine();</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">//            std::cout &lt;&lt; &quot;SOR Method Results&quot; &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">//            Parser::printLine();</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">//            printResults(runResults);</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">//        }</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">//        if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_SSOR)) {</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">//            SolverOutputs runResults(inputs);</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">//            Compute::usingSymmetricSOR(runResults, inputs);</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">//            runResults.toJSON(results[&quot;outputs&quot;][MyRelaxationMethod::TypeKey(MyRelaxationMethod::Type::METHOD_SSOR)]);</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">//            Parser::printLine();</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">//            std::cout &lt;&lt; &quot;Symmetric SOR Method Results&quot; &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">//            Parser::printLine();</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">//            printResults(runResults);</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">//        }</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <a class="code" href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">Parser::printLine</a>();</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="comment">// write output data</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">if</span> (values.count(<span class="stringliteral">&quot;output-results-json&quot;</span>)) {</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="comment">//outputs.toJSON(results[&quot;outputs&quot;]);</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <a class="code" href="../../d7/de4/FileParser_8h.html#abb1a95d027a077ecf097a06ef4a968b6">writeJSON</a>(values[<span class="stringliteral">&quot;output-results-json&quot;</span>].as&lt;std::string&gt;(), results);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        }</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;};</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keyword">const</span> std::vector&lt;size_t&gt; MAX_THREADS = {16, 8, 5, 1};</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.methods.count(<a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f">MyRelaxationMethod::Type::METHOD_POINT_JACOBI</a>)) {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">auto</span> threads : MAX_THREADS) {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <a class="code" href="../../df/df1/structOutput.html">SolverOutputs</a> runResults(<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <a class="code" href="../../de/db3/namespaceCompute.html#a0aa73a107ee5ea0767e15b7caddeecc7">Compute::usingPointJacobi</a>(runResults, <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>, threads);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                runResults.toJSON(results[<span class="stringliteral">&quot;outputs&quot;</span>][std::to_string(threads)]);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <a class="code" href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">Parser::printLine</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;[N = &quot;</span>&lt;&lt;threads&lt;&lt;<span class="stringliteral">&quot;]: Point Jacobi Method Results&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <a class="code" href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">Parser::printLine</a>();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <a class="code" href="../../d2/dfd/classProject4.html#a1c7d185befd8a1c10e3f46619fac1e78">printResults</a>(runResults);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.methods.count(<a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL</a>)) {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">auto</span> threads : MAX_THREADS) {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                <a class="code" href="../../df/df1/structOutput.html">SolverOutputs</a> runResults(<a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <a class="code" href="../../de/db3/namespaceCompute.html#a242d211ce9bbd59a9619238689816210">Compute::usingGaussSeidel</a>(runResults, <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>, threads);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                runResults.toJSON(results[<span class="stringliteral">&quot;outputs&quot;</span>][<a class="code" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3">MyRelaxationMethod::TypeKey</a>(<a class="code" href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">MyRelaxationMethod::Type::METHOD_GAUSS_SEIDEL</a>)][std::to_string(threads)]);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <a class="code" href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">Parser::printLine</a>();</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;[N = &quot;</span>&lt;&lt;threads&lt;&lt;<span class="stringliteral">&quot;]: Gauss Seidel Method Results&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <a class="code" href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">Parser::printLine</a>();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <a class="code" href="../../d2/dfd/classProject4.html#a1c7d185befd8a1c10e3f46619fac1e78">printResults</a>(runResults);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <a class="code" href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">Parser::printLine</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="comment">// write output data</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">if</span> (values.count(<span class="stringliteral">&quot;output-results-json&quot;</span>)) {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="comment">//outputs.toJSON(results[&quot;outputs&quot;]);</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <a class="code" href="../../d7/de4/FileParser_8h.html#abb1a95d027a077ecf097a06ef4a968b6">writeJSON</a>(values[<span class="stringliteral">&quot;output-results-json&quot;</span>].as&lt;std::string&gt;(), results);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;};</div>
 <div class="ttc" id="aFileParser_8h_html_abb1a95d027a077ecf097a06ef4a968b6"><div class="ttname"><a href="../../d7/de4/FileParser_8h.html#abb1a95d027a077ecf097a06ef4a968b6">writeJSON</a></div><div class="ttdeci">static void writeJSON(const std::string &amp;filepath, nlohmann::json &amp;data)</div><div class="ttdoc">Writes the given JSON data to a file at the specified file path.</div><div class="ttdef"><b>Definition:</b> FileParser.h:348</div></div>
 <div class="ttc" id="aclassCommandLine_html_a7001590923e6bfdf380448136b8e65bd"><div class="ttname"><a href="../../dd/d02/classCommandLine.html#a7001590923e6bfdf380448136b8e65bd">CommandLine&lt; InLab6Inputs &gt;::printLine</a></div><div class="ttdeci">static void printLine()</div><div class="ttdoc">Method to print a line to the console. This method prints a line of dashes to the console.</div><div class="ttdef"><b>Definition:</b> CommandLine.h:176</div></div>
 <div class="ttc" id="aclassProject4_html_a1c7d185befd8a1c10e3f46619fac1e78"><div class="ttname"><a href="../../d2/dfd/classProject4.html#a1c7d185befd8a1c10e3f46619fac1e78">Project4::printResults</a></div><div class="ttdeci">static void printResults(SolverOutputs &amp;results)</div><div class="ttdoc">This function prints the results of the computation.</div><div class="ttdef"><b>Definition:</b> project4.h:77</div></div>
+<div class="ttc" id="anamespaceCompute_html_a0aa73a107ee5ea0767e15b7caddeecc7"><div class="ttname"><a href="../../de/db3/namespaceCompute.html#a0aa73a107ee5ea0767e15b7caddeecc7">Compute::usingPointJacobi</a></div><div class="ttdeci">static void usingPointJacobi(InLab6Outputs &amp;outputs, InLab6Inputs &amp;inputs)</div><div class="ttdoc">This method applies the Point Jacobi relaxation method to the given input matrices.</div><div class="ttdef"><b>Definition:</b> Compute.h:30</div></div>
 <div class="ttc" id="anamespaceCompute_html_a242d211ce9bbd59a9619238689816210"><div class="ttname"><a href="../../de/db3/namespaceCompute.html#a242d211ce9bbd59a9619238689816210">Compute::usingGaussSeidel</a></div><div class="ttdeci">static void usingGaussSeidel(InLab6Outputs &amp;outputs)</div><div class="ttdoc">This method is a placeholder for the Gauss-Seidel relaxation method.</div><div class="ttdef"><b>Definition:</b> Compute.h:49</div></div>
 <div class="ttc" id="anamespaceMyRelaxationMethod_html_a0af60a901ffd01d1bb403ecee40ba6c3"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a0af60a901ffd01d1bb403ecee40ba6c3">MyRelaxationMethod::TypeKey</a></div><div class="ttdeci">const char * TypeKey(MyRelaxationMethod::Type value)</div><div class="ttdoc">Function to get the key of a relaxation method type.</div><div class="ttdef"><b>Definition:</b> RelaxationMethods.h:38</div></div>
+<div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a53de5e6fbb718b2453e1a51931316e9f">METHOD_POINT_JACOBI</a></div><div class="ttdeci">@ METHOD_POINT_JACOBI</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:22</div></div>
 <div class="ttc" id="aproject_2project1_2InputsOutputs_8h_html_ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe"><div class="ttname"><a href="../../da/d85/project_2project1_2InputsOutputs_8h.html#ad69c7e1a50315928048000e56d50e4e5a9a570a8f4b37a0ea7b32c8fe14c44bbe">METHOD_GAUSS_SEIDEL</a></div><div class="ttdeci">@ METHOD_GAUSS_SEIDEL</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:22</div></div>
 <div class="ttc" id="astructOutput_html"><div class="ttname"><a href="../../df/df1/structOutput.html">Output</a></div><div class="ttdoc">Struct to hold variables for Taylor Series.</div><div class="ttdef"><b>Definition:</b> Compute.h:26</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00022">METHOD_GAUSS_SEIDEL</a>, <a class="el" href="../../#l00176">CommandLine&lt; InLab6Inputs &gt;::printLine()</a>, <a class="el" href="../../#l00077">printResults()</a>, <a class="el" href="../../#l00137">Output::toJSON()</a>, <a class="el" href="../../#l00038">MyRelaxationMethod::TypeKey()</a>, <a class="el" href="../../#l00049">Compute::usingGaussSeidel()</a>, and <a class="el" href="../../#l00348">writeJSON()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00022">METHOD_GAUSS_SEIDEL</a>, <a class="el" href="../../#l00022">METHOD_POINT_JACOBI</a>, <a class="el" href="../../#l00176">CommandLine&lt; InLab6Inputs &gt;::printLine()</a>, <a class="el" href="../../#l00077">printResults()</a>, <a class="el" href="../../#l00137">Output::toJSON()</a>, <a class="el" href="../../#l00038">MyRelaxationMethod::TypeKey()</a>, <a class="el" href="../../#l00049">Compute::usingGaussSeidel()</a>, <a class="el" href="../../#l00030">Compute::usingPointJacobi()</a>, and <a class="el" href="../../#l00348">writeJSON()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/dfd/classProject4_a3779e87d22c7d4949f3c01bae1d08ab9_cgraph.svg" width="614" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/dfd/classProject4_a3779e87d22c7d4949f3c01bae1d08ab9_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
