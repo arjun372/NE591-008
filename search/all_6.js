@@ -11,7 +11,7 @@ var searchData=
   ['elementfromf_178',['elementFromF',['../d5/d65/labs_2outlab1_2Compute_8h.html#a3bdb983590aa8405c4185bdf3c450c00',1,'Compute.h']]],
   ['elementwiseexpression_179',['ElementwiseExpression',['../df/d63/classMyBLAS_1_1ElementwiseExpression.html#ab56ae3a26fb84133d27fe371ae1825d4',1,'MyBLAS::ElementwiseExpression::ElementwiseExpression()'],['../df/d63/classMyBLAS_1_1ElementwiseExpression.html',1,'MyBLAS::ElementwiseExpression&lt; DataType, ContainerType1, ContainerType2, BinaryOp &gt;']]],
   ['elementwiseexpression_2eh_180',['ElementwiseExpression.h',['../df/df0/ElementwiseExpression_8h.html',1,'']]],
-  ['elementwisemultiply_181',['elementwiseMultiply',['../d4/d4d/classMyBLAS_1_1Vector.html#aaa1427059d7c525547321ae9299dd4ee',1,'MyBLAS::Vector']]],
+  ['elementwiseproduct_181',['elementwiseProduct',['../d4/d4d/classMyBLAS_1_1Vector.html#abd4d79629a9b567e68a789d8a7c192bd',1,'MyBLAS::Vector::elementwiseProduct()'],['../d0/d27/classMyBLAS_1_1Matrix.html#a58e4d8c70a333a73d08121e0e5509910',1,'MyBLAS::Matrix::elementwiseProduct()']]],
   ['equal_182',['equal',['../d6/d07/classMyBLAS_1_1LazyVector.html#a403634faadca10bd133d75d5f17f6df9',1,'MyBLAS::LazyVector::equal()'],['../d0/d28/classMyBLAS_1_1LazyMatrix.html#afbbfe200eb7a019b6a9120cc6488c7fc',1,'MyBLAS::LazyMatrix::equal()']]],
   ['error_183',['error',['../db/dde/readfile_8m.html#a629ff70bd8173cb77a8d919a2a7f56ee',1,'readfile.m']]],
   ['error_5fbound_184',['error_bound',['../dd/dd7/plot__points_8m.html#a1f339dcd84285a772b96e884b3755b05',1,'plot_points.m']]],

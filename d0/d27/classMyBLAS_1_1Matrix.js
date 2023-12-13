@@ -12,6 +12,7 @@ var classMyBLAS_1_1Matrix =
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a5029a33f8e290f79960bfd0e75227f64", null ],
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#aafc80b062755b01c46f5608067b8ae5a", null ],
     [ "Matrix", "d0/d27/classMyBLAS_1_1Matrix.html#a8c141bfef5da0d28ce06c2dee02eb76f", null ],
+    [ "elementwiseProduct", "d0/d27/classMyBLAS_1_1Matrix.html#a58e4d8c70a333a73d08121e0e5509910", null ],
     [ "eye", "d0/d27/classMyBLAS_1_1Matrix.html#af038a1ce616639b7e9f9e3955bb6bd02", null ],
     [ "getAllocatedBytes", "d0/d27/classMyBLAS_1_1Matrix.html#a1f5e5e14e757a07565083e43c5c6ba5b", null ],
     [ "getCols", "d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864", null ],

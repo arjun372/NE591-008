@@ -2,7 +2,6 @@ var BLAS_8h =
 [
     [ "allDiagonalElementsBelowThreshold", "d1/d80/BLAS_8h.html#a6b103aca5e5fab29f3d0954b77946dc0", null ],
     [ "haveEqualRank", "d1/d80/BLAS_8h.html#aa9866b1cc2044ed6a85756f487bfbf73", null ],
-    [ "innerProduct", "d1/d80/BLAS_8h.html#a092394bd4dee1886f97451d5918c0dce", null ],
     [ "isBinaryMatrix", "d1/d80/BLAS_8h.html#afbdd307de10f4c17b700b5dde0fadc77", null ],
     [ "isBinaryVector", "d1/d80/BLAS_8h.html#a0445f24897fdfd6e5600fcdd56eb84fc", null ],
     [ "isDiagonallyDominant", "d1/d80/BLAS_8h.html#a4ae8cb61e3457065790607979b939564", null ],
