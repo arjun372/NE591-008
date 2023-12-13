@@ -26,3 +26,4 @@ add_subdirectory(outlab6)
 #add_subdirectory(inlab9)
 
 add_subdirectory(inlab10)
+add_subdirectory(outlab10)

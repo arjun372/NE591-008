@@ -7,9 +7,6 @@
 
 1. [Building](#building)
    - [EOS`remote.eos.ncsu.edu`](#eos)
-   - [Hazel`login.hpc.ncsu.edu`](#on-hazel) 
-     - [Interactive Mode](#interactive-mode)
-     - [Batch Jobs](#batch-jobs)
 2. [Usage](#usage)
    - [Parameters](#parameters)
    - [Inputs/Outputs](#inputsoutputs)
@@ -28,56 +25,9 @@
 
 ## Building
 
-The code has been built and tested on the NCSU Hazel`login.hpc.ncsu.edu` and NCSU EOS `remote.eos.ncsu.edu` servers. 
+The code has been built and tested on the NCSU EOS `remote.eos.ncsu.edu` servers. 
 It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script
 to perform the build and run the `project3` target executable:
-
-### Hazel
-There are two ways to do run jobs on Hazel, currently, we support the interactive mode option.
-#### Interactive Mode
-This mode requires a few additional steps, but for the most part, it follows the same process as the EOS server.
-```bash
-#!/bin/bash
-
-# Start by logging in
-ssh login.hpc.ncsu.edu
-
-# Then, start an interactive session
-bsub -Is -n 4 -R "span[hosts=1]" -W 20 bash
-
-# Create a working directory, in this case we call it earthperson_project3 to avoid naming conflicts
-mkdir -p /share/$GROUP/$USER/earthperson_project3
-
-# Go into that directory.
-cd /share/$GROUP/$USER/earthperson_project3
-
-# Load the build modules
-module load openmpi-gcc/openmpi4.1.0-gcc10.2.0 cmake/3.24.1
-
-# Begin by copying the files over using rsync, scp, sftp, etc...
-# Then, assuming the repo root is the current directory:
-
-## Specify the build target
-export BUILD_TARGET=project3
-
-## Create the build directory, configure and compile the $BUILD_TARGET
-mkdir -p build && cd build && \
-cmake .. -DCMAKE_BUILD_TYPE=Release && \
-make -j$(nproc) $BUILD_TARGET && cd ../
-
-## Specify the input and output files.
-## NOTE: This path is relative to the repo root directory
-export INPUT_PARAMETERS=./src/project/project3/examples/project3_example_input_parameters.json
-export INPUT_SOURCETERMS=./src/project/project3/examples/project3_example_source_terms.csv
-export OUTPUT_RESULTS=./src/project/project3/examples/project3_example_output_results.json
-export OUTPUT_COMPUTED_FLUX=./src/project/project3/examples/project3_example_computed_flux.csv
-
-## Execute
-./build/bin/$BUILD_TARGET -i $INPUT_PARAMETERS -s $INPUT_SOURCETERMS -o $OUTPUT_RESULTS -f $OUTPUT_COMPUTED_FLUX
-```
-#### Batch Jobs
-
-Coming Soon
 
 ### EOS
 ```bash

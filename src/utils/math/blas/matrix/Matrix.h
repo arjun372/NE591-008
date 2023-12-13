@@ -279,6 +279,12 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     [[nodiscard]] std::vector<std::vector<T>> &getData() { return data; }
 
     /**
+     * @brief Getter for the vector data.
+     * @return reference to the vector data.
+     */
+    [[nodiscard]] std::vector<std::vector<T>> &getMutableData() { return data; }
+
+    /**
      * @brief Adds a new row to the end of the matrix.
      * @param row Vector representing the new row to be added.
      */
