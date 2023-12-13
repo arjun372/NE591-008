@@ -224,27 +224,27 @@ Currently supported inlab, outlab build targets include:
   </tr>
   <tr>
     <td>1</td>
-    <td><code>✅ inlab1</code>  <code>❌ inlab1_tests</code></td>
-    <td><code>✅ outlab1</code>  <code>❌ outlab1_tests</code></td>
+    <td><code>✅ inlab1</code></td>
+    <td><code>✅ outlab1</code></td>
   </tr>
   <tr>
     <td>2</td>
-    <td><code>✅ inlab2</code>  <code>❌ inlab2_tests</code></td>
-    <td><code>✅ outlab2</code>  <code>❌ outlab2_tests</code></td>
+    <td><code>✅ inlab2</code></td>
+    <td><code>✅ outlab2</code></td>
   </tr>
   <tr>
     <td>3</td>
-    <td><code>✅ inlab3</code>  <code>❌ inlab3_tests</code></td>
-    <td><code>✅ outlab3</code>  <code>❌ outlab3_tests</code></td>
+    <td><code>✅ inlab3</code></td>
+    <td><code>✅ outlab3</code></td>
   </tr>
   <tr>
     <td>4</td>
-    <td><code>✅ inlab4</code>  <code>❌ inlab4_tests</code></td>
+    <td><code>✅ inlab4</code></td>
     <td><code>✅ outlab4</code>  <code>✅ outlab4_tests</code></td>
   </tr>
   <tr>
     <td>5</td>
-    <td><code>✅ inlab5</code>  <code>❌ inlab5_tests</code></td>
+    <td><code>✅ inlab5</code></td>
     <td><code>✅ outlab5</code>  <code>✅ outlab5_tests</code></td>
   </tr>
   <tr>
