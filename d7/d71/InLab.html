@@ -130,6 +130,18 @@ $(document).ready(function(){initNavTree('d7/d71/InLab.html','../../'); initResi
 </ul>
 </li>
 <li class="level2"><a href="#autotoc_md38">Example:</a></li>
+<li class="level2"><a href="#autotoc_md39">Overview</a></li>
+<li class="level2"><a href="#autotoc_md40">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md41">Parameters</a></li>
+<li class="level3"><a href="#autotoc_md42">General options</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md43">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md44">Sample Parameters File</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md45">Output Format</a><ul><li class="level3"><a href="#autotoc_md46">Sample Outputs File</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md47">Example:</a></li>
 </ul>
 </li>
 </ul>
@@ -342,6 +354,238 @@ Example:</h2>
 <div class="line">[y^T•(A•z)]: 1.448000000000000e+02</div>
 <div class="line"> </div>
 <div class="line">JSON data has been written to ../outlab10_output.json</div>
+<div class="line"> </div>
+<div class="line">Process finished with exit code 0</div>
+</div><!-- fragment --><p>InLab 11: Jacobi Preconditioned Conjugate Gradient Method</p>
+<p>File based I/O is supported using JSON files.</p>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md39"></a>
+Overview</h2>
+<ol type="1">
+<li><a href="../../#building--usage">Building &amp; Usage</a><ul>
+<li><a href="../../#parameters">Parameters</a></li>
+<li><a href="../../#general-options">General options</a></li>
+</ul>
+</li>
+<li><a href="../../#input-format">Parameters Format</a></li>
+<li><a href="../../#output-format">Output Format</a><ul>
+<li><a href="../../#sample-outputs-file">Sample Outputs File</a></li>
+</ul>
+</li>
+<li><a href="../../#example">Example</a></li>
+</ol>
+<h2><a class="anchor" id="autotoc_md40"></a>
+Building &amp; Usage</h2>
+<p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>inlab11</code> target executable:</p>
+<div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
+<div class="line">#!/bin/bash</div>
+<div class="line"> </div>
+<div class="line">## Specify the build target</div>
+<div class="line">export BUILD_TARGET=inlab11</div>
+<div class="line"> </div>
+<div class="line">## Create the build directory, configure and compile the $BUILD_TARGET</div>
+<div class="line">mkdir -p build &amp;&amp; cd build &amp;&amp; \</div>
+<div class="line">cmake .. -DCMAKE_BUILD_TYPE=Release &amp;&amp; \</div>
+<div class="line">make -j$(nproc) $BUILD_TARGET &amp;&amp; cd ../</div>
+<div class="line"> </div>
+<div class="line">## Specify the input and output files.</div>
+<div class="line">## NOTE: This path is relative to the repo root directory</div>
+<div class="line">export OUTPUT_FILE=./src/labs/inlab11/examples/inlab11_output.json</div>
+<div class="line"> </div>
+<div class="line">## Execute</div>
+<div class="line">./build/bin/$BUILD_TARGET -g -o $OUTPUT_FILE</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md41"></a>
+Parameters</h3>
+<ul>
+<li><code>-t [ --threshold ] arg</code>: iterative convergence threshold [𝜀 &gt; 0]</li>
+<li><code>-g [ --generate ]</code>: Generate A,b ignoring input-json</li>
+<li><code>-k [ --max-iterations ] arg</code>: maximum number of iterations [n ∈ ℕ]</li>
+<li><code>-i [ --input-json ] arg</code>: input JSON containing A, and b</li>
+<li><code>-o [ --output-json ] arg</code>: path for the output JSON</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md42"></a>
+General options</h3>
+<ul>
+<li><code>-h [ --help ]</code>: Show this help message</li>
+<li><code>-q [ --quiet ]</code>: Reduce verbosity</li>
+<li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
+<li><code>-P [ --profile ]</code>: Turn on performance profiling</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md43"></a>
+Parameters Format</h2>
+<p>The expected input json file requires the following fields:</p>
+<h3><a class="anchor" id="autotoc_md44"></a>
+Sample Parameters File</h3>
+<p>No input file is needed. You can generate a random matrix using the <code>-g</code> or <code>--generate</code> flag.</p>
+<h2><a class="anchor" id="autotoc_md45"></a>
+Output Format</h2>
+<p>The output is written to a JSON file as well.</p>
+<h3><a class="anchor" id="autotoc_md46"></a>
+Sample Outputs File</h3>
+<div class="fragment"><div class="line">{</div>
+<div class="line">   &quot;inputs&quot;: {</div>
+<div class="line">      &quot;coefficients&quot;: [</div>
+<div class="line">         [</div>
+<div class="line">            1.6533097453783512,</div>
+<div class="line">            0.12124819341567544,</div>
+<div class="line">            0.09817691918737048</div>
+<div class="line">         ],</div>
+<div class="line">         [</div>
+<div class="line">            0.12124819341567544,</div>
+<div class="line">            10.819973685070268,</div>
+<div class="line">            0.2423287722448861</div>
+<div class="line">         ],</div>
+<div class="line">         [</div>
+<div class="line">            0.09817691918737048,</div>
+<div class="line">            0.2423287722448861,</div>
+<div class="line">            2.704082657092818</div>
+<div class="line">         ]</div>
+<div class="line">      ],</div>
+<div class="line">      &quot;constants&quot;: [</div>
+<div class="line">         7.177451870317513,</div>
+<div class="line">         -49.3191090773808,</div>
+<div class="line">         2.3416251567267343</div>
+<div class="line">      ],</div>
+<div class="line">      &quot;known-solution&quot;: [</div>
+<div class="line">         4.615027360996984,</div>
+<div class="line">         -4.634814194647449,</div>
+<div class="line">         1.1137547197128228</div>
+<div class="line">      ],</div>
+<div class="line">      &quot;max-iterations&quot;: 5000,</div>
+<div class="line">      &quot;methods&quot;: [],</div>
+<div class="line">      &quot;order&quot;: 3,</div>
+<div class="line">      &quot;threshold&quot;: 0.0001</div>
+<div class="line">   },</div>
+<div class="line">   &quot;outputs&quot;: {</div>
+<div class="line">      &quot;CG&quot;: {</div>
+<div class="line">         &quot;benchmark&quot;: {</div>
+<div class="line">            &quot;mean&quot;: 1899.74,</div>
+<div class="line">            &quot;p5th&quot;: 1896.0,</div>
+<div class="line">            &quot;p95th&quot;: 1897.0,</div>
+<div class="line">            &quot;samples&quot;: 100</div>
+<div class="line">         },</div>
+<div class="line">         &quot;solution&quot;: {</div>
+<div class="line">            &quot;converged&quot;: true,</div>
+<div class="line">            &quot;iterations&quot;: {</div>
+<div class="line">               &quot;actual&quot;: 2</div>
+<div class="line">            },</div>
+<div class="line">            &quot;iterative-error&quot;: {</div>
+<div class="line">               &quot;actual&quot;: 2.6748964287537258e-17</div>
+<div class="line">            },</div>
+<div class="line">            &quot;solution&quot;: [</div>
+<div class="line">               4.615027360996984,</div>
+<div class="line">               -4.634814194647449,</div>
+<div class="line">               1.1137547197128228</div>
+<div class="line">            ]</div>
+<div class="line">         }</div>
+<div class="line">      },</div>
+<div class="line">      &quot;JPCG&quot;: {</div>
+<div class="line">         &quot;benchmark&quot;: {</div>
+<div class="line">            &quot;mean&quot;: 2325.95,</div>
+<div class="line">            &quot;p5th&quot;: 2292.0,</div>
+<div class="line">            &quot;p95th&quot;: 2371.2,</div>
+<div class="line">            &quot;samples&quot;: 100</div>
+<div class="line">         },</div>
+<div class="line">         &quot;solution&quot;: {</div>
+<div class="line">            &quot;converged&quot;: true,</div>
+<div class="line">            &quot;iterations&quot;: {</div>
+<div class="line">               &quot;actual&quot;: 2</div>
+<div class="line">            },</div>
+<div class="line">            &quot;iterative-error&quot;: {</div>
+<div class="line">               &quot;actual&quot;: 3.771964891759634e-21</div>
+<div class="line">            },</div>
+<div class="line">            &quot;solution&quot;: [</div>
+<div class="line">               4.615027360996984,</div>
+<div class="line">               -4.634814194647449,</div>
+<div class="line">               1.1137547197128228</div>
+<div class="line">            ]</div>
+<div class="line">         }</div>
+<div class="line">      }</div>
+<div class="line">   }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md47"></a>
+Example:</h2>
+<p>The following is an example of the program's output:</p>
+<div class="fragment"><div class="line">NE591: InLab 11: Jacobi Preconditioned Conjugate Gradient Method</div>
+<div class="line">Arjun Earthperson</div>
+<div class="line">11/03/2023</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">using 128-bit floats</div>
+<div class="line">compiler: GNU 8.5.0</div>
+<div class="line">boost: 106600 /usr/lib64/libboost_program_options.so;/usr/lib64/libboost_serialization.so</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Parameters:</div>
+<div class="line"> </div>
+<div class="line">Solver Options:</div>
+<div class="line">  -t [ --threshold ] arg                = convergence threshold [𝜀 &gt; 0]</div>
+<div class="line">  -k [ --max-iterations ] arg           = maximum iterations [n ∈ ℕ]</div>
+<div class="line">  -n [ --order ] arg                    = order of the square matrix [n ∈ </div>
+<div class="line">                                        ℕ]</div>
+<div class="line"> </div>
+<div class="line">File I/O Options:</div>
+<div class="line">  -i [ --input-json ] arg               = input JSON containing A, and b</div>
+<div class="line">  -g [ --generate ]                     = Generate A,b ignoring input-json</div>
+<div class="line">  -o [ --output-json ] arg (=/dev/stdout)</div>
+<div class="line">                                        = path for the output JSON</div>
+<div class="line"> </div>
+<div class="line">Performance Benchmarking:</div>
+<div class="line">  -R [ --bench-runs ] arg (=1)          = &lt;R&gt; runs to perform</div>
+<div class="line">  -T [ --bench-timeout ] arg (=0)       = Timeout after &lt;T&gt; seconds [0=never]</div>
+<div class="line">  -B [ --bench ]                        = Run performance benchmarks</div>
+<div class="line"> </div>
+<div class="line">General options:</div>
+<div class="line">  -h [ --help ]                         = Show this help message</div>
+<div class="line">  -q [ --quiet ]                        = Reduce verbosity</div>
+<div class="line">  -p [ --precision ] arg (=15)          = Number of digits to represent long </div>
+<div class="line">                                        double</div>
+<div class="line"> </div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">            Precision in digits:  default: 6, maximum: 19, current: 15</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Enter a value for order:2048</div>
+<div class="line">2048</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">                                     Inputs</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">    Generate A,b,            g: Yes</div>
+<div class="line">    Input JSON (for A, b),   i: [IGNORED] None provided</div>
+<div class="line">    Output JSON (for x),     o: ../results.json</div>
+<div class="line">    Convergence Threshold,   𝜀: 0.0001</div>
+<div class="line">    Max iterations,          k: 5000</div>
+<div class="line">    Matrix order,            n: 2048</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Input coefficients matrix A is square.</div>
+<div class="line">Input coefficients matrix A is symmetric.</div>
+<div class="line">Input coefficients matrix A is diagonally dominant.</div>
+<div class="line">Input coefficients matrix A is positive definite.</div>
+<div class="line">:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::</div>
+<div class="line">[100/100] : Jacobi Preconditioned Conjugate Gradient Method</div>
+<div class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="line">:::::: SUM: 8.19e+09 :::::::: VARIANCE: 4.58e+11 :::::::: MEDIAN: 8.17e+07 :::::</div>
+<div class="line">:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::</div>
+<div class="line">:::::: {8.15e+07, 8.42e+07} : (8.19e+07 ± 6.76e+05) : [8.16e+07, 8.41e+07] :::::</div>
+<div class="line">:::::: Estimated maximum allocated memory [bytes]: 328032 ::::::::::::::::::::::::</div>
+<div class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="line"> </div>
+<div class="line">:::::: Converged       : Yes</div>
+<div class="line">:::::: Iterations      : 4</div>
+<div class="line">:::::: Iterative Error : 3.57e-06</div>
+<div class="line"> </div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::</div>
+<div class="line">[100/100] : Conjugate Gradient Method</div>
+<div class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="line">:::::: SUM: 9.55e+09 :::::::: VARIANCE: 5.07e+11 :::::::: MEDIAN: 9.53e+07 :::::</div>
+<div class="line">:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::</div>
+<div class="line">:::::: {9.52e+07, 9.78e+07} : (9.55e+07 ± 7.12e+05) : [9.52e+07, 9.78e+07] :::::</div>
+<div class="line">:::::: Estimated maximum allocated memory [bytes]: 262432 ::::::::::::::::::::::::</div>
+<div class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="line"> </div>
+<div class="line">:::::: Converged       : Yes</div>
+<div class="line">:::::: Iterations      : 5</div>
+<div class="line">:::::: Iterative Error : 2.54e-05</div>
+<div class="line"> </div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">JSON data has been written to ../results.json</div>
 <div class="line"> </div>
 <div class="line">Process finished with exit code 0</div>
 </div><!-- fragment --> </div></div><!-- contents -->

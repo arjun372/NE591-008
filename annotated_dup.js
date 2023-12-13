@@ -60,6 +60,7 @@ var annotated_dup =
     [ "InLab1", "dd/d40/classInLab1.html", "dd/d40/classInLab1" ],
     [ "InLab10", "d9/d0e/classInLab10.html", "d9/d0e/classInLab10" ],
     [ "InLab10MatrixTests", "d4/db5/classInLab10MatrixTests.html", "d4/db5/classInLab10MatrixTests" ],
+    [ "InLab11", "d9/d24/classInLab11.html", "d9/d24/classInLab11" ],
     [ "InLab2", "d4/d63/classInLab2.html", "d4/d63/classInLab2" ],
     [ "InLab3", "d1/d1f/classInLab3.html", "d1/d1f/classInLab3" ],
     [ "InLab4", "dc/d9f/classInLab4.html", "dc/d9f/classInLab4" ],

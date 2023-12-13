@@ -118,24 +118,24 @@ $(document).ready(function(){initNavTree('d0/d79/OutLab.html','../../'); initRes
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><ul><li class="level2"><a href="#autotoc_md117">Overview</a></li>
-<li class="level2"><a href="#autotoc_md118">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md119">Parameters</a></li>
-<li class="level3"><a href="#autotoc_md120">General options</a></li>
+<ul><ul><li class="level2"><a href="#autotoc_md126">Overview</a></li>
+<li class="level2"><a href="#autotoc_md127">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md128">Parameters</a></li>
+<li class="level3"><a href="#autotoc_md129">General options</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md121">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md122">Sample Parameters File</a></li>
+<li class="level2"><a href="#autotoc_md130">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md131">Sample Parameters File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md123">Output Format</a><ul><li class="level3"><a href="#autotoc_md124">Sample Outputs File</a></li>
+<li class="level2"><a href="#autotoc_md132">Output Format</a><ul><li class="level3"><a href="#autotoc_md133">Sample Outputs File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md125">Example:</a></li>
+<li class="level2"><a href="#autotoc_md134">Example:</a></li>
 </ul>
 </ul>
 </div>
 <div class="textblock"><p>OutLab 10: Conjugate Gradient Method</p>
 <p>File based I/O is supported using JSON files.</p>
-<div style="display: none"></div><h2><a class="anchor" id="autotoc_md117"></a>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md126"></a>
 Overview</h2>
 <ol type="1">
 <li><a href="../../#building--usage">Building &amp; Usage</a><ul>
@@ -150,7 +150,7 @@ Overview</h2>
 </li>
 <li><a href="../../#example">Example</a></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md118"></a>
+<h2><a class="anchor" id="autotoc_md127"></a>
 Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>outlab10</code> target executable:</p>
 <div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
@@ -170,7 +170,7 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -g -o $OUTPUT_FILE</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md119"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md128"></a>
 Parameters</h3>
 <ul>
 <li><code>-t [ --threshold ] arg</code>: iterative convergence threshold [𝜀 &gt; 0]</li>
@@ -179,7 +179,7 @@ Parameters</h3>
 <li><code>-i [ --input-json ] arg</code>: input JSON containing A, and b</li>
 <li><code>-o [ --output-json ] arg</code>: path for the output JSON</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md120"></a>
+<h3><a class="anchor" id="autotoc_md129"></a>
 General options</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message</li>
@@ -187,16 +187,16 @@ General options</h3>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
 <li><code>-P [ --profile ]</code>: Turn on performance profiling</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md121"></a>
+<h2><a class="anchor" id="autotoc_md130"></a>
 Parameters Format</h2>
 <p>The expected input json file requires the following fields:</p>
-<h3><a class="anchor" id="autotoc_md122"></a>
+<h3><a class="anchor" id="autotoc_md131"></a>
 Sample Parameters File</h3>
 <p>No input file is needed. You can generate a random matrix using the <code>-g</code> or <code>--generate</code> flag.</p>
-<h2><a class="anchor" id="autotoc_md123"></a>
+<h2><a class="anchor" id="autotoc_md132"></a>
 Output Format</h2>
 <p>The output is written to a JSON file as well.</p>
-<h3><a class="anchor" id="autotoc_md124"></a>
+<h3><a class="anchor" id="autotoc_md133"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;outputs&quot;: {</div>
@@ -248,7 +248,7 @@ Sample Outputs File</h3>
 <div class="line">      }</div>
 <div class="line">   }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md125"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md134"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
 <div class="fragment"><div class="line">NE591: OutLab 10: Conjugate Gradient Method</div>

@@ -14,6 +14,7 @@ var classMyBLAS_1_1Vector =
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a54277307ead3f4a8b7aacc2bbc7f5ea5", null ],
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a70d66e9a5a96c887cd1997200266071d", null ],
     [ "Vector", "d4/d4d/classMyBLAS_1_1Vector.html#a84f1ac917ea76f8e193eed73ab8948a0", null ],
+    [ "elementwiseMultiply", "d4/d4d/classMyBLAS_1_1Vector.html#aaa1427059d7c525547321ae9299dd4ee", null ],
     [ "getAllocatedBytes", "d4/d4d/classMyBLAS_1_1Vector.html#af334706a0e924605e5ace234b4a1b6e9", null ],
     [ "getData", "d4/d4d/classMyBLAS_1_1Vector.html#a4815b8707e1545ce5ed6242c5f4e3b1b", null ],
     [ "getData", "d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab", null ],
