@@ -1,4 +1,4 @@
-# Project Milestone 4: Performance Evaluation of Direct vs Iterative, Lazy-Evaluated, Serial Diffusion Equation Solvers
+# Project Milestone 4: Parallel Point Jacobi Solver
 
 `project4` builds on `project3`, implementing a new memory-profiler. Benchmark results and analysis are listed in the 
 `analysis` folder. Checkout the associated [python notebook for analysis results](analysis/Project_Milestone_3_Analysis.ipynb).

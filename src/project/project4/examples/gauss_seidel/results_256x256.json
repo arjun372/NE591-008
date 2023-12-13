@@ -18,82 +18,80 @@
     ]
   },
   "outputs": {
-    "gauss-seidel": {
-      "1": {
-        "converged": true,
-        "iterations": {
-          "actual": 6,
-          "maximum": 5000
-        },
-        "iterative-error": {
-          "actual": 9.43542317989347e-05,
-          "maximum": 0.0001
-        },
-        "max-bytes": 0,
-        "max-residual": null,
-        "wall-time-ns": {
-          "mean": 579791575418.0,
-          "p5th": 579791575418.0,
-          "p95th": 579791575418.0,
-          "samples": 1
-        }
+    "1": {
+      "converged": true,
+      "iterations": {
+        "actual": 6,
+        "maximum": 5000
       },
-      "16": {
-        "converged": true,
-        "iterations": {
-          "actual": 6,
-          "maximum": 5000
-        },
-        "iterative-error": {
-          "actual": 9.732525439379378e-05,
-          "maximum": 0.0001
-        },
-        "max-bytes": 0,
-        "max-residual": null,
-        "wall-time-ns": {
-          "mean": 54902221298.0,
-          "p5th": 54902221298.0,
-          "p95th": 54902221298.0,
-          "samples": 1
-        }
+      "iterative-error": {
+        "actual": 9.43542317989347e-05,
+        "maximum": 0.0001
       },
-      "4": {
-        "converged": true,
-        "iterations": {
-          "actual": 6,
-          "maximum": 5000
-        },
-        "iterative-error": {
-          "actual": 9.732525439434192e-05,
-          "maximum": 0.0001
-        },
-        "max-bytes": 0,
-        "max-residual": null,
-        "wall-time-ns": {
-          "mean": 145399250935.0,
-          "p5th": 145399250935.0,
-          "p95th": 145399250935.0,
-          "samples": 1
-        }
+      "max-bytes": 0,
+      "max-residual": null,
+      "wall-time-ns": {
+        "mean": 579791575418.0,
+        "p5th": 579791575418.0,
+        "p95th": 579791575418.0,
+        "samples": 1
+      }
+    },
+    "16": {
+      "converged": true,
+      "iterations": {
+        "actual": 6,
+        "maximum": 5000
       },
-      "8": {
-        "converged": true,
-        "iterations": {
-          "actual": 6,
-          "maximum": 5000
-        },
-        "iterative-error": {
-          "actual": 9.732525439434192e-05,
-          "maximum": 0.0001
-        },
-        "max-bytes": 0,
-        "max-residual": null,
-        "wall-time-ns": {
-          "mean": 76354503673.0,
-          "p5th": 76354503673.0,
-          "p95th": 76354503673.0,
-          "samples": 1
-        }
+      "iterative-error": {
+        "actual": 9.732525439379378e-05,
+        "maximum": 0.0001
+      },
+      "max-bytes": 0,
+      "max-residual": null,
+      "wall-time-ns": {
+        "mean": 54902221298.0,
+        "p5th": 54902221298.0,
+        "p95th": 54902221298.0,
+        "samples": 1
+      }
+    },
+    "4": {
+      "converged": true,
+      "iterations": {
+        "actual": 6,
+        "maximum": 5000
+      },
+      "iterative-error": {
+        "actual": 9.732525439434192e-05,
+        "maximum": 0.0001
+      },
+      "max-bytes": 0,
+      "max-residual": null,
+      "wall-time-ns": {
+        "mean": 145399250935.0,
+        "p5th": 145399250935.0,
+        "p95th": 145399250935.0,
+        "samples": 1
+      }
+    },
+    "8": {
+      "converged": true,
+      "iterations": {
+        "actual": 6,
+        "maximum": 5000
+      },
+      "iterative-error": {
+        "actual": 9.732525439434192e-05,
+        "maximum": 0.0001
+      },
+      "max-bytes": 0,
+      "max-residual": null,
+      "wall-time-ns": {
+        "mean": 76354503673.0,
+        "p5th": 76354503673.0,
+        "p95th": 76354503673.0,
+        "samples": 1
       }
     }
   }
