@@ -142,6 +142,18 @@ $(document).ready(function(){initNavTree('d0/d79/OutLab.html','../../'); initRes
 </ul>
 </li>
 <li class="level2"><a href="#autotoc_md152">Example:</a></li>
+<li class="level2"><a href="#autotoc_md153">Overview</a></li>
+<li class="level2"><a href="#autotoc_md154">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md155">Parameters</a></li>
+<li class="level3"><a href="#autotoc_md156">General options</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md157">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md158">Sample Parameters File</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md159">Output Format</a><ul><li class="level3"><a href="#autotoc_md160">Sample Outputs File</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md161">Example:</a></li>
 </ul>
 </ul>
 </div>
@@ -528,6 +540,224 @@ Example:</h2>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">--------------------------------------------------------------------------------</div>
+</div><!-- fragment --><p>OutLab 12: Inverse Power Iteration Method</p>
+<p>File based I/O is supported using JSON files.</p>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md153"></a>
+Overview</h2>
+<ol type="1">
+<li><a href="../../#building--usage">Building &amp; Usage</a><ul>
+<li><a href="../../#parameters">Parameters</a></li>
+<li><a href="../../#general-options">General options</a></li>
+</ul>
+</li>
+<li><a href="../../#input-format">Parameters Format</a></li>
+<li><a href="../../#output-format">Output Format</a><ul>
+<li><a href="../../#sample-outputs-file">Sample Outputs File</a></li>
+</ul>
+</li>
+<li><a href="../../#example">Example</a></li>
+</ol>
+<h2><a class="anchor" id="autotoc_md154"></a>
+Building &amp; Usage</h2>
+<p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>outlab12</code> target executable:</p>
+<div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
+<div class="line">#!/bin/bash</div>
+<div class="line"> </div>
+<div class="line">## Specify the build target</div>
+<div class="line">export BUILD_TARGET=outlab12</div>
+<div class="line"> </div>
+<div class="line">## Create the build directory, configure and compile the $BUILD_TARGET</div>
+<div class="line">mkdir -p build &amp;&amp; cd build &amp;&amp; \</div>
+<div class="line">cmake .. -DCMAKE_BUILD_TYPE=Release &amp;&amp; \</div>
+<div class="line">make -j$(nproc) $BUILD_TARGET &amp;&amp; cd ../</div>
+<div class="line"> </div>
+<div class="line">## Specify the input and output files.</div>
+<div class="line">## NOTE: This path is relative to the repo root directory</div>
+<div class="line">export OUTPUT_FILE=./src/labs/outlab12/examples/outlab12_output.json</div>
+<div class="line"> </div>
+<div class="line">## Execute</div>
+<div class="line">./build/bin/$BUILD_TARGET -g -o $OUTPUT_FILE</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md155"></a>
+Parameters</h3>
+<ul>
+<li><code>-t [ --convergence_threshold ] arg</code>: iterative convergence convergence_threshold [𝜀 &gt; 0]</li>
+<li><code>-g [ --generate ]</code>: Generate A,b ignoring input-json</li>
+<li><code>-k [ --max-iterations ] arg</code>: maximum number of iterations [n ∈ ℕ]</li>
+<li><code>-i [ --input-json ] arg</code>: input JSON containing A, and b</li>
+<li><code>-o [ --output-json ] arg</code>: path for the output JSON</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md156"></a>
+General options</h3>
+<ul>
+<li><code>-h [ --help ]</code>: Show this help message</li>
+<li><code>-q [ --quiet ]</code>: Reduce verbosity</li>
+<li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
+<li><code>-P [ --profile ]</code>: Turn on performance profiling</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md157"></a>
+Parameters Format</h2>
+<p>The expected input json file requires the following fields:</p>
+<h3><a class="anchor" id="autotoc_md158"></a>
+Sample Parameters File</h3>
+<p>No input file is needed. You can generate a random matrix using the <code>-g</code> or <code>--generate</code> flag.</p>
+<p>But if you like, you can also use:</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;coefficients&quot;: [</div>
+<div class="line">    [4, -1, -1, 0],</div>
+<div class="line">    [-1, 3, 0, -1],</div>
+<div class="line">    [-1, 0, 4, -1],</div>
+<div class="line">    [0, -1, -1, 3]</div>
+<div class="line">  ],</div>
+<div class="line">  &quot;max-iterations&quot;: 50,</div>
+<div class="line">  &quot;convergence_threshold&quot;: 1e-4</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md159"></a>
+Output Format</h2>
+<p>The output is written to a JSON file as well.</p>
+<h3><a class="anchor" id="autotoc_md160"></a>
+Sample Outputs File</h3>
+<div class="fragment"><div class="line">{</div>
+<div class="line">   &quot;inverse-power-iteration&quot;: {</div>
+<div class="line">      &quot;benchmark&quot;: {</div>
+<div class="line">         &quot;mean&quot;: 71070.14,</div>
+<div class="line">         &quot;p5th&quot;: 65543.25,</div>
+<div class="line">         &quot;p95th&quot;: 83677.75,</div>
+<div class="line">         &quot;samples&quot;: 100</div>
+<div class="line">      },</div>
+<div class="line">      &quot;solution&quot;: {</div>
+<div class="line">         &quot;converged&quot;: true,</div>
+<div class="line">         &quot;eigenvalue&quot;: 5.617862032888341,</div>
+<div class="line">         &quot;iterations&quot;: 12,</div>
+<div class="line">         &quot;iterative-error&quot;: {</div>
+<div class="line">            &quot;eigenvalue&quot;: 0.00026600375184247446,</div>
+<div class="line">            &quot;x&quot;: 4.73496412487924e-05</div>
+<div class="line">         },</div>
+<div class="line">         &quot;residual&quot;: [</div>
+<div class="line">            0.009352377667662094,</div>
+<div class="line">            0.001073025507593375,</div>
+<div class="line">            0.003015940623797602,</div>
+<div class="line">            -0.008716994010167288</div>
+<div class="line">         ],</div>
+<div class="line">         &quot;residual-∞-norm&quot;: 0.009352377667662094,</div>
+<div class="line">         &quot;x&quot;: [</div>
+<div class="line">            0.5970258552065718,</div>
+<div class="line">            -0.37204730392844737,</div>
+<div class="line">            -0.6032105375306189,</div>
+<div class="line">            0.37586963067858625</div>
+<div class="line">         ]</div>
+<div class="line">      }</div>
+<div class="line">   },</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md161"></a>
+Example:</h2>
+<p>The following is an example of the program's output:</p>
+<div class="fragment"><div class="line">NE591: OutLab 12: Inverse Power Iteration Method</div>
+<div class="line">Arjun Earthperson</div>
+<div class="line">11/10/2023</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">using 128-bit floats</div>
+<div class="line">compiler: GNU 8.5.0</div>
+<div class="line">boost: 106600 /usr/lib64/libboost_program_options.so;/usr/lib64/libboost_serialization.so</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Parameters:</div>
+<div class="line"> </div>
+<div class="line">Solver Options:</div>
+<div class="line">  -t [ --threshold ] arg                = convergence threshold [𝜀 &gt; 0]</div>
+<div class="line">  -k [ --max-iterations ] arg           = maximum iterations [n ∈ ℕ]</div>
+<div class="line">  -n [ --order ] arg                    = order of the square matrix [n ∈ </div>
+<div class="line">                                        ℕ]</div>
+<div class="line">  --lambda arg                          = guess for eigenvalue</div>
+<div class="line">  --use-direct                          = use the direct PI method</div>
+<div class="line">  --use-rayleigh                        = use the Rayleigh Quotient PI method</div>
+<div class="line">  --use-inverse                         = use the inverse PI method</div>
+<div class="line"> </div>
+<div class="line">File I/O Options:</div>
+<div class="line">  -i [ --input-json ] arg               = input JSON containing A</div>
+<div class="line">  -g [ --generate ]                     = Generate A ignoring input-json</div>
+<div class="line">  -o [ --output-json ] arg (=/dev/stdout)</div>
+<div class="line">                                        = path for the output JSON</div>
+<div class="line"> </div>
+<div class="line">Performance Benchmarking:</div>
+<div class="line">  -R [ --bench-runs ] arg (=1)          = &lt;R&gt; runs to perform</div>
+<div class="line">  -T [ --bench-timeout ] arg (=0)       = Timeout after &lt;T&gt; seconds [0=never]</div>
+<div class="line">  -B [ --bench ]                        = Run performance benchmarks</div>
+<div class="line"> </div>
+<div class="line">General options:</div>
+<div class="line">  -h [ --help ]                         = Show this help message</div>
+<div class="line">  -q [ --quiet ]                        = Reduce verbosity</div>
+<div class="line">  -p [ --precision ] arg (=15)          = Number of digits to represent long </div>
+<div class="line">                                        double</div>
+<div class="line"> </div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">            Precision in digits:  default: 6, maximum: 19, current: 15</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Would you like to use the Use the inverse PI method? [YES/no]: y</div>
+<div class="line">y</div>
+<div class="line">Enter a value for lambda:-10</div>
+<div class="line">-10</div>
+<div class="line">Would you like to use the the direct PI method? [YES/no]: n</div>
+<div class="line">n</div>
+<div class="line">Would you like to use the the Rayleigh Quotient PI method? [YES/no]: n</div>
+<div class="line">n</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">                                     Inputs</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">    Use inverse PI method     : Yes</div>
+<div class="line">    Use direct PI method      : Yes</div>
+<div class="line">    Use Rayleigh PI method    : Yes</div>
+<div class="line">    Generate A               g: No</div>
+<div class="line">    Input JSON (for A),      i:  ../inlab12_input.json</div>
+<div class="line">    Output JSON (for x),     o: /dev/stdout</div>
+<div class="line">    Convergence Threshold,   𝜀: 0.0001</div>
+<div class="line">    Max iterations,          k: 50</div>
+<div class="line">    Matrix order,            n: None provided, will be inferred from input JSON</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Reading matrix order (n) from input matrix dimensions: 4</div>
+<div class="line">Input coefficients matrix A is square.</div>
+<div class="line">Input coefficients matrix A is symmetric.</div>
+<div class="line">Input coefficients matrix A is diagonally dominant.</div>
+<div class="line">Input coefficients matrix A is positive definite.</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Coefficient Matrix (A):</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">    4.000000000000000e+00   -1.000000000000000e+00   -1.000000000000000e+00    0.000000000000000e+00</div>
+<div class="line">   -1.000000000000000e+00    3.000000000000000e+00    0.000000000000000e+00   -1.000000000000000e+00</div>
+<div class="line">   -1.000000000000000e+00    0.000000000000000e+00    4.000000000000000e+00   -1.000000000000000e+00</div>
+<div class="line">    0.000000000000000e+00   -1.000000000000000e+00   -1.000000000000000e+00    3.000000000000000e+00</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">::::::::::::::::::::::::::::::: Solver Parameters ::::::::::::::::::::::::::::::</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Initial Guess</div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">-3.451901831525128e-01   -3.999578137192380e-01   -1.776804031623526e-01   4.288425371722089e-01    </div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">Size (n):                4</div>
+<div class="line">Convergence Threshold:   1.000000000000000e-04</div>
+<div class="line">Relaxation Factor:       nan</div>
+<div class="line">Max Iterations:          50</div>
+<div class="line">:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::</div>
+<div class="line">[100/100] : Rayleigh Quotient Power Iteration Method</div>
+<div class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="line">:::::: SUM: 1.11e+07 :::::::: VARIANCE: 2.50e+09 :::::::: MEDIAN: 1.02e+05 :::::</div>
+<div class="line">:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::</div>
+<div class="line">:::::: {9.90e+04, 5.78e+05} : (1.11e+05 ± 5.00e+04) : [9.99e+04, 1.20e+05] :::::</div>
+<div class="line">:::::: Estimated maximum allocated memory [bytes]: 736 ::::::::::::::::::::::::</div>
+<div class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="line"> </div>
+<div class="line">:::::: Converged        :     Yes</div>
+<div class="line">:::::: Iterations       :     11</div>
+<div class="line">:::::: Iterative Error  :     5.83e-05</div>
+<div class="line">:::::: Iterate Vector x : 5.94e-01    -3.72e-01   -6.04e-01   3.78e-01    </div>
+<div class="line">:::::: Eigenvalue       :     5.62e+00</div>
+<div class="line">:::::: Eigenvalue Error :     3.27e-04</div>
+<div class="line">:::::: Residual ∞-Norm  :     1.48e-02</div>
+<div class="line">:::::: Residual         : 1.48e-02    2.22e-03    4.38e-03    -1.41e-02   </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">--------------------------------------------------------------------------------</div>
+<div class="line">JSON data has been written to /dev/stdout</div>
+<div class="line"> </div>
+<div class="line">Process finished with exit code 0</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

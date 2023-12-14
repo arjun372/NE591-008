@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 737;
+var viewWidth = 782;
 var viewHeight = 847;
 var sectionId = 'dynsection-0';
 </script>
@@ -54,13 +54,13 @@ var sectionId = 'dynsection-0';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>L</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-842.86 733,-842.86 733,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-842.86 778,-842.86 778,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="700,-414.5 700,-433.5 729,-433.5 729,-414.5 700,-414.5"/>
-<text text-anchor="middle" x="714.5" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">L</text>
+<polygon fill="#bfbfbf" stroke="black" points="745,-414.5 745,-433.5 774,-433.5 774,-414.5 745,-414.5"/>
+<text text-anchor="middle" x="759.5" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">L</text>
 </a>
 </g>
 </g>
@@ -68,631 +68,647 @@ var sectionId = 'dynsection-0';
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="../../d0/d6c/namespaceInLab04.html#ab3a3cbc5744e288d945d91f6febfca15" target="_top" xlink:title="Perform forward substitution.">
-<polygon fill="white" stroke="black" points="263,-806.5 263,-825.5 433,-825.5 433,-806.5 263,-806.5"/>
-<text text-anchor="middle" x="348" y="-813.5" font-family="Helvetica,sans-Serif" font-size="10.00">InLab04::doForwardSubstitution</text>
+<polygon fill="white" stroke="black" points="308,-806.5 308,-825.5 478,-825.5 478,-806.5 308,-806.5"/>
+<text text-anchor="middle" x="393" y="-813.5" font-family="Helvetica,sans-Serif" font-size="10.00">InLab04::doForwardSubstitution</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M713.87,-443.82C714.69,-512.47 713.53,-738.46 664,-786 588.8,-858.18 452.02,-839.84 386.26,-825.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="717.36,-443.5 713.71,-433.55 710.36,-443.6 717.36,-443.5"/>
+<path fill="none" stroke="midnightblue" d="M758.87,-443.82C759.69,-512.47 758.53,-738.46 709,-786 633.8,-858.18 497.02,-839.84 431.26,-825.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="762.36,-443.5 758.71,-433.55 755.36,-443.6 762.36,-443.5"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:href="../../db/d2e/namespaceMyBLAS_1_1LU.html#a53e15f639ac089ddc18e9e9340489efc" target="_top" xlink:title="Factorizes a given matrix A into lower and upper triangular matrices L,U using Doolittle&#39;s method.">
-<polygon fill="white" stroke="black" points="483.5,-338.5 483.5,-357.5 649.5,-357.5 649.5,-338.5 483.5,-338.5"/>
-<text text-anchor="middle" x="566.5" y="-345.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LU::doolittleFactorize</text>
+<polygon fill="white" stroke="black" points="528.5,-338.5 528.5,-357.5 694.5,-357.5 694.5,-338.5 528.5,-338.5"/>
+<text text-anchor="middle" x="611.5" y="-345.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LU::doolittleFactorize</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M700.94,-406.32C691.91,-394.89 678.77,-380.59 664,-372 653.11,-365.66 640.58,-360.99 628.24,-357.54"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="698.18,-408.48 706.99,-414.36 703.77,-404.27 698.18,-408.48"/>
+<path fill="none" stroke="midnightblue" d="M745.94,-406.32C736.91,-394.89 723.77,-380.59 709,-372 698.11,-365.66 685.58,-360.99 673.24,-357.54"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="743.18,-408.48 751.99,-414.36 748.77,-404.27 743.18,-408.48"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a278b70718fc6b42c7d239434849c2837" target="_top" xlink:title="Factorizes a given matrix A into lower and upper triangular matrices L,U using Doolittle&#39;s method.">
-<polygon fill="white" stroke="black" points="486.5,-300.5 486.5,-319.5 646.5,-319.5 646.5,-300.5 486.5,-300.5"/>
-<text text-anchor="middle" x="566.5" y="-307.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::doolittleFactorizeLU</text>
+<polygon fill="white" stroke="black" points="531.5,-300.5 531.5,-319.5 691.5,-319.5 691.5,-300.5 531.5,-300.5"/>
+<text text-anchor="middle" x="611.5" y="-307.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::doolittleFactorizeLU</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M708.8,-404.55C702.46,-382.65 688.97,-347.68 664,-329 658.8,-325.11 653.03,-321.96 646.95,-319.41"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="705.47,-405.63 711.43,-414.39 712.23,-403.83 705.47,-405.63"/>
+<path fill="none" stroke="midnightblue" d="M753.8,-404.55C747.46,-382.65 733.97,-347.68 709,-329 703.8,-325.11 698.03,-321.96 691.95,-319.41"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="750.47,-405.63 756.43,-414.39 757.23,-403.83 750.47,-405.63"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#a8944cf7f291594494e1140ff6b0b0fc6" target="_top" xlink:title="Performs Doolittle&#39;s LU factorization with partial pivoting on a given matrix.">
-<polygon fill="white" stroke="black" points="470,-730.5 470,-749.5 663,-749.5 663,-730.5 470,-730.5"/>
-<text text-anchor="middle" x="566.5" y="-737.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::dooLittleFactorizeLUP</text>
+<polygon fill="white" stroke="black" points="515,-730.5 515,-749.5 708,-749.5 708,-730.5 515,-730.5"/>
+<text text-anchor="middle" x="611.5" y="-737.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::dooLittleFactorizeLUP</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M713.03,-443.89C711.21,-503.87 702.58,-681.27 664,-721 660.43,-724.67 656.37,-727.75 651.99,-730.31"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="716.54,-443.63 713.32,-433.53 709.54,-443.44 716.54,-443.63"/>
+<path fill="none" stroke="midnightblue" d="M758.03,-443.89C756.21,-503.87 747.58,-681.27 709,-721 705.43,-724.67 701.37,-727.75 696.99,-730.31"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="761.54,-443.63 758.32,-433.53 754.54,-443.44 761.54,-443.63"/>
 </g>
-<!-- Node11 -->
-<g id="node11" class="node">
-<title>Node11</title>
-<g id="a_node11"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#adb672b0ddbe668b9469123427767624d" target="_top" xlink:title="This function performs LU factorization on a given matrix A and stores the results in matrices L and ...">
-<polygon fill="white" stroke="black" points="282.5,-768.5 282.5,-787.5 413.5,-787.5 413.5,-768.5 282.5,-768.5"/>
-<text text-anchor="middle" x="348" y="-775.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::factorize</text>
+<!-- Node12 -->
+<g id="node12" class="node">
+<title>Node12</title>
+<g id="a_node12"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#adb672b0ddbe668b9469123427767624d" target="_top" xlink:title="This function performs LU factorization on a given matrix A and stores the results in matrices L and ...">
+<polygon fill="white" stroke="black" points="327.5,-768.5 327.5,-787.5 458.5,-787.5 458.5,-768.5 327.5,-768.5"/>
+<text text-anchor="middle" x="393" y="-775.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::factorize</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node11 -->
-<g id="edge14" class="edge">
-<title>Node1&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M713.68,-443.66C713.84,-508.86 710.6,-716.27 664,-759 628.77,-791.31 495.21,-788.4 413.74,-783.27"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="717.18,-443.5 713.63,-433.52 710.18,-443.54 717.18,-443.5"/>
-</g>
-<!-- Node13 -->
-<g id="node13" class="node">
-<title>Node13</title>
-<g id="a_node13"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a42561c10d9c1157e9f1dcd9e940061a2" target="_top" xlink:title="Performs Doolittle&#39;s LU factorization with partial pivoting on a given matrix.">
-<polygon fill="white" stroke="black" points="505.5,-616.5 505.5,-635.5 627.5,-635.5 627.5,-616.5 505.5,-616.5"/>
-<text text-anchor="middle" x="566.5" y="-623.5" font-family="Helvetica,sans-Serif" font-size="10.00">dooLittleFactorizeLUP</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node13 -->
-<g id="edge12" class="edge">
-<title>Node1&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M714.42,-443.9C715,-481.64 710.46,-563.67 664,-607 654.07,-616.26 641,-621.6 627.7,-624.56"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="717.91,-443.6 714.12,-433.71 710.92,-443.81 717.91,-443.6"/>
+<!-- Node1&#45;&gt;Node12 -->
+<g id="edge15" class="edge">
+<title>Node1&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M758.68,-443.66C758.84,-508.86 755.6,-716.27 709,-759 673.77,-791.31 540.21,-788.4 458.74,-783.27"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="762.18,-443.5 758.63,-433.52 755.18,-443.54 762.18,-443.5"/>
 </g>
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="../../d3/d1d/classOutLab5.html#aa1d5363426e0ce8f620d47c1b2aa2260" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="308.5,-616.5 308.5,-635.5 387.5,-635.5 387.5,-616.5 308.5,-616.5"/>
-<text text-anchor="middle" x="348" y="-623.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab5::run</text>
+<g id="a_node14"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a42561c10d9c1157e9f1dcd9e940061a2" target="_top" xlink:title="Performs Doolittle&#39;s LU factorization with partial pivoting on a given matrix.">
+<polygon fill="white" stroke="black" points="550.5,-616.5 550.5,-635.5 672.5,-635.5 672.5,-616.5 550.5,-616.5"/>
+<text text-anchor="middle" x="611.5" y="-623.5" font-family="Helvetica,sans-Serif" font-size="10.00">dooLittleFactorizeLUP</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node14 -->
-<g id="edge49" class="edge">
+<g id="edge13" class="edge">
 <title>Node1&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M712.14,-443.8C708.28,-493.21 695.46,-619.8 664,-645 622.41,-678.3 462.19,-650.03 387.6,-634.53"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="715.63,-443.97 712.88,-433.74 708.65,-443.46 715.63,-443.97"/>
+<path fill="none" stroke="midnightblue" d="M759.42,-443.9C760,-481.64 755.46,-563.67 709,-607 699.07,-616.26 686,-621.6 672.7,-624.56"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="762.91,-443.6 759.12,-433.71 755.92,-443.81 762.91,-443.6"/>
 </g>
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="../../db/d2e/namespaceMyBLAS_1_1LU.html#a876ff0f2a17c8145a0e18eb54c37506b" target="_top" xlink:title="Factorizes a given matrix A into lower and upper triangular matrices L,U.">
-<polygon fill="white" stroke="black" points="504,-540.5 504,-559.5 629,-559.5 629,-540.5 504,-540.5"/>
-<text text-anchor="middle" x="566.5" y="-547.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LU::factorize</text>
+<g id="a_node15"><a xlink:href="../../d3/d1d/classOutLab5.html#aa1d5363426e0ce8f620d47c1b2aa2260" target="_top" xlink:title="This function runs the project.">
+<polygon fill="white" stroke="black" points="353.5,-616.5 353.5,-635.5 432.5,-635.5 432.5,-616.5 353.5,-616.5"/>
+<text text-anchor="middle" x="393" y="-623.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab5::run</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node15 -->
-<g id="edge15" class="edge">
+<g id="edge50" class="edge">
 <title>Node1&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M709.31,-443.6C703.32,-466.79 690.01,-504.9 664,-526 654.01,-534.1 641.66,-539.52 629.17,-543.13"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="712.79,-444.09 711.69,-433.55 705.98,-442.48 712.79,-444.09"/>
+<path fill="none" stroke="midnightblue" d="M757.14,-443.8C753.28,-493.21 740.46,-619.8 709,-645 667.41,-678.3 507.19,-650.03 432.6,-634.53"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="760.63,-443.97 757.88,-433.74 753.65,-443.46 760.63,-443.97"/>
 </g>
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
-<g id="a_node16"><a xlink:href="../../d8/d5b/classOutLab4.html#af3d8d1b60ac7a85a1aabf6a3d511ecce" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="308.5,-540.5 308.5,-559.5 387.5,-559.5 387.5,-540.5 308.5,-540.5"/>
-<text text-anchor="middle" x="348" y="-547.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab4::run</text>
+<g id="a_node16"><a xlink:href="../../db/d2e/namespaceMyBLAS_1_1LU.html#a876ff0f2a17c8145a0e18eb54c37506b" target="_top" xlink:title="Factorizes a given matrix A into lower and upper triangular matrices L,U.">
+<polygon fill="white" stroke="black" points="549,-540.5 549,-559.5 674,-559.5 674,-540.5 549,-540.5"/>
+<text text-anchor="middle" x="611.5" y="-547.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LU::factorize</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node16 -->
-<g id="edge48" class="edge">
+<g id="edge16" class="edge">
 <title>Node1&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M704.84,-443.32C696.65,-459.25 682.81,-481.11 664,-493 652.34,-500.37 469.38,-530.58 387.77,-543.78"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="708.2,-444.39 709.4,-433.86 701.9,-441.35 708.2,-444.39"/>
+<path fill="none" stroke="midnightblue" d="M754.31,-443.6C748.32,-466.79 735.01,-504.9 709,-526 699.01,-534.1 686.66,-539.52 674.17,-543.13"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="757.79,-444.09 756.69,-433.55 750.98,-442.48 757.79,-444.09"/>
 </g>
-<!-- Node18 -->
-<g id="node18" class="node">
-<title>Node18</title>
-<g id="a_node18"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a4540b3f97122a1b21bdf0d84d79ca249" target="_top" xlink:title="Factorizes a given matrix A into lower and upper triangular matrices L,U.">
-<polygon fill="white" stroke="black" points="507,-262.5 507,-281.5 626,-281.5 626,-262.5 507,-262.5"/>
-<text text-anchor="middle" x="566.5" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::factorizeLU</text>
+<!-- Node17 -->
+<g id="node17" class="node">
+<title>Node17</title>
+<g id="a_node17"><a xlink:href="../../d8/d5b/classOutLab4.html#af3d8d1b60ac7a85a1aabf6a3d511ecce" target="_top" xlink:title="This function runs the project.">
+<polygon fill="white" stroke="black" points="353.5,-540.5 353.5,-559.5 432.5,-559.5 432.5,-540.5 353.5,-540.5"/>
+<text text-anchor="middle" x="393" y="-547.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab4::run</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node18 -->
-<g id="edge19" class="edge">
-<title>Node1&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M711.99,-403.87C708.65,-374.39 697.97,-319.88 664,-291 653.4,-281.99 639.76,-276.79 626.11,-273.89"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="708.54,-404.54 712.97,-414.16 715.51,-403.88 708.54,-404.54"/>
+<!-- Node1&#45;&gt;Node17 -->
+<g id="edge49" class="edge">
+<title>Node1&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M749.84,-443.32C741.65,-459.25 727.81,-481.11 709,-493 697.34,-500.37 514.38,-530.58 432.77,-543.78"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="753.2,-444.39 754.4,-433.86 746.9,-441.35 753.2,-444.39"/>
 </g>
 <!-- Node19 -->
 <g id="node19" class="node">
 <title>Node19</title>
-<g id="a_node19"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#aa19e5cc823ea14b1a77e48797363376d" target="_top" xlink:title="Performs LU factorization with partial pivoting on a given matrix.">
-<polygon fill="white" stroke="black" points="484.5,-213 484.5,-243 648.5,-243 648.5,-213 484.5,-213"/>
-<text text-anchor="start" x="492.5" y="-231" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::factorizeLUwith</text>
-<text text-anchor="middle" x="566.5" y="-220" font-family="Helvetica,sans-Serif" font-size="10.00">PartialPivoting</text>
+<g id="a_node19"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a4540b3f97122a1b21bdf0d84d79ca249" target="_top" xlink:title="Factorizes a given matrix A into lower and upper triangular matrices L,U.">
+<polygon fill="white" stroke="black" points="552,-262.5 552,-281.5 671,-281.5 671,-262.5 552,-262.5"/>
+<text text-anchor="middle" x="611.5" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::factorizeLU</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node19 -->
 <g id="edge20" class="edge">
 <title>Node1&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M713.73,-404.15C713.01,-368.61 706.19,-294.02 664,-253 659.53,-248.66 654.41,-245.04 648.91,-242.03"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="710.23,-404.24 713.78,-414.22 717.23,-404.2 710.23,-404.24"/>
+<path fill="none" stroke="midnightblue" d="M756.99,-403.87C753.65,-374.39 742.97,-319.88 709,-291 698.4,-281.99 684.76,-276.79 671.11,-273.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="753.54,-404.54 757.97,-414.16 760.51,-403.88 753.54,-404.54"/>
 </g>
 <!-- Node20 -->
 <g id="node20" class="node">
 <title>Node20</title>
-<g id="a_node20"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a06469338a0b66fbb6224d51ec170b8ad" target="_top" xlink:title="Performs LU factorization with partial pivoting on a given matrix.">
-<polygon fill="white" stroke="black" points="484.5,-578.5 484.5,-597.5 648.5,-597.5 648.5,-578.5 484.5,-578.5"/>
-<text text-anchor="middle" x="566.5" y="-585.5" font-family="Helvetica,sans-Serif" font-size="10.00">factorizeLUwithPartialPivoting</text>
+<g id="a_node20"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#aa19e5cc823ea14b1a77e48797363376d" target="_top" xlink:title="Performs LU factorization with partial pivoting on a given matrix.">
+<polygon fill="white" stroke="black" points="529.5,-213 529.5,-243 693.5,-243 693.5,-213 529.5,-213"/>
+<text text-anchor="start" x="537.5" y="-231" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::factorizeLUwith</text>
+<text text-anchor="middle" x="611.5" y="-220" font-family="Helvetica,sans-Serif" font-size="10.00">PartialPivoting</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node20 -->
 <g id="edge21" class="edge">
 <title>Node1&#45;&gt;Node20</title>
-<path fill="none" stroke="midnightblue" d="M712.75,-443.67C710.43,-475.15 701.11,-536.58 664,-569 659.37,-573.04 654.14,-576.33 648.56,-578.98"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="716.25,-443.72 713.33,-433.54 709.26,-443.33 716.25,-443.72"/>
+<path fill="none" stroke="midnightblue" d="M758.73,-404.15C758.01,-368.61 751.19,-294.02 709,-253 704.53,-248.66 699.41,-245.04 693.91,-242.03"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="755.23,-404.24 758.78,-414.22 762.23,-404.2 755.23,-404.24"/>
 </g>
 <!-- Node21 -->
 <g id="node21" class="node">
 <title>Node21</title>
-<g id="a_node21"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#aa3501265c4bb7f37e8e949d37244473a" target="_top" xlink:title="Perform forward substitution.">
-<polygon fill="white" stroke="black" points="487,-692.5 487,-711.5 646,-711.5 646,-692.5 487,-692.5"/>
-<text text-anchor="middle" x="566.5" y="-699.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::forwardSubstitution</text>
+<g id="a_node21"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a06469338a0b66fbb6224d51ec170b8ad" target="_top" xlink:title="Performs LU factorization with partial pivoting on a given matrix.">
+<polygon fill="white" stroke="black" points="529.5,-578.5 529.5,-597.5 693.5,-597.5 693.5,-578.5 529.5,-578.5"/>
+<text text-anchor="middle" x="611.5" y="-585.5" font-family="Helvetica,sans-Serif" font-size="10.00">factorizeLUwithPartialPivoting</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node21 -->
-<g id="edge23" class="edge">
+<g id="edge22" class="edge">
 <title>Node1&#45;&gt;Node21</title>
-<path fill="none" stroke="midnightblue" d="M712.31,-444.06C708.72,-497.96 696.14,-644.16 664,-678 658.17,-684.13 651.04,-688.8 643.32,-692.33"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="715.83,-443.96 712.96,-433.76 708.84,-443.52 715.83,-443.96"/>
+<path fill="none" stroke="midnightblue" d="M757.75,-443.67C755.43,-475.15 746.11,-536.58 709,-569 704.37,-573.04 699.14,-576.33 693.56,-578.98"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="761.25,-443.72 758.33,-433.54 754.26,-443.33 761.25,-443.72"/>
 </g>
-<!-- Node24 -->
-<g id="node24" class="node">
-<title>Node24</title>
-<g id="a_node24"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#ad78205a07b1500a10fae544f919d0801" target="_top" xlink:title="Checks if the given matrix is positive definite using Cholesky decomposition.">
-<polygon fill="white" stroke="black" points="492,-164 492,-194 641,-194 641,-164 492,-164"/>
-<text text-anchor="start" x="500" y="-182" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isPositiveDefinite</text>
-<text text-anchor="middle" x="566.5" y="-171" font-family="Helvetica,sans-Serif" font-size="10.00">Matrix</text>
+<!-- Node22 -->
+<g id="node22" class="node">
+<title>Node22</title>
+<g id="a_node22"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#aa3501265c4bb7f37e8e949d37244473a" target="_top" xlink:title="Perform forward substitution.">
+<polygon fill="white" stroke="black" points="532,-692.5 532,-711.5 691,-711.5 691,-692.5 532,-692.5"/>
+<text text-anchor="middle" x="611.5" y="-699.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::forwardSubstitution</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node24 -->
-<g id="edge30" class="edge">
-<title>Node1&#45;&gt;Node24</title>
-<path fill="none" stroke="midnightblue" d="M711.65,-404.1C706.74,-355.52 691.8,-232.71 664,-204 657.62,-197.41 649.74,-192.48 641.27,-188.8"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="708.19,-404.66 712.64,-414.27 715.16,-403.98 708.19,-404.66"/>
+<!-- Node1&#45;&gt;Node22 -->
+<g id="edge24" class="edge">
+<title>Node1&#45;&gt;Node22</title>
+<path fill="none" stroke="midnightblue" d="M757.31,-444.06C753.72,-497.96 741.14,-644.16 709,-678 703.17,-684.13 696.04,-688.8 688.32,-692.33"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="760.83,-443.96 757.96,-433.76 753.84,-443.52 760.83,-443.96"/>
 </g>
-<!-- Node29 -->
-<g id="node29" class="node">
-<title>Node29</title>
-<g id="a_node29"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#ae371a7b6812d897b1395ef461745cea1" target="_top" xlink:title="Checks if the given matrix is a valid unit lower triangular matrix.">
-<polygon fill="white" stroke="black" points="482,-453 482,-483 651,-483 651,-453 482,-453"/>
-<text text-anchor="start" x="490" y="-471" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isUnitLowerTriangular</text>
-<text text-anchor="middle" x="566.5" y="-460" font-family="Helvetica,sans-Serif" font-size="10.00">Matrix</text>
+<!-- Node25 -->
+<g id="node25" class="node">
+<title>Node25</title>
+<g id="a_node25"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#ad78205a07b1500a10fae544f919d0801" target="_top" xlink:title="Checks if the given matrix is positive definite using Cholesky decomposition.">
+<polygon fill="white" stroke="black" points="537,-164 537,-194 686,-194 686,-164 537,-164"/>
+<text text-anchor="start" x="545" y="-182" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isPositiveDefinite</text>
+<text text-anchor="middle" x="611.5" y="-171" font-family="Helvetica,sans-Serif" font-size="10.00">Matrix</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node29 -->
-<g id="edge35" class="edge">
-<title>Node1&#45;&gt;Node29</title>
-<path fill="none" stroke="midnightblue" d="M690.17,-431.03C670.62,-436.92 642.01,-445.54 617.34,-452.98"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="691.2,-434.38 699.76,-428.14 689.18,-427.67 691.2,-434.38"/>
+<!-- Node1&#45;&gt;Node25 -->
+<g id="edge31" class="edge">
+<title>Node1&#45;&gt;Node25</title>
+<path fill="none" stroke="midnightblue" d="M756.65,-404.1C751.74,-355.52 736.8,-232.71 709,-204 702.62,-197.41 694.74,-192.48 686.27,-188.8"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="753.19,-404.66 757.64,-414.27 760.16,-403.98 753.19,-404.66"/>
 </g>
-<!-- Node31 -->
-<g id="node31" class="node">
-<title>Node31</title>
-<g id="a_node31"><a xlink:href="../../d1/d18/namespaceMyFactorizationMethod.html#af023ef80907979472242ab3db7dcd9ff" target="_top" xlink:title="Function to check if the factorized matrices pass the post&#45;checks for the factorization methods.">
-<polygon fill="white" stroke="black" points="282.5,-377 282.5,-407 413.5,-407 413.5,-377 282.5,-377"/>
-<text text-anchor="start" x="290.5" y="-395" font-family="Helvetica,sans-Serif" font-size="10.00">MyFactorizationMethod</text>
-<text text-anchor="middle" x="348" y="-384" font-family="Helvetica,sans-Serif" font-size="10.00">::passesPostChecks</text>
+<!-- Node30 -->
+<g id="node30" class="node">
+<title>Node30</title>
+<g id="a_node30"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#ae371a7b6812d897b1395ef461745cea1" target="_top" xlink:title="Checks if the given matrix is a valid unit lower triangular matrix.">
+<polygon fill="white" stroke="black" points="527,-453 527,-483 696,-483 696,-453 527,-453"/>
+<text text-anchor="start" x="535" y="-471" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isUnitLowerTriangular</text>
+<text text-anchor="middle" x="611.5" y="-460" font-family="Helvetica,sans-Serif" font-size="10.00">Matrix</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node31 -->
-<g id="edge44" class="edge">
-<title>Node1&#45;&gt;Node31</title>
-<path fill="none" stroke="midnightblue" d="M689.42,-421.89C633.99,-417.02 495.82,-404.89 413.56,-397.67"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="689.39,-425.4 699.66,-422.78 690,-418.42 689.39,-425.4"/>
+<!-- Node1&#45;&gt;Node30 -->
+<g id="edge36" class="edge">
+<title>Node1&#45;&gt;Node30</title>
+<path fill="none" stroke="midnightblue" d="M735.17,-431.03C715.62,-436.92 687.01,-445.54 662.34,-452.98"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="736.2,-434.38 744.76,-428.14 734.18,-427.67 736.2,-434.38"/>
 </g>
 <!-- Node32 -->
 <g id="node32" class="node">
 <title>Node32</title>
-<g id="a_node32"><a xlink:href="../../db/d13/labs_2inlab6_2tests_2LUMatrixTests_8cpp.html#a5669c38650f4e827fcd26a72acde0dbe" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="322,-338.5 322,-357.5 374,-357.5 374,-338.5 322,-338.5"/>
-<text text-anchor="middle" x="348" y="-345.5" font-family="Helvetica,sans-Serif" font-size="10.00">TEST_P</text>
+<g id="a_node32"><a xlink:href="../../d1/d18/namespaceMyFactorizationMethod.html#af023ef80907979472242ab3db7dcd9ff" target="_top" xlink:title="Function to check if the factorized matrices pass the post&#45;checks for the factorization methods.">
+<polygon fill="white" stroke="black" points="327.5,-377 327.5,-407 458.5,-407 458.5,-377 327.5,-377"/>
+<text text-anchor="start" x="335.5" y="-395" font-family="Helvetica,sans-Serif" font-size="10.00">MyFactorizationMethod</text>
+<text text-anchor="middle" x="393" y="-384" font-family="Helvetica,sans-Serif" font-size="10.00">::passesPostChecks</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node32 -->
-<g id="edge50" class="edge">
+<g id="edge45" class="edge">
 <title>Node1&#45;&gt;Node32</title>
-<path fill="none" stroke="midnightblue" d="M690.7,-411.24C682.49,-407.12 673.03,-402.87 664,-400 657.03,-397.79 447.56,-363.9 374.13,-352.05"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="689.17,-414.4 699.65,-415.95 692.42,-408.2 689.17,-414.4"/>
+<path fill="none" stroke="midnightblue" d="M734.42,-421.89C678.99,-417.02 540.82,-404.89 458.56,-397.67"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="734.39,-425.4 744.66,-422.78 735,-418.42 734.39,-425.4"/>
 </g>
-<!-- Node34 -->
-<g id="node34" class="node">
-<title>Node34</title>
-<g id="a_node34"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a6f237b360d7d65a2b897fb259b9232c5" target="_top" xlink:title="Checks if the given matrix is a valid unit lower triangular matrix.">
-<polygon fill="white" stroke="black" points="494,-115 494,-145 639,-145 639,-115 494,-115"/>
-<text text-anchor="start" x="502" y="-133" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isValidUnitLower</text>
-<text text-anchor="middle" x="566.5" y="-122" font-family="Helvetica,sans-Serif" font-size="10.00">TriangularMatrix</text>
+<!-- Node33 -->
+<g id="node33" class="node">
+<title>Node33</title>
+<g id="a_node33"><a xlink:href="../../db/d13/labs_2inlab6_2tests_2LUMatrixTests_8cpp.html#a5669c38650f4e827fcd26a72acde0dbe" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="367,-338.5 367,-357.5 419,-357.5 419,-338.5 367,-338.5"/>
+<text text-anchor="middle" x="393" y="-345.5" font-family="Helvetica,sans-Serif" font-size="10.00">TEST_P</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node34 -->
-<g id="edge43" class="edge">
-<title>Node1&#45;&gt;Node34</title>
-<path fill="none" stroke="midnightblue" d="M712.55,-404.25C709.47,-348.47 697.9,-191.42 664,-155 657.16,-147.65 648.47,-142.35 639.11,-138.55"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="709.06,-404.46 713.07,-414.27 716.05,-404.1 709.06,-404.46"/>
+<!-- Node1&#45;&gt;Node33 -->
+<g id="edge51" class="edge">
+<title>Node1&#45;&gt;Node33</title>
+<path fill="none" stroke="midnightblue" d="M735.7,-411.24C727.49,-407.12 718.03,-402.87 709,-400 702.03,-397.79 492.56,-363.9 419.13,-352.05"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="734.17,-414.4 744.65,-415.95 737.42,-408.2 734.17,-414.4"/>
 </g>
 <!-- Node35 -->
 <g id="node35" class="node">
 <title>Node35</title>
-<g id="a_node35"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#a48eb37045c402e55ca4e086164f2911e" target="_top" xlink:title="Performs recursive LU factorization with partial pivoting on a given matrix.">
-<polygon fill="white" stroke="black" points="469,-76.5 469,-95.5 664,-95.5 664,-76.5 469,-76.5"/>
-<text text-anchor="middle" x="566.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::recursiveFactorizeLUP</text>
+<g id="a_node35"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a6f237b360d7d65a2b897fb259b9232c5" target="_top" xlink:title="Checks if the given matrix is a valid unit lower triangular matrix.">
+<polygon fill="white" stroke="black" points="539,-115 539,-145 684,-145 684,-115 539,-115"/>
+<text text-anchor="start" x="547" y="-133" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isValidUnitLower</text>
+<text text-anchor="middle" x="611.5" y="-122" font-family="Helvetica,sans-Serif" font-size="10.00">TriangularMatrix</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node35 -->
-<g id="edge45" class="edge">
+<g id="edge44" class="edge">
 <title>Node1&#45;&gt;Node35</title>
-<path fill="none" stroke="midnightblue" d="M713.29,-404.29C712.2,-341.56 705.48,-148.19 664,-105 660.45,-101.31 656.41,-98.22 652.04,-95.64"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="709.79,-404.46 713.43,-414.41 716.79,-404.36 709.79,-404.46"/>
+<path fill="none" stroke="midnightblue" d="M757.55,-404.25C754.47,-348.47 742.9,-191.42 709,-155 702.16,-147.65 693.47,-142.35 684.11,-138.55"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="754.06,-404.46 758.07,-414.27 761.05,-404.1 754.06,-404.46"/>
 </g>
 <!-- Node36 -->
 <g id="node36" class="node">
 <title>Node36</title>
-<g id="a_node36"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a4af95e0f3db41e42885c47e81a6aecd8" target="_top" xlink:title="Performs recursive LU factorization with partial pivoting on a given matrix.">
-<polygon fill="white" stroke="black" points="504.5,-38.5 504.5,-57.5 628.5,-57.5 628.5,-38.5 504.5,-38.5"/>
-<text text-anchor="middle" x="566.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">recursiveFactorizeLUP</text>
+<g id="a_node36"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#a48eb37045c402e55ca4e086164f2911e" target="_top" xlink:title="Performs recursive LU factorization with partial pivoting on a given matrix.">
+<polygon fill="white" stroke="black" points="514,-76.5 514,-95.5 709,-95.5 709,-76.5 514,-76.5"/>
+<text text-anchor="middle" x="611.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::recursiveFactorizeLUP</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node36 -->
 <g id="edge46" class="edge">
 <title>Node1&#45;&gt;Node36</title>
-<path fill="none" stroke="midnightblue" d="M713.65,-404.18C713.74,-336.51 710.41,-116.12 664,-67 654.68,-57.13 641.84,-51.56 628.57,-48.57"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="710.15,-404.31 713.61,-414.33 717.15,-404.34 710.15,-404.31"/>
+<path fill="none" stroke="midnightblue" d="M758.29,-404.29C757.2,-341.56 750.48,-148.19 709,-105 705.45,-101.31 701.41,-98.22 697.04,-95.64"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="754.79,-404.46 758.43,-414.41 761.79,-404.36 754.79,-404.46"/>
 </g>
 <!-- Node37 -->
 <g id="node37" class="node">
 <title>Node37</title>
-<g id="a_node37"><a xlink:href="../../db/d2e/namespaceMyBLAS_1_1LU.html#a56aef4d1166cb1303cd968090fed78f8" target="_top" xlink:title="Performs recursive LU factorization on a given matrix.">
-<polygon fill="white" stroke="black" points="475,-0.5 475,-19.5 658,-19.5 658,-0.5 475,-0.5"/>
-<text text-anchor="middle" x="566.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LU::recursiveLUFactorize</text>
+<g id="a_node37"><a xlink:href="../../d6/d82/labs_2outlab5_2Compute_8h.html#a4af95e0f3db41e42885c47e81a6aecd8" target="_top" xlink:title="Performs recursive LU factorization with partial pivoting on a given matrix.">
+<polygon fill="white" stroke="black" points="549.5,-38.5 549.5,-57.5 673.5,-57.5 673.5,-38.5 549.5,-38.5"/>
+<text text-anchor="middle" x="611.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">recursiveFactorizeLUP</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node37 -->
 <g id="edge47" class="edge">
 <title>Node1&#45;&gt;Node37</title>
-<path fill="none" stroke="midnightblue" d="M713.95,-403.99C715.15,-331.5 715.35,-84.06 664,-29 660.51,-25.25 656.51,-22.12 652.17,-19.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="710.44,-404.34 713.75,-414.4 717.44,-404.47 710.44,-404.34"/>
+<path fill="none" stroke="midnightblue" d="M758.65,-404.18C758.74,-336.51 755.41,-116.12 709,-67 699.68,-57.13 686.84,-51.56 673.57,-48.57"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="755.15,-404.31 758.61,-414.33 762.15,-404.34 755.15,-404.31"/>
+</g>
+<!-- Node38 -->
+<g id="node38" class="node">
+<title>Node38</title>
+<g id="a_node38"><a xlink:href="../../db/d2e/namespaceMyBLAS_1_1LU.html#a56aef4d1166cb1303cd968090fed78f8" target="_top" xlink:title="Performs recursive LU factorization on a given matrix.">
+<polygon fill="white" stroke="black" points="520,-0.5 520,-19.5 703,-19.5 703,-0.5 520,-0.5"/>
+<text text-anchor="middle" x="611.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LU::recursiveLUFactorize</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node38 -->
+<g id="edge48" class="edge">
+<title>Node1&#45;&gt;Node38</title>
+<path fill="none" stroke="midnightblue" d="M758.95,-403.99C760.15,-331.5 760.35,-84.06 709,-29 705.51,-25.25 701.51,-22.12 697.17,-19.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="755.44,-404.34 758.75,-414.4 762.44,-404.47 755.44,-404.34"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
 <g id="a_node6"><a xlink:href="../../d5/db6/namespaceMyBLAS_1_1LUP.html#ac803dfb6b419afbd84ade6475e608e1f" target="_top" xlink:title="This function solves a system of linear equations Ax = b using LU factorization with partial pivoting...">
-<polygon fill="white" stroke="black" points="281,-730.5 281,-749.5 415,-749.5 415,-730.5 281,-730.5"/>
-<text text-anchor="middle" x="348" y="-737.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::applyLUP</text>
+<polygon fill="white" stroke="black" points="326,-730.5 326,-749.5 460,-749.5 460,-730.5 326,-730.5"/>
+<text text-anchor="middle" x="393" y="-737.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::LUP::applyLUP</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M459.49,-740C444.39,-740 429.25,-740 415.21,-740"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="459.91,-743.5 469.91,-740 459.91,-736.5 459.91,-743.5"/>
+<path fill="none" stroke="midnightblue" d="M504.49,-740C489.39,-740 474.25,-740 460.21,-740"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="504.91,-743.5 514.91,-740 504.91,-736.5 504.91,-743.5"/>
 </g>
-<!-- Node5&#45;&gt;Node11 -->
-<g id="edge10" class="edge">
-<title>Node5&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M501.26,-751.28C470.11,-756.74 433.1,-763.24 403.38,-768.46"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="501.9,-754.72 511.15,-749.54 500.69,-747.82 501.9,-754.72"/>
+<!-- Node5&#45;&gt;Node12 -->
+<g id="edge11" class="edge">
+<title>Node5&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M546.26,-751.28C515.11,-756.74 478.1,-763.24 448.38,-768.46"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="546.9,-754.72 556.15,-749.54 545.69,-747.82 546.9,-754.72"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="../../de/db3/namespaceCompute.html#a9aaa2e3c1db51432d5a62c1d4541fd90" target="_top" xlink:title="Solves a linear system using LUP decomposition.">
-<polygon fill="white" stroke="black" points="115,-730.5 115,-749.5 227,-749.5 227,-730.5 115,-730.5"/>
-<text text-anchor="middle" x="171" y="-737.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingLUP</text>
+<g id="a_node7"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a8f6160a9196f16b9dea0b631a4346d3f" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="115,-747 115,-777 272,-777 272,-747 115,-747"/>
+<text text-anchor="start" x="123" y="-765" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="193.5" y="-754" font-family="Helvetica,sans-Serif" font-size="10.00">::applyInversePowerIteration</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M270.77,-740C256.09,-740 240.98,-740 227.13,-740"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="270.84,-743.5 280.84,-740 270.84,-736.5 270.84,-743.5"/>
+<path fill="none" stroke="midnightblue" d="M315.69,-748.5C301.39,-750.09 286.44,-751.76 272.11,-753.36"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="316.41,-751.94 325.96,-747.36 315.63,-744.98 316.41,-751.94"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d0/d4c/classOutLab6.html#a901a1283fd029c9174f8469ac5cb3ad8" target="_top" xlink:title="This function runs the computation.">
-<polygon fill="white" stroke="black" points="0,-768.5 0,-787.5 79,-787.5 79,-768.5 0,-768.5"/>
-<text text-anchor="middle" x="39.5" y="-775.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab6::run</text>
+<g id="a_node8"><a xlink:href="../../de/db3/namespaceCompute.html#a9aaa2e3c1db51432d5a62c1d4541fd90" target="_top" xlink:title="Solves a linear system using LUP decomposition.">
+<polygon fill="white" stroke="black" points="137.5,-708.5 137.5,-727.5 249.5,-727.5 249.5,-708.5 137.5,-708.5"/>
+<text text-anchor="middle" x="193.5" y="-715.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingLUP</text>
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node8 -->
+<!-- Node6&#45;&gt;Node8 -->
 <g id="edge7" class="edge">
-<title>Node7&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M127.28,-752.54C109.66,-757.7 89.58,-763.6 73.17,-768.41"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="128.71,-755.76 137.32,-749.59 126.74,-749.05 128.71,-755.76"/>
+<title>Node6&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M315.94,-731.53C293.85,-729.07 270.15,-726.43 249.61,-724.14"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="315.63,-735.02 325.96,-732.64 316.41,-728.06 315.63,-735.02"/>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="../../dd/db5/classProject2.html#a0990db917f6a27a4e1cb9ac885698524" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="0.5,-730.5 0.5,-749.5 78.5,-749.5 78.5,-730.5 0.5,-730.5"/>
-<text text-anchor="middle" x="39.5" y="-737.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project2::run</text>
+<g id="a_node9"><a xlink:href="../../d0/d4c/classOutLab6.html#a901a1283fd029c9174f8469ac5cb3ad8" target="_top" xlink:title="This function runs the computation.">
+<polygon fill="white" stroke="black" points="0,-746.5 0,-765.5 79,-765.5 79,-746.5 0,-746.5"/>
+<text text-anchor="middle" x="39.5" y="-753.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab6::run</text>
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node9 -->
+<!-- Node8&#45;&gt;Node9 -->
 <g id="edge8" class="edge">
-<title>Node7&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M104.43,-740C95.65,-740 86.89,-740 78.8,-740"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="104.7,-743.5 114.7,-740 104.7,-736.5 104.7,-743.5"/>
+<title>Node8&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M144.34,-730.04C123.1,-735.35 98.5,-741.5 78.58,-746.48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="145.29,-733.41 154.14,-727.59 143.59,-726.62 145.29,-733.41"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="../../dd/dfb/classProject3.html#a8bcff99aaba60e7d5e5be3cb7552d163" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="0.5,-692.5 0.5,-711.5 78.5,-711.5 78.5,-692.5 0.5,-692.5"/>
-<text text-anchor="middle" x="39.5" y="-699.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project3::run</text>
+<g id="a_node10"><a xlink:href="../../dd/db5/classProject2.html#a0990db917f6a27a4e1cb9ac885698524" target="_top" xlink:title="This function runs the project.">
+<polygon fill="white" stroke="black" points="0.5,-708.5 0.5,-727.5 78.5,-727.5 78.5,-708.5 0.5,-708.5"/>
+<text text-anchor="middle" x="39.5" y="-715.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project2::run</text>
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node10 -->
+<!-- Node8&#45;&gt;Node10 -->
 <g id="edge9" class="edge">
-<title>Node7&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M127.28,-727.46C109.66,-722.3 89.58,-716.4 73.17,-711.59"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="126.74,-730.95 137.32,-730.41 128.71,-724.24 126.74,-730.95"/>
+<title>Node8&#45;&gt;Node10</title>
+<path fill="none" stroke="midnightblue" d="M127.07,-718C110.63,-718 93.51,-718 78.88,-718"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="127.19,-721.5 137.19,-718 127.19,-714.5 127.19,-721.5"/>
 </g>
-<!-- Node12 -->
-<g id="node12" class="node">
-<title>Node12</title>
-<g id="a_node12"><a xlink:href="../../d7/da1/project_2project1_2Compute_8h.html#acddcb7395a0d22a81020f268fd96918a" target="_top" xlink:title="Solves the linear system.">
-<polygon fill="white" stroke="black" points="117,-551 117,-581 225,-581 225,-551 117,-551"/>
-<text text-anchor="start" x="125" y="-569" font-family="Helvetica,sans-Serif" font-size="10.00">naive_solve_linear</text>
-<text text-anchor="middle" x="171" y="-558" font-family="Helvetica,sans-Serif" font-size="10.00">_system</text>
+<!-- Node11 -->
+<g id="node11" class="node">
+<title>Node11</title>
+<g id="a_node11"><a xlink:href="../../dd/dfb/classProject3.html#a8bcff99aaba60e7d5e5be3cb7552d163" target="_top" xlink:title="This function runs the project.">
+<polygon fill="white" stroke="black" points="0.5,-670.5 0.5,-689.5 78.5,-689.5 78.5,-670.5 0.5,-670.5"/>
+<text text-anchor="middle" x="39.5" y="-677.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project3::run</text>
 </a>
 </g>
 </g>
-<!-- Node11&#45;&gt;Node12 -->
-<g id="edge11" class="edge">
-<title>Node11&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M273.08,-765.61C269.52,-763.7 266.12,-761.51 263,-759 204.21,-711.81 181.38,-617.69 174.49,-581.07"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="271.71,-768.83 282.26,-769.82 274.63,-762.47 271.71,-768.83"/>
+<!-- Node8&#45;&gt;Node11 -->
+<g id="edge10" class="edge">
+<title>Node8&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M144.34,-705.96C123.1,-700.65 98.5,-694.5 78.58,-689.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="143.59,-709.38 154.14,-708.41 145.29,-702.59 143.59,-709.38"/>
 </g>
-<!-- Node13&#45;&gt;Node14 -->
-<g id="edge13" class="edge">
-<title>Node13&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M495.11,-626C459.4,-626 417.41,-626 387.63,-626"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="495.48,-629.5 505.48,-626 495.48,-622.5 495.48,-629.5"/>
-</g>
-<!-- Node15&#45;&gt;Node14 -->
-<g id="edge17" class="edge">
-<title>Node15&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M493.93,-558.87C485.24,-561.44 476.72,-564.75 469,-569 448.62,-580.22 453.22,-595.49 433,-607 419.23,-614.84 402.46,-619.44 387.53,-622.15"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="495.01,-562.2 503.79,-556.26 493.23,-555.44 495.01,-562.2"/>
-</g>
-<!-- Node15&#45;&gt;Node16 -->
-<g id="edge16" class="edge">
-<title>Node15&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M493.47,-550C458.14,-550 416.99,-550 387.66,-550"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="493.75,-553.5 503.75,-550 493.75,-546.5 493.75,-553.5"/>
-</g>
-<!-- Node17 -->
-<g id="node17" class="node">
-<title>Node17</title>
-<g id="a_node17"><a xlink:href="../../d3/d3f/labs_2outlab5_2tests_2LUMatrixTests_8cpp.html#a5669c38650f4e827fcd26a72acde0dbe" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="322,-578.5 322,-597.5 374,-597.5 374,-578.5 322,-578.5"/>
-<text text-anchor="middle" x="348" y="-585.5" font-family="Helvetica,sans-Serif" font-size="10.00">TEST_P</text>
+<!-- Node13 -->
+<g id="node13" class="node">
+<title>Node13</title>
+<g id="a_node13"><a xlink:href="../../d7/da1/project_2project1_2Compute_8h.html#acddcb7395a0d22a81020f268fd96918a" target="_top" xlink:title="Solves the linear system.">
+<polygon fill="white" stroke="black" points="139.5,-540 139.5,-570 247.5,-570 247.5,-540 139.5,-540"/>
+<text text-anchor="start" x="147.5" y="-558" font-family="Helvetica,sans-Serif" font-size="10.00">naive_solve_linear</text>
+<text text-anchor="middle" x="193.5" y="-547" font-family="Helvetica,sans-Serif" font-size="10.00">_system</text>
 </a>
 </g>
 </g>
-<!-- Node15&#45;&gt;Node17 -->
+<!-- Node12&#45;&gt;Node13 -->
+<g id="edge12" class="edge">
+<title>Node12&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M317.76,-765.09C314.33,-763.3 311.05,-761.29 308,-759 303.68,-755.77 227.98,-616.69 202.67,-570.06"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="316.57,-768.39 327.13,-769.27 319.43,-762 316.57,-768.39"/>
+</g>
+<!-- Node14&#45;&gt;Node15 -->
+<g id="edge14" class="edge">
+<title>Node14&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M540.11,-626C504.4,-626 462.41,-626 432.63,-626"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="540.48,-629.5 550.48,-626 540.48,-622.5 540.48,-629.5"/>
+</g>
+<!-- Node16&#45;&gt;Node15 -->
 <g id="edge18" class="edge">
-<title>Node15&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M501.14,-561.3C458.59,-568.76 405.16,-578.14 374.26,-583.57"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="501.9,-564.72 511.15,-559.54 500.69,-557.82 501.9,-564.72"/>
+<title>Node16&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M538.93,-558.87C530.24,-561.44 521.72,-564.75 514,-569 493.62,-580.22 498.22,-595.49 478,-607 464.23,-614.84 447.46,-619.44 432.53,-622.15"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="540.01,-562.2 548.79,-556.26 538.23,-555.44 540.01,-562.2"/>
 </g>
-<!-- Node20&#45;&gt;Node14 -->
-<g id="edge22" class="edge">
-<title>Node20&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M500.98,-599.32C464.11,-605.8 419.1,-613.7 387.67,-619.21"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="501.9,-602.72 511.15,-597.54 500.69,-595.82 501.9,-602.72"/>
+<!-- Node16&#45;&gt;Node17 -->
+<g id="edge17" class="edge">
+<title>Node16&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M538.47,-550C503.14,-550 461.99,-550 432.66,-550"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="538.75,-553.5 548.75,-550 538.75,-546.5 538.75,-553.5"/>
 </g>
-<!-- Node21&#45;&gt;Node2 -->
-<g id="edge25" class="edge">
-<title>Node21&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M477.83,-715.16C474.74,-716.9 471.78,-718.84 469,-721 439.51,-743.96 462.17,-773.63 433,-797 428.22,-800.83 422.81,-803.93 417.1,-806.42"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="479.37,-718.3 486.84,-710.79 476.32,-712.01 479.37,-718.3"/>
-</g>
-<!-- Node21&#45;&gt;Node6 -->
-<g id="edge24" class="edge">
-<title>Node21&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M501.26,-713.28C470.11,-718.74 433.1,-725.24 403.38,-730.46"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="501.9,-716.72 511.15,-711.54 500.69,-709.82 501.9,-716.72"/>
-</g>
-<!-- Node21&#45;&gt;Node14 -->
-<g id="edge28" class="edge">
-<title>Node21&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M497.32,-689.6C487.51,-686.53 477.78,-682.72 469,-678 449.88,-667.73 452.23,-655.07 433,-645 419.09,-637.72 402.46,-633.22 387.68,-630.43"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="496.54,-693.02 507.12,-692.43 498.48,-686.29 496.54,-693.02"/>
-</g>
-<!-- Node21&#45;&gt;Node16 -->
-<g id="edge27" class="edge">
-<title>Node21&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M531.74,-688.21C511.46,-678.55 486.33,-663.98 469,-645 443.8,-617.39 462.17,-592.37 433,-569 420.28,-558.81 403.16,-553.85 387.7,-551.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="530.4,-691.44 540.95,-692.42 533.31,-685.08 530.4,-691.44"/>
-</g>
-<!-- Node22 -->
-<g id="node22" class="node">
-<title>Node22</title>
-<g id="a_node22"><a xlink:href="../../d8/deb/classInLab5.html#a627071ee1dc13ffb289e34d45ad63758" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="312.5,-692.5 312.5,-711.5 383.5,-711.5 383.5,-692.5 312.5,-692.5"/>
-<text text-anchor="middle" x="348" y="-699.5" font-family="Helvetica,sans-Serif" font-size="10.00">InLab5::run</text>
+<!-- Node18 -->
+<g id="node18" class="node">
+<title>Node18</title>
+<g id="a_node18"><a xlink:href="../../d3/d3f/labs_2outlab5_2tests_2LUMatrixTests_8cpp.html#a5669c38650f4e827fcd26a72acde0dbe" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="367,-578.5 367,-597.5 419,-597.5 419,-578.5 367,-578.5"/>
+<text text-anchor="middle" x="393" y="-585.5" font-family="Helvetica,sans-Serif" font-size="10.00">TEST_P</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node22 -->
+<!-- Node16&#45;&gt;Node18 -->
+<g id="edge19" class="edge">
+<title>Node16&#45;&gt;Node18</title>
+<path fill="none" stroke="midnightblue" d="M546.14,-561.3C503.59,-568.76 450.16,-578.14 419.26,-583.57"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="546.9,-564.72 556.15,-559.54 545.69,-557.82 546.9,-564.72"/>
+</g>
+<!-- Node21&#45;&gt;Node15 -->
+<g id="edge23" class="edge">
+<title>Node21&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M545.98,-599.32C509.11,-605.8 464.1,-613.7 432.67,-619.21"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="546.9,-602.72 556.15,-597.54 545.69,-595.82 546.9,-602.72"/>
+</g>
+<!-- Node22&#45;&gt;Node2 -->
 <g id="edge26" class="edge">
-<title>Node21&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M476.66,-702C443.91,-702 408.72,-702 383.59,-702"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="476.73,-705.5 486.73,-702 476.73,-698.5 476.73,-705.5"/>
+<title>Node22&#45;&gt;Node2</title>
+<path fill="none" stroke="midnightblue" d="M522.83,-715.16C519.74,-716.9 516.78,-718.84 514,-721 484.51,-743.96 507.17,-773.63 478,-797 473.22,-800.83 467.81,-803.93 462.1,-806.42"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="524.37,-718.3 531.84,-710.79 521.32,-712.01 524.37,-718.3"/>
+</g>
+<!-- Node22&#45;&gt;Node6 -->
+<g id="edge25" class="edge">
+<title>Node22&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M546.26,-713.28C515.11,-718.74 478.1,-725.24 448.38,-730.46"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="546.9,-716.72 556.15,-711.54 545.69,-709.82 546.9,-716.72"/>
+</g>
+<!-- Node22&#45;&gt;Node15 -->
+<g id="edge29" class="edge">
+<title>Node22&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M542.32,-689.6C532.51,-686.53 522.78,-682.72 514,-678 494.88,-667.73 497.23,-655.07 478,-645 464.09,-637.72 447.46,-633.22 432.68,-630.43"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="541.54,-693.02 552.12,-692.43 543.48,-686.29 541.54,-693.02"/>
+</g>
+<!-- Node22&#45;&gt;Node17 -->
+<g id="edge28" class="edge">
+<title>Node22&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M576.74,-688.21C556.46,-678.55 531.33,-663.98 514,-645 488.8,-617.39 507.17,-592.37 478,-569 465.28,-558.81 448.16,-553.85 432.7,-551.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="575.4,-691.44 585.95,-692.42 578.31,-685.08 575.4,-691.44"/>
 </g>
 <!-- Node23 -->
 <g id="node23" class="node">
 <title>Node23</title>
-<g id="a_node23"><a xlink:href="../../d8/ddb/classProject1.html#a41a4716fc32985fae5d32da6434b5516" target="_top" xlink:title="This function runs the project.">
-<polygon fill="white" stroke="black" points="309,-654.5 309,-673.5 387,-673.5 387,-654.5 309,-654.5"/>
-<text text-anchor="middle" x="348" y="-661.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project1::run</text>
+<g id="a_node23"><a xlink:href="../../d8/deb/classInLab5.html#a627071ee1dc13ffb289e34d45ad63758" target="_top" xlink:title="This function runs the project.">
+<polygon fill="white" stroke="black" points="357.5,-692.5 357.5,-711.5 428.5,-711.5 428.5,-692.5 357.5,-692.5"/>
+<text text-anchor="middle" x="393" y="-699.5" font-family="Helvetica,sans-Serif" font-size="10.00">InLab5::run</text>
 </a>
 </g>
 </g>
-<!-- Node21&#45;&gt;Node23 -->
-<g id="edge29" class="edge">
-<title>Node21&#45;&gt;Node23</title>
-<path fill="none" stroke="midnightblue" d="M500.91,-690.66C463.79,-684.15 418.44,-676.19 387,-670.67"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="500.69,-694.18 511.15,-692.46 501.9,-687.28 500.69,-694.18"/>
+<!-- Node22&#45;&gt;Node23 -->
+<g id="edge27" class="edge">
+<title>Node22&#45;&gt;Node23</title>
+<path fill="none" stroke="midnightblue" d="M521.66,-702C488.91,-702 453.72,-702 428.59,-702"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="521.73,-705.5 531.73,-702 521.73,-698.5 521.73,-705.5"/>
 </g>
-<!-- Node25 -->
-<g id="node25" class="node">
-<title>Node25</title>
-<g id="a_node25"><a xlink:href="../../d0/d40/classParser.html#adc1e5a3b57b2c25485ef09ea6521d0a7" target="_top" xlink:title="Builds the inputs.">
-<polygon fill="white" stroke="black" points="294.5,-131.5 294.5,-150.5 401.5,-150.5 401.5,-131.5 294.5,-131.5"/>
-<text text-anchor="middle" x="348" y="-138.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
+<!-- Node24 -->
+<g id="node24" class="node">
+<title>Node24</title>
+<g id="a_node24"><a xlink:href="../../d8/ddb/classProject1.html#a41a4716fc32985fae5d32da6434b5516" target="_top" xlink:title="This function runs the project.">
+<polygon fill="white" stroke="black" points="354,-654.5 354,-673.5 432,-673.5 432,-654.5 354,-654.5"/>
+<text text-anchor="middle" x="393" y="-661.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project1::run</text>
 </a>
 </g>
 </g>
-<!-- Node24&#45;&gt;Node25 -->
-<g id="edge31" class="edge">
-<title>Node24&#45;&gt;Node25</title>
-<path fill="none" stroke="midnightblue" d="M482.04,-164.35C454.97,-159.6 425.72,-154.47 401.56,-150.22"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="481.45,-167.8 491.9,-166.08 482.66,-160.91 481.45,-167.8"/>
+<!-- Node22&#45;&gt;Node24 -->
+<g id="edge30" class="edge">
+<title>Node22&#45;&gt;Node24</title>
+<path fill="none" stroke="midnightblue" d="M545.91,-690.66C508.79,-684.15 463.44,-676.19 432,-670.67"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="545.69,-694.18 556.15,-692.46 546.9,-687.28 545.69,-694.18"/>
 </g>
 <!-- Node26 -->
 <g id="node26" class="node">
 <title>Node26</title>
-<g id="a_node26"><a xlink:href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a487070ac751d33afa7f9fceaef312ea0" target="_top" xlink:title="This function generates a circuit with random resistances and currents, and computes the correspondin...">
-<polygon fill="white" stroke="black" points="279.5,-207.5 279.5,-226.5 416.5,-226.5 416.5,-207.5 279.5,-207.5"/>
-<text text-anchor="middle" x="348" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::System::Circuit</text>
+<g id="a_node26"><a xlink:href="../../d0/d40/classParser.html#adc1e5a3b57b2c25485ef09ea6521d0a7" target="_top" xlink:title="Builds the inputs.">
+<polygon fill="white" stroke="black" points="339.5,-131.5 339.5,-150.5 446.5,-150.5 446.5,-131.5 339.5,-131.5"/>
+<text text-anchor="middle" x="393" y="-138.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
 </a>
 </g>
 </g>
-<!-- Node24&#45;&gt;Node26 -->
+<!-- Node25&#45;&gt;Node26 -->
 <g id="edge32" class="edge">
-<title>Node24&#45;&gt;Node26</title>
-<path fill="none" stroke="midnightblue" d="M481.9,-193.67C455.5,-198.31 427.03,-203.3 403.25,-207.48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="482.66,-197.09 491.9,-191.92 481.45,-190.2 482.66,-197.09"/>
-</g>
-<!-- Node28 -->
-<g id="node28" class="node">
-<title>Node28</title>
-<g id="a_node28"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a6ae2bf6751779ac28fa5f53bf3f9ea97" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="286,-169.5 286,-188.5 410,-188.5 410,-169.5 286,-169.5"/>
-<text text-anchor="middle" x="348" y="-176.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
-</a>
-</g>
-</g>
-<!-- Node24&#45;&gt;Node28 -->
-<g id="edge34" class="edge">
-<title>Node24&#45;&gt;Node28</title>
-<path fill="none" stroke="midnightblue" d="M481.79,-179C457.94,-179 432.4,-179 410.16,-179"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="481.9,-182.5 491.9,-179 481.9,-175.5 481.9,-182.5"/>
+<title>Node25&#45;&gt;Node26</title>
+<path fill="none" stroke="midnightblue" d="M527.04,-164.35C499.97,-159.6 470.72,-154.47 446.56,-150.22"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="526.45,-167.8 536.9,-166.08 527.66,-160.91 526.45,-167.8"/>
 </g>
 <!-- Node27 -->
 <g id="node27" class="node">
 <title>Node27</title>
-<g id="a_node27"><a xlink:href="../../d0/d40/classParser.html#a0f22924483b9f3b33ef7f3fb1edf9ff1" target="_top" xlink:title="Builds the inputs.">
-<polygon fill="white" stroke="black" points="117.5,-207.5 117.5,-226.5 224.5,-226.5 224.5,-207.5 117.5,-207.5"/>
-<text text-anchor="middle" x="171" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
+<g id="a_node27"><a xlink:href="../../d5/d7a/namespaceMyBLAS_1_1System.html#a487070ac751d33afa7f9fceaef312ea0" target="_top" xlink:title="This function generates a circuit with random resistances and currents, and computes the correspondin...">
+<polygon fill="white" stroke="black" points="324.5,-207.5 324.5,-226.5 461.5,-226.5 461.5,-207.5 324.5,-207.5"/>
+<text text-anchor="middle" x="393" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::System::Circuit</text>
 </a>
 </g>
 </g>
-<!-- Node26&#45;&gt;Node27 -->
+<!-- Node25&#45;&gt;Node27 -->
 <g id="edge33" class="edge">
-<title>Node26&#45;&gt;Node27</title>
-<path fill="none" stroke="midnightblue" d="M269.01,-217C253.97,-217 238.55,-217 224.55,-217"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="269.34,-220.5 279.34,-217 269.34,-213.5 269.34,-220.5"/>
+<title>Node25&#45;&gt;Node27</title>
+<path fill="none" stroke="midnightblue" d="M526.9,-193.67C500.5,-198.31 472.03,-203.3 448.25,-207.48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="527.66,-197.09 536.9,-191.92 526.45,-190.2 527.66,-197.09"/>
 </g>
-<!-- Node29&#45;&gt;Node12 -->
-<g id="edge37" class="edge">
-<title>Node29&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M508.46,-450.36C445.2,-434.15 341.7,-417.75 263,-455 220.66,-475.04 191.43,-525.51 178.89,-550.91"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="507.69,-453.78 518.25,-452.95 509.48,-447.01 507.69,-453.78"/>
-</g>
-<!-- Node29&#45;&gt;Node14 -->
-<g id="edge40" class="edge">
-<title>Node29&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M524.6,-487.98C505.82,-498.72 484.37,-513.38 469,-531 444.43,-559.16 462.17,-583.63 433,-607 420.28,-617.19 403.16,-622.15 387.7,-624.48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="526.5,-490.93 533.56,-483.04 523.11,-484.8 526.5,-490.93"/>
-</g>
-<!-- Node29&#45;&gt;Node16 -->
-<g id="edge39" class="edge">
-<title>Node29&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M493.26,-486.57C484.84,-489.86 476.57,-493.65 469,-498 450.18,-508.82 452.23,-520.93 433,-531 419.09,-538.28 402.46,-542.78 387.68,-545.57"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="494.62,-489.8 502.8,-483.07 492.2,-483.23 494.62,-489.8"/>
-</g>
-<!-- Node30 -->
-<g id="node30" class="node">
-<title>Node30</title>
-<g id="a_node30"><a xlink:href="../../d0/d40/classParser.html#a0b1cb3d47420a05306264ecc1e66e8c5" target="_top" xlink:title="Builds the input matrices for the MyBLAS library from a JSON file.">
-<polygon fill="white" stroke="black" points="294.5,-502.5 294.5,-521.5 401.5,-521.5 401.5,-502.5 294.5,-502.5"/>
-<text text-anchor="middle" x="348" y="-509.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
+<!-- Node29 -->
+<g id="node29" class="node">
+<title>Node29</title>
+<g id="a_node29"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a6ae2bf6751779ac28fa5f53bf3f9ea97" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="331,-169.5 331,-188.5 455,-188.5 455,-169.5 331,-169.5"/>
+<text text-anchor="middle" x="393" y="-176.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
 </a>
 </g>
 </g>
-<!-- Node29&#45;&gt;Node30 -->
-<g id="edge36" class="edge">
-<title>Node29&#45;&gt;Node30</title>
-<path fill="none" stroke="midnightblue" d="M481.43,-485.09C452.34,-491 420.81,-497.41 395.81,-502.49"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="482.5,-488.44 491.6,-483.02 481.1,-481.58 482.5,-488.44"/>
+<!-- Node25&#45;&gt;Node29 -->
+<g id="edge35" class="edge">
+<title>Node25&#45;&gt;Node29</title>
+<path fill="none" stroke="midnightblue" d="M526.79,-179C502.94,-179 477.4,-179 455.16,-179"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="526.9,-182.5 536.9,-179 526.9,-175.5 526.9,-182.5"/>
 </g>
-<!-- Node29&#45;&gt;Node31 -->
+<!-- Node28 -->
+<g id="node28" class="node">
+<title>Node28</title>
+<g id="a_node28"><a xlink:href="../../d0/d40/classParser.html#a0f22924483b9f3b33ef7f3fb1edf9ff1" target="_top" xlink:title="Builds the inputs.">
+<polygon fill="white" stroke="black" points="140,-207.5 140,-226.5 247,-226.5 247,-207.5 140,-207.5"/>
+<text text-anchor="middle" x="193.5" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
+</a>
+</g>
+</g>
+<!-- Node27&#45;&gt;Node28 -->
+<g id="edge34" class="edge">
+<title>Node27&#45;&gt;Node28</title>
+<path fill="none" stroke="midnightblue" d="M314.11,-217C291.65,-217 267.68,-217 247.14,-217"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="314.31,-220.5 324.31,-217 314.31,-213.5 314.31,-220.5"/>
+</g>
+<!-- Node30&#45;&gt;Node13 -->
 <g id="edge38" class="edge">
-<title>Node29&#45;&gt;Node31</title>
-<path fill="none" stroke="midnightblue" d="M503.66,-449.95C492.06,-446.24 480.1,-442.17 469,-438 452.61,-431.84 449.26,-428.5 433,-422 420.2,-416.88 406.15,-411.69 393.27,-407.11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="502.7,-453.32 513.29,-452.99 504.8,-446.64 502.7,-453.32"/>
+<title>Node30&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M545.38,-450.79C482.48,-437.46 385.6,-425.69 308,-455 262.79,-472.07 223.94,-516.26 205.66,-539.77"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="544.66,-454.22 555.17,-452.94 546.16,-447.38 544.66,-454.22"/>
 </g>
-<!-- Node29&#45;&gt;Node32 -->
+<!-- Node30&#45;&gt;Node15 -->
 <g id="edge41" class="edge">
-<title>Node29&#45;&gt;Node32</title>
-<path fill="none" stroke="midnightblue" d="M533.97,-447.11C514.8,-434.08 490.03,-416.67 469,-400 452.22,-386.7 451.99,-377.89 433,-368 414.52,-358.37 391.34,-353.31 374.02,-350.68"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="532.11,-450.07 542.35,-452.77 536.03,-444.27 532.11,-450.07"/>
+<title>Node30&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M569.6,-487.98C550.82,-498.72 529.37,-513.38 514,-531 489.43,-559.16 507.17,-583.63 478,-607 465.28,-617.19 448.16,-622.15 432.7,-624.48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="571.5,-490.93 578.56,-483.04 568.11,-484.8 571.5,-490.93"/>
 </g>
-<!-- Node33 -->
-<g id="node33" class="node">
-<title>Node33</title>
-<g id="a_node33"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a1ed822044d18b37a31873e57f98047b0" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="286,-464.5 286,-483.5 410,-483.5 410,-464.5 286,-464.5"/>
-<text text-anchor="middle" x="348" y="-471.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
+<!-- Node30&#45;&gt;Node17 -->
+<g id="edge40" class="edge">
+<title>Node30&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M538.26,-486.57C529.84,-489.86 521.57,-493.65 514,-498 495.18,-508.82 497.23,-520.93 478,-531 464.09,-538.28 447.46,-542.78 432.68,-545.57"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="539.62,-489.8 547.8,-483.07 537.2,-483.23 539.62,-489.8"/>
+</g>
+<!-- Node31 -->
+<g id="node31" class="node">
+<title>Node31</title>
+<g id="a_node31"><a xlink:href="../../d0/d40/classParser.html#a0b1cb3d47420a05306264ecc1e66e8c5" target="_top" xlink:title="Builds the input matrices for the MyBLAS library from a JSON file.">
+<polygon fill="white" stroke="black" points="339.5,-502.5 339.5,-521.5 446.5,-521.5 446.5,-502.5 339.5,-502.5"/>
+<text text-anchor="middle" x="393" y="-509.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser::buildInputs</text>
 </a>
 </g>
 </g>
-<!-- Node29&#45;&gt;Node33 -->
+<!-- Node30&#45;&gt;Node31 -->
+<g id="edge37" class="edge">
+<title>Node30&#45;&gt;Node31</title>
+<path fill="none" stroke="midnightblue" d="M526.43,-485.09C497.34,-491 465.81,-497.41 440.81,-502.49"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="527.5,-488.44 536.6,-483.02 526.1,-481.58 527.5,-488.44"/>
+</g>
+<!-- Node30&#45;&gt;Node32 -->
+<g id="edge39" class="edge">
+<title>Node30&#45;&gt;Node32</title>
+<path fill="none" stroke="midnightblue" d="M548.66,-449.95C537.06,-446.24 525.1,-442.17 514,-438 497.61,-431.84 494.26,-428.5 478,-422 465.2,-416.88 451.15,-411.69 438.27,-407.11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="547.7,-453.32 558.29,-452.99 549.8,-446.64 547.7,-453.32"/>
+</g>
+<!-- Node30&#45;&gt;Node33 -->
 <g id="edge42" class="edge">
-<title>Node29&#45;&gt;Node33</title>
-<path fill="none" stroke="midnightblue" d="M471.67,-470.6C450.9,-471.18 429.41,-471.77 410.33,-472.3"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="471.9,-474.1 481.8,-470.32 471.7,-467.1 471.9,-474.1"/>
+<title>Node30&#45;&gt;Node33</title>
+<path fill="none" stroke="midnightblue" d="M578.97,-447.11C559.8,-434.08 535.03,-416.67 514,-400 497.22,-386.7 496.99,-377.89 478,-368 459.52,-358.37 436.34,-353.31 419.02,-350.68"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="577.11,-450.07 587.35,-452.77 581.03,-444.27 577.11,-450.07"/>
+</g>
+<!-- Node34 -->
+<g id="node34" class="node">
+<title>Node34</title>
+<g id="a_node34"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a1ed822044d18b37a31873e57f98047b0" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="331,-464.5 331,-483.5 455,-483.5 455,-464.5 331,-464.5"/>
+<text text-anchor="middle" x="393" y="-471.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
+</a>
+</g>
+</g>
+<!-- Node30&#45;&gt;Node34 -->
+<g id="edge43" class="edge">
+<title>Node30&#45;&gt;Node34</title>
+<path fill="none" stroke="midnightblue" d="M516.67,-470.6C495.9,-471.18 474.41,-471.77 455.33,-472.3"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="516.9,-474.1 526.8,-470.32 516.7,-467.1 516.9,-474.1"/>
 </g>
 </g>
 </svg>

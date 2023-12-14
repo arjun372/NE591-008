@@ -79,6 +79,7 @@ var annotated_dup =
     [ "OutLab10", "d7/d1f/classOutLab10.html", "d7/d1f/classOutLab10" ],
     [ "OutLab10MatrixTests", "d8/dd0/classOutLab10MatrixTests.html", "d8/dd0/classOutLab10MatrixTests" ],
     [ "OutLab11", "d0/d52/classOutLab11.html", "d0/d52/classOutLab11" ],
+    [ "OutLab12", "d3/dce/classOutLab12.html", "d3/dce/classOutLab12" ],
     [ "OutLab3", "da/df0/classOutLab3.html", "da/df0/classOutLab3" ],
     [ "OutLab4", "d8/d5b/classOutLab4.html", "d8/d5b/classOutLab4" ],
     [ "OutLab5", "d3/d1d/classOutLab5.html", "d3/d1d/classOutLab5" ],

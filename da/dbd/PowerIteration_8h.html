@@ -132,8 +132,9 @@ $(document).ready(function(){initNavTree('da/dbd/PowerIteration_8h.html','../../
 <code>#include &lt;numeric&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../">math/blas/Ops.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../">math/relaxation/RelaxationMethods.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../">blas/solver/LinearSolver.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">factorization/LUP.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../">math/relaxation/RelaxationMethods.h</a>&quot;</code><br />
 <code>#include &lt;limits&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for PowerIteration.h:</div>
@@ -148,7 +149,7 @@ $(document).ready(function(){initNavTree('da/dbd/PowerIteration_8h.html','../../
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d83/PowerIteration_8h__dep__incl.svg" width="443" height="276"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d5/d83/PowerIteration_8h__dep__incl.svg" width="100%" height="507"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div>
@@ -171,6 +172,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1a27c866392de32b32e3b40df013eb4c"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
 <tr class="memitem:a1a27c866392de32b32e3b40df013eb4c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">MyBLAS::Solver::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1a27c866392de32b32e3b40df013eb4c">MyRelaxationMethod::applyRayleighQuotientPowerIteration</a> (const <a class="el" href="../../d4/d9d/structMyBLAS_1_1Solver_1_1Parameters.html">MyBLAS::Solver::Parameters</a>&lt; T &gt; &amp;params)</td></tr>
 <tr class="separator:a1a27c866392de32b32e3b40df013eb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f6160a9196f16b9dea0b631a4346d3f"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class MatrixType, template&lt; typename &gt; class VectorType, typename T &gt; </td></tr>
+<tr class="memitem:a8f6160a9196f16b9dea0b631a4346d3f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html">MyBLAS::Solver::Solution</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d9a/namespaceMyRelaxationMethod.html#a8f6160a9196f16b9dea0b631a4346d3f">MyRelaxationMethod::applyInversePowerIteration</a> (const <a class="el" href="../../d4/d9d/structMyBLAS_1_1Solver_1_1Parameters.html">MyBLAS::Solver::Parameters</a>&lt; T &gt; &amp;params)</td></tr>
+<tr class="separator:a8f6160a9196f16b9dea0b631a4346d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the implementation of the power iterations for solving systems of linear equations. </p>

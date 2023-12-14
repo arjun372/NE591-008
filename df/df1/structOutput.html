@@ -196,6 +196,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad4cbf5d26202274bf54502c925137951"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#ad4cbf5d26202274bf54502c925137951">serialize</a> (Archive &amp;ar, const unsigned int version)</td></tr>
 <tr class="memdesc:ad4cbf5d26202274bf54502c925137951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to serialize the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure.  <a href="../../df/df1/structOutput.html#ad4cbf5d26202274bf54502c925137951">More...</a><br /></td></tr>
 <tr class="separator:ad4cbf5d26202274bf54502c925137951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0412b8fd27d6e91551671da11cd8fe93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#a0412b8fd27d6e91551671da11cd8fe93">toJSON</a> (nlohmann::json &amp;jsonMap) const</td></tr>
+<tr class="memdesc:a0412b8fd27d6e91551671da11cd8fe93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the output parameters to a JSON object.  <a href="../../df/df1/structOutput.html#a0412b8fd27d6e91551671da11cd8fe93">More...</a><br /></td></tr>
+<tr class="separator:a0412b8fd27d6e91551671da11cd8fe93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4cbf5d26202274bf54502c925137951"><td class="memTemplParams" colspan="2">template&lt;class Archive &gt; </td></tr>
+<tr class="memitem:ad4cbf5d26202274bf54502c925137951"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#ad4cbf5d26202274bf54502c925137951">serialize</a> (Archive &amp;ar, const unsigned int version)</td></tr>
+<tr class="memdesc:ad4cbf5d26202274bf54502c925137951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to serialize the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure.  <a href="../../df/df1/structOutput.html#ad4cbf5d26202274bf54502c925137951">More...</a><br /></td></tr>
+<tr class="separator:ad4cbf5d26202274bf54502c925137951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68a9005feebbeac90af517514767eda0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#a68a9005feebbeac90af517514767eda0">toJSON</a> (nlohmann::json &amp;jsonMap)</td></tr>
 <tr class="separator:a68a9005feebbeac90af517514767eda0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8c66cf55da5018b30b2f26df2545825"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#ac8c66cf55da5018b30b2f26df2545825">Output</a> ()=default</td></tr>
@@ -344,6 +351,9 @@ Data Fields</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
+<tr class="memitem:ae9b1e343c7e6d725fc58d57c24e13944"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#ae9b1e343c7e6d725fc58d57c24e13944">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="../../df/df1/structOutput.html">Output</a> &amp;output)</td></tr>
+<tr class="memdesc:ae9b1e343c7e6d725fc58d57c24e13944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded stream insertion operator for the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure.  <a href="../../df/df1/structOutput.html#ae9b1e343c7e6d725fc58d57c24e13944">More...</a><br /></td></tr>
+<tr class="separator:ae9b1e343c7e6d725fc58d57c24e13944"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9b1e343c7e6d725fc58d57c24e13944"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structOutput.html#ae9b1e343c7e6d725fc58d57c24e13944">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="../../df/df1/structOutput.html">Output</a> &amp;output)</td></tr>
 <tr class="memdesc:ae9b1e343c7e6d725fc58d57c24e13944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded stream insertion operator for the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure.  <a href="../../df/df1/structOutput.html#ae9b1e343c7e6d725fc58d57c24e13944">More...</a><br /></td></tr>
 <tr class="separator:ae9b1e343c7e6d725fc58d57c24e13944"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1034,7 +1044,7 @@ Friends</h2></td></tr>
 </div>
 </div>
 <a id="ad4cbf5d26202274bf54502c925137951"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[1/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[1/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1085,7 +1095,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ad4cbf5d26202274bf54502c925137951"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[2/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1136,7 +1146,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ad4cbf5d26202274bf54502c925137951"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[3/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[3/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1187,7 +1197,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ad4cbf5d26202274bf54502c925137951"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[4/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[4/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1241,7 +1251,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ad4cbf5d26202274bf54502c925137951"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[5/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[5/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1292,7 +1302,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ad4cbf5d26202274bf54502c925137951"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[6/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1343,7 +1353,58 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ad4cbf5d26202274bf54502c925137951"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[7/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Archive &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Output::serialize </td>
+          <td>(</td>
+          <td class="paramtype">Archive &amp;&#160;</td>
+          <td class="paramname"><em>ar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>version</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to serialize the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure. </p>
+<p>This function uses the Boost library to serialize the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure, allowing it to be saved to a file or sent over a network.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ar</td><td>The archive where the serialized data will be stored. </td></tr>
+    <tr><td class="paramname">version</td><td>The version of the serialization library. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                                             {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment">//ar &amp; BOOST_SERIALIZATION_NVP(sum);</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad4cbf5d26202274bf54502c925137951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cbf5d26202274bf54502c925137951">&#9670;&nbsp;</a></span>serialize() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1396,7 +1457,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a68a9005feebbeac90af517514767eda0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68a9005feebbeac90af517514767eda0">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[1/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a9005feebbeac90af517514767eda0">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[1/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1430,7 +1491,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a68a9005feebbeac90af517514767eda0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68a9005feebbeac90af517514767eda0">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[2/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a9005feebbeac90af517514767eda0">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[2/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1462,7 +1523,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[3/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[3/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1509,7 +1570,7 @@ template&lt;class Archive &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00124">matrix_inner_product</a>, <a class="el" href="../../#l00124">scalar_product</a>, <a class="el" href="../../#l00125">scaled_vector</a>, <a class="el" href="../../#l00131">summary</a>, <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>, and <a class="el" href="../../#l00125">vector_sum</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00089">InLab3::run()</a>, <a class="el" href="../../#l00084">OutLab3::run()</a>, <a class="el" href="../../#l00114">InLab11::run()</a>, <a class="el" href="../../#l00114">InLab12::run()</a>, <a class="el" href="../../#l00091">InLab6::run()</a>, <a class="el" href="../../#l00114">OutLab10::run()</a>, <a class="el" href="../../#l00114">OutLab11::run()</a>, <a class="el" href="../../#l00093">OutLab6::run()</a>, <a class="el" href="../../#l00078">Project1::run()</a>, <a class="el" href="../../#l00093">Project2::run()</a>, <a class="el" href="../../#l00093">Project3::run()</a>, <a class="el" href="../../#l00093">Project4::run()</a>, and <a class="el" href="../../#l00093">Project5::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00089">InLab3::run()</a>, <a class="el" href="../../#l00084">OutLab3::run()</a>, <a class="el" href="../../#l00114">InLab11::run()</a>, <a class="el" href="../../#l00114">InLab12::run()</a>, <a class="el" href="../../#l00091">InLab6::run()</a>, <a class="el" href="../../#l00114">OutLab10::run()</a>, <a class="el" href="../../#l00114">OutLab11::run()</a>, <a class="el" href="../../#l00114">OutLab12::run()</a>, <a class="el" href="../../#l00093">OutLab6::run()</a>, <a class="el" href="../../#l00078">Project1::run()</a>, <a class="el" href="../../#l00093">Project2::run()</a>, <a class="el" href="../../#l00093">Project3::run()</a>, <a class="el" href="../../#l00093">Project4::run()</a>, and <a class="el" href="../../#l00093">Project5::run()</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -1530,7 +1591,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[4/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[4/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1580,7 +1641,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[5/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[5/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1629,7 +1690,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[6/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[6/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1666,7 +1727,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[7/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[7/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1731,7 +1792,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[8/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[8/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1779,7 +1840,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[9/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[9/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1828,7 +1889,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[10/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[10/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1877,7 +1938,56 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[11/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[11/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Output::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>jsonMap</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the output parameters to a JSON object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jsonMap</td><td>The JSON object to which the output parameters are added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                             {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="../../df/df1/structOutput.html#adc108a8c6eb8d3a259b04657d436edba">solution</a>.<a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a409465b26bb97d0ed8b74049953a6611">toJSON</a>(jsonMap[<span class="stringliteral">&quot;solution&quot;</span>]);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">//jsonMap[&quot;solution&quot;] = solution;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="../../df/df1/structOutput.html#a886d2024632b971822fa230c330a3b3e">summary</a>.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011">toJSON</a>(jsonMap[<span class="stringliteral">&quot;benchmark&quot;</span>]);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00131">summary</a>, <a class="el" href="../../#l00085">MyBLAS::Solver::Solution&lt; T &gt;::toJSON()</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/df1/structOutput_a0412b8fd27d6e91551671da11cd8fe93_cgraph.svg" width="392" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[12/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1914,11 +2024,11 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00110">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00067">residual</a>, and <a class="el" href="../../#l00068">solution</a>.</p>
-<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../df/df1/structOutput_a0412b8fd27d6e91551671da11cd8fe93_cgraph.svg" width="392" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1926,7 +2036,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[12/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[13/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1983,11 +2093,11 @@ template&lt;class Archive &gt; </div>
 <div class="ttc" id="astructOutput_html_af4755a931f5004e02f0da0d58fe67783"><div class="ttname"><a href="../../df/df1/structOutput.html#af4755a931f5004e02f0da0d58fe67783">Output::stddev_execution_time</a></div><div class="ttdeci">long double stddev_execution_time</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:69</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00063">MyBLAS::Solver::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::convergence_threshold</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00076">MyBLAS::Solver::Solution&lt; T &gt;::getMaxResidual()</a>, <a class="el" href="../../#l00080">getSolutionError()</a>, <a class="el" href="../../#l00034">Input::input</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00064">MyBLAS::Solver::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00065">MyBLAS::Solver::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00068">mean_execution_time</a>, <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00069">stddev_execution_time</a>, and <a class="el" href="../../#l00067">MyBLAS::Solver::Solution&lt; T &gt;::x</a>.</p>
-<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../df/df1/structOutput_a0412b8fd27d6e91551671da11cd8fe93_cgraph.svg" width="392" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1995,7 +2105,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[13/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[14/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2031,11 +2141,11 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00090">sum</a>, <a class="el" href="../../#l00131">summary</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
-<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../df/df1/structOutput_a0412b8fd27d6e91551671da11cd8fe93_cgraph.svg" width="392" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2043,7 +2153,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[14/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[15/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2080,11 +2190,11 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00110">MyBLAS::Stats::abs()</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00067">residual</a>, and <a class="el" href="../../#l00068">solution</a>.</p>
-<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../df/df1/structOutput_a0412b8fd27d6e91551671da11cd8fe93_cgraph.svg" width="392" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2092,7 +2202,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[15/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[16/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2141,16 +2251,16 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="../../df/df1/structOutput.html#a886d2024632b971822fa230c330a3b3e">summary</a>.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011">toJSON</a>(jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>]);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
 <div class="ttc" id="astructInput_html_a3e9fe4839f3ec20c65ac1d0507c58ced"><div class="ttname"><a href="../../d4/dae/structInput.html#a3e9fe4839f3ec20c65ac1d0507c58ced">Input::solverParams</a></div><div class="ttdeci">MyBLAS::Solver::Parameters&lt; MyBLAS::NumericType &gt; solverParams</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:33</div></div>
-<div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_a306df3f1ed6a8d47e2be9df76e9689ae"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a306df3f1ed6a8d47e2be9df76e9689ae">MyBLAS::Solver::TemplatedParameters::getMaxIterations</a></div><div class="ttdeci">size_t getMaxIterations() const</div><div class="ttdoc">Get the maximum number of iterations to perform.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:259</div></div>
-<div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_ab62c323fdc5de39a435869633b6e500d"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ab62c323fdc5de39a435869633b6e500d">MyBLAS::Solver::TemplatedParameters::getThreshold</a></div><div class="ttdeci">T getThreshold() const</div><div class="ttdoc">Get the convergence threshold.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:245</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_a306df3f1ed6a8d47e2be9df76e9689ae"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a306df3f1ed6a8d47e2be9df76e9689ae">MyBLAS::Solver::TemplatedParameters::getMaxIterations</a></div><div class="ttdeci">size_t getMaxIterations() const</div><div class="ttdoc">Get the maximum number of iterations to perform.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:279</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_ab62c323fdc5de39a435869633b6e500d"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ab62c323fdc5de39a435869633b6e500d">MyBLAS::Solver::TemplatedParameters::getThreshold</a></div><div class="ttdeci">T getThreshold() const</div><div class="ttdoc">Get the convergence threshold.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:265</div></div>
 <div class="ttc" id="astructOutput_html_a6217468a262f7c25201add41b2709b75"><div class="ttname"><a href="../../df/df1/structOutput.html#a6217468a262f7c25201add41b2709b75">Output::max_residual</a></div><div class="ttdeci">long double max_residual</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:68</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00063">MyBLAS::Solver::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00259">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getMaxIterations()</a>, <a class="el" href="../../#l00245">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getThreshold()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00064">MyBLAS::Solver::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00065">MyBLAS::Solver::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00067">residual</a>, <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00033">Input::solverParams</a>, <a class="el" href="../../#l00131">summary</a>, <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>, and <a class="el" href="../../#l00067">MyBLAS::Solver::Solution&lt; T &gt;::x</a>.</p>
-<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00063">MyBLAS::Solver::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00279">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getMaxIterations()</a>, <a class="el" href="../../#l00265">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getThreshold()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00064">MyBLAS::Solver::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00065">MyBLAS::Solver::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00067">residual</a>, <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00033">Input::solverParams</a>, <a class="el" href="../../#l00131">summary</a>, <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>, and <a class="el" href="../../#l00067">MyBLAS::Solver::Solution&lt; T &gt;::x</a>.</p>
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../df/df1/structOutput_a0412b8fd27d6e91551671da11cd8fe93_cgraph.svg" width="392" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2158,7 +2268,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[16/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[17/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2206,67 +2316,7 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 <div class="ttc" id="astructMyBLAS_1_1Stats_1_1Summary_html_a77dedd799e2b2887233590271011e8e0"><div class="ttname"><a href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a77dedd799e2b2887233590271011e8e0">MyBLAS::Stats::Summary::maxBytes</a></div><div class="ttdeci">size_t maxBytes</div><div class="ttdef"><b>Definition:</b> Stats.h:44</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00063">MyBLAS::Solver::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00259">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getMaxIterations()</a>, <a class="el" href="../../#l00245">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getThreshold()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00064">MyBLAS::Solver::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00065">MyBLAS::Solver::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00044">MyBLAS::Stats::Summary&lt; T &gt;::maxBytes</a>, <a class="el" href="../../#l00067">residual</a>, <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00033">Input::solverParams</a>, <a class="el" href="../../#l00131">summary</a>, <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>, and <a class="el" href="../../#l00067">MyBLAS::Solver::Solution&lt; T &gt;::x</a>.</p>
-<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-22-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/df1/structOutput_a0412b8fd27d6e91551671da11cd8fe93_cgraph.svg" width="392" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[17/18]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Output::toJSON </td>
-          <td>(</td>
-          <td class="paramtype">nlohmann::json &amp;&#160;</td>
-          <td class="paramname"><em>jsonMap</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the output parameters to a JSON object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">jsonMap</td><td>The JSON object to which the output parameters are added. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                             {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        jsonMap[<span class="stringliteral">&quot;converged&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#adc108a8c6eb8d3a259b04657d436edba">solution</a>.<a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a0eed004d383f51db2aa8819bcda97e9b">converged</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;maximum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a2728991ba75ef8f6ae27b6ca462f3830">inputs</a>.<a class="code" href="../../d4/dae/structInput.html#a3e9fe4839f3ec20c65ac1d0507c58ced">solverParams</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a306df3f1ed6a8d47e2be9df76e9689ae">getMaxIterations</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#adc108a8c6eb8d3a259b04657d436edba">solution</a>.<a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a032bbb91e561d18f6e5508c25f5b4eb4">iterations</a>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;maximum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a2728991ba75ef8f6ae27b6ca462f3830">inputs</a>.<a class="code" href="../../d4/dae/structInput.html#a3e9fe4839f3ec20c65ac1d0507c58ced">solverParams</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ab62c323fdc5de39a435869633b6e500d">getThreshold</a>();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#adc108a8c6eb8d3a259b04657d436edba">solution</a>.<a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ac2086623ddff910f66c2f3c5452f9bec">iterative_error</a>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">//jsonMap[&quot;solution&quot;] = solution.x.getData();</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">//jsonMap[&quot;residual&quot;] = residual.getData();</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-residual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a6217468a262f7c25201add41b2709b75">max_residual</a>();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-bytes&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a886d2024632b971822fa230c330a3b3e">summary</a>.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a77dedd799e2b2887233590271011e8e0">maxBytes</a>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="../../df/df1/structOutput.html#a886d2024632b971822fa230c330a3b3e">summary</a>.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011">toJSON</a>(jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>]);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00063">MyBLAS::Solver::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00259">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getMaxIterations()</a>, <a class="el" href="../../#l00245">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getThreshold()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00064">MyBLAS::Solver::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00065">MyBLAS::Solver::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00044">MyBLAS::Stats::Summary&lt; T &gt;::maxBytes</a>, <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00033">Input::solverParams</a>, <a class="el" href="../../#l00131">summary</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00063">MyBLAS::Solver::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00279">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getMaxIterations()</a>, <a class="el" href="../../#l00265">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getThreshold()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00064">MyBLAS::Solver::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00065">MyBLAS::Solver::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00044">MyBLAS::Stats::Summary&lt; T &gt;::maxBytes</a>, <a class="el" href="../../#l00067">residual</a>, <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00033">Input::solverParams</a>, <a class="el" href="../../#l00131">summary</a>, <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>, and <a class="el" href="../../#l00067">MyBLAS::Solver::Solution&lt; T &gt;::x</a>.</p>
 <div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-23-summary" class="dynsummary" style="display:block;">
@@ -2279,7 +2329,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[18/18]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[18/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2326,7 +2376,7 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="../../df/df1/structOutput.html#a886d2024632b971822fa230c330a3b3e">summary</a>.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011">toJSON</a>(jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>]);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00063">MyBLAS::Solver::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00259">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getMaxIterations()</a>, <a class="el" href="../../#l00245">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getThreshold()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00064">MyBLAS::Solver::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00065">MyBLAS::Solver::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00044">MyBLAS::Stats::Summary&lt; T &gt;::maxBytes</a>, <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00033">Input::solverParams</a>, <a class="el" href="../../#l00131">summary</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00063">MyBLAS::Solver::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00279">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getMaxIterations()</a>, <a class="el" href="../../#l00265">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getThreshold()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00064">MyBLAS::Solver::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00065">MyBLAS::Solver::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00044">MyBLAS::Stats::Summary&lt; T &gt;::maxBytes</a>, <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00033">Input::solverParams</a>, <a class="el" href="../../#l00131">summary</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
 <div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-24-summary" class="dynsummary" style="display:block;">
@@ -2338,9 +2388,69 @@ template&lt;class Archive &gt; </div>
 
 </div>
 </div>
+<a id="a0412b8fd27d6e91551671da11cd8fe93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0412b8fd27d6e91551671da11cd8fe93">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[19/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Output::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>jsonMap</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the output parameters to a JSON object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jsonMap</td><td>The JSON object to which the output parameters are added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                             {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        jsonMap[<span class="stringliteral">&quot;converged&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#adc108a8c6eb8d3a259b04657d436edba">solution</a>.<a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a0eed004d383f51db2aa8819bcda97e9b">converged</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;maximum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a2728991ba75ef8f6ae27b6ca462f3830">inputs</a>.<a class="code" href="../../d4/dae/structInput.html#a3e9fe4839f3ec20c65ac1d0507c58ced">solverParams</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a306df3f1ed6a8d47e2be9df76e9689ae">getMaxIterations</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterations&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#adc108a8c6eb8d3a259b04657d436edba">solution</a>.<a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a032bbb91e561d18f6e5508c25f5b4eb4">iterations</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;maximum&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a2728991ba75ef8f6ae27b6ca462f3830">inputs</a>.<a class="code" href="../../d4/dae/structInput.html#a3e9fe4839f3ec20c65ac1d0507c58ced">solverParams</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ab62c323fdc5de39a435869633b6e500d">getThreshold</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        jsonMap[<span class="stringliteral">&quot;iterative-error&quot;</span>][<span class="stringliteral">&quot;actual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#adc108a8c6eb8d3a259b04657d436edba">solution</a>.<a class="code" href="../../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ac2086623ddff910f66c2f3c5452f9bec">iterative_error</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">//jsonMap[&quot;solution&quot;] = solution.x.getData();</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">//jsonMap[&quot;residual&quot;] = residual.getData();</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-residual&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a6217468a262f7c25201add41b2709b75">max_residual</a>();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-bytes&quot;</span>] = <a class="code" href="../../df/df1/structOutput.html#a886d2024632b971822fa230c330a3b3e">summary</a>.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a77dedd799e2b2887233590271011e8e0">maxBytes</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="../../df/df1/structOutput.html#a886d2024632b971822fa230c330a3b3e">summary</a>.<a class="code" href="../../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html#a96a66f2ddbad3de15b434c6582bd2011">toJSON</a>(jsonMap[<span class="stringliteral">&quot;wall-time-ns&quot;</span>]);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00063">MyBLAS::Solver::Solution&lt; T &gt;::converged</a>, <a class="el" href="../../#l00279">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getMaxIterations()</a>, <a class="el" href="../../#l00265">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::getThreshold()</a>, <a class="el" href="../../#l00066">inputs</a>, <a class="el" href="../../#l00064">MyBLAS::Solver::Solution&lt; T &gt;::iterations</a>, <a class="el" href="../../#l00065">MyBLAS::Solver::Solution&lt; T &gt;::iterative_error</a>, <a class="el" href="../../#l00068">max_residual</a>, <a class="el" href="../../#l00044">MyBLAS::Stats::Summary&lt; T &gt;::maxBytes</a>, <a class="el" href="../../#l00068">solution</a>, <a class="el" href="../../#l00033">Input::solverParams</a>, <a class="el" href="../../#l00131">summary</a>, and <a class="el" href="../../#l00066">MyBLAS::Stats::Summary&lt; T &gt;::toJSON()</a>.</p>
+<div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/df1/structOutput_a0412b8fd27d6e91551671da11cd8fe93_cgraph.svg" width="392" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
 <a id="ae9b1e343c7e6d725fc58d57c24e13944"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2394,7 +2504,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ae9b1e343c7e6d725fc58d57c24e13944"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[2/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2445,7 +2555,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ae9b1e343c7e6d725fc58d57c24e13944"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[3/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2496,7 +2606,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ae9b1e343c7e6d725fc58d57c24e13944"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[4/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2547,7 +2657,58 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="ae9b1e343c7e6d725fc58d57c24e13944"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[5/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/df1/structOutput.html">Output</a> &amp;&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overloaded stream insertion operator for the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure. </p>
+<p>This function allows the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure to be outputted to an ostream object in a formatted manner.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>The ostream object where the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure will be outputted. </td></tr>
+    <tr><td class="paramname">output</td><td>The <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure that will be outputted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ostream object with the <a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> structure outputted to it. </dd></dl>
+<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                                                        {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        os &lt;&lt; output.<a class="code" href="../../df/df1/structOutput.html#a886d2024632b971822fa230c330a3b3e">summary</a> &lt;&lt; std::endl &lt;&lt; output.<a class="code" href="../../df/df1/structOutput.html#adc108a8c6eb8d3a259b04657d436edba">solution</a> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae9b1e343c7e6d725fc58d57c24e13944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b1e343c7e6d725fc58d57c24e13944">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2967,7 +3128,7 @@ template&lt;class Archive &gt; </div>
 <p>The computed values. </p>
 <p><a class="el" href="../../df/df1/structOutput.html" title="Struct to hold variables for Taylor Series.">Output</a> vector. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../#l00075">getMaxResidual()</a>, <a class="el" href="../../#l00080">getSolutionError()</a>, <a class="el" href="../../#l00099">InLab11::printResults()</a>, <a class="el" href="../../#l00099">InLab12::printResults()</a>, <a class="el" href="../../#l00074">InLab6::printResults()</a>, <a class="el" href="../../#l00099">OutLab10::printResults()</a>, <a class="el" href="../../#l00099">OutLab11::printResults()</a>, <a class="el" href="../../#l00074">OutLab6::printResults()</a>, <a class="el" href="../../#l00077">Project2::printResults()</a>, <a class="el" href="../../#l00077">Project3::printResults()</a>, <a class="el" href="../../#l00077">Project4::printResults()</a>, <a class="el" href="../../#l00077">Project5::printResults()</a>, <a class="el" href="../../#l00078">Project1::run()</a>, and <a class="el" href="../../#l00079">toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00075">getMaxResidual()</a>, <a class="el" href="../../#l00080">getSolutionError()</a>, <a class="el" href="../../#l00099">InLab11::printResults()</a>, <a class="el" href="../../#l00099">InLab12::printResults()</a>, <a class="el" href="../../#l00074">InLab6::printResults()</a>, <a class="el" href="../../#l00099">OutLab10::printResults()</a>, <a class="el" href="../../#l00099">OutLab11::printResults()</a>, <a class="el" href="../../#l00099">OutLab12::printResults()</a>, <a class="el" href="../../#l00074">OutLab6::printResults()</a>, <a class="el" href="../../#l00077">Project2::printResults()</a>, <a class="el" href="../../#l00077">Project3::printResults()</a>, <a class="el" href="../../#l00077">Project4::printResults()</a>, <a class="el" href="../../#l00077">Project5::printResults()</a>, <a class="el" href="../../#l00078">Project1::run()</a>, and <a class="el" href="../../#l00079">toJSON()</a>.</p>
 
 </div>
 </div>
