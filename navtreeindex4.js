@@ -1,5 +1,16 @@
 var NAVTREEINDEX4 =
 {
+"d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f":[17,0,7,49],
+"d2/d6e/namespaceMyBLAS.html#a0c0a1468f657ffa3b8e7e2f9190475c7":[17,0,7,110],
+"d2/d6e/namespaceMyBLAS.html#a0e0611bf2ca130cc573d632f490f2375":[17,0,7,64],
+"d2/d6e/namespaceMyBLAS.html#a0ea4db14f9fc762b24e5fc18e6f02d7b":[17,0,7,146],
+"d2/d6e/namespaceMyBLAS.html#a0ec3f4fc39539af5d2ee3b8bb7d587e2":[17,0,7,198],
+"d2/d6e/namespaceMyBLAS.html#a10803d35e493bfbf966fa4f2b324736e":[17,0,7,227],
+"d2/d6e/namespaceMyBLAS.html#a12ae42489b250067f1680a423fe5117d":[17,0,7,200],
+"d2/d6e/namespaceMyBLAS.html#a12b8a5af5a2e20350330940b23d3646e":[17,0,7,228],
+"d2/d6e/namespaceMyBLAS.html#a14eb86abe3a826572fe3c1a2bd8e8221":[17,0,7,36],
+"d2/d6e/namespaceMyBLAS.html#a16a9e05487bec1dd53f7e66f6aa230ac":[17,0,7,196],
+"d2/d6e/namespaceMyBLAS.html#a1b5c06ffb18a5d748790607a8296daaf":[17,0,7,138],
 "d2/d6e/namespaceMyBLAS.html#a1cd26b968de69ed958bdad5e81eaab84":[17,0,7,161],
 "d2/d6e/namespaceMyBLAS.html#a1e932e7ad0b8cf67992dbad097d61eb4":[17,0,7,204],
 "d2/d6e/namespaceMyBLAS.html#a1ed822044d18b37a31873e57f98047b0":[17,0,7,188],
@@ -238,16 +249,5 @@ var NAVTREEINDEX4 =
 "d2/dfd/classProject4.html#a2873dd0aa78848433775442dda988e79":[18,0,55,10],
 "d2/dfd/classProject4.html#a2ccb315fa492215574b147c09a4a6c0d":[18,0,55,4],
 "d2/dfd/classProject4.html#a3779e87d22c7d4949f3c01bae1d08ab9":[18,0,55,13],
-"d2/dfd/classProject4.html#a3c1d452f2dbab887ce82a17d14f02331":[18,0,55,3],
-"d2/dfd/classProject4.html#a3dba336803f373c6c0423b1a94ac7e68":[18,0,55,9],
-"d2/dfd/classProject4.html#a44d2055fa63fb0d7684efd9a7db32272":[18,0,55,16],
-"d2/dfd/classProject4.html#a6a745ed8b9a383f5c1fe341a530301ed":[18,0,55,17],
-"d2/dfd/classProject4.html#a72d9d2de140c436278d65674f477198c":[18,0,55,2],
-"d2/dfd/classProject4.html#a748bf752c84f1333d905f6d30fcd2e45":[18,0,55,8],
-"d2/dfd/classProject4.html#a8710336024f46c341572f21a1e6c273b":[18,0,55,1],
-"d2/dfd/classProject4.html#a930c3207c99d9ddeb684c1fb371fa80e":[18,0,55,6],
-"d2/dfd/classProject4.html#a95f2b6c6800c11807fa3c0d4914ea342":[18,0,55,0],
-"d2/dfd/classProject4.html#aa176f763c07de3d80ecf50ef88b4ded2":[18,0,55,14],
-"d2/dfd/classProject4.html#aadf8055fdd095b12168bcf7e42df9d98":[18,0,55,7],
-"d2/dfd/classProject4.html#ab323cfcafd876a24b9321d58355b7662":[18,0,55,11]
+"d2/dfd/classProject4.html#a3c1d452f2dbab887ce82a17d14f02331":[18,0,55,3]
 };

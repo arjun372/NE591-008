@@ -2,7 +2,7 @@ var dir_c3996f20fc08db5640b10fd068ebb3c9 =
 [
     [ "tests", "dir_18b083641808d94a62937747e9cd9ee5.html", "dir_18b083641808d94a62937747e9cd9ee5" ],
     [ "Compute.h", "d5/dc9/labs_2inlab8_2Compute_8h.html", "d5/dc9/labs_2inlab8_2Compute_8h" ],
-    [ "inlab8.h", "de/d06/inlab8_8h.html", [
+    [ "inlab8.h", "d6/d06/inlab8_2inlab8_8h.html", [
       [ "OutLab7", "d3/d49/classOutLab7.html", "d3/d49/classOutLab7" ]
     ] ],
     [ "InputsOutputs.h", "d0/dee/labs_2inlab8_2InputsOutputs_8h.html", "d0/dee/labs_2inlab8_2InputsOutputs_8h" ],

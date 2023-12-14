@@ -202,6 +202,21 @@ var NAVTREE =
           [ "Sample Outputs File", "df/de5/inlab8.html#autotoc_md142", null ]
         ] ],
         [ "Example:", "df/de5/inlab8.html#autotoc_md143", null ]
+      ] ],
+      [ "InLab 08: Iterative Linear Equation Solvers", "df/de5/inlab8.html#autotoc_md256", [
+        [ "Overview", "df/de5/inlab8.html#autotoc_md257", null ],
+        [ "Building & Usage", "df/de5/inlab8.html#autotoc_md258", [
+          [ "Parameters", "df/de5/inlab8.html#autotoc_md259", null ],
+          [ "Solver Methods", "df/de5/inlab8.html#autotoc_md260", null ],
+          [ "General options", "df/de5/inlab8.html#autotoc_md261", null ]
+        ] ],
+        [ "Parameters Format", "df/de5/inlab8.html#autotoc_md262", [
+          [ "Sample Parameters File", "df/de5/inlab8.html#autotoc_md263", null ]
+        ] ],
+        [ "Output Format", "df/de5/inlab8.html#autotoc_md264", [
+          [ "Sample Outputs File", "df/de5/inlab8.html#autotoc_md265", null ]
+        ] ],
+        [ "Example:", "df/de5/inlab8.html#autotoc_md266", null ]
       ] ]
     ] ],
     [ "OutLab 01: Elementwise Ops on 2D Matrices", "d8/df8/outlab1.html", [
@@ -394,19 +409,19 @@ var NAVTREEINDEX =
 "annotated.html",
 "d0/d40/classParser.html#a43472312dad846f8ff6e54b6c6c23a65",
 "d0/d40/classParser.html#ac1c4bff1db7e9e477c491938ab000e95",
-"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ad4fbcdd50932d20e220bccdbafa7bfb2",
-"d2/d6e/namespaceMyBLAS.html#a1cd26b968de69ed958bdad5e81eaab84",
-"d2/dff/Project_8h.html",
-"d4/d9d/structMyBLAS_1_1Solver_1_1Parameters.html#a58f55b90fc967c192d2e8acc8fd3172c",
-"d5/dd8/classProject5.html#a3dba336803f373c6c0423b1a94ac7e68",
-"d7/d1f/classOutLab10.html#a748bf752c84f1333d905f6d30fcd2e45",
-"d8/d25/namespaceprocess.html#ad079b5e116de83371494232c3f439cf6",
-"da/d30/labs_2outlab4_2tests_2LUMatrixTests_8cpp.html",
-"db/dde/readfile_8m.html#ae837637dba9de413a9abbf53d4af2ad2",
-"dd/d0e/classProfiler.html#a5d5bc5cb70ce27f820892edbc239449d",
-"de/d20/InLab10Tests_8cpp.html#a551570b39ffb5a2fa144de869a3f7693",
-"df/df1/structOutput.html#ad4cbf5d26202274bf54502c925137951",
-"index.html#autotoc_md23",
+"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aa8dfbe865729b2ec843f102028d2bd45",
+"d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f",
+"d2/dfd/classProject4.html#a3dba336803f373c6c0423b1a94ac7e68",
+"d4/d8a/Ops_8h.html",
+"d5/d7a/namespaceMyBLAS_1_1System.html",
+"d6/dc6/LazyMatrixTests_8cpp.html#ae563b9c96b407b4b98b0af83ca158ef6",
+"d8/d13/inlab2_2tests_2sanity__check_8m.html#ac3d5a58b936206de5d08ae0c38a324d3",
+"d9/d80/labs_2inlab4_2Compute_8h.html#a185cfc62d7beffeb384caa2d23c4b3a6",
+"db/dde/readfile_8m.html#a1352f112f57d3fce1732e0e08f35efe2",
+"dd/d02/classCommandLine.html#a6b2c9bf028534ad87c3d63f1dd902e1f",
+"dd/dfb/classProject3.html#a520e5c5b28f0051d11aef67168fa276c",
+"df/df1/structOutput.html#a68a9005feebbeac90af517514767eda0",
+"globals_func_t.html",
 ""
 ];
 

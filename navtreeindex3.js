@@ -1,5 +1,11 @@
 var NAVTREEINDEX3 =
 {
+"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#aa8dfbe865729b2ec843f102028d2bd45":[18,0,2,0,1,2],
+"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#abba647e70bf0ae25143fe3757c04afec":[18,0,2,0,1,23],
+"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ac4a2b11f5e7e0fb16a70f504c369b02b":[18,0,2,0,1,22],
+"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ac4f6ab0af9177cde30205c3b475f52f3":[18,0,2,0,1,25],
+"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#accf0012585f5c7af122ca043990547ec":[18,0,2,0,1,9],
+"d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ad1272bef899d7f075699d9a3e1da80c8":[18,0,2,0,1,1],
 "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ad4fbcdd50932d20e220bccdbafa7bfb2":[18,0,2,0,1,17],
 "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ad956ebcbbd8c1e20955d417306ca581c":[18,0,2,0,1,13],
 "d0/d87/classMyPhysics_1_1Diffusion_1_1Matrix.html#ae279788d29369699103f70c5a731f416":[18,0,2,0,1,36],
@@ -84,6 +90,9 @@ var NAVTREEINDEX3 =
 "d1/d1f/classInLab3.html#acafc11fe519afa396644da1b04076071":[18,0,25,1],
 "d1/d45/Constants_8h.html":[19,0,0,2,0,0,6],
 "d1/d45/Constants_8h.html#aeaba4d245610870af7f067c3c4a33f76":[19,0,0,2,0,0,6,0],
+"d1/d4e/labs_2outlab8_2InputsOutputs_8h.html":[19,0,0,0,23,3],
+"d1/d4e/labs_2outlab8_2InputsOutputs_8h.html#ac2609518485ddb491ed13b1cecd80ba3":[19,0,0,0,23,3,3],
+"d1/d4e/labs_2outlab8_2InputsOutputs_8h.html#aee4fad37e95ead5dbdc0fbb568440074":[19,0,0,0,23,3,2],
 "d1/d59/labs_2outlab4_2Compute_8h.html":[19,0,0,0,19,1],
 "d1/d59/labs_2outlab4_2Compute_8h.html#a278b70718fc6b42c7d239434849c2837":[19,0,0,0,19,1,0],
 "d1/d59/labs_2outlab4_2Compute_8h.html#a4540b3f97122a1b21bdf0d84d79ca249":[19,0,0,0,19,1,1],
@@ -224,6 +233,8 @@ var NAVTREEINDEX3 =
 "d2/d48/labs_2outlab11_2main_8cpp.html":[19,0,0,0,14,2],
 "d2/d48/labs_2outlab11_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[19,0,0,0,14,2,0],
 "d2/d4a/labs_2outlab7_2Parser_8h.html":[19,0,0,0,22,5],
+"d2/d58/labs_2outlab8_2tests_2main_8cpp.html":[19,0,0,0,23,0,0],
+"d2/d58/labs_2outlab8_2tests_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[19,0,0,0,23,0,0,0],
 "d2/d63/inlab2_2tests_2TestRunner_8cpp.html":[19,0,0,0,5,1,1],
 "d2/d65/labs_2outlab4_2main_8cpp.html":[19,0,0,0,19,3],
 "d2/d65/labs_2outlab4_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[19,0,0,0,19,3,0],
@@ -238,16 +249,5 @@ var NAVTREEINDEX3 =
 "d2/d6e/namespaceMyBLAS.html#a07edd788b903c20da93e3c3c60f0c098":[17,0,7,222],
 "d2/d6e/namespaceMyBLAS.html#a081fb7afa95c3242df1a9ebc67b87662":[17,0,7,130],
 "d2/d6e/namespaceMyBLAS.html#a09a6658c5809b9336e1674d481c5e9ed":[17,0,7,174],
-"d2/d6e/namespaceMyBLAS.html#a0b1632a04c2bf15017df411b6cbe581e":[17,0,7,96],
-"d2/d6e/namespaceMyBLAS.html#a0b887e323f8337bd87ef20dff8af5c1f":[17,0,7,49],
-"d2/d6e/namespaceMyBLAS.html#a0c0a1468f657ffa3b8e7e2f9190475c7":[17,0,7,110],
-"d2/d6e/namespaceMyBLAS.html#a0e0611bf2ca130cc573d632f490f2375":[17,0,7,64],
-"d2/d6e/namespaceMyBLAS.html#a0ea4db14f9fc762b24e5fc18e6f02d7b":[17,0,7,146],
-"d2/d6e/namespaceMyBLAS.html#a0ec3f4fc39539af5d2ee3b8bb7d587e2":[17,0,7,198],
-"d2/d6e/namespaceMyBLAS.html#a10803d35e493bfbf966fa4f2b324736e":[17,0,7,227],
-"d2/d6e/namespaceMyBLAS.html#a12ae42489b250067f1680a423fe5117d":[17,0,7,200],
-"d2/d6e/namespaceMyBLAS.html#a12b8a5af5a2e20350330940b23d3646e":[17,0,7,228],
-"d2/d6e/namespaceMyBLAS.html#a14eb86abe3a826572fe3c1a2bd8e8221":[17,0,7,36],
-"d2/d6e/namespaceMyBLAS.html#a16a9e05487bec1dd53f7e66f6aa230ac":[17,0,7,196],
-"d2/d6e/namespaceMyBLAS.html#a1b5c06ffb18a5d748790607a8296daaf":[17,0,7,138]
+"d2/d6e/namespaceMyBLAS.html#a0b1632a04c2bf15017df411b6cbe581e":[17,0,7,96]
 };
