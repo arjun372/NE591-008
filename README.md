@@ -275,12 +275,12 @@ Currently supported inlab, outlab build targets include:
   <tr>
     <td>12</td>
     <td><code>✅ inlab12</code></td>
-    <td></td>
+    <td><code>✅ outlab12</code></td>
   </tr>
   <tr>
     <td>13</td>
-    <td></td>
-    <td></td>
+    <td><code>✅ inlab13</code></td>
+    <td><code>✅ outlab13</code></td>
   </tr>
 </table>
 

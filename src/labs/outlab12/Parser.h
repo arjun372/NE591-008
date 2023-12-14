@@ -6,8 +6,8 @@
  * user inputs.
  */
 
-#ifndef NE591_008_INLAB11_PARSER_H
-#define NE591_008_INLAB11_PARSER_H
+#ifndef NE591_008_OUTLAB12_PARSER_H
+#define NE591_008_OUTLAB12_PARSER_H
 
 #include "math/blas/system/Circuit.h"
 
@@ -20,11 +20,11 @@
  * @class Parser
  * @brief This class is responsible for parsing command line arguments and validating user inputs.
  *
- * The Parser class extends the CommandLine class template with InLab12Inputs as the template argument.
+ * The Parser class extends the CommandLine class template with OutLab12Inputs as the template argument.
  * It provides methods to build input arguments, print input arguments, perform checks on input arguments,
  * and build inputs based on the parsed arguments.
  */
-class Parser : public CommandLine<InLab12Inputs> {
+class Parser : public CommandLine<OutLab12Inputs> {
 
   public:
     /**
@@ -33,7 +33,7 @@ class Parser : public CommandLine<InLab12Inputs> {
      * @param headerInfo A constant reference to a HeaderInfo object containing the header information.
      * @param args A constant reference to a CommandLineArgs object containing the command line arguments.
      */
-    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine<InLab12Inputs>(headerInfo, args) {}
+    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine<OutLab12Inputs>(headerInfo, args) {}
 
     /**
      * @brief Default constructor for the Parser class.
@@ -55,8 +55,10 @@ class Parser : public CommandLine<InLab12Inputs> {
             ("threshold,t", boost::program_options::value<long double>(), "= convergence threshold [𝜀 > 0]")(
                 "max-iterations,k", boost::program_options::value<long double>(), "= maximum iterations [n ∈ ℕ]")(
                 "order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]")(
+                "lambda", boost::program_options::value<long double>(), "= guess for eigenvalue")(
                 "use-direct", "= use the direct PI method")(
-                "use-rayleigh", "= use the Rayleigh Quotient PI method");
+                "use-rayleigh", "= use the Rayleigh Quotient PI method")
+                ("use-inverse", "= use the inverse PI method");
 
         boost::program_options::options_description fileOptions("File I/O Options");
         fileOptions.add_options()(
@@ -81,6 +83,12 @@ class Parser : public CommandLine<InLab12Inputs> {
         CommandLine::printLine();
         const bool gen = vm.count("generate");
         const auto inputJson = vm.count("input-json") ? vm["input-json"].as<std::string>() : "None provided";
+        const bool inverse = vm.count("use-inverse");
+        const bool direct = vm.count("use-direct");
+        const bool rayleigh = vm.count("use-rayleigh");
+        std::cout << "\tUse inverse PI method     : " << (inverse ? "Yes" : "No") << "\n";
+        std::cout << "\tUse direct PI method      : " << (direct ? "Yes" : "No") << "\n";
+        std::cout << "\tUse Rayleigh PI method    : " << (rayleigh ? "Yes" : "No") << "\n";
         std::cout << "\tGenerate A               g: " << (gen ? "Yes" : "No") << "\n";
         std::cout << "\tInput JSON (for A),      i: " << (gen ? "[IGNORED] " : " ") << inputJson << "\n";
         std::cout << "\tOutput JSON (for x),     o: " << vm["output-json"].as<std::string>() << "\n";
@@ -170,6 +178,13 @@ class Parser : public CommandLine<InLab12Inputs> {
             performChecksAndUpdateInput<long double>("order", inputMap, map, checks);
         }
 
+        promptAndSetFlags("use-inverse", "Use the inverse PI method", map);
+
+        if (map["use-inverse"].as<bool>()) {
+            checks.clear();
+            performChecksAndUpdateInput<long double>("lambda", inputMap, map, checks);
+        }
+
         promptAndSetFlags("use-direct", "the direct PI method", map);
         promptAndSetFlags("use-rayleigh", "the Rayleigh Quotient PI method", map);
     }
@@ -177,7 +192,7 @@ class Parser : public CommandLine<InLab12Inputs> {
     /**
      * @brief Builds the inputs
      */
-    void buildInputs(InLab12Inputs &input, boost::program_options::variables_map &values) override {
+    void buildInputs(OutLab12Inputs &input, boost::program_options::variables_map &values) override {
 
         // first, read the input file into a json map
         nlohmann::json inputMap;
@@ -249,6 +264,11 @@ class Parser : public CommandLine<InLab12Inputs> {
 
         input.input.n = input.input.coefficients.getRows();
 
+        if (values["use-inverse"].as<bool>()) {
+            input.methods.insert(MyRelaxationMethod::METHOD_INVERSE_POWER_ITERATION);
+            input.input.setEigenvalue(static_cast<MyBLAS::NumericType>(values["lambda"].as<long double>()));
+        }
+
         if (values["use-direct"].as<bool>()) {
             input.methods.insert(MyRelaxationMethod::METHOD_DIRECT_POWER_ITERATION);
         }
@@ -268,4 +288,4 @@ class Parser : public CommandLine<InLab12Inputs> {
     }
 };
 
-#endif // NE591_008_INLAB11_PARSER_H
+#endif // NE591_008_OUTLAB12_PARSER_H

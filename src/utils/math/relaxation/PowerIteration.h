@@ -19,8 +19,9 @@
 
 #include "math/blas/Ops.h"
 
-#include "math/relaxation/RelaxationMethods.h"
 #include "blas/solver/LinearSolver.h"
+#include "factorization/LUP.h"
+#include "math/relaxation/RelaxationMethods.h"
 
 /**
  * @namespace MyRelaxationMethod
@@ -170,6 +171,53 @@ MyBLAS::Solver::Solution<T> applyRayleighQuotientPowerIteration(const MyBLAS::So
 
         // check for convergence against the set threshold
         if (results.iterative_error < params.convergence_threshold) {
+            results.converged = true;
+            break;
+        }
+    }
+
+    // Calculate the residual
+    results.residual = params.coefficients * results.x - results.eigenvalue * results.x;
+
+    // Calculate the infinity norm of the residual
+    results.residual_infinite_norm = std::abs(*std::max_element(results.residual.begin(), results.residual.end(), [](T a, T b) {
+        return std::abs(a) < std::abs(b);
+    }));
+
+    return results;
+}
+
+template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
+MyBLAS::Solver::Solution<T> applyInversePowerIteration(const MyBLAS::Solver::Parameters<T> &params) {
+    const auto A = params.getCoefficients();
+    const size_t n = A.getRows(); // Assuming A is square
+    MyBLAS::Solver::Solution<T> results(n);
+    results.x = VectorType<T>(n, 1); // Initialize x with ones
+    results.eigenvalue = params.getEigenValue();
+    results.converged = false;
+
+    MatrixType<T> I = MatrixType<T>::eye(n); // Create an identity matrix of the same size as A
+
+
+    for (results.iterations = 0; results.iterations < params.max_iterations; ++(results.iterations)) {
+        // Shift the matrix A by mu
+        MatrixType<T> A_shifted = A - I * results.eigenvalue;
+
+        // Solve (A - mu * I) * y = bk for y
+        VectorType<T> y = MyBLAS::LUP::applyLUP(A_shifted, results.x, params.convergence_threshold).x;
+
+        // Normalize y to obtain the next iterate bk+1
+        const T norm = std::sqrt(y * y);
+        VectorType<T> bk_next = y * (1.0 / norm);
+
+        // Update mu to the Rayleigh quotient of bk+1 with respect to A
+        const T mu_next = (bk_next * (A * bk_next)) / (bk_next * bk_next);
+
+        results.x = bk_next;
+        results.eigenvalue = mu_next;
+
+        // Check for convergence
+        if (std::abs(mu_next - results.eigenvalue) < params.convergence_threshold) {
             results.converged = true;
             break;
         }

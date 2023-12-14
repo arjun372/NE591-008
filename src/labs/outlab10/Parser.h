@@ -78,11 +78,7 @@ class Parser : public CommandLine<OutLab10Inputs> {
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
         const bool gen = vm.count("generate");
-        const bool direct = vm.count("use-direct");
-        const bool rayleigh = vm.count("use-rayleigh");
         const auto inputJson = vm.count("input-json") ? vm["input-json"].as<std::string>() : "None provided";
-        std::cout << "\tUse direct PI method      : " << (direct ? "Yes" : "No") << "\n";
-        std::cout << "\tUse Rayleigh PI method    : " << (rayleigh ? "Yes" : "No") << "\n";
         std::cout << "\tGenerate A               g: " << (gen ? "Yes" : "No") << "\n";
         std::cout << "\tInput JSON (for A),      i: " << (gen ? "[IGNORED] " : " ") << inputJson << "\n";
         std::cout << "\tOutput JSON (for x),     o: " << vm["output-json"].as<std::string>() << "\n";

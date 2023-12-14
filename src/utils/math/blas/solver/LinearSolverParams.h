@@ -98,6 +98,13 @@ struct TemplatedParameters {
     VectorType<T> initial_guess;
 
     /**
+     * @brief Eigenvalue guess
+     *
+     * Holds the initial guess for the eigenvalue.
+     */
+    T eigenvalue;
+
+    /**
      * @brief Default constructor for TemplatedParameters.
      */
     TemplatedParameters() = default;
@@ -147,6 +154,19 @@ struct TemplatedParameters {
             throw std::invalid_argument("Invalid value for convergence threshold. It should be a positive finite number.");
         }
         convergence_threshold = _threshold;
+        return *this;
+    }
+
+    /**
+     * @brief Set the eigenvalue
+     *
+     * @param threshold The eigenvalue.
+     * @return A reference to the TemplatedParameters struct.
+     *
+     * @throw std::invalid_argument if the provided value is non-positive or not finite.
+     */
+    TemplatedParameters& setEigenvalue(T _eigenvalue) {
+        eigenvalue = _eigenvalue;
         return *this;
     }
 
@@ -279,27 +299,18 @@ struct TemplatedParameters {
      */
     const VectorType<T>& getInitialGuess() const { return initial_guess; }
 
+    /**
+     * @brief Get eigenvalue
+     *
+     * @return The initial guess vector.
+     */
+    const T& getEigenValue() const { return eigenvalue; }
+
 
     friend std::ostream &operator<<(std::ostream &os, const TemplatedParameters<MatrixType, VectorType, T> &params) {
         os << std::left; // Align text to the left
         os << "::::::::::::::::::::::::::::::: Solver Parameters ::::::::::::::::::::::::::::::" << std::endl;
         os << "--------------------------------------------------------------------------------"<<std::endl;
-//        try {
-//            if (params.coefficients.getRows()) {
-//                os << "Coefficient Matrix (A)" << std::endl;
-//                os << "--------------------------------------------------------------------------------" << std::endl;
-//                os << params.coefficients;
-//                os << "--------------------------------------------------------------------------------" << std::endl;
-//            }
-//        } catch (...) {}
-//        try {
-//            if (params.constants.size()) {
-//                os << "Constants Vector (b)" << std::endl;
-//                os << "--------------------------------------------------------------------------------" << std::endl;
-//                os << params.constants;
-//                os << "--------------------------------------------------------------------------------" << std::endl;
-//            }
-//        } catch (...) {}
         try {
             if (params.initial_guess.size()) {
                 os << "Initial Guess" << std::endl;

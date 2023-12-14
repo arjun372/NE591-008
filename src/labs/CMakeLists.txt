@@ -32,3 +32,4 @@ add_subdirectory(inlab11)
 add_subdirectory(outlab11)
 
 add_subdirectory(inlab12)
+add_subdirectory(outlab12)
