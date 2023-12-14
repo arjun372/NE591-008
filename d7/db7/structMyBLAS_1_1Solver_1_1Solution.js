@@ -13,6 +13,7 @@ var structMyBLAS_1_1Solver_1_1Solution =
     [ "iterations", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a032bbb91e561d18f6e5508c25f5b4eb4", null ],
     [ "iterative_error", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ac2086623ddff910f66c2f3c5452f9bec", null ],
     [ "method", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a1fa43649c4c9625ff3c2ec3373b79fe9", null ],
+    [ "phi", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a5fb9b32f34a79eb54d86589b3451ef58", null ],
     [ "residual", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#aff1833b541c5d9c82015c8644207cf34", null ],
     [ "residual_infinite_norm", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a3ea9b05834ad808f3b663542d06e7724", null ],
     [ "x", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ab5135fbce498115d80f6560a9cd4f60b", null ]

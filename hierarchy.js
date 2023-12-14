@@ -55,6 +55,8 @@ var hierarchy =
       [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ],
+      [ "Parser", "d0/d40/classParser.html", null ],
+      [ "Parser", "d0/d40/classParser.html", null ],
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
     [ "CommandLine< TaylorSeriesInputs >", "dd/d02/classCommandLine.html", [
@@ -155,6 +157,8 @@ var hierarchy =
       [ "OutLab6", "d0/d4c/classOutLab6.html", null ]
     ] ],
     [ "Project< SolverInputs, Parser, SolverOutputs >", "db/d91/classProject.html", [
+      [ "InLab13", "d7/db7/classInLab13.html", null ],
+      [ "InLab13", "d7/db7/classInLab13.html", null ],
       [ "Project1", "d8/ddb/classProject1.html", null ],
       [ "Project2", "dd/db5/classProject2.html", null ],
       [ "Project3", "dd/dfb/classProject3.html", null ],

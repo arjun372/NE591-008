@@ -1,17 +1,24 @@
 var namespaces_dup =
 [
     [ "Compute", "de/db3/namespaceCompute.html", [
+      [ "compute_phi_new", "de/db3/namespaceCompute.html#a21cfb430159895cf9cf9205adc70278c", null ],
       [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
       [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
       [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
       [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
+      [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
+      [ "fill_fluxes", "de/db3/namespaceCompute.html#ae51427902ecf37b67388291493318fa3", null ],
+      [ "has_converged", "de/db3/namespaceCompute.html#af47430ea297bfcc92675f13d90e4d213", null ],
+      [ "has_converged_residual", "de/db3/namespaceCompute.html#a24b09d0ba242226c9662e17bc7255eb7", null ],
       [ "naive_fill_diffusion_vector", "de/db3/namespaceCompute.html#a2e42f8e64f9c1d4a071b0d5c9db96fad", null ],
       [ "seriesSum", "de/db3/namespaceCompute.html#a89e0e08fa4ab3cc310cb9a7b8cd816c9", null ],
+      [ "solve_diffusion_equation", "de/db3/namespaceCompute.html#a466562c02c828e24634d8de41b696cdd", null ],
       [ "usingConjugateGradient", "de/db3/namespaceCompute.html#a5d54d7de8122db0ae702574aad696aa2", null ],
       [ "usingConjugateGradient", "de/db3/namespaceCompute.html#a89c7abd89e30a9e6279b5e53081b2661", null ],
       [ "usingDirectPowerIteration", "de/db3/namespaceCompute.html#a142bf68c8d71c20dd0d67a6dded3365d", null ],
       [ "usingDirectPowerIteration", "de/db3/namespaceCompute.html#a3727185b27594b74426c4a5a86d0d15c", null ],
       [ "usingDirectPowerIteration", "de/db3/namespaceCompute.html#ac968bb630fd925fdce7562b7cde9335e", null ],
+      [ "usingFixedPoint", "de/db3/namespaceCompute.html#a72a9d56e37c332dd7669b406d688ce91", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a242d211ce9bbd59a9619238689816210", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a017b511b9ab24d2388a864d6cb14c1cc", null ],
       [ "usingGaussSeidel", "de/db3/namespaceCompute.html#a0b405b6556f147fd5af6a277cccb5e65", null ],
@@ -22,6 +29,7 @@ var namespaces_dup =
       [ "usingJacobiSOR", "de/db3/namespaceCompute.html#a7349dde18d551b9ad66d05e6f32fc196", null ],
       [ "usingLUP", "de/db3/namespaceCompute.html#a9aaa2e3c1db51432d5a62c1d4541fd90", null ],
       [ "usingLUP", "de/db3/namespaceCompute.html#ab494ff4a6113d5d6ab7b0783b9245942", null ],
+      [ "usingNewtons", "de/db3/namespaceCompute.html#ac11e194e04fb206834be1617b231f5aa", null ],
       [ "usingPointJacobi", "de/db3/namespaceCompute.html#a0aa73a107ee5ea0767e15b7caddeecc7", null ],
       [ "usingPointJacobi", "de/db3/namespaceCompute.html#a0741aa46b479eae78cfad76bdf7cb091", null ],
       [ "usingPointJacobi", "de/db3/namespaceCompute.html#a47ae478e18f2649784896a70b434fd5f", null ],
@@ -108,7 +116,9 @@ var namespaces_dup =
         [ "METHOD_PRECONDITIONED_CONJUGATE_GRADIENT", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a92420c8a09e028b785185d56e9e57f63", null ],
         [ "METHOD_DIRECT_POWER_ITERATION", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a12d6e3aa3cea2aff9005c4f062ef7fbb", null ],
         [ "METHOD_RAYLEIGH_QUOTIENT_POWER_ITERATION", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a6980a448081db67572655360cd7bb4f1", null ],
-        [ "METHOD_INVERSE_POWER_ITERATION", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a8e1be96de316bca58604f524c0508e6f", null ]
+        [ "METHOD_INVERSE_POWER_ITERATION", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a8e1be96de316bca58604f524c0508e6f", null ],
+        [ "METHOD_FIXED_POINT", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824a77e609c11f47d3923cbf1a3501bdc094", null ],
+        [ "METHOD_NEWTON", "d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824aaaa50df2a620ba5a9f72fa375c4b7776", null ]
       ] ],
       [ "applyConjugateGradient", "d7/d9a/namespaceMyRelaxationMethod.html#afdf5008e9dbe2c5d17070d2dbfb89ebd", null ],
       [ "applyDirectPowerIteration", "d7/d9a/namespaceMyRelaxationMethod.html#a5b550b28392282977e7f5ddf4307a3bb", null ],

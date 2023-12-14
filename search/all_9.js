@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['h_321',['h',['../df/df1/structOutput.html#a68be31802b0f5312bd79dd446b414148',1,'Output']]],
-  ['haveequalrank_322',['haveEqualRank',['../d2/d6e/namespaceMyBLAS.html#aa9866b1cc2044ed6a85756f487bfbf73',1,'MyBLAS']]],
-  ['header_323',['header',['../dd/d02/classCommandLine.html#a6207284c8f789db14c6056216167fc0d',1,'CommandLine']]],
-  ['headerart_324',['HeaderArt',['../d9/d41/CommandLine_8h.html#a7e86a365be2c8174962c9a67c862d426',1,'HeaderInfo']]],
-  ['headerinfo_325',['HeaderInfo',['../d9/d41/CommandLine_8h.html#d3/db0/structHeaderInfo',1,'']]],
-  ['height_326',['height',['../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0',1,'CanvasType']]],
-  ['hello_5fworld_2ecpp_327',['hello_world.cpp',['../d0/d67/hello__world_8cpp.html',1,'']]],
-  ['helpers_2eh_328',['Helpers.h',['../db/df1/Helpers_8h.html',1,'']]],
-  ['hostname_329',['hostname',['../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274',1,'MPIProject']]]
+  ['h_324',['h',['../df/df1/structOutput.html#a68be31802b0f5312bd79dd446b414148',1,'Output']]],
+  ['has_5fconverged_325',['has_converged',['../de/db3/namespaceCompute.html#af47430ea297bfcc92675f13d90e4d213',1,'Compute']]],
+  ['has_5fconverged_5fresidual_326',['has_converged_residual',['../de/db3/namespaceCompute.html#a24b09d0ba242226c9662e17bc7255eb7',1,'Compute']]],
+  ['haveequalrank_327',['haveEqualRank',['../d2/d6e/namespaceMyBLAS.html#aa9866b1cc2044ed6a85756f487bfbf73',1,'MyBLAS']]],
+  ['header_328',['header',['../dd/d02/classCommandLine.html#a6207284c8f789db14c6056216167fc0d',1,'CommandLine']]],
+  ['headerart_329',['HeaderArt',['../d9/d41/CommandLine_8h.html#a7e86a365be2c8174962c9a67c862d426',1,'HeaderInfo']]],
+  ['headerinfo_330',['HeaderInfo',['../d9/d41/CommandLine_8h.html#d3/db0/structHeaderInfo',1,'']]],
+  ['height_331',['height',['../db/df1/Helpers_8h.html#a89825bd61e85c79d60488294e66814f0',1,'CanvasType']]],
+  ['hello_5fworld_2ecpp_332',['hello_world.cpp',['../d0/d67/hello__world_8cpp.html',1,'']]],
+  ['helpers_2eh_333',['Helpers.h',['../db/df1/Helpers_8h.html',1,'']]],
+  ['hostname_334',['hostname',['../d0/df0/classMPIProject.html#a98c5ee04f7c6246e1f2c2fba16faf274',1,'MPIProject']]]
 ];

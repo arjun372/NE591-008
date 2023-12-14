@@ -11,7 +11,9 @@ var RelaxationMethods_8h =
       [ "METHOD_PRECONDITIONED_CONJUGATE_GRADIENT", "d0/d24/RelaxationMethods_8h.html#a07e854c35b6efce3f4b060202060a824a92420c8a09e028b785185d56e9e57f63", null ],
       [ "METHOD_DIRECT_POWER_ITERATION", "d0/d24/RelaxationMethods_8h.html#a07e854c35b6efce3f4b060202060a824a12d6e3aa3cea2aff9005c4f062ef7fbb", null ],
       [ "METHOD_RAYLEIGH_QUOTIENT_POWER_ITERATION", "d0/d24/RelaxationMethods_8h.html#a07e854c35b6efce3f4b060202060a824a6980a448081db67572655360cd7bb4f1", null ],
-      [ "METHOD_INVERSE_POWER_ITERATION", "d0/d24/RelaxationMethods_8h.html#a07e854c35b6efce3f4b060202060a824a8e1be96de316bca58604f524c0508e6f", null ]
+      [ "METHOD_INVERSE_POWER_ITERATION", "d0/d24/RelaxationMethods_8h.html#a07e854c35b6efce3f4b060202060a824a8e1be96de316bca58604f524c0508e6f", null ],
+      [ "METHOD_FIXED_POINT", "d0/d24/RelaxationMethods_8h.html#a07e854c35b6efce3f4b060202060a824a77e609c11f47d3923cbf1a3501bdc094", null ],
+      [ "METHOD_NEWTON", "d0/d24/RelaxationMethods_8h.html#a07e854c35b6efce3f4b060202060a824aaaa50df2a620ba5a9f72fa375c4b7776", null ]
     ] ],
     [ "approximateOptimalRelaxationFactor", "d0/d24/RelaxationMethods_8h.html#abde81298190b57f3cce6fe5ca0d18dce", null ],
     [ "approximateOptimalRelaxationFactor", "d0/d24/RelaxationMethods_8h.html#a43248690df292a11426f82c5d6e0df07", null ],
