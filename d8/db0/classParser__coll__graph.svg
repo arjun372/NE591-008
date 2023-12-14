@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 2684;
+var viewWidth = 2880;
 var viewHeight = 281;
 var sectionId = 'dynsection-1';
 </script>
@@ -54,20 +54,20 @@ var sectionId = 'dynsection-1';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>Parser</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-277 2680,-277 2680,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-277 2876,-277 2876,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="This class is responsible for parsing command line arguments and validating user inputs.">
-<polygon fill="#bfbfbf" stroke="black" points="1335.5,-0.5 1335.5,-90.5 1472.5,-90.5 1472.5,-0.5 1335.5,-0.5"/>
-<text text-anchor="middle" x="1404" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser</text>
-<polyline fill="none" stroke="black" points="1335.5,-71.5 1472.5,-71.5 "/>
-<text text-anchor="middle" x="1404" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="1335.5,-52.5 1472.5,-52.5 "/>
-<text text-anchor="start" x="1343.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Parser()</text>
-<text text-anchor="start" x="1343.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 45 more...</text>
-<text text-anchor="start" x="1343.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="1343.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 91 more...</text>
+<polygon fill="#bfbfbf" stroke="black" points="1444.5,-0.5 1444.5,-90.5 1581.5,-90.5 1581.5,-0.5 1444.5,-0.5"/>
+<text text-anchor="middle" x="1513" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parser</text>
+<polyline fill="none" stroke="black" points="1444.5,-71.5 1581.5,-71.5 "/>
+<text text-anchor="middle" x="1513" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="1444.5,-52.5 1581.5,-52.5 "/>
+<text text-anchor="start" x="1452.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Parser()</text>
+<text text-anchor="start" x="1452.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 47 more...</text>
+<text text-anchor="start" x="1452.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="1452.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 95 more...</text>
 </a>
 </g>
 </g>
@@ -95,8 +95,8 @@ var sectionId = 'dynsection-1';
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M168.1,-127.47C315.31,-82.76 1097.67,-55.84 1335.45,-48.52"/>
-<polygon fill="none" stroke="midnightblue" points="166.58,-124.3 158.26,-130.86 168.86,-130.91 166.58,-124.3"/>
+<path fill="none" stroke="midnightblue" d="M168.04,-127.47C326.48,-79.18 1192.33,-54.45 1444.26,-48.13"/>
+<polygon fill="none" stroke="midnightblue" points="166.57,-124.28 158.26,-130.84 168.85,-130.9 166.57,-124.28"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -121,8 +121,8 @@ var sectionId = 'dynsection-1';
 <!-- Node3&#45;&gt;Node1 -->
 <g id="edge2" class="edge">
 <title>Node3&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M358.65,-128.7C360.1,-128.11 361.55,-127.54 363,-127 542.29,-60.45 1133.22,-48.92 1335.43,-46.92"/>
-<polygon fill="none" stroke="midnightblue" points="356.84,-125.68 349.16,-132.98 359.72,-132.06 356.84,-125.68"/>
+<path fill="none" stroke="midnightblue" d="M358.64,-128.69C360.09,-128.1 361.54,-127.53 363,-127 563.33,-53.47 1227.9,-46.58 1444.26,-46.33"/>
+<polygon fill="none" stroke="midnightblue" points="356.84,-125.66 349.15,-132.94 359.71,-132.05 356.84,-125.66"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -147,352 +147,378 @@ var sectionId = 'dynsection-1';
 <!-- Node4&#45;&gt;Node1 -->
 <g id="edge3" class="edge">
 <title>Node4&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M554.75,-128.7C556.17,-128.11 557.58,-127.54 559,-127 700.65,-72.98 1160.44,-53.8 1335.48,-48.34"/>
-<polygon fill="none" stroke="midnightblue" points="553.13,-125.59 545.49,-132.94 556.04,-131.96 553.13,-125.59"/>
+<path fill="none" stroke="midnightblue" d="M554.75,-128.68C556.16,-128.09 557.58,-127.53 559,-127 721.53,-66.03 1253.94,-50.96 1444.44,-47.48"/>
+<polygon fill="none" stroke="midnightblue" points="553.14,-125.56 545.47,-132.88 556.02,-131.94 553.14,-125.56"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="568,-127.5 568,-272.5 766,-272.5 766,-127.5 568,-127.5"/>
-<text text-anchor="start" x="576" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; LagrangePolynomial</text>
-<text text-anchor="middle" x="667" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">Inputs &gt;</text>
-<polyline fill="none" stroke="black" points="568,-242.5 766,-242.5 "/>
-<text text-anchor="start" x="576" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="576" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="568,-212.5 766,-212.5 "/>
-<text text-anchor="start" x="576" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="576" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="576" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="576" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="576" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="576" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="576" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="568,-133 568,-267 746,-267 746,-133 568,-133"/>
+<text text-anchor="middle" x="657" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; InLab12Inputs &gt;</text>
+<polyline fill="none" stroke="black" points="568,-248 746,-248 "/>
+<text text-anchor="start" x="576" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="576" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="568,-218 746,-218 "/>
+<text text-anchor="start" x="576" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="576" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="576" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="576" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="576" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="576" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="576" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node1 -->
 <g id="edge4" class="edge">
 <title>Node5&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M774.43,-124.09C887.56,-87.01 1196.77,-60.91 1335.36,-50.95"/>
-<polygon fill="none" stroke="midnightblue" points="773.02,-120.88 764.73,-127.48 775.33,-127.49 773.02,-120.88"/>
-</g>
-<!-- Node5&#45;&gt;Node1 -->
-<g id="edge13" class="edge">
-<title>Node5&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M775.27,-130.53C778.17,-129.27 781.09,-128.09 784,-127 884.42,-89.47 1196.07,-62.45 1335.49,-51.67"/>
-<polygon fill="none" stroke="midnightblue" points="773.63,-127.43 766.02,-134.81 776.56,-133.79 773.63,-127.43"/>
+<path fill="none" stroke="midnightblue" d="M750.76,-128.72C752.17,-128.12 753.59,-127.55 755,-127 880.09,-78.52 1282.5,-56.34 1444.49,-49.21"/>
+<polygon fill="none" stroke="midnightblue" points="749.12,-125.62 741.52,-133 752.06,-131.98 749.12,-125.62"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
 <g id="a_node6"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="784,-127.5 784,-272.5 948,-272.5 948,-127.5 784,-127.5"/>
-<text text-anchor="start" x="792" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; NewtonCotes</text>
-<text text-anchor="middle" x="866" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">Inputs &gt;</text>
-<polyline fill="none" stroke="black" points="784,-242.5 948,-242.5 "/>
-<text text-anchor="start" x="792" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="792" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="784,-212.5 948,-212.5 "/>
-<text text-anchor="start" x="792" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="792" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="792" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="792" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="792" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="792" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="792" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="764,-127.5 764,-272.5 962,-272.5 962,-127.5 764,-127.5"/>
+<text text-anchor="start" x="772" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; LagrangePolynomial</text>
+<text text-anchor="middle" x="863" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">Inputs &gt;</text>
+<polyline fill="none" stroke="black" points="764,-242.5 962,-242.5 "/>
+<text text-anchor="start" x="772" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="772" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="764,-212.5 962,-212.5 "/>
+<text text-anchor="start" x="772" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="772" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="772" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="772" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="772" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="772" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="772" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node1 -->
 <g id="edge5" class="edge">
 <title>Node6&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M956.7,-123.18C1084.4,-68.33 1245.26,-52.71 1335.23,-48.25"/>
-<polygon fill="none" stroke="midnightblue" points="954.92,-120.14 947.17,-127.38 957.74,-126.55 954.92,-120.14"/>
+<path fill="none" stroke="midnightblue" d="M970.51,-123.8C1134.86,-63.03 1339.37,-49.74 1444.21,-47.02"/>
+<polygon fill="none" stroke="midnightblue" points="968.86,-120.69 960.74,-127.49 971.33,-127.23 968.86,-120.69"/>
 </g>
 <!-- Node6&#45;&gt;Node1 -->
 <g id="edge14" class="edge">
 <title>Node6&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M956.96,-131.45C959.95,-129.86 962.97,-128.37 966,-127 1088.73,-71.64 1246.6,-54.31 1335.47,-48.92"/>
-<polygon fill="none" stroke="midnightblue" points="955.01,-128.53 948.04,-136.5 958.46,-134.62 955.01,-128.53"/>
+<path fill="none" stroke="midnightblue" d="M971.3,-130.61C974.19,-129.33 977.1,-128.12 980,-127 1138.9,-65.78 1340.57,-50.82 1444.44,-47.35"/>
+<polygon fill="none" stroke="midnightblue" points="969.63,-127.52 962.07,-134.95 972.61,-133.86 969.63,-127.52"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
 <g id="a_node7"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="966,-133 966,-267 1142,-267 1142,-133 966,-133"/>
-<text text-anchor="middle" x="1054" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; InputMatrices &gt;</text>
-<polyline fill="none" stroke="black" points="966,-248 1142,-248 "/>
-<text text-anchor="start" x="974" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="974" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="966,-218 1142,-218 "/>
-<text text-anchor="start" x="974" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="974" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="974" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="974" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="974" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="974" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="974" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="980,-127.5 980,-272.5 1144,-272.5 1144,-127.5 980,-127.5"/>
+<text text-anchor="start" x="988" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; NewtonCotes</text>
+<text text-anchor="middle" x="1062" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">Inputs &gt;</text>
+<polyline fill="none" stroke="black" points="980,-242.5 1144,-242.5 "/>
+<text text-anchor="start" x="988" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="988" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="980,-212.5 1144,-212.5 "/>
+<text text-anchor="start" x="988" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="988" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="988" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="988" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="988" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="988" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="988" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node7&#45;&gt;Node1 -->
 <g id="edge6" class="edge">
 <title>Node7&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M1139.95,-128.06C1140.63,-127.7 1141.32,-127.35 1142,-127 1203.95,-95.27 1280.84,-72.97 1335.34,-60.01"/>
-<polygon fill="none" stroke="midnightblue" points="1138.14,-125.06 1131.08,-132.96 1141.53,-131.19 1138.14,-125.06"/>
+<path fill="none" stroke="midnightblue" d="M1152.51,-123.06C1249.67,-79.12 1370.07,-59.95 1444.31,-51.9"/>
+<polygon fill="none" stroke="midnightblue" points="1150.78,-120.01 1143.18,-127.39 1153.73,-126.36 1150.78,-120.01"/>
 </g>
 <!-- Node7&#45;&gt;Node1 -->
-<g id="edge16" class="edge">
+<g id="edge15" class="edge">
 <title>Node7&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M1150.75,-132C1153.83,-130.25 1156.92,-128.58 1160,-127 1216.41,-98.11 1285.21,-77.03 1335.42,-63.71"/>
-<polygon fill="none" stroke="midnightblue" points="1148.92,-129.02 1142.09,-137.12 1152.48,-135.04 1148.92,-129.02"/>
+<path fill="none" stroke="midnightblue" d="M1153.03,-131.61C1156.01,-129.97 1159,-128.43 1162,-127 1254.22,-83.06 1371.27,-62.62 1444.24,-53.46"/>
+<polygon fill="none" stroke="midnightblue" points="1151.04,-128.72 1144.17,-136.79 1154.57,-134.77 1151.04,-128.72"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
 <g id="a_node8"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1160.5,-127.5 1160.5,-272.5 1299.5,-272.5 1299.5,-127.5 1160.5,-127.5"/>
-<text text-anchor="start" x="1168.5" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; MyBLAS</text>
-<text text-anchor="middle" x="1230" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">::InputMatrices &gt;</text>
-<polyline fill="none" stroke="black" points="1160.5,-242.5 1299.5,-242.5 "/>
-<text text-anchor="start" x="1168.5" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="1168.5" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="1160.5,-212.5 1299.5,-212.5 "/>
-<text text-anchor="start" x="1168.5" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="1168.5" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="1168.5" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="1168.5" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="1168.5" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="1168.5" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="1168.5" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="1162,-133 1162,-267 1338,-267 1338,-133 1162,-133"/>
+<text text-anchor="middle" x="1250" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; InputMatrices &gt;</text>
+<polyline fill="none" stroke="black" points="1162,-248 1338,-248 "/>
+<text text-anchor="start" x="1170" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="1170" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="1162,-218 1338,-218 "/>
+<text text-anchor="start" x="1170" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="1170" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="1170" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="1170" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="1170" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="1170" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="1170" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node8&#45;&gt;Node1 -->
 <g id="edge7" class="edge">
 <title>Node8&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M1307.19,-120.71C1318.86,-110.55 1330.92,-100.27 1342.51,-90.66"/>
-<polygon fill="none" stroke="midnightblue" points="1304.8,-118.15 1299.58,-127.37 1309.41,-123.42 1304.8,-118.15"/>
+<path fill="none" stroke="midnightblue" d="M1337.12,-127.54C1337.41,-127.36 1337.71,-127.18 1338,-127 1371.69,-106.58 1411.33,-87.19 1444.42,-72.57"/>
+<polygon fill="none" stroke="midnightblue" points="1335.15,-124.64 1328.53,-132.92 1338.86,-130.57 1335.15,-124.64"/>
 </g>
 <!-- Node8&#45;&gt;Node1 -->
-<g id="edge15" class="edge">
+<g id="edge17" class="edge">
 <title>Node8&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M1307.14,-136.61C1310.81,-133.35 1314.44,-130.13 1318,-127 1331.48,-115.15 1346.2,-102.53 1359.64,-90.87"/>
-<polygon fill="none" stroke="midnightblue" points="1304.71,-134.09 1299.57,-143.35 1309.37,-139.31 1304.71,-134.09"/>
+<path fill="none" stroke="midnightblue" d="M1346.51,-132.93C1349.69,-130.89 1352.86,-128.91 1356,-127 1384.07,-109.98 1416.28,-93.68 1444.23,-80.26"/>
+<polygon fill="none" stroke="midnightblue" points="1344.53,-130.04 1338.09,-138.45 1348.37,-135.89 1344.53,-130.04"/>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
 <g id="a_node9"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1318,-133 1318,-267 1490,-267 1490,-133 1318,-133"/>
-<text text-anchor="middle" x="1404" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; InLab6Inputs &gt;</text>
-<polyline fill="none" stroke="black" points="1318,-248 1490,-248 "/>
-<text text-anchor="start" x="1326" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="1326" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="1318,-218 1490,-218 "/>
-<text text-anchor="start" x="1326" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="1326" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="1326" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="1326" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="1326" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="1326" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="1326" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="1356.5,-127.5 1356.5,-272.5 1495.5,-272.5 1495.5,-127.5 1356.5,-127.5"/>
+<text text-anchor="start" x="1364.5" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; MyBLAS</text>
+<text text-anchor="middle" x="1426" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">::InputMatrices &gt;</text>
+<polyline fill="none" stroke="black" points="1356.5,-242.5 1495.5,-242.5 "/>
+<text text-anchor="start" x="1364.5" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="1364.5" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="1356.5,-212.5 1495.5,-212.5 "/>
+<text text-anchor="start" x="1364.5" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="1364.5" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="1364.5" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="1364.5" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="1364.5" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="1364.5" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="1364.5" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node9&#45;&gt;Node1 -->
 <g id="edge8" class="edge">
 <title>Node9&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M1404,-122.87C1404,-111.81 1404,-100.75 1404,-90.61"/>
-<polygon fill="none" stroke="midnightblue" points="1400.5,-123 1404,-133 1407.5,-123 1400.5,-123"/>
+<path fill="none" stroke="midnightblue" d="M1465.24,-118.41C1470.75,-108.82 1476.35,-99.33 1481.69,-90.54"/>
+<polygon fill="none" stroke="midnightblue" points="1462.13,-116.8 1460.21,-127.22 1468.21,-120.26 1462.13,-116.8"/>
+</g>
+<!-- Node9&#45;&gt;Node1 -->
+<g id="edge16" class="edge">
+<title>Node9&#45;&gt;Node1</title>
+<path fill="none" stroke="midnightblue" d="M1478.72,-118.41C1484.14,-108.82 1489.37,-99.33 1494.06,-90.54"/>
+<polygon fill="none" stroke="midnightblue" points="1475.61,-116.8 1473.69,-127.22 1481.69,-120.26 1475.61,-116.8"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
 <g id="a_node10"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1508,-133 1508,-267 1688,-267 1688,-133 1508,-133"/>
-<text text-anchor="middle" x="1598" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; OutLab7Inputs &gt;</text>
-<polyline fill="none" stroke="black" points="1508,-248 1688,-248 "/>
-<text text-anchor="start" x="1516" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="1516" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="1508,-218 1688,-218 "/>
-<text text-anchor="start" x="1516" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="1516" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="1516" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="1516" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="1516" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="1516" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="1516" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="1514,-133 1514,-267 1686,-267 1686,-133 1514,-133"/>
+<text text-anchor="middle" x="1600" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; InLab6Inputs &gt;</text>
+<polyline fill="none" stroke="black" points="1514,-248 1686,-248 "/>
+<text text-anchor="start" x="1522" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="1522" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="1514,-218 1686,-218 "/>
+<text text-anchor="start" x="1522" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="1522" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="1522" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="1522" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="1522" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="1522" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="1522" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node10&#45;&gt;Node1 -->
 <g id="edge9" class="edge">
 <title>Node10&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M1499.64,-126.98C1483.81,-114.58 1468.04,-102.03 1453.98,-90.65"/>
-<polygon fill="none" stroke="midnightblue" points="1497.88,-130.04 1507.91,-133.44 1502.18,-124.53 1497.88,-130.04"/>
-</g>
-<!-- Node10&#45;&gt;Node1 -->
-<g id="edge18" class="edge">
-<title>Node10&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M1512.63,-126.59C1497.05,-114.3 1481.06,-101.88 1466.3,-90.61"/>
-<polygon fill="none" stroke="midnightblue" points="1510.72,-129.54 1520.73,-133 1515.06,-124.05 1510.72,-129.54"/>
+<path fill="none" stroke="midnightblue" d="M1557.34,-124.22C1550.77,-112.71 1544.18,-101.16 1538.16,-90.61"/>
+<polygon fill="none" stroke="midnightblue" points="1554.35,-126.05 1562.35,-133 1560.43,-122.58 1554.35,-126.05"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
 <g id="a_node11"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1706,-127.5 1706,-272.5 1882,-272.5 1882,-127.5 1706,-127.5"/>
-<text text-anchor="start" x="1714" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; MatrixConstruct</text>
-<text text-anchor="middle" x="1794" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">Params &gt;</text>
-<polyline fill="none" stroke="black" points="1706,-242.5 1882,-242.5 "/>
-<text text-anchor="start" x="1714" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="1714" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="1706,-212.5 1882,-212.5 "/>
-<text text-anchor="start" x="1714" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="1714" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="1714" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="1714" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="1714" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="1714" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="1714" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="1704,-133 1704,-267 1884,-267 1884,-133 1704,-133"/>
+<text text-anchor="middle" x="1794" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; OutLab7Inputs &gt;</text>
+<polyline fill="none" stroke="black" points="1704,-248 1884,-248 "/>
+<text text-anchor="start" x="1712" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="1712" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="1704,-218 1884,-218 "/>
+<text text-anchor="start" x="1712" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="1712" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="1712" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="1712" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="1712" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="1712" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="1712" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node11&#45;&gt;Node1 -->
 <g id="edge10" class="edge">
 <title>Node11&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M1696.66,-127.16C1617.63,-89.98 1531.39,-69.29 1472.59,-57.88"/>
-<polygon fill="none" stroke="midnightblue" points="1695.23,-130.36 1705.76,-131.53 1698.26,-124.05 1695.23,-130.36"/>
+<path fill="none" stroke="midnightblue" d="M1695.16,-132.45C1692.1,-130.57 1689.04,-128.75 1686,-127 1652.77,-107.86 1614.14,-90.18 1581.77,-76.3"/>
+<polygon fill="none" stroke="midnightblue" points="1693.48,-135.53 1703.81,-137.89 1697.2,-129.6 1693.48,-135.53"/>
+</g>
+<!-- Node11&#45;&gt;Node1 -->
+<g id="edge19" class="edge">
+<title>Node11&#45;&gt;Node1</title>
+<path fill="none" stroke="midnightblue" d="M1705.24,-127.72C1704.83,-127.48 1704.41,-127.24 1704,-127 1665.23,-104.67 1619.11,-84.33 1581.84,-69.68"/>
+<polygon fill="none" stroke="midnightblue" points="1703.62,-130.82 1713.99,-132.97 1707.22,-124.82 1703.62,-130.82"/>
 </g>
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
 <g id="a_node12"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1900,-133 1900,-267 2086,-267 2086,-133 1900,-133"/>
-<text text-anchor="middle" x="1993" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; OutLab10Inputs &gt;</text>
-<polyline fill="none" stroke="black" points="1900,-248 2086,-248 "/>
-<text text-anchor="start" x="1908" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="1908" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="1900,-218 2086,-218 "/>
-<text text-anchor="start" x="1908" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="1908" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="1908" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="1908" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="1908" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="1908" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="1908" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="1902,-127.5 1902,-272.5 2078,-272.5 2078,-127.5 1902,-127.5"/>
+<text text-anchor="start" x="1910" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; MatrixConstruct</text>
+<text text-anchor="middle" x="1990" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">Params &gt;</text>
+<polyline fill="none" stroke="black" points="1902,-242.5 2078,-242.5 "/>
+<text text-anchor="start" x="1910" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="1910" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="1902,-212.5 2078,-212.5 "/>
+<text text-anchor="start" x="1910" y="-200.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="1910" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="1910" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="1910" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="1910" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="1910" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="1910" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node12&#45;&gt;Node1 -->
 <g id="edge11" class="edge">
 <title>Node12&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M1894.64,-128.54C1893.42,-128.01 1892.21,-127.5 1891,-127 1749.87,-69.11 1569.56,-52.81 1472.78,-48.24"/>
-<polygon fill="none" stroke="midnightblue" points="1893.35,-131.8 1903.89,-132.89 1896.33,-125.47 1893.35,-131.8"/>
+<path fill="none" stroke="midnightblue" d="M1892.68,-127.22C1783.24,-79.61 1657.77,-60.32 1581.63,-52.14"/>
+<polygon fill="none" stroke="midnightblue" points="1891.31,-130.44 1901.87,-131.3 1894.15,-124.04 1891.31,-130.44"/>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
 <g id="a_node13"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="2104,-133 2104,-267 2290,-267 2290,-133 2104,-133"/>
-<text text-anchor="middle" x="2197" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; OutLab11Inputs &gt;</text>
-<polyline fill="none" stroke="black" points="2104,-248 2290,-248 "/>
-<text text-anchor="start" x="2112" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="2112" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="2104,-218 2290,-218 "/>
-<text text-anchor="start" x="2112" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="2112" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="2112" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="2112" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="2112" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="2112" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="2112" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="2096,-133 2096,-267 2282,-267 2282,-133 2096,-133"/>
+<text text-anchor="middle" x="2189" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; OutLab10Inputs &gt;</text>
+<polyline fill="none" stroke="black" points="2096,-248 2282,-248 "/>
+<text text-anchor="start" x="2104" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="2104" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="2096,-218 2282,-218 "/>
+<text text-anchor="start" x="2104" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="2104" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="2104" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="2104" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="2104" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="2104" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="2104" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node13&#45;&gt;Node1 -->
 <g id="edge12" class="edge">
 <title>Node13&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M2099.27,-128.7C2097.85,-128.11 2096.42,-127.54 2095,-127 1982.19,-83.85 1623.89,-58.99 1472.54,-50.18"/>
-<polygon fill="none" stroke="midnightblue" points="2098.04,-131.99 2108.59,-132.92 2100.92,-125.61 2098.04,-131.99"/>
+<path fill="none" stroke="midnightblue" d="M2091.15,-128.71C2089.77,-128.12 2088.39,-127.55 2087,-127 1914.38,-58.65 1692.43,-47.01 1581.92,-45.84"/>
+<polygon fill="none" stroke="midnightblue" points="2089.7,-131.89 2100.24,-132.9 2092.63,-125.54 2089.7,-131.89"/>
 </g>
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
 <g id="a_node14"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="2308,-133 2308,-267 2488,-267 2488,-133 2308,-133"/>
-<text text-anchor="middle" x="2398" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; OutLab6Inputs &gt;</text>
-<polyline fill="none" stroke="black" points="2308,-248 2488,-248 "/>
-<text text-anchor="start" x="2316" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="2316" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="2308,-218 2488,-218 "/>
-<text text-anchor="start" x="2316" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="2316" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="2316" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="2316" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="2316" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="2316" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="2316" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="2300,-133 2300,-267 2486,-267 2486,-133 2300,-133"/>
+<text text-anchor="middle" x="2393" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; OutLab11Inputs &gt;</text>
+<polyline fill="none" stroke="black" points="2300,-248 2486,-248 "/>
+<text text-anchor="start" x="2308" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="2308" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="2300,-218 2486,-218 "/>
+<text text-anchor="start" x="2308" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="2308" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="2308" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="2308" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="2308" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="2308" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="2308" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node14&#45;&gt;Node1 -->
-<g id="edge17" class="edge">
+<g id="edge13" class="edge">
 <title>Node14&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M2303.28,-128.69C2301.86,-128.1 2300.43,-127.54 2299,-127 2147.66,-70.16 1654.77,-52.59 1472.54,-47.96"/>
-<polygon fill="none" stroke="midnightblue" points="2302.07,-131.98 2312.63,-132.91 2304.95,-125.6 2302.07,-131.98"/>
+<path fill="none" stroke="midnightblue" d="M2295.37,-128.72C2293.92,-128.12 2292.46,-127.55 2291,-127 2161.72,-78.5 1746.83,-56.26 1581.72,-49.16"/>
+<polygon fill="none" stroke="midnightblue" points="2294.36,-132.1 2304.92,-132.99 2297.22,-125.71 2294.36,-132.1"/>
 </g>
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
 <g id="a_node15"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="2506,-133 2506,-267 2676,-267 2676,-133 2506,-133"/>
-<text text-anchor="middle" x="2591" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; SolverInputs &gt;</text>
-<polyline fill="none" stroke="black" points="2506,-248 2676,-248 "/>
-<text text-anchor="start" x="2514" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
-<text text-anchor="start" x="2514" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
-<polyline fill="none" stroke="black" points="2506,-218 2676,-218 "/>
-<text text-anchor="start" x="2514" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
-<text text-anchor="start" x="2514" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
-<text text-anchor="start" x="2514" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
-<text text-anchor="start" x="2514" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
-<text text-anchor="start" x="2514" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
-<text text-anchor="start" x="2514" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
-<text text-anchor="start" x="2514" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+<polygon fill="white" stroke="black" points="2504,-133 2504,-267 2684,-267 2684,-133 2504,-133"/>
+<text text-anchor="middle" x="2594" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; OutLab6Inputs &gt;</text>
+<polyline fill="none" stroke="black" points="2504,-248 2684,-248 "/>
+<text text-anchor="start" x="2512" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="2512" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="2504,-218 2684,-218 "/>
+<text text-anchor="start" x="2512" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="2512" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="2512" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="2512" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="2512" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="2512" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="2512" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
 </a>
 </g>
 </g>
 <!-- Node15&#45;&gt;Node1 -->
-<g id="edge19" class="edge">
+<g id="edge18" class="edge">
 <title>Node15&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M2497.43,-146.42C2485.61,-138.68 2473.45,-131.74 2461,-127 2277.28,-57.09 1678.09,-47.59 1472.72,-46.53"/>
-<polygon fill="none" stroke="midnightblue" points="2495.72,-149.49 2505.96,-152.18 2499.63,-143.69 2495.72,-149.49"/>
+<path fill="none" stroke="midnightblue" d="M2499.29,-128.67C2497.86,-128.09 2496.43,-127.53 2495,-127 2327.01,-64.67 1776.31,-50.44 1581.8,-47.33"/>
+<polygon fill="none" stroke="midnightblue" points="2498.09,-131.97 2508.64,-132.86 2500.95,-125.58 2498.09,-131.97"/>
 </g>
-<!-- Node15&#45;&gt;Node1 -->
+<!-- Node16 -->
+<g id="node16" class="node">
+<title>Node16</title>
+<g id="a_node16"><a xlink:href="../../dd/d02/classCommandLine.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="2702,-133 2702,-267 2872,-267 2872,-133 2702,-133"/>
+<text text-anchor="middle" x="2787" y="-255" font-family="Helvetica,sans-Serif" font-size="10.00">CommandLine&lt; SolverInputs &gt;</text>
+<polyline fill="none" stroke="black" points="2702,-248 2872,-248 "/>
+<text text-anchor="start" x="2710" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00"># variablesMap</text>
+<text text-anchor="start" x="2710" y="-225" font-family="Helvetica,sans-Serif" font-size="10.00">and 4 more...</text>
+<polyline fill="none" stroke="black" points="2702,-218 2872,-218 "/>
+<text text-anchor="start" x="2710" y="-206" font-family="Helvetica,sans-Serif" font-size="10.00">+ CommandLine()</text>
+<text text-anchor="start" x="2710" y="-195" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
+<text text-anchor="start" x="2710" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">+ printLine()</text>
+<text text-anchor="start" x="2710" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00"># buildInputArguments()</text>
+<text text-anchor="start" x="2710" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">and 5 more...</text>
+<text text-anchor="start" x="2710" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00"># buildGenerics()</text>
+<text text-anchor="start" x="2710" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">and 2 more...</text>
+</a>
+</g>
+</g>
+<!-- Node16&#45;&gt;Node1 -->
 <g id="edge20" class="edge">
-<title>Node15&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M2496.73,-135.22C2490.91,-132.07 2484.99,-129.28 2479,-127 2292.72,-56.12 1679.33,-47.34 1472.51,-46.49"/>
-<polygon fill="none" stroke="midnightblue" points="2495.37,-138.47 2505.78,-140.43 2498.86,-132.4 2495.37,-138.47"/>
+<title>Node16&#45;&gt;Node1</title>
+<path fill="none" stroke="midnightblue" d="M2693.45,-146.37C2681.63,-138.63 2669.46,-131.7 2657,-127 2456.48,-51.32 1798.37,-45.54 1581.78,-45.98"/>
+<polygon fill="none" stroke="midnightblue" points="2691.74,-149.44 2701.99,-152.12 2695.65,-143.63 2691.74,-149.44"/>
 </g>
-<!-- Node15&#45;&gt;Node1 -->
+<!-- Node16&#45;&gt;Node1 -->
 <g id="edge21" class="edge">
-<title>Node15&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M2501.22,-128.69C2499.82,-128.1 2498.41,-127.54 2497,-127 2308.39,-55.23 1681.89,-47.13 1472.69,-46.46"/>
-<polygon fill="none" stroke="midnightblue" points="2499.86,-131.92 2510.4,-132.96 2502.81,-125.57 2499.86,-131.92"/>
+<title>Node16&#45;&gt;Node1</title>
+<path fill="none" stroke="midnightblue" d="M2692.75,-135.18C2686.92,-132.04 2681,-129.26 2675,-127 2471.96,-50.37 1799.75,-45.4 1581.69,-46"/>
+<polygon fill="none" stroke="midnightblue" points="2691.39,-138.43 2701.8,-140.38 2694.87,-132.36 2691.39,-138.43"/>
 </g>
-<!-- Node15&#45;&gt;Node1 -->
+<!-- Node16&#45;&gt;Node1 -->
 <g id="edge22" class="edge">
-<title>Node15&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M2519.22,-128.69C2517.82,-128.1 2516.41,-127.54 2515,-127 2324.16,-54.39 1685.07,-46.95 1472.86,-46.44"/>
-<polygon fill="none" stroke="midnightblue" points="2517.85,-131.91 2528.39,-132.96 2520.8,-125.57 2517.85,-131.91"/>
+<title>Node16&#45;&gt;Node1</title>
+<path fill="none" stroke="midnightblue" d="M2697.23,-128.68C2695.82,-128.09 2694.41,-127.53 2693,-127 2487.56,-49.47 1801.78,-45.3 1581.65,-46.02"/>
+<polygon fill="none" stroke="midnightblue" points="2695.87,-131.91 2706.41,-132.93 2698.81,-125.56 2695.87,-131.91"/>
 </g>
-<!-- Node15&#45;&gt;Node1 -->
+<!-- Node16&#45;&gt;Node1 -->
 <g id="edge23" class="edge">
-<title>Node15&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M2537.22,-128.69C2535.82,-128.1 2534.41,-127.54 2533,-127 2339.94,-53.54 1688.12,-46.78 1472.64,-46.42"/>
-<polygon fill="none" stroke="midnightblue" points="2535.83,-131.91 2546.38,-132.96 2538.79,-125.56 2535.83,-131.91"/>
+<title>Node16&#45;&gt;Node1</title>
+<path fill="none" stroke="midnightblue" d="M2715.22,-128.68C2713.82,-128.09 2712.41,-127.53 2711,-127 2503.28,-48.61 1804.49,-45.21 1581.64,-46.05"/>
+<polygon fill="none" stroke="midnightblue" points="2713.86,-131.91 2724.4,-132.93 2716.8,-125.55 2713.86,-131.91"/>
+</g>
+<!-- Node16&#45;&gt;Node1 -->
+<g id="edge24" class="edge">
+<title>Node16&#45;&gt;Node1</title>
+<path fill="none" stroke="midnightblue" d="M2733.22,-128.68C2731.82,-128.09 2730.41,-127.53 2729,-127 2519.12,-47.79 1807.89,-45.15 1581.65,-46.08"/>
+<polygon fill="none" stroke="midnightblue" points="2731.84,-131.9 2742.39,-132.93 2734.79,-125.55 2731.84,-131.9"/>
 </g>
 </g>
 </svg>

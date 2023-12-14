@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 779;
+var viewWidth = 794;
 var viewHeight = 596;
 var sectionId = 'dynsection-47';
 </script>
@@ -54,547 +54,580 @@ var sectionId = 'dynsection-47';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>MyBLAS::norm</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-592 775,-592 775,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-592 790,-592 790,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="A template function to calculate the norm of a vector.">
-<polygon fill="#bfbfbf" stroke="black" points="682,-336.5 682,-355.5 771,-355.5 771,-336.5 682,-336.5"/>
-<text text-anchor="middle" x="726.5" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::norm</text>
+<polygon fill="#bfbfbf" stroke="black" points="697,-374.5 697,-393.5 786,-393.5 786,-374.5 697,-374.5"/>
+<text text-anchor="middle" x="741.5" y="-381.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::norm</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#af65036df3cbe6eeb61b29824e79c5789" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="511,-432 511,-462 632,-462 632,-432 511,-432"/>
-<text text-anchor="start" x="519" y="-450" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="571.5" y="-439" font-family="Helvetica,sans-Serif" font-size="10.00">::applyPowerIteration</text>
+<g id="a_node2"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a5b550b28392282977e7f5ddf4307a3bb" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="504,-541 504,-571 654,-571 654,-541 504,-541"/>
+<text text-anchor="start" x="512" y="-559" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="579" y="-548" font-family="Helvetica,sans-Serif" font-size="10.00">::applyDirectPowerIteration</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M711.15,-363.6C696.41,-380.67 672,-406.23 646,-422 639.78,-425.78 632.91,-429.07 625.95,-431.92"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="714.17,-365.45 717.94,-355.55 708.82,-360.94 714.17,-365.45"/>
+<path fill="none" stroke="midnightblue" d="M735.37,-403.43C726,-435.11 703.1,-497.75 661,-532 656.79,-535.42 652.11,-538.36 647.17,-540.88"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="738.79,-404.19 738.13,-393.62 732.05,-402.3 738.79,-404.19"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a76d22f1b64bcd3b2dbd1546df0fa691f" target="_top" xlink:title="Checks if the given vector is a unit vector.">
-<polygon fill="white" stroke="black" points="510.5,-393.5 510.5,-412.5 632.5,-412.5 632.5,-393.5 510.5,-393.5"/>
-<text text-anchor="middle" x="571.5" y="-400.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isUnitVector</text>
+<g id="a_node3"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#af65036df3cbe6eeb61b29824e79c5789" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="518.5,-492 518.5,-522 639.5,-522 639.5,-492 518.5,-492"/>
+<text text-anchor="start" x="526.5" y="-510" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="579" y="-499" font-family="Helvetica,sans-Serif" font-size="10.00">::applyPowerIteration</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M698.65,-360.43C683.5,-368.17 664.04,-377.43 646,-384 636.22,-387.56 625.47,-390.74 615.29,-393.42"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="700.67,-363.33 707.93,-355.61 697.44,-357.12 700.67,-363.33"/>
+<path fill="none" stroke="midnightblue" d="M730.23,-402.4C717.01,-424.46 691.99,-461.06 661,-482 654.54,-486.37 647.28,-490 639.83,-493.01"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="733.31,-404.07 735.31,-393.66 727.26,-400.55 733.31,-404.07"/>
+</g>
+<!-- Node4 -->
+<g id="node4" class="node">
+<title>Node4</title>
+<g id="a_node4"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a1a27c866392de32b32e3b40df013eb4c" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="497,-431.5 497,-472.5 661,-472.5 661,-431.5 497,-431.5"/>
+<text text-anchor="start" x="505" y="-460.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="start" x="505" y="-449.5" font-family="Helvetica,sans-Serif" font-size="10.00">::applyRayleighQuotientPower</text>
+<text text-anchor="middle" x="579" y="-438.5" font-family="Helvetica,sans-Serif" font-size="10.00">Iteration</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node4 -->
+<g id="edge3" class="edge">
+<title>Node1&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M712.47,-398.17C697.37,-405.6 678.34,-414.66 661,-422 653.54,-425.16 645.63,-428.31 637.78,-431.34"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="714.37,-401.13 721.77,-393.55 711.25,-394.86 714.37,-401.13"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="../../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1" target="_top" xlink:title="Calculates the number of iterations for a given point in the Julia set.">
-<polygon fill="white" stroke="black" points="521.5,-355.5 521.5,-374.5 621.5,-374.5 621.5,-355.5 521.5,-355.5"/>
-<text text-anchor="middle" x="571.5" y="-362.5" font-family="Helvetica,sans-Serif" font-size="10.00">juliaSetIterations</text>
+<g id="a_node5"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a76d22f1b64bcd3b2dbd1546df0fa691f" target="_top" xlink:title="Checks if the given vector is a unit vector.">
+<polygon fill="white" stroke="black" points="518,-393.5 518,-412.5 640,-412.5 640,-393.5 518,-393.5"/>
+<text text-anchor="middle" x="579" y="-400.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::isUnitVector</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M671.29,-352.73C655.14,-354.74 637.54,-356.92 621.73,-358.89"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="672.16,-356.15 681.66,-351.44 671.3,-349.2 672.16,-356.15"/>
+<path fill="none" stroke="midnightblue" d="M686.55,-390.39C671.61,-392.15 655.31,-394.08 640.05,-395.89"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="687.12,-393.84 696.64,-389.19 686.3,-386.89 687.12,-393.84"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#aba14acf3eb1a8387636b2054a79817cf" target="_top" xlink:title="Calculates the L2 norm of the distance (Euclidean distance) between two containers.">
-<polygon fill="white" stroke="black" points="534.5,-317.5 534.5,-336.5 608.5,-336.5 608.5,-317.5 534.5,-317.5"/>
-<text text-anchor="middle" x="571.5" y="-324.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::L2</text>
+<g id="a_node7"><a xlink:href="../../db/df1/Helpers_8h.html#a059322c7104ae7ad1ee091c6e7ca17c1" target="_top" xlink:title="Calculates the number of iterations for a given point in the Julia set.">
+<polygon fill="white" stroke="black" points="529,-355.5 529,-374.5 629,-374.5 629,-355.5 529,-355.5"/>
+<text text-anchor="middle" x="579" y="-362.5" font-family="Helvetica,sans-Serif" font-size="10.00">juliaSetIterations</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node1&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M671.64,-339.31C650.76,-336.72 627.4,-333.82 608.61,-331.48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="671.3,-342.8 681.66,-340.56 672.16,-335.85 671.3,-342.8"/>
+<path fill="none" stroke="midnightblue" d="M686.58,-377.62C668.02,-375.42 647.34,-372.97 629.18,-370.82"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="686.3,-381.11 696.64,-378.81 687.12,-374.16 686.3,-381.11"/>
 </g>
-<!-- Node33 -->
-<g id="node33" class="node">
-<title>Node33</title>
-<g id="a_node33"><a xlink:href="../../dc/d9f/classInLab4.html#a95f32ac7f4ed5eb5d1093d22a291a6cb" target="_top" xlink:title="This function prints the Mandelbrot set.">
-<polygon fill="white" stroke="black" points="497,-279.5 497,-298.5 646,-298.5 646,-279.5 497,-279.5"/>
-<text text-anchor="middle" x="571.5" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">InLab4::printMandelbrotSet</text>
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#aba14acf3eb1a8387636b2054a79817cf" target="_top" xlink:title="Calculates the L2 norm of the distance (Euclidean distance) between two containers.">
+<polygon fill="white" stroke="black" points="542,-317.5 542,-336.5 616,-336.5 616,-317.5 542,-317.5"/>
+<text text-anchor="middle" x="579" y="-324.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::L2</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node33 -->
-<g id="edge37" class="edge">
-<title>Node1&#45;&gt;Node33</title>
-<path fill="none" stroke="midnightblue" d="M698.65,-331.57C683.5,-323.83 664.04,-314.57 646,-308 636.22,-304.44 625.47,-301.26 615.29,-298.58"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="697.44,-334.88 707.93,-336.39 700.67,-328.67 697.44,-334.88"/>
+<!-- Node1&#45;&gt;Node9 -->
+<g id="edge8" class="edge">
+<title>Node1&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M714,-369.56C698.83,-361.75 679.23,-352.41 661,-346 646.69,-340.97 630.5,-336.87 616.37,-333.78"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="712.8,-372.88 723.28,-374.43 716.05,-366.68 712.8,-372.88"/>
 </g>
-<!-- Node34 -->
-<g id="node34" class="node">
-<title>Node34</title>
-<g id="a_node34"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#aca7f3065834fed0441d330abaee56e3b" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="509.5,-241.5 509.5,-260.5 633.5,-260.5 633.5,-241.5 509.5,-241.5"/>
-<text text-anchor="middle" x="571.5" y="-248.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
+<!-- Node35 -->
+<g id="node35" class="node">
+<title>Node35</title>
+<g id="a_node35"><a xlink:href="../../dc/d9f/classInLab4.html#a95f32ac7f4ed5eb5d1093d22a291a6cb" target="_top" xlink:title="This function prints the Mandelbrot set.">
+<polygon fill="white" stroke="black" points="504.5,-279.5 504.5,-298.5 653.5,-298.5 653.5,-279.5 504.5,-279.5"/>
+<text text-anchor="middle" x="579" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">InLab4::printMandelbrotSet</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node34 -->
-<g id="edge38" class="edge">
-<title>Node1&#45;&gt;Node34</title>
-<path fill="none" stroke="midnightblue" d="M711.63,-328.25C697.1,-310.86 672.71,-284.87 646,-270 639.09,-266.15 631.38,-263.07 623.63,-260.59"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="709.27,-330.9 718.29,-336.46 714.71,-326.49 709.27,-330.9"/>
+<!-- Node1&#45;&gt;Node35 -->
+<g id="edge39" class="edge">
+<title>Node1&#45;&gt;Node35</title>
+<path fill="none" stroke="midnightblue" d="M726.7,-366.13C712.23,-348.64 687.88,-322.57 661,-308 653.89,-304.15 646.01,-301.07 638.05,-298.61"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="724.34,-368.78 733.33,-374.38 729.8,-364.39 724.34,-368.78"/>
 </g>
-<!-- Node4 -->
-<g id="node4" class="node">
-<title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a07edd788b903c20da93e3c3c60f0c098" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="332,-568.5 332,-587.5 456,-587.5 456,-568.5 332,-568.5"/>
-<text text-anchor="middle" x="394" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
+<!-- Node36 -->
+<g id="node36" class="node">
+<title>Node36</title>
+<g id="a_node36"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#aca7f3065834fed0441d330abaee56e3b" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="517,-241.5 517,-260.5 641,-260.5 641,-241.5 517,-241.5"/>
+<text text-anchor="middle" x="579" y="-248.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node4 -->
-<g id="edge3" class="edge">
-<title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M503.07,-417.84C500.91,-419.4 498.88,-421.11 497,-423 452.94,-467.37 504.73,-514.31 461,-559 457.25,-562.83 452.77,-565.91 447.95,-568.37"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="505.11,-420.7 511.92,-412.58 501.53,-414.68 505.11,-420.7"/>
+<!-- Node1&#45;&gt;Node36 -->
+<g id="edge40" class="edge">
+<title>Node1&#45;&gt;Node36</title>
+<path fill="none" stroke="midnightblue" d="M732.49,-364.83C720.72,-339.12 696.27,-293.93 661,-270 655.02,-265.95 648.29,-262.75 641.33,-260.23"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="729.4,-366.5 736.63,-374.25 735.81,-363.68 729.4,-366.5"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="../../db/df1/Helpers_8h.html#ae8d5abc9a487df9eaa8058819e252d0f" target="_top" xlink:title="Prints the Julia set to the console using the specified canvas properties.">
-<polygon fill="white" stroke="black" points="356,-530.5 356,-549.5 432,-549.5 432,-530.5 356,-530.5"/>
-<text text-anchor="middle" x="394" y="-537.5" font-family="Helvetica,sans-Serif" font-size="10.00">printJuliaSet</text>
+<g id="a_node6"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a07edd788b903c20da93e3c3c60f0c098" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="332,-568.5 332,-587.5 456,-587.5 456,-568.5 332,-568.5"/>
+<text text-anchor="middle" x="394" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M511.75,-373.83C506.31,-376.44 501.25,-379.77 497,-384 452.39,-428.43 504.99,-475.97 461,-521 453.33,-528.85 442.65,-533.51 432.12,-536.26"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="513.21,-377.02 521.21,-370.08 510.63,-370.51 513.21,-377.02"/>
+<path fill="none" stroke="midnightblue" d="M508.79,-413.39C504.49,-415.75 500.5,-418.59 497,-422 451.9,-465.92 504.99,-513.97 461,-559 457.25,-562.84 452.78,-565.91 447.96,-568.38"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="510.32,-416.53 517.95,-409.18 507.4,-410.17 510.32,-416.53"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#ac76943650285426073d6d4965cbb6834" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="333.5,-208 333.5,-238 454.5,-238 454.5,-208 333.5,-208"/>
-<text text-anchor="start" x="341.5" y="-226" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="394" y="-215" font-family="Helvetica,sans-Serif" font-size="10.00">::applyP2SOR</text>
+<g id="a_node8"><a xlink:href="../../db/df1/Helpers_8h.html#ae8d5abc9a487df9eaa8058819e252d0f" target="_top" xlink:title="Prints the Julia set to the console using the specified canvas properties.">
+<polygon fill="white" stroke="black" points="356,-530.5 356,-549.5 432,-549.5 432,-530.5 356,-530.5"/>
+<text text-anchor="middle" x="394" y="-537.5" font-family="Helvetica,sans-Serif" font-size="10.00">printJuliaSet</text>
 </a>
 </g>
 </g>
 <!-- Node7&#45;&gt;Node8 -->
 <g id="edge7" class="edge">
 <title>Node7&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M524.68,-320.98C514.89,-318.16 505.08,-314.03 497,-308 472.09,-289.39 484.86,-267.94 461,-248 456.39,-244.15 451.13,-240.86 445.64,-238.05"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="523.85,-324.38 534.4,-323.38 525.53,-317.58 523.85,-324.38"/>
-</g>
-<!-- Node9 -->
-<g id="node9" class="node">
-<title>Node9</title>
-<g id="a_node9"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a37b1fd2ee5b2724d52808f9490c1c5a8" target="_top" xlink:title="This function applies the Point Jacobi method to solve a system of linear equations.">
-<polygon fill="white" stroke="black" points="333.5,-159 333.5,-189 454.5,-189 454.5,-159 333.5,-159"/>
-<text text-anchor="start" x="341.5" y="-177" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="394" y="-166" font-family="Helvetica,sans-Serif" font-size="10.00">::applyPointJacobi</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node9 -->
-<g id="edge8" class="edge">
-<title>Node7&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M524.47,-322.5C514.43,-319.63 504.57,-315.1 497,-308 459.49,-272.8 496.78,-234.96 461,-198 457.69,-194.58 453.86,-191.65 449.74,-189.13"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="523.95,-325.98 534.48,-324.85 525.55,-319.16 523.95,-325.98"/>
-</g>
-<!-- Node18 -->
-<g id="node18" class="node">
-<title>Node18</title>
-<g id="a_node18"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a243ad9b544328fb7b499b467e67ddd9c" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="333.5,-481 333.5,-511 454.5,-511 454.5,-481 333.5,-481"/>
-<text text-anchor="start" x="341.5" y="-499" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="394" y="-488" font-family="Helvetica,sans-Serif" font-size="10.00">::applyPSOR</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node18 -->
-<g id="edge20" class="edge">
-<title>Node7&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M524.27,-331.29C514.25,-334.17 504.43,-338.75 497,-346 455.3,-386.66 500.71,-429.39 461,-472 457.76,-475.48 453.97,-478.45 449.88,-481"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="525.35,-334.63 534.29,-328.95 523.76,-327.82 525.35,-334.63"/>
-</g>
-<!-- Node19 -->
-<g id="node19" class="node">
-<title>Node19</title>
-<g id="a_node19"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a8b6c4702b1a4d0420694761b497512c4" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="333.5,-432 333.5,-462 454.5,-462 454.5,-432 333.5,-432"/>
-<text text-anchor="start" x="341.5" y="-450" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="394" y="-439" font-family="Helvetica,sans-Serif" font-size="10.00">::applySOR</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node19 -->
-<g id="edge21" class="edge">
-<title>Node7&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M524.52,-332.37C514.65,-335.21 504.85,-339.51 497,-346 468.19,-369.81 488.47,-396.65 461,-422 456.86,-425.82 452.07,-429.08 447.01,-431.85"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="525.44,-335.74 534.33,-329.98 523.79,-328.94 525.44,-335.74"/>
-</g>
-<!-- Node22 -->
-<g id="node22" class="node">
-<title>Node22</title>
-<g id="a_node22"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#ae0d661fe726935eb50716fa26511e640" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="327.5,-383 327.5,-413 460.5,-413 460.5,-383 327.5,-383"/>
-<text text-anchor="start" x="335.5" y="-401" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="394" y="-390" font-family="Helvetica,sans-Serif" font-size="10.00">::applySORBlockParallel</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node22 -->
-<g id="edge24" class="edge">
-<title>Node7&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M524.41,-335.97C515.1,-338.59 505.55,-341.89 497,-346 478.98,-354.67 478.52,-363.36 461,-373 454.34,-376.66 447.04,-380.01 439.79,-383"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="525.57,-339.28 534.37,-333.38 523.81,-332.51 525.57,-339.28"/>
-</g>
-<!-- Node24 -->
-<g id="node24" class="node">
-<title>Node24</title>
-<g id="a_node24"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#aa22486c856620523255787ef5bdb1f64" target="_top" xlink:title="This function applies the Successive Over&#45;Relaxation (SOR) method to solve a system of linear equatio...">
-<polygon fill="white" stroke="black" points="333.5,-334 333.5,-364 454.5,-364 454.5,-334 333.5,-334"/>
-<text text-anchor="start" x="341.5" y="-352" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="394" y="-341" font-family="Helvetica,sans-Serif" font-size="10.00">::applySORSerial</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node24 -->
-<g id="edge26" class="edge">
-<title>Node7&#45;&gt;Node24</title>
-<path fill="none" stroke="midnightblue" d="M524.08,-332.82C502.85,-335.48 477.45,-338.66 454.81,-341.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="524.65,-336.28 534.14,-331.56 523.78,-329.33 524.65,-336.28"/>
-</g>
-<!-- Node25 -->
-<g id="node25" class="node">
-<title>Node25</title>
-<g id="a_node25"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#ac37edae4aec371352810b2f552647be4" target="_top" xlink:title="Applies the Symmetric Successive Over&#45;Relaxation (SSOR) method to solve a system of linear equations.">
-<polygon fill="white" stroke="black" points="333.5,-39 333.5,-69 454.5,-69 454.5,-39 333.5,-39"/>
-<text text-anchor="start" x="341.5" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
-<text text-anchor="middle" x="394" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">::applySSOR</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node25 -->
-<g id="edge27" class="edge">
-<title>Node7&#45;&gt;Node25</title>
-<path fill="none" stroke="midnightblue" d="M524.36,-323.39C514.13,-320.51 504.21,-315.75 497,-308 436.38,-242.83 505.19,-188.26 461,-111 451.15,-93.78 434.1,-79.26 419.8,-69.18"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="523.64,-326.82 534.17,-325.61 525.19,-319.99 523.64,-326.82"/>
-</g>
-<!-- Node28 -->
-<g id="node28" class="node">
-<title>Node28</title>
-<g id="a_node28"><a xlink:href="../../df/df1/structOutput.html#aa91aa39c068c79585b906df4c6fda232" target="_top" xlink:title="Calculates and returns the error of the solution.">
-<polygon fill="white" stroke="black" points="327,-120.5 327,-139.5 461,-139.5 461,-120.5 327,-120.5"/>
-<text text-anchor="middle" x="394" y="-127.5" font-family="Helvetica,sans-Serif" font-size="10.00">Output::getSolutionError</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node28 -->
-<g id="edge31" class="edge">
-<title>Node7&#45;&gt;Node28</title>
-<path fill="none" stroke="midnightblue" d="M524.58,-323.17C514.35,-320.3 504.37,-315.6 497,-308 446.55,-256 510.74,-201.69 461,-149 457.4,-145.18 453.09,-142.12 448.41,-139.66"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="523.86,-326.6 534.39,-325.4 525.41,-319.77 523.86,-326.6"/>
-</g>
-<!-- Node31 -->
-<g id="node31" class="node">
-<title>Node31</title>
-<g id="a_node31"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a4a13a3c077ee693c0297e4c68cbcc521" target="_top" xlink:title="Overloaded function that calculates the L2 norm (Euclidean distance) between two MyBLAS::Vector objec...">
-<polygon fill="white" stroke="black" points="357,-295.5 357,-314.5 431,-314.5 431,-295.5 357,-295.5"/>
-<text text-anchor="middle" x="394" y="-302.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::L2</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node31 -->
-<g id="edge35" class="edge">
-<title>Node7&#45;&gt;Node31</title>
-<path fill="none" stroke="midnightblue" d="M524.18,-321.19C495.03,-317.54 457.96,-312.89 431.02,-309.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="523.78,-324.67 534.14,-322.44 524.65,-317.72 523.78,-324.67"/>
-</g>
-<!-- Node32 -->
-<g id="node32" class="node">
-<title>Node32</title>
-<g id="a_node32"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a16a9e05487bec1dd53f7e66f6aa230ac" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="332,-257.5 332,-276.5 456,-276.5 456,-257.5 332,-257.5"/>
-<text text-anchor="middle" x="394" y="-264.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node32 -->
-<g id="edge36" class="edge">
-<title>Node7&#45;&gt;Node32</title>
-<path fill="none" stroke="midnightblue" d="M524.42,-317.32C515.17,-314.76 505.64,-311.66 497,-308 479.73,-300.68 478.16,-293.55 461,-286 452.71,-282.35 443.52,-279.19 434.7,-276.56"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="523.72,-320.76 534.28,-319.89 525.49,-313.98 523.72,-320.76"/>
+<path fill="none" stroke="midnightblue" d="M519.04,-370.78C510.87,-373.75 503.17,-377.99 497,-384 451.9,-427.92 504.99,-475.97 461,-521 453.33,-528.85 442.65,-533.51 432.12,-536.26"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="520.22,-374.08 528.79,-367.84 518.21,-367.37 520.22,-374.08"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="../../de/db3/namespaceCompute.html#a3b30a49d004f8370d19cd13f6492ddba" target="_top" xlink:title="Solves a linear system using the Jacobi SOR method.">
-<polygon fill="white" stroke="black" points="131.5,-164.5 131.5,-183.5 274.5,-183.5 274.5,-164.5 131.5,-164.5"/>
-<text text-anchor="middle" x="203" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingJacobiSOR</text>
+<g id="a_node10"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#ac76943650285426073d6d4965cbb6834" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="333.5,-208 333.5,-238 454.5,-238 454.5,-208 333.5,-208"/>
+<text text-anchor="start" x="341.5" y="-226" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="394" y="-215" font-family="Helvetica,sans-Serif" font-size="10.00">::applyP2SOR</text>
 </a>
 </g>
 </g>
 <!-- Node9&#45;&gt;Node10 -->
 <g id="edge9" class="edge">
 <title>Node9&#45;&gt;Node10</title>
+<path fill="none" stroke="midnightblue" d="M531.86,-322.75C519.68,-319.94 507.12,-315.38 497,-308 471.88,-289.67 484.86,-267.94 461,-248 456.39,-244.15 451.13,-240.86 445.64,-238.05"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="531.46,-326.24 541.94,-324.71 532.8,-319.37 531.46,-326.24"/>
+</g>
+<!-- Node11 -->
+<g id="node11" class="node">
+<title>Node11</title>
+<g id="a_node11"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a37b1fd2ee5b2724d52808f9490c1c5a8" target="_top" xlink:title="This function applies the Point Jacobi method to solve a system of linear equations.">
+<polygon fill="white" stroke="black" points="333.5,-159 333.5,-189 454.5,-189 454.5,-159 333.5,-159"/>
+<text text-anchor="start" x="341.5" y="-177" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="394" y="-166" font-family="Helvetica,sans-Serif" font-size="10.00">::applyPointJacobi</text>
+</a>
+</g>
+</g>
+<!-- Node9&#45;&gt;Node11 -->
+<g id="edge10" class="edge">
+<title>Node9&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M531.72,-324.4C519.19,-321.65 506.49,-316.71 497,-308 459.1,-273.22 496.78,-234.96 461,-198 457.69,-194.58 453.86,-191.65 449.74,-189.13"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="531.21,-327.87 541.67,-326.17 532.44,-320.98 531.21,-327.87"/>
+</g>
+<!-- Node20 -->
+<g id="node20" class="node">
+<title>Node20</title>
+<g id="a_node20"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a243ad9b544328fb7b499b467e67ddd9c" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="333.5,-481 333.5,-511 454.5,-511 454.5,-481 333.5,-481"/>
+<text text-anchor="start" x="341.5" y="-499" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="394" y="-488" font-family="Helvetica,sans-Serif" font-size="10.00">::applyPSOR</text>
+</a>
+</g>
+</g>
+<!-- Node9&#45;&gt;Node20 -->
+<g id="edge22" class="edge">
+<title>Node9&#45;&gt;Node20</title>
+<path fill="none" stroke="midnightblue" d="M531.84,-329.3C519.2,-332.02 506.4,-337.04 497,-346 454.84,-386.18 500.71,-429.39 461,-472 457.76,-475.48 453.97,-478.45 449.88,-481"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="532.62,-332.71 541.88,-327.57 531.43,-325.82 532.62,-332.71"/>
+</g>
+<!-- Node21 -->
+<g id="node21" class="node">
+<title>Node21</title>
+<g id="a_node21"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#a8b6c4702b1a4d0420694761b497512c4" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="333.5,-432 333.5,-462 454.5,-462 454.5,-432 333.5,-432"/>
+<text text-anchor="start" x="341.5" y="-450" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="394" y="-439" font-family="Helvetica,sans-Serif" font-size="10.00">::applySOR</text>
+</a>
+</g>
+</g>
+<!-- Node9&#45;&gt;Node21 -->
+<g id="edge23" class="edge">
+<title>Node9&#45;&gt;Node21</title>
+<path fill="none" stroke="midnightblue" d="M531.7,-330.54C519.41,-333.33 506.83,-338.06 497,-346 467.92,-369.48 488.47,-396.65 461,-422 456.86,-425.82 452.07,-429.08 447.01,-431.85"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="532.71,-333.91 541.89,-328.62 531.42,-327.03 532.71,-333.91"/>
+</g>
+<!-- Node24 -->
+<g id="node24" class="node">
+<title>Node24</title>
+<g id="a_node24"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#ae0d661fe726935eb50716fa26511e640" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="327.5,-383 327.5,-413 460.5,-413 460.5,-383 327.5,-383"/>
+<text text-anchor="start" x="335.5" y="-401" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="394" y="-390" font-family="Helvetica,sans-Serif" font-size="10.00">::applySORBlockParallel</text>
+</a>
+</g>
+</g>
+<!-- Node9&#45;&gt;Node24 -->
+<g id="edge26" class="edge">
+<title>Node9&#45;&gt;Node24</title>
+<path fill="none" stroke="midnightblue" d="M531.8,-334.38C520.12,-337.17 507.83,-340.94 497,-346 478.88,-354.46 478.52,-363.36 461,-373 454.34,-376.66 447.04,-380.01 439.79,-383"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="532.84,-337.73 541.85,-332.17 531.34,-330.9 532.84,-337.73"/>
+</g>
+<!-- Node26 -->
+<g id="node26" class="node">
+<title>Node26</title>
+<g id="a_node26"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#aa22486c856620523255787ef5bdb1f64" target="_top" xlink:title="This function applies the Successive Over&#45;Relaxation (SOR) method to solve a system of linear equatio...">
+<polygon fill="white" stroke="black" points="333.5,-334 333.5,-364 454.5,-364 454.5,-334 333.5,-334"/>
+<text text-anchor="start" x="341.5" y="-352" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="394" y="-341" font-family="Helvetica,sans-Serif" font-size="10.00">::applySORSerial</text>
+</a>
+</g>
+</g>
+<!-- Node9&#45;&gt;Node26 -->
+<g id="edge28" class="edge">
+<title>Node9&#45;&gt;Node26</title>
+<path fill="none" stroke="midnightblue" d="M531.85,-332.55C508.5,-335.35 479.88,-338.8 454.85,-341.8"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="532.33,-336.02 541.85,-331.35 531.5,-329.07 532.33,-336.02"/>
+</g>
+<!-- Node27 -->
+<g id="node27" class="node">
+<title>Node27</title>
+<g id="a_node27"><a xlink:href="../../d7/d9a/namespaceMyRelaxationMethod.html#ac37edae4aec371352810b2f552647be4" target="_top" xlink:title="Applies the Symmetric Successive Over&#45;Relaxation (SSOR) method to solve a system of linear equations.">
+<polygon fill="white" stroke="black" points="333.5,-39 333.5,-69 454.5,-69 454.5,-39 333.5,-39"/>
+<text text-anchor="start" x="341.5" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">MyRelaxationMethod</text>
+<text text-anchor="middle" x="394" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">::applySSOR</text>
+</a>
+</g>
+</g>
+<!-- Node9&#45;&gt;Node27 -->
+<g id="edge29" class="edge">
+<title>Node9&#45;&gt;Node27</title>
+<path fill="none" stroke="midnightblue" d="M531.61,-325.34C518.84,-322.65 506.04,-317.5 497,-308 435.65,-243.52 505.19,-188.26 461,-111 451.15,-93.78 434.1,-79.26 419.8,-69.18"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="531.34,-328.84 541.77,-327.01 532.47,-321.93 531.34,-328.84"/>
+</g>
+<!-- Node30 -->
+<g id="node30" class="node">
+<title>Node30</title>
+<g id="a_node30"><a xlink:href="../../df/df1/structOutput.html#aa91aa39c068c79585b906df4c6fda232" target="_top" xlink:title="Calculates and returns the error of the solution.">
+<polygon fill="white" stroke="black" points="327,-120.5 327,-139.5 461,-139.5 461,-120.5 327,-120.5"/>
+<text text-anchor="middle" x="394" y="-127.5" font-family="Helvetica,sans-Serif" font-size="10.00">Output::getSolutionError</text>
+</a>
+</g>
+</g>
+<!-- Node9&#45;&gt;Node30 -->
+<g id="edge33" class="edge">
+<title>Node9&#45;&gt;Node30</title>
+<path fill="none" stroke="midnightblue" d="M531.86,-325.1C519.1,-322.4 506.23,-317.3 497,-308 445.97,-256.57 510.74,-201.69 461,-149 457.4,-145.18 453.09,-142.12 448.41,-139.66"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="531.56,-328.6 542,-326.79 532.71,-321.69 531.56,-328.6"/>
+</g>
+<!-- Node33 -->
+<g id="node33" class="node">
+<title>Node33</title>
+<g id="a_node33"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a4a13a3c077ee693c0297e4c68cbcc521" target="_top" xlink:title="Overloaded function that calculates the L2 norm (Euclidean distance) between two MyBLAS::Vector objec...">
+<polygon fill="white" stroke="black" points="357,-295.5 357,-314.5 431,-314.5 431,-295.5 357,-295.5"/>
+<text text-anchor="middle" x="394" y="-302.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::L2</text>
+</a>
+</g>
+</g>
+<!-- Node9&#45;&gt;Node33 -->
+<g id="edge37" class="edge">
+<title>Node9&#45;&gt;Node33</title>
+<path fill="none" stroke="midnightblue" d="M531.65,-321.43C500.44,-317.68 459.88,-312.8 431.08,-309.34"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="531.5,-324.93 541.85,-322.65 532.33,-317.98 531.5,-324.93"/>
+</g>
+<!-- Node34 -->
+<g id="node34" class="node">
+<title>Node34</title>
+<g id="a_node34"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#a16a9e05487bec1dd53f7e66f6aa230ac" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="332,-257.5 332,-276.5 456,-276.5 456,-257.5 332,-257.5"/>
+<text text-anchor="middle" x="394" y="-264.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::TYPED_TEST</text>
+</a>
+</g>
+</g>
+<!-- Node9&#45;&gt;Node34 -->
+<g id="edge38" class="edge">
+<title>Node9&#45;&gt;Node34</title>
+<path fill="none" stroke="midnightblue" d="M531.79,-318.83C520.2,-316.06 507.96,-312.5 497,-308 479.65,-300.88 478.16,-293.55 461,-286 452.71,-282.35 443.52,-279.19 434.7,-276.56"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="531.23,-322.29 541.75,-321.06 532.76,-315.46 531.23,-322.29"/>
+</g>
+<!-- Node12 -->
+<g id="node12" class="node">
+<title>Node12</title>
+<g id="a_node12"><a xlink:href="../../de/db3/namespaceCompute.html#a3b30a49d004f8370d19cd13f6492ddba" target="_top" xlink:title="Solves a linear system using the Jacobi SOR method.">
+<polygon fill="white" stroke="black" points="131.5,-164.5 131.5,-183.5 274.5,-183.5 274.5,-164.5 131.5,-164.5"/>
+<text text-anchor="middle" x="203" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingJacobiSOR</text>
+</a>
+</g>
+</g>
+<!-- Node11&#45;&gt;Node12 -->
+<g id="edge11" class="edge">
+<title>Node11&#45;&gt;Node12</title>
 <path fill="none" stroke="midnightblue" d="M323.24,-174C307.45,-174 290.66,-174 274.82,-174"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="323.46,-177.5 333.46,-174 323.46,-170.5 323.46,-177.5"/>
 </g>
-<!-- Node14 -->
-<g id="node14" class="node">
-<title>Node14</title>
-<g id="a_node14"><a xlink:href="../../de/db3/namespaceCompute.html#a0aa73a107ee5ea0767e15b7caddeecc7" target="_top" xlink:title="This method applies the Point Jacobi relaxation method to the given input matrices.">
+<!-- Node16 -->
+<g id="node16" class="node">
+<title>Node16</title>
+<g id="a_node16"><a xlink:href="../../de/db3/namespaceCompute.html#a0aa73a107ee5ea0767e15b7caddeecc7" target="_top" xlink:title="This method applies the Point Jacobi relaxation method to the given input matrices.">
 <polygon fill="white" stroke="black" points="129.5,-202.5 129.5,-221.5 276.5,-221.5 276.5,-202.5 129.5,-202.5"/>
 <text text-anchor="middle" x="203" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingPointJacobi</text>
 </a>
 </g>
 </g>
-<!-- Node9&#45;&gt;Node14 -->
-<g id="edge13" class="edge">
-<title>Node9&#45;&gt;Node14</title>
+<!-- Node11&#45;&gt;Node16 -->
+<g id="edge15" class="edge">
+<title>Node11&#45;&gt;Node16</title>
 <path fill="none" stroke="midnightblue" d="M323.34,-188.01C299.35,-192.83 273.05,-198.12 251.27,-202.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="324.34,-191.37 333.46,-185.97 322.96,-184.51 324.34,-191.37"/>
 </g>
-<!-- Node11 -->
-<g id="node11" class="node">
-<title>Node11</title>
-<g id="a_node11"><a xlink:href="../../d0/d4c/classOutLab6.html#a901a1283fd029c9174f8469ac5cb3ad8" target="_top" xlink:title="This function runs the computation.">
+<!-- Node13 -->
+<g id="node13" class="node">
+<title>Node13</title>
+<g id="a_node13"><a xlink:href="../../d0/d4c/classOutLab6.html#a901a1283fd029c9174f8469ac5cb3ad8" target="_top" xlink:title="This function runs the computation.">
 <polygon fill="white" stroke="black" points="0,-126.5 0,-145.5 79,-145.5 79,-126.5 0,-126.5"/>
 <text text-anchor="middle" x="39.5" y="-133.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab6::run</text>
 </a>
 </g>
 </g>
-<!-- Node10&#45;&gt;Node11 -->
-<g id="edge10" class="edge">
-<title>Node10&#45;&gt;Node11</title>
+<!-- Node12&#45;&gt;Node13 -->
+<g id="edge12" class="edge">
+<title>Node12&#45;&gt;Node13</title>
 <path fill="none" stroke="midnightblue" d="M146.8,-162.25C136.23,-159.91 125.26,-157.43 115,-155 102.53,-152.05 88.94,-148.64 76.81,-145.53"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="146.26,-165.71 156.78,-164.44 147.76,-158.87 146.26,-165.71"/>
 </g>
-<!-- Node12 -->
-<g id="node12" class="node">
-<title>Node12</title>
-<g id="a_node12"><a xlink:href="../../dd/db5/classProject2.html#a0990db917f6a27a4e1cb9ac885698524" target="_top" xlink:title="This function runs the project.">
+<!-- Node14 -->
+<g id="node14" class="node">
+<title>Node14</title>
+<g id="a_node14"><a xlink:href="../../dd/db5/classProject2.html#a0990db917f6a27a4e1cb9ac885698524" target="_top" xlink:title="This function runs the project.">
 <polygon fill="white" stroke="black" points="0.5,-164.5 0.5,-183.5 78.5,-183.5 78.5,-164.5 0.5,-164.5"/>
 <text text-anchor="middle" x="39.5" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project2::run</text>
 </a>
 </g>
 </g>
-<!-- Node10&#45;&gt;Node12 -->
-<g id="edge11" class="edge">
-<title>Node10&#45;&gt;Node12</title>
+<!-- Node12&#45;&gt;Node14 -->
+<g id="edge13" class="edge">
+<title>Node12&#45;&gt;Node14</title>
 <path fill="none" stroke="midnightblue" d="M121.01,-174C106.31,-174 91.63,-174 78.9,-174"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="121.16,-177.5 131.16,-174 121.16,-170.5 121.16,-177.5"/>
 </g>
-<!-- Node13 -->
-<g id="node13" class="node">
-<title>Node13</title>
-<g id="a_node13"><a xlink:href="../../dd/dfb/classProject3.html#a8bcff99aaba60e7d5e5be3cb7552d163" target="_top" xlink:title="This function runs the project.">
+<!-- Node15 -->
+<g id="node15" class="node">
+<title>Node15</title>
+<g id="a_node15"><a xlink:href="../../dd/dfb/classProject3.html#a8bcff99aaba60e7d5e5be3cb7552d163" target="_top" xlink:title="This function runs the project.">
 <polygon fill="white" stroke="black" points="0.5,-88.5 0.5,-107.5 78.5,-107.5 78.5,-88.5 0.5,-88.5"/>
 <text text-anchor="middle" x="39.5" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project3::run</text>
 </a>
 </g>
 </g>
-<!-- Node10&#45;&gt;Node13 -->
-<g id="edge12" class="edge">
-<title>Node10&#45;&gt;Node13</title>
+<!-- Node12&#45;&gt;Node15 -->
+<g id="edge14" class="edge">
+<title>Node12&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M127.52,-160.96C123.18,-159.22 118.97,-157.24 115,-155 94.74,-143.57 97.72,-130.81 79,-117 74.2,-113.46 68.64,-110.28 63.27,-107.57"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="126.6,-164.35 137.19,-164.42 128.95,-157.75 126.6,-164.35"/>
 </g>
-<!-- Node14&#45;&gt;Node11 -->
-<g id="edge15" class="edge">
-<title>Node14&#45;&gt;Node11</title>
+<!-- Node16&#45;&gt;Node13 -->
+<g id="edge17" class="edge">
+<title>Node16&#45;&gt;Node13</title>
 <path fill="none" stroke="midnightblue" d="M127.52,-198.96C123.18,-197.22 118.97,-195.24 115,-193 94.74,-181.57 97.72,-168.81 79,-155 74.2,-151.46 68.64,-148.28 63.27,-145.57"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="126.6,-202.35 137.19,-202.42 128.95,-195.75 126.6,-202.35"/>
 </g>
-<!-- Node14&#45;&gt;Node12 -->
-<g id="edge16" class="edge">
-<title>Node14&#45;&gt;Node12</title>
+<!-- Node16&#45;&gt;Node14 -->
+<g id="edge18" class="edge">
+<title>Node16&#45;&gt;Node14</title>
 <path fill="none" stroke="midnightblue" d="M146.8,-200.25C136.23,-197.91 125.26,-195.43 115,-193 102.53,-190.05 88.94,-186.64 76.81,-183.53"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="146.26,-203.71 156.78,-202.44 147.76,-196.87 146.26,-203.71"/>
 </g>
-<!-- Node14&#45;&gt;Node13 -->
-<g id="edge17" class="edge">
-<title>Node14&#45;&gt;Node13</title>
+<!-- Node16&#45;&gt;Node15 -->
+<g id="edge19" class="edge">
+<title>Node16&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M121.68,-197.64C119.35,-196.23 117.12,-194.68 115,-193 85.74,-169.74 105.22,-143.64 79,-117 75.34,-113.28 70.8,-110.18 66.14,-107.63"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="120.55,-201 131.05,-202.47 123.76,-194.77 120.55,-201"/>
 </g>
-<!-- Node15 -->
-<g id="node15" class="node">
-<title>Node15</title>
-<g id="a_node15"><a xlink:href="../../d1/d8c/classInLab6.html#a55667f27b7ba522dd4288f18d16c9f8d" target="_top" xlink:title="This function runs the project.">
+<!-- Node17 -->
+<g id="node17" class="node">
+<title>Node17</title>
+<g id="a_node17"><a xlink:href="../../d1/d8c/classInLab6.html#a55667f27b7ba522dd4288f18d16c9f8d" target="_top" xlink:title="This function runs the project.">
 <polygon fill="white" stroke="black" points="4,-278.5 4,-297.5 75,-297.5 75,-278.5 4,-278.5"/>
 <text text-anchor="middle" x="39.5" y="-285.5" font-family="Helvetica,sans-Serif" font-size="10.00">InLab6::run</text>
 </a>
 </g>
 </g>
-<!-- Node14&#45;&gt;Node15 -->
-<g id="edge14" class="edge">
-<title>Node14&#45;&gt;Node15</title>
+<!-- Node16&#45;&gt;Node17 -->
+<g id="edge16" class="edge">
+<title>Node16&#45;&gt;Node17</title>
 <path fill="none" stroke="midnightblue" d="M172.13,-226.06C139.71,-241.31 88.85,-265.25 60.79,-278.45"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="173.99,-229.05 181.55,-221.63 171.01,-222.72 173.99,-229.05"/>
 </g>
-<!-- Node16 -->
-<g id="node16" class="node">
-<title>Node16</title>
-<g id="a_node16"><a xlink:href="../../d2/dfd/classProject4.html#a3779e87d22c7d4949f3c01bae1d08ab9" target="_top" xlink:title="This function runs the project.">
+<!-- Node18 -->
+<g id="node18" class="node">
+<title>Node18</title>
+<g id="a_node18"><a xlink:href="../../d2/dfd/classProject4.html#a3779e87d22c7d4949f3c01bae1d08ab9" target="_top" xlink:title="This function runs the project.">
 <polygon fill="white" stroke="black" points="0.5,-240.5 0.5,-259.5 78.5,-259.5 78.5,-240.5 0.5,-240.5"/>
 <text text-anchor="middle" x="39.5" y="-247.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project4::run</text>
 </a>
 </g>
 </g>
-<!-- Node14&#45;&gt;Node16 -->
-<g id="edge18" class="edge">
-<title>Node14&#45;&gt;Node16</title>
+<!-- Node16&#45;&gt;Node18 -->
+<g id="edge20" class="edge">
+<title>Node16&#45;&gt;Node18</title>
 <path fill="none" stroke="midnightblue" d="M151.45,-223.89C127.95,-229.42 100.47,-235.89 78.74,-241"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="152.31,-227.29 161.25,-221.59 150.71,-220.47 152.31,-227.29"/>
 </g>
-<!-- Node17 -->
-<g id="node17" class="node">
-<title>Node17</title>
-<g id="a_node17"><a xlink:href="../../d5/dd8/classProject5.html#ad0d283fb148505600a22fbfef054c177" target="_top" xlink:title="This function runs the project.">
+<!-- Node19 -->
+<g id="node19" class="node">
+<title>Node19</title>
+<g id="a_node19"><a xlink:href="../../d5/dd8/classProject5.html#ad0d283fb148505600a22fbfef054c177" target="_top" xlink:title="This function runs the project.">
 <polygon fill="white" stroke="black" points="0.5,-202.5 0.5,-221.5 78.5,-221.5 78.5,-202.5 0.5,-202.5"/>
 <text text-anchor="middle" x="39.5" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">Project5::run</text>
 </a>
 </g>
 </g>
-<!-- Node14&#45;&gt;Node17 -->
-<g id="edge19" class="edge">
-<title>Node14&#45;&gt;Node17</title>
+<!-- Node16&#45;&gt;Node19 -->
+<g id="edge21" class="edge">
+<title>Node16&#45;&gt;Node19</title>
 <path fill="none" stroke="midnightblue" d="M119.04,-212C104.97,-212 90.99,-212 78.81,-212"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="119.28,-215.5 129.28,-212 119.28,-208.5 119.28,-215.5"/>
 </g>
-<!-- Node20 -->
-<g id="node20" class="node">
-<title>Node20</title>
-<g id="a_node20"><a xlink:href="../../de/db3/namespaceCompute.html#a017b511b9ab24d2388a864d6cb14c1cc" target="_top" xlink:title="Solves a linear system using the Gauss&#45;Seidel method.">
+<!-- Node22 -->
+<g id="node22" class="node">
+<title>Node22</title>
+<g id="a_node22"><a xlink:href="../../de/db3/namespaceCompute.html#a017b511b9ab24d2388a864d6cb14c1cc" target="_top" xlink:title="Solves a linear system using the Gauss&#45;Seidel method.">
 <polygon fill="white" stroke="black" points="126.5,-469.5 126.5,-488.5 279.5,-488.5 279.5,-469.5 126.5,-469.5"/>
 <text text-anchor="middle" x="203" y="-476.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingGaussSeidel</text>
 </a>
 </g>
 </g>
-<!-- Node19&#45;&gt;Node20 -->
-<g id="edge22" class="edge">
-<title>Node19&#45;&gt;Node20</title>
+<!-- Node21&#45;&gt;Node22 -->
+<g id="edge24" class="edge">
+<title>Node21&#45;&gt;Node22</title>
 <path fill="none" stroke="midnightblue" d="M323.42,-458.78C302.65,-462.3 280.15,-466.11 260.34,-469.46"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="324.18,-462.2 333.46,-457.08 323.01,-455.3 324.18,-462.2"/>
 </g>
-<!-- Node21 -->
-<g id="node21" class="node">
-<title>Node21</title>
-<g id="a_node21"><a xlink:href="../../de/db3/namespaceCompute.html#acc65d891a271875002feed91306902d0" target="_top" xlink:title="Solves a linear system using the Successive Over&#45;Relaxation (SOR) method.">
+<!-- Node23 -->
+<g id="node23" class="node">
+<title>Node23</title>
+<g id="a_node23"><a xlink:href="../../de/db3/namespaceCompute.html#acc65d891a271875002feed91306902d0" target="_top" xlink:title="Solves a linear system using the Successive Over&#45;Relaxation (SOR) method.">
 <polygon fill="white" stroke="black" points="146.5,-431.5 146.5,-450.5 259.5,-450.5 259.5,-431.5 146.5,-431.5"/>
 <text text-anchor="middle" x="203" y="-438.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingSOR</text>
 </a>
 </g>
 </g>
-<!-- Node19&#45;&gt;Node21 -->
-<g id="edge23" class="edge">
-<title>Node19&#45;&gt;Node21</title>
+<!-- Node21&#45;&gt;Node23 -->
+<g id="edge25" class="edge">
+<title>Node21&#45;&gt;Node23</title>
 <path fill="none" stroke="midnightblue" d="M323.33,-444.79C302.36,-444.12 279.64,-443.4 259.7,-442.77"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="323.35,-448.29 333.46,-445.11 323.57,-441.29 323.35,-448.29"/>
 </g>
-<!-- Node23 -->
-<g id="node23" class="node">
-<title>Node23</title>
-<g id="a_node23"><a xlink:href="../../de/db3/namespaceCompute.html#a38a211087e8692a3768fbabed21d4a0c" target="_top" xlink:title="Solves a linear system using the Gauss&#45;Seidel method.">
+<!-- Node25 -->
+<g id="node25" class="node">
+<title>Node25</title>
+<g id="a_node25"><a xlink:href="../../de/db3/namespaceCompute.html#a38a211087e8692a3768fbabed21d4a0c" target="_top" xlink:title="Solves a linear system using the Gauss&#45;Seidel method.">
 <polygon fill="white" stroke="black" points="126.5,-388.5 126.5,-407.5 279.5,-407.5 279.5,-388.5 126.5,-388.5"/>
 <text text-anchor="middle" x="203" y="-395.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingGaussSeidel</text>
 </a>
 </g>
 </g>
-<!-- Node22&#45;&gt;Node23 -->
-<g id="edge25" class="edge">
-<title>Node22&#45;&gt;Node23</title>
+<!-- Node24&#45;&gt;Node25 -->
+<g id="edge27" class="edge">
+<title>Node24&#45;&gt;Node25</title>
 <path fill="none" stroke="midnightblue" d="M317.14,-398C304.74,-398 291.9,-398 279.51,-398"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="317.43,-401.5 327.43,-398 317.43,-394.5 317.43,-401.5"/>
 </g>
-<!-- Node26 -->
-<g id="node26" class="node">
-<title>Node26</title>
-<g id="a_node26"><a xlink:href="../../de/db3/namespaceCompute.html#af9b2fed99d9965f94cb5cfab410419a0" target="_top" xlink:title="Solves a linear system using the Symmetric Gauss&#45;Seidel method.">
+<!-- Node28 -->
+<g id="node28" class="node">
+<title>Node28</title>
+<g id="a_node28"><a xlink:href="../../de/db3/namespaceCompute.html#af9b2fed99d9965f94cb5cfab410419a0" target="_top" xlink:title="Solves a linear system using the Symmetric Gauss&#45;Seidel method.">
 <polygon fill="white" stroke="black" points="115,-39 115,-69 291,-69 291,-39 115,-39"/>
 <text text-anchor="start" x="123" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingSymmetricGauss</text>
 <text text-anchor="middle" x="203" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">Seidel</text>
 </a>
 </g>
 </g>
-<!-- Node25&#45;&gt;Node26 -->
-<g id="edge28" class="edge">
-<title>Node25&#45;&gt;Node26</title>
+<!-- Node27&#45;&gt;Node28 -->
+<g id="edge30" class="edge">
+<title>Node27&#45;&gt;Node28</title>
 <path fill="none" stroke="midnightblue" d="M323.21,-54C312.8,-54 301.96,-54 291.24,-54"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="323.46,-57.5 333.46,-54 323.46,-50.5 323.46,-57.5"/>
 </g>
-<!-- Node27 -->
-<g id="node27" class="node">
-<title>Node27</title>
-<g id="a_node27"><a xlink:href="../../de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560" target="_top" xlink:title="Solves a linear system using the Symmetric SOR method.">
+<!-- Node29 -->
+<g id="node29" class="node">
+<title>Node29</title>
+<g id="a_node29"><a xlink:href="../../de/db3/namespaceCompute.html#ab38c6016d5c4907c1f4f468600278560" target="_top" xlink:title="Solves a linear system using the Symmetric SOR method.">
 <polygon fill="white" stroke="black" points="119.5,-0.5 119.5,-19.5 286.5,-19.5 286.5,-0.5 119.5,-0.5"/>
 <text text-anchor="middle" x="203" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Compute::usingSymmetricSOR</text>
 </a>
 </g>
 </g>
-<!-- Node25&#45;&gt;Node27 -->
-<g id="edge30" class="edge">
-<title>Node25&#45;&gt;Node27</title>
+<!-- Node27&#45;&gt;Node29 -->
+<g id="edge32" class="edge">
+<title>Node27&#45;&gt;Node29</title>
 <path fill="none" stroke="midnightblue" d="M323.56,-36.73C312.67,-34.1 301.54,-31.44 291,-29 277.29,-25.82 262.34,-22.51 248.76,-19.55"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="322.92,-40.18 333.46,-39.14 324.57,-33.37 322.92,-40.18"/>
 </g>
-<!-- Node26&#45;&gt;Node13 -->
-<g id="edge29" class="edge">
-<title>Node26&#45;&gt;Node13</title>
+<!-- Node28&#45;&gt;Node15 -->
+<g id="edge31" class="edge">
+<title>Node28&#45;&gt;Node15</title>
 <path fill="none" stroke="midnightblue" d="M137.04,-71.7C116.07,-77.41 93.63,-83.53 75.66,-88.42"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="138.14,-75.02 146.87,-69.02 136.3,-68.27 138.14,-75.02"/>
 </g>
-<!-- Node29 -->
-<g id="node29" class="node">
-<title>Node29</title>
-<g id="a_node29"><a xlink:href="../../d0/d4c/classOutLab6.html#a770effb030dbdb45bcecb764ed75d455" target="_top" xlink:title="This function prints the results of the computation.">
+<!-- Node31 -->
+<g id="node31" class="node">
+<title>Node31</title>
+<g id="a_node31"><a xlink:href="../../d0/d4c/classOutLab6.html#a770effb030dbdb45bcecb764ed75d455" target="_top" xlink:title="This function prints the results of the computation.">
 <polygon fill="white" stroke="black" points="142,-126.5 142,-145.5 264,-145.5 264,-126.5 142,-126.5"/>
 <text text-anchor="middle" x="203" y="-133.5" font-family="Helvetica,sans-Serif" font-size="10.00">OutLab6::printResults</text>
 </a>
 </g>
 </g>
-<!-- Node28&#45;&gt;Node29 -->
-<g id="edge32" class="edge">
-<title>Node28&#45;&gt;Node29</title>
+<!-- Node30&#45;&gt;Node31 -->
+<g id="edge34" class="edge">
+<title>Node30&#45;&gt;Node31</title>
 <path fill="none" stroke="midnightblue" d="M316.7,-132.42C299.18,-132.98 280.78,-133.56 264.06,-134.09"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="317.01,-135.91 326.9,-132.1 316.79,-128.92 317.01,-135.91"/>
 </g>
-<!-- Node30 -->
-<g id="node30" class="node">
-<title>Node30</title>
-<g id="a_node30"><a xlink:href="../../df/df1/structOutput.html#a0412b8fd27d6e91551671da11cd8fe93" target="_top" xlink:title="Converts the output parameters to a JSON object.">
+<!-- Node32 -->
+<g id="node32" class="node">
+<title>Node32</title>
+<g id="a_node32"><a xlink:href="../../df/df1/structOutput.html#a0412b8fd27d6e91551671da11cd8fe93" target="_top" xlink:title="Converts the output parameters to a JSON object.">
 <polygon fill="white" stroke="black" points="158.5,-88.5 158.5,-107.5 247.5,-107.5 247.5,-88.5 158.5,-88.5"/>
 <text text-anchor="middle" x="203" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">Output::toJSON</text>
 </a>
 </g>
 </g>
-<!-- Node28&#45;&gt;Node30 -->
-<g id="edge34" class="edge">
-<title>Node28&#45;&gt;Node30</title>
+<!-- Node30&#45;&gt;Node32 -->
+<g id="edge36" class="edge">
+<title>Node30&#45;&gt;Node32</title>
 <path fill="none" stroke="midnightblue" d="M326.92,-118.81C300.67,-114.37 271.19,-109.38 247.68,-105.4"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="326.36,-122.27 336.81,-120.49 327.53,-115.37 326.36,-122.27"/>
 </g>
-<!-- Node29&#45;&gt;Node11 -->
-<g id="edge33" class="edge">
-<title>Node29&#45;&gt;Node11</title>
+<!-- Node31&#45;&gt;Node13 -->
+<g id="edge35" class="edge">
+<title>Node31&#45;&gt;Node13</title>
 <path fill="none" stroke="midnightblue" d="M131.65,-136C113.63,-136 94.9,-136 79.14,-136"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="131.86,-139.5 141.86,-136 131.86,-132.5 131.86,-139.5"/>
 </g>

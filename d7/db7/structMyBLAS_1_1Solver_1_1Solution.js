@@ -9,8 +9,11 @@ var structMyBLAS_1_1Solver_1_1Solution =
     [ "operator<<", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a2201ecd14bc5cbc3dba443b09f3d82d3", null ],
     [ "converged", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a0eed004d383f51db2aa8819bcda97e9b", null ],
     [ "eigenvalue", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ad07c1b7496d1633c93c943f1f0c3773e", null ],
+    [ "eigenvalue_iterative_error", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#aadb4e4d68ae71aa6a12f971ba9fa4057", null ],
     [ "iterations", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a032bbb91e561d18f6e5508c25f5b4eb4", null ],
     [ "iterative_error", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ac2086623ddff910f66c2f3c5452f9bec", null ],
     [ "method", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a1fa43649c4c9625ff3c2ec3373b79fe9", null ],
+    [ "residual", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#aff1833b541c5d9c82015c8644207cf34", null ],
+    [ "residual_infinite_norm", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a3ea9b05834ad808f3b663542d06e7724", null ],
     [ "x", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ab5135fbce498115d80f6560a9cd4f60b", null ]
 ];

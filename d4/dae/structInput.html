@@ -150,6 +150,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aec2f325fbad8e7ef5fab61624f5e2f5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dae/structInput.html#aec2f325fbad8e7ef5fab61624f5e2f5c">toJSON</a> (nlohmann::json &amp;jsonMap) const</td></tr>
 <tr class="memdesc:aec2f325fbad8e7ef5fab61624f5e2f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the input parameters to a JSON object.  <a href="../../d4/dae/structInput.html#aec2f325fbad8e7ef5fab61624f5e2f5c">More...</a><br /></td></tr>
 <tr class="separator:aec2f325fbad8e7ef5fab61624f5e2f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec2f325fbad8e7ef5fab61624f5e2f5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dae/structInput.html#aec2f325fbad8e7ef5fab61624f5e2f5c">toJSON</a> (nlohmann::json &amp;jsonMap) const</td></tr>
+<tr class="memdesc:aec2f325fbad8e7ef5fab61624f5e2f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the input parameters to a JSON object.  <a href="../../d4/dae/structInput.html#aec2f325fbad8e7ef5fab61624f5e2f5c">More...</a><br /></td></tr>
+<tr class="separator:aec2f325fbad8e7ef5fab61624f5e2f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e33d4733ed56d2ca97aaf252b7e5c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dae/structInput.html#a6e33d4733ed56d2ca97aaf252b7e5c90">toJSON</a> (nlohmann::json &amp;jsonMap)</td></tr>
 <tr class="separator:a6e33d4733ed56d2ca97aaf252b7e5c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a212fe61f708c212e8dac91d145146050"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dae/structInput.html#a212fe61f708c212e8dac91d145146050">Input</a> ()=default</td></tr>
@@ -714,14 +717,14 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        ar &amp; BOOST_SERIALIZATION_NVP(<a class="code" href="../../d4/dae/structInput.html#af243a5244dba8ee99eabaed6fa465779">coefficients</a>.<a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html#a23654643cd581a49d01f7575d4eabbbd">getData</a>());</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        ar &amp; BOOST_SERIALIZATION_NVP(<a class="code" href="../../d4/dae/structInput.html#aca2257bc28362ded598bfad528a18d94">constants</a>.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>());</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
-<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a23654643cd581a49d01f7575d4eabbbd"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a23654643cd581a49d01f7575d4eabbbd">MyBLAS::Matrix::getData</a></div><div class="ttdeci">const std::vector&lt; std::vector&lt; T &gt; &gt; &amp; getData() const</div><div class="ttdoc">Getter for the matrix data.</div><div class="ttdef"><b>Definition:</b> Matrix.h:273</div></div>
-<div class="ttc" id="aclassMyBLAS_1_1Vector_html_a6188d71192e096e25ae1c1a46150a0ab"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">MyBLAS::Vector::getData</a></div><div class="ttdeci">const std::vector&lt; T &gt; &amp; getData() const</div><div class="ttdoc">Getter for the vector data.</div><div class="ttdef"><b>Definition:</b> Vector.h:209</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1Matrix_html_a23654643cd581a49d01f7575d4eabbbd"><div class="ttname"><a href="../../d0/d27/classMyBLAS_1_1Matrix.html#a23654643cd581a49d01f7575d4eabbbd">MyBLAS::Matrix::getData</a></div><div class="ttdeci">const std::vector&lt; std::vector&lt; T &gt; &gt; &amp; getData() const</div><div class="ttdoc">Getter for the matrix data.</div><div class="ttdef"><b>Definition:</b> Matrix.h:279</div></div>
+<div class="ttc" id="aclassMyBLAS_1_1Vector_html_a6188d71192e096e25ae1c1a46150a0ab"><div class="ttname"><a href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">MyBLAS::Vector::getData</a></div><div class="ttdeci">const std::vector&lt; T &gt; &amp; getData() const</div><div class="ttdoc">Getter for the vector data.</div><div class="ttdef"><b>Definition:</b> Vector.h:214</div></div>
 <div class="ttc" id="astructInput_html_ab481ab71cd2291da54b0662174b0d352"><div class="ttname"><a href="../../d4/dae/structInput.html#ab481ab71cd2291da54b0662174b0d352">Input::threshold</a></div><div class="ttdeci">long double threshold</div><div class="ttdoc">The stopping criterion, i.e. threshold, 1e-4 by default.</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:50</div></div>
 <div class="ttc" id="astructInput_html_aca2257bc28362ded598bfad528a18d94"><div class="ttname"><a href="../../d4/dae/structInput.html#aca2257bc28362ded598bfad528a18d94">Input::constants</a></div><div class="ttdeci">MyBLAS::Vector&lt; MyBLAS::NumericType &gt; constants</div><div class="ttdoc">The coefficients vector b.</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:60</div></div>
 <div class="ttc" id="astructInput_html_ad2ac4a069fdf94fe02c5cd5c920400bf"><div class="ttname"><a href="../../d4/dae/structInput.html#ad2ac4a069fdf94fe02c5cd5c920400bf">Input::max_iterations</a></div><div class="ttdeci">size_t max_iterations</div><div class="ttdoc">The maximum number of iterations to perform, 0 by default.</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:45</div></div>
 <div class="ttc" id="astructInput_html_af243a5244dba8ee99eabaed6fa465779"><div class="ttname"><a href="../../d4/dae/structInput.html#af243a5244dba8ee99eabaed6fa465779">Input::coefficients</a></div><div class="ttdeci">MyBLAS::Matrix&lt; MyBLAS::NumericType &gt; coefficients</div><div class="ttdoc">The constants matrix A.</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:55</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00055">coefficients</a>, <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00273">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00209">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00045">max_iterations</a>, and <a class="el" href="../../#l00050">threshold</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00055">coefficients</a>, <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00279">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00045">max_iterations</a>, and <a class="el" href="../../#l00050">threshold</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -841,7 +844,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a6e33d4733ed56d2ca97aaf252b7e5c90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e33d4733ed56d2ca97aaf252b7e5c90">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[1/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e33d4733ed56d2ca97aaf252b7e5c90">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[1/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -885,7 +888,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="a6e33d4733ed56d2ca97aaf252b7e5c90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e33d4733ed56d2ca97aaf252b7e5c90">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[2/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e33d4733ed56d2ca97aaf252b7e5c90">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[2/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -937,7 +940,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[3/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[3/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -975,7 +978,7 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        jsonMap[<span class="stringliteral">&quot;constants&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#aca2257bc28362ded598bfad528a18d94">constants</a>.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>();</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00055">coefficients</a>, <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00273">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00209">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00045">max_iterations</a>, <a class="el" href="../../#l00040">n</a>, and <a class="el" href="../../#l00050">threshold</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00055">coefficients</a>, <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00279">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00045">max_iterations</a>, <a class="el" href="../../#l00040">n</a>, and <a class="el" href="../../#l00050">threshold</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -988,7 +991,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[4/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[4/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1019,7 +1022,7 @@ template&lt;class Archive &gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                             {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        jsonMap[<span class="stringliteral">&quot;threshold&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a1dbbd61dc80624e2f0741cea945d3520">threshold</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        jsonMap[<span class="stringliteral">&quot;threshold&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ad6612fe7779464d6d95165cf0bfd0d7a">convergence_threshold</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        jsonMap[<span class="stringliteral">&quot;order&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a0366290f15de8e5d8c6e65c3eec959bd">n</a>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-iterations&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ac4920280b6e96c26a470924a45af42c2">max_iterations</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        jsonMap[<span class="stringliteral">&quot;coefficients&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a47ae0adcf814b7838eb47caf2d94dcab">coefficients</a>.getData();</div>
@@ -1037,12 +1040,12 @@ template&lt;class Archive &gt; </div>
 <div class="ttc" id="astructInput_html_a78cc2c6c45008ba5eb7d0f5b35dd7932"><div class="ttname"><a href="../../d4/dae/structInput.html#a78cc2c6c45008ba5eb7d0f5b35dd7932">Input::known_solution</a></div><div class="ttdeci">MyBLAS::Vector&lt; long double &gt; known_solution</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:35</div></div>
 <div class="ttc" id="astructInput_html_a9aa34a937a3c1106f23e5a35f8344b6d"><div class="ttname"><a href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">Input::input</a></div><div class="ttdeci">MyBLAS::Solver::Parameters&lt; long double &gt; input</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:34</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_a0366290f15de8e5d8c6e65c3eec959bd"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a0366290f15de8e5d8c6e65c3eec959bd">MyBLAS::Solver::TemplatedParameters::n</a></div><div class="ttdeci">size_t n</div><div class="ttdoc">Size of the matrix/vector.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:56</div></div>
-<div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_a1dbbd61dc80624e2f0741cea945d3520"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a1dbbd61dc80624e2f0741cea945d3520">MyBLAS::Solver::TemplatedParameters::threshold</a></div><div class="ttdeci">T threshold</div><div class="ttdoc">The convergence threshold.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:63</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_a47ae0adcf814b7838eb47caf2d94dcab"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a47ae0adcf814b7838eb47caf2d94dcab">MyBLAS::Solver::TemplatedParameters::coefficients</a></div><div class="ttdeci">MatrixType&lt; T &gt; coefficients</div><div class="ttdoc">Coefficient matrix A.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:84</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_a99a0e2ef9a8118253196de724105c819"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a99a0e2ef9a8118253196de724105c819">MyBLAS::Solver::TemplatedParameters::constants</a></div><div class="ttdeci">VectorType&lt; T &gt; constants</div><div class="ttdoc">Vector of constants b.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:91</div></div>
 <div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_ac4920280b6e96c26a470924a45af42c2"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ac4920280b6e96c26a470924a45af42c2">MyBLAS::Solver::TemplatedParameters::max_iterations</a></div><div class="ttdeci">size_t max_iterations</div><div class="ttdoc">Maximum number of iterations to perform.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:77</div></div>
+<div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_ad6612fe7779464d6d95165cf0bfd0d7a"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ad6612fe7779464d6d95165cf0bfd0d7a">MyBLAS::Solver::TemplatedParameters::convergence_threshold</a></div><div class="ttdeci">T convergence_threshold</div><div class="ttdoc">The convergence threshold.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:63</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00209">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00034">input</a>, <a class="el" href="../../#l00035">known_solution</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, <a class="el" href="../../#l00056">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::n</a>, and <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::threshold</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::convergence_threshold</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00034">input</a>, <a class="el" href="../../#l00035">known_solution</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, and <a class="el" href="../../#l00056">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::n</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -1055,7 +1058,65 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[5/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[5/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Input::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>jsonMap</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the input parameters to a JSON object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jsonMap</td><td>The JSON object to which the input parameters are added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                             {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        jsonMap[<span class="stringliteral">&quot;threshold&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ad6612fe7779464d6d95165cf0bfd0d7a">convergence_threshold</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        jsonMap[<span class="stringliteral">&quot;order&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a0366290f15de8e5d8c6e65c3eec959bd">n</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-iterations&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ac4920280b6e96c26a470924a45af42c2">max_iterations</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        jsonMap[<span class="stringliteral">&quot;coefficients&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a47ae0adcf814b7838eb47caf2d94dcab">coefficients</a>.getData();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        jsonMap[<span class="stringliteral">&quot;constants&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a99a0e2ef9a8118253196de724105c819">constants</a>.getData();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        jsonMap[<span class="stringliteral">&quot;known-solution&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a78cc2c6c45008ba5eb7d0f5b35dd7932">known_solution</a>.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        jsonMap[<span class="stringliteral">&quot;methods&quot;</span>] = [<span class="keyword">this</span>]() -&gt; std::vector&lt;std::string&gt; {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            std::vector&lt;std::string&gt; result;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            std::transform(<a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.begin(), <a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.end(), std::back_inserter(result),</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                           [](<a class="code" href="../../db/d8c/namespaceMyBLAS_1_1Solver.html#a232bde94c091cfcbca8b7760ad352e94">MyBLAS::Solver::Type</a> method) { return MyBLAS::Solver::TypeKey(method); });</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::convergence_threshold</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00034">input</a>, <a class="el" href="../../#l00035">known_solution</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, and <a class="el" href="../../#l00056">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::n</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/dae/structInput_aec2f325fbad8e7ef5fab61624f5e2f5c_cgraph.svg" width="414" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[6/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1092,12 +1153,12 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
 <div class="ttc" id="astructInput_html_a444732c9460bf241b2b91ab726378cbf"><div class="ttname"><a href="../../d4/dae/structInput.html#a444732c9460bf241b2b91ab726378cbf">Input::LU</a></div><div class="ttdeci">MyBLAS::Matrix&lt; long double &gt; LU</div><div class="ttdoc">LU matrix.</div><div class="ttdef"><b>Definition:</b> InputsOutputs.h:24</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00273">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00209">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00024">LU</a>, and <a class="el" href="../../#l00040">n</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00279">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00024">LU</a>, and <a class="el" href="../../#l00040">n</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/dae/structInput_aec2f325fbad8e7ef5fab61624f5e2f5c_cgraph.svg" width="414" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1105,7 +1166,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[6/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[7/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1150,12 +1211,12 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
 <div class="ttc" id="anamespaceMyRelaxationMethod_html_a07e854c35b6efce3f4b060202060a824"><div class="ttname"><a href="../../d7/d9a/namespaceMyRelaxationMethod.html#a07e854c35b6efce3f4b060202060a824">MyRelaxationMethod::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Enum for different types of relaxation methods.</div><div class="ttdef"><b>Definition:</b> RelaxationMethods.h:21</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00055">coefficients</a>, <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00273">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00209">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00045">max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, <a class="el" href="../../#l00040">n</a>, and <a class="el" href="../../#l00050">threshold</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00055">coefficients</a>, <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00279">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00045">max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, <a class="el" href="../../#l00040">n</a>, and <a class="el" href="../../#l00050">threshold</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/dae/structInput_aec2f325fbad8e7ef5fab61624f5e2f5c_cgraph.svg" width="414" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1163,7 +1224,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[7/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[8/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1202,7 +1263,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[8/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[9/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1233,7 +1294,7 @@ template&lt;class Archive &gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                             {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        jsonMap[<span class="stringliteral">&quot;threshold&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a1dbbd61dc80624e2f0741cea945d3520">threshold</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        jsonMap[<span class="stringliteral">&quot;threshold&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ad6612fe7779464d6d95165cf0bfd0d7a">convergence_threshold</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        jsonMap[<span class="stringliteral">&quot;order&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a0366290f15de8e5d8c6e65c3eec959bd">n</a>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-iterations&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ac4920280b6e96c26a470924a45af42c2">max_iterations</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        jsonMap[<span class="stringliteral">&quot;coefficients&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a47ae0adcf814b7838eb47caf2d94dcab">coefficients</a>.getData();</div>
@@ -1247,65 +1308,7 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }();</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00209">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00034">input</a>, <a class="el" href="../../#l00035">known_solution</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, <a class="el" href="../../#l00056">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::n</a>, and <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::threshold</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/dae/structInput_aec2f325fbad8e7ef5fab61624f5e2f5c_cgraph.svg" width="414" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[9/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Input::toJSON </td>
-          <td>(</td>
-          <td class="paramtype">nlohmann::json &amp;&#160;</td>
-          <td class="paramname"><em>jsonMap</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the input parameters to a JSON object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">jsonMap</td><td>The JSON object to which the input parameters are added. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                             {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        jsonMap[<span class="stringliteral">&quot;threshold&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a1dbbd61dc80624e2f0741cea945d3520">threshold</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        jsonMap[<span class="stringliteral">&quot;order&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a0366290f15de8e5d8c6e65c3eec959bd">n</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-iterations&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ac4920280b6e96c26a470924a45af42c2">max_iterations</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        jsonMap[<span class="stringliteral">&quot;coefficients&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a47ae0adcf814b7838eb47caf2d94dcab">coefficients</a>.getData();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        jsonMap[<span class="stringliteral">&quot;constants&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a99a0e2ef9a8118253196de724105c819">constants</a>.getData();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        jsonMap[<span class="stringliteral">&quot;known-solution&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a78cc2c6c45008ba5eb7d0f5b35dd7932">known_solution</a>.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        jsonMap[<span class="stringliteral">&quot;methods&quot;</span>] = [<span class="keyword">this</span>]() -&gt; std::vector&lt;std::string&gt; {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            std::vector&lt;std::string&gt; result;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            std::transform(<a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.begin(), <a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.end(), std::back_inserter(result),</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                           [](<a class="code" href="../../db/d8c/namespaceMyBLAS_1_1Solver.html#a232bde94c091cfcbca8b7760ad352e94">MyBLAS::Solver::Type</a> method) { return MyBLAS::Solver::TypeKey(method); });</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00209">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00034">input</a>, <a class="el" href="../../#l00035">known_solution</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, <a class="el" href="../../#l00056">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::n</a>, and <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::threshold</a>.</p>
+<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::convergence_threshold</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00034">input</a>, <a class="el" href="../../#l00035">known_solution</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, and <a class="el" href="../../#l00056">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::n</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -1318,7 +1321,65 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[10/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[10/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Input::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>jsonMap</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the input parameters to a JSON object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jsonMap</td><td>The JSON object to which the input parameters are added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                             {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        jsonMap[<span class="stringliteral">&quot;threshold&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ad6612fe7779464d6d95165cf0bfd0d7a">convergence_threshold</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        jsonMap[<span class="stringliteral">&quot;order&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a0366290f15de8e5d8c6e65c3eec959bd">n</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-iterations&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ac4920280b6e96c26a470924a45af42c2">max_iterations</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        jsonMap[<span class="stringliteral">&quot;coefficients&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a47ae0adcf814b7838eb47caf2d94dcab">coefficients</a>.getData();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        jsonMap[<span class="stringliteral">&quot;constants&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a99a0e2ef9a8118253196de724105c819">constants</a>.getData();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        jsonMap[<span class="stringliteral">&quot;known-solution&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a78cc2c6c45008ba5eb7d0f5b35dd7932">known_solution</a>.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        jsonMap[<span class="stringliteral">&quot;methods&quot;</span>] = [<span class="keyword">this</span>]() -&gt; std::vector&lt;std::string&gt; {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            std::vector&lt;std::string&gt; result;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            std::transform(<a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.begin(), <a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.end(), std::back_inserter(result),</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                           [](<a class="code" href="../../db/d8c/namespaceMyBLAS_1_1Solver.html#a232bde94c091cfcbca8b7760ad352e94">MyBLAS::Solver::Type</a> method) { return MyBLAS::Solver::TypeKey(method); });</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::convergence_threshold</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00034">input</a>, <a class="el" href="../../#l00035">known_solution</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, and <a class="el" href="../../#l00056">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::n</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/dae/structInput_aec2f325fbad8e7ef5fab61624f5e2f5c_cgraph.svg" width="414" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[11/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1354,12 +1415,12 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        jsonMap[<span class="stringliteral">&quot;constants&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#aca2257bc28362ded598bfad528a18d94">constants</a>.<a class="code" href="../../d4/d4d/classMyBLAS_1_1Vector.html#a6188d71192e096e25ae1c1a46150a0ab">getData</a>();</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00055">coefficients</a>, <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00273">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00209">MyBLAS::Vector&lt; T &gt;::getData()</a>, and <a class="el" href="../../#l00040">n</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00055">coefficients</a>, <a class="el" href="../../#l00060">constants</a>, <a class="el" href="../../#l00279">MyBLAS::Matrix&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, and <a class="el" href="../../#l00040">n</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/dae/structInput_aec2f325fbad8e7ef5fab61624f5e2f5c_cgraph.svg" width="414" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1367,7 +1428,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[11/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[12/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1398,7 +1459,7 @@ template&lt;class Archive &gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                             {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        jsonMap[<span class="stringliteral">&quot;threshold&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a1dbbd61dc80624e2f0741cea945d3520">threshold</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        jsonMap[<span class="stringliteral">&quot;threshold&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ad6612fe7779464d6d95165cf0bfd0d7a">convergence_threshold</a>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        jsonMap[<span class="stringliteral">&quot;order&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a0366290f15de8e5d8c6e65c3eec959bd">n</a>;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        jsonMap[<span class="stringliteral">&quot;max-iterations&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ac4920280b6e96c26a470924a45af42c2">max_iterations</a>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        jsonMap[<span class="stringliteral">&quot;coefficients&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a47ae0adcf814b7838eb47caf2d94dcab">coefficients</a>.getData();</div>
@@ -1414,12 +1475,12 @@ template&lt;class Archive &gt; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
 <div class="ttc" id="astructMyBLAS_1_1Solver_1_1TemplatedParameters_html_a165da353be520e111148c288cab7d70c"><div class="ttname"><a href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a165da353be520e111148c288cab7d70c">MyBLAS::Solver::TemplatedParameters::relaxation_factor</a></div><div class="ttdeci">T relaxation_factor</div><div class="ttdoc">The relaxation factor.</div><div class="ttdef"><b>Definition:</b> LinearSolverParams.h:70</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00209">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00034">input</a>, <a class="el" href="../../#l00035">known_solution</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, <a class="el" href="../../#l00056">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::n</a>, <a class="el" href="../../#l00070">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::relaxation_factor</a>, and <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::threshold</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="reference">References <a class="el" href="../../#l00084">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::coefficients</a>, <a class="el" href="../../#l00091">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::constants</a>, <a class="el" href="../../#l00063">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::convergence_threshold</a>, <a class="el" href="../../#l00214">MyBLAS::Vector&lt; T &gt;::getData()</a>, <a class="el" href="../../#l00034">input</a>, <a class="el" href="../../#l00035">known_solution</a>, <a class="el" href="../../#l00077">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::max_iterations</a>, <a class="el" href="../../#l00033">methods</a>, <a class="el" href="../../#l00056">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::n</a>, and <a class="el" href="../../#l00070">MyBLAS::Solver::TemplatedParameters&lt; MatrixType, VectorType, T &gt;::relaxation_factor</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/dae/structInput_aec2f325fbad8e7ef5fab61624f5e2f5c_cgraph.svg" width="414" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1427,7 +1488,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[12/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[13/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1466,7 +1527,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[13/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[14/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1524,7 +1585,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[14/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[15/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1581,66 +1642,6 @@ template&lt;class Archive &gt; </div>
 <div class="ttc" id="astructMyPhysics_1_1Diffusion_1_1Params_html_afeed8b59dbd0f183c47b761574be7b23"><div class="ttname"><a href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#afeed8b59dbd0f183c47b761574be7b23">MyPhysics::Diffusion::Params::getMacroscopicRemovalCrossSection</a></div><div class="ttdeci">FloatType getMacroscopicRemovalCrossSection() const</div><div class="ttdoc">Get the macroscopic removal cross-section.</div><div class="ttdef"><b>Definition:</b> DiffusionParams.h:327</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00037">diffusionParams</a>, <a class="el" href="../../#l00278">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getA()</a>, <a class="el" href="../../#l00285">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getB()</a>, <a class="el" href="../../#l00306">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDelta()</a>, <a class="el" href="../../#l00320">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDiffusionCoefficient()</a>, <a class="el" href="../../#l00313">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getGamma()</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00327">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getMacroscopicRemovalCrossSection()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, and <a class="el" href="../../#l00033">methods</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/dae/structInput_aec2f325fbad8e7ef5fab61624f5e2f5c_cgraph.svg" width="414" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[15/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Input::toJSON </td>
-          <td>(</td>
-          <td class="paramtype">nlohmann::json &amp;&#160;</td>
-          <td class="paramname"><em>jsonMap</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the input parameters to a JSON object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">jsonMap</td><td>A reference to the JSON object to store the input parameters. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                             {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        jsonMap[<span class="stringliteral">&quot;D&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#ad1c2b0c02ba764daea1e97e8d0e552e4">getDiffusionCoefficient</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        jsonMap[<span class="stringliteral">&quot;cross-section&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#afeed8b59dbd0f183c47b761574be7b23">getMacroscopicRemovalCrossSection</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        jsonMap[<span class="stringliteral">&quot;dimensions&quot;</span>][<span class="stringliteral">&quot;a&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a69eb6ab9e47381ba5302843a1feb62c6">getA</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        jsonMap[<span class="stringliteral">&quot;dimensions&quot;</span>][<span class="stringliteral">&quot;b&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a7f5f7bbb69fce4955d5e28948b1129ae">getB</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        jsonMap[<span class="stringliteral">&quot;mesh&quot;</span>][<span class="stringliteral">&quot;m&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a4baf3f31fe7d8290e9b83a5d50832293">getM</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        jsonMap[<span class="stringliteral">&quot;mesh&quot;</span>][<span class="stringliteral">&quot;n&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#af03d96d9d471d6953b819b548bb633d9">getN</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        jsonMap[<span class="stringliteral">&quot;mesh&quot;</span>][<span class="stringliteral">&quot;𝛿&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#acac3591533511f50443709bbe2757209">getDelta</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        jsonMap[<span class="stringliteral">&quot;mesh&quot;</span>][<span class="stringliteral">&quot;𝛾&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a858410bbb6c7396340477cf7ba496b51">getGamma</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        jsonMap[<span class="stringliteral">&quot;methods&quot;</span>] = [<span class="keyword">this</span>]() -&gt; std::vector&lt;std::string&gt; {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            std::vector&lt;std::string&gt; result;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::transform(<a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.begin(), <a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.end(), std::back_inserter(result),</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                           [](<a class="code" href="../../db/d8c/namespaceMyBLAS_1_1Solver.html#a232bde94c091cfcbca8b7760ad352e94">MyBLAS::Solver::Type</a> method) { return MyBLAS::Solver::TypeKey(method); });</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../#l00037">diffusionParams</a>, <a class="el" href="../../#l00278">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getA()</a>, <a class="el" href="../../#l00285">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getB()</a>, <a class="el" href="../../#l00306">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDelta()</a>, <a class="el" href="../../#l00320">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDiffusionCoefficient()</a>, <a class="el" href="../../#l00313">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getGamma()</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00327">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getMacroscopicRemovalCrossSection()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, and <a class="el" href="../../#l00033">methods</a>.</p>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
@@ -1653,7 +1654,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[16/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[16/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1713,7 +1714,7 @@ template&lt;class Archive &gt; </div>
 </div>
 </div>
 <a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[17/17]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[17/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1772,6 +1773,66 @@ template&lt;class Archive &gt; </div>
 
 </div>
 </div>
+<a id="aec2f325fbad8e7ef5fab61624f5e2f5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f325fbad8e7ef5fab61624f5e2f5c">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[18/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Input::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>jsonMap</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the input parameters to a JSON object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jsonMap</td><td>A reference to the JSON object to store the input parameters. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                             {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        jsonMap[<span class="stringliteral">&quot;D&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#ad1c2b0c02ba764daea1e97e8d0e552e4">getDiffusionCoefficient</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        jsonMap[<span class="stringliteral">&quot;cross-section&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#afeed8b59dbd0f183c47b761574be7b23">getMacroscopicRemovalCrossSection</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        jsonMap[<span class="stringliteral">&quot;dimensions&quot;</span>][<span class="stringliteral">&quot;a&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a69eb6ab9e47381ba5302843a1feb62c6">getA</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        jsonMap[<span class="stringliteral">&quot;dimensions&quot;</span>][<span class="stringliteral">&quot;b&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a7f5f7bbb69fce4955d5e28948b1129ae">getB</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        jsonMap[<span class="stringliteral">&quot;mesh&quot;</span>][<span class="stringliteral">&quot;m&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a4baf3f31fe7d8290e9b83a5d50832293">getM</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        jsonMap[<span class="stringliteral">&quot;mesh&quot;</span>][<span class="stringliteral">&quot;n&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#af03d96d9d471d6953b819b548bb633d9">getN</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        jsonMap[<span class="stringliteral">&quot;mesh&quot;</span>][<span class="stringliteral">&quot;𝛿&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#acac3591533511f50443709bbe2757209">getDelta</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        jsonMap[<span class="stringliteral">&quot;mesh&quot;</span>][<span class="stringliteral">&quot;𝛾&quot;</span>] = <a class="code" href="../../d4/dae/structInput.html#adba8aac99da9afd09e03bff7ed1bf315">diffusionParams</a>.<a class="code" href="../../d6/d0c/structMyPhysics_1_1Diffusion_1_1Params.html#a858410bbb6c7396340477cf7ba496b51">getGamma</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        jsonMap[<span class="stringliteral">&quot;methods&quot;</span>] = [<span class="keyword">this</span>]() -&gt; std::vector&lt;std::string&gt; {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            std::vector&lt;std::string&gt; result;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::transform(<a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.begin(), <a class="code" href="../../d4/dae/structInput.html#a6cf58c34642e9455b802250d121e9229">methods</a>.end(), std::back_inserter(result),</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                           [](<a class="code" href="../../db/d8c/namespaceMyBLAS_1_1Solver.html#a232bde94c091cfcbca8b7760ad352e94">MyBLAS::Solver::Type</a> method) { return MyBLAS::Solver::TypeKey(method); });</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00037">diffusionParams</a>, <a class="el" href="../../#l00278">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getA()</a>, <a class="el" href="../../#l00285">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getB()</a>, <a class="el" href="../../#l00306">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDelta()</a>, <a class="el" href="../../#l00320">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getDiffusionCoefficient()</a>, <a class="el" href="../../#l00313">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getGamma()</a>, <a class="el" href="../../#l00292">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getM()</a>, <a class="el" href="../../#l00327">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getMacroscopicRemovalCrossSection()</a>, <a class="el" href="../../#l00299">MyPhysics::Diffusion::Params&lt; FloatType &gt;::getN()</a>, and <a class="el" href="../../#l00033">methods</a>.</p>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/dae/structInput_aec2f325fbad8e7ef5fab61624f5e2f5c_cgraph.svg" width="414" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
 <a id="a6e256dc1c614fb415c05f6f78fcd8092"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6e256dc1c614fb415c05f6f78fcd8092">&#9670;&nbsp;</a></span>operator&lt;&lt; <span class="overload">[1/3]</span></h2>
@@ -1820,7 +1881,7 @@ template&lt;class Archive &gt; </div>
 <div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                                                      {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;n: &quot;</span> &lt;&lt; <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a0366290f15de8e5d8c6e65c3eec959bd">n</a></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;k: &quot;</span> &lt;&lt; <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#ac4920280b6e96c26a470924a45af42c2">max_iterations</a></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;e: &quot;</span> &lt;&lt; <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.<a class="code" href="../../d0/d81/structMyBLAS_1_1Solver_1_1TemplatedParameters.html#a1dbbd61dc80624e2f0741cea945d3520">threshold</a></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;e: &quot;</span> &lt;&lt; <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.threshold</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;, outputJSON: &quot;</span> &lt;&lt; <a class="code" href="../../d4/dae/structInput.html#a9aa34a937a3c1106f23e5a35f8344b6d">input</a>.outputJSON;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> os;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
@@ -2357,7 +2418,7 @@ template&lt;class Archive &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../#l00185">Parser::buildInputs()</a>, and <a class="el" href="../../#l00042">toJSON()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../#l00180">Parser::buildInputs()</a>, and <a class="el" href="../../#l00042">toJSON()</a>.</p>
 
 </div>
 </div>

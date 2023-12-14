@@ -9,6 +9,9 @@ var hierarchy =
     [ "CommandLine< InLab11Inputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
+    [ "CommandLine< InLab12Inputs >", "dd/d02/classCommandLine.html", [
+      [ "Parser", "d0/d40/classParser.html", null ]
+    ] ],
     [ "CommandLine< InLab6Inputs >", "dd/d02/classCommandLine.html", [
       [ "Parser", "d0/d40/classParser.html", null ]
     ] ],
@@ -109,6 +112,9 @@ var hierarchy =
     ] ],
     [ "Project< InLab11Inputs, Parser, InLab11Outputs >", "db/d91/classProject.html", [
       [ "InLab11", "d9/d24/classInLab11.html", null ]
+    ] ],
+    [ "Project< InLab12Inputs, Parser, InLab12Outputs >", "db/d91/classProject.html", [
+      [ "InLab12", "db/def/classInLab12.html", null ]
     ] ],
     [ "Project< InLab6Inputs, Parser, InLab6Outputs >", "db/d91/classProject.html", [
       [ "InLab6", "d1/d8c/classInLab6.html", null ]

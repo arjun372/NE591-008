@@ -118,26 +118,26 @@ $(document).ready(function(){initNavTree('d5/d26/outlab4.html','../../'); initRe
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md168">OutLab 04: System of Linear Equations Solver</a><ul><li class="level2"><a href="#autotoc_md169">Overview</a></li>
-<li class="level2"><a href="#autotoc_md170">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md171">Parameters</a></li>
-<li class="level3"><a href="#autotoc_md172">General options</a></li>
+<ul><li class="level1"><a href="#autotoc_md177">OutLab 04: System of Linear Equations Solver</a><ul><li class="level2"><a href="#autotoc_md178">Overview</a></li>
+<li class="level2"><a href="#autotoc_md179">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md180">Parameters</a></li>
+<li class="level3"><a href="#autotoc_md181">General options</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md173">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md174">Sample Parameters File</a></li>
+<li class="level2"><a href="#autotoc_md182">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md183">Sample Parameters File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md175">Output Format</a><ul><li class="level3"><a href="#autotoc_md176">Sample Outputs File</a></li>
+<li class="level2"><a href="#autotoc_md184">Output Format</a><ul><li class="level3"><a href="#autotoc_md185">Sample Outputs File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md177">Example:</a></li>
+<li class="level2"><a href="#autotoc_md186">Example:</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md168"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md177"></a>
 OutLab 04: System of Linear Equations Solver</h1>
 <p>Solves a system of linear equations by performing LU factorization, and solving the LU matrix using forward and backward substitution. File based I/O is supported using JSON files.</p>
-<div style="display: none"></div><h2><a class="anchor" id="autotoc_md169"></a>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md178"></a>
 Overview</h2>
 <ol type="1">
 <li><a href="../../#building--usage">Building &amp; Usage</a><ul>
@@ -152,7 +152,7 @@ Overview</h2>
 </li>
 <li><a href="../../#example">Example</a></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md170"></a>
+<h2><a class="anchor" id="autotoc_md179"></a>
 Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>outlab4</code> target executable:</p>
 <div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
@@ -173,14 +173,14 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md171"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md180"></a>
 Parameters</h3>
 <ul>
 <li><code>-n [ --order ] arg</code>: order of the square matrix (n is a natural number)</li>
 <li><code>-i [ --input-json ] arg</code>: input JSON file containing the LU matrix and constants vector B</li>
 <li><code>-o [ --output-json ] arg</code>: path for the output JSON file</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md172"></a>
+<h3><a class="anchor" id="autotoc_md181"></a>
 General options</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message</li>
@@ -188,10 +188,10 @@ General options</h3>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
 <li><code>-P [ --profile ]</code>: Turn on profiling for performance comparison</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md173"></a>
+<h2><a class="anchor" id="autotoc_md182"></a>
 Parameters Format</h2>
 <p>The expected input json file requires the following fields:</p>
-<h3><a class="anchor" id="autotoc_md174"></a>
+<h3><a class="anchor" id="autotoc_md183"></a>
 Sample Parameters File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;coefficients&quot;: [</div>
@@ -201,10 +201,10 @@ Sample Parameters File</h3>
 <div class="line">   ],</div>
 <div class="line">   &quot;constants&quot;: [7.0, 21.0, 38.0]</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md175"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md184"></a>
 Output Format</h2>
 <p>The output is written to a JSON file as well.</p>
-<h3><a class="anchor" id="autotoc_md176"></a>
+<h3><a class="anchor" id="autotoc_md185"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;outputs&quot;: {</div>
@@ -220,7 +220,7 @@ Sample Outputs File</h3>
 <div class="line">      ]</div>
 <div class="line">   }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md177"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md186"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
 <div class="fragment"><div class="line">/tmp/tmp.xEkz05Cjga/cmake-build-debug-hermes-ne591/bin/outlab4 -i ../sample_input_1.json -o sample_output_1.json</div>

@@ -118,19 +118,7 @@ $(document).ready(function(){initNavTree('d0/d79/OutLab.html','../../'); initRes
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><ul><li class="level2"><a href="#autotoc_md126">Overview</a></li>
-<li class="level2"><a href="#autotoc_md127">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md128">Parameters</a></li>
-<li class="level3"><a href="#autotoc_md129">General options</a></li>
-</ul>
-</li>
-<li class="level2"><a href="#autotoc_md130">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md131">Sample Parameters File</a></li>
-</ul>
-</li>
-<li class="level2"><a href="#autotoc_md132">Output Format</a><ul><li class="level3"><a href="#autotoc_md133">Sample Outputs File</a></li>
-</ul>
-</li>
-<li class="level2"><a href="#autotoc_md134">Example:</a></li>
-<li class="level2"><a href="#autotoc_md135">Overview</a></li>
+<ul><ul><li class="level2"><a href="#autotoc_md135">Overview</a></li>
 <li class="level2"><a href="#autotoc_md136">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md137">Parameters</a></li>
 <li class="level3"><a href="#autotoc_md138">General options</a></li>
 </ul>
@@ -142,12 +130,24 @@ $(document).ready(function(){initNavTree('d0/d79/OutLab.html','../../'); initRes
 </ul>
 </li>
 <li class="level2"><a href="#autotoc_md143">Example:</a></li>
+<li class="level2"><a href="#autotoc_md144">Overview</a></li>
+<li class="level2"><a href="#autotoc_md145">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md146">Parameters</a></li>
+<li class="level3"><a href="#autotoc_md147">General options</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md148">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md149">Sample Parameters File</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md150">Output Format</a><ul><li class="level3"><a href="#autotoc_md151">Sample Outputs File</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md152">Example:</a></li>
 </ul>
 </ul>
 </div>
 <div class="textblock"><p>OutLab 10: Conjugate Gradient Method</p>
 <p>File based I/O is supported using JSON files.</p>
-<div style="display: none"></div><h2><a class="anchor" id="autotoc_md126"></a>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md135"></a>
 Overview</h2>
 <ol type="1">
 <li><a href="../../#building--usage">Building &amp; Usage</a><ul>
@@ -162,7 +162,7 @@ Overview</h2>
 </li>
 <li><a href="../../#example">Example</a></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md127"></a>
+<h2><a class="anchor" id="autotoc_md136"></a>
 Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>outlab10</code> target executable:</p>
 <div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
@@ -182,16 +182,16 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -g -o $OUTPUT_FILE</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md128"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md137"></a>
 Parameters</h3>
 <ul>
-<li><code>-t [ --threshold ] arg</code>: iterative convergence threshold [𝜀 &gt; 0]</li>
+<li><code>-t [ --convergence_threshold ] arg</code>: iterative convergence convergence_threshold [𝜀 &gt; 0]</li>
 <li><code>-g [ --generate ]</code>: Generate A,b ignoring input-json</li>
 <li><code>-k [ --max-iterations ] arg</code>: maximum number of iterations [n ∈ ℕ]</li>
 <li><code>-i [ --input-json ] arg</code>: input JSON containing A, and b</li>
 <li><code>-o [ --output-json ] arg</code>: path for the output JSON</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md129"></a>
+<h3><a class="anchor" id="autotoc_md138"></a>
 General options</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message</li>
@@ -199,16 +199,16 @@ General options</h3>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
 <li><code>-P [ --profile ]</code>: Turn on performance profiling</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md130"></a>
+<h2><a class="anchor" id="autotoc_md139"></a>
 Parameters Format</h2>
 <p>The expected input json file requires the following fields:</p>
-<h3><a class="anchor" id="autotoc_md131"></a>
+<h3><a class="anchor" id="autotoc_md140"></a>
 Sample Parameters File</h3>
 <p>No input file is needed. You can generate a random matrix using the <code>-g</code> or <code>--generate</code> flag.</p>
-<h2><a class="anchor" id="autotoc_md132"></a>
+<h2><a class="anchor" id="autotoc_md141"></a>
 Output Format</h2>
 <p>The output is written to a JSON file as well.</p>
-<h3><a class="anchor" id="autotoc_md133"></a>
+<h3><a class="anchor" id="autotoc_md142"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;outputs&quot;: {</div>
@@ -260,7 +260,7 @@ Sample Outputs File</h3>
 <div class="line">      }</div>
 <div class="line">   }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md134"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md143"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
 <div class="fragment"><div class="line">NE591: OutLab 10: Conjugate Gradient Method</div>
@@ -274,7 +274,7 @@ Example:</h2>
 <div class="line">Parameters:</div>
 <div class="line"> </div>
 <div class="line">Solver Options:</div>
-<div class="line">  -t [ --threshold ] arg           = convergence threshold [𝜀 &gt; 0]</div>
+<div class="line">  -t [ --convergence_threshold ] arg           = convergence convergence_threshold [𝜀 &gt; 0]</div>
 <div class="line">  -k [ --max-iterations ] arg      = maximum iterations [n ∈ ℕ]</div>
 <div class="line">  -n [ --order ] arg               = order of the square matrix [n ∈ ℕ]</div>
 <div class="line"> </div>
@@ -349,7 +349,7 @@ Example:</h2>
 <div class="line">Process finished with exit code 0</div>
 </div><!-- fragment --><p>OutLab 11: Power Iterations Method</p>
 <p>File based I/O is supported using JSON files.</p>
-<div style="display: none"></div><h2><a class="anchor" id="autotoc_md135"></a>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md144"></a>
 Overview</h2>
 <ol type="1">
 <li><a href="../../#building--usage">Building &amp; Usage</a><ul>
@@ -364,7 +364,7 @@ Overview</h2>
 </li>
 <li><a href="../../#example">Example</a></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md136"></a>
+<h2><a class="anchor" id="autotoc_md145"></a>
 Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>remote.eos.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>outlab11</code> target executable:</p>
 <div class="fragment"><div class="line"># Assuming cwd is the repo root:</div>
@@ -384,16 +384,16 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">./build/bin/$BUILD_TARGET -g -o $OUTPUT_FILE</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md137"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md146"></a>
 Parameters</h3>
 <ul>
-<li><code>-t [ --threshold ] arg</code>: iterative convergence threshold [𝜀 &gt; 0]</li>
+<li><code>-t [ --convergence_threshold ] arg</code>: iterative convergence convergence_threshold [𝜀 &gt; 0]</li>
 <li><code>-g [ --generate ]</code>: Generate A,b ignoring input-json</li>
 <li><code>-k [ --max-iterations ] arg</code>: maximum number of iterations [n ∈ ℕ]</li>
 <li><code>-i [ --input-json ] arg</code>: input JSON containing A, and b</li>
 <li><code>-o [ --output-json ] arg</code>: path for the output JSON</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md138"></a>
+<h3><a class="anchor" id="autotoc_md147"></a>
 General options</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message</li>
@@ -401,10 +401,10 @@ General options</h3>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double</li>
 <li><code>-P [ --profile ]</code>: Turn on performance profiling</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md139"></a>
+<h2><a class="anchor" id="autotoc_md148"></a>
 Parameters Format</h2>
 <p>The expected input json file requires the following fields:</p>
-<h3><a class="anchor" id="autotoc_md140"></a>
+<h3><a class="anchor" id="autotoc_md149"></a>
 Sample Parameters File</h3>
 <p>No input file is needed. You can generate a random matrix using the <code>-g</code> or <code>--generate</code> flag.</p>
 <p>But if you like, you can also use:</p>
@@ -416,12 +416,12 @@ Sample Parameters File</h3>
 <div class="line">    [0, -1, -1, 3]</div>
 <div class="line">  ],</div>
 <div class="line">  &quot;max-iterations&quot;: 50,</div>
-<div class="line">  &quot;threshold&quot;: 1e-4</div>
+<div class="line">  &quot;convergence_threshold&quot;: 1e-4</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md141"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md150"></a>
 Output Format</h2>
 <p>The output is written to a JSON file as well.</p>
-<h3><a class="anchor" id="autotoc_md142"></a>
+<h3><a class="anchor" id="autotoc_md151"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;power_iteration&quot;: {</div>
@@ -449,7 +449,7 @@ Sample Outputs File</h3>
 <div class="line">      }</div>
 <div class="line">   }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md143"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md152"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
 <div class="fragment"><div class="line">NE591: OutLab 11: Power Iterations Method</div>
@@ -463,7 +463,7 @@ Example:</h2>
 <div class="line">Parameters:</div>
 <div class="line"> </div>
 <div class="line">Solver Options:</div>
-<div class="line">  -t [ --threshold ] arg                = convergence threshold [𝜀 &gt; 0]</div>
+<div class="line">  -t [ --convergence_threshold ] arg                = convergence convergence_threshold [𝜀 &gt; 0]</div>
 <div class="line">  -k [ --max-iterations ] arg           = maximum iterations [n ∈ ℕ]</div>
 <div class="line">  -n [ --order ] arg                    = order of the square matrix [n ∈ </div>
 <div class="line">                                        ℕ]</div>
