@@ -149,6 +149,8 @@ Functions</h2></td></tr>
 <tr class="memitem:acc65d891a271875002feed91306902d0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db3/namespaceCompute.html#acc65d891a271875002feed91306902d0">usingSOR</a> (<a class="el" href="../../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a1fc92a4e6842c6fcb5f3febd0707fd13">OutLab6Outputs</a> &amp;outputs, <a class="el" href="../../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a120c91aa89bf5c4ca05edbd47eda09e4">OutLab6Inputs</a> &amp;inputs)</td></tr>
 <tr class="memdesc:acc65d891a271875002feed91306902d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves a linear system using the Successive Over-Relaxation (SOR) method.  <a href="../../de/db3/namespaceCompute.html#acc65d891a271875002feed91306902d0">More...</a><br /></td></tr>
 <tr class="separator:acc65d891a271875002feed91306902d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acadedf27535093a7557fdf73a290fbd7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db3/namespaceCompute.html#acadedf27535093a7557fdf73a290fbd7">usingPowerIteration</a> (<a class="el" href="../../dc/d1f/labs_2outlab11_2InputsOutputs_8h.html#abaec3a637f1aaec318319cb55ddde91d">OutLab11Outputs</a> &amp;outputs, <a class="el" href="../../dc/d1f/labs_2outlab11_2InputsOutputs_8h.html#a62dde8af0d9e218b071f512f8be61656">OutLab11Inputs</a> &amp;inputs)</td></tr>
+<tr class="separator:acadedf27535093a7557fdf73a290fbd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aaa2e3c1db51432d5a62c1d4541fd90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db3/namespaceCompute.html#a9aaa2e3c1db51432d5a62c1d4541fd90">usingLUP</a> (<a class="el" href="../../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a1fc92a4e6842c6fcb5f3febd0707fd13">OutLab6Outputs</a> &amp;outputs, <a class="el" href="../../d5/d67/labs_2outlab6_2InputsOutputs_8h.html#a120c91aa89bf5c4ca05edbd47eda09e4">OutLab6Inputs</a> &amp;inputs)</td></tr>
 <tr class="memdesc:a9aaa2e3c1db51432d5a62c1d4541fd90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves a linear system using LUP decomposition.  <a href="../../de/db3/namespaceCompute.html#a9aaa2e3c1db51432d5a62c1d4541fd90">More...</a><br /></td></tr>
 <tr class="separator:a9aaa2e3c1db51432d5a62c1d4541fd90"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1622,6 +1624,65 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="acadedf27535093a7557fdf73a290fbd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acadedf27535093a7557fdf73a290fbd7">&#9670;&nbsp;</a></span>usingPowerIteration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Compute::usingPowerIteration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d1f/labs_2outlab11_2InputsOutputs_8h.html#abaec3a637f1aaec318319cb55ddde91d">OutLab11Outputs</a> &amp;&#160;</td>
+          <td class="paramname"><em>outputs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d1f/labs_2outlab11_2InputsOutputs_8h.html#a62dde8af0d9e218b071f512f8be61656">OutLab11Inputs</a> &amp;&#160;</td>
+          <td class="paramname"><em>inputs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                                                                  {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../d0/d27/classMyBLAS_1_1Matrix.html">MyBLAS::Matrix&lt;MyBLAS::NumericType&gt;</a> A = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.input.coefficients;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> max_iterations = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.input.max_iterations;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d2/d6e/namespaceMyBLAS.html#aeaba4d245610870af7f067c3c4a33f76">MyBLAS::NumericType</a> threshold = <a class="code" href="../../d8/d25/namespaceprocess.html#a28a68c9ef07157605b034da333fdcfc1">inputs</a>.input.threshold;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">auto</span> profiler = <a class="code" href="../../dd/d0e/classProfiler.html">Profiler</a>([&amp;] {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                        <a class="code" href="../../d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388">outputs</a>.solution = MyRelaxationMethod::applyPowerIteration&lt;MyBLAS::Matrix, MyBLAS::Vector, MyBLAS::NumericType&gt;(A, max_iterations, threshold);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    },100, 0, <span class="stringliteral">&quot;Power Iterations Method&quot;</span>).run();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="../../d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388">outputs</a>.summary = profiler.getSummary();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::cout &lt;&lt; profiler &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::cout &lt;&lt; <a class="code" href="../../d3/d3b/namespacepostprocess.html#a7130aba1044e5cbe5ade190adb3df388">outputs</a>.solution &lt;&lt;std::endl;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../#l00019">process::inputs</a>, and <a class="el" href="../../#l00009">postprocess::outputs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../#l00114">OutLab11::run()</a>.</p>
+<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_acadedf27535093a7557fdf73a290fbd7_icgraph.svg" width="391" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a9536e66c070e83d32645dc9e34f4169b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9536e66c070e83d32645dc9e34f4169b">&#9670;&nbsp;</a></span>usingSOR() <span class="overload">[1/3]</span></h2>
 
@@ -1656,11 +1717,11 @@ template&lt;typename T &gt; </div>
 <div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="../../#l00114">OutLab10::run()</a>, <a class="el" href="../../#l00093">OutLab6::run()</a>, <a class="el" href="../../#l00093">Project2::run()</a>, and <a class="el" href="../../#l00093">Project3::run()</a>.</p>
-<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_a9536e66c070e83d32645dc9e34f4169b_icgraph.svg" width="323" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1724,11 +1785,11 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00019">process::inputs</a>, and <a class="el" href="../../#l00009">postprocess::outputs</a>.</p>
-<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_acc65d891a271875002feed91306902d0_cgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -1801,11 +1862,11 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00079">MyRelaxationMethod::applySOR()</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00057">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::multiplyMatrixVector()</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, <a class="el" href="../../#l00092">MyRelaxationMethod::passesPreChecks()</a>, and <a class="el" href="../../#l00281">writeCSVMatrixNoHeaders()</a>.</p>
-<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_a26fcd23146e3ca00ed9eefc59c89c07a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -1880,19 +1941,19 @@ template&lt;typename T &gt; </div>
 <p class="reference">References <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00057">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::multiplyMatrixVector()</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, <a class="el" href="../../#l00092">MyRelaxationMethod::passesPreChecks()</a>, and <a class="el" href="../../#l00281">writeCSVMatrixNoHeaders()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../#l00093">Project3::run()</a>.</p>
-<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-24-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_af9b2fed99d9965f94cb5cfab410419a0_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
 <div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-25-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_af9b2fed99d9965f94cb5cfab410419a0_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_af9b2fed99d9965f94cb5cfab410419a0_icgraph.svg" width="398" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1933,11 +1994,11 @@ template&lt;typename T &gt; </div>
 <div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="../../#l00093">OutLab6::run()</a>, <a class="el" href="../../#l00093">Project2::run()</a>, and <a class="el" href="../../#l00093">Project3::run()</a>.</p>
-<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_a8e44d7f0aba871333c4358567a913117_icgraph.svg" width="387" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2010,11 +2071,11 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00105">Stopwatch&lt; D &gt;::click()</a>, <a class="el" href="../../#l00351">computeMeanStd()</a>, <a class="el" href="../../#l00067">Stopwatch&lt; D &gt;::duration()</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, <a class="el" href="../../#l00092">MyRelaxationMethod::passesPreChecks()</a>, and <a class="el" href="../../#l00095">Stopwatch&lt; D &gt;::restart()</a>.</p>
-<div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_ab38c6016d5c4907c1f4f468600278560_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
@@ -2087,11 +2148,11 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../#l00039">MyRelaxationMethod::applySSOR()</a>, <a class="el" href="../../#l00019">process::inputs</a>, <a class="el" href="../../#l00057">MatrixVectorExpression&lt; MatrixType, VectorType, T &gt;::multiplyMatrixVector()</a>, <a class="el" href="../../#l00009">postprocess::outputs</a>, <a class="el" href="../../#l00092">MyRelaxationMethod::passesPreChecks()</a>, and <a class="el" href="../../#l00281">writeCSVMatrixNoHeaders()</a>.</p>
-<div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-28-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/db3/namespaceCompute_a5a35addbdcdba218c82923bdc3ef7d93_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>

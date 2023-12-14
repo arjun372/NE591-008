@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['solution_1013',['Solution',['../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html',1,'MyBLAS::Solver']]],
-  ['solution_3c_20long_20double_20_3e_1014',['Solution&lt; long double &gt;',['../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html',1,'MyBLAS::Solver']]],
-  ['solution_3c_20myblas_3a_3anumerictype_20_3e_1015',['Solution&lt; MyBLAS::NumericType &gt;',['../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html',1,'MyBLAS::Solver']]],
-  ['solverinputs_1016',['SolverInputs',['../d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs',1,'']]],
-  ['stopwatch_1017',['Stopwatch',['../de/def/classStopwatch.html',1,'']]],
-  ['stopwatch_3c_20nanoseconds_20_3e_1018',['Stopwatch&lt; Nanoseconds &gt;',['../de/def/classStopwatch.html',1,'']]],
-  ['summary_1019',['Summary',['../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html',1,'MyBLAS::Stats']]],
-  ['summary_3c_20long_20double_20_3e_1020',['Summary&lt; long double &gt;',['../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html',1,'MyBLAS::Stats']]],
-  ['summary_3c_20myblas_3a_3anumerictype_20_3e_1021',['Summary&lt; MyBLAS::NumericType &gt;',['../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html',1,'MyBLAS::Stats']]]
+  ['solution_1027',['Solution',['../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html',1,'MyBLAS::Solver']]],
+  ['solution_3c_20long_20double_20_3e_1028',['Solution&lt; long double &gt;',['../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html',1,'MyBLAS::Solver']]],
+  ['solution_3c_20myblas_3a_3anumerictype_20_3e_1029',['Solution&lt; MyBLAS::NumericType &gt;',['../d7/db7/structMyBLAS_1_1Solver_1_1Solution.html',1,'MyBLAS::Solver']]],
+  ['solverinputs_1030',['SolverInputs',['../d8/d75/namespace_3globalScope_4.html#dc/db7/structSolverInputs',1,'']]],
+  ['stopwatch_1031',['Stopwatch',['../de/def/classStopwatch.html',1,'']]],
+  ['stopwatch_3c_20nanoseconds_20_3e_1032',['Stopwatch&lt; Nanoseconds &gt;',['../de/def/classStopwatch.html',1,'']]],
+  ['summary_1033',['Summary',['../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html',1,'MyBLAS::Stats']]],
+  ['summary_3c_20long_20double_20_3e_1034',['Summary&lt; long double &gt;',['../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html',1,'MyBLAS::Stats']]],
+  ['summary_3c_20myblas_3a_3anumerictype_20_3e_1035',['Summary&lt; MyBLAS::NumericType &gt;',['../dc/da4/structMyBLAS_1_1Stats_1_1Summary.html',1,'MyBLAS::Stats']]]
 ];

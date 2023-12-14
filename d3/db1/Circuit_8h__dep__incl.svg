@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 952;
+var viewWidth = 1125;
 var viewHeight = 207;
 var sectionId = 'dynsection-1';
 </script>
@@ -54,14 +54,14 @@ var sectionId = 'dynsection-1';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>src/utils/math/blas/system/Circuit.h</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-203 948,-203 948,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-203 1121,-203 1121,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Header file for the Circuit function, which generates a coefficient matrix A, and vectors x,...">
-<polygon fill="#bfbfbf" stroke="black" points="409,-168.5 409,-198.5 516,-198.5 516,-168.5 409,-168.5"/>
-<text text-anchor="start" x="417" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/utils/math/blas</text>
-<text text-anchor="middle" x="462.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">/system/Circuit.h</text>
+<polygon fill="#bfbfbf" stroke="black" points="491,-168.5 491,-198.5 598,-198.5 598,-168.5 491,-168.5"/>
+<text text-anchor="start" x="499" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/utils/math/blas</text>
+<text text-anchor="middle" x="544.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">/system/Circuit.h</text>
 </a>
 </g>
 </g>
@@ -77,8 +77,8 @@ var sectionId = 'dynsection-1';
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M398.82,-172.66C324.6,-161.19 203.16,-142.42 132.76,-131.54"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="398.55,-176.16 408.97,-174.23 399.62,-169.24 398.55,-176.16"/>
+<path fill="none" stroke="midnightblue" d="M480.79,-174.38C392.62,-163.15 234.12,-142.95 144.32,-131.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="480.57,-177.88 490.93,-175.67 481.45,-170.94 480.57,-177.88"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -92,68 +92,83 @@ var sectionId = 'dynsection-1';
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M399,-166.07C355.76,-154.89 300.28,-140.53 265.55,-131.55"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="398.31,-169.51 408.87,-168.62 400.06,-162.73 398.31,-169.51"/>
+<path fill="none" stroke="midnightblue" d="M481.03,-170.4C420.49,-158.85 330.81,-141.75 277.36,-131.55"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="480.39,-173.84 490.87,-172.27 481.7,-166.96 480.39,-173.84"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
 <g id="a_node8"><a xlink:href="../../d7/d44/labs_2inlab8_2Parser_8h.html" target="_top" xlink:title="This file contains the Parser class which is responsible for parsing command line arguments and valid...">
-<polygon fill="white" stroke="black" points="322.5,-112.5 322.5,-131.5 450.5,-131.5 450.5,-112.5 322.5,-112.5"/>
-<text text-anchor="middle" x="386.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/inlab8/Parser.h</text>
+<polygon fill="white" stroke="black" points="323.5,-112.5 323.5,-131.5 451.5,-131.5 451.5,-112.5 323.5,-112.5"/>
+<text text-anchor="middle" x="387.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/inlab8/Parser.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node8 -->
 <g id="edge7" class="edge">
 <title>Node1&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M436.56,-162.19C423.25,-151.77 407.75,-139.63 397.56,-131.66"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="434.46,-164.99 444.49,-168.4 438.77,-159.48 434.46,-164.99"/>
+<path fill="none" stroke="midnightblue" d="M497.8,-164.8C468.94,-153.86 433.18,-140.31 410.34,-131.66"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="496.7,-168.13 507.29,-168.4 499.18,-161.58 496.7,-168.13"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
 <g id="a_node11"><a xlink:href="../../d7/d93/labs_2outlab10_2Parser_8h.html" target="_top" xlink:title="This file contains the Parser class which is responsible for parsing command line arguments and valid...">
-<polygon fill="white" stroke="black" points="472,-112.5 472,-131.5 613,-131.5 613,-112.5 472,-112.5"/>
-<text text-anchor="middle" x="542.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab10/Parser.h</text>
+<polygon fill="white" stroke="black" points="474,-112.5 474,-131.5 615,-131.5 615,-112.5 474,-112.5"/>
+<text text-anchor="middle" x="544.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab10/Parser.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node11 -->
 <g id="edge10" class="edge">
 <title>Node1&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M489.81,-162.19C503.82,-151.77 520.14,-139.63 530.86,-131.66"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="487.39,-159.62 481.46,-168.4 491.57,-165.24 487.39,-159.62"/>
+<path fill="none" stroke="midnightblue" d="M544.5,-158.29C544.5,-148.86 544.5,-138.65 544.5,-131.66"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="541,-158.4 544.5,-168.4 548,-158.4 541,-158.4"/>
 </g>
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="../../d9/d9b/labs_2outlab6_2Parser_8h.html" target="_top" xlink:title="This file contains the Parser class which is responsible for parsing command line arguments and valid...">
-<polygon fill="white" stroke="black" points="638,-112.5 638,-131.5 773,-131.5 773,-112.5 638,-112.5"/>
-<text text-anchor="middle" x="705.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab6/Parser.h</text>
+<g id="a_node14"><a xlink:href="../../d8/d8a/labs_2outlab11_2Parser_8h.html" target="_top" xlink:title="This file contains the Parser class which is responsible for parsing command line arguments and valid...">
+<polygon fill="white" stroke="black" points="640,-112.5 640,-131.5 781,-131.5 781,-112.5 640,-112.5"/>
+<text text-anchor="middle" x="710.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab11/Parser.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node14 -->
 <g id="edge13" class="edge">
 <title>Node1&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M526.05,-166.94C572.28,-155.62 633.13,-140.72 670.76,-131.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="525.01,-163.59 516.13,-169.37 526.67,-170.39 525.01,-163.59"/>
+<path fill="none" stroke="midnightblue" d="M593.48,-164.94C624.07,-153.98 662.1,-140.35 686.35,-131.66"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="592.07,-161.73 583.84,-168.4 594.43,-168.32 592.07,-161.73"/>
 </g>
 <!-- Node17 -->
 <g id="node17" class="node">
 <title>Node17</title>
-<g id="a_node17"><a xlink:href="../../d2/d4a/labs_2outlab7_2Parser_8h.html" target="_top" xlink:title="This file contains the Parser class which is responsible for parsing command line arguments and valid...">
-<polygon fill="white" stroke="black" points="799,-112.5 799,-131.5 934,-131.5 934,-112.5 799,-112.5"/>
-<text text-anchor="middle" x="866.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab7/Parser.h</text>
+<g id="a_node17"><a xlink:href="../../d9/d9b/labs_2outlab6_2Parser_8h.html" target="_top" xlink:title="This file contains the Parser class which is responsible for parsing command line arguments and valid...">
+<polygon fill="white" stroke="black" points="808,-112.5 808,-131.5 943,-131.5 943,-112.5 808,-112.5"/>
+<text text-anchor="middle" x="875.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab6/Parser.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node17 -->
 <g id="edge16" class="edge">
 <title>Node1&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M526.28,-173.11C603.91,-161.67 733.89,-142.53 808.71,-131.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="525.53,-169.68 516.15,-174.6 526.55,-176.6 525.53,-169.68"/>
+<path fill="none" stroke="midnightblue" d="M608.07,-171.07C672.41,-159.51 770.41,-141.89 828.2,-131.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="607.27,-167.66 598.05,-172.87 608.51,-174.55 607.27,-167.66"/>
+</g>
+<!-- Node20 -->
+<g id="node20" class="node">
+<title>Node20</title>
+<g id="a_node20"><a xlink:href="../../d2/d4a/labs_2outlab7_2Parser_8h.html" target="_top" xlink:title="This file contains the Parser class which is responsible for parsing command line arguments and valid...">
+<polygon fill="white" stroke="black" points="969,-112.5 969,-131.5 1104,-131.5 1104,-112.5 969,-112.5"/>
+<text text-anchor="middle" x="1036.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab7/Parser.h</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node20 -->
+<g id="edge19" class="edge">
+<title>Node1&#45;&gt;Node20</title>
+<path fill="none" stroke="midnightblue" d="M608.21,-174.79C701.28,-163.54 873.64,-142.69 968.88,-131.18"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="607.6,-171.34 598.09,-176.02 608.44,-178.29 607.6,-171.34"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -227,8 +242,8 @@ var sectionId = 'dynsection-1';
 <!-- Node8&#45;&gt;Node9 -->
 <g id="edge8" class="edge">
 <title>Node8&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M385.79,-101.8C385.46,-92.91 385.08,-82.78 384.82,-75.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="382.3,-102.22 386.17,-112.08 389.3,-101.96 382.3,-102.22"/>
+<path fill="none" stroke="midnightblue" d="M386.43,-101.8C385.94,-92.91 385.38,-82.78 384.99,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="382.96,-102.29 387,-112.08 389.94,-101.9 382.96,-102.29"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
@@ -257,8 +272,8 @@ var sectionId = 'dynsection-1';
 <!-- Node11&#45;&gt;Node12 -->
 <g id="edge11" class="edge">
 <title>Node11&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M543.21,-101.8C543.54,-92.91 543.92,-82.78 544.18,-75.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="539.7,-101.96 542.83,-112.08 546.7,-102.22 539.7,-101.96"/>
+<path fill="none" stroke="midnightblue" d="M544.5,-101.8C544.5,-92.91 544.5,-82.78 544.5,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="541,-102.08 544.5,-112.08 548,-102.08 541,-102.08"/>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">
@@ -278,62 +293,92 @@ var sectionId = 'dynsection-1';
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="../../df/df9/outlab6_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="640,-56.5 640,-75.5 783,-75.5 783,-56.5 640,-56.5"/>
-<text text-anchor="middle" x="711.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab6/outlab6.h</text>
+<g id="a_node15"><a xlink:href="../../d3/dbf/outlab11_8h.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="640,-56.5 640,-75.5 795,-75.5 795,-56.5 640,-56.5"/>
+<text text-anchor="middle" x="717.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab11/outlab11.h</text>
 </a>
 </g>
 </g>
 <!-- Node14&#45;&gt;Node15 -->
 <g id="edge14" class="edge">
 <title>Node14&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M707.6,-102.1C708.6,-93.14 709.74,-82.86 710.53,-75.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="704.12,-101.76 706.49,-112.08 711.07,-102.53 704.12,-101.76"/>
+<path fill="none" stroke="midnightblue" d="M712.95,-102.1C714.11,-93.14 715.44,-82.86 716.37,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="709.47,-101.72 711.66,-112.08 716.41,-102.62 709.47,-101.72"/>
 </g>
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
-<g id="a_node16"><a xlink:href="../../d4/d5d/labs_2outlab6_2main_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="640.5,-0.5 640.5,-19.5 782.5,-19.5 782.5,-0.5 640.5,-0.5"/>
-<text text-anchor="middle" x="711.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab6/main.cpp</text>
+<g id="a_node16"><a xlink:href="../../d2/d48/labs_2outlab11_2main_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="643.5,-0.5 643.5,-19.5 791.5,-19.5 791.5,-0.5 643.5,-0.5"/>
+<text text-anchor="middle" x="717.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab11/main.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node15&#45;&gt;Node16 -->
 <g id="edge15" class="edge">
 <title>Node15&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M711.5,-45.8C711.5,-36.91 711.5,-26.78 711.5,-19.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="708,-46.08 711.5,-56.08 715,-46.08 708,-46.08"/>
+<path fill="none" stroke="midnightblue" d="M717.5,-45.8C717.5,-36.91 717.5,-26.78 717.5,-19.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="714,-46.08 717.5,-56.08 721,-46.08 714,-46.08"/>
 </g>
 <!-- Node18 -->
 <g id="node18" class="node">
 <title>Node18</title>
-<g id="a_node18"><a xlink:href="../../d8/d5d/outlab7_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="801,-56.5 801,-75.5 944,-75.5 944,-56.5 801,-56.5"/>
-<text text-anchor="middle" x="872.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab7/outlab7.h</text>
+<g id="a_node18"><a xlink:href="../../df/df9/outlab6_8h.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="813,-56.5 813,-75.5 956,-75.5 956,-56.5 813,-56.5"/>
+<text text-anchor="middle" x="884.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab6/outlab6.h</text>
 </a>
 </g>
 </g>
 <!-- Node17&#45;&gt;Node18 -->
 <g id="edge17" class="edge">
 <title>Node17&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M868.6,-102.1C869.6,-93.14 870.74,-82.86 871.53,-75.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="865.12,-101.76 867.49,-112.08 872.07,-102.53 865.12,-101.76"/>
+<path fill="none" stroke="midnightblue" d="M878.65,-102.1C880.14,-93.14 881.86,-82.86 883.04,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="875.18,-101.64 876.99,-112.08 882.08,-102.79 875.18,-101.64"/>
 </g>
 <!-- Node19 -->
 <g id="node19" class="node">
 <title>Node19</title>
-<g id="a_node19"><a xlink:href="../../d5/d52/labs_2outlab7_2main_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="801.5,-0.5 801.5,-19.5 943.5,-19.5 943.5,-0.5 801.5,-0.5"/>
-<text text-anchor="middle" x="872.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab7/main.cpp</text>
+<g id="a_node19"><a xlink:href="../../d4/d5d/labs_2outlab6_2main_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="813.5,-0.5 813.5,-19.5 955.5,-19.5 955.5,-0.5 813.5,-0.5"/>
+<text text-anchor="middle" x="884.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab6/main.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node18&#45;&gt;Node19 -->
 <g id="edge18" class="edge">
 <title>Node18&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M872.5,-45.8C872.5,-36.91 872.5,-26.78 872.5,-19.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="869,-46.08 872.5,-56.08 876,-46.08 869,-46.08"/>
+<path fill="none" stroke="midnightblue" d="M884.5,-45.8C884.5,-36.91 884.5,-26.78 884.5,-19.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="881,-46.08 884.5,-56.08 888,-46.08 881,-46.08"/>
+</g>
+<!-- Node21 -->
+<g id="node21" class="node">
+<title>Node21</title>
+<g id="a_node21"><a xlink:href="../../d8/d5d/outlab7_8h.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="974,-56.5 974,-75.5 1117,-75.5 1117,-56.5 974,-56.5"/>
+<text text-anchor="middle" x="1045.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab7/outlab7.h</text>
+</a>
+</g>
+</g>
+<!-- Node20&#45;&gt;Node21 -->
+<g id="edge20" class="edge">
+<title>Node20&#45;&gt;Node21</title>
+<path fill="none" stroke="midnightblue" d="M1039.65,-102.1C1041.14,-93.14 1042.86,-82.86 1044.04,-75.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1036.18,-101.64 1037.99,-112.08 1043.08,-102.79 1036.18,-101.64"/>
+</g>
+<!-- Node22 -->
+<g id="node22" class="node">
+<title>Node22</title>
+<g id="a_node22"><a xlink:href="../../d5/d52/labs_2outlab7_2main_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="974.5,-0.5 974.5,-19.5 1116.5,-19.5 1116.5,-0.5 974.5,-0.5"/>
+<text text-anchor="middle" x="1045.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/labs/outlab7/main.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node21&#45;&gt;Node22 -->
+<g id="edge21" class="edge">
+<title>Node21&#45;&gt;Node22</title>
+<path fill="none" stroke="midnightblue" d="M1045.5,-45.8C1045.5,-36.91 1045.5,-26.78 1045.5,-19.75"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1042,-46.08 1045.5,-56.08 1049,-46.08 1042,-46.08"/>
 </g>
 </g>
 </svg>

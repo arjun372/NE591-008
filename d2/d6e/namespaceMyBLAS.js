@@ -44,6 +44,7 @@ var namespaceMyBLAS =
     [ "NumericType", "d2/d6e/namespaceMyBLAS.html#aeaba4d245610870af7f067c3c4a33f76", null ],
     [ "NumericTypes", "d2/d6e/namespaceMyBLAS.html#a339c143809c9befe3275e4debb3187df", null ],
     [ "OutputVector", "d2/d6e/namespaceMyBLAS.html#aa38232f345bc059ec641f60235dc0f50", null ],
+    [ "abs", "d2/d6e/namespaceMyBLAS.html#ab04220788b1a4758fe6b7f4fedc39a19", null ],
     [ "AbsoluteMaxResidual", "d2/d6e/namespaceMyBLAS.html#ad38fb7c86134c4334e6bf29c2c734afd", null ],
     [ "AbsoluteMaxResidual", "d2/d6e/namespaceMyBLAS.html#a5c6ac08b56fee69d079c63eda5482464", null ],
     [ "allDiagonalElementsBelowThreshold", "d2/d6e/namespaceMyBLAS.html#a6b103aca5e5fab29f3d0954b77946dc0", null ],

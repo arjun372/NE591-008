@@ -79,27 +79,27 @@ var sectionId = 'dynsection-5';
 <path fill="none" stroke="midnightblue" d="M131.22,-54.27C139.4,-55.07 147.92,-55.89 156.53,-56.73"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="156.36,-60.23 166.66,-57.71 157.04,-53.26 156.36,-60.23"/>
 </g>
-<!-- Node6 -->
-<g id="node6" class="node">
-<title>Node6</title>
-<g id="a_node6"><a xlink:href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84" target="_top" xlink:title=" ">
+<!-- Node7 -->
+<g id="node7" class="node">
+<title>Node7</title>
+<g id="a_node7"><a xlink:href="../../dd/dd7/plot__points_8m.html#a07ca9f04874775e798496347c3e80b84" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="457.5,-0.5 457.5,-19.5 486.5,-19.5 486.5,-0.5 457.5,-0.5"/>
 <text text-anchor="middle" x="472" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">L</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node6 -->
-<g id="edge8" class="edge">
-<title>Node1&#45;&gt;Node6</title>
+<!-- Node1&#45;&gt;Node7 -->
+<g id="edge9" class="edge">
+<title>Node1&#45;&gt;Node7</title>
 <path fill="none" stroke="midnightblue" d="M131.04,-41.94C222.59,-33.34 385.84,-18 446.99,-12.26"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="447.55,-15.72 457.18,-11.3 446.9,-8.75 447.55,-15.72"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="../../de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a" target="_top" xlink:title="A template function to calculate the absolute value of a number.">
+<g id="a_node3"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#ab04220788b1a4758fe6b7f4fedc39a19" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="432,-164.5 432,-183.5 512,-183.5 512,-164.5 432,-164.5"/>
-<text text-anchor="middle" x="472" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyMath::abs</text>
+<text text-anchor="middle" x="472" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::abs</text>
 </a>
 </g>
 </g>
@@ -109,70 +109,85 @@ var sectionId = 'dynsection-5';
 <path fill="none" stroke="midnightblue" d="M276.01,-76.73C297.94,-94.77 347.82,-133.54 396,-155 404.2,-158.65 413.23,-161.69 422.1,-164.19"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="421.43,-167.63 432,-166.79 423.21,-160.86 421.43,-167.63"/>
 </g>
-<!-- Node4 -->
-<g id="node4" class="node">
-<title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#af038a1ce616639b7e9f9e3955bb6bd02" target="_top" xlink:title="Static function to get the identity matrix of a given size.">
+<!-- Node5 -->
+<g id="node5" class="node">
+<title>Node5</title>
+<g id="a_node5"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#af038a1ce616639b7e9f9e3955bb6bd02" target="_top" xlink:title="Static function to get the identity matrix of a given size.">
 <polygon fill="white" stroke="black" points="410.5,-115 410.5,-145 533.5,-145 533.5,-115 410.5,-115"/>
 <text text-anchor="start" x="418.5" y="-133" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Matrix&lt; T &gt;</text>
 <text text-anchor="middle" x="472" y="-122" font-family="Helvetica,sans-Serif" font-size="10.00">::eye</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node4 -->
-<g id="edge3" class="edge">
-<title>Node2&#45;&gt;Node4</title>
+<!-- Node2&#45;&gt;Node5 -->
+<g id="edge4" class="edge">
+<title>Node2&#45;&gt;Node5</title>
 <path fill="none" stroke="midnightblue" d="M295.86,-76.57C326.52,-85.92 373.96,-100.4 411.74,-111.92"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="411.03,-115.36 421.62,-114.93 413.08,-108.67 411.03,-115.36"/>
 </g>
-<!-- Node5 -->
-<g id="node5" class="node">
-<title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864" target="_top" xlink:title="Getter for the number of columns in the matrix.">
+<!-- Node6 -->
+<g id="node6" class="node">
+<title>Node6</title>
+<g id="a_node6"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#a720cd9095d330d43de367bfbffffb864" target="_top" xlink:title="Getter for the number of columns in the matrix.">
 <polygon fill="white" stroke="black" points="403.5,-76.5 403.5,-95.5 540.5,-95.5 540.5,-76.5 403.5,-76.5"/>
 <text text-anchor="middle" x="472" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Matrix::getCols</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node5 -->
-<g id="edge4" class="edge">
-<title>Node2&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M360.19,-75.8C371.23,-76.82 382.38,-77.85 393.13,-78.84"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="393.03,-82.34 403.31,-79.77 393.67,-75.37 393.03,-82.34"/>
-</g>
 <!-- Node2&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node2&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M360.19,-75.8C371.23,-76.82 382.38,-77.85 393.13,-78.84"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="393.03,-82.34 403.31,-79.77 393.67,-75.37 393.03,-82.34"/>
+</g>
+<!-- Node2&#45;&gt;Node7 -->
+<g id="edge6" class="edge">
+<title>Node2&#45;&gt;Node7</title>
 <path fill="none" stroke="midnightblue" d="M307.13,-57.49C323.76,-53.47 342.9,-48.45 360,-43 376.36,-37.79 379.65,-34.23 396,-29 412.99,-23.57 432.53,-18.66 447.4,-15.19"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="448.34,-18.57 457.31,-12.94 446.78,-11.75 448.34,-18.57"/>
 </g>
-<!-- Node7 -->
-<g id="node7" class="node">
-<title>Node7</title>
-<g id="a_node7"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#a95f15a700d1ac3c9639ee831da4c903c" target="_top" xlink:title="Swaps two rows in the matrix.">
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#a95f15a700d1ac3c9639ee831da4c903c" target="_top" xlink:title="Swaps two rows in the matrix.">
 <polygon fill="white" stroke="black" points="396,-38.5 396,-57.5 548,-57.5 548,-38.5 396,-38.5"/>
 <text text-anchor="middle" x="472" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Matrix::swapRows</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node7 -->
-<g id="edge6" class="edge">
-<title>Node2&#45;&gt;Node7</title>
+<!-- Node2&#45;&gt;Node8 -->
+<g id="edge7" class="edge">
+<title>Node2&#45;&gt;Node8</title>
 <path fill="none" stroke="midnightblue" d="M360.19,-58.2C368.67,-57.42 377.21,-56.63 385.6,-55.86"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="386.09,-59.33 395.72,-54.93 385.44,-52.36 386.09,-59.33"/>
 </g>
-<!-- Node8 -->
-<g id="node8" class="node">
-<title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249" target="_top" xlink:title="Getter for the number of rows in the matrix.">
+<!-- Node4 -->
+<g id="node4" class="node">
+<title>Node4</title>
+<g id="a_node4"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#aae30f8178e4a34d332317c61e77c147a" target="_top" xlink:title="Getter for the size of the vector.">
+<polygon fill="white" stroke="black" points="596,-164.5 596,-183.5 715,-183.5 715,-164.5 596,-164.5"/>
+<text text-anchor="middle" x="655.5" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node4 -->
+<g id="edge3" class="edge">
+<title>Node3&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M512.38,-174C533.83,-174 560.97,-174 585.78,-174"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="585.88,-177.5 595.88,-174 585.88,-170.5 585.88,-177.5"/>
+</g>
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="../../d0/d27/classMyBLAS_1_1Matrix.html#a0772df3e76eadc9035e847316de0d249" target="_top" xlink:title="Getter for the number of rows in the matrix.">
 <polygon fill="white" stroke="black" points="584,-38.5 584,-57.5 727,-57.5 727,-38.5 584,-38.5"/>
 <text text-anchor="middle" x="655.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Matrix::getRows</text>
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node8 -->
-<g id="edge7" class="edge">
-<title>Node7&#45;&gt;Node8</title>
+<!-- Node8&#45;&gt;Node9 -->
+<g id="edge8" class="edge">
+<title>Node8&#45;&gt;Node9</title>
 <path fill="none" stroke="midnightblue" d="M548.13,-48C556.52,-48 565.1,-48 573.55,-48"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="573.79,-51.5 583.79,-48 573.79,-44.5 573.79,-51.5"/>
 </g>

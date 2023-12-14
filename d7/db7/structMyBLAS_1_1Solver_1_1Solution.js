@@ -8,6 +8,7 @@ var structMyBLAS_1_1Solver_1_1Solution =
     [ "toJSON", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a409465b26bb97d0ed8b74049953a6611", null ],
     [ "operator<<", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a2201ecd14bc5cbc3dba443b09f3d82d3", null ],
     [ "converged", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a0eed004d383f51db2aa8819bcda97e9b", null ],
+    [ "eigenvalue", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ad07c1b7496d1633c93c943f1f0c3773e", null ],
     [ "iterations", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a032bbb91e561d18f6e5508c25f5b4eb4", null ],
     [ "iterative_error", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#ac2086623ddff910f66c2f3c5452f9bec", null ],
     [ "method", "d7/db7/structMyBLAS_1_1Solver_1_1Solution.html#a1fa43649c4c9625ff3c2ec3373b79fe9", null ],

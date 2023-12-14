@@ -27,6 +27,8 @@ var classMyBLAS_1_1Vector =
     [ "operator-", "d4/d4d/classMyBLAS_1_1Vector.html#aa6aeb882447a3c3e4d40100105d1f63f", null ],
     [ "operator-", "d4/d4d/classMyBLAS_1_1Vector.html#a9e54f2dc43b69e744ffcb71e66c9e991", null ],
     [ "operator/", "d4/d4d/classMyBLAS_1_1Vector.html#a0b450731724044d52e3f412ed786dba8", null ],
+    [ "operator/", "d4/d4d/classMyBLAS_1_1Vector.html#ababbe2ef77e74e306131c0e513134611", null ],
+    [ "operator/=", "d4/d4d/classMyBLAS_1_1Vector.html#a2bad142437ee35498eb0611c02d0b9ba", null ],
     [ "operator=", "d4/d4d/classMyBLAS_1_1Vector.html#a7b95d0663d04d89960ceb2384dfd4c04", null ],
     [ "operator=", "d4/d4d/classMyBLAS_1_1Vector.html#a4639c5fbfcb4f0cd031b929430b8ba17", null ],
     [ "operator==", "d4/d4d/classMyBLAS_1_1Vector.html#af3d7364f95df6f7c9188c5b64a757454", null ],

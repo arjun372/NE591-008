@@ -118,27 +118,27 @@ $(document).ready(function(){initNavTree('da/d4d/outlab7.html','../../'); initRe
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md190">OutLab 07: Iterative Linear Equation Solvers</a><ul><li class="level2"><a href="#autotoc_md191">Overview</a></li>
-<li class="level2"><a href="#autotoc_md192">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md193">Parameters</a></li>
-<li class="level3"><a href="#autotoc_md194">General options</a></li>
+<ul><li class="level1"><a href="#autotoc_md199">OutLab 07: Iterative Linear Equation Solvers</a><ul><li class="level2"><a href="#autotoc_md200">Overview</a></li>
+<li class="level2"><a href="#autotoc_md201">Building &amp; Usage</a><ul><li class="level3"><a href="#autotoc_md202">Parameters</a></li>
+<li class="level3"><a href="#autotoc_md203">General options</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md195">Performance Benchmarking</a></li>
-<li class="level2"><a href="#autotoc_md196">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md197">Sample Parameters File</a></li>
+<li class="level2"><a href="#autotoc_md204">Performance Benchmarking</a></li>
+<li class="level2"><a href="#autotoc_md205">Parameters Format</a><ul><li class="level3"><a href="#autotoc_md206">Sample Parameters File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md198">Output Format</a><ul><li class="level3"><a href="#autotoc_md199">Sample Outputs File</a></li>
+<li class="level2"><a href="#autotoc_md207">Output Format</a><ul><li class="level3"><a href="#autotoc_md208">Sample Outputs File</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md200">Example:</a></li>
+<li class="level2"><a href="#autotoc_md209">Example:</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md190"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md199"></a>
 OutLab 07: Iterative Linear Equation Solvers</h1>
 <p>File based I/O is supported using JSON files.</p>
-<div style="display: none"></div><h2><a class="anchor" id="autotoc_md191"></a>
+<div style="display: none"></div><h2><a class="anchor" id="autotoc_md200"></a>
 Overview</h2>
 <ol type="1">
 <li><a href="../../#building--usage">Building &amp; Usage</a><ul>
@@ -153,7 +153,7 @@ Overview</h2>
 </li>
 <li><a href="../../#example">Example</a></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md192"></a>
+<h2><a class="anchor" id="autotoc_md201"></a>
 Building &amp; Usage</h2>
 <p>The code has been built and tested on the <code>Hazel</code> or <code>login.hpc.ncsu.edu</code> servers. It requires no additional configuration except choosing the build target, and output file. Here is a repeatable script to perform the build and run the <code>outlab7</code> target executable:</p>
 <div class="fragment"><div class="line">#!/bin/bash</div>
@@ -206,39 +206,39 @@ Building &amp; Usage</h2>
 <div class="line"> </div>
 <div class="line">## Execute</div>
 <div class="line">mpirun ./build/bin/$BUILD_TARGET -i $INPUT_FILE -o $OUTPUT_FILE</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md193"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md202"></a>
 Parameters</h3>
 <ul>
 <li><code>-n arg</code>: Sum upper limit [n ∈ ℕ].</li>
 <li><code>-i [ --input-json ] arg</code>: <a class="el" href="../../d4/dae/structInput.html" title="A structure to hold the input parameters for the relaxation method.">Input</a> JSON containing n.</li>
 <li><code>-o [ --output-json ] arg</code>: Path for the output JSON.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md194"></a>
+<h3><a class="anchor" id="autotoc_md203"></a>
 General options</h3>
 <ul>
 <li><code>-h [ --help ]</code>: Show this help message.</li>
 <li><code>-q [ --quiet ]</code>: Reduce verbosity.</li>
 <li><code>-p [ --precision ] arg (=15)</code>: Number of digits to represent long double (default: 6, maximum: 19, current: 15).</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md195"></a>
+<h2><a class="anchor" id="autotoc_md204"></a>
 Performance Benchmarking</h2>
 <ul>
 <li><code>-R [ --bench-runs ] arg (=1)</code>: &lt;R&gt; runs to perform</li>
 <li><code>-T [ --bench-timeout ] arg (=0)</code>: Timeout after &lt;T&gt; seconds [0=never]</li>
 <li><code>-B [ --bench ]</code>: Run performance benchmarks</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md196"></a>
+<h2><a class="anchor" id="autotoc_md205"></a>
 Parameters Format</h2>
 <p>The expected input json file requires the following fields:</p>
-<h3><a class="anchor" id="autotoc_md197"></a>
+<h3><a class="anchor" id="autotoc_md206"></a>
 Sample Parameters File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;n&quot;: 1e8</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md198"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md207"></a>
 Output Format</h2>
 <p>The output is written to a JSON file as well.</p>
-<h3><a class="anchor" id="autotoc_md199"></a>
+<h3><a class="anchor" id="autotoc_md208"></a>
 Sample Outputs File</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">   &quot;inputs&quot;: {</div>
@@ -259,7 +259,7 @@ Sample Outputs File</h3>
 <div class="line">      &quot;total_sum&quot;: 2.0131691999274186</div>
 <div class="line">   }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md200"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md209"></a>
 Example:</h2>
 <p>The following is an example of the program's output:</p>
 <div class="fragment"><div class="line">NE591: OutLab 07: Series Sum using MPI Spanning Tree Protocol</div>

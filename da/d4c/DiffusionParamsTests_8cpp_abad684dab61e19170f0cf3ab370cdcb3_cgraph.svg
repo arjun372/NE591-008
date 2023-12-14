@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 397;
+var viewWidth = 552;
 var viewHeight = 482;
 var sectionId = 'dynsection-3';
 </script>
@@ -54,7 +54,7 @@ var sectionId = 'dynsection-3';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>TEST_F</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-477.5 393,-477.5 393,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-477.5 548,-477.5 548,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
@@ -227,9 +227,9 @@ var sectionId = 'dynsection-3';
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="../../de/d4d/namespaceMyMath.html#a65264d3fe16d8278498a14fc821b438a" target="_top" xlink:title="A template function to calculate the absolute value of a number.">
+<g id="a_node12"><a xlink:href="../../d2/d6e/namespaceMyBLAS.html#ab04220788b1a4758fe6b7f4fedc39a19" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="309,-0.5 309,-19.5 389,-19.5 389,-0.5 309,-0.5"/>
-<text text-anchor="middle" x="349" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyMath::abs</text>
+<text text-anchor="middle" x="349" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::abs</text>
 </a>
 </g>
 </g>
@@ -238,6 +238,21 @@ var sectionId = 'dynsection-3';
 <title>Node11&#45;&gt;Node12</title>
 <path fill="none" stroke="midnightblue" d="M206.79,-10C231.04,-10 268.32,-10 298.48,-10"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="298.82,-13.5 308.82,-10 298.82,-6.5 298.82,-13.5"/>
+</g>
+<!-- Node13 -->
+<g id="node13" class="node">
+<title>Node13</title>
+<g id="a_node13"><a xlink:href="../../d4/d4d/classMyBLAS_1_1Vector.html#aae30f8178e4a34d332317c61e77c147a" target="_top" xlink:title="Getter for the size of the vector.">
+<polygon fill="white" stroke="black" points="425,-0.5 425,-19.5 544,-19.5 544,-0.5 425,-0.5"/>
+<text text-anchor="middle" x="484.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MyBLAS::Vector::size</text>
+</a>
+</g>
+</g>
+<!-- Node12&#45;&gt;Node13 -->
+<g id="edge12" class="edge">
+<title>Node12&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M389.33,-10C397.29,-10 405.88,-10 414.52,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="414.65,-13.5 424.65,-10 414.65,-6.5 414.65,-13.5"/>
 </g>
 </g>
 </svg>
