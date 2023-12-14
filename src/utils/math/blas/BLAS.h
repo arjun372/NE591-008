@@ -312,6 +312,8 @@ bool isPositiveDefiniteMatrix(const M<T> &A) {
     const size_t n = A.getRows();
     M<T> L(n, n, static_cast<T>(0)); // Initialize lower triangular matrix
 
+    bool isPositiveDefinite = true;
+    #pragma omp parallel for simd default(none) shared(L, A) reduction(|:isPositiveDefinite)
     for (size_t i = 0; i < n; ++i) {
         for (size_t j = 0; j <= i; ++j) {
             T sum = 0;
@@ -322,7 +324,7 @@ bool isPositiveDefiniteMatrix(const M<T> &A) {
                 L[j][j] = A[j][j] - sum;
                 // If the diagonal element is not positive, the matrix is not positive definite
                 if (L[j][j] <= static_cast<T>(0)) {
-                    return false;
+                    isPositiveDefinite = false;
                 }
                 L[j][j] = std::sqrt(L[j][j]);
             } else { // Off-diagonal elements
@@ -330,13 +332,13 @@ bool isPositiveDefiniteMatrix(const M<T> &A) {
                     sum += L[i][k] * L[j][k];
                 }
                 if (L[j][j] == static_cast<T>(0)) {
-                    return false; // This would imply division by zero
+                    isPositiveDefinite = false;
                 }
                 L[i][j] = (A[i][j] - sum) / L[j][j];
             }
         }
     }
-    return true; // The matrix is positive definite if Cholesky decomposition is successful
+    return isPositiveDefinite; // The matrix is positive definite if Cholesky decomposition is successful
 }
 
 /**

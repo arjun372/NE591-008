@@ -21,7 +21,7 @@ static void usingPowerIteration(OutLab11Outputs &outputs, OutLab11Inputs &inputs
     const size_t max_iterations = inputs.input.max_iterations;
     const MyBLAS::NumericType threshold = inputs.input.threshold;
     auto profiler = Profiler([&] {
-                        outputs.solution = MyRelaxationMethod::applyPowerIteration<MyBLAS::Matrix, MyBLAS::Vector, MyBLAS::NumericType>(A, max_iterations, threshold);
+                        outputs.solution = MyRelaxationMethod::applyPowerIteration2<MyBLAS::Matrix, MyBLAS::Vector, MyBLAS::NumericType>(A, max_iterations, threshold);
     },100, 0, "Power Iterations Method").run();
     outputs.summary = profiler.getSummary();
     std::cout << profiler << std::endl;

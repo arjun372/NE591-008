@@ -60,9 +60,10 @@ template <typename T> MyBLAS::Vector<T> generate_vector(const size_t n, T min = 
     std::mt19937 stream(seed);
     std::uniform_real_distribution<T> uniform(min, max);
     MyBLAS::Vector<T> samples(n);
-    for (size_t idx = 0; idx < n; idx++) {
-        samples[idx] = uniform(stream);
-    }
+
+    // Use std::generate to fill the vector with random numbers
+    std::generate(samples.begin(), samples.end(), [&]() { return uniform(stream); });
+
     return samples;
 }
 

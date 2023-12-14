@@ -80,5 +80,61 @@ MyBLAS::Solver::Solution<T> applyPowerIteration(const MatrixType<T> &A, const si
     return results;
 }
 
+template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
+MyBLAS::Solver::Solution<T> applyPowerIteration2(const MatrixType<T> &A, const size_t max_iterations, const T tolerance, const size_t seed = 372) {
+
+    const size_t n = A.getRows();           // Get the number of rows in the matrix A
+
+    MyBLAS::Solver::Solution<T> results(n); // Initialize the results object with the size of the matrix
+
+    // Initialize x with a randomly sampled uniform dist between [-1, 1]
+    results.x = Random::generate_vector(n, static_cast<T>(-1), static_cast<T>(1), seed);
+    results.eigenvalue = 0;
+    results.converged = false;
+    results.iterative_error = std::numeric_limits<T>::max(); // Initialize the error as the maximum
+
+    T norm, new_eigenvalue_direct, new_eigenvalue_rayleigh, eigenvector_norm_inf;
+    VectorType<T> y;
+
+    for (results.iterations = 0; results.iterations < max_iterations; ++(results.iterations)) {
+        // Calculate the matrix-by-vector product A * x
+        y = A * results.x;
+
+        // Calculate the norm of the new vector
+        norm = std::sqrt(y * y);
+
+        // Normalize the vector
+        VectorType<T> x_next = y * (static_cast<T>(1) / norm);
+
+        // Estimate the eigenvalue using the direct Power Iteration estimate
+        new_eigenvalue_direct = norm; // Since y was normalized, norm is the estimate
+
+        // Estimate the eigenvalue using the Rayleigh Quotient
+        new_eigenvalue_rayleigh = results.x * y; // Compute (x)^T * A * x
+
+        // Use the Rayleigh Quotient for the eigenvalue to check convergence
+        results.eigenvalue = new_eigenvalue_rayleigh;
+
+        // Compute the ∞-norm of the eigenvector (maximum absolute value of components)
+        eigenvector_norm_inf = *std::max_element(x_next.begin(), x_next.end(), [](T a, T b) {
+            return std::abs(a) < std::abs(b);
+        });
+
+        // Check for convergence using the ∞-norm of the eigenvector
+        results.iterative_error = std::abs(eigenvector_norm_inf - std::abs(results.eigenvalue));
+
+        results.x = x_next;
+
+        if (results.iterative_error < tolerance) {
+            results.converged = true;
+            break;
+        }
+    }
+
+    std::cout<<new_eigenvalue_direct<<", "<<new_eigenvalue_rayleigh<<", "<<eigenvector_norm_inf<<std::endl;
+
+    return results;
+}
+
 } // namespace MyRelaxationMethod
 #endif // NE591_008_POWER_ITERATION_H

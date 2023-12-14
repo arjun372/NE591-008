@@ -60,8 +60,8 @@ TYPED_TEST(PerformanceVectorTests, VectorMultiplicationPerformanceTest) {
     const auto min = static_cast<size_t>(std::pow(BASE, MIN_POWER));
     const auto max = static_cast<size_t>(std::pow(BASE, MAX_POWER));
     for (auto size = min; size <= max; size *= (BASE * STEP)) {
-        Vector<TypeParam> v1(size, -3.1290f);
-        Vector<TypeParam> v2(size, 3.4920f);
+        Vector<TypeParam> v1(size, [&](size_t i){ return static_cast<TypeParam>(static_cast<long>(i << (i % 19))); });
+        Vector<TypeParam> v2(size, [&](size_t i){ return static_cast<TypeParam>(static_cast<long>(i << (i % 7))); });
 
         auto start = std::chrono::high_resolution_clock::now();
         auto result = v1 * v2;
