@@ -65,8 +65,11 @@ template <typename T> struct Solution {
     T iterative_error = std::numeric_limits<T>::quiet_NaN();
 
     MyBLAS::Vector<T> x{};
-
     T eigenvalue = std::numeric_limits<T>::quiet_NaN();
+    T eigenvalue_iterative_error = std::numeric_limits<T>::quiet_NaN();
+
+    MyBLAS::Vector<T> residual{};
+    T residual_infinite_norm = std::numeric_limits<T>::quiet_NaN();
 
     [[nodiscard]] MyBLAS::Vector<T> getResidual(MyBLAS::Matrix<T> a) const { return a * x; }
 
@@ -81,10 +84,25 @@ template <typename T> struct Solution {
      */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["converged"] = converged;
-        jsonMap["eigenvalue"] = eigenvalue;
-        jsonMap["iterations"]["actual"] = iterations;
-        jsonMap["iterative-error"]["actual"] = iterative_error;
-        jsonMap["solution"] = x.getData();
+        jsonMap["iterations"] = iterations;
+        jsonMap["iterative-error"]["x"] = iterative_error;
+        jsonMap["x"] = x.getData();
+
+        if (!std::isnan(eigenvalue)) {
+            jsonMap["eigenvalue"] = eigenvalue;
+        }
+
+        if (!std::isnan(eigenvalue_iterative_error)) {
+            jsonMap["iterative-error"]["eigenvalue"] = eigenvalue_iterative_error;
+        }
+
+        if (!std::isnan(residual_infinite_norm)) {
+            jsonMap["residual-∞-norm"] = residual_infinite_norm;
+        }
+        if (residual.size() > 0) {
+            jsonMap["residual"] = residual.getData();
+        }
+
     }
 
     /**
@@ -98,11 +116,28 @@ template <typename T> struct Solution {
         const std::string key = Solver::TypeKey(solution.method);
         const auto width = static_cast<int>(2 + static_cast<std::streamsize>(10));
         os << std::setprecision(2) << std::setw(width) << std::setfill(' ') << std::scientific;
-        os << ":::::: Converged       : " << (solution.converged ? "Yes" : "No")<<std::endl;
-        os << ":::::: Eigenvalue      : " << solution.eigenvalue<<std::endl;
-        os << ":::::: Iterations      : " << solution.iterations<<std::endl;
-        os << ":::::: Iterative Error : " << solution.iterative_error<<std::endl;
-        os << ":::::: Iterate Vector x: " << solution.x <<std::endl;
+        os << ":::::: Converged        :     " << (solution.converged ? "Yes" : "No")<<std::endl;
+        os << ":::::: Iterations       :     " << solution.iterations << std::endl;
+        os << ":::::: Iterative Error  :     " << solution.iterative_error << std::endl;
+
+        os << ":::::: Iterate Vector x : " << solution.x;
+
+        if (!std::isnan(solution.eigenvalue)) {
+            os << ":::::: Eigenvalue       :     " << solution.eigenvalue << std::endl;
+        }
+
+        if (!std::isnan(solution.eigenvalue_iterative_error)) {
+            os << ":::::: Eigenvalue Error :     " << solution.eigenvalue_iterative_error << std::endl;
+        }
+
+        if (!std::isnan(solution.residual_infinite_norm)) {
+            os << ":::::: Residual ∞-Norm  :     " << solution.residual_infinite_norm << std::endl;
+        }
+
+        if (solution.residual.size() > 0) {
+            os << ":::::: Residual         : " << solution.residual << std::endl;
+        }
+
         os << std::setprecision(static_cast<int>(precision));
         return os;
     }

@@ -48,7 +48,7 @@ export OUTPUT_FILE=./src/labs/inlab6/examples/inlab6_output_1.json
 
 ### Parameters
 
-- `-t [ --threshold ] arg     `: iterative convergence threshold [𝜀 > 0]
+- `-t [ --convergence_threshold ] arg     `: iterative convergence convergence_threshold [𝜀 > 0]
 - `-k [ --max-iterations ] arg`: maximum number of iterations [n ∈ ℕ]
 - `-n [ --order ] arg`: order of the square matrix [n ∈ ℕ]
 - `-i [ --input-json ] arg`: input JSON containing A, and b
@@ -132,7 +132,7 @@ The output is written to a JSON file as well.
       "point-jacobi"
     ],
     "order": 4,
-    "threshold": 0.0001
+    "convergence_threshold": 0.0001
   },
   "outputs": {
     "point-jacobi": {
@@ -170,7 +170,7 @@ Arjun Earthperson
 compiler: GNU 8.5.0, boost: 106600 /usr/lib64/libboost_program_options.so
 --------------------------------------------------------------------------------
 Parameters:
-  -t [ --threshold ] arg        = iterative convergence threshold [𝜀 > 0]
+  -t [ --convergence_threshold ] arg        = iterative convergence convergence_threshold [𝜀 > 0]
   -k [ --max-iterations ] arg   = maximum number of iterations [n ∈ ℕ]
   -n [ --order ] arg            = order of the square matrix [n ∈ ℕ]
   -i [ --input-json ] arg       = input JSON containing A, and b

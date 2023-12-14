@@ -270,11 +270,11 @@ Currently supported inlab, outlab build targets include:
   <tr>
     <td>11</td>
     <td><code>✅ inlab11</code></td>
-    <td></td>
+    <td><code>✅ inlab12</code></td>
   </tr>
   <tr>
     <td>12</td>
-    <td></td>
+    <td><code>✅ inlab12</code></td>
     <td></td>
   </tr>
   <tr>

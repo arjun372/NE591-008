@@ -70,7 +70,7 @@ void usingPointJacobi(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
     MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
     MyBLAS::Vector<long double> &b = inputs.input.constants;
     const size_t max_iterations = inputs.input.max_iterations;
-    const long double threshold = inputs.input.threshold;
+    const long double threshold = inputs.input.convergence_threshold;
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting Point jacobi calculation\n";
@@ -105,7 +105,7 @@ void usingGaussSeidel(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
     MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
     MyBLAS::Vector<long double> &b = inputs.input.constants;
     const size_t max_iterations = inputs.input.max_iterations;
-    const long double threshold = inputs.input.threshold;
+    const long double threshold = inputs.input.convergence_threshold;
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
         std::cerr << "Aborting Gauss Seidel calculation\n";
@@ -140,7 +140,7 @@ void usingSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
     MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
     MyBLAS::Vector<long double> &b = inputs.input.constants;
     const size_t max_iterations = inputs.input.max_iterations;
-    const long double threshold = inputs.input.threshold;
+    const long double threshold = inputs.input.convergence_threshold;
     const long double omega = inputs.input.relaxation_factor;
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
@@ -176,7 +176,7 @@ void usingJacobiSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
     MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
     MyBLAS::Vector<long double> &b = inputs.input.constants;
     const size_t max_iterations = inputs.input.max_iterations;
-    const long double threshold = inputs.input.threshold;
+    const long double threshold = inputs.input.convergence_threshold;
     const long double omega = inputs.input.relaxation_factor;
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {
@@ -212,7 +212,7 @@ void usingSymmetricSOR(OutLab6Outputs &outputs, OutLab6Inputs &inputs) {
     MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
     MyBLAS::Vector<long double> &b = inputs.input.constants;
     const size_t max_iterations = inputs.input.max_iterations;
-    const long double threshold = inputs.input.threshold;
+    const long double threshold = inputs.input.convergence_threshold;
     const long double omega = inputs.input.relaxation_factor;
 
     if (!MyRelaxationMethod::passesPreChecks(A, b)) {

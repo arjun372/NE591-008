@@ -76,7 +76,7 @@ export OUTPUT_COMPUTED_FLUX=./src/project/project4/examples/results_32x32
 ### Solver Options
 - `--use-point-jacobi`: Use the Point-Jacobi method
 - `--use-gauss-seidel`: Use the Gauss-Seidel method
-- `-t [ --threshold ] arg     `: iterative convergence threshold [𝜀 > 0]
+- `-t [ --convergence_threshold ] arg     `: iterative convergence convergence_threshold [𝜀 > 0]
 - `-k [ --max-iterations ] arg`: maximum number of iterations [n ∈ ℕ]
 - `-w [ --relaxation-factor ] arg`: SOR weight, typical ω ∈ [0,2]
 
@@ -123,7 +123,7 @@ terminal.
       "m": 32,
       "n": 32
    },
-   "threshold": 1e-5,
+   "convergence_threshold": 1e-5,
    "max-iterations": 5000,
    "relaxation-factor": 1.00,
    "methods": [
@@ -296,7 +296,7 @@ Parameters:
 Solver Options:
   --use-point-jacobi                 = Use the Point-Jacobi method
   --use-gauss-seidel                 = Use the Gauss-Seidel method
-  -t [ --threshold ] arg             = convergence threshold [𝜀 > 0]
+  -t [ --convergence_threshold ] arg             = convergence convergence_threshold [𝜀 > 0]
   -k [ --max-iterations ] arg        = maximum iterations [n ∈ ℕ]
 
 Inputs/Outputs:

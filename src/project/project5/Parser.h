@@ -328,7 +328,7 @@ class Parser : public CommandLine<SolverInputs> {
             std::cerr << "WARNING: Source terms matrix columns != n, overriding n to " << input.diffusionParams.getN() << std::endl;
         }
 
-        input.solverParams.threshold = map["threshold"].as<MyBLAS::NumericType>();
+        input.solverParams.convergence_threshold = map["threshold"].as<MyBLAS::NumericType>();
         input.solverParams.max_iterations = static_cast<size_t>(map["max-iterations"].as<MyBLAS::NumericType>());
         input.solverParams.n = input.diffusionParams.getM() * input.diffusionParams.getN();
 

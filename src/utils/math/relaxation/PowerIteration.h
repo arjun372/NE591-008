@@ -81,57 +81,107 @@ MyBLAS::Solver::Solution<T> applyPowerIteration(const MatrixType<T> &A, const si
 }
 
 template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
-MyBLAS::Solver::Solution<T> applyPowerIteration2(const MatrixType<T> &A, const size_t max_iterations, const T tolerance, const size_t seed = 372) {
+MyBLAS::Solver::Solution<T> applyDirectPowerIteration(const MyBLAS::Solver::Parameters<T> &params) {
 
-    const size_t n = A.getRows();           // Get the number of rows in the matrix A
+    const size_t n = params.coefficients.getRows();           // Get the number of rows in the matrix A
 
     MyBLAS::Solver::Solution<T> results(n); // Initialize the results object with the size of the matrix
+    results.method = METHOD_DIRECT_POWER_ITERATION;
 
     // Initialize x with a randomly sampled uniform dist between [-1, 1]
-    results.x = Random::generate_vector(n, static_cast<T>(-1), static_cast<T>(1), seed);
-    results.eigenvalue = 0;
+    results.x = params.initial_guess;
     results.converged = false;
     results.iterative_error = std::numeric_limits<T>::max(); // Initialize the error as the maximum
 
-    T norm, new_eigenvalue_direct, new_eigenvalue_rayleigh, eigenvector_norm_inf;
-    VectorType<T> y;
-
-    for (results.iterations = 0; results.iterations < max_iterations; ++(results.iterations)) {
+    for (results.iterations = 0; results.iterations < params.max_iterations; ++(results.iterations)) {
         // Calculate the matrix-by-vector product A * x
-        y = A * results.x;
+        const VectorType<T> y = params.coefficients * results.x;
 
         // Calculate the norm of the new vector
-        norm = std::sqrt(y * y);
+        const T norm = std::sqrt(y * y);
 
-        // Normalize the vector
-        VectorType<T> x_next = y * (static_cast<T>(1) / norm);
+        // Normalize and update the vector
+        results.x = y * (static_cast<T>(1) / norm);
 
-        // Estimate the eigenvalue using the direct Power Iteration estimate
-        new_eigenvalue_direct = norm; // Since y was normalized, norm is the estimate
+        // Estimate the eigenvalue using the direct method
+        const T new_eigenvalue = norm;
 
-        // Estimate the eigenvalue using the Rayleigh Quotient
-        new_eigenvalue_rayleigh = results.x * y; // Compute (x)^T * A * x
+        // compute the change in eigenvalue
+        results.eigenvalue_iterative_error = std::abs(new_eigenvalue - results.eigenvalue);
 
-        // Use the Rayleigh Quotient for the eigenvalue to check convergence
-        results.eigenvalue = new_eigenvalue_rayleigh;
+        // Update the eigenvalue
+        results.eigenvalue = new_eigenvalue;
 
-        // Compute the ∞-norm of the eigenvector (maximum absolute value of components)
-        eigenvector_norm_inf = *std::max_element(x_next.begin(), x_next.end(), [](T a, T b) {
-            return std::abs(a) < std::abs(b);
-        });
+        // compute the relative change (by normalizing)
+        results.iterative_error = (results.eigenvalue != static_cast<T>(0)) ? results.eigenvalue_iterative_error / std::abs(results.eigenvalue) : std::numeric_limits<T>::max();
 
-        // Check for convergence using the ∞-norm of the eigenvector
-        results.iterative_error = std::abs(eigenvector_norm_inf - std::abs(results.eigenvalue));
-
-        results.x = x_next;
-
-        if (results.iterative_error < tolerance) {
+        // check for convergence against the set threshold
+        if (results.iterative_error < params.convergence_threshold) {
             results.converged = true;
             break;
         }
     }
 
-    std::cout<<new_eigenvalue_direct<<", "<<new_eigenvalue_rayleigh<<", "<<eigenvector_norm_inf<<std::endl;
+    // Calculate the residual
+    results.residual = params.coefficients * results.x - results.eigenvalue * results.x;
+
+    // Calculate the infinity norm of the residual
+    results.residual_infinite_norm = std::abs(*std::max_element(results.residual.begin(), results.residual.end(), [](T a, T b) {
+        return std::abs(a) < std::abs(b);
+    }));
+
+    return results;
+}
+
+template <template<typename> class MatrixType, template<typename> class VectorType, typename T>
+MyBLAS::Solver::Solution<T> applyRayleighQuotientPowerIteration(const MyBLAS::Solver::Parameters<T> &params) {
+
+    const size_t n = params.coefficients.getRows();           // Get the number of rows in the matrix A
+
+    MyBLAS::Solver::Solution<T> results(n); // Initialize the results object with the size of the matrix
+    results.method = METHOD_RAYLEIGH_QUOTIENT_POWER_ITERATION;
+
+    // Initialize x with a randomly sampled uniform dist between [-1, 1]
+    results.x = params.initial_guess;
+    results.converged = false;
+    results.iterative_error = std::numeric_limits<T>::max(); // Initialize the error as the maximum
+
+    for (results.iterations = 0; results.iterations < params.max_iterations; ++(results.iterations)) {
+        // Calculate the matrix-by-vector product A * x
+        const VectorType<T> y = params.coefficients * results.x;
+
+        // Calculate the norm of the new vector
+        const T norm = std::sqrt(y * y);
+
+        // Normalize and update the vector
+        results.x = y * (static_cast<T>(1) / norm);
+
+        // Estimate the eigenvalue using the Rayleigh Quotient
+        const T new_eigenvalue = results.x * (params.coefficients * results.x); // Compute (x)^T * A * x
+
+        // compute the change in eigenvalue
+        results.eigenvalue_iterative_error = std::abs(new_eigenvalue - results.eigenvalue);
+
+        // Update the eigenvalue
+        results.eigenvalue = new_eigenvalue;
+
+        // compute the relative change (by normalizing)
+        results.iterative_error = (results.eigenvalue != static_cast<T>(0)) ? results.eigenvalue_iterative_error / std::abs(results.eigenvalue) : std::numeric_limits<T>::max();
+
+        // check for convergence against the set threshold
+        if (results.iterative_error < params.convergence_threshold) {
+            results.converged = true;
+            break;
+        }
+    }
+
+    // Calculate the residual
+    results.residual = params.coefficients * results.x - results.eigenvalue * results.x;
+
+    // Calculate the infinity norm of the residual
+    results.residual_infinite_norm = std::abs(*std::max_element(results.residual.begin(), results.residual.end(), [](T a, T b) {
+        return std::abs(a) < std::abs(b);
+    }));
 
     return results;
 }

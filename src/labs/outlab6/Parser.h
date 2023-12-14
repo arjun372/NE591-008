@@ -232,7 +232,7 @@ class Parser : public CommandLine<OutLab6Inputs> {
             }
         }
 
-        input.input.threshold = values["threshold"].as<long double>();
+        input.input.convergence_threshold = values["threshold"].as<long double>();
         input.input.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
 
         if (values["use-LUP"].as<bool>()) {

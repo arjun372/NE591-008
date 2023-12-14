@@ -21,7 +21,7 @@ static void usingConjugateGradient(InLab11Outputs &outputs, InLab11Inputs &input
     MyBLAS::Matrix<MyBLAS::NumericType> A = inputs.input.coefficients;
     MyBLAS::Vector<MyBLAS::NumericType> b = inputs.input.constants;
     const size_t max_iterations = inputs.input.max_iterations;
-    const MyBLAS::NumericType threshold = inputs.input.threshold;
+    const MyBLAS::NumericType threshold = inputs.input.convergence_threshold;
     auto profiler = Profiler([&] {
         outputs.solution = MyRelaxationMethod::applyConjugateGradient(A, b, max_iterations, threshold);
     },100, 0, "Conjugate Gradient Method").run();
@@ -35,7 +35,7 @@ static void usingJacobiPreconditionedConjugateGradient(InLab11Outputs &outputs, 
                         const MyBLAS::Matrix<long double> &A = inputs.input.coefficients;
                         const MyBLAS::Vector<long double> &b = inputs.input.constants;
                         const size_t max_iterations = inputs.input.max_iterations;
-                        const long double threshold = inputs.input.threshold;
+                        const long double threshold = inputs.input.convergence_threshold;
                         outputs.solution = MyRelaxationMethod::applyJacobiPreconditionedConjugateGradient(A, b, max_iterations, threshold);
                     },100, 0, "Jacobi Preconditioned Conjugate Gradient Method").run();
     outputs.summary = profiler.getSummary();

@@ -123,7 +123,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     explicit Matrix(const Matrix<U>& other) {
         const size_t rows = other.getRows(), cols = other.getCols();
         data = std::vector<std::vector<T>>(rows, std::vector<T>(cols));
+        #pragma omp parallel for simd default(none) shared(other)
         for (size_t i = 0; i < rows; ++i) {
+            #pragma omp simd
             for (size_t j = 0; j < cols; ++j) {
                 data[i][j] = static_cast<T>(other[i][j]);
             }
@@ -141,7 +143,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     explicit Matrix(MatrixType matrix) {
         const size_t rows = matrix.getRows(), cols = matrix.getCols();
         data = std::vector<std::vector<T>>(rows, std::vector<T>(cols, 0));
+        #pragma omp parallel for simd default(none) shared(matrix)
         for (size_t i = 0; i < rows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < cols; ++j) {
                 data[i][j] = matrix[i][j];
             }
@@ -185,8 +189,10 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param cols Number of columns in the matrix.
      * @param func Lambda function to generate the elements of the matrix.
      */
-    explicit Matrix(size_t rows, size_t cols, std::function<T(size_t, size_t)> func) : data(rows, std::vector<T>(cols)) {
+    explicit Matrix(const size_t rows, const size_t cols, std::function<T(size_t, size_t)> func) : data(rows, std::vector<T>(cols)) {
+        #pragma omp parallel for simd default(none) shared(func)
         for (size_t i = 0; i < rows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < cols; ++j) {
                 data[i][j] = func(i, j);
             }
@@ -313,8 +319,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param size Size of the identity matrix.
      * @return Identity matrix of the given size.
      */
-    static Matrix eye(size_t size) {
+    static Matrix eye(const size_t size) {
         Matrix eye(size, size, 0);
+        #pragma omp parallel for simd default(none) shared(eye)
         for (size_t i = 0; i < size; ++i) {
             eye[i][i] = 1;
         }
@@ -331,7 +338,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         assert(getCols() == rhs.getCols());
         const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
+        #pragma omp parallel for simd default(none) shared(result, rhs)
         for (size_t i = 0; i < rows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < cols; ++j) {
                 result[i][j] = this->data[i][j] + rhs.data[i][j];
             }
@@ -349,7 +358,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         assert(getCols() == rhs.getCols());
         const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
+        #pragma omp parallel for simd default(none) shared(result, rhs)
         for (size_t i = 0; i < rows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < cols; ++j) {
                 result[i][j] = this->data[i][j] - rhs.data[i][j];
             }
@@ -367,8 +378,10 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         const size_t my_rows = getRows(), my_cols = getCols();
         const size_t rhs_cols = rhs.getCols();
         Matrix result(my_rows, rhs_cols, 0);
+        #pragma omp parallel for simd default(none) shared(result, rhs)
         for (size_t i = 0; i < my_rows; ++i) {
             for (size_t j = 0; j < rhs_cols; ++j) {
+                #pragma omp ordered simd
                 for (size_t k = 0; k < my_cols; ++k) {
                     result[i][j] += this->data[i][k] * rhs.data[k][j];
                 }
@@ -388,8 +401,10 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         const size_t my_rows = getRows(), my_cols = getCols();
         const size_t rhs_cols = rhs.getCols();
         MatrixType1 result(my_rows, rhs_cols, 0);
+        #pragma omp parallel for simd default(none) shared(result, rhs)
         for (size_t i = 0; i < my_rows; ++i) {
             for (size_t j = 0; j < rhs_cols; ++j) {
+                #pragma omp ordered simd
                 for (size_t k = 0; k < my_cols; ++k) {
                     result[i][j] += this->data[i][k] * rhs.data[k][j];
                 }
@@ -409,8 +424,10 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         const size_t my_rows = getRows(), my_cols = getCols();
         const size_t rhs_cols = rhs.getCols();
         MatrixType1 result(my_rows, rhs_cols, 0);
+        #pragma omp parallel for simd default(none) shared(result, rhs)
         for (size_t i = 0; i < my_rows; ++i) {
             for (size_t j = 0; j < rhs_cols; ++j) {
+                #pragma omp ordered simd
                 for (size_t k = 0; k < my_cols; ++k) {
                     result[i][j] += this->data[i][k] * rhs.data[k][j];
                 }
@@ -426,9 +443,12 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      */
     Vector<T> operator*(const Vector<T> &rhs) const {
         assert(getCols() == rhs.size());
-        const size_t my_rows = getRows(), my_cols = getCols();
+        const size_t my_rows = getRows();
+        const size_t my_cols = getCols();
         Vector<T> result(my_rows, 0);
+        #pragma omp parallel for simd default(none) shared(result, rhs)
         for (size_t i = 0; i < my_rows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < my_cols; ++j) {
                 result[i] += this->data[i][j] * rhs[j];
             }
@@ -442,11 +462,13 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param colStart Starting column index for the submatrix.
      * @param subMatrix The submatrix to set.
      */
-    void setSubMatrix(size_t rowStart, size_t colStart, const Matrix<T> &subMatrix) {
+    void setSubMatrix(const size_t rowStart, const size_t colStart, const Matrix<T> &subMatrix) {
         const size_t subRows = subMatrix.getRows(), subCols = subMatrix.getCols();
         assert(rowStart + subRows <= getRows());
         assert(colStart + subCols <= getCols());
+        #pragma omp parallel for simd default(none) shared(subMatrix)
         for (size_t i = 0; i < subRows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < subCols; ++j) {
                 data[rowStart + i][colStart + j] = subMatrix[i][j];
             }
@@ -461,11 +483,13 @@ template <typename T = MyBLAS::NumericType> class Matrix {
      * @param subCols Number of columns in the submatrix.
      * @return The extracted submatrix.
      */
-    Matrix<T> subMatrix(size_t rowStart, size_t colStart, size_t subRows, size_t subCols) const {
+    Matrix<T> subMatrix(const size_t rowStart, const size_t colStart, const size_t subRows, const size_t subCols) const {
         assert(rowStart + subRows <= getRows());
         assert(colStart + subCols <= getCols());
         Matrix<T> subMatrix(subRows, subCols, 0);
+        #pragma omp parallel for simd default(none) shared(subMatrix)
         for (size_t i = 0; i < subRows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < subCols; ++j) {
                 subMatrix[i][j] = data[rowStart + i][colStart + j];
             }
@@ -509,7 +533,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     Matrix operator*(const T &scalar) const {
         const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
+        #pragma omp parallel for simd default(none) shared(result, scalar)
         for (size_t i = 0; i < rows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < cols; ++j) {
                 result[i][j] = this->data[i][j] * scalar;
             }
@@ -536,7 +562,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         assert(scalar != 0);
         const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
+        #pragma omp parallel for simd default(none) shared(result, scalar)
         for (size_t i = 0; i < rows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < cols; ++j) {
                 result[i][j] = this->data[i][j] / scalar;
             }
@@ -552,7 +580,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     Matrix operator+(const T &scalar) const {
         const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
+        #pragma omp parallel for simd default(none) shared(result, scalar)
         for (size_t i = 0; i < rows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < cols; ++j) {
                 result[i][j] = this->data[i][j] + scalar;
             }
@@ -568,7 +598,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
     Matrix operator-(const T &scalar) const {
         const size_t rows = getRows(), cols = getCols();
         Matrix result(rows, cols, 0);
+        #pragma omp parallel for simd default(none) shared(result, scalar)
         for (size_t i = 0; i < rows; ++i) {
+            #pragma omp ordered simd
             for (size_t j = 0; j < cols; ++j) {
                 result[i][j] = this->data[i][j] - scalar;
             }
@@ -615,7 +647,9 @@ template <typename T = MyBLAS::NumericType> class Matrix {
         assert(A.getCols() == B.getCols());
         const size_t a_rows = A.getRows(), b_cols = B.getCols();
         MyBLAS::Matrix<T> result(a_rows, b_cols);
+        #pragma omp parallel for simd default(none) shared(result, A, B)
         for (size_t row = 0; row < a_rows; row++) {
+            #pragma omp ordered simd
             for (size_t col = 0; col < b_cols; col++) {
                 result[row][col] = A[row][col] * B[row][col];
             }

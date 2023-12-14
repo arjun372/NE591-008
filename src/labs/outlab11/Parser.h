@@ -54,7 +54,9 @@ class Parser : public CommandLine<OutLab11Inputs> {
         solverOptions.add_options()
             ("threshold,t", boost::program_options::value<long double>(), "= convergence threshold [𝜀 > 0]")(
                 "max-iterations,k", boost::program_options::value<long double>(), "= maximum iterations [n ∈ ℕ]")(
-                "order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]");
+                "order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]")(
+                "use-direct", "= use the direct PI method")(
+                "use-rayleigh", "= use the Rayleigh Quotient PI method");
 
         boost::program_options::options_description fileOptions("File I/O Options");
         fileOptions.add_options()(
@@ -167,6 +169,9 @@ class Parser : public CommandLine<OutLab11Inputs> {
             checks.emplace_back([](long double value) { return failsNaturalNumberCheck(value); });
             performChecksAndUpdateInput<long double>("order", inputMap, map, checks);
         }
+
+        promptAndSetFlags("use-direct", "Use the direct PI method", map);
+        promptAndSetFlags("use-rayleigh", "Use the Rayleigh Quotient PI method", map);
     }
 
     /**
@@ -215,7 +220,7 @@ class Parser : public CommandLine<OutLab11Inputs> {
             }
         }
 
-        input.input.threshold = values["threshold"].as<long double>();
+        input.input.convergence_threshold = values["threshold"].as<long double>();
         input.input.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
 
         if (!MyBLAS::isSquareMatrix(input.input.coefficients)) {
@@ -244,7 +249,14 @@ class Parser : public CommandLine<OutLab11Inputs> {
 
         input.input.n = input.input.coefficients.getRows();
 
-        // print the matrices since we are in verbose mode.
+        if (values["use-direct"].as<bool>()) {
+            input.methods.insert(MyRelaxationMethod::METHOD_DIRECT_POWER_ITERATION);
+        }
+
+        if (values["use-rayleigh"].as<bool>()) {
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_RAYLEIGH_QUOTIENT_POWER_ITERATION);
+        }
+
         if (!values.count("quiet")) {
             const auto precision = getCurrentPrecision();
             printLine();

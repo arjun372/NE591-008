@@ -5,8 +5,8 @@
  * @brief This file contains the input and output definitions for this project.
  */
 
-#ifndef NE591_008_OUTLAB11_INPUTOUTPUTS_H
-#define NE591_008_OUTLAB11_INPUTOUTPUTS_H
+#ifndef NE591_008_INLAB11_INPUTOUTPUTS_H
+#define NE591_008_INLAB11_INPUTOUTPUTS_H
 
 #include <utility>
 #include <boost/serialization/serialization.hpp>
@@ -53,7 +53,7 @@ typedef struct Input {
             return result;
         }();
     }
-} OutLab11Inputs;
+} InLab12Inputs;
 
 /**
  * @brief A structure to hold the output
@@ -108,6 +108,6 @@ typedef struct Output {
         os << output.summary << std::endl << output.solution << std::endl;
         return os;
     }
-} OutLab11Outputs;
+} InLab12Outputs;
 
-#endif // NE591_008_OUTLAB11_INPUTOUTPUTS_H
+#endif // NE591_008_INLAB11_INPUTOUTPUTS_H

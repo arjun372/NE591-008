@@ -80,7 +80,7 @@ export OUTPUT_COMPUTED_FLUX=./src/project/project3/examples/project3_example_com
 - `--use-SOR`: Use the SOR method
 - `--use-SORJ`: Use the SOR Jacobi method
 - `--use-SSOR`: Use the symmetric SOR method
-- `-t [ --threshold ] arg     `: iterative convergence threshold [𝜀 > 0]
+- `-t [ --convergence_threshold ] arg     `: iterative convergence convergence_threshold [𝜀 > 0]
 - `-k [ --max-iterations ] arg`: maximum number of iterations [n ∈ ℕ]
 - `-w [ --relaxation-factor ] arg`: SOR weight, typical ω ∈ [0,2]
 
@@ -127,7 +127,7 @@ terminal.
          "m": 3,
          "n": 3
       },
-      "threshold": 1e-4,
+      "convergence_threshold": 1e-4,
       "max-iterations": 5000,
       "relaxation-factor": 1.08,
       "methods": [
@@ -260,7 +260,7 @@ Solver Options:
   --use-gauss-seidel                 = Use the Gauss-Seidel method
   --use-SOR                          = Use the SOR method
   --use-SSOR                         = Use the symmetric SOR method
-  -t [ --threshold ] arg             = convergence threshold [𝜀 > 0]
+  -t [ --convergence_threshold ] arg             = convergence convergence_threshold [𝜀 > 0]
   -k [ --max-iterations ] arg        = maximum iterations [n ∈ ℕ]
   -w [ --relaxation-factor ] arg     = SOR weight, typical ω ∈ [0,2]
 

@@ -120,7 +120,8 @@ template <typename T> class Vector {
      * @param size Size of the vector.
      * @param func Lambda function to generate the elements of the vector.
      */
-    explicit Vector(size_t size, std::function<T(size_t)> func) : data(size), isRow(false) {
+    explicit Vector(const size_t size, std::function<T(size_t)> func) : data(size), isRow(false) {
+        #pragma omp parallel for simd default(none) shared(func)
         for (size_t i = 0; i < size; i++) {
             data[i] = func(i);
         }
@@ -142,6 +143,7 @@ template <typename T> class Vector {
     * @param _isRow Boolean indicating whether the vector is a row vector.
      */
     explicit Vector(LazyVector<T> &vector, bool _isRow = false): data(vector.size()), isRow(_isRow) {
+        #pragma omp parallel for simd default(none) shared(vector)
         for (size_t i = 0; i < vector.size(); i++) {
             data[i] = vector[i];
         }
@@ -154,6 +156,7 @@ template <typename T> class Vector {
     * @param _isRow Boolean indicating whether the vector is a row vector.
      */
     explicit Vector(LazyVector<T> vector, bool _isRow = false): data(vector.size()), isRow(_isRow) {
+        #pragma omp parallel for simd default(none) shared(vector)
         for (size_t i = 0; i < vector.size(); i++) {
             data[i] = vector[i];
         }
@@ -164,6 +167,7 @@ template <typename T> class Vector {
     template <typename U>
     explicit Vector(const Vector<U>& other) {
         data.resize(other.size());
+        #pragma omp parallel for simd default(none) shared(other)
         for (size_t i = 0; i < other.size(); ++i) {
             data[i] = static_cast<T>(other[i]);
         }
@@ -175,6 +179,7 @@ template <typename T> class Vector {
     template <class VectorType>
     explicit Vector(VectorType vector) {
         data.resize(vector.size());
+        #pragma omp parallel for simd default(none) shared(data, vector)
         for (size_t i = 0; i < vector.size(); ++i) {
             data[i] = vector[i];
         }
@@ -280,6 +285,7 @@ template <typename T> class Vector {
     Vector operator+(const Vector &rhs) const {
         assert(data.size() == rhs.size());
         Vector result(size(), 0);
+        #pragma omp parallel for simd default(none) shared(result, rhs)
         for (size_t i = 0; i < size(); ++i) {
             result[i] = this->data[i] + rhs.data[i];
         }
@@ -294,6 +300,7 @@ template <typename T> class Vector {
     Vector operator-(const Vector &rhs) const {
         assert(data.size() == rhs.size());
         Vector result(size(), 0);
+        #pragma omp parallel for simd default(none) shared(rhs, result)
         for (size_t i = 0; i < size(); ++i) {
             result[i] = this->data[i] - rhs.data[i];
         }
@@ -308,6 +315,7 @@ template <typename T> class Vector {
     T operator*(const Vector &rhs) const {
         assert(data.size() == rhs.size());
         T result = 0;
+        #pragma omp parallel for simd reduction(+:result) default(none) shared(rhs)
         for (size_t i = 0; i < size(); ++i) {
             result += this->data[i] * rhs.data[i];
         }
@@ -354,6 +362,7 @@ template <typename T> class Vector {
      */
     Vector<T> operator*(const T &scalar) const {
         Vector<T> result(size(), 0);
+        #pragma omp parallel for simd default(none) shared(result, scalar)
         for (size_t i = 0; i < size(); ++i) {
             result[i] = data[i] * scalar;
         }
@@ -368,6 +377,7 @@ template <typename T> class Vector {
     Vector<T> operator/(const T &scalar) const {
         assert(scalar != 0);
         Vector<T> result(size(), 0);
+        #pragma omp parallel for simd default(none) shared(result, scalar)
         for (size_t i = 0; i < size(); ++i) {
             result[i] = data[i] / scalar;
         }
@@ -381,6 +391,7 @@ template <typename T> class Vector {
      */
     Vector<T> operator+(const T &scalar) const {
         Vector<T> result(size(), 0);
+        #pragma omp parallel for simd default(none) shared(result, scalar)
         for (size_t i = 0; i < size(); ++i) {
             result[i] = data[i] + scalar;
         }
@@ -394,6 +405,7 @@ template <typename T> class Vector {
      */
     Vector<T> operator-(const T &scalar) const {
         Vector<T> result(size(), 0);
+        #pragma omp parallel for simd default(none) shared(result, scalar)
         for (size_t i = 0; i < size(); ++i) {
             result[i] = data[i] - scalar;
         }
@@ -425,11 +437,27 @@ template <typename T> class Vector {
         assert(A.size() == B.size());
         const auto size = A.size();
         MyBLAS::Vector<T> result(size);
+        #pragma omp parallel for simd default(none) shared(result, A, B)
         for (size_t i = 0; i < size; i++) {
             result[i] = A[i] * B[i];
         }
         return result;
     }
+
+  public:
+    // Type aliases for iterator and const_iterator
+    using iterator = typename std::vector<T>::iterator;
+    using const_iterator = typename std::vector<T>::const_iterator;
+
+    // Begin iterator
+    iterator begin() { return data.begin(); }
+    const_iterator begin() const { return data.begin(); }
+    const_iterator cbegin() const { return data.cbegin(); }
+
+    // End iterator
+    iterator end() { return data.end(); }
+    const_iterator end() const { return data.end(); }
+    const_iterator cend() const { return data.cend(); }
 };
 
 } // namespace MyBLAS

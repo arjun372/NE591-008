@@ -1,8 +1,8 @@
 <div style="display: none">
-\page OutLab 11: Power Iterations Method
+\page InLab 12: Power Iterations Method
 </div>
 
-OutLab 11: Power Iterations Method
+InLab 12: Power Iterations Method
 
 File based I/O is supported using JSON files.
 
@@ -22,14 +22,14 @@ File based I/O is supported using JSON files.
 
 The code has been built and tested on the `remote.eos.ncsu.edu` servers. It requires no additional
 configuration except choosing the build target, and output file. Here is a repeatable script
-to perform the build and run the `outlab11` target executable:
+to perform the build and run the `inlab12` target executable:
 
 ```bash
 # Assuming cwd is the repo root:
 #!/bin/bash
 
 ## Specify the build target
-export BUILD_TARGET=outlab11
+export BUILD_TARGET=inlab12
 
 ## Create the build directory, configure and compile the $BUILD_TARGET
 mkdir -p build && cd build && \
@@ -38,7 +38,7 @@ make -j$(nproc) $BUILD_TARGET && cd ../
 
 ## Specify the input and output files.
 ## NOTE: This path is relative to the repo root directory
-export OUTPUT_FILE=./src/labs/outlab11/examples/outlab11_output.json
+export OUTPUT_FILE=./src/labs/inlab12/examples/inlab12_output.json
 
 ## Execute
 ./build/bin/$BUILD_TARGET -g -o $OUTPUT_FILE
@@ -90,27 +90,63 @@ The output is written to a JSON file as well.
 
 ```json
 {
-   "power_iteration": {
+   "direct-power-iteration": {
       "benchmark": {
-         "mean": 44127.14,
-         "p5th": 38376.6,
-         "p95th": 70051.6,
+         "mean": 71070.14,
+         "p5th": 65543.25,
+         "p95th": 83677.75,
          "samples": 100
       },
       "solution": {
          "converged": true,
-         "eigenvalue": 5.618001047771479,
-         "iterations": {
-            "actual": 14
-         },
+         "eigenvalue": 5.617862032888341,
+         "iterations": 12,
          "iterative-error": {
-            "actual": 5.032033910499058e-05
+            "eigenvalue": 0.00026600375184247446,
+            "x": 4.73496412487924e-05
          },
-         "solution": [
-            0.5997197745151289,
-            -0.37175794139874857,
-            -0.6022848539235147,
-            0.37334324662007495
+         "residual": [
+            0.009352377667662094,
+            0.001073025507593375,
+            0.003015940623797602,
+            -0.008716994010167288
+         ],
+         "residual-∞-norm": 0.009352377667662094,
+         "x": [
+            0.5970258552065718,
+            -0.37204730392844737,
+            -0.6032105375306189,
+            0.37586963067858625
+         ]
+      }
+   },
+   "rayleigh-quotient-power-iteration": {
+      "benchmark": {
+         "mean": 125762.29,
+         "p5th": 98371.5,
+         "p95th": 111113.75,
+         "samples": 100
+      },
+      "solution": {
+         "converged": true,
+         "eigenvalue": 5.61782265628969,
+         "iterations": 11,
+         "iterative-error": {
+            "eigenvalue": 0.0003273588362378856,
+            "x": 5.827147923072582e-05
+         },
+         "residual": [
+            0.014820248536597152,
+            0.0022243337369853775,
+            0.004384223531290076,
+            -0.014093055145800832
+         ],
+         "residual-∞-norm": 0.014820248536597152,
+         "x": [
+            0.5943919629329263,
+            -0.372445854012944,
+            -0.6039951788730424,
+            0.3783808982063353
          ]
       }
    }
@@ -122,7 +158,7 @@ The output is written to a JSON file as well.
 The following is an example of the program's output:
 
 ```shell
-NE591: OutLab 11: Power Iterations Method
+NE591: InLab 12: Eigenvalues using Direct & Rayleigh QuotientPower Iteration Methods
 Arjun Earthperson
 11/03/2023
 --------------------------------------------------------------------------------
@@ -133,10 +169,12 @@ boost: 106600 /usr/lib64/libboost_program_options.so;/usr/lib64/libboost_seriali
 Parameters:
 
 Solver Options:
-  -t [ --convergence_threshold ] arg                = convergence convergence_threshold [𝜀 > 0]
+  -t [ --threshold ] arg                = convergence threshold [𝜀 > 0]
   -k [ --max-iterations ] arg           = maximum iterations [n ∈ ℕ]
   -n [ --order ] arg                    = order of the square matrix [n ∈ 
                                         ℕ]
+  --use-direct                          = use the direct PI method
+  --use-rayleigh                        = use the Rayleigh Quotient PI method
 
 File I/O Options:
   -i [ --input-json ] arg               = input JSON containing A
@@ -158,6 +196,10 @@ General options:
 --------------------------------------------------------------------------------
 			Precision in digits:  default: 6, maximum: 19, current: 15
 --------------------------------------------------------------------------------
+Would you like to use the Use the direct PI method? [YES/no]: y
+y
+Would you like to use the Use the Rayleigh Quotient PI method? [YES/no]: y
+y
 --------------------------------------------------------------------------------
                                      Inputs
 --------------------------------------------------------------------------------
@@ -181,21 +223,67 @@ Coefficient Matrix (A):
    -1.000000000000000e+00    0.000000000000000e+00    4.000000000000000e+00   -1.000000000000000e+00
     0.000000000000000e+00   -1.000000000000000e+00   -1.000000000000000e+00    3.000000000000000e+00
 --------------------------------------------------------------------------------
+::::::::::::::::::::::::::::::: Solver Parameters ::::::::::::::::::::::::::::::
+--------------------------------------------------------------------------------
+Initial Guess
+--------------------------------------------------------------------------------
+-3.451901831525128e-01   -3.999578137192380e-01   -1.776804031623526e-01   4.288425371722089e-01    
+--------------------------------------------------------------------------------
+Size (n):                4
+Convergence Threshold:   1.000000000000000e-04
+Relaxation Factor:       nan
+Max Iterations:          50
 :::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
-[100/100] : Power Iterations Method
+[100/100] : Direct Power Iterations Method
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::: SUM: 4.41e+06 :::::::: VARIANCE: 8.62e+07 :::::::: MEDIAN: 4.03e+04 :::::
+:::::: SUM: 7.11e+06 :::::::: VARIANCE: 1.66e+08 :::::::: MEDIAN: 6.72e+04 :::::
 :::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
-:::::: {3.84e+04, 7.28e+04} : (4.41e+04 ± 9.28e+03) : [3.84e+04, 7.01e+04] :::::
-:::::: Estimated maximum allocated memory [bytes]: 512 ::::::::::::::::::::::::
+:::::: {6.51e+04, 1.75e+05} : (7.11e+04 ± 1.29e+04) : [6.55e+04, 8.37e+04] :::::
+:::::: Estimated maximum allocated memory [bytes]: 640 ::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::: Converged       : Yes
-:::::: Eigenvalue      : 5.62e+00
-:::::: Iterations      : 14
-:::::: Iterative Error : 5.03e-05
-:::::: Iterate Vector x:     6.00e-01   -3.72e-01   -6.02e-01    3.73e-01
+:::::: Converged        :     Yes
+:::::: Iterations       :     12
+:::::: Iterative Error  :     4.73e-05
+:::::: Iterate Vector x : 5.97e-01    -3.72e-01   -6.03e-01   3.76e-01    
+:::::: Eigenvalue       :     5.62e+00
+:::::: Eigenvalue Error :     2.66e-04
+:::::: Residual ∞-Norm  :     9.35e-03
+:::::: Residual         : 9.35e-03    1.07e-03    3.02e-03    -8.72e-03   
 
 
 --------------------------------------------------------------------------------
+::::::::::::::::::::::::::::::: Solver Parameters ::::::::::::::::::::::::::::::
+--------------------------------------------------------------------------------
+Initial Guess
+--------------------------------------------------------------------------------
+-3.451901831525128e-01   -3.999578137192380e-01   -1.776804031623526e-01   4.288425371722089e-01    
+--------------------------------------------------------------------------------
+Size (n):                4
+Convergence Threshold:   1.000000000000000e-04
+Relaxation Factor:       nan
+Max Iterations:          50
+:::::::::::::::::::::::::::: PROFILE SUMMARY [ns] ::::::::::::::::::::::::::::::
+[100/100] : Rayleigh Quotient Power Iterations Method
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::: SUM: 1.26e+07 :::::::: VARIANCE: 3.45e+10 :::::::: MEDIAN: 1.01e+05 :::::
+:::::: {     MIN,      MAX} : (AVERAGE  ± STD.DEV.) : [PCT_05th, PCT_95th] :::::
+:::::: {9.78e+04, 1.91e+06} : (1.26e+05 ± 1.86e+05) : [9.84e+04, 1.11e+05] :::::
+:::::: Estimated maximum allocated memory [bytes]: 736 ::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::: Converged        :     Yes
+:::::: Iterations       :     11
+:::::: Iterative Error  :     5.83e-05
+:::::: Iterate Vector x : 5.94e-01    -3.72e-01   -6.04e-01   3.78e-01    
+:::::: Eigenvalue       :     5.62e+00
+:::::: Eigenvalue Error :     3.27e-04
+:::::: Residual ∞-Norm  :     1.48e-02
+:::::: Residual         : 1.48e-02    2.22e-03    4.38e-03    -1.41e-02   
+
+
+--------------------------------------------------------------------------------
+JSON data has been written to /dev/stdout
+
+Process finished with exit code 0
 ```

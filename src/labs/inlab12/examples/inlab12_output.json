@@ -1,0 +1,50 @@
+{
+  "outputs": {
+    "CG": {
+      "benchmark": {
+        "mean": 1482.32,
+        "p5th": 1120.9,
+        "p95th": 1308.8,
+        "samples": 100
+      },
+      "solution": {
+        "converged": true,
+        "iterations": {
+          "actual": 2
+        },
+        "iterative-error": {
+          "actual": 2.4977230927471127e-05
+        },
+        "solution": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "SOR": {
+      "benchmark": {
+        "mean": 2334.67,
+        "p5th": 1895.95,
+        "p95th": 1987.15,
+        "samples": 100
+      },
+      "solution": {
+        "converged": true,
+        "iterations": {
+          "actual": 4
+        },
+        "iterative-error": {
+          "actual": 9.662710781447525e-05
+        },
+        "solution": [
+          4.689765580182186,
+          -4.505558137202693,
+          1.0297059892341907,
+          2.960941254070212
+        ]
+      }
+    }
+  }
+}

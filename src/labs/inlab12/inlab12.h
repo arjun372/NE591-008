@@ -1,13 +1,13 @@
 /**
- * @file outlab11.cpp
+ * @file inlab12.cpp
  * @author Arjun Earthperson
  * @date 10/27/2023
- * @brief This file contains the declaration for the OutLab11 class.
+ * @brief This file contains the declaration for the InLab12 class.
  *
  */
 
-#ifndef NE591_008_OUTLAB11_H
-#define NE591_008_OUTLAB11_H
+#ifndef NE591_008_INLAB11_H
+#define NE591_008_INLAB11_H
 
 #include <boost/program_options.hpp>
 #include <iomanip>
@@ -26,47 +26,47 @@
 #include "math/relaxation/RelaxationMethods.h"
 
 /**
- * @class OutLab11
+ * @class InLab12
  * @brief This class is a child of the MPI Project class
  * @details The class takes in command line arguments and uses them to solve the system of equations.
  */
-class OutLab11 : public Project<OutLab11Inputs, Parser, OutLab11Outputs> {
+class InLab12 : public Project<InLab12Inputs, Parser, InLab12Outputs> {
 
   public:
     /**
-     * @brief This function is used to get the instance of the OutLab11 class.
-     * @details This function follows the Singleton design pattern. It ensures that only one instance of the OutLab11
+     * @brief This function is used to get the instance of the InLab12 class.
+     * @details This function follows the Singleton design pattern. It ensures that only one instance of the InLab12
      * class is created.
      * @param args Command line arguments
-     * @return Returns the instance of the OutLab11 class.
+     * @return Returns the instance of the InLab12 class.
      */
-    [[maybe_unused]] static OutLab11& getInstance(CommandLineArgs args) {
-        static OutLab11 instance(args);
+    [[maybe_unused]] static InLab12& getInstance(CommandLineArgs args) {
+        static InLab12 instance(args);
         return instance;
     }
 
     /**
      * @brief This function is used to delete the copy constructor.
-     * @details This function ensures that the OutLab11 class cannot be copied. This is necessary because we are
+     * @details This function ensures that the InLab12 class cannot be copied. This is necessary because we are
      * following the Singleton design pattern.
-     * @param OutLab11 const& The reference to the OutLab11 object to be copied.
+     * @param InLab12 const& The reference to the InLab12 object to be copied.
      */
-    OutLab11(OutLab11 const&) = delete;
+    InLab12(InLab12 const&) = delete;
 
     /**
      * @brief This function is used to delete the assignment operator.
-     * @details This function ensures that the OutLab11 class cannot be assigned. This is necessary because we are
+     * @details This function ensures that the InLab12 class cannot be assigned. This is necessary because we are
      * following the Singleton design pattern.
-     * @param OutLab11 const& The reference to the OutLab11 object to be assigned.
+     * @param InLab12 const& The reference to the InLab12 object to be assigned.
      */
-    void operator=(OutLab11 const&) = delete;
+    void operator=(InLab12 const&) = delete;
 
   protected:
     /**
-     * @brief Constructor for the outlab11 class
+     * @brief Constructor for the inlab12 class
      * @param args Command line arguments
      */
-    explicit OutLab11(CommandLineArgs args) : Project(args) {}
+    explicit InLab12(CommandLineArgs args) : Project(args) {}
 
   protected:
     /**
@@ -84,8 +84,8 @@ class OutLab11 : public Project<OutLab11Inputs, Parser, OutLab11Outputs> {
         canvas.y_stop = 0.883651184261;
         canvas.tone_map.growth_rate = 0.25;
         return {
-            .ProjectName = "NE591: OutLab 11",
-            .ProjectDescription = "Power Iterations Method",
+            .ProjectName = "NE591: InLab 12",
+            .ProjectDescription = "Eigenvalues using Direct & Rayleigh QuotientPower Iteration Methods",
             .SubmissionDate = "11/03/2023",
             .StudentName = "Arjun Earthperson",
             .HeaderArt = drawJuliaSet<__float128>(canvas, x, y, iterations),
@@ -96,7 +96,7 @@ class OutLab11 : public Project<OutLab11Inputs, Parser, OutLab11Outputs> {
      * @brief This function prints the results of the computation.
      * @param results The results of the computation.
      */
-    static void printResults(OutLab11Outputs &results) {
+    static void printResults(InLab12Outputs &results) {
         std::cout << "\ttotal iterations          : " << (results.solution.iterations) << std::endl;
         std::cout << "\tconverged                 : " << (results.solution.converged ? "Yes" : "No") << std::endl;
         std::cout << "\titerative error           : " << (results.solution.iterative_error) << std::endl;}
@@ -111,19 +111,19 @@ class OutLab11 : public Project<OutLab11Inputs, Parser, OutLab11Outputs> {
      * @param size The total number of processes.
      * @return Returns false to indicate that the computation was successful.
      */
-    void run(OutLab11Outputs &outputs, OutLab11Inputs &inputs, boost::program_options::variables_map &values) override {
+    void run(InLab12Outputs &outputs, InLab12Inputs &inputs, boost::program_options::variables_map &values) override {
 
         nlohmann::json results;
 
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_DIRECT_POWER_ITERATION)) {
-            OutLab11Outputs dPowerIterationResults;
+            InLab12Outputs dPowerIterationResults;
             Compute::usingDirectPowerIteration(dPowerIterationResults, inputs);
             dPowerIterationResults.toJSON(results["outputs"]["direct-power-iteration"]);
             Parser::printLine();
         }
 
         if (inputs.methods.count(MyRelaxationMethod::Type::METHOD_RAYLEIGH_QUOTIENT_POWER_ITERATION)) {
-            OutLab11Outputs rPowerIterationResults;
+            InLab12Outputs rPowerIterationResults;
             Compute::usingRayleighQuotientPowerIteration(rPowerIterationResults, inputs);
             rPowerIterationResults.toJSON(results["outputs"]["rayleigh-quotient-power-iteration"]);
             Parser::printLine();
@@ -134,4 +134,4 @@ class OutLab11 : public Project<OutLab11Inputs, Parser, OutLab11Outputs> {
     }
 };
 
-#endif // NE591_008_OUTLAB11_H
+#endif // NE591_008_INLAB11_H

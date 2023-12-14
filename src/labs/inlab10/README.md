@@ -47,7 +47,7 @@ export OUTPUT_FILE=./src/labs/inlab10/examples/inlab10_output.json
 
 ### Parameters
 
-- `-t [ --threshold ] arg     `: iterative convergence threshold [𝜀 > 0]
+- `-t [ --convergence_threshold ] arg     `: iterative convergence convergence_threshold [𝜀 > 0]
 - `-k [ --max-iterations ] arg`: maximum number of iterations [n ∈ ℕ]
 - `-i [ --input-json ] arg`: input JSON containing A, and b
 - `-o [ --output-json ] arg`: path for the output JSON

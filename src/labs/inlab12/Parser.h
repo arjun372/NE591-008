@@ -6,8 +6,8 @@
  * user inputs.
  */
 
-#ifndef NE591_008_OUTLAB10_PARSER_H
-#define NE591_008_OUTLAB10_PARSER_H
+#ifndef NE591_008_INLAB11_PARSER_H
+#define NE591_008_INLAB11_PARSER_H
 
 #include "math/blas/system/Circuit.h"
 
@@ -20,11 +20,11 @@
  * @class Parser
  * @brief This class is responsible for parsing command line arguments and validating user inputs.
  *
- * The Parser class extends the CommandLine class template with OutLab10Inputs as the template argument.
+ * The Parser class extends the CommandLine class template with InLab12Inputs as the template argument.
  * It provides methods to build input arguments, print input arguments, perform checks on input arguments,
  * and build inputs based on the parsed arguments.
  */
-class Parser : public CommandLine<OutLab10Inputs> {
+class Parser : public CommandLine<InLab12Inputs> {
 
   public:
     /**
@@ -33,7 +33,7 @@ class Parser : public CommandLine<OutLab10Inputs> {
      * @param headerInfo A constant reference to a HeaderInfo object containing the header information.
      * @param args A constant reference to a CommandLineArgs object containing the command line arguments.
      */
-    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine<OutLab10Inputs>(headerInfo, args) {}
+    explicit Parser(const HeaderInfo &headerInfo, const CommandLineArgs &args) : CommandLine<InLab12Inputs>(headerInfo, args) {}
 
     /**
      * @brief Default constructor for the Parser class.
@@ -54,12 +54,14 @@ class Parser : public CommandLine<OutLab10Inputs> {
         solverOptions.add_options()
             ("threshold,t", boost::program_options::value<long double>(), "= convergence threshold [𝜀 > 0]")(
                 "max-iterations,k", boost::program_options::value<long double>(), "= maximum iterations [n ∈ ℕ]")(
-                "order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]");
+                "order,n", boost::program_options::value<long double>(), "= order of the square matrix [n ∈ ℕ]")(
+                "use-direct", "= use the direct PI method")(
+                "use-rayleigh", "= use the Rayleigh Quotient PI method");
 
         boost::program_options::options_description fileOptions("File I/O Options");
         fileOptions.add_options()(
-            "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing A, and b")(
-            "generate,g", "= Generate A,b ignoring input-json")(
+            "input-json,i", boost::program_options::value<std::string>(), "= input JSON containing A")(
+            "generate,g", "= Generate A ignoring input-json")(
             "output-json,o", boost::program_options::value<std::string>()->default_value("/dev/stdout"), "= path for the output JSON");
 
         values.add(solverOptions);
@@ -78,15 +80,11 @@ class Parser : public CommandLine<OutLab10Inputs> {
         std::cout << std::setw(44) << "Inputs\n";
         CommandLine::printLine();
         const bool gen = vm.count("generate");
-        const bool direct = vm.count("use-direct");
-        const bool rayleigh = vm.count("use-rayleigh");
         const auto inputJson = vm.count("input-json") ? vm["input-json"].as<std::string>() : "None provided";
-        std::cout << "\tUse direct PI method      : " << (direct ? "Yes" : "No") << "\n";
-        std::cout << "\tUse Rayleigh PI method    : " << (rayleigh ? "Yes" : "No") << "\n";
         std::cout << "\tGenerate A               g: " << (gen ? "Yes" : "No") << "\n";
         std::cout << "\tInput JSON (for A),      i: " << (gen ? "[IGNORED] " : " ") << inputJson << "\n";
         std::cout << "\tOutput JSON (for x),     o: " << vm["output-json"].as<std::string>() << "\n";
-        std::cout << "\tConvergence threshold,   𝜀: " << vm["threshold"].as<long double>() << "\n";
+        std::cout << "\tConvergence Threshold,   𝜀: " << vm["threshold"].as<long double>() << "\n";
         std::cout << "\tMax iterations,          k: " << static_cast<size_t>(vm["max-iterations"].as<long double>())
                   << "\n";
         std::cout << "\tMatrix order,            n: "
@@ -171,12 +169,15 @@ class Parser : public CommandLine<OutLab10Inputs> {
             checks.emplace_back([](long double value) { return failsNaturalNumberCheck(value); });
             performChecksAndUpdateInput<long double>("order", inputMap, map, checks);
         }
+
+        promptAndSetFlags("use-direct", "Use the direct PI method", map);
+        promptAndSetFlags("use-rayleigh", "Use the Rayleigh Quotient PI method", map);
     }
 
     /**
      * @brief Builds the inputs
      */
-    void buildInputs(OutLab10Inputs &input, boost::program_options::variables_map &values) override {
+    void buildInputs(InLab12Inputs &input, boost::program_options::variables_map &values) override {
 
         // first, read the input file into a json map
         nlohmann::json inputMap;
@@ -191,22 +192,15 @@ class Parser : public CommandLine<OutLab10Inputs> {
             }
             auto n = static_cast<size_t>(values["order"].as<long double>());
             input.input.n = n;
-            MyBLAS::System::Circuit(n, input.input.coefficients, input.input.constants, input.known_solution);
+            MyBLAS::Vector<MyBLAS::NumericType> b = Random::generate_vector<MyBLAS::NumericType>(input.input.coefficients.getRows());
+            MyBLAS::System::Circuit(n, input.input.coefficients, b, input.known_solution);
         } else {
-            // read the constants
-            input.input.constants = MyBLAS::Vector(MyBLAS::Vector(std::vector<long double>(inputMap["constants"])));
             // read the coefficient matrix
             input.input.coefficients = MyBLAS::Matrix(std::vector<std::vector<long double>>(inputMap["coefficients"]));
         }
 
         if (!MyBLAS::isSquareMatrix(input.input.coefficients)) {
-            std::cerr << "Error: Input coefficients matrix A not square, aborting.\n";
-            exit(-1);
-        }
-
-        if (input.input.coefficients.getRows() != input.input.constants.size()) {
-            std::cerr << "Error: Input constants vector not order n, aborting.\n";
-            exit(-1);
+            std::cerr << "Warning: Input coefficients matrix A not square, aborting.\n";
         }
 
         if (!generate) {
@@ -253,13 +247,25 @@ class Parser : public CommandLine<OutLab10Inputs> {
             std::cout << "Input coefficients matrix A is positive definite.\n";
         }
 
-        if (input.input.coefficients.getRows() != input.input.constants.size()) {
-            std::cerr << "Error: Input constants vector 'b' not order n, aborting.\n";
-            exit(-1);
+        input.input.n = input.input.coefficients.getRows();
+
+        if (values["use-direct"].as<bool>()) {
+            input.methods.insert(MyRelaxationMethod::METHOD_DIRECT_POWER_ITERATION);
         }
 
-        input.input.n = input.input.coefficients.getRows();
+        if (values["use-rayleigh"].as<bool>()) {
+            input.methods.insert(MyRelaxationMethod::Type::METHOD_RAYLEIGH_QUOTIENT_POWER_ITERATION);
+        }
+
+        if (!values.count("quiet")) {
+            const auto precision = getCurrentPrecision();
+            printLine();
+            std::cout << "Coefficient Matrix (A):\n";
+            printLine();
+            std::cout << std::setprecision(static_cast<int>(precision)) << input.input.coefficients;
+            printLine();
+        }
     }
 };
 
-#endif // NE591_008_OUTLAB10_PARSER_H
+#endif // NE591_008_INLAB11_PARSER_H

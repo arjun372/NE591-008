@@ -5,8 +5,8 @@
  * @brief This file contains the declaration and implementation of the Compute namespace.
  */
 
-#ifndef NE591_008_OUTLAB11_COMPUTE_H
-#define NE591_008_OUTLAB11_COMPUTE_H
+#ifndef NE591_008_INLAB11_COMPUTE_H
+#define NE591_008_INLAB11_COMPUTE_H
 
 #include "math/relaxation/PowerIteration.h"
 
@@ -16,7 +16,7 @@
  */
 namespace Compute {
 
-static void usingDirectPowerIteration(OutLab11Outputs &outputs, OutLab11Inputs &inputs) {
+static void usingDirectPowerIteration(InLab12Outputs &outputs, InLab12Inputs &inputs) {
     inputs.input.initial_guess = Random::generate_vector<MyBLAS::NumericType>(inputs.input.n, -1, 1);
     std::cout << inputs.input << std::endl;
     auto profiler = Profiler([&] {
@@ -27,7 +27,7 @@ static void usingDirectPowerIteration(OutLab11Outputs &outputs, OutLab11Inputs &
     std::cout << outputs.solution <<std::endl;
 }
 
-static void usingRayleighQuotientPowerIteration(OutLab11Outputs &outputs, OutLab11Inputs &inputs) {
+static void usingRayleighQuotientPowerIteration(InLab12Outputs &outputs, InLab12Inputs &inputs) {
     inputs.input.initial_guess = Random::generate_vector<MyBLAS::NumericType>(inputs.input.n, -1, 1);
     std::cout << inputs.input << std::endl;
     auto profiler = Profiler([&] {
@@ -39,4 +39,4 @@ static void usingRayleighQuotientPowerIteration(OutLab11Outputs &outputs, OutLab
 }
 
 } // namespace Compute
-#endif // NE591_008_OUTLAB11_COMPUTE_H
+#endif // NE591_008_INLAB11_COMPUTE_H

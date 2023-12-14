@@ -40,7 +40,7 @@ typedef struct Input {
      * @param jsonMap The JSON object to which the input parameters are added.
      */
     void toJSON(nlohmann::json &jsonMap) const {
-        jsonMap["threshold"] = input.threshold;
+        jsonMap["threshold"] = input.convergence_threshold;
         jsonMap["order"] = input.n;
         jsonMap["max-iterations"] = input.max_iterations;
         jsonMap["coefficients"] = input.coefficients.getData();

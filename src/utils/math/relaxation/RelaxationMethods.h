@@ -26,6 +26,9 @@ enum Type {
     METHOD_SOR,
     METHOD_SSOR,
     METHOD_CONJUGATE_GRADIENT,
+    METHOD_PRECONDITIONED_CONJUGATE_GRADIENT,
+    METHOD_DIRECT_POWER_ITERATION,
+    METHOD_RAYLEIGH_QUOTIENT_POWER_ITERATION
 };
 
 /**
@@ -37,7 +40,18 @@ enum Type {
  * @return The key of the relaxation method type as a string.
  */
 const char *TypeKey(MyRelaxationMethod::Type value) {
-    static const char *relaxationMethodTypeKeys[] = {"point-jacobi", "SORPJ", "gauss-seidel", "symmetric-gauss-seidel", "SOR", "SSOR", "CG"};
+    static const char *relaxationMethodTypeKeys[] = {
+        "point-jacobi",
+        "SORPJ",
+        "gauss-seidel",
+        "symmetric-gauss-seidel",
+        "SOR",
+        "SSOR",
+        "conjugate-gradient",
+        "preconditioned-conjugate-gradient",
+        "direct-eigenvalue-power-iteration",
+        "rayleigh-eigenvalue-power-iteration"
+    };
     return relaxationMethodTypeKeys[static_cast<int>(value)];
 }
 

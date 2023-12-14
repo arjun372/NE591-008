@@ -222,7 +222,7 @@ class Parser : public CommandLine<InLab11Inputs> {
             }
         }
 
-        input.input.threshold = values["threshold"].as<long double>();
+        input.input.convergence_threshold = values["threshold"].as<long double>();
         input.input.max_iterations = static_cast<size_t>(values["max-iterations"].as<long double>());
 
         if (!MyBLAS::isSquareMatrix(input.input.coefficients)) {
