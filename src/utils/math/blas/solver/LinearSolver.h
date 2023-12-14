@@ -66,6 +66,8 @@ template <typename T> struct Solution {
 
     MyBLAS::Vector<T> x{};
 
+    T eigenvalue = std::numeric_limits<T>::quiet_NaN();
+
     [[nodiscard]] MyBLAS::Vector<T> getResidual(MyBLAS::Matrix<T> a) const { return a * x; }
 
     [[nodiscard]] T getMaxResidual(MyBLAS::Matrix<T> a, MyBLAS::Vector<T> b) const {
@@ -79,6 +81,7 @@ template <typename T> struct Solution {
      */
     void toJSON(nlohmann::json &jsonMap) const {
         jsonMap["converged"] = converged;
+        jsonMap["eigenvalue"] = eigenvalue;
         jsonMap["iterations"]["actual"] = iterations;
         jsonMap["iterative-error"]["actual"] = iterative_error;
         jsonMap["solution"] = x.getData();
@@ -96,8 +99,10 @@ template <typename T> struct Solution {
         const auto width = static_cast<int>(2 + static_cast<std::streamsize>(10));
         os << std::setprecision(2) << std::setw(width) << std::setfill(' ') << std::scientific;
         os << ":::::: Converged       : " << (solution.converged ? "Yes" : "No")<<std::endl;
+        os << ":::::: Eigenvalue      : " << solution.eigenvalue<<std::endl;
         os << ":::::: Iterations      : " << solution.iterations<<std::endl;
         os << ":::::: Iterative Error : " << solution.iterative_error<<std::endl;
+        os << ":::::: Iterate Vector x: " << solution.x <<std::endl;
         os << std::setprecision(static_cast<int>(precision));
         return os;
     }

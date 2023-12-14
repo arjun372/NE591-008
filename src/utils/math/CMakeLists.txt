@@ -11,6 +11,8 @@ set(LIB_HEADERS
         factorization/LUP.h
         factorization/Factorize.h
 
+        relaxation/ConjugateGradient.h
+        relaxation/PowerIteration.h
         relaxation/SORPJ.h
         relaxation/SOR.h
         relaxation/SSOR.h

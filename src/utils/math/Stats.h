@@ -199,7 +199,7 @@ T percentile(Vector<T> v, long double p) {
     if (data.size() == 1) {
         return data[0];
     }
-    std::nth_element(data.begin(), data.begin() + index, data.end());
+    std::nth_element(data.begin(), data.begin() + (index), data.end());
     T val = data[index];
     if (fractional == 0 || index + 1 == data.size()) {
         return val;

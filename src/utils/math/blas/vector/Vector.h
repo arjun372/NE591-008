@@ -315,6 +315,39 @@ template <typename T> class Vector {
     }
 
     /**
+     * @brief Overloaded operator/ perform element-wise division between two vectors.
+     * @param rhs Vector to subtract from the current vector.
+     * @return Resultant vector after subtraction.
+     */
+    Vector operator/(const Vector &divisor) const {
+        assert(data.size() == divisor.size());
+        Vector result(size(), 0);
+        for (size_t i = 0; i < size(); ++i) {
+            if (divisor.data[i] == static_cast<T>(0)) {
+                throw std::invalid_argument("attempting to divide by zero at index: "+std::to_string(i));
+            }
+            result[i] = this->data[i] / divisor.data[i];
+        }
+        return result;
+    }
+
+    /**
+     * @brief Overloaded operator/ perform element-wise division between two vectors.
+     * @param rhs Vector to subtract from the current vector.
+     * @return Resultant vector after subtraction.
+     */
+    Vector& operator/=(const Vector &divisor) const {
+        assert(data.size() == divisor.size());
+        for (size_t i = 0; i < size(); ++i) {
+            if (divisor.data[i] == static_cast<T>(0)) {
+                throw std::invalid_argument("attempting to divide by zero at index: "+std::to_string(i));
+            }
+            this->data[i] = this->data[i] / divisor.data[i];
+        }
+        return *this;
+    }
+
+    /**
      * @brief Overloaded operator* to multiply a vector with a scalar.
      * @param scalar Scalar to multiply with the vector.
      * @return Resultant vector after multiplication.

@@ -484,6 +484,10 @@ template <template<typename> class M, template<typename> class V, typename T> T 
     assert(y.size() == A.getRows() && z.size() == A.getCols());
     return y * (A * z);
 }
+
+template <typename T> Vector<T> abs(const Vector<T> v) {
+    return Vector<T>(v.size(), [v](size_t i) { return std::abs(v[i]); });
+}
 } // namespace MyBLAS
 
 #endif // NE591_008_BLAS_H
