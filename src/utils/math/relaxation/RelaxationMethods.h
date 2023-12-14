@@ -29,7 +29,9 @@ enum Type {
     METHOD_PRECONDITIONED_CONJUGATE_GRADIENT,
     METHOD_DIRECT_POWER_ITERATION,
     METHOD_RAYLEIGH_QUOTIENT_POWER_ITERATION,
-    METHOD_INVERSE_POWER_ITERATION
+    METHOD_INVERSE_POWER_ITERATION,
+    METHOD_FIXED_POINT,
+    METHOD_NEWTON
 };
 
 /**
@@ -52,7 +54,9 @@ const char *TypeKey(MyRelaxationMethod::Type value) {
         "preconditioned-conjugate-gradient",
         "direct-eigenvalue-power-iteration",
         "rayleigh-eigenvalue-power-iteration",
-        "inverse-power-iteration"
+        "inverse-power-iteration",
+        "fixed-point",
+        "newton"
     };
     return relaxationMethodTypeKeys[static_cast<int>(value)];
 }

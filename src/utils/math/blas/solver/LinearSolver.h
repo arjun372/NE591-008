@@ -65,6 +65,9 @@ template <typename T> struct Solution {
     T iterative_error = std::numeric_limits<T>::quiet_NaN();
 
     MyBLAS::Vector<T> x{};
+
+    MyBLAS::Matrix<T> phi{};
+
     T eigenvalue = std::numeric_limits<T>::quiet_NaN();
     T eigenvalue_iterative_error = std::numeric_limits<T>::quiet_NaN();
 
